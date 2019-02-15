@@ -12,7 +12,7 @@ then
 
   # commit
   git add -A
-  git commit -m "chore(build): 🔖 $VERSION"
+  git commit -m "chore(build): 📦 $VERSION"
   yarn version --new-version $VERSION --message "chore(release): 🔖 $VERSION"
 
   # publish
