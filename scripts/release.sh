@@ -12,8 +12,8 @@ then
 
   # commit
   git add -A
-  git commit -m "[build] $VERSION"
-  yarn version --new-version $VERSION --message "[release] $VERSION"
+  git commit -m "chore(build): 🔖 $VERSION"
+  yarn version --new-version $VERSION --message "chore(release): 🔖 $VERSION"
 
   # publish
   git push origin refs/tags/v$VERSION
