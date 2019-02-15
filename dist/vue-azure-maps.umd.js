@@ -8500,12 +8500,12 @@ function install(Vue, options) {
   _Vue_ = Vue;
   Vue.prototype.$_azureMaps = new vue_azure_maps_VueAzureMaps(options, js_atlas_min);
 }
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"7e3b4210-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapControl.vue?vue&type=template&id=2c7da4b1&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0a314dfe-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapControl.vue?vue&type=template&id=21833b44&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({ width: _vm.width, height: _vm.height }),attrs:{"id":_vm.mapContainer}},[(_vm.isMapReady)?[_vm._t("default",null,{"map":_vm.map})]:_vm._e()],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMapControl.vue?vue&type=template&id=2c7da4b1&
+// CONCATENATED MODULE: ./src/plugin/components/AzureMapControl.vue?vue&type=template&id=21833b44&
 
 // EXTERNAL MODULE: ./node_modules/regenerator-runtime/runtime.js
 var runtime = __webpack_require__("96cf");
@@ -8627,7 +8627,7 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
     },
     initializeMap: function initializeMap() {
       // Instantiate map to the div with id got from props or auto-generated.
-      this.map = new this.$_azureMaps.atlas.Map(this.mapContainer, this.options); // Wait until the map resources are ready.
+      this.map = new this.$_azureMaps.atlas.Map(this.mapContainer, this.options || {}); // Wait until the map resources are ready.
 
       this.map.events.add('ready', this.mapReadyCallback);
     },
@@ -8757,7 +8757,7 @@ var component = normalizeComponent(
 )
 
 /* harmony default export */ var AzureMapControl = (component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"7e3b4210-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapSymbolLayer.vue?vue&type=template&id=3853db20&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0a314dfe-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapSymbolLayer.vue?vue&type=template&id=3853db20&
 var AzureMapSymbolLayervue_type_template_id_3853db20_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',{staticStyle:{"{ display":"'none' }"}},[(Boolean(_vm.dataSource))?[_vm._t("default",null,{"dataSource":_vm.dataSource})]:_vm._e()],2)}
 var AzureMapSymbolLayervue_type_template_id_3853db20_staticRenderFns = []
 
