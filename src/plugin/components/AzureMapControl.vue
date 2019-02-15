@@ -78,7 +78,10 @@ export default Vue.extend({
 
     initializeMap(): void {
       // Instantiate map to the div with id got from props or auto-generated.
-      this.map = new this.$_azureMaps.atlas.Map(this.mapContainer, this.options)
+      this.map = new this.$_azureMaps.atlas.Map(
+        this.mapContainer,
+        this.options || {}
+      )
 
       // Wait until the map resources are ready.
       this.map.events.add('ready', this.mapReadyCallback)
