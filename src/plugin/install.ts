@@ -9,7 +9,7 @@ export let _installed = false
 
 export function install(
   Vue: typeof _Vue,
-  options: VueAzureMapsPluginOptions
+  options?: VueAzureMapsPluginOptions
 ): void {
   if (_installed && _Vue === Vue) return
 
@@ -17,5 +17,5 @@ export function install(
 
   _Vue_ = Vue
 
-  Vue.prototype.$_azureMaps = new VueAzureMaps(options, atlasJs)
+  Vue.prototype.$_azureMaps = new VueAzureMaps(atlasJs, options)
 }

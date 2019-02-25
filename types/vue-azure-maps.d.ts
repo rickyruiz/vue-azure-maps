@@ -2,7 +2,7 @@ import { atlas } from 'azure-maps-control'
 import { PluginFunction } from 'vue'
 
 export declare class VueAzureMaps {
-  constructor(options: VueAzureMapsPluginOptions, lib: typeof atlas)
+  constructor(lib: typeof atlas, options?: VueAzureMapsPluginOptions)
 
   public readonly key: string
   public readonly atlas: typeof atlas
