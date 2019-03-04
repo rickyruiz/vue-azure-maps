@@ -1,4 +1,4 @@
-import { atlas } from 'azure-maps-control'
+import atlas from 'azure-maps-control'
 import { PluginFunction } from 'vue'
 
 export declare class VueAzureMaps {

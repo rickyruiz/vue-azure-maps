@@ -1,6 +1,6 @@
 <template>
   <span
-    style="{ display: 'none' }"
+    :style="{ display: 'none' }"
   >
     <template
       v-if="Boolean(dataSource)"
