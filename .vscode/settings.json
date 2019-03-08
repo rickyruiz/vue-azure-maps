@@ -1,12 +1,16 @@
 {
-  "editor.tabSize": 2,
   "editor.formatOnSave": true,
-  "editor.tabCompletion": "on",
-  "vetur.format.defaultFormatter.html": "prettyhtml",
-  "vetur.format.defaultFormatterOptions": {
-    "prettyhtml": {
-      "printWidth": 10,
-      "singleQuote": false
-    }
-  }
+  "eslint.autoFixOnSave": true,
+  "eslint.run": "onSave",
+  "eslint.validate": [
+    { "language": "javascript", "autoFix": true },
+    { "language": "javascriptreact", "autoFix": true },
+    { "language": "vue", "autoFix": true },
+    { "language": "vue-html", "autoFix": true },
+    { "language": "html", "autoFix": true }
+  ],
+  "prettier.disableLanguages": [],
+  "vetur.validation.template": false,
+  "vetur.format.defaultFormatter.html": "none",
+  "vetur.completion.tagCasing": "initial"
 }
