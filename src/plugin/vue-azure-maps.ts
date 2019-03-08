@@ -12,8 +12,8 @@ export default class VueAzureMaps {
   }
 
   public readonly key: string
-
   public readonly atlas: typeof atlas
+
   static install: PluginFunction<VueAzureMapsPluginOptions>
   static version: string
 }
