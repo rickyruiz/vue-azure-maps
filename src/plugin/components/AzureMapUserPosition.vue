@@ -44,13 +44,13 @@ export default Vue.extend({
 
   components: {
     AzureMapDataSource: () =>
-      import(/* webpackChunkName: azure-map-data-source */ '@/plugin/components/AzureMapDataSource.vue'),
+      import(/* webpackChunkName: 'azure-map-data-source' */ '@/plugin/components/AzureMapDataSource.vue'),
     AzureMapPoint: () =>
-      import(/* webpackChunkName: azure-map-point */ '@/plugin/components/geometries/AzureMapPoint.vue'),
+      import(/* webpackChunkName: 'azure-map-point' */ '@/plugin/components/geometries/AzureMapPoint.vue'),
     AzureMapPolygonLayer: () =>
-      import(/* webpackChunkName: azure-map-polygon-layer */ '@/plugin/components/layers/AzureMapPolygonLayer.vue'),
+      import(/* webpackChunkName: 'azure-map-polygon-layer' */ '@/plugin/components/layers/AzureMapPolygonLayer.vue'),
     AzureMapSymbolLayer: () =>
-      import(/* webpackChunkName: azure-map-symbol-layer */ '@/plugin/components/layers/AzureMapSymbolLayer.vue'),
+      import(/* webpackChunkName: 'azure-map-symbol-layer' */ '@/plugin/components/layers/AzureMapSymbolLayer.vue'),
   },
 
   props: {
