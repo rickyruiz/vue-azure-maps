@@ -65,6 +65,7 @@
     "vuepress": "^0.14.10"
   },
   "resolutions": {
-    "webpack-dev-middleware": "3.6.0"
+    "webpack-dev-middleware": "3.6.0",
+    "vue-server-renderer": "^2.6.10"
   }
 }
