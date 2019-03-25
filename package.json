@@ -37,7 +37,8 @@
     "test:unit": "vue-cli-service test:unit",
     "release": "powershell scripts/release.sh",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "docs:deploy": "powershell scripts/deploy.sh"
   },
   "dependencies": {
     "azure-maps-control": "^2.0.2",
