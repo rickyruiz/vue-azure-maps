@@ -1,6 +1,6 @@
 <template>
   <AzureMap
-    :options="mapOptions"
+    :center="mapOptions.center"
     class="azure-map"
   >
     <!-- Azure Map controls -->
@@ -136,7 +136,7 @@ export default Vue.extend({
 
         polygonLayerOptions: {
           fillColor: 'green',
-          opacaty: 0.5,
+          opacity: 0.5,
         } as atlas.PolygonLayerOptions,
       },
 
