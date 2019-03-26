@@ -38,8 +38,7 @@
     "release": "powershell scripts/release.sh",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build vuepress -d docs",
-    "docs:clean": "rm -rf docs/**",
-    "docs:deploy": "powershell scripts/deploy.sh"
+    "docs:clean": "rm -rf docs/**"
   },
   "dependencies": {
     "azure-maps-control": "^2.0.2",
