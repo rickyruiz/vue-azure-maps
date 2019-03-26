@@ -21,7 +21,7 @@ module.exports = {
   themeConfig: {
     repo: 'rickyruiz/vue-azure-maps',
     docsRepo: 'rickyruiz/vue-azure-maps',
-    docsDir: 'docs',
+    docsDir: 'vuepress',
     editLinks: true,
     serviceWorker: {
       updatePopup: {

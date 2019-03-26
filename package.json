@@ -37,7 +37,8 @@
     "test:unit": "vue-cli-service test:unit",
     "release": "powershell scripts/release.sh",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
+    "docs:build": "vuepress build vuepress -d docs",
+    "docs:clean": "rm -rf docs/**",
     "docs:deploy": "powershell scripts/deploy.sh"
   },
   "dependencies": {

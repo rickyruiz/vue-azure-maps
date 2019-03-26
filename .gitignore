@@ -17,6 +17,3 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
-
-# VuePress
-/docs/.vuepress/dist

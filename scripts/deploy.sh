@@ -3,16 +3,16 @@
 # abort on errors
 set -e
 
+# clean
+yarn run docs:clean
+
 # build
 yarn run docs:build
 
-# navigate into the build output directory
-cd docs/.vuepress/dist
-
-git init
-git add -A
+# commit
 git commit -m 'docs(deploy): 📝 update documentation'
 
-git push -f git@github.com:rickyruiz/vue-azure-maps.git master:gh-pages
+# push
+git push origin master
 
 cd -
