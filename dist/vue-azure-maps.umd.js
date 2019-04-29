@@ -625,6 +625,26 @@ module.exports = function (it) {
 
 /***/ }),
 
+/***/ "2fdb":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// 21.1.3.7 String.prototype.includes(searchString, position = 0)
+
+var $export = __webpack_require__("5ca1");
+var context = __webpack_require__("d2c8");
+var INCLUDES = 'includes';
+
+$export($export.P + $export.F * __webpack_require__("5147")(INCLUDES), 'String', {
+  includes: function includes(searchString /* , position = 0 */) {
+    return !!~context(this, searchString, INCLUDES)
+      .indexOf(searchString, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+
+
+/***/ }),
+
 /***/ "3040":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -703,6 +723,97 @@ module.exports = __webpack_require__("9e1e") ? function (object, key, value) {
   return object;
 };
 
+
+/***/ }),
+
+/***/ "32ef":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getOptionsFromProps; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return addEventsFromListeners; });
+/* harmony import */ var core_js_modules_es7_array_includes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("6762");
+/* harmony import */ var core_js_modules_es7_array_includes__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es7_array_includes__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es6_string_includes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("2fdb");
+/* harmony import */ var core_js_modules_es6_string_includes__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_string_includes__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var C_Users_RRuiz_Desktop_OSS_vue_azure_maps_node_modules_babel_runtime_helpers_builtin_es6_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("9393");
+/* harmony import */ var core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("456d");
+/* harmony import */ var core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("ac6a");
+/* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("cadf");
+/* harmony import */ var core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var core_js_modules_es7_object_entries__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("ffc1");
+/* harmony import */ var core_js_modules_es7_object_entries__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es7_object_entries__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var core_js_modules_es6_promise__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("551c");
+/* harmony import */ var core_js_modules_es6_promise__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_promise__WEBPACK_IMPORTED_MODULE_7__);
+
+
+
+
+
+
+
+
+
+/**
+ * This lets us accept individual props instead of an object in
+ * our component, making our template more explicit and easier to handle.
+ * @param props If this parameter is undefined, `this.$props` will be used to look for component props.
+ */
+function getOptionsFromProps(props) {
+  // Use props argument or component props
+  var propEntries = Object.entries(props || this.$props);
+  var options = {}; // Look for all the properties that are not null
+
+  for (var _i = 0; _i < propEntries.length; _i++) {
+    var _propEntries$_i = Object(C_Users_RRuiz_Desktop_OSS_vue_azure_maps_node_modules_babel_runtime_helpers_builtin_es6_slicedToArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(propEntries[_i], 2),
+        prop = _propEntries$_i[0],
+        value = _propEntries$_i[1];
+
+    if (value !== null) {
+      var propName = void 0; // Handle reserved attributes
+
+      switch (prop) {
+        case 'mapStyle':
+          propName = 'style';
+          break;
+
+        default:
+          propName = prop;
+          break;
+      }
+
+      options["".concat(propName)] = value;
+    }
+  } // Return undefined if all props were null
+
+
+  if (Object.keys(options).length === 0) return;
+  return options;
+}
+function addEventsFromListeners(_ref) {
+  var map = _ref.map,
+      target = _ref.target,
+      _ref$reservedEventTyp = _ref.reservedEventTypes,
+      reservedEventTypes = _ref$reservedEventTyp === void 0 ? [] : _ref$reservedEventTyp;
+  // Use component listeners
+  var listenersEntries = Object.entries(this.$listeners);
+
+  for (var _i2 = 0; _i2 < listenersEntries.length; _i2++) {
+    var _listenersEntries$_i = Object(C_Users_RRuiz_Desktop_OSS_vue_azure_maps_node_modules_babel_runtime_helpers_builtin_es6_slicedToArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(listenersEntries[_i2], 2),
+        eventType = _listenersEntries$_i[0],
+        callback = _listenersEntries$_i[1];
+
+    if (!reservedEventTypes.includes(eventType)) {
+      if (target) {
+        map.events.add(eventType, target, callback);
+      } else {
+        map.events.add(eventType, callback);
+      }
+    }
+  }
+}
 
 /***/ }),
 
@@ -917,11 +1028,19 @@ module.exports = function (bitmap, value) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
+var es6_promise = __webpack_require__("551c");
+
+// EXTERNAL MODULE: ./src/plugin/utils/index.ts
+var utils = __webpack_require__("32ef");
+
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapSymbolLayer.vue?vue&type=script&lang=ts&
+
+
 
 var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
   id: 0
@@ -984,7 +1103,15 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
       deep: true
     }); // Add the layer to the map
 
-    map.layers.add(symbolLayer);
+    map.layers.add(symbolLayer); // Add the layer events to the map
+
+    this.addEventsFromListeners({
+      map: map,
+      target: symbolLayer
+    });
+  },
+  methods: {
+    addEventsFromListeners: utils["a" /* addEventsFromListeners */]
   },
   render: function render(createElement) {
     return createElement();
@@ -1080,6 +1207,25 @@ module.exports = function (isEntries) {
       result.push(isEntries ? [key, O[key]] : O[key]);
     } return result;
   };
+};
+
+
+/***/ }),
+
+/***/ "5147":
+/***/ (function(module, exports, __webpack_require__) {
+
+var MATCH = __webpack_require__("2b4c")('match');
+module.exports = function (KEY) {
+  var re = /./;
+  try {
+    '/./'[KEY](re);
+  } catch (e) {
+    try {
+      re[MATCH] = false;
+      return !'/./'[KEY](re);
+    } catch (f) { /* empty */ }
+  } return true;
 };
 
 
@@ -1539,6 +1685,26 @@ var cof = __webpack_require__("2d95");
 module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
   return cof(it) == 'String' ? it.split('') : Object(it);
 };
+
+
+/***/ }),
+
+/***/ "6762":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// https://github.com/tc39/Array.prototype.includes
+var $export = __webpack_require__("5ca1");
+var $includes = __webpack_require__("c366")(true);
+
+$export($export.P, 'Array', {
+  includes: function includes(el /* , fromIndex = 0 */) {
+    return $includes(this, el, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+
+__webpack_require__("9c6c")('includes');
 
 
 /***/ }),
@@ -2891,6 +3057,21 @@ module.exports = exporter;
 
 /***/ }),
 
+/***/ "aae3":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.2.8 IsRegExp(argument)
+var isObject = __webpack_require__("d3f4");
+var cof = __webpack_require__("2d95");
+var MATCH = __webpack_require__("2b4c")('match');
+module.exports = function (it) {
+  var isRegExp;
+  return isObject(it) && ((isRegExp = it[MATCH]) !== undefined ? !!isRegExp : cof(it) == 'RegExp');
+};
+
+
+/***/ }),
+
 /***/ "ac6a":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3476,6 +3657,21 @@ module.exports = function (object, names) {
     ~arrayIndexOf(result, key) || result.push(key);
   }
   return result;
+};
+
+
+/***/ }),
+
+/***/ "d2c8":
+/***/ (function(module, exports, __webpack_require__) {
+
+// helper for String#{startsWith, endsWith, includes}
+var isRegExp = __webpack_require__("aae3");
+var defined = __webpack_require__("be13");
+
+module.exports = function (that, searchString, NAME) {
+  if (isRegExp(searchString)) throw TypeError('String#' + NAME + " doesn't accept regex!");
+  return String(defined(that));
 };
 
 
@@ -7694,20 +7890,52 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError("Cannot call a class as a function");
   }
 }
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/createClass.js
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
 // CONCATENATED MODULE: ./src/plugin/vue-azure-maps.ts
 
 
 
-var vue_azure_maps_VueAzureMaps = function VueAzureMaps(lib, options) {
-  _classCallCheck(this, VueAzureMaps);
 
-  if (!options) options = {
-    key: ''
-  };
-  this.options = options;
-  this.key = options.key;
-  this.atlas = lib;
-};
+var vue_azure_maps_VueAzureMaps =
+/*#__PURE__*/
+function () {
+  function VueAzureMaps(lib, options) {
+    _classCallCheck(this, VueAzureMaps);
+
+    if (!options) options = {
+      key: ''
+    };
+    this.options = options;
+    this.key = options.key;
+    this.atlas = lib;
+    this.setSubscriptionKey(options.key);
+  }
+
+  _createClass(VueAzureMaps, [{
+    key: "setSubscriptionKey",
+    value: function setSubscriptionKey(key) {
+      // Set the Azure Maps subscription key to the map SDK.
+      this.atlas.setSubscriptionKey(key);
+    }
+  }]);
+
+  return VueAzureMaps;
+}();
 
 
 // CONCATENATED MODULE: ./src/plugin/install.ts
@@ -7723,27 +7951,12 @@ function install(Vue, options) {
   _Vue_ = Vue;
   Vue.prototype.$_azureMaps = new vue_azure_maps_VueAzureMaps(js_atlas_min, options);
 }
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1dcdf57b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=template&id=3d1091e2&
-var AzureMapvue_type_template_id_3d1091e2_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({ width: _vm.width, height: _vm.height }),attrs:{"id":_vm.mapId}},[(_vm.isMapReady)?[_vm._t("default",null,{"map":_vm.map})]:_vm._e()],2)}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1dcdf57b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=template&id=4ee62c8b&
+var AzureMapvue_type_template_id_4ee62c8b_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({ width: _vm.width, height: _vm.height }),attrs:{"id":_vm.mapId}},[(_vm.isMapReady)?[_vm._t("default",null,{"map":_vm.map})]:_vm._e()],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue?vue&type=template&id=3d1091e2&
-
-// EXTERNAL MODULE: ./node_modules/regenerator-runtime/runtime.js
-var runtime = __webpack_require__("96cf");
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/asyncToGenerator.js
-var asyncToGenerator = __webpack_require__("3040");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.number.constructor.js
-var es6_number_constructor = __webpack_require__("c5f6");
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/slicedToArray.js + 3 modules
-var slicedToArray = __webpack_require__("9393");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.object.keys.js
-var es6_object_keys = __webpack_require__("456d");
+// CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue?vue&type=template&id=4ee62c8b&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
 var web_dom_iterable = __webpack_require__("ac6a");
@@ -7751,63 +7964,28 @@ var web_dom_iterable = __webpack_require__("ac6a");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.iterator.js
 var es6_array_iterator = __webpack_require__("cadf");
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es7.object.entries.js
-var es7_object_entries = __webpack_require__("ffc1");
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es7.object.values.js
+var es7_object_values = __webpack_require__("8615");
 
-// CONCATENATED MODULE: ./src/plugin/utils/index.ts
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.number.constructor.js
+var es6_number_constructor = __webpack_require__("c5f6");
 
+// EXTERNAL MODULE: ./src/plugin/utils/index.ts
+var utils = __webpack_require__("32ef");
 
-
-
-
-
-/**
- * This lets us accept individual props instead of an object in
- * our component, making our template more explicit and easier to handle.
- * @param props If this parameter is undefined, `this.$props` will be used to look for component props.
- */
-function getOptionsFromProps(props) {
-  // Use props argument or component props
-  var propEntries = Object.entries(props || this.$props);
-  var options = {}; // Look for all the properties that are not null
-
-  for (var _i = 0; _i < propEntries.length; _i++) {
-    var _propEntries$_i = Object(slicedToArray["a" /* default */])(propEntries[_i], 2),
-        prop = _propEntries$_i[0],
-        value = _propEntries$_i[1];
-
-    if (value !== null) {
-      var propName = void 0; // Handle reserved attributes
-
-      switch (prop) {
-        case 'mapStyle':
-          propName = 'style';
-          break;
-
-        default:
-          propName = prop;
-          break;
-      }
-
-      options["".concat(propName)] = value;
-    }
-  } // Return undefined if all props were null
-
-
-  if (Object.keys(options).length === 0) return;
-  return options;
-}
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=script&lang=ts&
 
 
 
 
 
-var AzureMapEvents;
 
-(function (AzureMapEvents) {
-  AzureMapEvents["Ready"] = "ready";
-})(AzureMapEvents || (AzureMapEvents = {}));
+
+var AzureMapEvent;
+
+(function (AzureMapEvent) {
+  AzureMapEvent["Ready"] = "ready";
+})(AzureMapEvent || (AzureMapEvent = {}));
 
 var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
   id: 0
@@ -8185,34 +8363,10 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
       isMapReady: false
     };
   },
-  mounted: function () {
-    var _mounted = Object(asyncToGenerator["a" /* default */])(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee() {
-      return regeneratorRuntime.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              this.setSubscription();
-              this.initializeMap();
-
-            case 2:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee, this);
-    }));
-
-    return function mounted() {
-      return _mounted.apply(this, arguments);
-    };
-  }(),
+  mounted: function mounted() {
+    this.initializeMap();
+  },
   methods: {
-    setSubscription: function setSubscription() {
-      // Add the Azure Maps subscription key to the map SDK.
-      this.$_azureMaps.atlas.setSubscriptionKey(this.$_azureMaps.key);
-    },
     initializeMap: function initializeMap() {
       // Get map options from component props
       var options = this.getOptionsFromProps() || {}; // Instantiate map to the HTMLElement with the auto-generated map id.
@@ -8223,16 +8377,24 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
     },
     mapReadyCallback: function mapReadyCallback(mapEvent) {
       // Emit the custom ready event
-      this.$emit(AzureMapEvents.Ready, mapEvent); // Indicate that the map instance is ready,
+      this.$emit(AzureMapEvent.Ready, mapEvent); // Indicate that the map instance is ready,
       // which triggers descendent components creation
 
       this.isMapReady = true;
+
+      if (this.map) {
+        this.addEventsFromListeners({
+          map: this.map,
+          reservedEventTypes: Object.values(AzureMapEvent)
+        });
+      }
     },
     getMap: function getMap() {
       // Return the map instance for descendent components injection
       return this.map;
     },
-    getOptionsFromProps: getOptionsFromProps
+    getOptionsFromProps: utils["b" /* getOptionsFromProps */],
+    addEventsFromListeners: utils["a" /* addEventsFromListeners */]
   }
 }));
 // CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue?vue&type=script&lang=ts&
@@ -8250,7 +8412,7 @@ var componentNormalizer = __webpack_require__("2877");
 
 var component = Object(componentNormalizer["a" /* default */])(
   components_AzureMapvue_type_script_lang_ts_,
-  AzureMapvue_type_template_id_3d1091e2_render,
+  AzureMapvue_type_template_id_4ee62c8b_render,
   staticRenderFns,
   false,
   null,
@@ -8262,9 +8424,6 @@ var component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var AzureMap = (component.exports);
 // EXTERNAL MODULE: ./src/plugin/components/AzureMapDataSource.vue + 4 modules
 var AzureMapDataSource = __webpack_require__("330c");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es7.object.values.js
-var es7_object_values = __webpack_require__("8615");
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapHtmlMarker.vue?vue&type=script&lang=ts&
 
@@ -8415,7 +8574,7 @@ var es7_object_values = __webpack_require__("8615");
     map.markers.add(marker);
   },
   methods: {
-    getOptionsFromProps: getOptionsFromProps
+    getOptionsFromProps: utils["b" /* getOptionsFromProps */]
   },
   render: function render(createElement) {
     return createElement();
@@ -8700,7 +8859,7 @@ var AzureMapUserPositionEvent;
     }));
   },
   methods: {
-    getOptionsFromProps: getOptionsFromProps
+    getOptionsFromProps: utils["b" /* getOptionsFromProps */]
   }
 }));
 // CONCATENATED MODULE: ./src/plugin/components/AzureMapUserPosition.vue?vue&type=script&lang=ts&
@@ -9361,6 +9520,12 @@ var AzureMapTileLayer_component = Object(componentNormalizer["a" /* default */])
 // EXTERNAL MODULE: ./src/plugin/components/geometries/AzureMapPoint.vue + 2 modules
 var AzureMapPoint = __webpack_require__("c343");
 
+// EXTERNAL MODULE: ./node_modules/regenerator-runtime/runtime.js
+var runtime = __webpack_require__("96cf");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/asyncToGenerator.js
+var asyncToGenerator = __webpack_require__("3040");
+
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/geometries/AzureMapLineString.vue?vue&type=script&lang=ts&
 
 
@@ -9785,7 +9950,7 @@ var AzureMapPolygon_component = Object(componentNormalizer["a" /* default */])(
 
 
 vue_azure_maps_VueAzureMaps.install = install;
-vue_azure_maps_VueAzureMaps.version = '__VERSION__';
+vue_azure_maps_VueAzureMaps.version = Object({"NODE_ENV":"production","BASE_URL":"/"}).__VERSION__ || '';
 var plugin_VueAzureMaps = {
   install: vue_azure_maps_VueAzureMaps.install,
   name: 'vue-azure-maps'
