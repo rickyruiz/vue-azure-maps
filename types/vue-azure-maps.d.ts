@@ -7,6 +7,8 @@ export declare class VueAzureMaps {
   public readonly key: string
   public readonly atlas: typeof atlas
 
+  public setSubscriptionKey: (key: string) => void
+
   static install: PluginFunction<VueAzureMapsPluginOptions>
   static version: string
 }

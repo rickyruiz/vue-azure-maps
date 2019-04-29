@@ -9,10 +9,16 @@ export default class VueAzureMaps {
     this.options = options
     this.key = options.key
     this.atlas = lib
+    this.setSubscriptionKey(options.key)
   }
 
   public readonly key: string
   public readonly atlas: typeof atlas
+
+  public setSubscriptionKey(key: string) {
+    // Set the Azure Maps subscription key to the map SDK.
+    this.atlas.setSubscriptionKey(key)
+  }
 
   static install: PluginFunction<VueAzureMapsPluginOptions>
   static version: string
