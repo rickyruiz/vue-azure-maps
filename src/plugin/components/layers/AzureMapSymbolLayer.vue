@@ -1,4 +1,5 @@
 <script lang="ts">
+import { addEventsFromListeners } from '@/plugin/utils'
 import { atlas } from 'types'
 import Vue from 'vue'
 import { Prop } from 'vue/types/options'
@@ -85,6 +86,13 @@ export default Vue.extend({
 
     // Add the layer to the map
     map.layers.add(symbolLayer)
+
+    // Add the layer events to the map
+    this.addEventsFromListeners({ map, target: symbolLayer })
+  },
+
+  methods: {
+    addEventsFromListeners,
   },
 
   render(createElement) {

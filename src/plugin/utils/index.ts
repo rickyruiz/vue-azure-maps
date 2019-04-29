@@ -1,3 +1,4 @@
+import { atlas } from 'types'
 import Vue from 'vue'
 
 /**
@@ -36,4 +37,19 @@ export function getOptionsFromProps<T>(
   if (Object.keys(options).length === 0) return
 
   return options as T
+}
+
+export function addEventsFromListeners(this: Vue, { map, target, reservedEventTypes = [] }: { map: atlas.Map; target?: any; reservedEventTypes?: string[]; }): void {
+  // Use component listeners
+  let listenersEntries = Object.entries(this.$listeners)
+
+  for (const [eventType, callback] of listenersEntries) {
+    if (!reservedEventTypes.includes(eventType)) {
+      if (target) {
+        map.events.add(eventType as any, target, callback as any)
+      } else {
+        map.events.add(eventType as any, callback as any)
+      }
+    }
+  }
 }

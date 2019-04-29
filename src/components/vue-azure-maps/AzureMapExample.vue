@@ -2,6 +2,8 @@
   <AzureMap
     :center="mapOptions.center"
     class="azure-map"
+    @mousemove="onMouseMove"
+    @mouseup="onMouseUp"
   >
     <!-- Azure Map controls -->
     <AzureMapZoomControl/>
@@ -36,6 +38,7 @@
       <!-- Add a Symbol Layer to render the Points stored in the Data Source -->
       <AzureMapSymbolLayer
         :options="symbolLayerOptions"
+        @mousedown="onMouseDown"
       />
     </AzureMapDataSource>
 
@@ -142,6 +145,8 @@ export default Vue.extend({
 
       symbolLayerOptions: {
         iconOptions: {
+          ignorePlacement: true,
+          allowOverlap: true,
           image: 'pin-red',
         },
       } as atlas.SymbolLayerOptions,
@@ -154,6 +159,8 @@ export default Vue.extend({
       polygonLayerOptions: {
         fillColor: 'rgba(0, 200, 200, 0.8)',
       } as atlas.PolygonLayerOptions,
+
+      selectedShape: null as atlas.Shape | null,
 
       points: [] as {
         name: string
@@ -183,6 +190,33 @@ export default Vue.extend({
   },
 
   methods: {
+    onMouseDown(e: atlas.MapMouseEvent): void {
+      if (e.shapes && e.shapes.length > 0) {
+        //Capture the selected shape.
+        this.selectedShape = e.shapes[0] as atlas.Shape
+        //Lock the maps ability to pan so that we can drag the symbol.
+        e.map.setUserInteraction({
+          dragPanInteraction: false,
+        })
+      }
+    },
+
+    onMouseMove(e: atlas.MapMouseEvent): void {
+      //Update the position of the selected shape.
+      if (this.selectedShape && e.position) {
+        this.selectedShape.setCoordinates(e.position)
+      }
+    },
+
+    onMouseUp(e: atlas.MapMouseEvent): void {
+      //Stop tracking the selected shape.
+      this.selectedShape = null
+      //Make map panable again.
+      e.map.setUserInteraction({
+        dragPanInteraction: true,
+      })
+    },
+
     generateMockPoints(): void {
       //Generate a bunch of points with random coordinates
       for (let i = 0; i < this.mockPointSize; i++) {

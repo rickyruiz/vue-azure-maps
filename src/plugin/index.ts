@@ -43,7 +43,7 @@ import AzureMapLineString from './components/geometries/AzureMapLineString.vue'
 import AzureMapPolygon from './components/geometries/AzureMapPolygon.vue'
 
 _vueAzureMaps.install = install as PluginFunction<VueAzureMapsPluginOptions>
-_vueAzureMaps.version = '__VERSION__'
+_vueAzureMaps.version = process.env.__VERSION__ || ''
 
 const VueAzureMaps: PluginObject<VueAzureMapsPluginOptions> = {
   install: _vueAzureMaps.install,

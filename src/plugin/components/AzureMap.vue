@@ -14,12 +14,12 @@
 </template>
 
 <script lang="ts">
-import { getOptionsFromProps } from '@/plugin/utils'
+import { getOptionsFromProps, addEventsFromListeners } from '@/plugin/utils'
 import { atlas } from 'types'
 import Vue from 'vue'
 import { Prop } from 'vue/types/options'
 
-enum AzureMapEvents {
+enum AzureMapEvent {
   Ready = 'ready',
 }
 
@@ -405,17 +405,11 @@ export default Vue.extend({
     }
   },
 
-  async mounted() {
-    this.setSubscription()
+  mounted() {
     this.initializeMap()
   },
 
   methods: {
-    setSubscription(): void {
-      // Add the Azure Maps subscription key to the map SDK.
-      this.$_azureMaps.atlas.setSubscriptionKey(this.$_azureMaps.key)
-    },
-
     initializeMap(): void {
       // Get map options from component props
       let options =
@@ -435,11 +429,18 @@ export default Vue.extend({
 
     mapReadyCallback(mapEvent: atlas.MapEvent): void {
       // Emit the custom ready event
-      this.$emit(AzureMapEvents.Ready, mapEvent)
+      this.$emit(AzureMapEvent.Ready, mapEvent)
 
       // Indicate that the map instance is ready,
       // which triggers descendent components creation
       this.isMapReady = true
+
+      if (this.map) {
+        this.addEventsFromListeners({
+          map: this.map,
+          reservedEventTypes: Object.values(AzureMapEvent),
+        })
+      }
     },
 
     getMap(): atlas.Map | null {
@@ -448,6 +449,8 @@ export default Vue.extend({
     },
 
     getOptionsFromProps,
+
+    addEventsFromListeners,
   },
 })
 </script>
