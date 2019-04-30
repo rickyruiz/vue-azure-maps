@@ -7942,12 +7942,12 @@ function install(Vue, options) {
   _Vue_ = Vue;
   Vue.prototype.$_azureMaps = new vue_azure_maps_VueAzureMaps(js_atlas_min, options);
 }
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1dcdf57b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=template&id=4ee62c8b&
-var AzureMapvue_type_template_id_4ee62c8b_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({ width: _vm.width, height: _vm.height }),attrs:{"id":_vm.mapId}},[(_vm.isMapReady)?[_vm._t("default",null,{"map":_vm.map})]:_vm._e()],2)}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1dcdf57b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=template&id=6eaa99c1&
+var AzureMapvue_type_template_id_6eaa99c1_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({ width: _vm.width, height: _vm.height }),attrs:{"id":_vm.mapId}},[(_vm.isMapReady)?[_vm._t("default",null,{"map":_vm.map})]:_vm._e()],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue?vue&type=template&id=4ee62c8b&
+// CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue?vue&type=template&id=6eaa99c1&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
 var web_dom_iterable = __webpack_require__("ac6a");
@@ -8354,8 +8354,19 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
       isMapReady: false
     };
   },
+  watch: {
+    center: function center(newPosition) {
+      if (!this.map || !newPosition) return;
+      this.map.setCamera({
+        center: newPosition
+      });
+    }
+  },
   mounted: function mounted() {
     this.initializeMap();
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.disposeMap();
   },
   methods: {
     initializeMap: function initializeMap() {
@@ -8365,6 +8376,11 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
       this.map = new this.$_azureMaps.atlas.Map(this.mapId, options); // Wait until the map resources are ready.
 
       this.map.events.add('ready', this.mapReadyCallback);
+    },
+    disposeMap: function disposeMap() {
+      if (this.map) {
+        this.map.dispose();
+      }
     },
     mapReadyCallback: function mapReadyCallback(mapEvent) {
       // Emit the custom ready event
@@ -8403,7 +8419,7 @@ var componentNormalizer = __webpack_require__("2877");
 
 var component = Object(componentNormalizer["a" /* default */])(
   components_AzureMapvue_type_script_lang_ts_,
-  AzureMapvue_type_template_id_4ee62c8b_render,
+  AzureMapvue_type_template_id_6eaa99c1_render,
   staticRenderFns,
   false,
   null,
