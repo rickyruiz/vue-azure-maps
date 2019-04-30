@@ -405,8 +405,22 @@ export default Vue.extend({
     }
   },
 
+  watch: {
+    center(newPosition: atlas.data.Position | null) {
+      if (!this.map || !newPosition) return
+
+      this.map.setCamera({
+        center: newPosition,
+      })
+    },
+  },
+
   mounted() {
     this.initializeMap()
+  },
+
+  beforeDestroy() {
+    this.disposeMap()
   },
 
   methods: {
@@ -425,6 +439,12 @@ export default Vue.extend({
 
       // Wait until the map resources are ready.
       this.map.events.add('ready', this.mapReadyCallback)
+    },
+
+    disposeMap(): void {
+      if (this.map) {
+        this.map.dispose()
+      }
     },
 
     mapReadyCallback(mapEvent: atlas.MapEvent): void {
