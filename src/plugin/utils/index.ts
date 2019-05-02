@@ -1,6 +1,10 @@
 import { atlas } from 'types'
 import Vue from 'vue'
 
+//===
+// In-component helper functions
+//===
+
 /**
  * This lets us accept individual props instead of an object in
  * our component, making our template more explicit and easier to handle.
@@ -39,7 +43,7 @@ export function getOptionsFromProps<T>(
   return options as T
 }
 
-export function addEventsFromListeners(this: Vue, { map, target, reservedEventTypes = [] }: { map: atlas.Map; target?: any; reservedEventTypes?: string[]; }): void {
+export function addEventsFromListeners(this: Vue, { map, target, reservedEventTypes = [] }: EventsFromListenersConfig): void {
   // Use component listeners
   let listenersEntries = Object.entries(this.$listeners)
 
@@ -52,4 +56,14 @@ export function addEventsFromListeners(this: Vue, { map, target, reservedEventTy
       }
     }
   }
+}
+
+//===
+// Interfaces
+//===
+
+export interface EventsFromListenersConfig {
+  map: atlas.Map
+  target?: any
+  reservedEventTypes?: string[]
 }
