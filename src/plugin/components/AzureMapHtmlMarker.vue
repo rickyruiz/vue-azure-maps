@@ -1,5 +1,5 @@
 <script lang="ts">
-import { getOptionsFromProps } from '@/plugin/utils'
+import { getOptionsFromProps, addEventsFromListeners } from '@/plugin/utils'
 import { atlas } from 'types'
 import Vue from 'vue'
 import { Prop } from 'vue/types/options'
@@ -145,10 +145,17 @@ export default Vue.extend({
     this.$once('hook:destroyed', () => {
       map.markers.remove(marker)
     })
+
+    // Add the html marker events to the map
+    this.addEventsFromListeners({
+      map,
+      target: marker,
+    })
   },
 
   methods: {
     getOptionsFromProps,
+    addEventsFromListeners,
   },
 
   render(createElement) {

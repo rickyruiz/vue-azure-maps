@@ -1,4 +1,5 @@
 <script lang="ts">
+import { addEventsFromListeners } from '@/plugin/utils'
 import { atlas } from 'types'
 import Vue from 'vue'
 import { Prop } from 'vue/types/options'
@@ -72,18 +73,15 @@ export default Vue.extend({
       this.options
     )
 
-    // TODO: Check if LineLayer has a setOptions method.
-    // It is not included in atlas types.
-
-    // this.$watch(
-    //   'options',
-    //   (newOptions: atlas.LineLayerOptions | null) => {
-    //     lineLayer.setOptions(newOptions || {})
-    //   },
-    //   {
-    //     deep: true,
-    //   }
-    // )
+    this.$watch(
+      'options',
+      (newOptions: atlas.LineLayerOptions | null) => {
+        lineLayer.setOptions(newOptions || {})
+      },
+      {
+        deep: true,
+      }
+    )
 
     // Add the layer to the map
     map.layers.add(lineLayer)
@@ -92,6 +90,13 @@ export default Vue.extend({
     this.$once('hook:destroyed', () => {
       map.layers.remove(lineLayer)
     })
+
+    // Add the layer events to the map
+    this.addEventsFromListeners({ map, target: lineLayer })
+  },
+
+  methods: {
+    addEventsFromListeners,
   },
 
   render(createElement) {
