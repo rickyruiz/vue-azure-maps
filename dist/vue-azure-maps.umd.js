@@ -823,18 +823,22 @@ function addEventsFromListeners(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1dcdf57b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=1f94898d&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1dcdf57b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=404021c9&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}]},[(Boolean(_vm.dataSource))?[_vm._t("default",null,{"dataSource":_vm.dataSource})]:_vm._e()],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=1f94898d&
+// CONCATENATED MODULE: ./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=404021c9&
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
+var es6_promise = __webpack_require__("551c");
 
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapDataSource.vue?vue&type=script&lang=ts&
+
 
 /**
  * `AzureMapDataSource` makes it easy to manage shapes data that will be displayed on the map.
@@ -868,7 +872,7 @@ var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpac
       dataSource: null
     };
   },
-  mounted: function mounted() {
+  created: function created() {
     //@ts-ignore There is no TypeScript support for injections without decorators
     // Look for the function that retreives the map instance
     var getMap = this.getMap;
@@ -883,9 +887,15 @@ var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpac
 
     var map = getMap(); // Create a data source to manage shapes
 
-    this.dataSource = new this.$_azureMaps.atlas.source.DataSource(); // Add the data source to the map sources
+    var dataSource = new this.$_azureMaps.atlas.source.DataSource(); // Save the data source in a data property to provide it to children components
 
-    map.sources.add(this.dataSource);
+    this.dataSource = dataSource; // Add the data source to the map sources
+
+    map.sources.add(this.dataSource); // Remove the data source when the component is destroyed
+
+    this.$once('hook:destroyed', function () {
+      map.sources.remove(dataSource);
+    });
   },
   methods: {
     getDataSource: function getDataSource() {
@@ -1103,7 +1113,11 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
       deep: true
     }); // Add the layer to the map
 
-    map.layers.add(symbolLayer); // Add the layer events to the map
+    map.layers.add(symbolLayer); // Remove the layer when the component is destroyed
+
+    this.$once('hook:destroyed', function () {
+      map.layers.remove(symbolLayer);
+    }); // Add the layer events to the map
 
     this.addEventsFromListeners({
       map: map,
@@ -1806,7 +1820,11 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
       deep: true
     }); // Add the layer to the map
 
-    map.layers.add(polygonLayer);
+    map.layers.add(polygonLayer); // Remove the layer when the component is destroyed
+
+    this.$once('hook:destroyed', function () {
+      map.layers.remove(polygonLayer);
+    });
   },
   render: function render(createElement) {
     return createElement();
@@ -3177,11 +3195,23 @@ __webpack_require__.r(__webpack_exports__);
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/slicedToArray.js + 3 modules
 var slicedToArray = __webpack_require__("9393");
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
+var web_dom_iterable = __webpack_require__("ac6a");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.iterator.js
+var es6_array_iterator = __webpack_require__("cadf");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es7.object.entries.js
+var es7_object_entries = __webpack_require__("ffc1");
+
 // EXTERNAL MODULE: ./node_modules/regenerator-runtime/runtime.js
 var runtime = __webpack_require__("96cf");
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/asyncToGenerator.js
 var asyncToGenerator = __webpack_require__("3040");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/objectSpread.js + 1 modules
+var objectSpread = __webpack_require__("c93e");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.number.constructor.js
 var es6_number_constructor = __webpack_require__("c5f6");
@@ -3191,6 +3221,10 @@ var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/geometries/AzureMapPoint.vue?vue&type=script&lang=ts&
+
+
+
+
 
 
 
@@ -3261,73 +3295,132 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
 
 
       return this.coordinates;
+    },
+    pointProperties: function pointProperties() {
+      // Create a computed property to keep track of object changes in a watcher
+      return Object(objectSpread["a" /* default */])({}, this.properties || {});
     }
   },
-  created: function created() {
-    this.validateProps();
-  },
-  mounted: function mounted() {
-    var _this = this;
+  created: function () {
+    var _created = Object(asyncToGenerator["a" /* default */])(
+    /*#__PURE__*/
+    regeneratorRuntime.mark(function _callee() {
+      var _this = this;
 
-    //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the data source instance
-    var getDataSource = this.getDataSource;
+      var getDataSource, dataSource, point, shape;
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return this.validateProps();
 
-    if (!getDataSource) {
-      if (true) return; // If the function that retreives the data source is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
+            case 2:
+              //@ts-ignore There is no TypeScript support for injections without decorators
+              // Look for the function that retreives the data source instance
+              getDataSource = this.getDataSource;
 
-      return console.warn("Invalid <AzureMapPoint> data source.\nPlease make sure <AzureMapPoint> is a descendant of an <AzureMapDataSource> component.");
-    } // Retrieve the data source from the injected function
+              if (getDataSource) {
+                _context.next = 7;
+                break;
+              }
+
+              if (false) {}
+
+              return _context.abrupt("return");
+
+            case 6:
+              return _context.abrupt("return", console.warn("Invalid <AzureMapPoint> data source.\nPlease make sure <AzureMapPoint> is a descendant of an <AzureMapDataSource> component."));
+
+            case 7:
+              // Retrieve the data source from the injected function
+              dataSource = getDataSource(); // Create a point geometry
+
+              point = new this.$_azureMaps.atlas.data.Point(this.pointCoordinates || []);
+              this.$emit(AzureMapPointEvent.GeometryCreated, point); // Create a shape from the point geometry
+
+              shape = new this.$_azureMaps.atlas.Shape(point, this.id || "azure-map-point-".concat(state.id++), this.properties);
+              this.$emit(AzureMapPointEvent.ShapeCreated, shape); // If the point has a circle polygon,
+              // emit the coordinates of the circle
+
+              if (shape.isCircle) {
+                this.emitCircleCoordinates(shape);
+              } // Add the shape to the data source.
 
 
-    var dataSource = getDataSource(); // Create a point geometry
+              dataSource.add(shape); // Watch the shape position and update it every time it changes
 
-    var point = new this.$_azureMaps.atlas.data.Point(this.pointCoordinates || []);
-    this.$emit(AzureMapPointEvent.GeometryCreated, point); // Create a shape from the point geometry
+              this.$watch('pointCoordinates', function (newCoordinates) {
+                _this.validateCoordinates(newCoordinates).then(function (coords) {
+                  shape.setCoordinates(coords);
+                });
+              });
+              this.$watch('pointProperties', function (newVal, oldVal) {
+                if (!newVal) return;
+                var newValEntries = Object.entries(newVal);
+                var oldValEntries = Object.entries(oldVal);
 
-    var shape = new this.$_azureMaps.atlas.Shape(point, this.id || "azure-map-point-".concat(state.id++), this.properties);
-    this.$emit(AzureMapPointEvent.ShapeCreated, shape); // If the point has a circle polygon,
-    // emit the coordinates of the circle
+                for (var _i = 0; _i < newValEntries.length; _i++) {
+                  var _newValEntries$_i = Object(slicedToArray["a" /* default */])(newValEntries[_i], 2),
+                      prop = _newValEntries$_i[0],
+                      val = _newValEntries$_i[1];
 
-    if (shape.isCircle) {
+                  // Prevent updating values that did not change
+                  if (val !== oldVal[prop]) {
+                    // Add or update the shape property value
+                    shape.addProperty(prop, val); // Look for props that can generate or update circle coordinates
+
+                    if ((prop === 'radius' || prop === 'subType' && val === 'Circle') && shape.isCircle) {
+                      _this.emitCircleCoordinates(shape);
+                    }
+                  }
+                }
+              }, {
+                deep: true
+              }); // Remove the shape when the component is destroyed
+
+              this.$once('hook:destroyed', function () {
+                dataSource.remove(shape);
+              });
+
+            case 17:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this);
+    }));
+
+    return function created() {
+      return _created.apply(this, arguments);
+    };
+  }(),
+  methods: {
+    emitCircleCoordinates: function emitCircleCoordinates(shape) {
+      // If the point has a circle polygon,
+      // emit the coordinates of the circle
       var circlePolygon = shape.circlePolygon;
       this.$emit(AzureMapPointEvent.CircleCoordinates, circlePolygon ? circlePolygon.geometry.coordinates : null);
-    } // Add the shape to the data source.
-
-
-    dataSource.add([shape]); // Watch the shape position and update it every time it changes
-
-    this.$watch('pointCoordinates', function (newCoordinates) {
-      _this.validateCoordinates(newCoordinates).then(function (coords) {
-        shape.setCoordinates(coords);
-      });
-    }); // Remove the shape before the component is destroyed
-
-    this.$once('hook:beforeDestroy', function () {
-      dataSource.remove(shape);
-    });
-  },
-  methods: {
+    },
     // Perform more complex prop validations than is possible
     // inside individual validator functions for each prop.
     validateProps: function () {
       var _validateProps = Object(asyncToGenerator["a" /* default */])(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee() {
-        return regeneratorRuntime.wrap(function _callee$(_context) {
+      regeneratorRuntime.mark(function _callee2() {
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
-                _context.next = 2;
+                _context2.next = 2;
                 return this.validateCoordinates(this.pointCoordinates);
 
               case 2:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee, this);
+        }, _callee2, this);
       }));
 
       return function validateProps() {
@@ -3337,17 +3430,17 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
     validateCoordinates: function () {
       var _validateCoordinates = Object(asyncToGenerator["a" /* default */])(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee2(coordinates) {
+      regeneratorRuntime.mark(function _callee3(coordinates) {
         var _coordinates, longitude, latitude;
 
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        return regeneratorRuntime.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
-                _context2.prev = 0;
+                _context3.prev = 0;
 
                 if (coordinates) {
-                  _context2.next = 3;
+                  _context3.next = 3;
                   break;
                 }
 
@@ -3357,7 +3450,7 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
                 _coordinates = Object(slicedToArray["a" /* default */])(coordinates, 2), longitude = _coordinates[0], latitude = _coordinates[1]; // Check for invalid longitude
 
                 if (longitude) {
-                  _context2.next = 6;
+                  _context3.next = 6;
                   break;
                 }
 
@@ -3365,30 +3458,30 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
 
               case 6:
                 if (latitude) {
-                  _context2.next = 8;
+                  _context3.next = 8;
                   break;
                 }
 
                 throw new Error("Invalid <AzureMapPoint> latitude, latitude is ".concat(latitude, ".\nPlease provide a valid number using latitude or coordinates ([longitude, <<latitude>>])."));
 
               case 8:
-                return _context2.abrupt("return", Promise.resolve(coordinates || []));
+                return _context3.abrupt("return", Promise.resolve(coordinates || []));
 
               case 11:
-                _context2.prev = 11;
-                _context2.t0 = _context2["catch"](0);
+                _context3.prev = 11;
+                _context3.t0 = _context3["catch"](0);
 
                 if (false) {}
 
-                this.$emit(AzureMapPointEvent.Error, _context2.t0);
-                return _context2.abrupt("return", Promise.reject(_context2.t0));
+                this.$emit(AzureMapPointEvent.Error, _context3.t0);
+                return _context3.abrupt("return", Promise.reject(_context3.t0));
 
               case 16:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2, this, [[0, 11]]);
+        }, _callee3, this, [[0, 11]]);
       }));
 
       return function validateCoordinates(_x) {
@@ -3569,6 +3662,50 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+
+/***/ "c93e":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/defineProperty.js
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/objectSpread.js
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _objectSpread; });
+
+function _objectSpread(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+    var ownKeys = Object.keys(source);
+
+    if (typeof Object.getOwnPropertySymbols === 'function') {
+      ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+      }));
+    }
+
+    ownKeys.forEach(function (key) {
+      _defineProperty(target, key, source[key]);
+    });
+  }
+
+  return target;
+}
 
 /***/ }),
 
@@ -7862,9 +7999,9 @@ __webpack_require__.r(__webpack_exports__);
 // This file is imported into lib/wc client bundles.
 
 if (typeof window !== 'undefined') {
-  var setPublicPath_i
-  if ((setPublicPath_i = window.document.currentScript) && (setPublicPath_i = setPublicPath_i.src.match(/(.+\/)[^/]+\.js(\?.*)?$/))) {
-    __webpack_require__.p = setPublicPath_i[1] // eslint-disable-line
+  var i
+  if ((i = window.document.currentScript) && (i = i.src.match(/(.+\/)[^/]+\.js(\?.*)?$/))) {
+    __webpack_require__.p = i[1] // eslint-disable-line
   }
 }
 
@@ -7951,12 +8088,12 @@ function install(Vue, options) {
   _Vue_ = Vue;
   Vue.prototype.$_azureMaps = new vue_azure_maps_VueAzureMaps(js_atlas_min, options);
 }
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1dcdf57b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=template&id=6eaa99c1&
-var AzureMapvue_type_template_id_6eaa99c1_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({ width: _vm.width, height: _vm.height }),attrs:{"id":_vm.mapId}},[(_vm.isMapReady)?[_vm._t("default",null,{"map":_vm.map})]:_vm._e()],2)}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1dcdf57b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=template&id=532e5d82&
+var AzureMapvue_type_template_id_532e5d82_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({ width: _vm.width, height: _vm.height }),attrs:{"id":_vm.mapId}},[(_vm.isMapReady)?[_vm._t("default",null,{"map":_vm.map})]:_vm._e()],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue?vue&type=template&id=6eaa99c1&
+// CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue?vue&type=template&id=532e5d82&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
 var web_dom_iterable = __webpack_require__("ac6a");
@@ -7974,7 +8111,6 @@ var es6_number_constructor = __webpack_require__("c5f6");
 var utils = __webpack_require__("32ef");
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=script&lang=ts&
-
 
 
 
@@ -8374,22 +8510,19 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
   mounted: function mounted() {
     this.initializeMap();
   },
-  beforeDestroy: function beforeDestroy() {
-    this.disposeMap();
-  },
   methods: {
     initializeMap: function initializeMap() {
       // Get map options from component props
       var options = this.getOptionsFromProps() || {}; // Instantiate map to the HTMLElement with the auto-generated map id.
 
-      this.map = new this.$_azureMaps.atlas.Map(this.mapId, options); // Wait until the map resources are ready.
+      var map = new this.$_azureMaps.atlas.Map(this.mapId, options);
+      this.map = map; // Wait until the map resources are ready.
 
-      this.map.events.add('ready', this.mapReadyCallback);
-    },
-    disposeMap: function disposeMap() {
-      if (this.map) {
-        this.map.dispose();
-      }
+      this.map.events.add('ready', this.mapReadyCallback); // Remove the map when the component is destroyed
+
+      this.$once('hook:destroyed', function () {
+        map.dispose();
+      });
     },
     mapReadyCallback: function mapReadyCallback(mapEvent) {
       // Emit the custom ready event
@@ -8428,7 +8561,7 @@ var componentNormalizer = __webpack_require__("2877");
 
 var component = Object(componentNormalizer["a" /* default */])(
   components_AzureMapvue_type_script_lang_ts_,
-  AzureMapvue_type_template_id_6eaa99c1_render,
+  AzureMapvue_type_template_id_532e5d82_render,
   staticRenderFns,
   false,
   null,
@@ -8587,7 +8720,11 @@ var AzureMapDataSource = __webpack_require__("330c");
       }
     }); // Add the marker to the map
 
-    map.markers.add(marker);
+    map.markers.add(marker); // Remove the marker when the component is destroyed
+
+    this.$once('hook:destroyed', function () {
+      map.markers.remove(marker);
+    });
   },
   methods: {
     getOptionsFromProps: utils["b" /* getOptionsFromProps */]
@@ -8625,41 +8762,9 @@ var AzureMapUserPositionvue_type_template_id_e49db368_staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=e49db368&
 
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/defineProperty.js
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/objectSpread.js + 1 modules
+var objectSpread = __webpack_require__("c93e");
 
-  return obj;
-}
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/objectSpread.js
-
-function _objectSpread(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
-    var ownKeys = Object.keys(source);
-
-    if (typeof Object.getOwnPropertySymbols === 'function') {
-      ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
-        return Object.getOwnPropertyDescriptor(source, sym).enumerable;
-      }));
-    }
-
-    ownKeys.forEach(function (key) {
-      _defineProperty(target, key, source[key]);
-    });
-  }
-
-  return target;
-}
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapUserPosition.vue?vue&type=script&lang=ts&
 
 
@@ -8830,7 +8935,7 @@ var AzureMapUserPositionEvent;
 
       if (_this.centerMapToUserPosition) {
         // Center the map on the users position.
-        map.setCamera(_objectSpread({}, _this.cameraOptions || {}, {
+        map.setCamera(Object(objectSpread["a" /* default */])({}, _this.cameraOptions || {}, {
           center: [_this.longitude, _this.latitude]
         }));
       }
@@ -8902,6 +9007,7 @@ var AzureMapUserPosition_component = Object(componentNormalizer["a" /* default *
 /* harmony default export */ var AzureMapUserPosition = (AzureMapUserPosition_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/controls/AzureMapControl.vue?vue&type=script&lang=ts&
 
+
 /**
  * Adds a control to the `atlas.Map`.
  */
@@ -8924,7 +9030,9 @@ var AzureMapUserPosition_component = Object(componentNormalizer["a" /* default *
       default: null
     }
   },
-  mounted: function mounted() {
+  created: function created() {
+    var _this = this;
+
     //@ts-ignore There is no TypeScript support for injections without decorators
     // Look for the function that retreives the map instance
     var getMap = this.getMap;
@@ -8939,7 +9047,11 @@ var AzureMapUserPosition_component = Object(componentNormalizer["a" /* default *
 
     var map = getMap(); // Add the control to the map
 
-    map.controls.add(this.control, this.options || undefined);
+    map.controls.add(this.control, this.options || undefined); // Remove the control when the component is destroyed
+
+    this.$once('hook:destroyed', function () {
+      map.controls.remove(_this.control);
+    });
   },
   render: function render(createElement) {
     return createElement();
@@ -9246,7 +9358,11 @@ var AzureMapLineLayervue_type_script_lang_ts_state = external_commonjs_vue_commo
     // )
     // Add the layer to the map
 
-    map.layers.add(lineLayer);
+    map.layers.add(lineLayer); // Remove the layer when the component is destroyed
+
+    this.$once('hook:destroyed', function () {
+      map.layers.remove(lineLayer);
+    });
   },
   render: function render(createElement) {
     return createElement();
@@ -9275,6 +9391,7 @@ var AzureMapLineLayer_component = Object(componentNormalizer["a" /* default */])
 
 /* harmony default export */ var AzureMapLineLayer = (AzureMapLineLayer_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapHeatMapLayer.vue?vue&type=script&lang=ts&
+
 
 var AzureMapHeatMapLayervue_type_script_lang_ts_state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
   id: 0
@@ -9337,7 +9454,11 @@ var AzureMapHeatMapLayervue_type_script_lang_ts_state = external_commonjs_vue_co
       deep: true
     }); // Add the layer to the map
 
-    map.layers.add(heatMapLayer);
+    map.layers.add(heatMapLayer); // Remove the layer when the component is destroyed
+
+    this.$once('hook:destroyed', function () {
+      map.layers.remove(heatMapLayer);
+    });
   },
   render: function render(createElement) {
     return createElement();
@@ -9421,7 +9542,11 @@ var AzureMapHeatMapLayer_component = Object(componentNormalizer["a" /* default *
       deep: true
     }); // Add the layer to the map
 
-    map.layers.add(imageLayer);
+    map.layers.add(imageLayer); // Remove the layer when the component is destroyed
+
+    this.$once('hook:destroyed', function () {
+      map.layers.remove(imageLayer);
+    });
   },
   render: function render(createElement) {
     return createElement();
@@ -9505,7 +9630,11 @@ var AzureMapImageLayer_component = Object(componentNormalizer["a" /* default */]
       deep: true
     }); // Add the layer to the map
 
-    map.layers.add(tileLayer);
+    map.layers.add(tileLayer); // Remove the layer when the component is destroyed
+
+    this.$once('hook:destroyed', function () {
+      map.layers.remove(tileLayer);
+    });
   },
   render: function render(createElement) {
     return createElement();
@@ -9543,6 +9672,7 @@ var runtime = __webpack_require__("96cf");
 var asyncToGenerator = __webpack_require__("3040");
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/geometries/AzureMapLineString.vue?vue&type=script&lang=ts&
+
 
 
 
@@ -9586,6 +9716,9 @@ var AzureMapLineStringvue_type_script_lang_ts_state = external_commonjs_vue_comm
     var _created = Object(asyncToGenerator["a" /* default */])(
     /*#__PURE__*/
     regeneratorRuntime.mark(function _callee() {
+      var _this = this;
+
+      var getDataSource, dataSource, shape;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -9594,6 +9727,43 @@ var AzureMapLineStringvue_type_script_lang_ts_state = external_commonjs_vue_comm
               return this.validateProps();
 
             case 2:
+              //@ts-ignore There is no TypeScript support for injections without decorators
+              // Look for the function that retreives the data source instance
+              getDataSource = this.getDataSource;
+
+              if (getDataSource) {
+                _context.next = 7;
+                break;
+              }
+
+              if (false) {}
+
+              return _context.abrupt("return");
+
+            case 6:
+              return _context.abrupt("return", console.warn("Invalid <AzureMapLineString> data source.\nPlease make sure <AzureMapLineString> is a descendant of an <AzureMapDataSource> component."));
+
+            case 7:
+              // Retrieve the data source from the injected function
+              dataSource = getDataSource(); // Create a shape from the line string geometry
+
+              shape = new this.$_azureMaps.atlas.Shape(new this.$_azureMaps.atlas.data.LineString(this.coordinates || []), this.id || "azure-map-line-string-".concat(AzureMapLineStringvue_type_script_lang_ts_state.id++), this.properties); // Add the shape to the data source.
+
+              dataSource.add([shape]); // Watch the shape position and update it every time it changes
+
+              this.$watch('coordinates', function (newCoordinates) {
+                _this.validateCoordinates(newCoordinates).then(function (coords) {
+                  shape.setCoordinates(coords);
+                });
+              }, {
+                deep: true
+              }); // Remove the shape when the component is destroyed
+
+              this.$once('hook:destroyed', function () {
+                dataSource.remove(shape);
+              });
+
+            case 12:
             case "end":
               return _context.stop();
           }
@@ -9605,39 +9775,6 @@ var AzureMapLineStringvue_type_script_lang_ts_state = external_commonjs_vue_comm
       return _created.apply(this, arguments);
     };
   }(),
-  mounted: function mounted() {
-    var _this = this;
-
-    //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the data source instance
-    var getDataSource = this.getDataSource;
-
-    if (!getDataSource) {
-      if (true) return; // If the function that retreives the data source is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-
-      return console.warn("Invalid <AzureMapLineString> data source.\nPlease make sure <AzureMapLineString> is a descendant of an <AzureMapDataSource> component.");
-    } // Retrieve the data source from the injected function
-
-
-    var dataSource = getDataSource(); // Create a shape from the line string geometry
-
-    var shape = new this.$_azureMaps.atlas.Shape(new this.$_azureMaps.atlas.data.LineString(this.coordinates || []), this.id || "azure-map-line-string-".concat(AzureMapLineStringvue_type_script_lang_ts_state.id++), this.properties); // Add the shape to the data source.
-
-    dataSource.add([shape]); // Watch the shape position and update it every time it changes
-
-    this.$watch('coordinates', function (newCoordinates) {
-      _this.validateCoordinates(newCoordinates).then(function (coords) {
-        shape.setCoordinates(coords);
-      });
-    }, {
-      deep: true
-    }); // Remove the shape before the component is destroyed
-
-    this.$once('hook:beforeDestroy', function () {
-      dataSource.remove(shape);
-    });
-  },
   methods: {
     // Perform more complex prop validations than is possible
     // inside individual validator functions for each prop.
@@ -9736,6 +9873,7 @@ var AzureMapLineString_component = Object(componentNormalizer["a" /* default */]
 
 
 
+
 var AzureMapPolygonEvents;
 
 (function (AzureMapPolygonEvents) {
@@ -9776,6 +9914,9 @@ var AzureMapPolygonvue_type_script_lang_ts_state = external_commonjs_vue_commonj
     var _created = Object(asyncToGenerator["a" /* default */])(
     /*#__PURE__*/
     regeneratorRuntime.mark(function _callee() {
+      var _this = this;
+
+      var getDataSource, dataSource, shape;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -9784,6 +9925,43 @@ var AzureMapPolygonvue_type_script_lang_ts_state = external_commonjs_vue_commonj
               return this.validateProps();
 
             case 2:
+              //@ts-ignore There is no TypeScript support for injections without decorators
+              // Look for the function that retreives the data source instance
+              getDataSource = this.getDataSource;
+
+              if (getDataSource) {
+                _context.next = 7;
+                break;
+              }
+
+              if (false) {}
+
+              return _context.abrupt("return");
+
+            case 6:
+              return _context.abrupt("return", console.warn("Invalid <AzureMapPolygon> data source.\nPlease make sure <AzureMapPolygon> is a descendant of an <AzureMapDataSource> component."));
+
+            case 7:
+              // Retrieve the data source from the injected function
+              dataSource = getDataSource(); // Create a shape from the polygon geometry
+
+              shape = new this.$_azureMaps.atlas.Shape(new this.$_azureMaps.atlas.data.Polygon(this.coordinates || []), this.id || "azure-map-polygon-".concat(AzureMapPolygonvue_type_script_lang_ts_state.id++), this.properties); // Add the shape to the data source.
+
+              dataSource.add([shape]); // Watch the shape position and update it every time it changes
+
+              this.$watch('coordinates', function (newCoordinates) {
+                _this.validateCoordinates(newCoordinates).then(function (coords) {
+                  shape.setCoordinates(coords);
+                });
+              }, {
+                deep: true
+              }); // Remove the shape when the component is destroyed
+
+              this.$once('hook:destroyed', function () {
+                dataSource.remove(shape);
+              });
+
+            case 12:
             case "end":
               return _context.stop();
           }
@@ -9795,39 +9973,6 @@ var AzureMapPolygonvue_type_script_lang_ts_state = external_commonjs_vue_commonj
       return _created.apply(this, arguments);
     };
   }(),
-  mounted: function mounted() {
-    var _this = this;
-
-    //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the data source instance
-    var getDataSource = this.getDataSource;
-
-    if (!getDataSource) {
-      if (true) return; // If the function that retreives the data source is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-
-      return console.warn("Invalid <AzureMapPolygon> data source.\nPlease make sure <AzureMapPolygon> is a descendant of an <AzureMapDataSource> component.");
-    } // Retrieve the data source from the injected function
-
-
-    var dataSource = getDataSource(); // Create a shape from the polygon geometry
-
-    var shape = new this.$_azureMaps.atlas.Shape(new this.$_azureMaps.atlas.data.Polygon(this.coordinates || []), this.id || "azure-map-polygon-".concat(AzureMapPolygonvue_type_script_lang_ts_state.id++), this.properties); // Add the shape to the data source.
-
-    dataSource.add([shape]); // Watch the shape position and update it every time it changes
-
-    this.$watch('coordinates', function (newCoordinates) {
-      _this.validateCoordinates(newCoordinates).then(function (coords) {
-        shape.setCoordinates(coords);
-      });
-    }, {
-      deep: true
-    }); // Remove the shape before the component is destroyed
-
-    this.$once('hook:beforeDestroy', function () {
-      dataSource.remove(shape);
-    });
-  },
   methods: {
     // Perform more complex prop validations than is possible
     // inside individual validator functions for each prop.
