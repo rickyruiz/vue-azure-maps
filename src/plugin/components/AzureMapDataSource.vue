@@ -72,7 +72,7 @@ export default Vue.extend({
     // Create a data source to manage shapes
     const dataSource = new this.$_azureMaps.atlas.source.DataSource()
 
-    // Save the data source in a data property to provide it to children components
+    // Save the data source in a data property to provide it to descendent components
     this.dataSource = dataSource
 
     // Add the data source to the map sources
