@@ -192,9 +192,9 @@ export default Vue.extend({
   methods: {
     onMouseDown(e: atlas.MapMouseEvent): void {
       if (e.shapes && e.shapes.length > 0) {
-        //Capture the selected shape.
+        // Capture the selected shape.
         this.selectedShape = e.shapes[0] as atlas.Shape
-        //Lock the maps ability to pan so that we can drag the symbol.
+        // Lock the maps ability to pan so that we can drag the symbol.
         e.map.setUserInteraction({
           dragPanInteraction: false,
         })
@@ -202,23 +202,23 @@ export default Vue.extend({
     },
 
     onMouseMove(e: atlas.MapMouseEvent): void {
-      //Update the position of the selected shape.
+      // Update the position of the selected shape.
       if (this.selectedShape && e.position) {
         this.selectedShape.setCoordinates(e.position)
       }
     },
 
     onMouseUp(e: atlas.MapMouseEvent): void {
-      //Stop tracking the selected shape.
+      // Stop tracking the selected shape.
       this.selectedShape = null
-      //Make map panable again.
+      // Make map panable again.
       e.map.setUserInteraction({
         dragPanInteraction: true,
       })
     },
 
     generateMockPoints(): void {
-      //Generate a bunch of points with random coordinates
+      // Generate a bunch of points with random coordinates
       for (let i = 0; i < this.mockPointSize; i++) {
         this.points.push({
           name: `Point-${i}`,
@@ -229,7 +229,7 @@ export default Vue.extend({
     },
 
     generateMockLineStrings(): void {
-      //Generate a bunch of line strings with random coordinates
+      // Generate a bunch of line strings with random coordinates
       for (let i = 0; i < this.mockLineStringSize; i++) {
         this.lineStrings.push({
           name: `LineString-${i}`,
@@ -242,7 +242,7 @@ export default Vue.extend({
     },
 
     generateMockPolygons(): void {
-      //Generate a bunch of line strings with random coordinates
+      // Generate a bunch of polygons with random coordinates
       for (let i = 0; i < this.mockPolygonSize; i++) {
         this.polygons.push({
           name: `Polygon-${i}`,
