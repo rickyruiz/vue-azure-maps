@@ -745,8 +745,6 @@ module.exports = __webpack_require__("9e1e") ? function (object, key, value) {
 /* harmony import */ var core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_iterator__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var core_js_modules_es7_object_entries__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("ffc1");
 /* harmony import */ var core_js_modules_es7_object_entries__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es7_object_entries__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var core_js_modules_es6_promise__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("551c");
-/* harmony import */ var core_js_modules_es6_promise__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_promise__WEBPACK_IMPORTED_MODULE_7__);
 
 
 
@@ -754,7 +752,9 @@ module.exports = __webpack_require__("9e1e") ? function (object, key, value) {
 
 
 
-
+//===
+// In-component helper functions
+//===
 
 /**
  * This lets us accept individual props instead of an object in
@@ -823,22 +823,18 @@ function addEventsFromListeners(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1dcdf57b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=404021c9&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1dcdf57b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=4d4c88ea&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}]},[(Boolean(_vm.dataSource))?[_vm._t("default",null,{"dataSource":_vm.dataSource})]:_vm._e()],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=404021c9&
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
-var es6_promise = __webpack_require__("551c");
+// CONCATENATED MODULE: ./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=4d4c88ea&
 
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapDataSource.vue?vue&type=script&lang=ts&
-
 
 /**
  * `AzureMapDataSource` makes it easy to manage shapes data that will be displayed on the map.
@@ -887,7 +883,7 @@ var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpac
 
     var map = getMap(); // Create a data source to manage shapes
 
-    var dataSource = new this.$_azureMaps.atlas.source.DataSource(); // Save the data source in a data property to provide it to children components
+    var dataSource = new this.$_azureMaps.atlas.source.DataSource(); // Save the data source in a data property to provide it to descendent components
 
     this.dataSource = dataSource; // Add the data source to the map sources
 
@@ -1038,9 +1034,6 @@ module.exports = function (bitmap, value) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
-var es6_promise = __webpack_require__("551c");
-
 // EXTERNAL MODULE: ./src/plugin/utils/index.ts
 var utils = __webpack_require__("32ef");
 
@@ -1049,7 +1042,6 @@ var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapSymbolLayer.vue?vue&type=script&lang=ts&
-
 
 
 var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
@@ -1753,11 +1745,19 @@ module.exports = function (it, key) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
+var es6_promise = __webpack_require__("551c");
+
+// EXTERNAL MODULE: ./src/plugin/utils/index.ts
+var utils = __webpack_require__("32ef");
+
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapPolygonLayer.vue?vue&type=script&lang=ts&
+
+
 
 var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
   id: 0
@@ -1824,7 +1824,15 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
 
     this.$once('hook:destroyed', function () {
       map.layers.remove(polygonLayer);
+    }); // Add the layer events to the map
+
+    this.addEventsFromListeners({
+      map: map,
+      target: polygonLayer
     });
+  },
+  methods: {
+    addEventsFromListeners: utils["a" /* addEventsFromListeners */]
   },
   render: function render(createElement) {
     return createElement();
@@ -3216,11 +3224,15 @@ var objectSpread = __webpack_require__("c93e");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.number.constructor.js
 var es6_number_constructor = __webpack_require__("c5f6");
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
+var es6_promise = __webpack_require__("551c");
+
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/geometries/AzureMapPoint.vue?vue&type=script&lang=ts&
+
 
 
 
@@ -8088,12 +8100,12 @@ function install(Vue, options) {
   _Vue_ = Vue;
   Vue.prototype.$_azureMaps = new vue_azure_maps_VueAzureMaps(js_atlas_min, options);
 }
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1dcdf57b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=template&id=532e5d82&
-var AzureMapvue_type_template_id_532e5d82_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({ width: _vm.width, height: _vm.height }),attrs:{"id":_vm.mapId}},[(_vm.isMapReady)?[_vm._t("default",null,{"map":_vm.map})]:_vm._e()],2)}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1dcdf57b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=template&id=42a70ccc&
+var AzureMapvue_type_template_id_42a70ccc_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({ width: _vm.width, height: _vm.height }),attrs:{"id":_vm.mapId}},[(_vm.isMapReady)?[_vm._t("default",null,{"map":_vm.map})]:_vm._e()],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue?vue&type=template&id=532e5d82&
+// CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue?vue&type=template&id=42a70ccc&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
 var web_dom_iterable = __webpack_require__("ac6a");
@@ -8515,7 +8527,8 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
       // Get map options from component props
       var options = this.getOptionsFromProps() || {}; // Instantiate map to the HTMLElement with the auto-generated map id.
 
-      var map = new this.$_azureMaps.atlas.Map(this.mapId, options);
+      var map = new this.$_azureMaps.atlas.Map(this.mapId, options); // Save the map instance in a data property to provide it to descendent components
+
       this.map = map; // Wait until the map resources are ready.
 
       this.map.events.add('ready', this.mapReadyCallback); // Remove the map when the component is destroyed
@@ -8532,6 +8545,7 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
       this.isMapReady = true;
 
       if (this.map) {
+        // Add the map events
         this.addEventsFromListeners({
           map: this.map,
           reservedEventTypes: Object.values(AzureMapEvent)
@@ -8561,7 +8575,7 @@ var componentNormalizer = __webpack_require__("2877");
 
 var component = Object(componentNormalizer["a" /* default */])(
   components_AzureMapvue_type_script_lang_ts_,
-  AzureMapvue_type_template_id_532e5d82_render,
+  AzureMapvue_type_template_id_42a70ccc_render,
   staticRenderFns,
   false,
   null,
@@ -8724,10 +8738,16 @@ var AzureMapDataSource = __webpack_require__("330c");
 
     this.$once('hook:destroyed', function () {
       map.markers.remove(marker);
+    }); // Add the html marker events to the map
+
+    this.addEventsFromListeners({
+      map: map,
+      target: marker
     });
   },
   methods: {
-    getOptionsFromProps: utils["b" /* getOptionsFromProps */]
+    getOptionsFromProps: utils["b" /* getOptionsFromProps */],
+    addEventsFromListeners: utils["a" /* addEventsFromListeners */]
   },
   render: function render(createElement) {
     return createElement();
@@ -9006,7 +9026,6 @@ var AzureMapUserPosition_component = Object(componentNormalizer["a" /* default *
 
 /* harmony default export */ var AzureMapUserPosition = (AzureMapUserPosition_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/controls/AzureMapControl.vue?vue&type=script&lang=ts&
-
 
 /**
  * Adds a control to the `atlas.Map`.
@@ -9292,6 +9311,7 @@ var AzureMapPolygonLayer = __webpack_require__("6a51");
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapLineLayer.vue?vue&type=script&lang=ts&
 
+
 var AzureMapLineLayervue_type_script_lang_ts_state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
   id: 0
 });
@@ -9345,24 +9365,26 @@ var AzureMapLineLayervue_type_script_lang_ts_state = external_commonjs_vue_commo
 
     var dataSource = getDataSource(); // Create the line layer
 
-    var lineLayer = new this.$_azureMaps.atlas.layer.LineLayer(dataSource, this.id || "azure-map-line-layer-".concat(AzureMapLineLayervue_type_script_lang_ts_state.id++), this.options); // TODO: Check if LineLayer has a setOptions method.
-    // It is not included in atlas types.
-    // this.$watch(
-    //   'options',
-    //   (newOptions: atlas.LineLayerOptions | null) => {
-    //     lineLayer.setOptions(newOptions || {})
-    //   },
-    //   {
-    //     deep: true,
-    //   }
-    // )
-    // Add the layer to the map
+    var lineLayer = new this.$_azureMaps.atlas.layer.LineLayer(dataSource, this.id || "azure-map-line-layer-".concat(AzureMapLineLayervue_type_script_lang_ts_state.id++), this.options);
+    this.$watch('options', function (newOptions) {
+      lineLayer.setOptions(newOptions || {});
+    }, {
+      deep: true
+    }); // Add the layer to the map
 
     map.layers.add(lineLayer); // Remove the layer when the component is destroyed
 
     this.$once('hook:destroyed', function () {
       map.layers.remove(lineLayer);
+    }); // Add the layer events to the map
+
+    this.addEventsFromListeners({
+      map: map,
+      target: lineLayer
     });
+  },
+  methods: {
+    addEventsFromListeners: utils["a" /* addEventsFromListeners */]
   },
   render: function render(createElement) {
     return createElement();
@@ -9391,6 +9413,7 @@ var AzureMapLineLayer_component = Object(componentNormalizer["a" /* default */])
 
 /* harmony default export */ var AzureMapLineLayer = (AzureMapLineLayer_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapHeatMapLayer.vue?vue&type=script&lang=ts&
+
 
 
 var AzureMapHeatMapLayervue_type_script_lang_ts_state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
@@ -9458,7 +9481,15 @@ var AzureMapHeatMapLayervue_type_script_lang_ts_state = external_commonjs_vue_co
 
     this.$once('hook:destroyed', function () {
       map.layers.remove(heatMapLayer);
+    }); // Add the layer events to the map
+
+    this.addEventsFromListeners({
+      map: map,
+      target: heatMapLayer
     });
+  },
+  methods: {
+    addEventsFromListeners: utils["a" /* addEventsFromListeners */]
   },
   render: function render(createElement) {
     return createElement();
@@ -9487,6 +9518,7 @@ var AzureMapHeatMapLayer_component = Object(componentNormalizer["a" /* default *
 
 /* harmony default export */ var AzureMapHeatMapLayer = (AzureMapHeatMapLayer_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapImageLayer.vue?vue&type=script&lang=ts&
+
 
 /**
  * Overlay an image to fixed set of coordinates on the map.
@@ -9546,7 +9578,15 @@ var AzureMapHeatMapLayer_component = Object(componentNormalizer["a" /* default *
 
     this.$once('hook:destroyed', function () {
       map.layers.remove(imageLayer);
+    }); // Add the layer events to the map
+
+    this.addEventsFromListeners({
+      map: map,
+      target: imageLayer
     });
+  },
+  methods: {
+    addEventsFromListeners: utils["a" /* addEventsFromListeners */]
   },
   render: function render(createElement) {
     return createElement();
@@ -9575,6 +9615,7 @@ var AzureMapImageLayer_component = Object(componentNormalizer["a" /* default */]
 
 /* harmony default export */ var AzureMapImageLayer = (AzureMapImageLayer_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapTileLayer.vue?vue&type=script&lang=ts&
+
 
 /**
  * Tile layers allow you to superimpose images on top of Azure Maps base map tiles.
@@ -9634,7 +9675,15 @@ var AzureMapImageLayer_component = Object(componentNormalizer["a" /* default */]
 
     this.$once('hook:destroyed', function () {
       map.layers.remove(tileLayer);
+    }); // Add the layer events to the map
+
+    this.addEventsFromListeners({
+      map: map,
+      target: tileLayer
     });
+  },
+  methods: {
+    addEventsFromListeners: utils["a" /* addEventsFromListeners */]
   },
   render: function render(createElement) {
     return createElement();
@@ -9870,7 +9919,6 @@ var AzureMapLineString_component = Object(componentNormalizer["a" /* default */]
 
 /* harmony default export */ var AzureMapLineString = (AzureMapLineString_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/geometries/AzureMapPolygon.vue?vue&type=script&lang=ts&
-
 
 
 
