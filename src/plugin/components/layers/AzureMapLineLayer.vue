@@ -87,6 +87,11 @@ export default Vue.extend({
 
     // Add the layer to the map
     map.layers.add(lineLayer)
+
+    // Remove the layer when the component is destroyed
+    this.$once('hook:destroyed', () => {
+      map.layers.remove(lineLayer)
+    })
   },
 
   render(createElement) {

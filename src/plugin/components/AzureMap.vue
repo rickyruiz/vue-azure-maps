@@ -419,10 +419,6 @@ export default Vue.extend({
     this.initializeMap()
   },
 
-  beforeDestroy() {
-    this.disposeMap()
-  },
-
   methods: {
     initializeMap(): void {
       // Get map options from component props
@@ -435,16 +431,16 @@ export default Vue.extend({
         >() || {}
 
       // Instantiate map to the HTMLElement with the auto-generated map id.
-      this.map = new this.$_azureMaps.atlas.Map(this.mapId, options)
+      const map = new this.$_azureMaps.atlas.Map(this.mapId, options)
+      this.map = map
 
       // Wait until the map resources are ready.
       this.map.events.add('ready', this.mapReadyCallback)
-    },
 
-    disposeMap(): void {
-      if (this.map) {
-        this.map.dispose()
-      }
+      // Remove the map when the component is destroyed
+      this.$once('hook:destroyed', () => {
+        map.dispose()
+      })
     },
 
     mapReadyCallback(mapEvent: atlas.MapEvent): void {

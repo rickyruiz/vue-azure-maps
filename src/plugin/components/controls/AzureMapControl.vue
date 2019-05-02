@@ -28,7 +28,7 @@ export default Vue.extend({
     },
   },
 
-  mounted() {
+  created() {
     //@ts-ignore There is no TypeScript support for injections without decorators
     // Look for the function that retreives the map instance
     const { getMap }: { getMap: () => atlas.Map } = this
@@ -47,6 +47,11 @@ export default Vue.extend({
 
     // Add the control to the map
     map.controls.add(this.control, this.options || undefined)
+
+    // Remove the control when the component is destroyed
+    this.$once('hook:destroyed', () => {
+      map.controls.remove(this.control)
+    })
   },
 
   render(createElement) {

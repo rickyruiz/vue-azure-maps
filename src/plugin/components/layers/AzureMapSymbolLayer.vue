@@ -87,6 +87,11 @@ export default Vue.extend({
     // Add the layer to the map
     map.layers.add(symbolLayer)
 
+    // Remove the layer when the component is destroyed
+    this.$once('hook:destroyed', () => {
+      map.layers.remove(symbolLayer)
+    })
+
     // Add the layer events to the map
     this.addEventsFromListeners({ map, target: symbolLayer })
   },

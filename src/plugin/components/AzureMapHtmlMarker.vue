@@ -140,6 +140,11 @@ export default Vue.extend({
 
     // Add the marker to the map
     map.markers.add(marker)
+
+    // Remove the marker when the component is destroyed
+    this.$once('hook:destroyed', () => {
+      map.markers.remove(marker)
+    })
   },
 
   methods: {

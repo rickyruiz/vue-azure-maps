@@ -46,7 +46,7 @@ export default Vue.extend({
     },
 
     properties: {
-      type: Object,
+      type: Object as Prop<Record<string, any>>,
       default: () => ({}),
     },
   },
@@ -67,13 +67,16 @@ export default Vue.extend({
       // return position
       return this.coordinates
     },
+
+    pointProperties(): Record<string, any> {
+      // Create a computed property to keep track of object changes in a watcher
+      return { ...(this.properties || {}) }
+    },
   },
 
-  created() {
-    this.validateProps()
-  },
+  async created() {
+    await this.validateProps()
 
-  mounted() {
     //@ts-ignore There is no TypeScript support for injections without decorators
     // Look for the function that retreives the data source instance
     const {
@@ -111,17 +114,11 @@ export default Vue.extend({
     // If the point has a circle polygon,
     // emit the coordinates of the circle
     if (shape.isCircle) {
-      const { circlePolygon } = shape as atlas.Shape & {
-        circlePolygon: atlas.data.Feature<atlas.data.Polygon, any>
-      }
-      this.$emit(
-        AzureMapPointEvent.CircleCoordinates,
-        circlePolygon ? circlePolygon.geometry.coordinates : null
-      )
+      this.emitCircleCoordinates(shape)
     }
 
     // Add the shape to the data source.
-    dataSource.add([shape])
+    dataSource.add(shape)
 
     // Watch the shape position and update it every time it changes
     this.$watch(
@@ -133,13 +130,52 @@ export default Vue.extend({
       }
     )
 
-    // Remove the shape before the component is destroyed
-    this.$once('hook:beforeDestroy', () => {
+    this.$watch(
+      'pointProperties',
+      (newVal: Record<string, any>, oldVal: Record<string, any>) => {
+        if (!newVal) return
+
+        let newValEntries = Object.entries(newVal)
+        let oldValEntries = Object.entries(oldVal)
+
+        for (let [prop, val] of newValEntries) {
+          // Prevent updating values that did not change
+          if (val !== oldVal[prop]) {
+            // Add or update the shape property value
+            shape.addProperty(prop, val)
+
+            // Look for props that can generate or update circle coordinates
+            if (
+              (prop === 'radius' || (prop === 'subType' && val === 'Circle')) &&
+              shape.isCircle
+            ) {
+              this.emitCircleCoordinates(shape)
+            }
+          }
+        }
+      },
+      { deep: true }
+    )
+
+    // Remove the shape when the component is destroyed
+    this.$once('hook:destroyed', () => {
       dataSource.remove(shape)
     })
   },
 
   methods: {
+    emitCircleCoordinates(shape: atlas.Shape): void {
+      // If the point has a circle polygon,
+      // emit the coordinates of the circle
+      const { circlePolygon } = shape as atlas.Shape & {
+        circlePolygon: atlas.data.Feature<atlas.data.Polygon, any>
+      }
+      this.$emit(
+        AzureMapPointEvent.CircleCoordinates,
+        circlePolygon ? circlePolygon.geometry.coordinates : null
+      )
+    },
+
     // Perform more complex prop validations than is possible
     // inside individual validator functions for each prop.
     async validateProps(): Promise<void> {

@@ -52,7 +52,7 @@ export default Vue.extend({
     }
   },
 
-  mounted() {
+  created() {
     //@ts-ignore There is no TypeScript support for injections without decorators
     // Look for the function that retreives the map instance
     const { getMap }: { getMap: () => atlas.Map } = this
@@ -70,10 +70,18 @@ export default Vue.extend({
     const map = getMap()
 
     // Create a data source to manage shapes
-    this.dataSource = new this.$_azureMaps.atlas.source.DataSource()
+    const dataSource = new this.$_azureMaps.atlas.source.DataSource()
+
+    // Save the data source in a data property to provide it to children components
+    this.dataSource = dataSource
 
     // Add the data source to the map sources
     map.sources.add(this.dataSource)
+
+    // Remove the data source when the component is destroyed
+    this.$once('hook:destroyed', () => {
+      map.sources.remove(dataSource)
+    })
   },
 
   methods: {

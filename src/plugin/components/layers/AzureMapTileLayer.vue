@@ -74,6 +74,11 @@ export default Vue.extend({
 
     // Add the layer to the map
     map.layers.add(tileLayer)
+
+    // Remove the layer when the component is destroyed
+    this.$once('hook:destroyed', () => {
+      map.layers.remove(tileLayer)
+    })
   },
 
   render(createElement) {

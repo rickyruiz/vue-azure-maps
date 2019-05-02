@@ -41,9 +41,7 @@ export default Vue.extend({
 
   async created() {
     await this.validateProps()
-  },
 
-  mounted() {
     //@ts-ignore There is no TypeScript support for injections without decorators
     // Look for the function that retreives the data source instance
     const {
@@ -87,8 +85,8 @@ export default Vue.extend({
       }
     )
 
-    // Remove the shape before the component is destroyed
-    this.$once('hook:beforeDestroy', () => {
+    // Remove the shape when the component is destroyed
+    this.$once('hook:destroyed', () => {
       dataSource.remove(shape)
     })
   },
