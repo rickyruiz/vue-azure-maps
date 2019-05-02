@@ -432,6 +432,8 @@ export default Vue.extend({
 
       // Instantiate map to the HTMLElement with the auto-generated map id.
       const map = new this.$_azureMaps.atlas.Map(this.mapId, options)
+
+      // Save the map instance in a data property to provide it to descendent components
       this.map = map
 
       // Wait until the map resources are ready.
@@ -452,6 +454,7 @@ export default Vue.extend({
       this.isMapReady = true
 
       if (this.map) {
+        // Add the map events
         this.addEventsFromListeners({
           map: this.map,
           reservedEventTypes: Object.values(AzureMapEvent),
