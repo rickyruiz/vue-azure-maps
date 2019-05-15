@@ -1,5 +1,5 @@
 //@ts-ignore
-import * as atlasJs from 'azure-maps-control/dist/js/atlas.min.js'
+import * as atlasJs from 'azure-maps-control/dist/atlas.min.js'
 import { VueAzureMapsPluginOptions } from 'types'
 import _Vue from 'vue'
 import VueAzureMaps from './vue-azure-maps'

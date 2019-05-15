@@ -1,4 +1,4 @@
-import 'azure-maps-control/dist/css/atlas.min.css'
+import 'azure-maps-control/dist/atlas.min.css'
 import { VueAzureMapsPluginOptions } from 'types'
 import { PluginFunction, PluginObject } from 'vue'
 import { install } from './install'
