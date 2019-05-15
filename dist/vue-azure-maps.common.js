@@ -814,7 +814,7 @@ function addEventsFromListeners(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1dcdf57b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=4d4c88ea&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"355b4a02-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=4d4c88ea&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}]},[(Boolean(_vm.dataSource))?[_vm._t("default",null,{"dataSource":_vm.dataSource})]:_vm._e()],2)}
 var staticRenderFns = []
 
@@ -1736,9 +1736,6 @@ module.exports = function (it, key) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
-var es6_promise = __webpack_require__("551c");
-
 // EXTERNAL MODULE: ./src/plugin/utils/index.ts
 var utils = __webpack_require__("32ef");
 
@@ -1747,7 +1744,6 @@ var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapPolygonLayer.vue?vue&type=script&lang=ts&
-
 
 
 var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
@@ -3154,6 +3150,13 @@ for (var collections = getKeys(DOMIterables), i = 0; i < collections.length; i++
 
 /***/ }),
 
+/***/ "bb63":
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
 /***/ "bcaa":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3215,15 +3218,11 @@ var objectSpread = __webpack_require__("c93e");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.number.constructor.js
 var es6_number_constructor = __webpack_require__("c5f6");
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
-var es6_promise = __webpack_require__("551c");
-
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/geometries/AzureMapPoint.vue?vue&type=script&lang=ts&
-
 
 
 
@@ -3837,13 +3836,6 @@ module.exports = function (done, value) {
 
 /***/ }),
 
-/***/ "d753":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "d8e8":
 /***/ (function(module, exports) {
 
@@ -3894,80 +3886,2337 @@ module.exports = function (O, D) {
 
 /***/ }),
 
-/***/ "f001":
+/***/ "f605":
+/***/ (function(module, exports) {
+
+module.exports = function (it, Constructor, name, forbiddenField) {
+  if (!(it instanceof Constructor) || (forbiddenField !== undefined && forbiddenField in it)) {
+    throw TypeError(name + ': incorrect invocation!');
+  } return it;
+};
+
+
+/***/ }),
+
+/***/ "f6fd":
+/***/ (function(module, exports) {
+
+// document.currentScript polyfill by Adam Miller
+
+// MIT license
+
+(function(document){
+  var currentScript = "currentScript",
+      scripts = document.getElementsByTagName('script'); // Live NodeList collection
+
+  // If browser needs currentScript polyfill, add get currentScript() to the document object
+  if (!(currentScript in document)) {
+    Object.defineProperty(document, currentScript, {
+      get: function(){
+
+        // IE 6-10 supports script readyState
+        // IE 10+ support stack trace
+        try { throw new Error(); }
+        catch (err) {
+
+          // Find the second match for the "at" string to get file src url from stack.
+          // Specifically works with the format of stack traces in IE.
+          var i, res = ((/.*at [^\(]*\((.*):.+:.+\)$/ig).exec(err.stack) || [false])[1];
+
+          // For all scripts on the page, if src matches or if ready state is interactive, return the script tag
+          for(i in scripts){
+            if(scripts[i].src == res || scripts[i].readyState == "interactive"){
+              return scripts[i];
+            }
+          }
+
+          // If no match, return null
+          return null;
+        }
+      }
+    });
+  }
+})(document);
+
+
+/***/ }),
+
+/***/ "fa5b":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("5537")('native-function-to-string', Function.toString);
+
+
+/***/ }),
+
+/***/ "fab2":
+/***/ (function(module, exports, __webpack_require__) {
+
+var document = __webpack_require__("7726").document;
+module.exports = document && document.documentElement;
+
+
+/***/ }),
+
+/***/ "fb15":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
+// This file is imported into lib/wc client bundles.
+
+if (typeof window !== 'undefined') {
+  if (true) {
+    __webpack_require__("f6fd")
+  }
+
+  var i
+  if ((i = window.document.currentScript) && (i = i.src.match(/(.+\/)[^/]+\.js(\?.*)?$/))) {
+    __webpack_require__.p = i[1] // eslint-disable-line
+  }
+}
+
+// Indicate to webpack that this file can be concatenated
+/* harmony default export */ var setPublicPath = (null);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
+var es6_promise = __webpack_require__("551c");
+
+// EXTERNAL MODULE: ./node_modules/azure-maps-control/dist/atlas.min.css
+var atlas_min = __webpack_require__("bb63");
+
+// EXTERNAL MODULE: ./node_modules/azure-maps-control/dist/atlas.min.js
+var dist_atlas_min = __webpack_require__("ff49");
+
+// EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
+var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
+var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/classCallCheck.js
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/createClass.js
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+// CONCATENATED MODULE: ./src/plugin/vue-azure-maps.ts
+
+
+
+
+var vue_azure_maps_VueAzureMaps =
+/*#__PURE__*/
+function () {
+  function VueAzureMaps(lib, options) {
+    _classCallCheck(this, VueAzureMaps);
+
+    if (!options) options = {
+      key: ''
+    };
+    this.options = options;
+    this.key = options.key;
+    this.atlas = lib;
+    this.setSubscriptionKey(options.key);
+  }
+
+  _createClass(VueAzureMaps, [{
+    key: "setSubscriptionKey",
+    value: function setSubscriptionKey(key) {
+      // Set the Azure Maps subscription key to the map SDK.
+      this.atlas.setSubscriptionKey(key);
+    }
+  }]);
+
+  return VueAzureMaps;
+}();
+
+
+// CONCATENATED MODULE: ./src/plugin/install.ts
+
+//@ts-ignore
+
+
+
+var _Vue_;
+var _installed = false;
+function install(Vue, options) {
+  if (_installed && external_commonjs_vue_commonjs2_vue_root_Vue_default.a === Vue) return;
+  _installed = true;
+  _Vue_ = Vue;
+  Vue.prototype.$_azureMaps = new vue_azure_maps_VueAzureMaps(dist_atlas_min, options);
+}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"355b4a02-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=template&id=42a70ccc&
+var AzureMapvue_type_template_id_42a70ccc_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({ width: _vm.width, height: _vm.height }),attrs:{"id":_vm.mapId}},[(_vm.isMapReady)?[_vm._t("default",null,{"map":_vm.map})]:_vm._e()],2)}
+var staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue?vue&type=template&id=42a70ccc&
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
+var web_dom_iterable = __webpack_require__("ac6a");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.iterator.js
+var es6_array_iterator = __webpack_require__("cadf");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es7.object.values.js
+var es7_object_values = __webpack_require__("8615");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.number.constructor.js
+var es6_number_constructor = __webpack_require__("c5f6");
+
+// EXTERNAL MODULE: ./src/plugin/utils/index.ts
+var utils = __webpack_require__("32ef");
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=script&lang=ts&
+
+
+
+
+
+
+var AzureMapEvent;
+
+(function (AzureMapEvent) {
+  AzureMapEvent["Ready"] = "ready";
+})(AzureMapEvent || (AzureMapEvent = {}));
+
+var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
+  id: 0
+});
+/* harmony default export */ var AzureMapvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+  name: 'AzureMap',
+  provide: function provide() {
+    return {
+      /**
+       * Provide a function to retreive the `atlas.Map` instance for descendent components that need to inject it
+       *
+       * Note that this method will only be available in the descendent component if it uses `inject: ['getMap']`
+       */
+      getMap: this.getMap
+    };
+  },
+  props: {
+    /**
+     * The `atlas.Map` container width
+     *
+     * Note this property is optional because it could be specified using CSS
+     */
+    width: {
+      type: String,
+      default: null
+    },
+
+    /**
+     * The `atlas.Map` container height
+     *
+     * Note this property is optional because it could be specified using CSS
+     */
+    height: {
+      type: String,
+      default: null
+    },
+
+    /**
+     * The authentication options used to customize how the map control authenticates with Azure Maps services.
+     * If these authentication options are specified then ServiceOptions.subscriptionKey should not be.
+     * Recommend using the atlas.setAuthenticationOptions function instead.
+     */
+    authOptions: {
+      type: Object,
+      default: null
+    },
+
+    /**
+     * The customer subscription key used to authorize requests.
+     * This option may only be set when initializing the map.
+     * Recommend using the atlas.setSubscriptionKey function instead
+     */
+    subscriptionKey: {
+      type: String,
+      default: null
+    },
+
+    /**
+     * The session id to pass with requests.
+     * Recommend using atlas.setSessionId instead.
+     * @default Random UUID generated at runtime
+     */
+    sessionId: {
+      type: String,
+      default: null
+    },
+
+    /**
+     * Disable telemetry collection
+     * This option may only be set when initializing the map.
+     * default: false
+     * @default false
+     */
+    disableTelemetry: {
+      type: Boolean,
+      default: null
+    },
+
+    /**
+     * Enable accessibility
+     * default: false
+     * @default false
+     */
+    enableAccessibility: {
+      type: Boolean,
+      default: null
+    },
+
+    /**
+     * A boolean that specifies if vector and raster tiles should be reloaded when they expire (based on expires header).
+     * This is useful for data sets that update frequently. When set to false, each tile will be loaded once, when needed, and not reloaded when they expire.
+     * default: true
+     * @default true
+     */
+    refreshExpiredTiles: {
+      type: Boolean,
+      default: null
+    },
+
+    /**
+     * If defined transformRequest will be called to provide custom request parameters for loading a tile.
+     * `(url: string, resourceType: string) => RequestParameters`
+     */
+    transformRequest: {
+      type: Function,
+      default: null
+    },
+
+    /**
+     * The zoom level of the map view.
+     * `default 1`
+     * @default 1
+     */
+    zoom: {
+      type: Number,
+      default: null
+    },
+
+    /**
+     * The position to align the center of the map view with.
+     * `default [0, 0]`
+     * @default [0, 0]
+     */
+    center: {
+      type: Array,
+      default: null
+    },
+
+    /**
+     * A pixel offset to apply to the center of the map.
+     * This is useful if you want to programmatically pan the map to another location or if you want to center the map over a shape, then offset the maps view to make room for a popup.
+     * Default `[0, 0]`.
+     * @default [0, 0]
+     */
+    centerOffset: {
+      type: Array,
+      default: null
+    },
+
+    /**
+     * The bearing of the map (rotation) in degrees.
+     * When the bearing is 0, 90, 180, or 270 the top of the map container will be north, east, south or west respectively.
+     * `default 0`
+     * @default 0
+     */
+    bearing: {
+      type: Number,
+      default: null
+    },
+
+    /**
+     * The pitch (tilt) of the map in degrees between 0 and 60, where 0 is looking straight down on the map.
+     * `default 0`
+     * @default 0
+     */
+    pitch: {
+      type: Number,
+      default: null
+    },
+
+    /**
+     * The minimum zoom level that the map can be zoomed out to during the animation. Must be between 0 and 24, and less than or equal to `maxZoom`.
+     * `default 1`
+     * @default 1
+     */
+    minZoom: {
+      type: Number,
+      default: null
+    },
+
+    /**
+     * The maximum zoom level that the map can be zoomed into during the animation. Must be between 0 and 24, and greater than or equal to `minZoom`.
+     * `default 20`
+     * @default 20
+     */
+    maxZoom: {
+      type: Number,
+      default: null
+    },
+
+    /**
+     * The bounds of the map control's camera.
+     * `default [-180, -89, 180, 90]`
+     * @default [-180, -89, 180, 90]
+     */
+    bounds: {
+      type: Object,
+      default: null
+    },
+
+    /**
+     * An offset of the center of the given bounds relative to the map's center, measured in pixels.
+     * `default [0, 0]`
+     * @default [0, 0]
+     */
+    offset: {
+      type: Array,
+      default: null
+    },
+
+    /**
+     * The amount of padding in pixels to add to the given bounds.
+     * `default {top: 0, bottom: 0, left: 0, right: 0}`
+     * @default {top: 0, bottom: 0, left: 0, right: 0}
+     */
+    padding: {
+      type: [Object, Number],
+      default: null
+    },
+
+    /**
+     * If true the map will automatically resize whenever the window's size changes.
+     * Otherwise map.resize() must be called.
+     * Default `true`.
+     * @default true
+     */
+    autoResize: {
+      type: Boolean,
+      default: null
+    },
+
+    /**
+     * If true, the map's canvas can be exported to a PNG using map.getCanvas().toDataURL().
+     * This option may only be set when initializing the map.
+     * Default `false`
+     * @default false
+     */
+    preserveDrawingBuffer: {
+      type: Boolean,
+      default: null
+    },
+
+    /**
+     * The name of the style to use when rendering the map. Available styles can be found in the
+     * [supported styles]{@link https://docs.microsoft.com/en-us/azure/azure-maps/supported-map-styles} article. The
+     * default style is "road".
+     */
+    mapStyle: {
+      type: String,
+      default: null
+    },
+
+    /**
+     * The language of the map labels.
+     * [Supported language]{@link https://docs.microsoft.com/en-us/azure/azure-maps/supported-languages}.
+     * Default `atlas.getLanguage()`.
+     * @default atlas.getLanguage()
+     */
+    language: {
+      type: String,
+      default: null
+    },
+
+    /**
+     * The geopolitical view of the map.
+     * <p>Unified: The unified view of the world.</p>
+     * Default `atlas.getUserRegion()`.
+     * @default atlas.getUserRegion()
+     */
+    userRegion: {
+      type: String,
+      default: null
+    },
+
+    /**
+     * Whether the map is interactive or static. If false, all user interaction is disabled.  If true, only selected
+     * user interactions will enabled.
+     * default `true`
+     * @default true
+     */
+    interactive: {
+      type: Boolean,
+      default: null
+    },
+
+    /**
+     * Whether the map should zoom on scroll input.
+     * default `true`
+     * @default true
+     */
+    scrollZoomInteraction: {
+      type: Boolean,
+      default: null
+    },
+
+    /**
+     * Whether the Shift + left click and drag will draw a zoom box.
+     * default `true`
+     * @default true
+     */
+    boxZoomInteraction: {
+      type: Boolean,
+      default: null
+    },
+
+    /**
+     * Whether right click and drag will rotate and pitch the map.
+     * default `true`
+     * @default true
+     */
+    dragRotateInteraction: {
+      type: Boolean,
+      default: null
+    },
+
+    /**
+     * Whether left click and drag will pan the map.
+     * default `true`
+     * @default true
+     */
+    dragPanInteraction: {
+      type: Boolean,
+      default: null
+    },
+
+    /**
+     * Whether the keyboard interactions are enabled.
+     * <style> .k-key { border: 1px solid grey; border-radius: 6px; background-color: #ccc; line-height: 14px;
+     * font-size: 14px; padding: 2px; } </style>
+     * <p><span class="k-key">+/=</span>: Increase zoom level by 1.</p>
+     * <p><span class="k-key">Shift</span> + <span class="k-key">+/=</span>: Increase the zoom level by 2.</p>
+     * <p><span class="k-key">-</span>: Decrease zoom level by 1.</p>
+     * <p><span class="k-key">Shift</span> + <span class="k-key">-</span>: Decrease zoom level by 2.</p>
+     * <p><span class="k-key">⇢</span>: Pan right 100 pixels.</p>
+     * <p><span class="k-key">⇠</span>: Pan left 100 pixels.</p>
+     * <p><span class="k-key">⇡</span>: Pan up 100 pixels.</p>
+     * <p><span class="k-key">⇣</span>: Pan down 100 pixels.</p>
+     * <p><span class="k-key">Shift</span> + <span class="k-key">⇢</span>: Rotate 15 degrees clockwise.</p>
+     * <p><span class="k-key">Shift</span> + <span class="k-key">⇠</span>: Rotate 15 degrees counter-clockwise.</p>
+     * <p><span class="k-key">Shift</span> + <span class="k-key">⇡</span>: Increase pitch by 10 degrees.</p>
+     * <p><span class="k-key">Shift</span> + <span class="k-key">⇣</span>: Decrease pitch by 10 degrees.</p>
+     * default `true`
+     * @default true
+     */
+    keyboardInteraction: {
+      type: Boolean,
+      default: null
+    },
+
+    /**
+     * Whether double left click will zoom the map inwards.
+     * default `true`
+     * @default true
+     */
+    dblClickZoomInteraction: {
+      type: Boolean,
+      default: null
+    },
+
+    /**
+     * Whether touch interactions are enabled for touch devices.
+     * default `true`
+     * @default true
+     */
+    touchInteraction: {
+      type: Boolean,
+      default: null
+    }
+  },
+  data: function data() {
+    return {
+      /**
+       * The `atlas.Map` container id
+       */
+      mapId: "azure-map-".concat(state.id++),
+
+      /**
+       * The `atlas.Map` instance
+       */
+      map: null,
+
+      /**
+       * Flag that indicates that the `atlas.Map` instance is ready
+       */
+      isMapReady: false
+    };
+  },
+  watch: {
+    center: function center(newPosition) {
+      if (!this.map || !newPosition) return;
+      this.map.setCamera({
+        center: newPosition
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.initializeMap();
+  },
+  methods: {
+    initializeMap: function initializeMap() {
+      // Get map options from component props
+      var options = this.getOptionsFromProps() || {}; // Instantiate map to the HTMLElement with the auto-generated map id.
+
+      var map = new this.$_azureMaps.atlas.Map(this.mapId, options); // Save the map instance in a data property to provide it to descendent components
+
+      this.map = map; // Wait until the map resources are ready.
+
+      this.map.events.add('ready', this.mapReadyCallback); // Remove the map when the component is destroyed
+
+      this.$once('hook:destroyed', function () {
+        map.dispose();
+      });
+    },
+    mapReadyCallback: function mapReadyCallback(mapEvent) {
+      // Emit the custom ready event
+      this.$emit(AzureMapEvent.Ready, mapEvent); // Indicate that the map instance is ready,
+      // which triggers descendent components creation
+
+      this.isMapReady = true;
+
+      if (this.map) {
+        // Add the map events
+        this.addEventsFromListeners({
+          map: this.map,
+          reservedEventTypes: Object.values(AzureMapEvent)
+        });
+      }
+    },
+    getMap: function getMap() {
+      // Return the map instance for descendent components injection
+      return this.map;
+    },
+    getOptionsFromProps: utils["b" /* getOptionsFromProps */],
+    addEventsFromListeners: utils["a" /* addEventsFromListeners */]
+  }
+}));
+// CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var components_AzureMapvue_type_script_lang_ts_ = (AzureMapvue_type_script_lang_ts_); 
+// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+var componentNormalizer = __webpack_require__("2877");
+
+// CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue
+
+
+
+
+
+/* normalize component */
+
+var component = Object(componentNormalizer["a" /* default */])(
+  components_AzureMapvue_type_script_lang_ts_,
+  AzureMapvue_type_template_id_42a70ccc_render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var AzureMap = (component.exports);
+// EXTERNAL MODULE: ./src/plugin/components/AzureMapDataSource.vue + 4 modules
+var AzureMapDataSource = __webpack_require__("330c");
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapHtmlMarker.vue?vue&type=script&lang=ts&
+
+
+
+
+
+/**
+ * Adds a custom HTML such as an image file to the map as an HTML Marker.
+ */
+
+/* harmony default export */ var AzureMapHtmlMarkervue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+  name: 'AzureMapHtmlMarker',
+
+  /**
+   * Inject the `getMap` function to get the `atlas.Map` instance
+   */
+  inject: ['getMap'],
+  props: {
+    /**
+     * Indicates the marker's location relative to its position on the map.
+     * Optional values: `"center"`, `"top"`, `"bottom"`, `"left"`, `"right"`,
+     * `"top-left"`, `"top-right"`, `"bottom-left"`, `"bottom-right"`.
+     * Default `"center"`
+     * @default "center"
+     */
+    anchor: {
+      type: String,
+      default: null
+    },
+
+    /**
+     * A color value that replaces any {color} placeholder property that has been included in a string htmlContent.
+     * default `"#1A73AA"`
+     * @default "#1A73AA"
+     */
+    color: {
+      type: String,
+      default: null
+    },
+
+    /**
+     * Indicates if the user can drag the position of the marker using the mouse or touch controls.
+     * default `false`
+     * @default false
+     */
+    draggable: {
+      type: Boolean,
+      default: null
+    },
+
+    /**
+     * The HTML content of the marker. Can be an HTMLElement or HTML string.
+     * Add {text} and {color} to HTML strings as placeholders to make it easy to update
+     * these values in your marker by using the setOptions function of the HtmlMarker class.
+     * This allows you to create a single HTML marker string that can be used as a template for multiple markers.
+     */
+    htmlContent: {
+      type: String,
+      default: null
+    },
+
+    /**
+     * An offset in pixels to move the popup relative to the markers center.
+     * Negatives indicate left and up.
+     * default `[0, -18]`
+     * @default [0, -18]
+     */
+    pixelOffset: {
+      type: Array,
+      default: null
+    },
+
+    /**
+     * The position of the marker.
+     * default `[0, 0]`
+     * @default [0, 0]
+     */
+    position: {
+      type: Array,
+      default: null
+    },
+
+    /**
+     * A popup that is attached to the marker.
+     */
+    popup: {
+      type: Object,
+      default: null
+    },
+
+    /**
+     * A string of text that replaces any {text} placeholder property that has been included in a string htmlContent.
+     */
+    text: {
+      type: String,
+      default: null
+    },
+
+    /**
+     * Specifies if the marker is visible or not.
+     * default `true`
+     * @default true
+     */
+    visible: {
+      type: Boolean,
+      default: null
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    //@ts-ignore There is no TypeScript support for injections without decorators
+    // Look for the function that retreives the map instance
+    var getMap = this.getMap;
+
+    if (!getMap) {
+      if (true) return; // If the function that retreives the map instance is not available,
+      // warn the user that is not a descendant of an ancestor component that provides the method
+
+      return console.warn("Invalid <AzureMapHtmlMarker> map instance.\nPlease make sure <AzureMapHtmlMarker> is a descendant of <AzureMap>.");
+    } // Retrieve the map instance from the injected function
+
+
+    var map = getMap(); // Create the HTML marker
+
+    var marker = new this.$_azureMaps.atlas.HtmlMarker(this.getOptionsFromProps()); // Watch for all props changes
+
+    this.$watch(function () {
+      var values = '';
+
+      var _arr = Object.values(_this.$props);
+
+      for (var _i = 0; _i < _arr.length; _i++) {
+        var value = _arr[_i];
+        values += value;
+      }
+
+      return values;
+    }, function () {
+      var newOptions = _this.getOptionsFromProps();
+
+      if (newOptions) {
+        marker.setOptions(newOptions);
+      }
+    }); // Add the marker to the map
+
+    map.markers.add(marker); // Remove the marker when the component is destroyed
+
+    this.$once('hook:destroyed', function () {
+      map.markers.remove(marker);
+    }); // Add the html marker events to the map
+
+    this.addEventsFromListeners({
+      map: map,
+      target: marker
+    });
+  },
+  methods: {
+    getOptionsFromProps: utils["b" /* getOptionsFromProps */],
+    addEventsFromListeners: utils["a" /* addEventsFromListeners */]
+  },
+  render: function render(createElement) {
+    return createElement();
+  }
+}));
+// CONCATENATED MODULE: ./src/plugin/components/AzureMapHtmlMarker.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var components_AzureMapHtmlMarkervue_type_script_lang_ts_ = (AzureMapHtmlMarkervue_type_script_lang_ts_); 
+// CONCATENATED MODULE: ./src/plugin/components/AzureMapHtmlMarker.vue
+var AzureMapHtmlMarker_render, AzureMapHtmlMarker_staticRenderFns
+
+
+
+
+/* normalize component */
+
+var AzureMapHtmlMarker_component = Object(componentNormalizer["a" /* default */])(
+  components_AzureMapHtmlMarkervue_type_script_lang_ts_,
+  AzureMapHtmlMarker_render,
+  AzureMapHtmlMarker_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var AzureMapHtmlMarker = (AzureMapHtmlMarker_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"355b4a02-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=e49db368&
+var AzureMapUserPositionvue_type_template_id_e49db368_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.hasPosition)?_c('AzureMapDataSource',[_c('AzureMapPoint',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude,"properties":_vm.properties || undefined},on:_vm._d({},[_vm.circleEventName,function($event){return _vm.$emit(_vm.circleEventName, $event)}])}),(_vm.showAccuracy)?_c('AzureMapPolygonLayer',{attrs:{"options":_vm.polygonLayerOptions || undefined}}):_vm._e(),_c('AzureMapSymbolLayer',{attrs:{"options":_vm.symbolLayerOptions || undefined}})],1):_vm._e()}
+var AzureMapUserPositionvue_type_template_id_e49db368_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=e49db368&
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/objectSpread.js + 1 modules
+var objectSpread = __webpack_require__("c93e");
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapUserPosition.vue?vue&type=script&lang=ts&
+
+
+
+
+var AzureMapUserPositionEvent;
+
+(function (AzureMapUserPositionEvent) {
+  AzureMapUserPositionEvent["Success"] = "success";
+  AzureMapUserPositionEvent["Error"] = "error";
+  AzureMapUserPositionEvent["PermissionDenied"] = "permission-denied";
+  AzureMapUserPositionEvent["PositionUnavailable"] = "permission-unavailable";
+  AzureMapUserPositionEvent["Timeout"] = "timeout";
+  AzureMapUserPositionEvent["UnknownError"] = "unknown-error";
+  AzureMapUserPositionEvent["Ready"] = "ready";
+})(AzureMapUserPositionEvent || (AzureMapUserPositionEvent = {}));
+
+/* harmony default export */ var AzureMapUserPositionvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+  name: 'AzureMapUserPosition',
+
+  /**
+   * Inject the `getMap` function to get the `atlas.Map` instance
+   */
+  inject: ['getMap'],
+  components: {
+    AzureMapDataSource: function AzureMapDataSource() {
+      return Promise.resolve(/* import() */).then(__webpack_require__.bind(null, "330c"));
+    },
+    AzureMapPoint: function AzureMapPoint() {
+      return Promise.resolve(/* import() */).then(__webpack_require__.bind(null, "c343"));
+    },
+    AzureMapPolygonLayer: function AzureMapPolygonLayer() {
+      return Promise.resolve(/* import() */).then(__webpack_require__.bind(null, "6a51"));
+    },
+    AzureMapSymbolLayer: function AzureMapSymbolLayer() {
+      return Promise.resolve(/* import() */).then(__webpack_require__.bind(null, "4a0d"));
+    }
+  },
+  props: {
+    /**
+     * Indicates the application would like to receive the best possible results.
+     * If true and if the device is able to provide a more accurate position, it will do so.
+     */
+    enableHighAccuracy: {
+      type: Boolean,
+      default: false
+    },
+
+    /**
+     * integer (milliseconds]) | infinity - maximum cached position age.
+     */
+    maximumAge: {
+      type: Number,
+      default: null
+    },
+
+    /**
+     * integer (milliseconds]) - amount of time before the error callback is invoked, if 0 it will never invoke.
+     */
+    timeout: {
+      type: Number,
+      default: null
+    },
+
+    /**
+     * Flag that controls if an accuracy circle polygon will be shown
+     */
+    showAccuracy: {
+      type: Boolean,
+      default: false
+    },
+
+    /**
+     * Override the user position accuracy used for the circle polygon radius
+     */
+    accuracy: {
+      type: Number,
+      default: null
+    },
+
+    /**
+     * Flag that controls if the map will center on the users position
+     */
+    centerMapToUserPosition: {
+      type: Boolean,
+      default: false
+    },
+
+    /**
+     * If `centerMapToUserPosition` is true, this options are passed to the `map.setCamera` method
+     */
+    cameraOptions: {
+      type: Object,
+      default: null
+    },
+
+    /**
+     * The symbol layer options for the user position point
+     */
+    symbolLayerOptions: {
+      type: Object,
+      default: null
+    },
+
+    /**
+     * The polygon layer options for the accuracy circle polygon
+     */
+    polygonLayerOptions: {
+      type: Object,
+      default: null
+    }
+  },
+  data: function data() {
+    return {
+      longitude: null,
+      latitude: null,
+      properties: null,
+      hasPosition: false,
+      error: null
+    };
+  },
+  computed: {
+    circleEventName: function circleEventName() {
+      return this.showAccuracy ? 'circle-coordinates' : null;
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    var enableHighAccuracy = this.enableHighAccuracy,
+        maximumAge = this.maximumAge,
+        timeout = this.timeout;
+    navigator.geolocation.getCurrentPosition(function (position) {
+      // Clear any error
+      _this.error = null;
+
+      _this.$emit(AzureMapUserPositionEvent.Success, position); //@ts-ignore There is no TypeScript support for injections without decorators
+      // Look for the function that retreives the map instance
+
+
+      var getMap = _this.getMap;
+
+      if (!getMap) {
+        if (true) return; // If the function that retreives the map instance is not available,
+        // warn the user that is not a descendant of an ancestor component that provides the method
+
+        return console.warn("Invalid <AzureMapControl> map instance.\nPlease make sure <AzureMapControl> is a descendant of <AzureMap>.");
+      } // Retrieve the map instance from the injected function
+
+
+      var map = getMap();
+      var _position$coords = position.coords,
+          longitude = _position$coords.longitude,
+          latitude = _position$coords.latitude,
+          accuracy = _position$coords.accuracy;
+      _this.longitude = longitude;
+      _this.latitude = latitude;
+
+      if (_this.showAccuracy) {
+        // Create accuracy circle polygon
+        _this.properties = {
+          subType: 'Circle',
+          radius: _this.accuracy || accuracy
+        };
+      }
+
+      _this.hasPosition = true;
+
+      if (_this.centerMapToUserPosition) {
+        // Center the map on the users position.
+        map.setCamera(Object(objectSpread["a" /* default */])({}, _this.cameraOptions || {}, {
+          center: [_this.longitude, _this.latitude]
+        }));
+      }
+
+      _this.$emit(AzureMapUserPositionEvent.Ready);
+    }, function (error) {
+      //If an error occurs when trying to access the users position information, emit it with an error message.
+      _this.hasPosition = false;
+      _this.error = error;
+      var errorEvent;
+      var errorMessage;
+
+      switch (error.code) {
+        case error.PERMISSION_DENIED:
+          errorEvent = AzureMapUserPositionEvent.PermissionDenied;
+          errorMessage = 'User denied the request for Geolocation.';
+          break;
+
+        case error.POSITION_UNAVAILABLE:
+          errorEvent = AzureMapUserPositionEvent.PositionUnavailable;
+          errorMessage = 'Position information is unavailable.';
+          break;
+
+        case error.TIMEOUT:
+          errorEvent = AzureMapUserPositionEvent.Timeout;
+          errorMessage = 'The request to get user position timed out.';
+          break;
+
+        default:
+          errorEvent = AzureMapUserPositionEvent.UnknownError;
+          errorMessage = 'An unknown error occurred.';
+          break;
+      }
+
+      _this.$emit(errorEvent, errorMessage);
+
+      _this.$emit(AzureMapUserPositionEvent.Error);
+    }, this.getOptionsFromProps({
+      enableHighAccuracy: enableHighAccuracy,
+      maximumAge: maximumAge,
+      timeout: timeout
+    }));
+  },
+  methods: {
+    getOptionsFromProps: utils["b" /* getOptionsFromProps */]
+  }
+}));
+// CONCATENATED MODULE: ./src/plugin/components/AzureMapUserPosition.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var components_AzureMapUserPositionvue_type_script_lang_ts_ = (AzureMapUserPositionvue_type_script_lang_ts_); 
+// CONCATENATED MODULE: ./src/plugin/components/AzureMapUserPosition.vue
+
+
+
+
+
+/* normalize component */
+
+var AzureMapUserPosition_component = Object(componentNormalizer["a" /* default */])(
+  components_AzureMapUserPositionvue_type_script_lang_ts_,
+  AzureMapUserPositionvue_type_template_id_e49db368_render,
+  AzureMapUserPositionvue_type_template_id_e49db368_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var AzureMapUserPosition = (AzureMapUserPosition_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/controls/AzureMapControl.vue?vue&type=script&lang=ts&
+
+/**
+ * Adds a control to the `atlas.Map`.
+ */
+
+/* harmony default export */ var AzureMapControlvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+  name: 'AzureMapControl',
+
+  /**
+   * Inject the `getMap` function to get the `atlas.Map` instance
+   */
+  inject: ['getMap'],
+  props: {
+    control: {
+      type: Object,
+      default: null,
+      required: true
+    },
+    options: {
+      type: Object,
+      default: null
+    }
+  },
+  created: function created() {
+    var _this = this;
+
+    //@ts-ignore There is no TypeScript support for injections without decorators
+    // Look for the function that retreives the map instance
+    var getMap = this.getMap;
+
+    if (!getMap) {
+      if (true) return; // If the function that retreives the map instance is not available,
+      // warn the user that is not a descendant of an ancestor component that provides the method
+
+      return console.warn("Invalid <AzureMapControl> map instance.\nPlease make sure <AzureMapControl> is a descendant of <AzureMap>.");
+    } // Retrieve the map instance from the injected function
+
+
+    var map = getMap(); // Add the control to the map
+
+    map.controls.add(this.control, this.options || undefined); // Remove the control when the component is destroyed
+
+    this.$once('hook:destroyed', function () {
+      map.controls.remove(_this.control);
+    });
+  },
+  render: function render(createElement) {
+    return createElement();
+  }
+}));
+// CONCATENATED MODULE: ./src/plugin/components/controls/AzureMapControl.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var controls_AzureMapControlvue_type_script_lang_ts_ = (AzureMapControlvue_type_script_lang_ts_); 
+// CONCATENATED MODULE: ./src/plugin/components/controls/AzureMapControl.vue
+var AzureMapControl_render, AzureMapControl_staticRenderFns
+
+
+
+
+/* normalize component */
+
+var AzureMapControl_component = Object(componentNormalizer["a" /* default */])(
+  controls_AzureMapControlvue_type_script_lang_ts_,
+  AzureMapControl_render,
+  AzureMapControl_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var AzureMapControl = (AzureMapControl_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/controls/AzureMapZoomControl.vue?vue&type=script&lang=ts&
+
+
+
+/**
+ * Zoom control adds the ability to zoom in and out of the `atlas.Map`.
+ */
+
+/* harmony default export */ var AzureMapZoomControlvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+  name: 'AzureMapZoomControl',
+  functional: true,
+  props: {
+    position: {
+      type: String,
+      default: dist_atlas_min["ControlPosition"].BottomRight
+    }
+  },
+  render: function render(createElement, context) {
+    //@ts-ignore Azure Maps Control types are incorrect, it declares 'controls' instead of 'control'
+    // Construct a zoom control
+    var zoomControl = new context.parent.$_azureMaps.atlas.control.ZoomControl();
+    return createElement(AzureMapControl, {
+      props: {
+        control: zoomControl,
+        options: context.props
+      }
+    });
+  }
+}));
+// CONCATENATED MODULE: ./src/plugin/components/controls/AzureMapZoomControl.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var controls_AzureMapZoomControlvue_type_script_lang_ts_ = (AzureMapZoomControlvue_type_script_lang_ts_); 
+// CONCATENATED MODULE: ./src/plugin/components/controls/AzureMapZoomControl.vue
+var AzureMapZoomControl_render, AzureMapZoomControl_staticRenderFns
+
+
+
+
+/* normalize component */
+
+var AzureMapZoomControl_component = Object(componentNormalizer["a" /* default */])(
+  controls_AzureMapZoomControlvue_type_script_lang_ts_,
+  AzureMapZoomControl_render,
+  AzureMapZoomControl_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var AzureMapZoomControl = (AzureMapZoomControl_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/controls/AzureMapPitchControl.vue?vue&type=script&lang=ts&
+
+
+
+/**
+ * Pitch control adds the ability to change the pitch of the `atlas.Map`.
+ */
+
+/* harmony default export */ var AzureMapPitchControlvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+  name: 'AzureMapPitchControl',
+  functional: true,
+  props: {
+    position: {
+      type: String,
+      default: dist_atlas_min["ControlPosition"].BottomRight
+    }
+  },
+  render: function render(createElement, context) {
+    //@ts-ignore Azure Maps Control types are incorrect, it declares 'controls' instead of 'control'
+    // Construct a pitch control
+    var pitchControl = new context.parent.$_azureMaps.atlas.control.PitchControl();
+    return createElement(AzureMapControl, {
+      props: {
+        control: pitchControl,
+        options: context.props
+      }
+    });
+  }
+}));
+// CONCATENATED MODULE: ./src/plugin/components/controls/AzureMapPitchControl.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var controls_AzureMapPitchControlvue_type_script_lang_ts_ = (AzureMapPitchControlvue_type_script_lang_ts_); 
+// CONCATENATED MODULE: ./src/plugin/components/controls/AzureMapPitchControl.vue
+var AzureMapPitchControl_render, AzureMapPitchControl_staticRenderFns
+
+
+
+
+/* normalize component */
+
+var AzureMapPitchControl_component = Object(componentNormalizer["a" /* default */])(
+  controls_AzureMapPitchControlvue_type_script_lang_ts_,
+  AzureMapPitchControl_render,
+  AzureMapPitchControl_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var AzureMapPitchControl = (AzureMapPitchControl_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/controls/AzureMapStyleControl.vue?vue&type=script&lang=ts&
+
+
+
+/**
+ * Style control adds the ability to change the style of the `atlas.Map`.
+ */
+
+/* harmony default export */ var AzureMapStyleControlvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+  name: 'AzureMapStyleControl',
+  functional: true,
+  props: {
+    position: {
+      type: String,
+      default: dist_atlas_min["ControlPosition"].BottomRight
+    }
+  },
+  render: function render(createElement, context) {
+    //@ts-ignore Azure Maps Control types are incorrect, it declares 'controls' instead of 'control'
+    // Construct a compass control
+    var styleControl = new context.parent.$_azureMaps.atlas.control.StyleControl();
+    return createElement(AzureMapControl, {
+      props: {
+        control: styleControl,
+        options: context.props
+      }
+    });
+  }
+}));
+// CONCATENATED MODULE: ./src/plugin/components/controls/AzureMapStyleControl.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var controls_AzureMapStyleControlvue_type_script_lang_ts_ = (AzureMapStyleControlvue_type_script_lang_ts_); 
+// CONCATENATED MODULE: ./src/plugin/components/controls/AzureMapStyleControl.vue
+var AzureMapStyleControl_render, AzureMapStyleControl_staticRenderFns
+
+
+
+
+/* normalize component */
+
+var AzureMapStyleControl_component = Object(componentNormalizer["a" /* default */])(
+  controls_AzureMapStyleControlvue_type_script_lang_ts_,
+  AzureMapStyleControl_render,
+  AzureMapStyleControl_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var AzureMapStyleControl = (AzureMapStyleControl_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/controls/AzureMapCompassControl.vue?vue&type=script&lang=ts&
+
+
+
+/**
+ * Compass control adds the ability to change the rotation of the `atlas.Map`.
+ */
+
+/* harmony default export */ var AzureMapCompassControlvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+  name: 'AzureMapCompassControl',
+  functional: true,
+  props: {
+    position: {
+      type: String,
+      default: dist_atlas_min["ControlPosition"].BottomRight
+    }
+  },
+  render: function render(createElement, context) {
+    //@ts-ignore Azure Maps Control types are incorrect, it declares 'controls' instead of 'control'
+    // Construct a compass control
+    var compassControl = new context.parent.$_azureMaps.atlas.control.CompassControl();
+    return createElement(AzureMapControl, {
+      props: {
+        control: compassControl,
+        options: context.props
+      }
+    });
+  }
+}));
+// CONCATENATED MODULE: ./src/plugin/components/controls/AzureMapCompassControl.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var controls_AzureMapCompassControlvue_type_script_lang_ts_ = (AzureMapCompassControlvue_type_script_lang_ts_); 
+// CONCATENATED MODULE: ./src/plugin/components/controls/AzureMapCompassControl.vue
+var AzureMapCompassControl_render, AzureMapCompassControl_staticRenderFns
+
+
+
+
+/* normalize component */
+
+var AzureMapCompassControl_component = Object(componentNormalizer["a" /* default */])(
+  controls_AzureMapCompassControlvue_type_script_lang_ts_,
+  AzureMapCompassControl_render,
+  AzureMapCompassControl_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var AzureMapCompassControl = (AzureMapCompassControl_component.exports);
+// EXTERNAL MODULE: ./src/plugin/components/layers/AzureMapSymbolLayer.vue + 2 modules
+var AzureMapSymbolLayer = __webpack_require__("4a0d");
+
+// EXTERNAL MODULE: ./src/plugin/components/layers/AzureMapPolygonLayer.vue + 2 modules
+var AzureMapPolygonLayer = __webpack_require__("6a51");
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapLineLayer.vue?vue&type=script&lang=ts&
+
+
+var AzureMapLineLayervue_type_script_lang_ts_state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
+  id: 0
+});
+/**
+ * Renders line data on the map.
+ */
+
+/* harmony default export */ var AzureMapLineLayervue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+  name: 'AzureMapLineLayer',
+
+  /**
+   * Inject the `getMap` function to get the `atlas.Map` instance
+   * Inject the `getDataSource` function to get the `atlas.source.DataSource` instance
+   */
+  inject: ['getMap', 'getDataSource'],
+  props: {
+    id: {
+      type: String,
+      default: ''
+    },
+    options: {
+      type: Object,
+      default: null
+    }
+  },
+  mounted: function mounted() {
+    //@ts-ignore There is no TypeScript support for injections without decorators
+    // Look for the function that retreives the map instance
+    var getMap = this.getMap;
+
+    if (!getMap) {
+      if (true) return; // If the function that retreives the map instance is not available,
+      // warn the user that is not a descendant of an ancestor component that provides the method
+
+      return console.warn("Invalid <AzureMapLineLayer> map instance.\nPlease make sure <AzureMapLineLayer> is a descendant of <AzureMap>.");
+    } //@ts-ignore There is no TypeScript support for injections without decorators
+    // Look for the function that retreives the data source instance
+
+
+    var getDataSource = this.getDataSource;
+
+    if (!getDataSource) {
+      if (true) return; // If the function that retreives the data source is not available,
+      // warn the user that is not a descendant of an ancestor component that provides the method
+
+      return console.warn("Invalid <AzureMapLineLayer> data source.\nPlease make sure <AzureMapLineLayer> is a descendant of <AzureMapDataSource>.");
+    } // Retrieve the map instance from the injected function
+
+
+    var map = getMap(); // Retrieve the data source from the injected function
+
+    var dataSource = getDataSource(); // Create the line layer
+
+    var lineLayer = new this.$_azureMaps.atlas.layer.LineLayer(dataSource, this.id || "azure-map-line-layer-".concat(AzureMapLineLayervue_type_script_lang_ts_state.id++), this.options);
+    this.$watch('options', function (newOptions) {
+      lineLayer.setOptions(newOptions || {});
+    }, {
+      deep: true
+    }); // Add the layer to the map
+
+    map.layers.add(lineLayer); // Remove the layer when the component is destroyed
+
+    this.$once('hook:destroyed', function () {
+      map.layers.remove(lineLayer);
+    }); // Add the layer events to the map
+
+    this.addEventsFromListeners({
+      map: map,
+      target: lineLayer
+    });
+  },
+  methods: {
+    addEventsFromListeners: utils["a" /* addEventsFromListeners */]
+  },
+  render: function render(createElement) {
+    return createElement();
+  }
+}));
+// CONCATENATED MODULE: ./src/plugin/components/layers/AzureMapLineLayer.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var layers_AzureMapLineLayervue_type_script_lang_ts_ = (AzureMapLineLayervue_type_script_lang_ts_); 
+// CONCATENATED MODULE: ./src/plugin/components/layers/AzureMapLineLayer.vue
+var AzureMapLineLayer_render, AzureMapLineLayer_staticRenderFns
+
+
+
+
+/* normalize component */
+
+var AzureMapLineLayer_component = Object(componentNormalizer["a" /* default */])(
+  layers_AzureMapLineLayervue_type_script_lang_ts_,
+  AzureMapLineLayer_render,
+  AzureMapLineLayer_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var AzureMapLineLayer = (AzureMapLineLayer_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapHeatMapLayer.vue?vue&type=script&lang=ts&
+
+
+var AzureMapHeatMapLayervue_type_script_lang_ts_state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
+  id: 0
+});
+/**
+ * Heat maps are a type of data visualization used to represent the density of data using a range of colors.
+ */
+
+/* harmony default export */ var AzureMapHeatMapLayervue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+  name: 'AzureMapHeatMapLayer',
+
+  /**
+   * Inject the `getMap` function to get the `atlas.Map` instance
+   * Inject the `getDataSource` function to get the `atlas.source.DataSource` instance
+   */
+  inject: ['getMap', 'getDataSource'],
+  props: {
+    id: {
+      type: String,
+      default: ''
+    },
+    options: {
+      type: Object,
+      default: null
+    }
+  },
+  mounted: function mounted() {
+    //@ts-ignore There is no TypeScript support for injections without decorators
+    // Look for the function that retreives the map instance
+    var getMap = this.getMap;
+
+    if (!getMap) {
+      if (true) return; // If the function that retreives the map instance is not available,
+      // warn the user that is not a descendant of an ancestor component that provides the method
+
+      return console.warn("Invalid <AzureMapHeatMapLayer> map instance.\nPlease make sure <AzureMapHeatMapLayer> is a descendant of <AzureMap>.");
+    } //@ts-ignore There is no TypeScript support for injections without decorators
+    // Look for the function that retreives the data source instance
+
+
+    var getDataSource = this.getDataSource;
+
+    if (!getDataSource) {
+      if (true) return; // If the function that retreives the data source is not available,
+      // warn the user that is not a descendant of an ancestor component that provides the method
+
+      return console.warn("Invalid <AzureMapHeatMapLayer> data source.\nPlease make sure <AzureMapHeatMapLayer> is a descendant of <AzureMapDataSource>.");
+    } // Retrieve the map instance from the injected function
+
+
+    var map = getMap(); // Retrieve the data source from the injected function
+
+    var dataSource = getDataSource(); // Create the heat map layer
+
+    var heatMapLayer = new this.$_azureMaps.atlas.layer.HeatMapLayer(dataSource, this.id || "azure-map-heat-map-layer-".concat(AzureMapHeatMapLayervue_type_script_lang_ts_state.id++), this.options); // Watch for options changes
+
+    this.$watch('options', function (newOptions) {
+      heatMapLayer.setOptions(newOptions || {});
+    }, {
+      deep: true
+    }); // Add the layer to the map
+
+    map.layers.add(heatMapLayer); // Remove the layer when the component is destroyed
+
+    this.$once('hook:destroyed', function () {
+      map.layers.remove(heatMapLayer);
+    }); // Add the layer events to the map
+
+    this.addEventsFromListeners({
+      map: map,
+      target: heatMapLayer
+    });
+  },
+  methods: {
+    addEventsFromListeners: utils["a" /* addEventsFromListeners */]
+  },
+  render: function render(createElement) {
+    return createElement();
+  }
+}));
+// CONCATENATED MODULE: ./src/plugin/components/layers/AzureMapHeatMapLayer.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var layers_AzureMapHeatMapLayervue_type_script_lang_ts_ = (AzureMapHeatMapLayervue_type_script_lang_ts_); 
+// CONCATENATED MODULE: ./src/plugin/components/layers/AzureMapHeatMapLayer.vue
+var AzureMapHeatMapLayer_render, AzureMapHeatMapLayer_staticRenderFns
+
+
+
+
+/* normalize component */
+
+var AzureMapHeatMapLayer_component = Object(componentNormalizer["a" /* default */])(
+  layers_AzureMapHeatMapLayervue_type_script_lang_ts_,
+  AzureMapHeatMapLayer_render,
+  AzureMapHeatMapLayer_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var AzureMapHeatMapLayer = (AzureMapHeatMapLayer_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapImageLayer.vue?vue&type=script&lang=ts&
+
+
+/**
+ * Overlay an image to fixed set of coordinates on the map.
+ */
+
+/* harmony default export */ var AzureMapImageLayervue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+  name: 'AzureMapImageLayer',
+
+  /**
+   * Inject the `getMap` function to get the `atlas.Map` instance
+   * Inject the `getDataSource` function to get the `atlas.source.DataSource` instance
+   */
+  inject: ['getMap', 'getDataSource'],
+  props: {
+    options: {
+      type: Object,
+      default: null
+    }
+  },
+  mounted: function mounted() {
+    //@ts-ignore There is no TypeScript support for injections without decorators
+    // Look for the function that retreives the map instance
+    var getMap = this.getMap;
+
+    if (!getMap) {
+      if (true) return; // If the function that retreives the map instance is not available,
+      // warn the user that is not a descendant of an ancestor component that provides the method
+
+      return console.warn("Invalid <AzureMapImageLayer> map instance.\nPlease make sure <AzureMapImageLayer> is a descendant of <AzureMap>.");
+    } //@ts-ignore There is no TypeScript support for injections without decorators
+    // Look for the function that retreives the data source instance
+
+
+    var getDataSource = this.getDataSource;
+
+    if (!getDataSource) {
+      if (true) return; // If the function that retreives the data source is not available,
+      // warn the user that is not a descendant of an ancestor component that provides the method
+
+      return console.warn("Invalid <AzureMapImageLayer> data source.\nPlease make sure <AzureMapImageLayer> is a descendant of <AzureMapDataSource>.");
+    } // Retrieve the map instance from the injected function
+
+
+    var map = getMap(); // Retrieve the data source from the injected function
+
+    var dataSource = getDataSource(); // Create the image layer
+
+    var imageLayer = new this.$_azureMaps.atlas.layer.ImageLayer(this.options); // Watch for options changes
+
+    this.$watch('options', function (newOptions) {
+      imageLayer.setOptions(newOptions || {});
+    }, {
+      deep: true
+    }); // Add the layer to the map
+
+    map.layers.add(imageLayer); // Remove the layer when the component is destroyed
+
+    this.$once('hook:destroyed', function () {
+      map.layers.remove(imageLayer);
+    }); // Add the layer events to the map
+
+    this.addEventsFromListeners({
+      map: map,
+      target: imageLayer
+    });
+  },
+  methods: {
+    addEventsFromListeners: utils["a" /* addEventsFromListeners */]
+  },
+  render: function render(createElement) {
+    return createElement();
+  }
+}));
+// CONCATENATED MODULE: ./src/plugin/components/layers/AzureMapImageLayer.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var layers_AzureMapImageLayervue_type_script_lang_ts_ = (AzureMapImageLayervue_type_script_lang_ts_); 
+// CONCATENATED MODULE: ./src/plugin/components/layers/AzureMapImageLayer.vue
+var AzureMapImageLayer_render, AzureMapImageLayer_staticRenderFns
+
+
+
+
+/* normalize component */
+
+var AzureMapImageLayer_component = Object(componentNormalizer["a" /* default */])(
+  layers_AzureMapImageLayervue_type_script_lang_ts_,
+  AzureMapImageLayer_render,
+  AzureMapImageLayer_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var AzureMapImageLayer = (AzureMapImageLayer_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapTileLayer.vue?vue&type=script&lang=ts&
+
+
+/**
+ * Tile layers allow you to superimpose images on top of Azure Maps base map tiles.
+ */
+
+/* harmony default export */ var AzureMapTileLayervue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+  name: 'AzureMapTileLayer',
+
+  /**
+   * Inject the `getMap` function to get the `atlas.Map` instance
+   * Inject the `getDataSource` function to get the `atlas.source.DataSource` instance
+   */
+  inject: ['getMap', 'getDataSource'],
+  props: {
+    options: {
+      type: Object,
+      default: null
+    }
+  },
+  mounted: function mounted() {
+    //@ts-ignore There is no TypeScript support for injections without decorators
+    // Look for the function that retreives the map instance
+    var getMap = this.getMap;
+
+    if (!getMap) {
+      if (true) return; // If the function that retreives the map instance is not available,
+      // warn the user that is not a descendant of an ancestor component that provides the method
+
+      return console.warn("Invalid <AzureMapTileLayer> map instance.\nPlease make sure <AzureMapTileLayer> is a descendant of <AzureMap>.");
+    } //@ts-ignore There is no TypeScript support for injections without decorators
+    // Look for the function that retreives the data source instance
+
+
+    var getDataSource = this.getDataSource;
+
+    if (!getDataSource) {
+      if (true) return; // If the function that retreives the data source is not available,
+      // warn the user that is not a descendant of an ancestor component that provides the method
+
+      return console.warn("Invalid <AzureMapTileLayer> data source.\nPlease make sure <AzureMapTileLayer> is a descendant of <AzureMapDataSource>.");
+    } // Retrieve the map instance from the injected function
+
+
+    var map = getMap(); // Retrieve the data source from the injected function
+
+    var dataSource = getDataSource(); // Create the tile layer
+
+    var tileLayer = new this.$_azureMaps.atlas.layer.TileLayer(this.options); // Watch for options changes
+
+    this.$watch('options', function (newOptions) {
+      tileLayer.setOptions(newOptions || {});
+    }, {
+      deep: true
+    }); // Add the layer to the map
+
+    map.layers.add(tileLayer); // Remove the layer when the component is destroyed
+
+    this.$once('hook:destroyed', function () {
+      map.layers.remove(tileLayer);
+    }); // Add the layer events to the map
+
+    this.addEventsFromListeners({
+      map: map,
+      target: tileLayer
+    });
+  },
+  methods: {
+    addEventsFromListeners: utils["a" /* addEventsFromListeners */]
+  },
+  render: function render(createElement) {
+    return createElement();
+  }
+}));
+// CONCATENATED MODULE: ./src/plugin/components/layers/AzureMapTileLayer.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var layers_AzureMapTileLayervue_type_script_lang_ts_ = (AzureMapTileLayervue_type_script_lang_ts_); 
+// CONCATENATED MODULE: ./src/plugin/components/layers/AzureMapTileLayer.vue
+var AzureMapTileLayer_render, AzureMapTileLayer_staticRenderFns
+
+
+
+
+/* normalize component */
+
+var AzureMapTileLayer_component = Object(componentNormalizer["a" /* default */])(
+  layers_AzureMapTileLayervue_type_script_lang_ts_,
+  AzureMapTileLayer_render,
+  AzureMapTileLayer_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var AzureMapTileLayer = (AzureMapTileLayer_component.exports);
+// EXTERNAL MODULE: ./src/plugin/components/geometries/AzureMapPoint.vue + 2 modules
+var AzureMapPoint = __webpack_require__("c343");
+
+// EXTERNAL MODULE: ./node_modules/regenerator-runtime/runtime.js
+var runtime = __webpack_require__("96cf");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/asyncToGenerator.js
+var asyncToGenerator = __webpack_require__("3040");
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/geometries/AzureMapLineString.vue?vue&type=script&lang=ts&
+
+
+
+var AzureMapLineStringEvents;
+
+(function (AzureMapLineStringEvents) {
+  AzureMapLineStringEvents["Error"] = "error";
+})(AzureMapLineStringEvents || (AzureMapLineStringEvents = {}));
+
+var AzureMapLineStringvue_type_script_lang_ts_state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
+  id: 0
+});
+/**
+ * A LineString represents a geographic curve.
+ */
+
+/* harmony default export */ var AzureMapLineStringvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+  name: 'AzureMapLineString',
+
+  /**
+   * Inject the `getDataSource` function to get the `atlas.source.DataSource` instance
+   */
+  inject: ['getDataSource'],
+  props: {
+    id: {
+      type: String,
+      default: ''
+    },
+    coordinates: {
+      type: Array,
+      default: null
+    },
+    properties: {
+      type: Object,
+      default: function _default() {
+        return {};
+      }
+    }
+  },
+  created: function () {
+    var _created = Object(asyncToGenerator["a" /* default */])(
+    /*#__PURE__*/
+    regeneratorRuntime.mark(function _callee() {
+      var _this = this;
+
+      var getDataSource, dataSource, shape;
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return this.validateProps();
+
+            case 2:
+              //@ts-ignore There is no TypeScript support for injections without decorators
+              // Look for the function that retreives the data source instance
+              getDataSource = this.getDataSource;
+
+              if (getDataSource) {
+                _context.next = 7;
+                break;
+              }
+
+              if (false) {}
+
+              return _context.abrupt("return");
+
+            case 6:
+              return _context.abrupt("return", console.warn("Invalid <AzureMapLineString> data source.\nPlease make sure <AzureMapLineString> is a descendant of an <AzureMapDataSource> component."));
+
+            case 7:
+              // Retrieve the data source from the injected function
+              dataSource = getDataSource(); // Create a shape from the line string geometry
+
+              shape = new this.$_azureMaps.atlas.Shape(new this.$_azureMaps.atlas.data.LineString(this.coordinates || []), this.id || "azure-map-line-string-".concat(AzureMapLineStringvue_type_script_lang_ts_state.id++), this.properties); // Add the shape to the data source.
+
+              dataSource.add([shape]); // Watch the shape position and update it every time it changes
+
+              this.$watch('coordinates', function (newCoordinates) {
+                _this.validateCoordinates(newCoordinates).then(function (coords) {
+                  shape.setCoordinates(coords);
+                });
+              }, {
+                deep: true
+              }); // Remove the shape when the component is destroyed
+
+              this.$once('hook:destroyed', function () {
+                dataSource.remove(shape);
+              });
+
+            case 12:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this);
+    }));
+
+    return function created() {
+      return _created.apply(this, arguments);
+    };
+  }(),
+  methods: {
+    // Perform more complex prop validations than is possible
+    // inside individual validator functions for each prop.
+    validateProps: function () {
+      var _validateProps = Object(asyncToGenerator["a" /* default */])(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee2() {
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return this.validateCoordinates(this.coordinates);
+
+              case 2:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      return function validateProps() {
+        return _validateProps.apply(this, arguments);
+      };
+    }(),
+    validateCoordinates: function () {
+      var _validateCoordinates = Object(asyncToGenerator["a" /* default */])(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee3(coordinates) {
+        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+
+                if (coordinates) {
+                  _context3.next = 3;
+                  break;
+                }
+
+                throw new Error("Invalid <AzureMapLineString> coordinates, coordinates are ".concat(coordinates, ".\nPlease make sure <AzureMapLineString> coordinates are valid."));
+
+              case 3:
+                return _context3.abrupt("return", Promise.resolve(coordinates || []));
+
+              case 6:
+                _context3.prev = 6;
+                _context3.t0 = _context3["catch"](0);
+
+                if (false) {}
+
+                this.$emit(AzureMapLineStringEvents.Error, _context3.t0);
+                return _context3.abrupt("return", Promise.reject(_context3.t0));
+
+              case 11:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[0, 6]]);
+      }));
+
+      return function validateCoordinates(_x) {
+        return _validateCoordinates.apply(this, arguments);
+      };
+    }()
+  },
+  render: function render(createElement) {
+    return createElement();
+  }
+}));
+// CONCATENATED MODULE: ./src/plugin/components/geometries/AzureMapLineString.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var geometries_AzureMapLineStringvue_type_script_lang_ts_ = (AzureMapLineStringvue_type_script_lang_ts_); 
+// CONCATENATED MODULE: ./src/plugin/components/geometries/AzureMapLineString.vue
+var AzureMapLineString_render, AzureMapLineString_staticRenderFns
+
+
+
+
+/* normalize component */
+
+var AzureMapLineString_component = Object(componentNormalizer["a" /* default */])(
+  geometries_AzureMapLineStringvue_type_script_lang_ts_,
+  AzureMapLineString_render,
+  AzureMapLineString_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var AzureMapLineString = (AzureMapLineString_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/geometries/AzureMapPolygon.vue?vue&type=script&lang=ts&
+
+
+
+var AzureMapPolygonEvents;
+
+(function (AzureMapPolygonEvents) {
+  AzureMapPolygonEvents["Error"] = "error";
+})(AzureMapPolygonEvents || (AzureMapPolygonEvents = {}));
+
+var AzureMapPolygonvue_type_script_lang_ts_state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
+  id: 0
+});
+/**
+ * A Polygon represents a geographic polygon.
+ */
+
+/* harmony default export */ var AzureMapPolygonvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+  name: 'AzureMapPolygon',
+
+  /**
+   * Inject the `getDataSource` function to get the `atlas.source.DataSource` instance
+   */
+  inject: ['getDataSource'],
+  props: {
+    id: {
+      type: String,
+      default: ''
+    },
+    coordinates: {
+      type: Array,
+      default: null
+    },
+    properties: {
+      type: Object,
+      default: function _default() {
+        return {};
+      }
+    }
+  },
+  created: function () {
+    var _created = Object(asyncToGenerator["a" /* default */])(
+    /*#__PURE__*/
+    regeneratorRuntime.mark(function _callee() {
+      var _this = this;
+
+      var getDataSource, dataSource, shape;
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return this.validateProps();
+
+            case 2:
+              //@ts-ignore There is no TypeScript support for injections without decorators
+              // Look for the function that retreives the data source instance
+              getDataSource = this.getDataSource;
+
+              if (getDataSource) {
+                _context.next = 7;
+                break;
+              }
+
+              if (false) {}
+
+              return _context.abrupt("return");
+
+            case 6:
+              return _context.abrupt("return", console.warn("Invalid <AzureMapPolygon> data source.\nPlease make sure <AzureMapPolygon> is a descendant of an <AzureMapDataSource> component."));
+
+            case 7:
+              // Retrieve the data source from the injected function
+              dataSource = getDataSource(); // Create a shape from the polygon geometry
+
+              shape = new this.$_azureMaps.atlas.Shape(new this.$_azureMaps.atlas.data.Polygon(this.coordinates || []), this.id || "azure-map-polygon-".concat(AzureMapPolygonvue_type_script_lang_ts_state.id++), this.properties); // Add the shape to the data source.
+
+              dataSource.add([shape]); // Watch the shape position and update it every time it changes
+
+              this.$watch('coordinates', function (newCoordinates) {
+                _this.validateCoordinates(newCoordinates).then(function (coords) {
+                  shape.setCoordinates(coords);
+                });
+              }, {
+                deep: true
+              }); // Remove the shape when the component is destroyed
+
+              this.$once('hook:destroyed', function () {
+                dataSource.remove(shape);
+              });
+
+            case 12:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this);
+    }));
+
+    return function created() {
+      return _created.apply(this, arguments);
+    };
+  }(),
+  methods: {
+    // Perform more complex prop validations than is possible
+    // inside individual validator functions for each prop.
+    validateProps: function () {
+      var _validateProps = Object(asyncToGenerator["a" /* default */])(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee2() {
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (false) {}
+
+                return _context2.abrupt("return");
+
+              case 2:
+                _context2.next = 4;
+                return this.validateCoordinates(this.coordinates);
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      return function validateProps() {
+        return _validateProps.apply(this, arguments);
+      };
+    }(),
+    validateCoordinates: function () {
+      var _validateCoordinates = Object(asyncToGenerator["a" /* default */])(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee3(coordinates) {
+        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+
+                if (coordinates) {
+                  _context3.next = 3;
+                  break;
+                }
+
+                throw new Error("Invalid <AzureMapLineString> coordinates, coordinates are ".concat(coordinates, ".\nPlease make sure <AzureMapLineString> coordinates are valid."));
+
+              case 3:
+                return _context3.abrupt("return", Promise.resolve(coordinates || []));
+
+              case 6:
+                _context3.prev = 6;
+                _context3.t0 = _context3["catch"](0);
+
+                if (false) {}
+
+                this.$emit(AzureMapPolygonEvents.Error, _context3.t0);
+                return _context3.abrupt("return", Promise.reject(_context3.t0));
+
+              case 11:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[0, 6]]);
+      }));
+
+      return function validateCoordinates(_x) {
+        return _validateCoordinates.apply(this, arguments);
+      };
+    }()
+  },
+  render: function render(createElement) {
+    return createElement();
+  }
+}));
+// CONCATENATED MODULE: ./src/plugin/components/geometries/AzureMapPolygon.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var geometries_AzureMapPolygonvue_type_script_lang_ts_ = (AzureMapPolygonvue_type_script_lang_ts_); 
+// CONCATENATED MODULE: ./src/plugin/components/geometries/AzureMapPolygon.vue
+var AzureMapPolygon_render, AzureMapPolygon_staticRenderFns
+
+
+
+
+/* normalize component */
+
+var AzureMapPolygon_component = Object(componentNormalizer["a" /* default */])(
+  geometries_AzureMapPolygonvue_type_script_lang_ts_,
+  AzureMapPolygon_render,
+  AzureMapPolygon_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var AzureMapPolygon = (AzureMapPolygon_component.exports);
+// CONCATENATED MODULE: ./src/plugin/index.ts
+
+
+
+ //===
+// Components
+//===
+
+
+
+ //===
+// Custom components
+//===
+
+ //===
+// Control components
+//===
+
+
+
+
+
+ //===
+// Layer components
+//===
+
+
+
+
+
+
+ //===
+// Geometry components
+//===
+
+
+
+
+vue_azure_maps_VueAzureMaps.install = install;
+vue_azure_maps_VueAzureMaps.version = Object({"NODE_ENV":"production","BASE_URL":"/"}).__VERSION__ || '';
+var plugin_VueAzureMaps = {
+  install: vue_azure_maps_VueAzureMaps.install,
+  name: 'vue-azure-maps'
+};
+if (typeof window !== 'undefined' && window.Vue) window.Vue.use(plugin_VueAzureMaps);
+
+/* harmony default export */ var src_plugin = (plugin_VueAzureMaps);
+// CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
+/* concated harmony reexport AzureMap */__webpack_require__.d(__webpack_exports__, "AzureMap", function() { return AzureMap; });
+/* concated harmony reexport AzureMapDataSource */__webpack_require__.d(__webpack_exports__, "AzureMapDataSource", function() { return AzureMapDataSource["default"]; });
+/* concated harmony reexport AzureMapHtmlMarker */__webpack_require__.d(__webpack_exports__, "AzureMapHtmlMarker", function() { return AzureMapHtmlMarker; });
+/* concated harmony reexport AzureMapUserPosition */__webpack_require__.d(__webpack_exports__, "AzureMapUserPosition", function() { return AzureMapUserPosition; });
+/* concated harmony reexport AzureMapPoint */__webpack_require__.d(__webpack_exports__, "AzureMapPoint", function() { return AzureMapPoint["default"]; });
+/* concated harmony reexport AzureMapLineString */__webpack_require__.d(__webpack_exports__, "AzureMapLineString", function() { return AzureMapLineString; });
+/* concated harmony reexport AzureMapPolygon */__webpack_require__.d(__webpack_exports__, "AzureMapPolygon", function() { return AzureMapPolygon; });
+/* concated harmony reexport AzureMapControl */__webpack_require__.d(__webpack_exports__, "AzureMapControl", function() { return AzureMapControl; });
+/* concated harmony reexport AzureMapZoomControl */__webpack_require__.d(__webpack_exports__, "AzureMapZoomControl", function() { return AzureMapZoomControl; });
+/* concated harmony reexport AzureMapPitchControl */__webpack_require__.d(__webpack_exports__, "AzureMapPitchControl", function() { return AzureMapPitchControl; });
+/* concated harmony reexport AzureMapStyleControl */__webpack_require__.d(__webpack_exports__, "AzureMapStyleControl", function() { return AzureMapStyleControl; });
+/* concated harmony reexport AzureMapCompassControl */__webpack_require__.d(__webpack_exports__, "AzureMapCompassControl", function() { return AzureMapCompassControl; });
+/* concated harmony reexport AzureMapSymbolLayer */__webpack_require__.d(__webpack_exports__, "AzureMapSymbolLayer", function() { return AzureMapSymbolLayer["default"]; });
+/* concated harmony reexport AzureMapPolygonLayer */__webpack_require__.d(__webpack_exports__, "AzureMapPolygonLayer", function() { return AzureMapPolygonLayer["default"]; });
+/* concated harmony reexport AzureMapLineLayer */__webpack_require__.d(__webpack_exports__, "AzureMapLineLayer", function() { return AzureMapLineLayer; });
+/* concated harmony reexport AzureMapHeatMapLayer */__webpack_require__.d(__webpack_exports__, "AzureMapHeatMapLayer", function() { return AzureMapHeatMapLayer; });
+/* concated harmony reexport AzureMapImageLayer */__webpack_require__.d(__webpack_exports__, "AzureMapImageLayer", function() { return AzureMapImageLayer; });
+/* concated harmony reexport AzureMapTileLayer */__webpack_require__.d(__webpack_exports__, "AzureMapTileLayer", function() { return AzureMapTileLayer; });
+
+
+/* harmony default export */ var entry_lib = __webpack_exports__["default"] = (src_plugin);
+
+
+
+/***/ }),
+
+/***/ "fdef":
+/***/ (function(module, exports) {
+
+module.exports = '\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u180E\u2000\u2001\u2002\u2003' +
+  '\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF';
+
+
+/***/ }),
+
+/***/ "ff49":
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var require;var require;/*
 
 MICROSOFT SOFTWARE LICENSE TERMS
 MICROSOFT AZURE MAPS WEB SDK
-________________________________________
 These license terms are an agreement between you and Microsoft Corporation (or one of its affiliates). They apply to the software named above and any Microsoft services or software updates (except to the extent such services or updates are accompanied by new or additional terms, in which case those different terms apply prospectively and do not alter your or Microsoft’s rights relating to pre-updated software or services). IF YOU COMPLY WITH THESE LICENSE TERMS, YOU HAVE THE RIGHTS BELOW.  BY USING THE SOFTWARE, YOU ACCEPT THESE TERMS.
-
 1. INSTALLATION AND USE RIGHTS.
   a) General. You may install and use any number of copies of the software to develop and test your applications.
-  b) Third Party Software. The software may include third party applications that Microsoft, not the third party, licenses to you under this agreement. Any included notices for third party applications are for your information only.
-  c) Microsoft Online Subscription Agreement. Some features of the software provide access to, or rely on, Microsoft Azure Services. The use of those services (but not the software) is governed by the separate terms and privacy policies associated with your Microsoft Azure subscription. The services may not be available in all regions. For more information see https://go.microsoft.com/fwLink/?LinkID=522330&amp;clcid=0x9.
-
+  b) User Region Parameters. The software will allow you to select from a View list to set the map view within your application for a given customer. By default the View parameter (also referred to as “user region parameter” is set to “Unified”.  Countries/Regions that are not on the View list will default to the “Unified” View. It is your responsibility to determine the location of your users, and then set the View parameter correctly for that location. The View parameter must be used in compliance with applicable laws, including those regarding mapping, of the country where maps, images and other data and third party content that You are authorized to access via the software is made available. 
+  c) Third Party Software. The software may include third party applications that Microsoft, not the third party, licenses to you under this agreement. Any included notices for third party applications are for your information only.
+  d) Microsoft Online Subscription Agreement. Some features of the software provide access to, or rely on, Microsoft Azure Services. The use of those services (but not the software) is governed by the separate terms and privacy policies associated with your Microsoft Azure subscription. The services may not be available in all regions. For more information see https://go.microsoft.com/fwLink/?LinkID=522330&amp;clcid=0x9.
 2. DISTRIBUTABLE CODE. The software is comprised of “Distributable Code”. “Distributable Code” is code that you are permitted to distribute in applications you develop if you comply with the terms below and otherwise set forth in these license terms. 
   a) Distribution Rights. 
     i. You may copy and distribute the object code form of the software.
-    ii. Third Party Distribution. You may permit distributors of your applications to copy and distribute any of this distributable code you elect to distribute with your applications.
+    i. Third Party Distribution. You may permit distributors of your applications to copy and distribute any of this distributable code you elect to distribute with your applications.
   b) Distribution Requirements. For any code you distribute, you must:
     i. add significant primary functionality to it in your applications;
     ii. require distributors and external end users to agree to terms that protect it and Microsoft at least as much as this agreement; and
     iii. indemnify, defend, and hold harmless Microsoft from any claims, including attorneys’ fees, related to the distribution or use of your applications, except to the extent that any claim is based solely on the unmodified distributable code.
-
   c) Distribution Restrictions. You may not:
     i. use Microsoft’s trademarks or trade dress in your application in any way that suggests your application comes from or is endorsed by Microsoft; or
     ii. modify or distribute the source code of any distributable code so that any part of it becomes subject to any license that requires that the distributable code, any other part of the software, or any of Microsoft’s other intellectual property be disclosed or distributed in source code form, or that others have the right to modify it.
-
 3. DATA COLLECTION. The software may collect information about you and your use of the software and send that to Microsoft. Microsoft may use this information to provide services and improve Microsoft’s products and services. Your opt-out rights, if any, are described in the product documentation. Some features in the software may enable collection of data from users of your applications that access or use the software. If you use these features to enable data collection in your applications, you must comply with applicable law, including getting any required user consent, and maintain a prominent privacy policy that accurately informs users about how you use, collect, and share their data. You can learn more about Microsoft’s data collection and use in the product documentation and the Microsoft Privacy Statement at https://go.microsoft.com/fwlink/?LinkId=512132. You agree to comply with all applicable provisions of the Microsoft Privacy Statement.
-
 4. SCOPE OF LICENSE. The software is licensed, not sold. Microsoft reserves all other rights. Unless applicable law gives you more rights despite this limitation, you will not (and have no right to):
   a) work around any technical limitations in the software that only allow you to use it in certain ways;
   b) reverse engineer, decompile, or disassemble the software, or attempt to do so, except and only to the extent permitted by licensing terms governing the use of open-source components that may be included with the software;
   c) remove, minimize, block, or modify any notices of Microsoft or its suppliers in the software;
   d) use the software in any way that is against the law or to create or propagate malware; or
   e) share, publish, distribute, or lend the software (except for any distributable code, subject to the terms above), provide the software as a stand-alone hosted solution for others to use, or transfer the software or this agreement to any third party.
-
 5. EXPORT RESTRICTIONS. You must comply with all domestic and international export laws and regulations that apply to the software, which include restrictions on destinations, end users, and end use. For further information on export restrictions, visit http://aka.ms/exporting.
-
 6. SUPPORT SERVICES. Microsoft is not obligated under this agreement to provide any support services for the software. Any support provided is “as is”, “with all faults”, and without warranty of any kind.
-
 7. UPDATES. The software may periodically check for updates, and download and install them for you. You may obtain updates only from Microsoft or authorized sources. Microsoft may need to update your system to provide you with updates. You agree to receive these automatic updates without any additional notice. Updates may not include or support all existing software features, services, or peripheral devices.
-
 8. ENTIRE AGREEMENT. This agreement, and any other terms Microsoft may provide for supplements, updates, or third-party applications, is the entire agreement for the software.
-
 9. APPLICABLE LAW AND PLACE TO RESOLVE DISPUTES. If you acquired the software in the United States or Canada, the laws of the state or province where you live (or, if a business, where your principal place of business is located) govern the interpretation of this agreement, claims for its breach, and all other claims (including consumer protection, unfair competition, and tort claims), regardless of conflict of laws principles. If you acquired the software in any other country, its laws apply. If U.S. federal jurisdiction exists, you and Microsoft consent to exclusive jurisdiction and venue in the federal court in King County, Washington for all disputes heard in court. If not, you and Microsoft consent to exclusive jurisdiction and venue in the Superior Court of King County, Washington for all disputes heard in court.
-
 10. CONSUMER RIGHTS; REGIONAL VARIATIONS. This agreement describes certain legal rights. You may have other rights, including consumer rights, under the laws of your state or country. Separate and apart from your relationship with Microsoft, you may also have rights with respect to the party from which you acquired the software. This agreement does not change those other rights if the laws of your state or country do not permit it to do so. For example, if you acquired the software in one of the below regions, or mandatory country law applies, then the following provisions apply to you:
   a) Australia. You have statutory guarantees under the Australian Consumer Law and nothing in this agreement is intended to affect those rights.
   b) Canada. If you acquired this software in Canada, you may stop receiving updates by turning off the automatic update feature, disconnecting your device from the Internet (if and when you re-connect to the Internet, however, the software will resume checking for and installing updates), or uninstalling the software. The product documentation, if any, may also specify how to turn off updates for your specific device or software.
   c) Germany and Austria.
     i. Warranty. The properly licensed software will perform substantially as described in any Microsoft materials that accompany the software. However, Microsoft gives no contractual guarantee in relation to the licensed software.
     ii. Limitation of Liability. In case of intentional conduct, gross negligence, claims based on the Product Liability Act, as well as, in case of death or personal or physical injury, Microsoft is liable according to the statutory law.
-Subject to the foregoing clause ii., Microsoft will only be liable for slight negligence if Microsoft is in breach of such material contractual obligations, the fulfillment of which facilitate the due performance of this agreement, the breach of which would endanger the purpose of this agreement and the compliance with which a party may constantly trust in (so-called "cardinal obligations"). In other cases of slight negligence, Microsoft will not be liable for slight negligence.
-
+  Subject to the foregoing clause ii., Microsoft will only be liable for slight negligence if Microsoft is in breach of such material contractual obligations, the fulfillment of which facilitate the due performance of this agreement, the breach of which would endanger the purpose of this agreement and the compliance with which a party may constantly trust in (so-called "cardinal obligations"). In other cases of slight negligence, Microsoft will not be liable for slight negligence.
 11. DISCLAIMER OF WARRANTY. THE SOFTWARE IS LICENSED “AS IS.” YOU BEAR THE RISK OF USING IT. MICROSOFT GIVES NO EXPRESS WARRANTIES, GUARANTEES, OR CONDITIONS. TO THE EXTENT PERMITTED UNDER APPLICABLE LAWS, MICROSOFT EXCLUDES ALL IMPLIED WARRANTIES, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
-
 12. LIMITATION ON AND EXCLUSION OF DAMAGES. IF YOU HAVE ANY BASIS FOR RECOVERING DAMAGES DESPITE THE PRECEDING DISCLAIMER OF WARRANTY, YOU CAN RECOVER FROM MICROSOFT AND ITS SUPPLIERS ONLY DIRECT DAMAGES UP TO U.S. $5.00. YOU CANNOT RECOVER ANY OTHER DAMAGES, INCLUDING CONSEQUENTIAL, LOST PROFITS, SPECIAL, INDIRECT, OR INCIDENTAL DAMAGES.
 This limitation applies to (a) anything related to the software, services, content (including code) on third party Internet sites, or third party applications; and (b) claims for breach of contract, warranty, guarantee, or condition; strict liability, negligence, or other tort; or any other claim; in each case to the extent permitted by applicable law.
 It also applies even if Microsoft knew or should have known about the possibility of the damages. The above limitation or exclusion may not apply to you because your state, province, or country may not allow the exclusion or limitation of incidental, consequential, or other damages.
-
 Please note: As this software is distributed in Canada, some of the clauses in this agreement are provided below in French.
-
 Remarque: Ce logiciel étant distribué au Canada, certaines des clauses dans ce contrat sont fournies ci-dessous en français.
-
 EXONÉRATION DE GARANTIE. Le logiciel visé par une licence est offert « tel quel ». Toute utilisation de ce logiciel est à votre seule risque et péril. Microsoft n’accorde aucune autre garantie expresse. Vous pouvez bénéficier de droits additionnels en vertu du droit local sur la protection des consommateurs, que ce contrat ne peut modifier. La ou elles sont permises par le droit locale, les garanties implicites de qualité marchande, d’adéquation à un usage particulier et d’absence de contrefaçon sont exclues.
-
 LIMITATION DES DOMMAGES-INTÉRÊTS ET EXCLUSION DE RESPONSABILITÉ POUR LES DOMMAGES. Vous pouvez obtenir de Microsoft et de ses fournisseurs une indemnisation en cas de dommages directs uniquement à hauteur de 5,00 $ US. Vous ne pouvez prétendre à aucune indemnisation pour les autres dommages, y compris les dommages spéciaux, indirects ou accessoires et pertes de bénéfices.
-
 Cette limitation concerne:
-  • tout ce qui est relié au logiciel, aux services ou au contenu (y compris le code) figurant sur des sites Internet tiers ou dans des programmes tiers; et
-  • les réclamations au titre de violation de contrat ou de garantie, ou au titre de responsabilité stricte, de négligence ou d’une autre faute dans la limite autorisée par la loi en vigueur.
+• tout ce qui est relié au logiciel, aux services ou au contenu (y compris le code) figurant sur des sites Internet tiers ou dans des programmes tiers; et
+• les réclamations au titre de violation de contrat ou de garantie, ou au titre de responsabilité stricte, de négligence ou d’une autre faute dans la limite autorisée par la loi en vigueur.
 Elle s’applique également, même si Microsoft connaissait ou devrait connaître l’éventualité d’un tel dommage. Si votre pays n’autorise pas l’exclusion ou la limitation de responsabilité pour les dommages indirects, accessoires ou de quelque nature que ce soit, il se peut que la limitation ou l’exclusion ci-dessus ne s’appliquera pas à votre égard.
-
 EFFET JURIDIQUE. Le présent contrat décrit certains droits juridiques. Vous pourriez avoir d’autres droits prévus par les lois de votre pays. Le présent contrat ne modifie pas les droits que vous confèrent les lois de votre pays si celles-ci ne le permettent pas.
 
 
@@ -3985,6 +6234,953 @@ preamble: |
 
 
 registrations:
+	- component:
+		name: cardinal
+		version: 0.4.4
+		license: |
+Copyright 2012 Thorsten Lorenz. 
+All rights reserved.
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+	- component:
+		name: typedarray
+		version: 0.0.6
+		license: |
+ Copyright (c) 2010, Linden Research, Inc.
+ Copyright (c) 2012, Joshua Bell
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+ $/LicenseInfo$
+
+// Original can be found at:
+//   https://bitbucket.org/lindenlab/llsd
+// Modifications by Joshua Bell inexorabletash@gmail.com
+//   https://github.com/inexorabletash/polyfill
+
+// ES3/ES5 implementation of the Krhonos Typed Array Specification
+//   Ref: http://www.khronos.org/registry/typedarray/specs/latest/
+//   Date: 2011-02-01
+//
+// Variations:
+//  * Allows typed_array.get/set() as alias for subscripts (typed_array[])
+
+
+	- component:
+		name: @mapbox/geojson-types
+		version: 1.0.2
+		license: |
+MIT License
+
+Copyright (c) 2018 Mapbox
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+
+	- component:
+		name: @types/lodash
+		version: 4.14.106
+		license: |
+    MIT License
+
+    Copyright (c) Microsoft Corporation. All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE
+
+
+
+	- component:
+		name: pbf
+		version: 3.1.0
+		license: |
+Copyright (c) 2017, Mapbox
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of pbf nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+
+	- component:
+		name: util-deprecate
+		version: 1.0.2
+		license: |
+(The MIT License)
+
+Copyright (c) 2014 Nathan Rajlich <nathan@tootallnate.net>
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+	- component:
+		name: grid-index
+		version: 1.1.0
+		license: |
+Copyright (c) 2016, Mapbox
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+THIS SOFTWARE.
+
+
+
+	- component:
+		name: supercluster
+		version: 6.0.1
+		license: |
+ISC License
+
+Copyright (c) 2016, Mapbox
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+THIS SOFTWARE.
+
+
+
+	- component:
+		name: @mapbox/whoots-js
+		version: 3.1.0
+		license: |
+ISC License
+
+Copyright (c) 2017, Mapbox
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+THIS SOFTWARE.
+
+
+
+	- component:
+		name: concat-stream
+		version: 1.6.2
+		license: |
+The MIT License
+
+Copyright (c) 2013 Max Ogden
+
+Permission is hereby granted, free of charge, 
+to any person obtaining a copy of this software and 
+associated documentation files (the "Software"), to 
+deal in the Software without restriction, including 
+without limitation the rights to use, copy, modify, 
+merge, publish, distribute, sublicense, and/or sell 
+copies of the Software, and to permit persons to whom 
+the Software is furnished to do so, 
+subject to the following conditions:
+
+The above copyright notice and this permission notice 
+shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR 
+ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+	- component:
+		name: @mapbox/point-geometry
+		version: 0.1.0
+		license: |
+Copyright (c) 2015, Mapbox <>
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+
+
+	- component:
+		name: string_decoder
+		version: 0.10.31
+		license: |
+Node.js is licensed for use as follows:
+
+"""
+Copyright Node.js contributors. All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+"""
+
+This license applies to parts of Node.js originating from the
+https://github.com/joyent/node repository:
+
+"""
+Copyright Joyent, Inc. and other Node contributors. All rights reserved.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+"""
+
+
+
+
+	- component:
+		name: murmurhash-js
+		version: 1.0.0
+		license: |
+The MIT License (MIT)
+
+Copyright (c) 2011 Gary Court
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+	- component:
+		name: @mapbox/geojson-area
+		version: 0.2.2
+		license: |
+Copyright 2005-2013 OpenLayers Contributors. All rights reserved. See
+authors.txt for full list.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+ 1. Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.
+
+ 2. Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation and/or
+other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY OPENLAYERS CONTRIBUTORS ``AS IS'' AND ANY EXPRESS
+OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
+SHALL COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+The views and conclusions contained in the software and documentation are those
+of the authors and should not be interpreted as representing official policies,
+either expressed or implied, of OpenLayers Contributors.
+
+
+
+	- component:
+		name: ansicolors
+		version: 0.2.1
+		license: |
+Copyright 2013 Thorsten Lorenz. 
+All rights reserved.
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+	- component:
+		name: ieee754
+		version: 1.1.11
+		license: |
+Copyright (c) 2008, Fair Oaks Labs, Inc.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+ * Redistributions of source code must retain the above copyright notice,
+   this list of conditions and the following disclaimer.
+
+ * Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+ * Neither the name of Fair Oaks Labs, Inc. nor the names of its contributors
+   may be used to endorse or promote products derived from this software
+   without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+
+
+	- component:
+		name: gl-matrix
+		version: 3.0.0
+		license: |
+Copyright (c) 2015-2019, Brandon Jones, Colin MacKenzie IV.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+	- component:
+		name: @mapbox/vector-tile
+		version: 1.3.1
+		license: |
+Copyright (c) 2014, Mapbox
+
+
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+    * Neither the name of Mapbox nor the names of its contributors
+      may be used to endorse or promote products derived from this software
+      without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+
+	- component:
+		name: minimist
+		version: 0.0.5
+		license: |
+This software is released under the MIT license:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+	- component:
+		name: isarray
+		version: 1.0.0
+		license: |
+(MIT)
+
+Copyright (c) 2013 Julian Gruber <julian@juliangruber.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+	- component:
+		name: @types/jwt-decode
+		version: 2.2.1
+		license: |
+    MIT License
+
+    Copyright (c) Microsoft Corporation. All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE
+
+
+
+	- component:
+		name: jwt-decode
+		version: 2.2.0
+		license: |
+The MIT License (MIT)
+ 
+Copyright (c) 2015 Auth0, Inc. <support@auth0.com> (http://auth0.com)
+ 
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+ 
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+ 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+
+	- component:
+		name: @microsoft/applicationinsights-properties-js
+		version: 1.0.0-beta.11
+		license: |
+    MIT License
+
+    Copyright (c) Microsoft Corporation. All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE
+
+
+
+	- component:
+		name: inherits
+		version: 2.0.3
+		license: |
+The ISC License
+
+Copyright (c) Isaac Z. Schlueter
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+
+
+
+
+	- component:
+		name: core-util-is
+		version: 1.0.2
+		license: |
+Copyright Node.js contributors. All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+
+
+
+	- component:
+		name: safe-buffer
+		version: 5.1.2
+		license: |
+The MIT License (MIT)
+
+Copyright (c) Feross Aboukhadijeh
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+
+	- component:
+		name: uuid-random
+		version: 1.0.6
+		license: |
+Copyright (c) 2016 Wes Roberts
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+	- component:
+		name: @microsoft/applicationinsights-common
+		version: 1.0.0-beta.16
+		license: |
+    MIT License
+
+    Copyright (c) Microsoft Corporation. All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE
+
+
+
+	- component:
+		name: esprima
+		version: 2.7.3
+		license: |
+Copyright (c) jQuery Foundation, Inc. and Contributors, All Rights Reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+  * Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  * Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+
+	- component:
+		name: isarray
+		version: 0.0.1
+		license: |
+(MIT)
+
+Copyright (c) 2013 Julian Gruber <julian@juliangruber.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+	- component:
+		name: @types/geojson
+		version: 7946.0.7
+		license: |
+    MIT License
+
+    Copyright (c) Microsoft Corporation. All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE
+
+
+
+	- component:
+		name: typescript
+		version: 3.4.3
+		license: |
+Apache License
+
+Version 2.0, January 2004
+
+http://www.apache.org/licenses/ 
+
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+1. Definitions.
+
+"License" shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 9 of this document.
+
+"Licensor" shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.
+
+"Legal Entity" shall mean the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity. For the purposes of this definition, "control" means (i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (ii) ownership of fifty percent (50%) or more of the outstanding shares, or (iii) beneficial ownership of such entity.
+
+"You" (or "Your") shall mean an individual or Legal Entity exercising permissions granted by this License.
+
+"Source" form shall mean the preferred form for making modifications, including but not limited to software source code, documentation source, and configuration files.
+
+"Object" form shall mean any form resulting from mechanical transformation or translation of a Source form, including but not limited to compiled object code, generated documentation, and conversions to other media types.
+
+"Work" shall mean the work of authorship, whether in Source or Object form, made available under the License, as indicated by a copyright notice that is included in or attached to the work (an example is provided in the Appendix below).
+
+"Derivative Works" shall mean any work, whether in Source or Object form, that is based on (or derived from) the Work and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship. For the purposes of this License, Derivative Works shall not include works that remain separable from, or merely link (or bind by name) to the interfaces of, the Work and Derivative Works thereof.
+
+"Contribution" shall mean any work of authorship, including the original version of the Work and any modifications or additions to that Work or Derivative Works thereof, that is intentionally submitted to Licensor for inclusion in the Work by the copyright owner or by an individual or Legal Entity authorized to submit on behalf of the copyright owner. For the purposes of this definition, "submitted" means any form of electronic, verbal, or written communication sent to the Licensor or its representatives, including but not limited to communication on electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of, the Licensor for the purpose of discussing and improving the Work, but excluding communication that is conspicuously marked or otherwise designated in writing by the copyright owner as "Not a Contribution."
+
+"Contributor" shall mean Licensor and any individual or Legal Entity on behalf of whom a Contribution has been received by Licensor and subsequently incorporated within the Work.
+
+2. Grant of Copyright License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form.
+
+3. Grant of Patent License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this section) patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Work, where such license applies only to those patent claims licensable by such Contributor that are necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with the Work to which such Contribution(s) was submitted. If You institute patent litigation against any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Work or a Contribution incorporated within the Work constitutes direct or contributory patent infringement, then any patent licenses granted to You under this License for that Work shall terminate as of the date such litigation is filed.
+
+4. Redistribution. You may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without modifications, and in Source or Object form, provided that You meet the following conditions:
+
+You must give any other recipients of the Work or Derivative Works a copy of this License; and
+
+You must cause any modified files to carry prominent notices stating that You changed the files; and
+
+You must retain, in the Source form of any Derivative Works that You distribute, all copyright, patent, trademark, and attribution notices from the Source form of the Work, excluding those notices that do not pertain to any part of the Derivative Works; and
+
+If the Work includes a "NOTICE" text file as part of its distribution, then any Derivative Works that You distribute must include a readable copy of the attribution notices contained within such NOTICE file, excluding those notices that do not pertain to any part of the Derivative Works, in at least one of the following places: within a NOTICE text file distributed as part of the Derivative Works; within the Source form or documentation, if provided along with the Derivative Works; or, within a display generated by the Derivative Works, if and wherever such third-party notices normally appear. The contents of the NOTICE file are for informational purposes only and do not modify the License. You may add Your own attribution notices within Derivative Works that You distribute, alongside or as an addendum to the NOTICE text from the Work, provided that such additional attribution notices cannot be construed as modifying the License. You may add Your own copyright statement to Your modifications and may provide additional or different license terms and conditions for use, reproduction, or distribution of Your modifications, or for any such Derivative Works as a whole, provided Your use, reproduction, and distribution of the Work otherwise complies with the conditions stated in this License.
+
+5. Submission of Contributions. Unless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the Work by You to the Licensor shall be under the terms and conditions of this License, without any additional terms or conditions. Notwithstanding the above, nothing herein shall supersede or modify the terms of any separate license agreement you may have executed with Licensor regarding such Contributions.
+
+6. Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.
+
+7. Disclaimer of Warranty. Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License.
+
+8. Limitation of Liability. In no event and under no legal theory, whether in tort (including negligence), contract, or otherwise, unless required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall any Contributor be liable to You for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this License or out of the use or inability to use the Work (including but not limited to damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses), even if such Contributor has been advised of the possibility of such damages.
+
+9. Accepting Warranty or Additional Liability. While redistributing the Work or Derivative Works thereof, You may choose to offer, and charge a fee for, acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with this License. However, in accepting such obligations, You may act only on Your own behalf and on Your sole responsibility, not on behalf of any other Contributor, and only if You agree to indemnify, defend, and hold each Contributor harmless for any liability incurred by, or claims asserted against, such Contributor by reason of your accepting any such warranty or additional liability.
+
+END OF TERMS AND CONDITIONS
+
+
+
+	- component:
+		name: buffer-from
+		version: 1.1.0
+		license: |
+MIT License
+
+Copyright (c) 2016, 2018 Linus Unnebäck
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
 	- component:
 		name: @microsoft/applicationinsights-channel-js
 		version: 1.0.0-beta.14
@@ -4014,6 +7210,171 @@ registrations:
 
 
 	- component:
+		name: readable-stream
+		version: 1.1.14
+		license: |
+Node.js is licensed for use as follows:
+
+"""
+Copyright Node.js contributors. All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+"""
+
+This license applies to parts of Node.js originating from the
+https://github.com/joyent/node repository:
+
+"""
+Copyright Joyent, Inc. and other Node contributors. All rights reserved.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+"""
+
+
+
+	- component:
+		name: @mapbox/jsonlint-lines-primitives
+		version: 2.0.2
+		license: |
+No license information found
+
+
+	- component:
+		name: @microsoft/applicationinsights-analytics-js
+		version: 1.0.0-beta.15
+		license: |
+    MIT License
+
+    Copyright (c) Microsoft Corporation. All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE
+
+
+
+	- component:
+		name: readable-stream
+		version: 2.3.6
+		license: |
+Node.js is licensed for use as follows:
+
+"""
+Copyright Node.js contributors. All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+"""
+
+This license applies to parts of Node.js originating from the
+https://github.com/joyent/node repository:
+
+"""
+Copyright Joyent, Inc. and other Node contributors. All rights reserved.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+"""
+
+
+
+	- component:
+		name: earcut
+		version: 2.1.5
+		license: |
+ISC License
+
+Copyright (c) 2016, Mapbox
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+THIS SOFTWARE.
+
+
+
+	- component:
 		name: stream-spigot
 		version: 2.1.2
 		license: |
@@ -4026,6 +7387,28 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+	- component:
+		name: geojson-vt
+		version: 3.2.1
+		license: |
+ISC License
+
+Copyright (c) 2015, Mapbox
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+THIS SOFTWARE.
 
 
 
@@ -4056,6 +7439,509 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+	- component:
+		name: resolve-protobuf-schema
+		version: 2.1.0
+		license: |
+The MIT License (MIT)
+
+Copyright (c) 2014 Mathias Buus
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+
+	- component:
+		name: expect.js
+		version: 0.2.0
+		license: |
+(The MIT License)
+
+Copyright (c) 2011 Guillermo Rauch <guillermo@learnboost.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+3rd-party
+Heavily borrows from should.js by TJ Holowaychuck - MIT.
+
+
+	- component:
+		name: @types/adal-angular
+		version: 1.0.1
+		license: |
+    MIT License
+
+    Copyright (c) Microsoft Corporation. All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE
+
+
+
+	- component:
+		name: through
+		version: 2.3.8
+		license: |
+Apache License, Version 2.0
+
+Copyright (c) 2011 Dominic Tarr
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+
+The MIT License
+
+Copyright (c) 2011 Dominic Tarr
+
+Permission is hereby granted, free of charge, 
+to any person obtaining a copy of this software and 
+associated documentation files (the "Software"), to 
+deal in the Software without restriction, including 
+without limitation the rights to use, copy, modify, 
+merge, publish, distribute, sublicense, and/or sell 
+copies of the Software, and to permit persons to whom 
+the Software is furnished to do so, 
+subject to the following conditions:
+
+The above copyright notice and this permission notice 
+shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR 
+ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+	- component:
+		name: @microsoft/applicationinsights-core-js
+		version: 1.0.0-beta.5
+		license: |
+    MIT License
+
+    Copyright (c) Microsoft Corporation. All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE
+
+
+
+	- component:
+		name: wgs84
+		version: 0.0.0
+		license: |
+BSD 2-Clause License
+
+Copyright (c) 2017, Mapbox
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+    and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+	- component:
+		name: split
+		version: 0.2.10
+		license: |
+Copyright (c) 2011 Dominic Tarr
+
+Permission is hereby granted, free of charge, 
+to any person obtaining a copy of this software and 
+associated documentation files (the "Software"), to 
+deal in the Software without restriction, including 
+without limitation the rights to use, copy, modify, 
+merge, publish, distribute, sublicense, and/or sell 
+copies of the Software, and to permit persons to whom 
+the Software is furnished to do so, 
+subject to the following conditions:
+
+The above copyright notice and this permission notice 
+shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR 
+ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+	- component:
+		name: quickselect
+		version: 2.0.0
+		license: |
+ISC License
+
+Copyright (c) 2018, Vladimir Agafonkin
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+THIS SOFTWARE.
+
+
+
+	- component:
+		name: @types/mapbox-gl
+		version: 0.51.4
+		license: |
+    MIT License
+
+    Copyright (c) Microsoft Corporation. All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE
+
+
+
+	- component:
+		name: es6-promise
+		version: 4.1.1
+		license: |
+Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+
+	- component:
+		name: csscolorparser
+		version: 1.0.3
+		license: |
+(c) Dean McNamee <dean@gmail.com>, 2012.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+
+
+	- component:
+		name: process-nextick-args
+		version: 2.0.0
+		license: |
+# Copyright (c) 2015 Calvin Metcalf
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+**THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.**
+
+
+
+	- component:
+		name: minimist
+		version: 0.0.8
+		license: |
+This software is released under the MIT license:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+	- component:
+		name: acorn
+		version: 6.1.1
+		license: |
+Copyright (C) 2012-2018 by various contributors (see AUTHORS)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+
+	- component:
+		name: string_decoder
+		version: 1.1.1
+		license: |
+Node.js is licensed for use as follows:
+
+"""
+Copyright Node.js contributors. All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+"""
+
+This license applies to parts of Node.js originating from the
+https://github.com/joyent/node repository:
+
+"""
+Copyright Joyent, Inc. and other Node contributors. All rights reserved.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+"""
+
+
+
+
+	- component:
+		name: vt-pbf
+		version: 3.1.1
+		license: |
+The MIT License (MIT)
+
+Copyright (c) 2015 Anand Thakker
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+--------------------------------------------------------------------------------
+
+Contains geojson_wrapper.js from https://github.com/mapbox/mapbox-gl-js
+
+Copyright (c) 2014, Mapbox
+
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+    * Neither the name of Mapbox GL JS nor the names of its contributors
+      may be used to endorse or promote products derived from this software
+      without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 
 
 
@@ -4268,108 +8154,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 
 	- component:
-		name: tinyqueue
-		version: 2.0.0
-		license: |
-ISC License
-
-Copyright (c) 2017, Vladimir Agafonkin
-
-Permission to use, copy, modify, and/or distribute this software for any purpose
-with or without fee is hereby granted, provided that the above copyright notice
-and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
-OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
-TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
-THIS SOFTWARE.
-
-
-
-	- component:
-		name: es6-promise
-		version: 4.1.1
-		license: |
-Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-of the Software, and to permit persons to whom the Software is furnished to do
-so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-
-
-	- component:
-		name: lodash
-		version: 4.17.5
-		license: |
-Copyright JS Foundation and other contributors <https://js.foundation/>
-
-Based on Underscore.js, copyright Jeremy Ashkenas,
-DocumentCloud and Investigative Reporters & Editors <http://underscorejs.org/>
-
-This software consists of voluntary contributions made by many
-individuals. For exact contribution history, see the revision history
-available at https://github.com/lodash/lodash
-
-The following license applies to all parts of this software except as
-documented below:
-
-====
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-====
-
-Copyright and related rights for sample code are waived via CC0. Sample
-code is defined as all source code displayed within the prose of the
-documentation.
-
-CC0: http://creativecommons.org/publicdomain/zero/1.0/
-
-====
-
-Files located in the node_modules and vendor directories are externally
-maintained libraries used by this software which have their own
-licenses; we recommend you read them, as their terms may differ from the
-terms above.
-
-
-
-	- component:
 		name: @mapbox/tiny-sdf
 		version: 1.1.0
 		license: |
@@ -4381,1626 +8165,6 @@ Redistribution and use in source and binary forms, with or without modification,
 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 © 2018 GitHub, Inc.
-
-
-	- component:
-		name: @mapbox/point-geometry
-		version: 0.1.0
-		license: |
-Copyright (c) 2015, Mapbox <>
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted, provided that the above
-copyright notice and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
-OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
-
-
-	- component:
-		name: kdbush
-		version: 3.0.0
-		license: |
-ISC License
-
-Copyright (c) 2018, Vladimir Agafonkin
-
-Permission to use, copy, modify, and/or distribute this software for any purpose
-with or without fee is hereby granted, provided that the above copyright notice
-and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
-OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
-TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
-THIS SOFTWARE.
-
-
-	- component:
-		name: readable-stream
-		version: 1.1.14
-		license: |
-Node.js is licensed for use as follows:
-
-"""
-Copyright Node.js contributors. All rights reserved.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to
-deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-IN THE SOFTWARE.
-"""
-
-This license applies to parts of Node.js originating from the
-https://github.com/joyent/node repository:
-
-"""
-Copyright Joyent, Inc. and other Node contributors. All rights reserved.
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to
-deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-IN THE SOFTWARE.
-"""
-
-
-
-	- component:
-		name: util-deprecate
-		version: 1.0.2
-		license: |
-(The MIT License)
-
-Copyright (c) 2014 Nathan Rajlich <nathan@tootallnate.net>
-
-Permission is hereby granted, free of charge, to any person
-obtaining a copy of this software and associated documentation
-files (the "Software"), to deal in the Software without
-restriction, including without limitation the rights to use,
-copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following
-conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-	- component:
-		name: expect.js
-		version: 0.2.0
-		license: |
-(The MIT License)
-
-Copyright (c) 2011 Guillermo Rauch <guillermo@learnboost.com>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-3rd-party
-Heavily borrows from should.js by TJ Holowaychuck - MIT.
-
-
-	- component:
-		name: @types/mapbox-gl
-		version: 0.47.0
-		license: |
-    MIT License
-
-    Copyright (c) Microsoft Corporation. All rights reserved.
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE
-
-
-
-	- component:
-		name: esm
-		version: 3.2.13
-		license: |
-The MIT License (MIT)
-
-Copyright esm contributors
-
-Based on reify, copyright Ben Newman <https://github.com/benjamn/reify>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-
-
-	- component:
-		name: ieee754
-		version: 1.1.11
-		license: |
-Copyright (c) 2008, Fair Oaks Labs, Inc.
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
- * Redistributions of source code must retain the above copyright notice,
-   this list of conditions and the following disclaimer.
-
- * Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution.
-
- * Neither the name of Fair Oaks Labs, Inc. nor the names of its contributors
-   may be used to endorse or promote products derived from this software
-   without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
-LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-POSSIBILITY OF SUCH DAMAGE.
-
-
-
-	- component:
-		name: split
-		version: 0.2.10
-		license: |
-Copyright (c) 2011 Dominic Tarr
-
-Permission is hereby granted, free of charge, 
-to any person obtaining a copy of this software and 
-associated documentation files (the "Software"), to 
-deal in the Software without restriction, including 
-without limitation the rights to use, copy, modify, 
-merge, publish, distribute, sublicense, and/or sell 
-copies of the Software, and to permit persons to whom 
-the Software is furnished to do so, 
-subject to the following conditions:
-
-The above copyright notice and this permission notice 
-shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR 
-ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-	- component:
-		name: @types/jwt-decode
-		version: 2.2.1
-		license: |
-    MIT License
-
-    Copyright (c) Microsoft Corporation. All rights reserved.
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE
-
-
-
-	- component:
-		name: uuid-random
-		version: 1.0.6
-		license: |
-Copyright (c) 2016 Wes Roberts
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-	- component:
-		name: potpack
-		version: 1.0.1
-		license: |
-ISC License
-
-Copyright (c) 2018, Mapbox
-
-Permission to use, copy, modify, and/or distribute this software for any purpose
-with or without fee is hereby granted, provided that the above copyright notice
-and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
-OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
-TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
-THIS SOFTWARE.
-
-
-
-	- component:
-		name: through
-		version: 2.3.8
-		license: |
-Apache License, Version 2.0
-
-Copyright (c) 2011 Dominic Tarr
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
-
-The MIT License
-
-Copyright (c) 2011 Dominic Tarr
-
-Permission is hereby granted, free of charge, 
-to any person obtaining a copy of this software and 
-associated documentation files (the "Software"), to 
-deal in the Software without restriction, including 
-without limitation the rights to use, copy, modify, 
-merge, publish, distribute, sublicense, and/or sell 
-copies of the Software, and to permit persons to whom 
-the Software is furnished to do so, 
-subject to the following conditions:
-
-The above copyright notice and this permission notice 
-shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR 
-ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-	- component:
-		name: @microsoft/applicationinsights-properties-js
-		version: 1.0.0-beta.11
-		license: |
-    MIT License
-
-    Copyright (c) Microsoft Corporation. All rights reserved.
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE
-
-
-
-	- component:
-		name: pbf
-		version: 3.1.0
-		license: |
-Copyright (c) 2017, Mapbox
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-* Redistributions of source code must retain the above copyright notice, this
-  list of conditions and the following disclaimer.
-
-* Redistributions in binary form must reproduce the above copyright notice,
-  this list of conditions and the following disclaimer in the documentation
-  and/or other materials provided with the distribution.
-
-* Neither the name of pbf nor the names of its
-  contributors may be used to endorse or promote products derived from
-  this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-
-
-	- component:
-		name: process-nextick-args
-		version: 2.0.0
-		license: |
-# Copyright (c) 2015 Calvin Metcalf
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-**THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.**
-
-
-
-	- component:
-		name: jwt-decode
-		version: 2.2.0
-		license: |
-The MIT License (MIT)
- 
-Copyright (c) 2015 Auth0, Inc. <support@auth0.com> (http://auth0.com)
- 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
- 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
- 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-
-
-	- component:
-		name: minimist
-		version: 0.0.5
-		license: |
-This software is released under the MIT license:
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-	- component:
-		name: @mapbox/vector-tile
-		version: 1.3.1
-		license: |
-Copyright (c) 2014, Mapbox
-
-
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without modification,
-are permitted provided that the following conditions are met:
-
-    * Redistributions of source code must retain the above copyright notice,
-      this list of conditions and the following disclaimer.
-    * Redistributions in binary form must reproduce the above copyright notice,
-      this list of conditions and the following disclaimer in the documentation
-      and/or other materials provided with the distribution.
-    * Neither the name of Mapbox nor the names of its contributors
-      may be used to endorse or promote products derived from this software
-      without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
-CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-
-
-	- component:
-		name: cardinal
-		version: 0.4.4
-		license: |
-Copyright 2012 Thorsten Lorenz. 
-All rights reserved.
-
-Permission is hereby granted, free of charge, to any person
-obtaining a copy of this software and associated documentation
-files (the "Software"), to deal in the Software without
-restriction, including without limitation the rights to use,
-copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following
-conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-	- component:
-		name: core-util-is
-		version: 1.0.2
-		license: |
-Copyright Node.js contributors. All rights reserved.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to
-deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-IN THE SOFTWARE.
-
-
-
-	- component:
-		name: buffer-from
-		version: 1.1.0
-		license: |
-MIT License
-
-Copyright (c) 2016, 2018 Linus Unnebäck
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-
-	- component:
-		name: safe-buffer
-		version: 5.1.2
-		license: |
-The MIT License (MIT)
-
-Copyright (c) Feross Aboukhadijeh
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-
-	- component:
-		name: @mapbox/geojson-types
-		version: 1.0.2
-		license: |
-MIT License
-
-Copyright (c) 2018 Mapbox
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-
-
-	- component:
-		name: @mapbox/geojson-area
-		version: 0.2.2
-		license: |
-Copyright 2005-2013 OpenLayers Contributors. All rights reserved. See
-authors.txt for full list.
-
-Redistribution and use in source and binary forms, with or without modification,
-are permitted provided that the following conditions are met:
-
- 1. Redistributions of source code must retain the above copyright notice, this
-list of conditions and the following disclaimer.
-
- 2. Redistributions in binary form must reproduce the above copyright notice,
-this list of conditions and the following disclaimer in the documentation and/or
-other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY OPENLAYERS CONTRIBUTORS ``AS IS'' AND ANY EXPRESS
-OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
-SHALL COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-The views and conclusions contained in the software and documentation are those
-of the authors and should not be interpreted as representing official policies,
-either expressed or implied, of OpenLayers Contributors.
-
-
-
-	- component:
-		name: quickselect
-		version: 2.0.0
-		license: |
-ISC License
-
-Copyright (c) 2018, Vladimir Agafonkin
-
-Permission to use, copy, modify, and/or distribute this software for any purpose
-with or without fee is hereby granted, provided that the above copyright notice
-and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
-OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
-TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
-THIS SOFTWARE.
-
-
-
-	- component:
-		name: whatwg-fetch
-		version: 2.0.3
-		license: |
-Copyright (c) 2014-2016 GitHub, Inc.
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-	- component:
-		name: string_decoder
-		version: 1.1.1
-		license: |
-Node.js is licensed for use as follows:
-
-"""
-Copyright Node.js contributors. All rights reserved.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to
-deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-IN THE SOFTWARE.
-"""
-
-This license applies to parts of Node.js originating from the
-https://github.com/joyent/node repository:
-
-"""
-Copyright Joyent, Inc. and other Node contributors. All rights reserved.
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to
-deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-IN THE SOFTWARE.
-"""
-
-
-
-
-	- component:
-		name: resolve-protobuf-schema
-		version: 2.1.0
-		license: |
-The MIT License (MIT)
-
-Copyright (c) 2014 Mathias Buus
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-
-	- component:
-		name: @microsoft/applicationinsights-web
-		version: 1.0.0-beta.11
-		license: |
-    MIT License
-
-    Copyright (c) Microsoft Corporation. All rights reserved.
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE
-
-
-
-	- component:
-		name: @mapbox/jsonlint-lines-primitives
-		version: 2.0.2
-		license: |
-No license information found
-
-
-	- component:
-		name: @microsoft/applicationinsights-dependencies-js
-		version: 1.0.0-beta.16
-		license: |
-    MIT License
-
-    Copyright (c) Microsoft Corporation. All rights reserved.
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE
-
-
-
-	- component:
-		name: ansicolors
-		version: 0.2.1
-		license: |
-Copyright 2013 Thorsten Lorenz. 
-All rights reserved.
-
-Permission is hereby granted, free of charge, to any person
-obtaining a copy of this software and associated documentation
-files (the "Software"), to deal in the Software without
-restriction, including without limitation the rights to use,
-copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following
-conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-	- component:
-		name: typedarray
-		version: 0.0.6
-		license: |
- Copyright (c) 2010, Linden Research, Inc.
- Copyright (c) 2012, Joshua Bell
-
- Permission is hereby granted, free of charge, to any person obtaining a copy
- of this software and associated documentation files (the "Software"), to deal
- in the Software without restriction, including without limitation the rights
- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- copies of the Software, and to permit persons to whom the Software is
- furnished to do so, subject to the following conditions:
-
- The above copyright notice and this permission notice shall be included in
- all copies or substantial portions of the Software.
-
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- THE SOFTWARE.
- $/LicenseInfo$
-
-// Original can be found at:
-//   https://bitbucket.org/lindenlab/llsd
-// Modifications by Joshua Bell inexorabletash@gmail.com
-//   https://github.com/inexorabletash/polyfill
-
-// ES3/ES5 implementation of the Krhonos Typed Array Specification
-//   Ref: http://www.khronos.org/registry/typedarray/specs/latest/
-//   Date: 2011-02-01
-//
-// Variations:
-//  * Allows typed_array.get/set() as alias for subscripts (typed_array[])
-
-
-	- component:
-		name: esprima
-		version: 1.0.4
-		license: |
-Copyright (c) jQuery Foundation, Inc. and Contributors, All Rights Reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-  * Redistributions of source code must retain the above copyright
-    notice, this list of conditions and the following disclaimer.
-  * Redistributions in binary form must reproduce the above copyright
-    notice, this list of conditions and the following disclaimer in the
-    documentation and/or other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-ARE DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
-DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
-THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-
-
-	- component:
-		name: typescript
-		version: 2.9.2
-		license: |
-Apache License
-
-Version 2.0, January 2004
-
-http://www.apache.org/licenses/ 
-
-TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
-
-1. Definitions.
-
-"License" shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 9 of this document.
-
-"Licensor" shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.
-
-"Legal Entity" shall mean the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity. For the purposes of this definition, "control" means (i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (ii) ownership of fifty percent (50%) or more of the outstanding shares, or (iii) beneficial ownership of such entity.
-
-"You" (or "Your") shall mean an individual or Legal Entity exercising permissions granted by this License.
-
-"Source" form shall mean the preferred form for making modifications, including but not limited to software source code, documentation source, and configuration files.
-
-"Object" form shall mean any form resulting from mechanical transformation or translation of a Source form, including but not limited to compiled object code, generated documentation, and conversions to other media types.
-
-"Work" shall mean the work of authorship, whether in Source or Object form, made available under the License, as indicated by a copyright notice that is included in or attached to the work (an example is provided in the Appendix below).
-
-"Derivative Works" shall mean any work, whether in Source or Object form, that is based on (or derived from) the Work and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship. For the purposes of this License, Derivative Works shall not include works that remain separable from, or merely link (or bind by name) to the interfaces of, the Work and Derivative Works thereof.
-
-"Contribution" shall mean any work of authorship, including the original version of the Work and any modifications or additions to that Work or Derivative Works thereof, that is intentionally submitted to Licensor for inclusion in the Work by the copyright owner or by an individual or Legal Entity authorized to submit on behalf of the copyright owner. For the purposes of this definition, "submitted" means any form of electronic, verbal, or written communication sent to the Licensor or its representatives, including but not limited to communication on electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of, the Licensor for the purpose of discussing and improving the Work, but excluding communication that is conspicuously marked or otherwise designated in writing by the copyright owner as "Not a Contribution."
-
-"Contributor" shall mean Licensor and any individual or Legal Entity on behalf of whom a Contribution has been received by Licensor and subsequently incorporated within the Work.
-
-2. Grant of Copyright License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form.
-
-3. Grant of Patent License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this section) patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Work, where such license applies only to those patent claims licensable by such Contributor that are necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with the Work to which such Contribution(s) was submitted. If You institute patent litigation against any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Work or a Contribution incorporated within the Work constitutes direct or contributory patent infringement, then any patent licenses granted to You under this License for that Work shall terminate as of the date such litigation is filed.
-
-4. Redistribution. You may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without modifications, and in Source or Object form, provided that You meet the following conditions:
-
-You must give any other recipients of the Work or Derivative Works a copy of this License; and
-
-You must cause any modified files to carry prominent notices stating that You changed the files; and
-
-You must retain, in the Source form of any Derivative Works that You distribute, all copyright, patent, trademark, and attribution notices from the Source form of the Work, excluding those notices that do not pertain to any part of the Derivative Works; and
-
-If the Work includes a "NOTICE" text file as part of its distribution, then any Derivative Works that You distribute must include a readable copy of the attribution notices contained within such NOTICE file, excluding those notices that do not pertain to any part of the Derivative Works, in at least one of the following places: within a NOTICE text file distributed as part of the Derivative Works; within the Source form or documentation, if provided along with the Derivative Works; or, within a display generated by the Derivative Works, if and wherever such third-party notices normally appear. The contents of the NOTICE file are for informational purposes only and do not modify the License. You may add Your own attribution notices within Derivative Works that You distribute, alongside or as an addendum to the NOTICE text from the Work, provided that such additional attribution notices cannot be construed as modifying the License. You may add Your own copyright statement to Your modifications and may provide additional or different license terms and conditions for use, reproduction, or distribution of Your modifications, or for any such Derivative Works as a whole, provided Your use, reproduction, and distribution of the Work otherwise complies with the conditions stated in this License.
-
-5. Submission of Contributions. Unless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the Work by You to the Licensor shall be under the terms and conditions of this License, without any additional terms or conditions. Notwithstanding the above, nothing herein shall supersede or modify the terms of any separate license agreement you may have executed with Licensor regarding such Contributions.
-
-6. Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.
-
-7. Disclaimer of Warranty. Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License.
-
-8. Limitation of Liability. In no event and under no legal theory, whether in tort (including negligence), contract, or otherwise, unless required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall any Contributor be liable to You for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this License or out of the use or inability to use the Work (including but not limited to damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses), even if such Contributor has been advised of the possibility of such damages.
-
-9. Accepting Warranty or Additional Liability. While redistributing the Work or Derivative Works thereof, You may choose to offer, and charge a fee for, acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with this License. However, in accepting such obligations, You may act only on Your own behalf and on Your sole responsibility, not on behalf of any other Contributor, and only if You agree to indemnify, defend, and hold each Contributor harmless for any liability incurred by, or claims asserted against, such Contributor by reason of your accepting any such warranty or additional liability.
-
-END OF TERMS AND CONDITIONS
-
-
-
-	- component:
-		name: supercluster
-		version: 6.0.1
-		license: |
-ISC License
-
-Copyright (c) 2016, Mapbox
-
-Permission to use, copy, modify, and/or distribute this software for any purpose
-with or without fee is hereby granted, provided that the above copyright notice
-and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
-OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
-TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
-THIS SOFTWARE.
-
-
-
-	- component:
-		name: @types/adal-angular
-		version: 1.0.1
-		license: |
-    MIT License
-
-    Copyright (c) Microsoft Corporation. All rights reserved.
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE
-
-
-
-	- component:
-		name: murmurhash-js
-		version: 1.0.0
-		license: |
-The MIT License (MIT)
-
-Copyright (c) 2011 Gary Court
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-	- component:
-		name: geojson-vt
-		version: 3.2.1
-		license: |
-ISC License
-
-Copyright (c) 2015, Mapbox
-
-Permission to use, copy, modify, and/or distribute this software for any purpose
-with or without fee is hereby granted, provided that the above copyright notice
-and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
-OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
-TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
-THIS SOFTWARE.
-
-
-
-	- component:
-		name: readable-stream
-		version: 2.3.6
-		license: |
-Node.js is licensed for use as follows:
-
-"""
-Copyright Node.js contributors. All rights reserved.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to
-deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-IN THE SOFTWARE.
-"""
-
-This license applies to parts of Node.js originating from the
-https://github.com/joyent/node repository:
-
-"""
-Copyright Joyent, Inc. and other Node contributors. All rights reserved.
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to
-deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-IN THE SOFTWARE.
-"""
-
-
-
-	- component:
-		name: concat-stream
-		version: 1.6.2
-		license: |
-The MIT License
-
-Copyright (c) 2013 Max Ogden
-
-Permission is hereby granted, free of charge, 
-to any person obtaining a copy of this software and 
-associated documentation files (the "Software"), to 
-deal in the Software without restriction, including 
-without limitation the rights to use, copy, modify, 
-merge, publish, distribute, sublicense, and/or sell 
-copies of the Software, and to permit persons to whom 
-the Software is furnished to do so, 
-subject to the following conditions:
-
-The above copyright notice and this permission notice 
-shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR 
-ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-	- component:
-		name: esprima
-		version: 2.7.3
-		license: |
-Copyright (c) jQuery Foundation, Inc. and Contributors, All Rights Reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-  * Redistributions of source code must retain the above copyright
-    notice, this list of conditions and the following disclaimer.
-  * Redistributions in binary form must reproduce the above copyright
-    notice, this list of conditions and the following disclaimer in the
-    documentation and/or other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-ARE DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
-DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
-THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-
-
-	- component:
-		name: minimist
-		version: 0.0.8
-		license: |
-This software is released under the MIT license:
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-	- component:
-		name: @mapbox/unitbezier
-		version: 0.0.0
-		license: |
-BSD-2-Clause
-
-Copyright (C) 2008 Apple Inc. All Rights Reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions
-are met:
-
-1. Redistributions of source code must retain the above copyright
-   notice, this list of conditions and the following disclaimer.
-2. Redistributions in binary form must reproduce the above copyright
-   notice, this list of conditions and the following disclaimer in the
-   documentation and/or other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY APPLE INC. ``AS IS'' AND ANY
-EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
-PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL APPLE INC. OR
-CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
-OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-Ported from Webkit
-http://svn.webkit.org/repository/webkit/trunk/Source/WebCore/platform/graphics/UnitBezier.h
-
-
-	- component:
-		name: @mapbox/whoots-js
-		version: 3.1.0
-		license: |
-ISC License
-
-Copyright (c) 2017, Mapbox
-
-Permission to use, copy, modify, and/or distribute this software for any purpose
-with or without fee is hereby granted, provided that the above copyright notice
-and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
-OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
-TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
-THIS SOFTWARE.
-
-
-
-	- component:
-		name: isarray
-		version: 0.0.1
-		license: |
-(MIT)
-
-Copyright (c) 2013 Julian Gruber <julian@juliangruber.com>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-	- component:
-		name: @mapbox/mapbox-gl-rtl-text
-		version: 0.1.2
-		license: |
-mapbox-gl-rtl-text copyright (c) 2017 Mapbox.
-
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
-
- - Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
- - Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-This source code is derived from the International Components for Unicode (ICU) library, available from [http://site.icu-project.org/](). ICU C++ code original license as follows:
-
-COPYRIGHT AND PERMISSION NOTICE (ICU 58 and later)
-
-Copyright © 1991-2016 Unicode, Inc. All rights reserved.
-Distributed under the Terms of Use in http://www.unicode.org/copyright.html
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of the Unicode data files and any associated documentation
-(the "Data Files") or Unicode software and any associated documentation
-(the "Software") to deal in the Data Files or Software
-without restriction, including without limitation the rights to use,
-copy, modify, merge, publish, distribute, and/or sell copies of
-the Data Files or Software, and to permit persons to whom the Data Files
-or Software are furnished to do so, provided that either
-(a) this copyright and permission notice appear with all copies
-of the Data Files or Software, or
-(b) this copyright and permission notice appear in associated
-Documentation.
-
-THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF
-ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
-WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT OF THIRD PARTY RIGHTS.
-IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS
-NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL
-DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE,
-DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
-TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THE DATA FILES OR SOFTWARE.
-
-Except as contained in this notice, the name of a copyright holder
-shall not be used in advertising or otherwise to promote the sale,
-use or other dealings in these Data Files or Software without prior
-written authorization of the copyright holder.
-
-
-
-	- component:
-		name: acorn
-		version: 6.1.1
-		license: |
-Copyright (C) 2012-2018 by various contributors (see AUTHORS)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-
-	- component:
-		name: @microsoft/applicationinsights-analytics-js
-		version: 1.0.0-beta.15
-		license: |
-    MIT License
-
-    Copyright (c) Microsoft Corporation. All rights reserved.
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE
-
-
-
-	- component:
-		name: @types/geojson
-		version: 7946.0.6
-		license: |
-    MIT License
-
-    Copyright (c) Microsoft Corporation. All rights reserved.
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE
-
-
-
-	- component:
-		name: @types/lodash
-		version: 4.14.106
-		license: |
-    MIT License
-
-    Copyright (c) Microsoft Corporation. All rights reserved.
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE
-
-
-
-	- component:
-		name: gl-matrix
-		version: 3.0.0
-		license: |
-Copyright (c) 2015-2019, Brandon Jones, Colin MacKenzie IV.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-	- component:
-		name: isarray
-		version: 1.0.0
-		license: |
-(MIT)
-
-Copyright (c) 2013 Julian Gruber <julian@juliangruber.com>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-	- component:
-		name: rw
-		version: 1.3.3
-		license: |
-Copyright (c) 2014-2016, Michael Bostock
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-* Redistributions of source code must retain the above copyright notice, this
-  list of conditions and the following disclaimer.
-
-* Redistributions in binary form must reproduce the above copyright notice,
-  this list of conditions and the following disclaimer in the documentation
-  and/or other materials provided with the distribution.
-
-* The name Michael Bostock may not be used to endorse or promote products
-  derived from this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL MICHAEL BOSTOCK BE LIABLE FOR ANY DIRECT,
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
-OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
-EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
 
 
 	- component:
@@ -6028,186 +8192,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-
-	- component:
-		name: minimist
-		version: 1.2.0
-		license: |
-This software is released under the MIT license:
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-	- component:
-		name: @microsoft/applicationinsights-common
-		version: 1.0.0-beta.16
-		license: |
-    MIT License
-
-    Copyright (c) Microsoft Corporation. All rights reserved.
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE
-
-
-
-	- component:
-		name: inherits
-		version: 2.0.3
-		license: |
-The ISC License
-
-Copyright (c) Isaac Z. Schlueter
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted, provided that the above
-copyright notice and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-
-
-
-
-	- component:
-		name: csscolorparser
-		version: 1.0.3
-		license: |
-(c) Dean McNamee <dean@gmail.com>, 2012.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to
-deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-IN THE SOFTWARE.
-
-
-	- component:
-		name: grid-index
-		version: 1.1.0
-		license: |
-Copyright (c) 2016, Mapbox
-
-Permission to use, copy, modify, and/or distribute this software for any purpose
-with or without fee is hereby granted, provided that the above copyright notice
-and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
-OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
-TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
-THIS SOFTWARE.
-
-
-
-	- component:
-		name: @microsoft/applicationinsights-core-js
-		version: 1.0.0-beta.5
-		license: |
-    MIT License
-
-    Copyright (c) Microsoft Corporation. All rights reserved.
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE
-
-
-
-	- component:
-		name: wgs84
-		version: 0.0.0
-		license: |
-BSD 2-Clause License
-
-Copyright (c) 2017, Mapbox
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-* Redistributions of source code must retain the above copyright notice, this
-  list of conditions and the following disclaimer.
-
-* Redistributions in binary form must reproduce the above copyright notice,
-  this list of conditions and the following disclaimer in the documentation
-    and/or other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 	- component:
@@ -6305,6 +8289,396 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 	- component:
+		name: kdbush
+		version: 3.0.0
+		license: |
+ISC License
+
+Copyright (c) 2018, Vladimir Agafonkin
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+THIS SOFTWARE.
+
+
+	- component:
+		name: esprima
+		version: 1.0.4
+		license: |
+Copyright (c) jQuery Foundation, Inc. and Contributors, All Rights Reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+  * Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  * Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+
+	- component:
+		name: lodash
+		version: 4.17.11
+		license: |
+Copyright JS Foundation and other contributors <https://js.foundation/>
+
+Based on Underscore.js, copyright Jeremy Ashkenas,
+DocumentCloud and Investigative Reporters & Editors <http://underscorejs.org/>
+
+This software consists of voluntary contributions made by many
+individuals. For exact contribution history, see the revision history
+available at https://github.com/lodash/lodash
+
+The following license applies to all parts of this software except as
+documented below:
+
+====
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+====
+
+Copyright and related rights for sample code are waived via CC0. Sample
+code is defined as all source code displayed within the prose of the
+documentation.
+
+CC0: http://creativecommons.org/publicdomain/zero/1.0/
+
+====
+
+Files located in the node_modules and vendor directories are externally
+maintained libraries used by this software which have their own
+licenses; we recommend you read them, as their terms may differ from the
+terms above.
+
+
+
+	- component:
+		name: @mapbox/geojson-rewind
+		version: 0.4.0
+		license: |
+Copyright (c) {{ year }}, {{ organization }}
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+
+
+
+	- component:
+		name: @microsoft/applicationinsights-dependencies-js
+		version: 1.0.0-beta.16
+		license: |
+    MIT License
+
+    Copyright (c) Microsoft Corporation. All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE
+
+
+
+	- component:
+		name: minimist
+		version: 1.2.0
+		license: |
+This software is released under the MIT license:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+	- component:
+		name: potpack
+		version: 1.0.1
+		license: |
+ISC License
+
+Copyright (c) 2018, Mapbox
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+THIS SOFTWARE.
+
+
+
+	- component:
+		name: esm
+		version: 3.2.13
+		license: |
+The MIT License (MIT)
+
+Copyright esm contributors
+
+Based on reify, copyright Ben Newman <https://github.com/benjamn/reify>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+
+	- component:
+		name: whatwg-fetch
+		version: 2.0.3
+		license: |
+Copyright (c) 2014-2016 GitHub, Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+	- component:
+		name: @mapbox/mapbox-gl-rtl-text
+		version: 0.1.2
+		license: |
+mapbox-gl-rtl-text copyright (c) 2017 Mapbox.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+ - Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+ - Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+This source code is derived from the International Components for Unicode (ICU) library, available from [http://site.icu-project.org/](). ICU C++ code original license as follows:
+
+COPYRIGHT AND PERMISSION NOTICE (ICU 58 and later)
+
+Copyright © 1991-2016 Unicode, Inc. All rights reserved.
+Distributed under the Terms of Use in http://www.unicode.org/copyright.html
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the Unicode data files and any associated documentation
+(the "Data Files") or Unicode software and any associated documentation
+(the "Software") to deal in the Data Files or Software
+without restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, and/or sell copies of
+the Data Files or Software, and to permit persons to whom the Data Files
+or Software are furnished to do so, provided that either
+(a) this copyright and permission notice appear with all copies
+of the Data Files or Software, or
+(b) this copyright and permission notice appear in associated
+Documentation.
+
+THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT OF THIRD PARTY RIGHTS.
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS
+NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL
+DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE,
+DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THE DATA FILES OR SOFTWARE.
+
+Except as contained in this notice, the name of a copyright holder
+shall not be used in advertising or otherwise to promote the sale,
+use or other dealings in these Data Files or Software without prior
+written authorization of the copyright holder.
+
+
+
+	- component:
+		name: @mapbox/unitbezier
+		version: 0.0.0
+		license: |
+BSD-2-Clause
+
+Copyright (C) 2008 Apple Inc. All Rights Reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY APPLE INC. ``AS IS'' AND ANY
+EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL APPLE INC. OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
+OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Ported from Webkit
+http://svn.webkit.org/repository/webkit/trunk/Source/WebCore/platform/graphics/UnitBezier.h
+
+
+	- component:
+		name: tinyqueue
+		version: 2.0.0
+		license: |
+ISC License
+
+Copyright (c) 2017, Vladimir Agafonkin
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+THIS SOFTWARE.
+
+
+
+	- component:
+		name: @microsoft/applicationinsights-web
+		version: 1.0.0-beta.11
+		license: |
+    MIT License
+
+    Copyright (c) Microsoft Corporation. All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE
+
+
+
+	- component:
 		name: @mapbox/mapbox-gl-supported
 		version: 1.4.0
 		license: |
@@ -6342,160 +8716,35 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 	- component:
-		name: @mapbox/geojson-rewind
-		version: 0.4.0
+		name: rw
+		version: 1.3.3
 		license: |
-Copyright (c) {{ year }}, {{ organization }}
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted, provided that the above
-copyright notice and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-
-
-
-	- component:
-		name: vt-pbf
-		version: 3.1.1
-		license: |
-The MIT License (MIT)
-
-Copyright (c) 2015 Anand Thakker
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
---------------------------------------------------------------------------------
-
-Contains geojson_wrapper.js from https://github.com/mapbox/mapbox-gl-js
-
-Copyright (c) 2014, Mapbox
-
+Copyright (c) 2014-2016, Michael Bostock
 All rights reserved.
 
-Redistribution and use in source and binary forms, with or without modification,
-are permitted provided that the following conditions are met:
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
 
-    * Redistributions of source code must retain the above copyright notice,
-      this list of conditions and the following disclaimer.
-    * Redistributions in binary form must reproduce the above copyright notice,
-      this list of conditions and the following disclaimer in the documentation
-      and/or other materials provided with the distribution.
-    * Neither the name of Mapbox GL JS nor the names of its contributors
-      may be used to endorse or promote products derived from this software
-      without specific prior written permission.
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
-CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
 
+* The name Michael Bostock may not be used to endorse or promote products
+  derived from this software without specific prior written permission.
 
-
-
-	- component:
-		name: earcut
-		version: 2.1.5
-		license: |
-ISC License
-
-Copyright (c) 2016, Mapbox
-
-Permission to use, copy, modify, and/or distribute this software for any purpose
-with or without fee is hereby granted, provided that the above copyright notice
-and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
-OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
-TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
-THIS SOFTWARE.
-
-
-
-	- component:
-		name: string_decoder
-		version: 0.10.31
-		license: |
-Node.js is licensed for use as follows:
-
-"""
-Copyright Node.js contributors. All rights reserved.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to
-deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-IN THE SOFTWARE.
-"""
-
-This license applies to parts of Node.js originating from the
-https://github.com/joyent/node repository:
-
-"""
-Copyright Joyent, Inc. and other Node contributors. All rights reserved.
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to
-deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-IN THE SOFTWARE.
-"""
-
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL MICHAEL BOSTOCK BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
+OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 
@@ -7319,7 +9568,7 @@ var atob=require("./atob");function b64DecodeUnicode(e){return decodeURIComponen
 
 },{"./base64_url_decode":107}],109:[function(require,module,exports){
 (function (global){
-(function(){var n,t=200,r="Unsupported core-js use. Try https://npms.io/search?q=ponyfill.",e="Expected a function",u="__lodash_hash_undefined__",i=500,o="__lodash_placeholder__",f=1,c=2,a=4,l=1,h=2,v=1,p=2,_=4,s=8,g=16,y=32,d=64,w=128,x=256,b=512,E=30,m="...",z=800,S=16,O=1,$=2,U=1/0,W=9007199254740991,R=1.7976931348623157e308,D=NaN,N=4294967295,q=N-1,B=N>>>1,Z=[["ary",w],["bind",v],["bindKey",p],["curry",s],["curryRight",g],["flip",b],["partial",y],["partialRight",d],["rearg",x]],M="[object Arguments]",T="[object Array]",j="[object AsyncFunction]",K="[object Boolean]",A="[object Date]",J="[object DOMException]",L="[object Error]",Q="[object Function]",X="[object GeneratorFunction]",Y="[object Map]",C="[object Number]",P="[object Null]",I="[object Object]",F="[object Proxy]",G="[object RegExp]",H="[object Set]",k="[object String]",V="[object Symbol]",nn="[object Undefined]",tn="[object WeakMap]",rn="[object WeakSet]",en="[object ArrayBuffer]",un="[object DataView]",on="[object Float32Array]",fn="[object Float64Array]",cn="[object Int8Array]",an="[object Int16Array]",ln="[object Int32Array]",hn="[object Uint8Array]",vn="[object Uint8ClampedArray]",pn="[object Uint16Array]",_n="[object Uint32Array]",sn=/\b__p \+= '';/g,gn=/\b(__p \+=) '' \+/g,yn=/(__e\(.*?\)|\b__t\)) \+\n'';/g,dn=/&(?:amp|lt|gt|quot|#39);/g,wn=/[&<>"']/g,xn=RegExp(dn.source),bn=RegExp(wn.source),En=/<%-([\s\S]+?)%>/g,mn=/<%([\s\S]+?)%>/g,zn=/<%=([\s\S]+?)%>/g,Sn=/\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,On=/^\w*$/,$n=/[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g,Un=/[\\^$.*+?()[\]{}|]/g,Wn=RegExp(Un.source),Rn=/^\s+|\s+$/g,Dn=/^\s+/,Nn=/\s+$/,qn=/\{(?:\n\/\* \[wrapped with .+\] \*\/)?\n?/,Bn=/\{\n\/\* \[wrapped with (.+)\] \*/,Zn=/,? & /,Mn=/[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g,Tn=/\\(\\)?/g,jn=/\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g,Kn=/\w*$/,An=/^[-+]0x[0-9a-f]+$/i,Jn=/^0b[01]+$/i,Ln=/^\[object .+?Constructor\]$/,Qn=/^0o[0-7]+$/i,Xn=/^(?:0|[1-9]\d*)$/,Yn=/[\xc0-\xd6\xd8-\xf6\xf8-\xff\u0100-\u017f]/g,Cn=/($^)/,Pn=/['\n\r\u2028\u2029\\]/g,In="\\u0300-\\u036f\\ufe20-\\ufe2f\\u20d0-\\u20ff",Fn="\\xac\\xb1\\xd7\\xf7\\x00-\\x2f\\x3a-\\x40\\x5b-\\x60\\x7b-\\xbf\\u2000-\\u206f \\t\\x0b\\f\\xa0\\ufeff\\n\\r\\u2028\\u2029\\u1680\\u180e\\u2000\\u2001\\u2002\\u2003\\u2004\\u2005\\u2006\\u2007\\u2008\\u2009\\u200a\\u202f\\u205f\\u3000",Gn="[\\ud800-\\udfff]",Hn="["+Fn+"]",kn="["+In+"]",Vn="\\d+",nt="[\\u2700-\\u27bf]",tt="[a-z\\xdf-\\xf6\\xf8-\\xff]",rt="[^\\ud800-\\udfff"+Fn+Vn+"\\u2700-\\u27bfa-z\\xdf-\\xf6\\xf8-\\xffA-Z\\xc0-\\xd6\\xd8-\\xde]",et="\\ud83c[\\udffb-\\udfff]",ut="[^\\ud800-\\udfff]",it="(?:\\ud83c[\\udde6-\\uddff]){2}",ot="[\\ud800-\\udbff][\\udc00-\\udfff]",ft="[A-Z\\xc0-\\xd6\\xd8-\\xde]",ct="(?:"+tt+"|"+rt+")",at="(?:"+ft+"|"+rt+")",lt="(?:"+kn+"|"+et+")"+"?",ht="[\\ufe0e\\ufe0f]?"+lt+("(?:\\u200d(?:"+[ut,it,ot].join("|")+")[\\ufe0e\\ufe0f]?"+lt+")*"),vt="(?:"+[nt,it,ot].join("|")+")"+ht,pt="(?:"+[ut+kn+"?",kn,it,ot,Gn].join("|")+")",_t=RegExp("['’]","g"),st=RegExp(kn,"g"),gt=RegExp(et+"(?="+et+")|"+pt+ht,"g"),yt=RegExp([ft+"?"+tt+"+(?:['’](?:d|ll|m|re|s|t|ve))?(?="+[Hn,ft,"$"].join("|")+")",at+"+(?:['’](?:D|LL|M|RE|S|T|VE))?(?="+[Hn,ft+ct,"$"].join("|")+")",ft+"?"+ct+"+(?:['’](?:d|ll|m|re|s|t|ve))?",ft+"+(?:['’](?:D|LL|M|RE|S|T|VE))?","\\d*(?:1ST|2ND|3RD|(?![123])\\dTH)(?=\\b|[a-z_])","\\d*(?:1st|2nd|3rd|(?![123])\\dth)(?=\\b|[A-Z_])",Vn,vt].join("|"),"g"),dt=RegExp("[\\u200d\\ud800-\\udfff"+In+"\\ufe0e\\ufe0f]"),wt=/[a-z][A-Z]|[A-Z]{2,}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/,xt=["Array","Buffer","DataView","Date","Error","Float32Array","Float64Array","Function","Int8Array","Int16Array","Int32Array","Map","Math","Object","Promise","RegExp","Set","String","Symbol","TypeError","Uint8Array","Uint8ClampedArray","Uint16Array","Uint32Array","WeakMap","_","clearTimeout","isFinite","parseInt","setTimeout"],bt=-1,Et={};Et[on]=Et[fn]=Et[cn]=Et[an]=Et[ln]=Et[hn]=Et[vn]=Et[pn]=Et[_n]=!0,Et[M]=Et[T]=Et[en]=Et[K]=Et[un]=Et[A]=Et[L]=Et[Q]=Et[Y]=Et[C]=Et[I]=Et[G]=Et[H]=Et[k]=Et[tn]=!1;var mt={};mt[M]=mt[T]=mt[en]=mt[un]=mt[K]=mt[A]=mt[on]=mt[fn]=mt[cn]=mt[an]=mt[ln]=mt[Y]=mt[C]=mt[I]=mt[G]=mt[H]=mt[k]=mt[V]=mt[hn]=mt[vn]=mt[pn]=mt[_n]=!0,mt[L]=mt[Q]=mt[tn]=!1;var zt={"\\":"\\","'":"'","\n":"n","\r":"r","\u2028":"u2028","\u2029":"u2029"},St=parseFloat,Ot=parseInt,$t="object"==typeof global&&global&&global.Object===Object&&global,Ut="object"==typeof self&&self&&self.Object===Object&&self,Wt=$t||Ut||Function("return this")(),Rt="object"==typeof exports&&exports&&!exports.nodeType&&exports,Dt=Rt&&"object"==typeof module&&module&&!module.nodeType&&module,Nt=Dt&&Dt.exports===Rt,qt=Nt&&$t.process,Bt=function(){try{return qt&&qt.binding&&qt.binding("util")}catch(n){}}(),Zt=Bt&&Bt.isArrayBuffer,Mt=Bt&&Bt.isDate,Tt=Bt&&Bt.isMap,jt=Bt&&Bt.isRegExp,Kt=Bt&&Bt.isSet,At=Bt&&Bt.isTypedArray;function Jt(n,t,r){switch(r.length){case 0:return n.call(t);case 1:return n.call(t,r[0]);case 2:return n.call(t,r[0],r[1]);case 3:return n.call(t,r[0],r[1],r[2])}return n.apply(t,r)}function Lt(n,t,r,e){for(var u=-1,i=null==n?0:n.length;++u<i;){var o=n[u];t(e,o,r(o),n)}return e}function Qt(n,t){for(var r=-1,e=null==n?0:n.length;++r<e&&!1!==t(n[r],r,n););return n}function Xt(n,t){for(var r=null==n?0:n.length;r--&&!1!==t(n[r],r,n););return n}function Yt(n,t){for(var r=-1,e=null==n?0:n.length;++r<e;)if(!t(n[r],r,n))return!1;return!0}function Ct(n,t){for(var r=-1,e=null==n?0:n.length,u=0,i=[];++r<e;){var o=n[r];t(o,r,n)&&(i[u++]=o)}return i}function Pt(n,t){return!!(null==n?0:n.length)&&er(n,t,0)>-1}function It(n,t,r){for(var e=-1,u=null==n?0:n.length;++e<u;)if(r(t,n[e]))return!0;return!1}function Ft(n,t){for(var r=-1,e=null==n?0:n.length,u=Array(e);++r<e;)u[r]=t(n[r],r,n);return u}function Gt(n,t){for(var r=-1,e=t.length,u=n.length;++r<e;)n[u+r]=t[r];return n}function Ht(n,t,r,e){var u=-1,i=null==n?0:n.length;for(e&&i&&(r=n[++u]);++u<i;)r=t(r,n[u],u,n);return r}function kt(n,t,r,e){var u=null==n?0:n.length;for(e&&u&&(r=n[--u]);u--;)r=t(r,n[u],u,n);return r}function Vt(n,t){for(var r=-1,e=null==n?0:n.length;++r<e;)if(t(n[r],r,n))return!0;return!1}var nr=fr("length");function tr(n,t,r){var e;return r(n,function(n,r,u){if(t(n,r,u))return e=r,!1}),e}function rr(n,t,r,e){for(var u=n.length,i=r+(e?1:-1);e?i--:++i<u;)if(t(n[i],i,n))return i;return-1}function er(n,t,r){return t==t?function(n,t,r){var e=r-1,u=n.length;for(;++e<u;)if(n[e]===t)return e;return-1}(n,t,r):rr(n,ir,r)}function ur(n,t,r,e){for(var u=r-1,i=n.length;++u<i;)if(e(n[u],t))return u;return-1}function ir(n){return n!=n}function or(n,t){var r=null==n?0:n.length;return r?lr(n,t)/r:D}function fr(t){return function(r){return null==r?n:r[t]}}function cr(t){return function(r){return null==t?n:t[r]}}function ar(n,t,r,e,u){return u(n,function(n,u,i){r=e?(e=!1,n):t(r,n,u,i)}),r}function lr(t,r){for(var e,u=-1,i=t.length;++u<i;){var o=r(t[u]);o!==n&&(e=e===n?o:e+o)}return e}function hr(n,t){for(var r=-1,e=Array(n);++r<n;)e[r]=t(r);return e}function vr(n){return function(t){return n(t)}}function pr(n,t){return Ft(t,function(t){return n[t]})}function _r(n,t){return n.has(t)}function sr(n,t){for(var r=-1,e=n.length;++r<e&&er(t,n[r],0)>-1;);return r}function gr(n,t){for(var r=n.length;r--&&er(t,n[r],0)>-1;);return r}var yr=cr({"À":"A","Á":"A","Â":"A","Ã":"A","Ä":"A","Å":"A","à":"a","á":"a","â":"a","ã":"a","ä":"a","å":"a","Ç":"C","ç":"c","Ð":"D","ð":"d","È":"E","É":"E","Ê":"E","Ë":"E","è":"e","é":"e","ê":"e","ë":"e","Ì":"I","Í":"I","Î":"I","Ï":"I","ì":"i","í":"i","î":"i","ï":"i","Ñ":"N","ñ":"n","Ò":"O","Ó":"O","Ô":"O","Õ":"O","Ö":"O","Ø":"O","ò":"o","ó":"o","ô":"o","õ":"o","ö":"o","ø":"o","Ù":"U","Ú":"U","Û":"U","Ü":"U","ù":"u","ú":"u","û":"u","ü":"u","Ý":"Y","ý":"y","ÿ":"y","Æ":"Ae","æ":"ae","Þ":"Th","þ":"th","ß":"ss","Ā":"A","Ă":"A","Ą":"A","ā":"a","ă":"a","ą":"a","Ć":"C","Ĉ":"C","Ċ":"C","Č":"C","ć":"c","ĉ":"c","ċ":"c","č":"c","Ď":"D","Đ":"D","ď":"d","đ":"d","Ē":"E","Ĕ":"E","Ė":"E","Ę":"E","Ě":"E","ē":"e","ĕ":"e","ė":"e","ę":"e","ě":"e","Ĝ":"G","Ğ":"G","Ġ":"G","Ģ":"G","ĝ":"g","ğ":"g","ġ":"g","ģ":"g","Ĥ":"H","Ħ":"H","ĥ":"h","ħ":"h","Ĩ":"I","Ī":"I","Ĭ":"I","Į":"I","İ":"I","ĩ":"i","ī":"i","ĭ":"i","į":"i","ı":"i","Ĵ":"J","ĵ":"j","Ķ":"K","ķ":"k","ĸ":"k","Ĺ":"L","Ļ":"L","Ľ":"L","Ŀ":"L","Ł":"L","ĺ":"l","ļ":"l","ľ":"l","ŀ":"l","ł":"l","Ń":"N","Ņ":"N","Ň":"N","Ŋ":"N","ń":"n","ņ":"n","ň":"n","ŋ":"n","Ō":"O","Ŏ":"O","Ő":"O","ō":"o","ŏ":"o","ő":"o","Ŕ":"R","Ŗ":"R","Ř":"R","ŕ":"r","ŗ":"r","ř":"r","Ś":"S","Ŝ":"S","Ş":"S","Š":"S","ś":"s","ŝ":"s","ş":"s","š":"s","Ţ":"T","Ť":"T","Ŧ":"T","ţ":"t","ť":"t","ŧ":"t","Ũ":"U","Ū":"U","Ŭ":"U","Ů":"U","Ű":"U","Ų":"U","ũ":"u","ū":"u","ŭ":"u","ů":"u","ű":"u","ų":"u","Ŵ":"W","ŵ":"w","Ŷ":"Y","ŷ":"y","Ÿ":"Y","Ź":"Z","Ż":"Z","Ž":"Z","ź":"z","ż":"z","ž":"z","Ĳ":"IJ","ĳ":"ij","Œ":"Oe","œ":"oe","ŉ":"'n","ſ":"s"}),dr=cr({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"});function wr(n){return"\\"+zt[n]}function xr(n){return dt.test(n)}function br(n){var t=-1,r=Array(n.size);return n.forEach(function(n,e){r[++t]=[e,n]}),r}function Er(n,t){return function(r){return n(t(r))}}function mr(n,t){for(var r=-1,e=n.length,u=0,i=[];++r<e;){var f=n[r];f!==t&&f!==o||(n[r]=o,i[u++]=r)}return i}function zr(t,r){return"__proto__"==r?n:t[r]}function Sr(n){var t=-1,r=Array(n.size);return n.forEach(function(n){r[++t]=n}),r}function Or(n){var t=-1,r=Array(n.size);return n.forEach(function(n){r[++t]=[n,n]}),r}function $r(n){return xr(n)?function(n){var t=gt.lastIndex=0;for(;gt.test(n);)++t;return t}(n):nr(n)}function Ur(n){return xr(n)?function(n){return n.match(gt)||[]}(n):function(n){return n.split("")}(n)}var Wr=cr({"&amp;":"&","&lt;":"<","&gt;":">","&quot;":'"',"&#39;":"'"});var Rr=function In(Fn){var Gn,Hn=(Fn=null==Fn?Wt:Rr.defaults(Wt.Object(),Fn,Rr.pick(Wt,xt))).Array,kn=Fn.Date,Vn=Fn.Error,nt=Fn.Function,tt=Fn.Math,rt=Fn.Object,et=Fn.RegExp,ut=Fn.String,it=Fn.TypeError,ot=Hn.prototype,ft=nt.prototype,ct=rt.prototype,at=Fn["__core-js_shared__"],lt=ft.toString,ht=ct.hasOwnProperty,vt=0,pt=(Gn=/[^.]+$/.exec(at&&at.keys&&at.keys.IE_PROTO||""))?"Symbol(src)_1."+Gn:"",gt=ct.toString,dt=lt.call(rt),zt=Wt._,$t=et("^"+lt.call(ht).replace(Un,"\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g,"$1.*?")+"$"),Ut=Nt?Fn.Buffer:n,Rt=Fn.Symbol,Dt=Fn.Uint8Array,qt=Ut?Ut.allocUnsafe:n,Bt=Er(rt.getPrototypeOf,rt),nr=rt.create,cr=ct.propertyIsEnumerable,Dr=ot.splice,Nr=Rt?Rt.isConcatSpreadable:n,qr=Rt?Rt.iterator:n,Br=Rt?Rt.toStringTag:n,Zr=function(){try{var n=Ki(rt,"defineProperty");return n({},"",{}),n}catch(n){}}(),Mr=Fn.clearTimeout!==Wt.clearTimeout&&Fn.clearTimeout,Tr=kn&&kn.now!==Wt.Date.now&&kn.now,jr=Fn.setTimeout!==Wt.setTimeout&&Fn.setTimeout,Kr=tt.ceil,Ar=tt.floor,Jr=rt.getOwnPropertySymbols,Lr=Ut?Ut.isBuffer:n,Qr=Fn.isFinite,Xr=ot.join,Yr=Er(rt.keys,rt),Cr=tt.max,Pr=tt.min,Ir=kn.now,Fr=Fn.parseInt,Gr=tt.random,Hr=ot.reverse,kr=Ki(Fn,"DataView"),Vr=Ki(Fn,"Map"),ne=Ki(Fn,"Promise"),te=Ki(Fn,"Set"),re=Ki(Fn,"WeakMap"),ee=Ki(rt,"create"),ue=re&&new re,ie={},oe=lo(kr),fe=lo(Vr),ce=lo(ne),ae=lo(te),le=lo(re),he=Rt?Rt.prototype:n,ve=he?he.valueOf:n,pe=he?he.toString:n;function _e(n){if(Wf(n)&&!df(n)&&!(n instanceof de)){if(n instanceof ye)return n;if(ht.call(n,"__wrapped__"))return ho(n)}return new ye(n)}var se=function(){function t(){}return function(r){if(!Uf(r))return{};if(nr)return nr(r);t.prototype=r;var e=new t;return t.prototype=n,e}}();function ge(){}function ye(t,r){this.__wrapped__=t,this.__actions__=[],this.__chain__=!!r,this.__index__=0,this.__values__=n}function de(n){this.__wrapped__=n,this.__actions__=[],this.__dir__=1,this.__filtered__=!1,this.__iteratees__=[],this.__takeCount__=N,this.__views__=[]}function we(n){var t=-1,r=null==n?0:n.length;for(this.clear();++t<r;){var e=n[t];this.set(e[0],e[1])}}function xe(n){var t=-1,r=null==n?0:n.length;for(this.clear();++t<r;){var e=n[t];this.set(e[0],e[1])}}function be(n){var t=-1,r=null==n?0:n.length;for(this.clear();++t<r;){var e=n[t];this.set(e[0],e[1])}}function Ee(n){var t=-1,r=null==n?0:n.length;for(this.__data__=new be;++t<r;)this.add(n[t])}function me(n){var t=this.__data__=new xe(n);this.size=t.size}function ze(n,t){var r=df(n),e=!r&&yf(n),u=!r&&!e&&Ef(n),i=!r&&!e&&!u&&Tf(n),o=r||e||u||i,f=o?hr(n.length,ut):[],c=f.length;for(var a in n)!t&&!ht.call(n,a)||o&&("length"==a||u&&("offset"==a||"parent"==a)||i&&("buffer"==a||"byteLength"==a||"byteOffset"==a)||Ci(a,c))||f.push(a);return f}function Se(t){var r=t.length;return r?t[Eu(0,r-1)]:n}function Oe(n,t){return fo(ei(n),Ze(t,0,n.length))}function $e(n){return fo(ei(n))}function Ue(t,r,e){(e===n||_f(t[r],e))&&(e!==n||r in t)||qe(t,r,e)}function We(t,r,e){var u=t[r];ht.call(t,r)&&_f(u,e)&&(e!==n||r in t)||qe(t,r,e)}function Re(n,t){for(var r=n.length;r--;)if(_f(n[r][0],t))return r;return-1}function De(n,t,r,e){return Ae(n,function(n,u,i){t(e,n,r(n),i)}),e}function Ne(n,t){return n&&ui(t,ic(t),n)}function qe(n,t,r){"__proto__"==t&&Zr?Zr(n,t,{configurable:!0,enumerable:!0,value:r,writable:!0}):n[t]=r}function Be(t,r){for(var e=-1,u=r.length,i=Hn(u),o=null==t;++e<u;)i[e]=o?n:nc(t,r[e]);return i}function Ze(t,r,e){return t==t&&(e!==n&&(t=t<=e?t:e),r!==n&&(t=t>=r?t:r)),t}function Me(t,r,e,u,i,o){var l,h=r&f,v=r&c,p=r&a;if(e&&(l=i?e(t,u,i,o):e(t)),l!==n)return l;if(!Uf(t))return t;var _=df(t);if(_){if(l=function(n){var t=n.length,r=new n.constructor(t);return t&&"string"==typeof n[0]&&ht.call(n,"index")&&(r.index=n.index,r.input=n.input),r}(t),!h)return ei(t,l)}else{var s=Li(t),g=s==Q||s==X;if(Ef(t))return Hu(t,h);if(s==I||s==M||g&&!i){if(l=v||g?{}:Xi(t),!h)return v?function(n,t){return ui(n,Ji(n),t)}(t,function(n,t){return n&&ui(t,oc(t),n)}(l,t)):function(n,t){return ui(n,Ai(n),t)}(t,Ne(l,t))}else{if(!mt[s])return i?t:{};l=function(n,t,r){var e,u,i,o=n.constructor;switch(t){case en:return ku(n);case K:case A:return new o(+n);case un:return function(n,t){var r=t?ku(n.buffer):n.buffer;return new n.constructor(r,n.byteOffset,n.byteLength)}(n,r);case on:case fn:case cn:case an:case ln:case hn:case vn:case pn:case _n:return Vu(n,r);case Y:return new o;case C:case k:return new o(n);case G:return(i=new(u=n).constructor(u.source,Kn.exec(u))).lastIndex=u.lastIndex,i;case H:return new o;case V:return e=n,ve?rt(ve.call(e)):{}}}(t,s,h)}}o||(o=new me);var y=o.get(t);if(y)return y;if(o.set(t,l),Bf(t))return t.forEach(function(n){l.add(Me(n,r,e,n,t,o))}),l;if(Rf(t))return t.forEach(function(n,u){l.set(u,Me(n,r,e,u,t,o))}),l;var d=_?n:(p?v?Ni:Di:v?oc:ic)(t);return Qt(d||t,function(n,u){d&&(n=t[u=n]),We(l,u,Me(n,r,e,u,t,o))}),l}function Te(t,r,e){var u=e.length;if(null==t)return!u;for(t=rt(t);u--;){var i=e[u],o=r[i],f=t[i];if(f===n&&!(i in t)||!o(f))return!1}return!0}function je(t,r,u){if("function"!=typeof t)throw new it(e);return eo(function(){t.apply(n,u)},r)}function Ke(n,r,e,u){var i=-1,o=Pt,f=!0,c=n.length,a=[],l=r.length;if(!c)return a;e&&(r=Ft(r,vr(e))),u?(o=It,f=!1):r.length>=t&&(o=_r,f=!1,r=new Ee(r));n:for(;++i<c;){var h=n[i],v=null==e?h:e(h);if(h=u||0!==h?h:0,f&&v==v){for(var p=l;p--;)if(r[p]===v)continue n;a.push(h)}else o(r,v,u)||a.push(h)}return a}_e.templateSettings={escape:En,evaluate:mn,interpolate:zn,variable:"",imports:{_:_e}},_e.prototype=ge.prototype,_e.prototype.constructor=_e,ye.prototype=se(ge.prototype),ye.prototype.constructor=ye,de.prototype=se(ge.prototype),de.prototype.constructor=de,we.prototype.clear=function(){this.__data__=ee?ee(null):{},this.size=0},we.prototype.delete=function(n){var t=this.has(n)&&delete this.__data__[n];return this.size-=t?1:0,t},we.prototype.get=function(t){var r=this.__data__;if(ee){var e=r[t];return e===u?n:e}return ht.call(r,t)?r[t]:n},we.prototype.has=function(t){var r=this.__data__;return ee?r[t]!==n:ht.call(r,t)},we.prototype.set=function(t,r){var e=this.__data__;return this.size+=this.has(t)?0:1,e[t]=ee&&r===n?u:r,this},xe.prototype.clear=function(){this.__data__=[],this.size=0},xe.prototype.delete=function(n){var t=this.__data__,r=Re(t,n);return!(r<0||(r==t.length-1?t.pop():Dr.call(t,r,1),--this.size,0))},xe.prototype.get=function(t){var r=this.__data__,e=Re(r,t);return e<0?n:r[e][1]},xe.prototype.has=function(n){return Re(this.__data__,n)>-1},xe.prototype.set=function(n,t){var r=this.__data__,e=Re(r,n);return e<0?(++this.size,r.push([n,t])):r[e][1]=t,this},be.prototype.clear=function(){this.size=0,this.__data__={hash:new we,map:new(Vr||xe),string:new we}},be.prototype.delete=function(n){var t=Ti(this,n).delete(n);return this.size-=t?1:0,t},be.prototype.get=function(n){return Ti(this,n).get(n)},be.prototype.has=function(n){return Ti(this,n).has(n)},be.prototype.set=function(n,t){var r=Ti(this,n),e=r.size;return r.set(n,t),this.size+=r.size==e?0:1,this},Ee.prototype.add=Ee.prototype.push=function(n){return this.__data__.set(n,u),this},Ee.prototype.has=function(n){return this.__data__.has(n)},me.prototype.clear=function(){this.__data__=new xe,this.size=0},me.prototype.delete=function(n){var t=this.__data__,r=t.delete(n);return this.size=t.size,r},me.prototype.get=function(n){return this.__data__.get(n)},me.prototype.has=function(n){return this.__data__.has(n)},me.prototype.set=function(n,r){var e=this.__data__;if(e instanceof xe){var u=e.__data__;if(!Vr||u.length<t-1)return u.push([n,r]),this.size=++e.size,this;e=this.__data__=new be(u)}return e.set(n,r),this.size=e.size,this};var Ae=fi(Ie),Je=fi(Fe,!0);function Le(n,t){var r=!0;return Ae(n,function(n,e,u){return r=!!t(n,e,u)}),r}function Qe(t,r,e){for(var u=-1,i=t.length;++u<i;){var o=t[u],f=r(o);if(null!=f&&(c===n?f==f&&!Mf(f):e(f,c)))var c=f,a=o}return a}function Xe(n,t){var r=[];return Ae(n,function(n,e,u){t(n,e,u)&&r.push(n)}),r}function Ye(n,t,r,e,u){var i=-1,o=n.length;for(r||(r=Yi),u||(u=[]);++i<o;){var f=n[i];t>0&&r(f)?t>1?Ye(f,t-1,r,e,u):Gt(u,f):e||(u[u.length]=f)}return u}var Ce=ci(),Pe=ci(!0);function Ie(n,t){return n&&Ce(n,t,ic)}function Fe(n,t){return n&&Pe(n,t,ic)}function Ge(n,t){return Ct(t,function(t){return Sf(n[t])})}function He(t,r){for(var e=0,u=(r=Pu(r,t)).length;null!=t&&e<u;)t=t[ao(r[e++])];return e&&e==u?t:n}function ke(n,t,r){var e=t(n);return df(n)?e:Gt(e,r(n))}function Ve(t){return null==t?t===n?nn:P:Br&&Br in rt(t)?function(t){var r=ht.call(t,Br),e=t[Br];try{t[Br]=n;var u=!0}catch(n){}var i=gt.call(t);return u&&(r?t[Br]=e:delete t[Br]),i}(t):function(n){return gt.call(n)}(t)}function nu(n,t){return n>t}function tu(n,t){return null!=n&&ht.call(n,t)}function ru(n,t){return null!=n&&t in rt(n)}function eu(t,r,e){for(var u=e?It:Pt,i=t[0].length,o=t.length,f=o,c=Hn(o),a=1/0,l=[];f--;){var h=t[f];f&&r&&(h=Ft(h,vr(r))),a=Pr(h.length,a),c[f]=!e&&(r||i>=120&&h.length>=120)?new Ee(f&&h):n}h=t[0];var v=-1,p=c[0];n:for(;++v<i&&l.length<a;){var _=h[v],s=r?r(_):_;if(_=e||0!==_?_:0,!(p?_r(p,s):u(l,s,e))){for(f=o;--f;){var g=c[f];if(!(g?_r(g,s):u(t[f],s,e)))continue n}p&&p.push(s),l.push(_)}}return l}function uu(t,r,e){var u=null==(t=to(t,r=Pu(r,t)))?t:t[ao(mo(r))];return null==u?n:Jt(u,t,e)}function iu(n){return Wf(n)&&Ve(n)==M}function ou(t,r,e,u,i){return t===r||(null==t||null==r||!Wf(t)&&!Wf(r)?t!=t&&r!=r:function(t,r,e,u,i,o){var f=df(t),c=df(r),a=f?T:Li(t),v=c?T:Li(r),p=(a=a==M?I:a)==I,_=(v=v==M?I:v)==I,s=a==v;if(s&&Ef(t)){if(!Ef(r))return!1;f=!0,p=!1}if(s&&!p)return o||(o=new me),f||Tf(t)?Wi(t,r,e,u,i,o):function(n,t,r,e,u,i,o){switch(r){case un:if(n.byteLength!=t.byteLength||n.byteOffset!=t.byteOffset)return!1;n=n.buffer,t=t.buffer;case en:return!(n.byteLength!=t.byteLength||!i(new Dt(n),new Dt(t)));case K:case A:case C:return _f(+n,+t);case L:return n.name==t.name&&n.message==t.message;case G:case k:return n==t+"";case Y:var f=br;case H:var c=e&l;if(f||(f=Sr),n.size!=t.size&&!c)return!1;var a=o.get(n);if(a)return a==t;e|=h,o.set(n,t);var v=Wi(f(n),f(t),e,u,i,o);return o.delete(n),v;case V:if(ve)return ve.call(n)==ve.call(t)}return!1}(t,r,a,e,u,i,o);if(!(e&l)){var g=p&&ht.call(t,"__wrapped__"),y=_&&ht.call(r,"__wrapped__");if(g||y){var d=g?t.value():t,w=y?r.value():r;return o||(o=new me),i(d,w,e,u,o)}}return!!s&&(o||(o=new me),function(t,r,e,u,i,o){var f=e&l,c=Di(t),a=c.length,h=Di(r).length;if(a!=h&&!f)return!1;for(var v=a;v--;){var p=c[v];if(!(f?p in r:ht.call(r,p)))return!1}var _=o.get(t);if(_&&o.get(r))return _==r;var s=!0;o.set(t,r),o.set(r,t);for(var g=f;++v<a;){p=c[v];var y=t[p],d=r[p];if(u)var w=f?u(d,y,p,r,t,o):u(y,d,p,t,r,o);if(!(w===n?y===d||i(y,d,e,u,o):w)){s=!1;break}g||(g="constructor"==p)}if(s&&!g){var x=t.constructor,b=r.constructor;x!=b&&"constructor"in t&&"constructor"in r&&!("function"==typeof x&&x instanceof x&&"function"==typeof b&&b instanceof b)&&(s=!1)}return o.delete(t),o.delete(r),s}(t,r,e,u,i,o))}(t,r,e,u,ou,i))}function fu(t,r,e,u){var i=e.length,o=i,f=!u;if(null==t)return!o;for(t=rt(t);i--;){var c=e[i];if(f&&c[2]?c[1]!==t[c[0]]:!(c[0]in t))return!1}for(;++i<o;){var a=(c=e[i])[0],v=t[a],p=c[1];if(f&&c[2]){if(v===n&&!(a in t))return!1}else{var _=new me;if(u)var s=u(v,p,a,t,r,_);if(!(s===n?ou(p,v,l|h,u,_):s))return!1}}return!0}function cu(n){return!(!Uf(n)||(t=n,pt&&pt in t))&&(Sf(n)?$t:Ln).test(lo(n));var t}function au(n){return"function"==typeof n?n:null==n?Dc:"object"==typeof n?df(n)?su(n[0],n[1]):_u(n):Ac(n)}function lu(n){if(!Hi(n))return Yr(n);var t=[];for(var r in rt(n))ht.call(n,r)&&"constructor"!=r&&t.push(r);return t}function hu(n){if(!Uf(n))return function(n){var t=[];if(null!=n)for(var r in rt(n))t.push(r);return t}(n);var t=Hi(n),r=[];for(var e in n)("constructor"!=e||!t&&ht.call(n,e))&&r.push(e);return r}function vu(n,t){return n<t}function pu(n,t){var r=-1,e=xf(n)?Hn(n.length):[];return Ae(n,function(n,u,i){e[++r]=t(n,u,i)}),e}function _u(n){var t=ji(n);return 1==t.length&&t[0][2]?Vi(t[0][0],t[0][1]):function(r){return r===n||fu(r,n,t)}}function su(t,r){return Ii(t)&&ki(r)?Vi(ao(t),r):function(e){var u=nc(e,t);return u===n&&u===r?tc(e,t):ou(r,u,l|h)}}function gu(t,r,e,u,i){t!==r&&Ce(r,function(o,f){if(Uf(o))i||(i=new me),function(t,r,e,u,i,o,f){var c=zr(t,e),a=zr(r,e),l=f.get(a);if(l)Ue(t,e,l);else{var h=o?o(c,a,e+"",t,r,f):n,v=h===n;if(v){var p=df(a),_=!p&&Ef(a),s=!p&&!_&&Tf(a);h=a,p||_||s?df(c)?h=c:bf(c)?h=ei(c):_?(v=!1,h=Hu(a,!0)):s?(v=!1,h=Vu(a,!0)):h=[]:Nf(a)||yf(a)?(h=c,yf(c)?h=Yf(c):(!Uf(c)||u&&Sf(c))&&(h=Xi(a))):v=!1}v&&(f.set(a,h),i(h,a,u,o,f),f.delete(a)),Ue(t,e,h)}}(t,r,f,e,gu,u,i);else{var c=u?u(zr(t,f),o,f+"",t,r,i):n;c===n&&(c=o),Ue(t,f,c)}},oc)}function yu(t,r){var e=t.length;if(e)return Ci(r+=r<0?e:0,e)?t[r]:n}function du(n,t,r){var e=-1;return t=Ft(t.length?t:[Dc],vr(Mi())),function(n,t){var r=n.length;for(n.sort(t);r--;)n[r]=n[r].value;return n}(pu(n,function(n,r,u){return{criteria:Ft(t,function(t){return t(n)}),index:++e,value:n}}),function(n,t){return function(n,t,r){for(var e=-1,u=n.criteria,i=t.criteria,o=u.length,f=r.length;++e<o;){var c=ni(u[e],i[e]);if(c){if(e>=f)return c;var a=r[e];return c*("desc"==a?-1:1)}}return n.index-t.index}(n,t,r)})}function wu(n,t,r){for(var e=-1,u=t.length,i={};++e<u;){var o=t[e],f=He(n,o);r(f,o)&&$u(i,Pu(o,n),f)}return i}function xu(n,t,r,e){var u=e?ur:er,i=-1,o=t.length,f=n;for(n===t&&(t=ei(t)),r&&(f=Ft(n,vr(r)));++i<o;)for(var c=0,a=t[i],l=r?r(a):a;(c=u(f,l,c,e))>-1;)f!==n&&Dr.call(f,c,1),Dr.call(n,c,1);return n}function bu(n,t){for(var r=n?t.length:0,e=r-1;r--;){var u=t[r];if(r==e||u!==i){var i=u;Ci(u)?Dr.call(n,u,1):Ku(n,u)}}return n}function Eu(n,t){return n+Ar(Gr()*(t-n+1))}function mu(n,t){var r="";if(!n||t<1||t>W)return r;do{t%2&&(r+=n),(t=Ar(t/2))&&(n+=n)}while(t);return r}function zu(n,t){return uo(no(n,t,Dc),n+"")}function Su(n){return Se(_c(n))}function Ou(n,t){var r=_c(n);return fo(r,Ze(t,0,r.length))}function $u(t,r,e,u){if(!Uf(t))return t;for(var i=-1,o=(r=Pu(r,t)).length,f=o-1,c=t;null!=c&&++i<o;){var a=ao(r[i]),l=e;if(i!=f){var h=c[a];(l=u?u(h,a,c):n)===n&&(l=Uf(h)?h:Ci(r[i+1])?[]:{})}We(c,a,l),c=c[a]}return t}var Uu=ue?function(n,t){return ue.set(n,t),n}:Dc,Wu=Zr?function(n,t){return Zr(n,"toString",{configurable:!0,enumerable:!1,value:Uc(t),writable:!0})}:Dc;function Ru(n){return fo(_c(n))}function Du(n,t,r){var e=-1,u=n.length;t<0&&(t=-t>u?0:u+t),(r=r>u?u:r)<0&&(r+=u),u=t>r?0:r-t>>>0,t>>>=0;for(var i=Hn(u);++e<u;)i[e]=n[e+t];return i}function Nu(n,t){var r;return Ae(n,function(n,e,u){return!(r=t(n,e,u))}),!!r}function qu(n,t,r){var e=0,u=null==n?e:n.length;if("number"==typeof t&&t==t&&u<=B){for(;e<u;){var i=e+u>>>1,o=n[i];null!==o&&!Mf(o)&&(r?o<=t:o<t)?e=i+1:u=i}return u}return Bu(n,t,Dc,r)}function Bu(t,r,e,u){r=e(r);for(var i=0,o=null==t?0:t.length,f=r!=r,c=null===r,a=Mf(r),l=r===n;i<o;){var h=Ar((i+o)/2),v=e(t[h]),p=v!==n,_=null===v,s=v==v,g=Mf(v);if(f)var y=u||s;else y=l?s&&(u||p):c?s&&p&&(u||!_):a?s&&p&&!_&&(u||!g):!_&&!g&&(u?v<=r:v<r);y?i=h+1:o=h}return Pr(o,q)}function Zu(n,t){for(var r=-1,e=n.length,u=0,i=[];++r<e;){var o=n[r],f=t?t(o):o;if(!r||!_f(f,c)){var c=f;i[u++]=0===o?0:o}}return i}function Mu(n){return"number"==typeof n?n:Mf(n)?D:+n}function Tu(n){if("string"==typeof n)return n;if(df(n))return Ft(n,Tu)+"";if(Mf(n))return pe?pe.call(n):"";var t=n+"";return"0"==t&&1/n==-U?"-0":t}function ju(n,r,e){var u=-1,i=Pt,o=n.length,f=!0,c=[],a=c;if(e)f=!1,i=It;else if(o>=t){var l=r?null:mi(n);if(l)return Sr(l);f=!1,i=_r,a=new Ee}else a=r?[]:c;n:for(;++u<o;){var h=n[u],v=r?r(h):h;if(h=e||0!==h?h:0,f&&v==v){for(var p=a.length;p--;)if(a[p]===v)continue n;r&&a.push(v),c.push(h)}else i(a,v,e)||(a!==c&&a.push(v),c.push(h))}return c}function Ku(n,t){return null==(n=to(n,t=Pu(t,n)))||delete n[ao(mo(t))]}function Au(n,t,r,e){return $u(n,t,r(He(n,t)),e)}function Ju(n,t,r,e){for(var u=n.length,i=e?u:-1;(e?i--:++i<u)&&t(n[i],i,n););return r?Du(n,e?0:i,e?i+1:u):Du(n,e?i+1:0,e?u:i)}function Lu(n,t){var r=n;return r instanceof de&&(r=r.value()),Ht(t,function(n,t){return t.func.apply(t.thisArg,Gt([n],t.args))},r)}function Qu(n,t,r){var e=n.length;if(e<2)return e?ju(n[0]):[];for(var u=-1,i=Hn(e);++u<e;)for(var o=n[u],f=-1;++f<e;)f!=u&&(i[u]=Ke(i[u]||o,n[f],t,r));return ju(Ye(i,1),t,r)}function Xu(t,r,e){for(var u=-1,i=t.length,o=r.length,f={};++u<i;){var c=u<o?r[u]:n;e(f,t[u],c)}return f}function Yu(n){return bf(n)?n:[]}function Cu(n){return"function"==typeof n?n:Dc}function Pu(n,t){return df(n)?n:Ii(n,t)?[n]:co(Cf(n))}var Iu=zu;function Fu(t,r,e){var u=t.length;return e=e===n?u:e,!r&&e>=u?t:Du(t,r,e)}var Gu=Mr||function(n){return Wt.clearTimeout(n)};function Hu(n,t){if(t)return n.slice();var r=n.length,e=qt?qt(r):new n.constructor(r);return n.copy(e),e}function ku(n){var t=new n.constructor(n.byteLength);return new Dt(t).set(new Dt(n)),t}function Vu(n,t){var r=t?ku(n.buffer):n.buffer;return new n.constructor(r,n.byteOffset,n.length)}function ni(t,r){if(t!==r){var e=t!==n,u=null===t,i=t==t,o=Mf(t),f=r!==n,c=null===r,a=r==r,l=Mf(r);if(!c&&!l&&!o&&t>r||o&&f&&a&&!c&&!l||u&&f&&a||!e&&a||!i)return 1;if(!u&&!o&&!l&&t<r||l&&e&&i&&!u&&!o||c&&e&&i||!f&&i||!a)return-1}return 0}function ti(n,t,r,e){for(var u=-1,i=n.length,o=r.length,f=-1,c=t.length,a=Cr(i-o,0),l=Hn(c+a),h=!e;++f<c;)l[f]=t[f];for(;++u<o;)(h||u<i)&&(l[r[u]]=n[u]);for(;a--;)l[f++]=n[u++];return l}function ri(n,t,r,e){for(var u=-1,i=n.length,o=-1,f=r.length,c=-1,a=t.length,l=Cr(i-f,0),h=Hn(l+a),v=!e;++u<l;)h[u]=n[u];for(var p=u;++c<a;)h[p+c]=t[c];for(;++o<f;)(v||u<i)&&(h[p+r[o]]=n[u++]);return h}function ei(n,t){var r=-1,e=n.length;for(t||(t=Hn(e));++r<e;)t[r]=n[r];return t}function ui(t,r,e,u){var i=!e;e||(e={});for(var o=-1,f=r.length;++o<f;){var c=r[o],a=u?u(e[c],t[c],c,e,t):n;a===n&&(a=t[c]),i?qe(e,c,a):We(e,c,a)}return e}function ii(n,t){return function(r,e){var u=df(r)?Lt:De,i=t?t():{};return u(r,n,Mi(e,2),i)}}function oi(t){return zu(function(r,e){var u=-1,i=e.length,o=i>1?e[i-1]:n,f=i>2?e[2]:n;for(o=t.length>3&&"function"==typeof o?(i--,o):n,f&&Pi(e[0],e[1],f)&&(o=i<3?n:o,i=1),r=rt(r);++u<i;){var c=e[u];c&&t(r,c,u,o)}return r})}function fi(n,t){return function(r,e){if(null==r)return r;if(!xf(r))return n(r,e);for(var u=r.length,i=t?u:-1,o=rt(r);(t?i--:++i<u)&&!1!==e(o[i],i,o););return r}}function ci(n){return function(t,r,e){for(var u=-1,i=rt(t),o=e(t),f=o.length;f--;){var c=o[n?f:++u];if(!1===r(i[c],c,i))break}return t}}function ai(t){return function(r){var e=xr(r=Cf(r))?Ur(r):n,u=e?e[0]:r.charAt(0),i=e?Fu(e,1).join(""):r.slice(1);return u[t]()+i}}function li(n){return function(t){return Ht(Sc(yc(t).replace(_t,"")),n,"")}}function hi(n){return function(){var t=arguments;switch(t.length){case 0:return new n;case 1:return new n(t[0]);case 2:return new n(t[0],t[1]);case 3:return new n(t[0],t[1],t[2]);case 4:return new n(t[0],t[1],t[2],t[3]);case 5:return new n(t[0],t[1],t[2],t[3],t[4]);case 6:return new n(t[0],t[1],t[2],t[3],t[4],t[5]);case 7:return new n(t[0],t[1],t[2],t[3],t[4],t[5],t[6])}var r=se(n.prototype),e=n.apply(r,t);return Uf(e)?e:r}}function vi(t){return function(r,e,u){var i=rt(r);if(!xf(r)){var o=Mi(e,3);r=ic(r),e=function(n){return o(i[n],n,i)}}var f=t(r,e,u);return f>-1?i[o?r[f]:f]:n}}function pi(t){return Ri(function(r){var u=r.length,i=u,o=ye.prototype.thru;for(t&&r.reverse();i--;){var f=r[i];if("function"!=typeof f)throw new it(e);if(o&&!c&&"wrapper"==Bi(f))var c=new ye([],!0)}for(i=c?i:u;++i<u;){var a=Bi(f=r[i]),l="wrapper"==a?qi(f):n;c=l&&Fi(l[0])&&l[1]==(w|s|y|x)&&!l[4].length&&1==l[9]?c[Bi(l[0])].apply(c,l[3]):1==f.length&&Fi(f)?c[a]():c.thru(f)}return function(){var n=arguments,t=n[0];if(c&&1==n.length&&df(t))return c.plant(t).value();for(var e=0,i=u?r[e].apply(this,n):t;++e<u;)i=r[e].call(this,i);return i}})}function _i(t,r,e,u,i,o,f,c,a,l){var h=r&w,_=r&v,y=r&p,d=r&(s|g),x=r&b,E=y?n:hi(t);return function v(){for(var p=arguments.length,s=Hn(p),g=p;g--;)s[g]=arguments[g];if(d)var w=Zi(v),b=function(n,t){for(var r=n.length,e=0;r--;)n[r]===t&&++e;return e}(s,w);if(u&&(s=ti(s,u,i,d)),o&&(s=ri(s,o,f,d)),p-=b,d&&p<l){var m=mr(s,w);return bi(t,r,_i,v.placeholder,e,s,m,c,a,l-p)}var z=_?e:this,S=y?z[t]:t;return p=s.length,c?s=function(t,r){for(var e=t.length,u=Pr(r.length,e),i=ei(t);u--;){var o=r[u];t[u]=Ci(o,e)?i[o]:n}return t}(s,c):x&&p>1&&s.reverse(),h&&a<p&&(s.length=a),this&&this!==Wt&&this instanceof v&&(S=E||hi(S)),S.apply(z,s)}}function si(n,t){return function(r,e){return function(n,t,r,e){return Ie(n,function(n,u,i){t(e,r(n),u,i)}),e}(r,n,t(e),{})}}function gi(t,r){return function(e,u){var i;if(e===n&&u===n)return r;if(e!==n&&(i=e),u!==n){if(i===n)return u;"string"==typeof e||"string"==typeof u?(e=Tu(e),u=Tu(u)):(e=Mu(e),u=Mu(u)),i=t(e,u)}return i}}function yi(n){return Ri(function(t){return t=Ft(t,vr(Mi())),zu(function(r){var e=this;return n(t,function(n){return Jt(n,e,r)})})})}function di(t,r){var e=(r=r===n?" ":Tu(r)).length;if(e<2)return e?mu(r,t):r;var u=mu(r,Kr(t/$r(r)));return xr(r)?Fu(Ur(u),0,t).join(""):u.slice(0,t)}function wi(t){return function(r,e,u){return u&&"number"!=typeof u&&Pi(r,e,u)&&(e=u=n),r=Jf(r),e===n?(e=r,r=0):e=Jf(e),function(n,t,r,e){for(var u=-1,i=Cr(Kr((t-n)/(r||1)),0),o=Hn(i);i--;)o[e?i:++u]=n,n+=r;return o}(r,e,u=u===n?r<e?1:-1:Jf(u),t)}}function xi(n){return function(t,r){return"string"==typeof t&&"string"==typeof r||(t=Xf(t),r=Xf(r)),n(t,r)}}function bi(t,r,e,u,i,o,f,c,a,l){var h=r&s;r|=h?y:d,(r&=~(h?d:y))&_||(r&=~(v|p));var g=[t,r,i,h?o:n,h?f:n,h?n:o,h?n:f,c,a,l],w=e.apply(n,g);return Fi(t)&&ro(w,g),w.placeholder=u,io(w,t,r)}function Ei(n){var t=tt[n];return function(n,r){if(n=Xf(n),r=null==r?0:Pr(Lf(r),292)){var e=(Cf(n)+"e").split("e");return+((e=(Cf(t(e[0]+"e"+(+e[1]+r)))+"e").split("e"))[0]+"e"+(+e[1]-r))}return t(n)}}var mi=te&&1/Sr(new te([,-0]))[1]==U?function(n){return new te(n)}:Mc;function zi(n){return function(t){var r=Li(t);return r==Y?br(t):r==H?Or(t):function(n,t){return Ft(t,function(t){return[t,n[t]]})}(t,n(t))}}function Si(t,r,u,i,f,c,a,l){var h=r&p;if(!h&&"function"!=typeof t)throw new it(e);var b=i?i.length:0;if(b||(r&=~(y|d),i=f=n),a=a===n?a:Cr(Lf(a),0),l=l===n?l:Lf(l),b-=f?f.length:0,r&d){var E=i,m=f;i=f=n}var z=h?n:qi(t),S=[t,r,u,i,f,E,m,c,a,l];if(z&&function(n,t){var r=n[1],e=t[1],u=r|e,i=u<(v|p|w),f=e==w&&r==s||e==w&&r==x&&n[7].length<=t[8]||e==(w|x)&&t[7].length<=t[8]&&r==s;if(!i&&!f)return n;e&v&&(n[2]=t[2],u|=r&v?0:_);var c=t[3];if(c){var a=n[3];n[3]=a?ti(a,c,t[4]):c,n[4]=a?mr(n[3],o):t[4]}(c=t[5])&&(a=n[5],n[5]=a?ri(a,c,t[6]):c,n[6]=a?mr(n[5],o):t[6]),(c=t[7])&&(n[7]=c),e&w&&(n[8]=null==n[8]?t[8]:Pr(n[8],t[8])),null==n[9]&&(n[9]=t[9]),n[0]=t[0],n[1]=u}(S,z),t=S[0],r=S[1],u=S[2],i=S[3],f=S[4],!(l=S[9]=S[9]===n?h?0:t.length:Cr(S[9]-b,0))&&r&(s|g)&&(r&=~(s|g)),r&&r!=v)O=r==s||r==g?function(t,r,e){var u=hi(t);return function i(){for(var o=arguments.length,f=Hn(o),c=o,a=Zi(i);c--;)f[c]=arguments[c];var l=o<3&&f[0]!==a&&f[o-1]!==a?[]:mr(f,a);return(o-=l.length)<e?bi(t,r,_i,i.placeholder,n,f,l,n,n,e-o):Jt(this&&this!==Wt&&this instanceof i?u:t,this,f)}}(t,r,l):r!=y&&r!=(v|y)||f.length?_i.apply(n,S):function(n,t,r,e){var u=t&v,i=hi(n);return function t(){for(var o=-1,f=arguments.length,c=-1,a=e.length,l=Hn(a+f),h=this&&this!==Wt&&this instanceof t?i:n;++c<a;)l[c]=e[c];for(;f--;)l[c++]=arguments[++o];return Jt(h,u?r:this,l)}}(t,r,u,i);else var O=function(n,t,r){var e=t&v,u=hi(n);return function t(){return(this&&this!==Wt&&this instanceof t?u:n).apply(e?r:this,arguments)}}(t,r,u);return io((z?Uu:ro)(O,S),t,r)}function Oi(t,r,e,u){return t===n||_f(t,ct[e])&&!ht.call(u,e)?r:t}function $i(t,r,e,u,i,o){return Uf(t)&&Uf(r)&&(o.set(r,t),gu(t,r,n,$i,o),o.delete(r)),t}function Ui(t){return Nf(t)?n:t}function Wi(t,r,e,u,i,o){var f=e&l,c=t.length,a=r.length;if(c!=a&&!(f&&a>c))return!1;var v=o.get(t);if(v&&o.get(r))return v==r;var p=-1,_=!0,s=e&h?new Ee:n;for(o.set(t,r),o.set(r,t);++p<c;){var g=t[p],y=r[p];if(u)var d=f?u(y,g,p,r,t,o):u(g,y,p,t,r,o);if(d!==n){if(d)continue;_=!1;break}if(s){if(!Vt(r,function(n,t){if(!_r(s,t)&&(g===n||i(g,n,e,u,o)))return s.push(t)})){_=!1;break}}else if(g!==y&&!i(g,y,e,u,o)){_=!1;break}}return o.delete(t),o.delete(r),_}function Ri(t){return uo(no(t,n,yo),t+"")}function Di(n){return ke(n,ic,Ai)}function Ni(n){return ke(n,oc,Ji)}var qi=ue?function(n){return ue.get(n)}:Mc;function Bi(n){for(var t=n.name+"",r=ie[t],e=ht.call(ie,t)?r.length:0;e--;){var u=r[e],i=u.func;if(null==i||i==n)return u.name}return t}function Zi(n){return(ht.call(_e,"placeholder")?_e:n).placeholder}function Mi(){var n=_e.iteratee||Nc;return n=n===Nc?au:n,arguments.length?n(arguments[0],arguments[1]):n}function Ti(n,t){var r,e,u=n.__data__;return("string"==(e=typeof(r=t))||"number"==e||"symbol"==e||"boolean"==e?"__proto__"!==r:null===r)?u["string"==typeof t?"string":"hash"]:u.map}function ji(n){for(var t=ic(n),r=t.length;r--;){var e=t[r],u=n[e];t[r]=[e,u,ki(u)]}return t}function Ki(t,r){var e=function(t,r){return null==t?n:t[r]}(t,r);return cu(e)?e:n}var Ai=Jr?function(n){return null==n?[]:(n=rt(n),Ct(Jr(n),function(t){return cr.call(n,t)}))}:Qc,Ji=Jr?function(n){for(var t=[];n;)Gt(t,Ai(n)),n=Bt(n);return t}:Qc,Li=Ve;function Qi(n,t,r){for(var e=-1,u=(t=Pu(t,n)).length,i=!1;++e<u;){var o=ao(t[e]);if(!(i=null!=n&&r(n,o)))break;n=n[o]}return i||++e!=u?i:!!(u=null==n?0:n.length)&&$f(u)&&Ci(o,u)&&(df(n)||yf(n))}function Xi(n){return"function"!=typeof n.constructor||Hi(n)?{}:se(Bt(n))}function Yi(n){return df(n)||yf(n)||!!(Nr&&n&&n[Nr])}function Ci(n,t){var r=typeof n;return!!(t=null==t?W:t)&&("number"==r||"symbol"!=r&&Xn.test(n))&&n>-1&&n%1==0&&n<t}function Pi(n,t,r){if(!Uf(r))return!1;var e=typeof t;return!!("number"==e?xf(r)&&Ci(t,r.length):"string"==e&&t in r)&&_f(r[t],n)}function Ii(n,t){if(df(n))return!1;var r=typeof n;return!("number"!=r&&"symbol"!=r&&"boolean"!=r&&null!=n&&!Mf(n))||On.test(n)||!Sn.test(n)||null!=t&&n in rt(t)}function Fi(n){var t=Bi(n),r=_e[t];if("function"!=typeof r||!(t in de.prototype))return!1;if(n===r)return!0;var e=qi(r);return!!e&&n===e[0]}(kr&&Li(new kr(new ArrayBuffer(1)))!=un||Vr&&Li(new Vr)!=Y||ne&&"[object Promise]"!=Li(ne.resolve())||te&&Li(new te)!=H||re&&Li(new re)!=tn)&&(Li=function(t){var r=Ve(t),e=r==I?t.constructor:n,u=e?lo(e):"";if(u)switch(u){case oe:return un;case fe:return Y;case ce:return"[object Promise]";case ae:return H;case le:return tn}return r});var Gi=at?Sf:Xc;function Hi(n){var t=n&&n.constructor;return n===("function"==typeof t&&t.prototype||ct)}function ki(n){return n==n&&!Uf(n)}function Vi(t,r){return function(e){return null!=e&&e[t]===r&&(r!==n||t in rt(e))}}function no(t,r,e){return r=Cr(r===n?t.length-1:r,0),function(){for(var n=arguments,u=-1,i=Cr(n.length-r,0),o=Hn(i);++u<i;)o[u]=n[r+u];u=-1;for(var f=Hn(r+1);++u<r;)f[u]=n[u];return f[r]=e(o),Jt(t,this,f)}}function to(n,t){return t.length<2?n:He(n,Du(t,0,-1))}var ro=oo(Uu),eo=jr||function(n,t){return Wt.setTimeout(n,t)},uo=oo(Wu);function io(n,t,r){var e=t+"";return uo(n,function(n,t){var r=t.length;if(!r)return n;var e=r-1;return t[e]=(r>1?"& ":"")+t[e],t=t.join(r>2?", ":" "),n.replace(qn,"{\n/* [wrapped with "+t+"] */\n")}(e,function(n,t){return Qt(Z,function(r){var e="_."+r[0];t&r[1]&&!Pt(n,e)&&n.push(e)}),n.sort()}(function(n){var t=n.match(Bn);return t?t[1].split(Zn):[]}(e),r)))}function oo(t){var r=0,e=0;return function(){var u=Ir(),i=S-(u-e);if(e=u,i>0){if(++r>=z)return arguments[0]}else r=0;return t.apply(n,arguments)}}function fo(t,r){var e=-1,u=t.length,i=u-1;for(r=r===n?u:r;++e<r;){var o=Eu(e,i),f=t[o];t[o]=t[e],t[e]=f}return t.length=r,t}var co=function(n){var t=cf(n,function(n){return r.size===i&&r.clear(),n}),r=t.cache;return t}(function(n){var t=[];return 46===n.charCodeAt(0)&&t.push(""),n.replace($n,function(n,r,e,u){t.push(e?u.replace(Tn,"$1"):r||n)}),t});function ao(n){if("string"==typeof n||Mf(n))return n;var t=n+"";return"0"==t&&1/n==-U?"-0":t}function lo(n){if(null!=n){try{return lt.call(n)}catch(n){}try{return n+""}catch(n){}}return""}function ho(n){if(n instanceof de)return n.clone();var t=new ye(n.__wrapped__,n.__chain__);return t.__actions__=ei(n.__actions__),t.__index__=n.__index__,t.__values__=n.__values__,t}var vo=zu(function(n,t){return bf(n)?Ke(n,Ye(t,1,bf,!0)):[]}),po=zu(function(t,r){var e=mo(r);return bf(e)&&(e=n),bf(t)?Ke(t,Ye(r,1,bf,!0),Mi(e,2)):[]}),_o=zu(function(t,r){var e=mo(r);return bf(e)&&(e=n),bf(t)?Ke(t,Ye(r,1,bf,!0),n,e):[]});function so(n,t,r){var e=null==n?0:n.length;if(!e)return-1;var u=null==r?0:Lf(r);return u<0&&(u=Cr(e+u,0)),rr(n,Mi(t,3),u)}function go(t,r,e){var u=null==t?0:t.length;if(!u)return-1;var i=u-1;return e!==n&&(i=Lf(e),i=e<0?Cr(u+i,0):Pr(i,u-1)),rr(t,Mi(r,3),i,!0)}function yo(n){return null!=n&&n.length?Ye(n,1):[]}function wo(t){return t&&t.length?t[0]:n}var xo=zu(function(n){var t=Ft(n,Yu);return t.length&&t[0]===n[0]?eu(t):[]}),bo=zu(function(t){var r=mo(t),e=Ft(t,Yu);return r===mo(e)?r=n:e.pop(),e.length&&e[0]===t[0]?eu(e,Mi(r,2)):[]}),Eo=zu(function(t){var r=mo(t),e=Ft(t,Yu);return(r="function"==typeof r?r:n)&&e.pop(),e.length&&e[0]===t[0]?eu(e,n,r):[]});function mo(t){var r=null==t?0:t.length;return r?t[r-1]:n}var zo=zu(So);function So(n,t){return n&&n.length&&t&&t.length?xu(n,t):n}var Oo=Ri(function(n,t){var r=null==n?0:n.length,e=Be(n,t);return bu(n,Ft(t,function(n){return Ci(n,r)?+n:n}).sort(ni)),e});function $o(n){return null==n?n:Hr.call(n)}var Uo=zu(function(n){return ju(Ye(n,1,bf,!0))}),Wo=zu(function(t){var r=mo(t);return bf(r)&&(r=n),ju(Ye(t,1,bf,!0),Mi(r,2))}),Ro=zu(function(t){var r=mo(t);return r="function"==typeof r?r:n,ju(Ye(t,1,bf,!0),n,r)});function Do(n){if(!n||!n.length)return[];var t=0;return n=Ct(n,function(n){if(bf(n))return t=Cr(n.length,t),!0}),hr(t,function(t){return Ft(n,fr(t))})}function No(t,r){if(!t||!t.length)return[];var e=Do(t);return null==r?e:Ft(e,function(t){return Jt(r,n,t)})}var qo=zu(function(n,t){return bf(n)?Ke(n,t):[]}),Bo=zu(function(n){return Qu(Ct(n,bf))}),Zo=zu(function(t){var r=mo(t);return bf(r)&&(r=n),Qu(Ct(t,bf),Mi(r,2))}),Mo=zu(function(t){var r=mo(t);return r="function"==typeof r?r:n,Qu(Ct(t,bf),n,r)}),To=zu(Do);var jo=zu(function(t){var r=t.length,e=r>1?t[r-1]:n;return e="function"==typeof e?(t.pop(),e):n,No(t,e)});function Ko(n){var t=_e(n);return t.__chain__=!0,t}function Ao(n,t){return t(n)}var Jo=Ri(function(t){var r=t.length,e=r?t[0]:0,u=this.__wrapped__,i=function(n){return Be(n,t)};return!(r>1||this.__actions__.length)&&u instanceof de&&Ci(e)?((u=u.slice(e,+e+(r?1:0))).__actions__.push({func:Ao,args:[i],thisArg:n}),new ye(u,this.__chain__).thru(function(t){return r&&!t.length&&t.push(n),t})):this.thru(i)});var Lo=ii(function(n,t,r){ht.call(n,r)?++n[r]:qe(n,r,1)});var Qo=vi(so),Xo=vi(go);function Yo(n,t){return(df(n)?Qt:Ae)(n,Mi(t,3))}function Co(n,t){return(df(n)?Xt:Je)(n,Mi(t,3))}var Po=ii(function(n,t,r){ht.call(n,r)?n[r].push(t):qe(n,r,[t])});var Io=zu(function(n,t,r){var e=-1,u="function"==typeof t,i=xf(n)?Hn(n.length):[];return Ae(n,function(n){i[++e]=u?Jt(t,n,r):uu(n,t,r)}),i}),Fo=ii(function(n,t,r){qe(n,r,t)});function Go(n,t){return(df(n)?Ft:pu)(n,Mi(t,3))}var Ho=ii(function(n,t,r){n[r?0:1].push(t)},function(){return[[],[]]});var ko=zu(function(n,t){if(null==n)return[];var r=t.length;return r>1&&Pi(n,t[0],t[1])?t=[]:r>2&&Pi(t[0],t[1],t[2])&&(t=[t[0]]),du(n,Ye(t,1),[])}),Vo=Tr||function(){return Wt.Date.now()};function nf(t,r,e){return r=e?n:r,r=t&&null==r?t.length:r,Si(t,w,n,n,n,n,r)}function tf(t,r){var u;if("function"!=typeof r)throw new it(e);return t=Lf(t),function(){return--t>0&&(u=r.apply(this,arguments)),t<=1&&(r=n),u}}var rf=zu(function(n,t,r){var e=v;if(r.length){var u=mr(r,Zi(rf));e|=y}return Si(n,e,t,r,u)}),ef=zu(function(n,t,r){var e=v|p;if(r.length){var u=mr(r,Zi(ef));e|=y}return Si(t,e,n,r,u)});function uf(t,r,u){var i,o,f,c,a,l,h=0,v=!1,p=!1,_=!0;if("function"!=typeof t)throw new it(e);function s(r){var e=i,u=o;return i=o=n,h=r,c=t.apply(u,e)}function g(t){var e=t-l;return l===n||e>=r||e<0||p&&t-h>=f}function y(){var n=Vo();if(g(n))return d(n);a=eo(y,function(n){var t=r-(n-l);return p?Pr(t,f-(n-h)):t}(n))}function d(t){return a=n,_&&i?s(t):(i=o=n,c)}function w(){var t=Vo(),e=g(t);if(i=arguments,o=this,l=t,e){if(a===n)return function(n){return h=n,a=eo(y,r),v?s(n):c}(l);if(p)return a=eo(y,r),s(l)}return a===n&&(a=eo(y,r)),c}return r=Xf(r)||0,Uf(u)&&(v=!!u.leading,f=(p="maxWait"in u)?Cr(Xf(u.maxWait)||0,r):f,_="trailing"in u?!!u.trailing:_),w.cancel=function(){a!==n&&Gu(a),h=0,i=l=o=a=n},w.flush=function(){return a===n?c:d(Vo())},w}var of=zu(function(n,t){return je(n,1,t)}),ff=zu(function(n,t,r){return je(n,Xf(t)||0,r)});function cf(n,t){if("function"!=typeof n||null!=t&&"function"!=typeof t)throw new it(e);var r=function(){var e=arguments,u=t?t.apply(this,e):e[0],i=r.cache;if(i.has(u))return i.get(u);var o=n.apply(this,e);return r.cache=i.set(u,o)||i,o};return r.cache=new(cf.Cache||be),r}function af(n){if("function"!=typeof n)throw new it(e);return function(){var t=arguments;switch(t.length){case 0:return!n.call(this);case 1:return!n.call(this,t[0]);case 2:return!n.call(this,t[0],t[1]);case 3:return!n.call(this,t[0],t[1],t[2])}return!n.apply(this,t)}}cf.Cache=be;var lf=Iu(function(n,t){var r=(t=1==t.length&&df(t[0])?Ft(t[0],vr(Mi())):Ft(Ye(t,1),vr(Mi()))).length;return zu(function(e){for(var u=-1,i=Pr(e.length,r);++u<i;)e[u]=t[u].call(this,e[u]);return Jt(n,this,e)})}),hf=zu(function(t,r){var e=mr(r,Zi(hf));return Si(t,y,n,r,e)}),vf=zu(function(t,r){var e=mr(r,Zi(vf));return Si(t,d,n,r,e)}),pf=Ri(function(t,r){return Si(t,x,n,n,n,r)});function _f(n,t){return n===t||n!=n&&t!=t}var sf=xi(nu),gf=xi(function(n,t){return n>=t}),yf=iu(function(){return arguments}())?iu:function(n){return Wf(n)&&ht.call(n,"callee")&&!cr.call(n,"callee")},df=Hn.isArray,wf=Zt?vr(Zt):function(n){return Wf(n)&&Ve(n)==en};function xf(n){return null!=n&&$f(n.length)&&!Sf(n)}function bf(n){return Wf(n)&&xf(n)}var Ef=Lr||Xc,mf=Mt?vr(Mt):function(n){return Wf(n)&&Ve(n)==A};function zf(n){if(!Wf(n))return!1;var t=Ve(n);return t==L||t==J||"string"==typeof n.message&&"string"==typeof n.name&&!Nf(n)}function Sf(n){if(!Uf(n))return!1;var t=Ve(n);return t==Q||t==X||t==j||t==F}function Of(n){return"number"==typeof n&&n==Lf(n)}function $f(n){return"number"==typeof n&&n>-1&&n%1==0&&n<=W}function Uf(n){var t=typeof n;return null!=n&&("object"==t||"function"==t)}function Wf(n){return null!=n&&"object"==typeof n}var Rf=Tt?vr(Tt):function(n){return Wf(n)&&Li(n)==Y};function Df(n){return"number"==typeof n||Wf(n)&&Ve(n)==C}function Nf(n){if(!Wf(n)||Ve(n)!=I)return!1;var t=Bt(n);if(null===t)return!0;var r=ht.call(t,"constructor")&&t.constructor;return"function"==typeof r&&r instanceof r&&lt.call(r)==dt}var qf=jt?vr(jt):function(n){return Wf(n)&&Ve(n)==G};var Bf=Kt?vr(Kt):function(n){return Wf(n)&&Li(n)==H};function Zf(n){return"string"==typeof n||!df(n)&&Wf(n)&&Ve(n)==k}function Mf(n){return"symbol"==typeof n||Wf(n)&&Ve(n)==V}var Tf=At?vr(At):function(n){return Wf(n)&&$f(n.length)&&!!Et[Ve(n)]};var jf=xi(vu),Kf=xi(function(n,t){return n<=t});function Af(n){if(!n)return[];if(xf(n))return Zf(n)?Ur(n):ei(n);if(qr&&n[qr])return function(n){for(var t,r=[];!(t=n.next()).done;)r.push(t.value);return r}(n[qr]());var t=Li(n);return(t==Y?br:t==H?Sr:_c)(n)}function Jf(n){return n?(n=Xf(n))===U||n===-U?(n<0?-1:1)*R:n==n?n:0:0===n?n:0}function Lf(n){var t=Jf(n),r=t%1;return t==t?r?t-r:t:0}function Qf(n){return n?Ze(Lf(n),0,N):0}function Xf(n){if("number"==typeof n)return n;if(Mf(n))return D;if(Uf(n)){var t="function"==typeof n.valueOf?n.valueOf():n;n=Uf(t)?t+"":t}if("string"!=typeof n)return 0===n?n:+n;n=n.replace(Rn,"");var r=Jn.test(n);return r||Qn.test(n)?Ot(n.slice(2),r?2:8):An.test(n)?D:+n}function Yf(n){return ui(n,oc(n))}function Cf(n){return null==n?"":Tu(n)}var Pf=oi(function(n,t){if(Hi(t)||xf(t))ui(t,ic(t),n);else for(var r in t)ht.call(t,r)&&We(n,r,t[r])}),If=oi(function(n,t){ui(t,oc(t),n)}),Ff=oi(function(n,t,r,e){ui(t,oc(t),n,e)}),Gf=oi(function(n,t,r,e){ui(t,ic(t),n,e)}),Hf=Ri(Be);var kf=zu(function(t,r){t=rt(t);var e=-1,u=r.length,i=u>2?r[2]:n;for(i&&Pi(r[0],r[1],i)&&(u=1);++e<u;)for(var o=r[e],f=oc(o),c=-1,a=f.length;++c<a;){var l=f[c],h=t[l];(h===n||_f(h,ct[l])&&!ht.call(t,l))&&(t[l]=o[l])}return t}),Vf=zu(function(t){return t.push(n,$i),Jt(cc,n,t)});function nc(t,r,e){var u=null==t?n:He(t,r);return u===n?e:u}function tc(n,t){return null!=n&&Qi(n,t,ru)}var rc=si(function(n,t,r){null!=t&&"function"!=typeof t.toString&&(t=gt.call(t)),n[t]=r},Uc(Dc)),ec=si(function(n,t,r){null!=t&&"function"!=typeof t.toString&&(t=gt.call(t)),ht.call(n,t)?n[t].push(r):n[t]=[r]},Mi),uc=zu(uu);function ic(n){return xf(n)?ze(n):lu(n)}function oc(n){return xf(n)?ze(n,!0):hu(n)}var fc=oi(function(n,t,r){gu(n,t,r)}),cc=oi(function(n,t,r,e){gu(n,t,r,e)}),ac=Ri(function(n,t){var r={};if(null==n)return r;var e=!1;t=Ft(t,function(t){return t=Pu(t,n),e||(e=t.length>1),t}),ui(n,Ni(n),r),e&&(r=Me(r,f|c|a,Ui));for(var u=t.length;u--;)Ku(r,t[u]);return r});var lc=Ri(function(n,t){return null==n?{}:function(n,t){return wu(n,t,function(t,r){return tc(n,r)})}(n,t)});function hc(n,t){if(null==n)return{};var r=Ft(Ni(n),function(n){return[n]});return t=Mi(t),wu(n,r,function(n,r){return t(n,r[0])})}var vc=zi(ic),pc=zi(oc);function _c(n){return null==n?[]:pr(n,ic(n))}var sc=li(function(n,t,r){return t=t.toLowerCase(),n+(r?gc(t):t)});function gc(n){return zc(Cf(n).toLowerCase())}function yc(n){return(n=Cf(n))&&n.replace(Yn,yr).replace(st,"")}var dc=li(function(n,t,r){return n+(r?"-":"")+t.toLowerCase()}),wc=li(function(n,t,r){return n+(r?" ":"")+t.toLowerCase()}),xc=ai("toLowerCase");var bc=li(function(n,t,r){return n+(r?"_":"")+t.toLowerCase()});var Ec=li(function(n,t,r){return n+(r?" ":"")+zc(t)});var mc=li(function(n,t,r){return n+(r?" ":"")+t.toUpperCase()}),zc=ai("toUpperCase");function Sc(t,r,e){return t=Cf(t),(r=e?n:r)===n?function(n){return wt.test(n)}(t)?function(n){return n.match(yt)||[]}(t):function(n){return n.match(Mn)||[]}(t):t.match(r)||[]}var Oc=zu(function(t,r){try{return Jt(t,n,r)}catch(n){return zf(n)?n:new Vn(n)}}),$c=Ri(function(n,t){return Qt(t,function(t){t=ao(t),qe(n,t,rf(n[t],n))}),n});function Uc(n){return function(){return n}}var Wc=pi(),Rc=pi(!0);function Dc(n){return n}function Nc(n){return au("function"==typeof n?n:Me(n,f))}var qc=zu(function(n,t){return function(r){return uu(r,n,t)}}),Bc=zu(function(n,t){return function(r){return uu(n,r,t)}});function Zc(n,t,r){var e=ic(t),u=Ge(t,e);null!=r||Uf(t)&&(u.length||!e.length)||(r=t,t=n,n=this,u=Ge(t,ic(t)));var i=!(Uf(r)&&"chain"in r&&!r.chain),o=Sf(n);return Qt(u,function(r){var e=t[r];n[r]=e,o&&(n.prototype[r]=function(){var t=this.__chain__;if(i||t){var r=n(this.__wrapped__);return(r.__actions__=ei(this.__actions__)).push({func:e,args:arguments,thisArg:n}),r.__chain__=t,r}return e.apply(n,Gt([this.value()],arguments))})}),n}function Mc(){}var Tc=yi(Ft),jc=yi(Yt),Kc=yi(Vt);function Ac(n){return Ii(n)?fr(ao(n)):function(n){return function(t){return He(t,n)}}(n)}var Jc=wi(),Lc=wi(!0);function Qc(){return[]}function Xc(){return!1}var Yc=gi(function(n,t){return n+t},0),Cc=Ei("ceil"),Pc=gi(function(n,t){return n/t},1),Ic=Ei("floor");var Fc,Gc=gi(function(n,t){return n*t},1),Hc=Ei("round"),kc=gi(function(n,t){return n-t},0);return _e.after=function(n,t){if("function"!=typeof t)throw new it(e);return n=Lf(n),function(){if(--n<1)return t.apply(this,arguments)}},_e.ary=nf,_e.assign=Pf,_e.assignIn=If,_e.assignInWith=Ff,_e.assignWith=Gf,_e.at=Hf,_e.before=tf,_e.bind=rf,_e.bindAll=$c,_e.bindKey=ef,_e.castArray=function(){if(!arguments.length)return[];var n=arguments[0];return df(n)?n:[n]},_e.chain=Ko,_e.chunk=function(t,r,e){r=(e?Pi(t,r,e):r===n)?1:Cr(Lf(r),0);var u=null==t?0:t.length;if(!u||r<1)return[];for(var i=0,o=0,f=Hn(Kr(u/r));i<u;)f[o++]=Du(t,i,i+=r);return f},_e.compact=function(n){for(var t=-1,r=null==n?0:n.length,e=0,u=[];++t<r;){var i=n[t];i&&(u[e++]=i)}return u},_e.concat=function(){var n=arguments.length;if(!n)return[];for(var t=Hn(n-1),r=arguments[0],e=n;e--;)t[e-1]=arguments[e];return Gt(df(r)?ei(r):[r],Ye(t,1))},_e.cond=function(n){var t=null==n?0:n.length,r=Mi();return n=t?Ft(n,function(n){if("function"!=typeof n[1])throw new it(e);return[r(n[0]),n[1]]}):[],zu(function(r){for(var e=-1;++e<t;){var u=n[e];if(Jt(u[0],this,r))return Jt(u[1],this,r)}})},_e.conforms=function(n){return function(n){var t=ic(n);return function(r){return Te(r,n,t)}}(Me(n,f))},_e.constant=Uc,_e.countBy=Lo,_e.create=function(n,t){var r=se(n);return null==t?r:Ne(r,t)},_e.curry=function t(r,e,u){var i=Si(r,s,n,n,n,n,n,e=u?n:e);return i.placeholder=t.placeholder,i},_e.curryRight=function t(r,e,u){var i=Si(r,g,n,n,n,n,n,e=u?n:e);return i.placeholder=t.placeholder,i},_e.debounce=uf,_e.defaults=kf,_e.defaultsDeep=Vf,_e.defer=of,_e.delay=ff,_e.difference=vo,_e.differenceBy=po,_e.differenceWith=_o,_e.drop=function(t,r,e){var u=null==t?0:t.length;return u?Du(t,(r=e||r===n?1:Lf(r))<0?0:r,u):[]},_e.dropRight=function(t,r,e){var u=null==t?0:t.length;return u?Du(t,0,(r=u-(r=e||r===n?1:Lf(r)))<0?0:r):[]},_e.dropRightWhile=function(n,t){return n&&n.length?Ju(n,Mi(t,3),!0,!0):[]},_e.dropWhile=function(n,t){return n&&n.length?Ju(n,Mi(t,3),!0):[]},_e.fill=function(t,r,e,u){var i=null==t?0:t.length;return i?(e&&"number"!=typeof e&&Pi(t,r,e)&&(e=0,u=i),function(t,r,e,u){var i=t.length;for((e=Lf(e))<0&&(e=-e>i?0:i+e),(u=u===n||u>i?i:Lf(u))<0&&(u+=i),u=e>u?0:Qf(u);e<u;)t[e++]=r;return t}(t,r,e,u)):[]},_e.filter=function(n,t){return(df(n)?Ct:Xe)(n,Mi(t,3))},_e.flatMap=function(n,t){return Ye(Go(n,t),1)},_e.flatMapDeep=function(n,t){return Ye(Go(n,t),U)},_e.flatMapDepth=function(t,r,e){return e=e===n?1:Lf(e),Ye(Go(t,r),e)},_e.flatten=yo,_e.flattenDeep=function(n){return null!=n&&n.length?Ye(n,U):[]},_e.flattenDepth=function(t,r){return null!=t&&t.length?Ye(t,r=r===n?1:Lf(r)):[]},_e.flip=function(n){return Si(n,b)},_e.flow=Wc,_e.flowRight=Rc,_e.fromPairs=function(n){for(var t=-1,r=null==n?0:n.length,e={};++t<r;){var u=n[t];e[u[0]]=u[1]}return e},_e.functions=function(n){return null==n?[]:Ge(n,ic(n))},_e.functionsIn=function(n){return null==n?[]:Ge(n,oc(n))},_e.groupBy=Po,_e.initial=function(n){return null!=n&&n.length?Du(n,0,-1):[]},_e.intersection=xo,_e.intersectionBy=bo,_e.intersectionWith=Eo,_e.invert=rc,_e.invertBy=ec,_e.invokeMap=Io,_e.iteratee=Nc,_e.keyBy=Fo,_e.keys=ic,_e.keysIn=oc,_e.map=Go,_e.mapKeys=function(n,t){var r={};return t=Mi(t,3),Ie(n,function(n,e,u){qe(r,t(n,e,u),n)}),r},_e.mapValues=function(n,t){var r={};return t=Mi(t,3),Ie(n,function(n,e,u){qe(r,e,t(n,e,u))}),r},_e.matches=function(n){return _u(Me(n,f))},_e.matchesProperty=function(n,t){return su(n,Me(t,f))},_e.memoize=cf,_e.merge=fc,_e.mergeWith=cc,_e.method=qc,_e.methodOf=Bc,_e.mixin=Zc,_e.negate=af,_e.nthArg=function(n){return n=Lf(n),zu(function(t){return yu(t,n)})},_e.omit=ac,_e.omitBy=function(n,t){return hc(n,af(Mi(t)))},_e.once=function(n){return tf(2,n)},_e.orderBy=function(t,r,e,u){return null==t?[]:(df(r)||(r=null==r?[]:[r]),df(e=u?n:e)||(e=null==e?[]:[e]),du(t,r,e))},_e.over=Tc,_e.overArgs=lf,_e.overEvery=jc,_e.overSome=Kc,_e.partial=hf,_e.partialRight=vf,_e.partition=Ho,_e.pick=lc,_e.pickBy=hc,_e.property=Ac,_e.propertyOf=function(t){return function(r){return null==t?n:He(t,r)}},_e.pull=zo,_e.pullAll=So,_e.pullAllBy=function(n,t,r){return n&&n.length&&t&&t.length?xu(n,t,Mi(r,2)):n},_e.pullAllWith=function(t,r,e){return t&&t.length&&r&&r.length?xu(t,r,n,e):t},_e.pullAt=Oo,_e.range=Jc,_e.rangeRight=Lc,_e.rearg=pf,_e.reject=function(n,t){return(df(n)?Ct:Xe)(n,af(Mi(t,3)))},_e.remove=function(n,t){var r=[];if(!n||!n.length)return r;var e=-1,u=[],i=n.length;for(t=Mi(t,3);++e<i;){var o=n[e];t(o,e,n)&&(r.push(o),u.push(e))}return bu(n,u),r},_e.rest=function(t,r){if("function"!=typeof t)throw new it(e);return zu(t,r=r===n?r:Lf(r))},_e.reverse=$o,_e.sampleSize=function(t,r,e){return r=(e?Pi(t,r,e):r===n)?1:Lf(r),(df(t)?Oe:Ou)(t,r)},_e.set=function(n,t,r){return null==n?n:$u(n,t,r)},_e.setWith=function(t,r,e,u){return u="function"==typeof u?u:n,null==t?t:$u(t,r,e,u)},_e.shuffle=function(n){return(df(n)?$e:Ru)(n)},_e.slice=function(t,r,e){var u=null==t?0:t.length;return u?(e&&"number"!=typeof e&&Pi(t,r,e)?(r=0,e=u):(r=null==r?0:Lf(r),e=e===n?u:Lf(e)),Du(t,r,e)):[]},_e.sortBy=ko,_e.sortedUniq=function(n){return n&&n.length?Zu(n):[]},_e.sortedUniqBy=function(n,t){return n&&n.length?Zu(n,Mi(t,2)):[]},_e.split=function(t,r,e){return e&&"number"!=typeof e&&Pi(t,r,e)&&(r=e=n),(e=e===n?N:e>>>0)?(t=Cf(t))&&("string"==typeof r||null!=r&&!qf(r))&&!(r=Tu(r))&&xr(t)?Fu(Ur(t),0,e):t.split(r,e):[]},_e.spread=function(n,t){if("function"!=typeof n)throw new it(e);return t=null==t?0:Cr(Lf(t),0),zu(function(r){var e=r[t],u=Fu(r,0,t);return e&&Gt(u,e),Jt(n,this,u)})},_e.tail=function(n){var t=null==n?0:n.length;return t?Du(n,1,t):[]},_e.take=function(t,r,e){return t&&t.length?Du(t,0,(r=e||r===n?1:Lf(r))<0?0:r):[]},_e.takeRight=function(t,r,e){var u=null==t?0:t.length;return u?Du(t,(r=u-(r=e||r===n?1:Lf(r)))<0?0:r,u):[]},_e.takeRightWhile=function(n,t){return n&&n.length?Ju(n,Mi(t,3),!1,!0):[]},_e.takeWhile=function(n,t){return n&&n.length?Ju(n,Mi(t,3)):[]},_e.tap=function(n,t){return t(n),n},_e.throttle=function(n,t,r){var u=!0,i=!0;if("function"!=typeof n)throw new it(e);return Uf(r)&&(u="leading"in r?!!r.leading:u,i="trailing"in r?!!r.trailing:i),uf(n,t,{leading:u,maxWait:t,trailing:i})},_e.thru=Ao,_e.toArray=Af,_e.toPairs=vc,_e.toPairsIn=pc,_e.toPath=function(n){return df(n)?Ft(n,ao):Mf(n)?[n]:ei(co(Cf(n)))},_e.toPlainObject=Yf,_e.transform=function(n,t,r){var e=df(n),u=e||Ef(n)||Tf(n);if(t=Mi(t,4),null==r){var i=n&&n.constructor;r=u?e?new i:[]:Uf(n)&&Sf(i)?se(Bt(n)):{}}return(u?Qt:Ie)(n,function(n,e,u){return t(r,n,e,u)}),r},_e.unary=function(n){return nf(n,1)},_e.union=Uo,_e.unionBy=Wo,_e.unionWith=Ro,_e.uniq=function(n){return n&&n.length?ju(n):[]},_e.uniqBy=function(n,t){return n&&n.length?ju(n,Mi(t,2)):[]},_e.uniqWith=function(t,r){return r="function"==typeof r?r:n,t&&t.length?ju(t,n,r):[]},_e.unset=function(n,t){return null==n||Ku(n,t)},_e.unzip=Do,_e.unzipWith=No,_e.update=function(n,t,r){return null==n?n:Au(n,t,Cu(r))},_e.updateWith=function(t,r,e,u){return u="function"==typeof u?u:n,null==t?t:Au(t,r,Cu(e),u)},_e.values=_c,_e.valuesIn=function(n){return null==n?[]:pr(n,oc(n))},_e.without=qo,_e.words=Sc,_e.wrap=function(n,t){return hf(Cu(t),n)},_e.xor=Bo,_e.xorBy=Zo,_e.xorWith=Mo,_e.zip=To,_e.zipObject=function(n,t){return Xu(n||[],t||[],We)},_e.zipObjectDeep=function(n,t){return Xu(n||[],t||[],$u)},_e.zipWith=jo,_e.entries=vc,_e.entriesIn=pc,_e.extend=If,_e.extendWith=Ff,Zc(_e,_e),_e.add=Yc,_e.attempt=Oc,_e.camelCase=sc,_e.capitalize=gc,_e.ceil=Cc,_e.clamp=function(t,r,e){return e===n&&(e=r,r=n),e!==n&&(e=(e=Xf(e))==e?e:0),r!==n&&(r=(r=Xf(r))==r?r:0),Ze(Xf(t),r,e)},_e.clone=function(n){return Me(n,a)},_e.cloneDeep=function(n){return Me(n,f|a)},_e.cloneDeepWith=function(t,r){return Me(t,f|a,r="function"==typeof r?r:n)},_e.cloneWith=function(t,r){return Me(t,a,r="function"==typeof r?r:n)},_e.conformsTo=function(n,t){return null==t||Te(n,t,ic(t))},_e.deburr=yc,_e.defaultTo=function(n,t){return null==n||n!=n?t:n},_e.divide=Pc,_e.endsWith=function(t,r,e){t=Cf(t),r=Tu(r);var u=t.length,i=e=e===n?u:Ze(Lf(e),0,u);return(e-=r.length)>=0&&t.slice(e,i)==r},_e.eq=_f,_e.escape=function(n){return(n=Cf(n))&&bn.test(n)?n.replace(wn,dr):n},_e.escapeRegExp=function(n){return(n=Cf(n))&&Wn.test(n)?n.replace(Un,"\\$&"):n},_e.every=function(t,r,e){var u=df(t)?Yt:Le;return e&&Pi(t,r,e)&&(r=n),u(t,Mi(r,3))},_e.find=Qo,_e.findIndex=so,_e.findKey=function(n,t){return tr(n,Mi(t,3),Ie)},_e.findLast=Xo,_e.findLastIndex=go,_e.findLastKey=function(n,t){return tr(n,Mi(t,3),Fe)},_e.floor=Ic,_e.forEach=Yo,_e.forEachRight=Co,_e.forIn=function(n,t){return null==n?n:Ce(n,Mi(t,3),oc)},_e.forInRight=function(n,t){return null==n?n:Pe(n,Mi(t,3),oc)},_e.forOwn=function(n,t){return n&&Ie(n,Mi(t,3))},_e.forOwnRight=function(n,t){return n&&Fe(n,Mi(t,3))},_e.get=nc,_e.gt=sf,_e.gte=gf,_e.has=function(n,t){return null!=n&&Qi(n,t,tu)},_e.hasIn=tc,_e.head=wo,_e.identity=Dc,_e.includes=function(n,t,r,e){n=xf(n)?n:_c(n),r=r&&!e?Lf(r):0;var u=n.length;return r<0&&(r=Cr(u+r,0)),Zf(n)?r<=u&&n.indexOf(t,r)>-1:!!u&&er(n,t,r)>-1},_e.indexOf=function(n,t,r){var e=null==n?0:n.length;if(!e)return-1;var u=null==r?0:Lf(r);return u<0&&(u=Cr(e+u,0)),er(n,t,u)},_e.inRange=function(t,r,e){return r=Jf(r),e===n?(e=r,r=0):e=Jf(e),function(n,t,r){return n>=Pr(t,r)&&n<Cr(t,r)}(t=Xf(t),r,e)},_e.invoke=uc,_e.isArguments=yf,_e.isArray=df,_e.isArrayBuffer=wf,_e.isArrayLike=xf,_e.isArrayLikeObject=bf,_e.isBoolean=function(n){return!0===n||!1===n||Wf(n)&&Ve(n)==K},_e.isBuffer=Ef,_e.isDate=mf,_e.isElement=function(n){return Wf(n)&&1===n.nodeType&&!Nf(n)},_e.isEmpty=function(n){if(null==n)return!0;if(xf(n)&&(df(n)||"string"==typeof n||"function"==typeof n.splice||Ef(n)||Tf(n)||yf(n)))return!n.length;var t=Li(n);if(t==Y||t==H)return!n.size;if(Hi(n))return!lu(n).length;for(var r in n)if(ht.call(n,r))return!1;return!0},_e.isEqual=function(n,t){return ou(n,t)},_e.isEqualWith=function(t,r,e){var u=(e="function"==typeof e?e:n)?e(t,r):n;return u===n?ou(t,r,n,e):!!u},_e.isError=zf,_e.isFinite=function(n){return"number"==typeof n&&Qr(n)},_e.isFunction=Sf,_e.isInteger=Of,_e.isLength=$f,_e.isMap=Rf,_e.isMatch=function(n,t){return n===t||fu(n,t,ji(t))},_e.isMatchWith=function(t,r,e){return e="function"==typeof e?e:n,fu(t,r,ji(r),e)},_e.isNaN=function(n){return Df(n)&&n!=+n},_e.isNative=function(n){if(Gi(n))throw new Vn(r);return cu(n)},_e.isNil=function(n){return null==n},_e.isNull=function(n){return null===n},_e.isNumber=Df,_e.isObject=Uf,_e.isObjectLike=Wf,_e.isPlainObject=Nf,_e.isRegExp=qf,_e.isSafeInteger=function(n){return Of(n)&&n>=-W&&n<=W},_e.isSet=Bf,_e.isString=Zf,_e.isSymbol=Mf,_e.isTypedArray=Tf,_e.isUndefined=function(t){return t===n},_e.isWeakMap=function(n){return Wf(n)&&Li(n)==tn},_e.isWeakSet=function(n){return Wf(n)&&Ve(n)==rn},_e.join=function(n,t){return null==n?"":Xr.call(n,t)},_e.kebabCase=dc,_e.last=mo,_e.lastIndexOf=function(t,r,e){var u=null==t?0:t.length;if(!u)return-1;var i=u;return e!==n&&(i=(i=Lf(e))<0?Cr(u+i,0):Pr(i,u-1)),r==r?function(n,t,r){for(var e=r+1;e--;)if(n[e]===t)return e;return e}(t,r,i):rr(t,ir,i,!0)},_e.lowerCase=wc,_e.lowerFirst=xc,_e.lt=jf,_e.lte=Kf,_e.max=function(t){return t&&t.length?Qe(t,Dc,nu):n},_e.maxBy=function(t,r){return t&&t.length?Qe(t,Mi(r,2),nu):n},_e.mean=function(n){return or(n,Dc)},_e.meanBy=function(n,t){return or(n,Mi(t,2))},_e.min=function(t){return t&&t.length?Qe(t,Dc,vu):n},_e.minBy=function(t,r){return t&&t.length?Qe(t,Mi(r,2),vu):n},_e.stubArray=Qc,_e.stubFalse=Xc,_e.stubObject=function(){return{}},_e.stubString=function(){return""},_e.stubTrue=function(){return!0},_e.multiply=Gc,_e.nth=function(t,r){return t&&t.length?yu(t,Lf(r)):n},_e.noConflict=function(){return Wt._===this&&(Wt._=zt),this},_e.noop=Mc,_e.now=Vo,_e.pad=function(n,t,r){n=Cf(n);var e=(t=Lf(t))?$r(n):0;if(!t||e>=t)return n;var u=(t-e)/2;return di(Ar(u),r)+n+di(Kr(u),r)},_e.padEnd=function(n,t,r){n=Cf(n);var e=(t=Lf(t))?$r(n):0;return t&&e<t?n+di(t-e,r):n},_e.padStart=function(n,t,r){n=Cf(n);var e=(t=Lf(t))?$r(n):0;return t&&e<t?di(t-e,r)+n:n},_e.parseInt=function(n,t,r){return r||null==t?t=0:t&&(t=+t),Fr(Cf(n).replace(Dn,""),t||0)},_e.random=function(t,r,e){if(e&&"boolean"!=typeof e&&Pi(t,r,e)&&(r=e=n),e===n&&("boolean"==typeof r?(e=r,r=n):"boolean"==typeof t&&(e=t,t=n)),t===n&&r===n?(t=0,r=1):(t=Jf(t),r===n?(r=t,t=0):r=Jf(r)),t>r){var u=t;t=r,r=u}if(e||t%1||r%1){var i=Gr();return Pr(t+i*(r-t+St("1e-"+((i+"").length-1))),r)}return Eu(t,r)},_e.reduce=function(n,t,r){var e=df(n)?Ht:ar,u=arguments.length<3;return e(n,Mi(t,4),r,u,Ae)},_e.reduceRight=function(n,t,r){var e=df(n)?kt:ar,u=arguments.length<3;return e(n,Mi(t,4),r,u,Je)},_e.repeat=function(t,r,e){return r=(e?Pi(t,r,e):r===n)?1:Lf(r),mu(Cf(t),r)},_e.replace=function(){var n=arguments,t=Cf(n[0]);return n.length<3?t:t.replace(n[1],n[2])},_e.result=function(t,r,e){var u=-1,i=(r=Pu(r,t)).length;for(i||(i=1,t=n);++u<i;){var o=null==t?n:t[ao(r[u])];o===n&&(u=i,o=e),t=Sf(o)?o.call(t):o}return t},_e.round=Hc,_e.runInContext=In,_e.sample=function(n){return(df(n)?Se:Su)(n)},_e.size=function(n){if(null==n)return 0;if(xf(n))return Zf(n)?$r(n):n.length;var t=Li(n);return t==Y||t==H?n.size:lu(n).length},_e.snakeCase=bc,_e.some=function(t,r,e){var u=df(t)?Vt:Nu;return e&&Pi(t,r,e)&&(r=n),u(t,Mi(r,3))},_e.sortedIndex=function(n,t){return qu(n,t)},_e.sortedIndexBy=function(n,t,r){return Bu(n,t,Mi(r,2))},_e.sortedIndexOf=function(n,t){var r=null==n?0:n.length;if(r){var e=qu(n,t);if(e<r&&_f(n[e],t))return e}return-1},_e.sortedLastIndex=function(n,t){return qu(n,t,!0)},_e.sortedLastIndexBy=function(n,t,r){return Bu(n,t,Mi(r,2),!0)},_e.sortedLastIndexOf=function(n,t){if(null!=n&&n.length){var r=qu(n,t,!0)-1;if(_f(n[r],t))return r}return-1},_e.startCase=Ec,_e.startsWith=function(n,t,r){return n=Cf(n),r=null==r?0:Ze(Lf(r),0,n.length),t=Tu(t),n.slice(r,r+t.length)==t},_e.subtract=kc,_e.sum=function(n){return n&&n.length?lr(n,Dc):0},_e.sumBy=function(n,t){return n&&n.length?lr(n,Mi(t,2)):0},_e.template=function(t,r,e){var u=_e.templateSettings;e&&Pi(t,r,e)&&(r=n),t=Cf(t),r=Ff({},r,u,Oi);var i,o,f=Ff({},r.imports,u.imports,Oi),c=ic(f),a=pr(f,c),l=0,h=r.interpolate||Cn,v="__p += '",p=et((r.escape||Cn).source+"|"+h.source+"|"+(h===zn?jn:Cn).source+"|"+(r.evaluate||Cn).source+"|$","g"),_="//# sourceURL="+("sourceURL"in r?r.sourceURL:"lodash.templateSources["+ ++bt+"]")+"\n";t.replace(p,function(n,r,e,u,f,c){return e||(e=u),v+=t.slice(l,c).replace(Pn,wr),r&&(i=!0,v+="' +\n__e("+r+") +\n'"),f&&(o=!0,v+="';\n"+f+";\n__p += '"),e&&(v+="' +\n((__t = ("+e+")) == null ? '' : __t) +\n'"),l=c+n.length,n}),v+="';\n";var s=r.variable;s||(v="with (obj) {\n"+v+"\n}\n"),v=(o?v.replace(sn,""):v).replace(gn,"$1").replace(yn,"$1;"),v="function("+(s||"obj")+") {\n"+(s?"":"obj || (obj = {});\n")+"var __t, __p = ''"+(i?", __e = _.escape":"")+(o?", __j = Array.prototype.join;\nfunction print() { __p += __j.call(arguments, '') }\n":";\n")+v+"return __p\n}";var g=Oc(function(){return nt(c,_+"return "+v).apply(n,a)});if(g.source=v,zf(g))throw g;return g},_e.times=function(n,t){if((n=Lf(n))<1||n>W)return[];var r=N,e=Pr(n,N);t=Mi(t),n-=N;for(var u=hr(e,t);++r<n;)t(r);return u},_e.toFinite=Jf,_e.toInteger=Lf,_e.toLength=Qf,_e.toLower=function(n){return Cf(n).toLowerCase()},_e.toNumber=Xf,_e.toSafeInteger=function(n){return n?Ze(Lf(n),-W,W):0===n?n:0},_e.toString=Cf,_e.toUpper=function(n){return Cf(n).toUpperCase()},_e.trim=function(t,r,e){if((t=Cf(t))&&(e||r===n))return t.replace(Rn,"");if(!t||!(r=Tu(r)))return t;var u=Ur(t),i=Ur(r);return Fu(u,sr(u,i),gr(u,i)+1).join("")},_e.trimEnd=function(t,r,e){if((t=Cf(t))&&(e||r===n))return t.replace(Nn,"");if(!t||!(r=Tu(r)))return t;var u=Ur(t);return Fu(u,0,gr(u,Ur(r))+1).join("")},_e.trimStart=function(t,r,e){if((t=Cf(t))&&(e||r===n))return t.replace(Dn,"");if(!t||!(r=Tu(r)))return t;var u=Ur(t);return Fu(u,sr(u,Ur(r))).join("")},_e.truncate=function(t,r){var e=E,u=m;if(Uf(r)){var i="separator"in r?r.separator:i;e="length"in r?Lf(r.length):e,u="omission"in r?Tu(r.omission):u}var o=(t=Cf(t)).length;if(xr(t)){var f=Ur(t);o=f.length}if(e>=o)return t;var c=e-$r(u);if(c<1)return u;var a=f?Fu(f,0,c).join(""):t.slice(0,c);if(i===n)return a+u;if(f&&(c+=a.length-c),qf(i)){if(t.slice(c).search(i)){var l,h=a;for(i.global||(i=et(i.source,Cf(Kn.exec(i))+"g")),i.lastIndex=0;l=i.exec(h);)var v=l.index;a=a.slice(0,v===n?c:v)}}else if(t.indexOf(Tu(i),c)!=c){var p=a.lastIndexOf(i);p>-1&&(a=a.slice(0,p))}return a+u},_e.unescape=function(n){return(n=Cf(n))&&xn.test(n)?n.replace(dn,Wr):n},_e.uniqueId=function(n){var t=++vt;return Cf(n)+t},_e.upperCase=mc,_e.upperFirst=zc,_e.each=Yo,_e.eachRight=Co,_e.first=wo,Zc(_e,(Fc={},Ie(_e,function(n,t){ht.call(_e.prototype,t)||(Fc[t]=n)}),Fc),{chain:!1}),_e.VERSION="4.17.5",Qt(["bind","bindKey","curry","curryRight","partial","partialRight"],function(n){_e[n].placeholder=_e}),Qt(["drop","take"],function(t,r){de.prototype[t]=function(e){e=e===n?1:Cr(Lf(e),0);var u=this.__filtered__&&!r?new de(this):this.clone();return u.__filtered__?u.__takeCount__=Pr(e,u.__takeCount__):u.__views__.push({size:Pr(e,N),type:t+(u.__dir__<0?"Right":"")}),u},de.prototype[t+"Right"]=function(n){return this.reverse()[t](n).reverse()}}),Qt(["filter","map","takeWhile"],function(n,t){var r=t+1,e=r==O||3==r;de.prototype[n]=function(n){var t=this.clone();return t.__iteratees__.push({iteratee:Mi(n,3),type:r}),t.__filtered__=t.__filtered__||e,t}}),Qt(["head","last"],function(n,t){var r="take"+(t?"Right":"");de.prototype[n]=function(){return this[r](1).value()[0]}}),Qt(["initial","tail"],function(n,t){var r="drop"+(t?"":"Right");de.prototype[n]=function(){return this.__filtered__?new de(this):this[r](1)}}),de.prototype.compact=function(){return this.filter(Dc)},de.prototype.find=function(n){return this.filter(n).head()},de.prototype.findLast=function(n){return this.reverse().find(n)},de.prototype.invokeMap=zu(function(n,t){return"function"==typeof n?new de(this):this.map(function(r){return uu(r,n,t)})}),de.prototype.reject=function(n){return this.filter(af(Mi(n)))},de.prototype.slice=function(t,r){t=Lf(t);var e=this;return e.__filtered__&&(t>0||r<0)?new de(e):(t<0?e=e.takeRight(-t):t&&(e=e.drop(t)),r!==n&&(e=(r=Lf(r))<0?e.dropRight(-r):e.take(r-t)),e)},de.prototype.takeRightWhile=function(n){return this.reverse().takeWhile(n).reverse()},de.prototype.toArray=function(){return this.take(N)},Ie(de.prototype,function(t,r){var e=/^(?:filter|find|map|reject)|While$/.test(r),u=/^(?:head|last)$/.test(r),i=_e[u?"take"+("last"==r?"Right":""):r],o=u||/^find/.test(r);i&&(_e.prototype[r]=function(){var r=this.__wrapped__,f=u?[1]:arguments,c=r instanceof de,a=f[0],l=c||df(r),h=function(n){var t=i.apply(_e,Gt([n],f));return u&&v?t[0]:t};l&&e&&"function"==typeof a&&1!=a.length&&(c=l=!1);var v=this.__chain__,p=!!this.__actions__.length,_=o&&!v,s=c&&!p;if(!o&&l){r=s?r:new de(this);var g=t.apply(r,f);return g.__actions__.push({func:Ao,args:[h],thisArg:n}),new ye(g,v)}return _&&s?t.apply(this,f):(g=this.thru(h),_?u?g.value()[0]:g.value():g)})}),Qt(["pop","push","shift","sort","splice","unshift"],function(n){var t=ot[n],r=/^(?:push|sort|unshift)$/.test(n)?"tap":"thru",e=/^(?:pop|shift)$/.test(n);_e.prototype[n]=function(){var n=arguments;if(e&&!this.__chain__){var u=this.value();return t.apply(df(u)?u:[],n)}return this[r](function(r){return t.apply(df(r)?r:[],n)})}}),Ie(de.prototype,function(n,t){var r=_e[t];if(r){var e=r.name+"";(ie[e]||(ie[e]=[])).push({name:t,func:r})}}),ie[_i(n,p).name]=[{name:"wrapper",func:n}],de.prototype.clone=function(){var n=new de(this.__wrapped__);return n.__actions__=ei(this.__actions__),n.__dir__=this.__dir__,n.__filtered__=this.__filtered__,n.__iteratees__=ei(this.__iteratees__),n.__takeCount__=this.__takeCount__,n.__views__=ei(this.__views__),n},de.prototype.reverse=function(){if(this.__filtered__){var n=new de(this);n.__dir__=-1,n.__filtered__=!0}else(n=this.clone()).__dir__*=-1;return n},de.prototype.value=function(){var n=this.__wrapped__.value(),t=this.__dir__,r=df(n),e=t<0,u=r?n.length:0,i=function(n,t,r){for(var e=-1,u=r.length;++e<u;){var i=r[e],o=i.size;switch(i.type){case"drop":n+=o;break;case"dropRight":t-=o;break;case"take":t=Pr(t,n+o);break;case"takeRight":n=Cr(n,t-o)}}return{start:n,end:t}}(0,u,this.__views__),o=i.start,f=i.end,c=f-o,a=e?f:o-1,l=this.__iteratees__,h=l.length,v=0,p=Pr(c,this.__takeCount__);if(!r||!e&&u==c&&p==c)return Lu(n,this.__actions__);var _=[];n:for(;c--&&v<p;){for(var s=-1,g=n[a+=t];++s<h;){var y=l[s],d=y.iteratee,w=y.type,x=d(g);if(w==$)g=x;else if(!x){if(w==O)continue n;break n}}_[v++]=g}return _},_e.prototype.at=Jo,_e.prototype.chain=function(){return Ko(this)},_e.prototype.commit=function(){return new ye(this.value(),this.__chain__)},_e.prototype.next=function(){this.__values__===n&&(this.__values__=Af(this.value()));var t=this.__index__>=this.__values__.length;return{done:t,value:t?n:this.__values__[this.__index__++]}},_e.prototype.plant=function(t){for(var r,e=this;e instanceof ge;){var u=ho(e);u.__index__=0,u.__values__=n,r?i.__wrapped__=u:r=u;var i=u;e=e.__wrapped__}return i.__wrapped__=t,r},_e.prototype.reverse=function(){var t=this.__wrapped__;if(t instanceof de){var r=t;return this.__actions__.length&&(r=new de(this)),(r=r.reverse()).__actions__.push({func:Ao,args:[$o],thisArg:n}),new ye(r,this.__chain__)}return this.thru($o)},_e.prototype.toJSON=_e.prototype.valueOf=_e.prototype.value=function(){return Lu(this.__wrapped__,this.__actions__)},_e.prototype.first=_e.prototype.head,qr&&(_e.prototype[qr]=function(){return this}),_e}();"function"==typeof define&&"object"==typeof define.amd&&define.amd?(Wt._=Rr,define(function(){return Rr})):Dt?((Dt.exports=Rr)._=Rr,Rt._=Rr):Wt._=Rr}).call(this);
+(function(){var n,t=200,r="Unsupported core-js use. Try https://npms.io/search?q=ponyfill.",e="Expected a function",u="__lodash_hash_undefined__",i=500,o="__lodash_placeholder__",f=1,c=2,a=4,l=1,h=2,v=1,p=2,_=4,s=8,g=16,y=32,d=64,w=128,x=256,b=512,E=30,m="...",z=800,S=16,O=1,$=2,U=1/0,W=9007199254740991,R=1.7976931348623157e308,D=NaN,q=4294967295,N=q-1,B=q>>>1,Z=[["ary",w],["bind",v],["bindKey",p],["curry",s],["curryRight",g],["flip",b],["partial",y],["partialRight",d],["rearg",x]],M="[object Arguments]",T="[object Array]",j="[object AsyncFunction]",K="[object Boolean]",A="[object Date]",J="[object DOMException]",L="[object Error]",Q="[object Function]",X="[object GeneratorFunction]",Y="[object Map]",I="[object Number]",C="[object Null]",P="[object Object]",F="[object Proxy]",G="[object RegExp]",H="[object Set]",k="[object String]",V="[object Symbol]",nn="[object Undefined]",tn="[object WeakMap]",rn="[object WeakSet]",en="[object ArrayBuffer]",un="[object DataView]",on="[object Float32Array]",fn="[object Float64Array]",cn="[object Int8Array]",an="[object Int16Array]",ln="[object Int32Array]",hn="[object Uint8Array]",vn="[object Uint8ClampedArray]",pn="[object Uint16Array]",_n="[object Uint32Array]",sn=/\b__p \+= '';/g,gn=/\b(__p \+=) '' \+/g,yn=/(__e\(.*?\)|\b__t\)) \+\n'';/g,dn=/&(?:amp|lt|gt|quot|#39);/g,wn=/[&<>"']/g,xn=RegExp(dn.source),bn=RegExp(wn.source),En=/<%-([\s\S]+?)%>/g,mn=/<%([\s\S]+?)%>/g,zn=/<%=([\s\S]+?)%>/g,Sn=/\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,On=/^\w*$/,$n=/[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g,Un=/[\\^$.*+?()[\]{}|]/g,Wn=RegExp(Un.source),Rn=/^\s+|\s+$/g,Dn=/^\s+/,qn=/\s+$/,Nn=/\{(?:\n\/\* \[wrapped with .+\] \*\/)?\n?/,Bn=/\{\n\/\* \[wrapped with (.+)\] \*/,Zn=/,? & /,Mn=/[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g,Tn=/\\(\\)?/g,jn=/\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g,Kn=/\w*$/,An=/^[-+]0x[0-9a-f]+$/i,Jn=/^0b[01]+$/i,Ln=/^\[object .+?Constructor\]$/,Qn=/^0o[0-7]+$/i,Xn=/^(?:0|[1-9]\d*)$/,Yn=/[\xc0-\xd6\xd8-\xf6\xf8-\xff\u0100-\u017f]/g,In=/($^)/,Cn=/['\n\r\u2028\u2029\\]/g,Pn="\\u0300-\\u036f\\ufe20-\\ufe2f\\u20d0-\\u20ff",Fn="\\xac\\xb1\\xd7\\xf7\\x00-\\x2f\\x3a-\\x40\\x5b-\\x60\\x7b-\\xbf\\u2000-\\u206f \\t\\x0b\\f\\xa0\\ufeff\\n\\r\\u2028\\u2029\\u1680\\u180e\\u2000\\u2001\\u2002\\u2003\\u2004\\u2005\\u2006\\u2007\\u2008\\u2009\\u200a\\u202f\\u205f\\u3000",Gn="[\\ud800-\\udfff]",Hn="["+Fn+"]",kn="["+Pn+"]",Vn="\\d+",nt="[\\u2700-\\u27bf]",tt="[a-z\\xdf-\\xf6\\xf8-\\xff]",rt="[^\\ud800-\\udfff"+Fn+Vn+"\\u2700-\\u27bfa-z\\xdf-\\xf6\\xf8-\\xffA-Z\\xc0-\\xd6\\xd8-\\xde]",et="\\ud83c[\\udffb-\\udfff]",ut="[^\\ud800-\\udfff]",it="(?:\\ud83c[\\udde6-\\uddff]){2}",ot="[\\ud800-\\udbff][\\udc00-\\udfff]",ft="[A-Z\\xc0-\\xd6\\xd8-\\xde]",ct="(?:"+tt+"|"+rt+")",at="(?:"+ft+"|"+rt+")",lt="(?:"+kn+"|"+et+")"+"?",ht="[\\ufe0e\\ufe0f]?"+lt+("(?:\\u200d(?:"+[ut,it,ot].join("|")+")[\\ufe0e\\ufe0f]?"+lt+")*"),vt="(?:"+[nt,it,ot].join("|")+")"+ht,pt="(?:"+[ut+kn+"?",kn,it,ot,Gn].join("|")+")",_t=RegExp("['’]","g"),st=RegExp(kn,"g"),gt=RegExp(et+"(?="+et+")|"+pt+ht,"g"),yt=RegExp([ft+"?"+tt+"+(?:['’](?:d|ll|m|re|s|t|ve))?(?="+[Hn,ft,"$"].join("|")+")",at+"+(?:['’](?:D|LL|M|RE|S|T|VE))?(?="+[Hn,ft+ct,"$"].join("|")+")",ft+"?"+ct+"+(?:['’](?:d|ll|m|re|s|t|ve))?",ft+"+(?:['’](?:D|LL|M|RE|S|T|VE))?","\\d*(?:1ST|2ND|3RD|(?![123])\\dTH)(?=\\b|[a-z_])","\\d*(?:1st|2nd|3rd|(?![123])\\dth)(?=\\b|[A-Z_])",Vn,vt].join("|"),"g"),dt=RegExp("[\\u200d\\ud800-\\udfff"+Pn+"\\ufe0e\\ufe0f]"),wt=/[a-z][A-Z]|[A-Z]{2}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/,xt=["Array","Buffer","DataView","Date","Error","Float32Array","Float64Array","Function","Int8Array","Int16Array","Int32Array","Map","Math","Object","Promise","RegExp","Set","String","Symbol","TypeError","Uint8Array","Uint8ClampedArray","Uint16Array","Uint32Array","WeakMap","_","clearTimeout","isFinite","parseInt","setTimeout"],bt=-1,Et={};Et[on]=Et[fn]=Et[cn]=Et[an]=Et[ln]=Et[hn]=Et[vn]=Et[pn]=Et[_n]=!0,Et[M]=Et[T]=Et[en]=Et[K]=Et[un]=Et[A]=Et[L]=Et[Q]=Et[Y]=Et[I]=Et[P]=Et[G]=Et[H]=Et[k]=Et[tn]=!1;var mt={};mt[M]=mt[T]=mt[en]=mt[un]=mt[K]=mt[A]=mt[on]=mt[fn]=mt[cn]=mt[an]=mt[ln]=mt[Y]=mt[I]=mt[P]=mt[G]=mt[H]=mt[k]=mt[V]=mt[hn]=mt[vn]=mt[pn]=mt[_n]=!0,mt[L]=mt[Q]=mt[tn]=!1;var zt={"\\":"\\","'":"'","\n":"n","\r":"r","\u2028":"u2028","\u2029":"u2029"},St=parseFloat,Ot=parseInt,$t="object"==typeof global&&global&&global.Object===Object&&global,Ut="object"==typeof self&&self&&self.Object===Object&&self,Wt=$t||Ut||Function("return this")(),Rt="object"==typeof exports&&exports&&!exports.nodeType&&exports,Dt=Rt&&"object"==typeof module&&module&&!module.nodeType&&module,qt=Dt&&Dt.exports===Rt,Nt=qt&&$t.process,Bt=function(){try{var n=Dt&&Dt.require&&Dt.require("util").types;return n||Nt&&Nt.binding&&Nt.binding("util")}catch(n){}}(),Zt=Bt&&Bt.isArrayBuffer,Mt=Bt&&Bt.isDate,Tt=Bt&&Bt.isMap,jt=Bt&&Bt.isRegExp,Kt=Bt&&Bt.isSet,At=Bt&&Bt.isTypedArray;function Jt(n,t,r){switch(r.length){case 0:return n.call(t);case 1:return n.call(t,r[0]);case 2:return n.call(t,r[0],r[1]);case 3:return n.call(t,r[0],r[1],r[2])}return n.apply(t,r)}function Lt(n,t,r,e){for(var u=-1,i=null==n?0:n.length;++u<i;){var o=n[u];t(e,o,r(o),n)}return e}function Qt(n,t){for(var r=-1,e=null==n?0:n.length;++r<e&&!1!==t(n[r],r,n););return n}function Xt(n,t){for(var r=null==n?0:n.length;r--&&!1!==t(n[r],r,n););return n}function Yt(n,t){for(var r=-1,e=null==n?0:n.length;++r<e;)if(!t(n[r],r,n))return!1;return!0}function It(n,t){for(var r=-1,e=null==n?0:n.length,u=0,i=[];++r<e;){var o=n[r];t(o,r,n)&&(i[u++]=o)}return i}function Ct(n,t){return!!(null==n?0:n.length)&&er(n,t,0)>-1}function Pt(n,t,r){for(var e=-1,u=null==n?0:n.length;++e<u;)if(r(t,n[e]))return!0;return!1}function Ft(n,t){for(var r=-1,e=null==n?0:n.length,u=Array(e);++r<e;)u[r]=t(n[r],r,n);return u}function Gt(n,t){for(var r=-1,e=t.length,u=n.length;++r<e;)n[u+r]=t[r];return n}function Ht(n,t,r,e){var u=-1,i=null==n?0:n.length;for(e&&i&&(r=n[++u]);++u<i;)r=t(r,n[u],u,n);return r}function kt(n,t,r,e){var u=null==n?0:n.length;for(e&&u&&(r=n[--u]);u--;)r=t(r,n[u],u,n);return r}function Vt(n,t){for(var r=-1,e=null==n?0:n.length;++r<e;)if(t(n[r],r,n))return!0;return!1}var nr=fr("length");function tr(n,t,r){var e;return r(n,function(n,r,u){if(t(n,r,u))return e=r,!1}),e}function rr(n,t,r,e){for(var u=n.length,i=r+(e?1:-1);e?i--:++i<u;)if(t(n[i],i,n))return i;return-1}function er(n,t,r){return t==t?function(n,t,r){var e=r-1,u=n.length;for(;++e<u;)if(n[e]===t)return e;return-1}(n,t,r):rr(n,ir,r)}function ur(n,t,r,e){for(var u=r-1,i=n.length;++u<i;)if(e(n[u],t))return u;return-1}function ir(n){return n!=n}function or(n,t){var r=null==n?0:n.length;return r?lr(n,t)/r:D}function fr(t){return function(r){return null==r?n:r[t]}}function cr(t){return function(r){return null==t?n:t[r]}}function ar(n,t,r,e,u){return u(n,function(n,u,i){r=e?(e=!1,n):t(r,n,u,i)}),r}function lr(t,r){for(var e,u=-1,i=t.length;++u<i;){var o=r(t[u]);o!==n&&(e=e===n?o:e+o)}return e}function hr(n,t){for(var r=-1,e=Array(n);++r<n;)e[r]=t(r);return e}function vr(n){return function(t){return n(t)}}function pr(n,t){return Ft(t,function(t){return n[t]})}function _r(n,t){return n.has(t)}function sr(n,t){for(var r=-1,e=n.length;++r<e&&er(t,n[r],0)>-1;);return r}function gr(n,t){for(var r=n.length;r--&&er(t,n[r],0)>-1;);return r}var yr=cr({"À":"A","Á":"A","Â":"A","Ã":"A","Ä":"A","Å":"A","à":"a","á":"a","â":"a","ã":"a","ä":"a","å":"a","Ç":"C","ç":"c","Ð":"D","ð":"d","È":"E","É":"E","Ê":"E","Ë":"E","è":"e","é":"e","ê":"e","ë":"e","Ì":"I","Í":"I","Î":"I","Ï":"I","ì":"i","í":"i","î":"i","ï":"i","Ñ":"N","ñ":"n","Ò":"O","Ó":"O","Ô":"O","Õ":"O","Ö":"O","Ø":"O","ò":"o","ó":"o","ô":"o","õ":"o","ö":"o","ø":"o","Ù":"U","Ú":"U","Û":"U","Ü":"U","ù":"u","ú":"u","û":"u","ü":"u","Ý":"Y","ý":"y","ÿ":"y","Æ":"Ae","æ":"ae","Þ":"Th","þ":"th","ß":"ss","Ā":"A","Ă":"A","Ą":"A","ā":"a","ă":"a","ą":"a","Ć":"C","Ĉ":"C","Ċ":"C","Č":"C","ć":"c","ĉ":"c","ċ":"c","č":"c","Ď":"D","Đ":"D","ď":"d","đ":"d","Ē":"E","Ĕ":"E","Ė":"E","Ę":"E","Ě":"E","ē":"e","ĕ":"e","ė":"e","ę":"e","ě":"e","Ĝ":"G","Ğ":"G","Ġ":"G","Ģ":"G","ĝ":"g","ğ":"g","ġ":"g","ģ":"g","Ĥ":"H","Ħ":"H","ĥ":"h","ħ":"h","Ĩ":"I","Ī":"I","Ĭ":"I","Į":"I","İ":"I","ĩ":"i","ī":"i","ĭ":"i","į":"i","ı":"i","Ĵ":"J","ĵ":"j","Ķ":"K","ķ":"k","ĸ":"k","Ĺ":"L","Ļ":"L","Ľ":"L","Ŀ":"L","Ł":"L","ĺ":"l","ļ":"l","ľ":"l","ŀ":"l","ł":"l","Ń":"N","Ņ":"N","Ň":"N","Ŋ":"N","ń":"n","ņ":"n","ň":"n","ŋ":"n","Ō":"O","Ŏ":"O","Ő":"O","ō":"o","ŏ":"o","ő":"o","Ŕ":"R","Ŗ":"R","Ř":"R","ŕ":"r","ŗ":"r","ř":"r","Ś":"S","Ŝ":"S","Ş":"S","Š":"S","ś":"s","ŝ":"s","ş":"s","š":"s","Ţ":"T","Ť":"T","Ŧ":"T","ţ":"t","ť":"t","ŧ":"t","Ũ":"U","Ū":"U","Ŭ":"U","Ů":"U","Ű":"U","Ų":"U","ũ":"u","ū":"u","ŭ":"u","ů":"u","ű":"u","ų":"u","Ŵ":"W","ŵ":"w","Ŷ":"Y","ŷ":"y","Ÿ":"Y","Ź":"Z","Ż":"Z","Ž":"Z","ź":"z","ż":"z","ž":"z","Ĳ":"IJ","ĳ":"ij","Œ":"Oe","œ":"oe","ŉ":"'n","ſ":"s"}),dr=cr({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"});function wr(n){return"\\"+zt[n]}function xr(n){return dt.test(n)}function br(n){var t=-1,r=Array(n.size);return n.forEach(function(n,e){r[++t]=[e,n]}),r}function Er(n,t){return function(r){return n(t(r))}}function mr(n,t){for(var r=-1,e=n.length,u=0,i=[];++r<e;){var f=n[r];f!==t&&f!==o||(n[r]=o,i[u++]=r)}return i}function zr(n){var t=-1,r=Array(n.size);return n.forEach(function(n){r[++t]=n}),r}function Sr(n){var t=-1,r=Array(n.size);return n.forEach(function(n){r[++t]=[n,n]}),r}function Or(n){return xr(n)?function(n){var t=gt.lastIndex=0;for(;gt.test(n);)++t;return t}(n):nr(n)}function $r(n){return xr(n)?function(n){return n.match(gt)||[]}(n):function(n){return n.split("")}(n)}var Ur=cr({"&amp;":"&","&lt;":"<","&gt;":">","&quot;":'"',"&#39;":"'"});var Wr=function Pn(Fn){var Gn,Hn=(Fn=null==Fn?Wt:Wr.defaults(Wt.Object(),Fn,Wr.pick(Wt,xt))).Array,kn=Fn.Date,Vn=Fn.Error,nt=Fn.Function,tt=Fn.Math,rt=Fn.Object,et=Fn.RegExp,ut=Fn.String,it=Fn.TypeError,ot=Hn.prototype,ft=nt.prototype,ct=rt.prototype,at=Fn["__core-js_shared__"],lt=ft.toString,ht=ct.hasOwnProperty,vt=0,pt=(Gn=/[^.]+$/.exec(at&&at.keys&&at.keys.IE_PROTO||""))?"Symbol(src)_1."+Gn:"",gt=ct.toString,dt=lt.call(rt),zt=Wt._,$t=et("^"+lt.call(ht).replace(Un,"\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g,"$1.*?")+"$"),Ut=qt?Fn.Buffer:n,Rt=Fn.Symbol,Dt=Fn.Uint8Array,Nt=Ut?Ut.allocUnsafe:n,Bt=Er(rt.getPrototypeOf,rt),nr=rt.create,cr=ct.propertyIsEnumerable,Rr=ot.splice,Dr=Rt?Rt.isConcatSpreadable:n,qr=Rt?Rt.iterator:n,Nr=Rt?Rt.toStringTag:n,Br=function(){try{var n=ji(rt,"defineProperty");return n({},"",{}),n}catch(n){}}(),Zr=Fn.clearTimeout!==Wt.clearTimeout&&Fn.clearTimeout,Mr=kn&&kn.now!==Wt.Date.now&&kn.now,Tr=Fn.setTimeout!==Wt.setTimeout&&Fn.setTimeout,jr=tt.ceil,Kr=tt.floor,Ar=rt.getOwnPropertySymbols,Jr=Ut?Ut.isBuffer:n,Lr=Fn.isFinite,Qr=ot.join,Xr=Er(rt.keys,rt),Yr=tt.max,Ir=tt.min,Cr=kn.now,Pr=Fn.parseInt,Fr=tt.random,Gr=ot.reverse,Hr=ji(Fn,"DataView"),kr=ji(Fn,"Map"),Vr=ji(Fn,"Promise"),ne=ji(Fn,"Set"),te=ji(Fn,"WeakMap"),re=ji(rt,"create"),ee=te&&new te,ue={},ie=lo(Hr),oe=lo(kr),fe=lo(Vr),ce=lo(ne),ae=lo(te),le=Rt?Rt.prototype:n,he=le?le.valueOf:n,ve=le?le.toString:n;function pe(n){if(Wf(n)&&!df(n)&&!(n instanceof ye)){if(n instanceof ge)return n;if(ht.call(n,"__wrapped__"))return ho(n)}return new ge(n)}var _e=function(){function t(){}return function(r){if(!Uf(r))return{};if(nr)return nr(r);t.prototype=r;var e=new t;return t.prototype=n,e}}();function se(){}function ge(t,r){this.__wrapped__=t,this.__actions__=[],this.__chain__=!!r,this.__index__=0,this.__values__=n}function ye(n){this.__wrapped__=n,this.__actions__=[],this.__dir__=1,this.__filtered__=!1,this.__iteratees__=[],this.__takeCount__=q,this.__views__=[]}function de(n){var t=-1,r=null==n?0:n.length;for(this.clear();++t<r;){var e=n[t];this.set(e[0],e[1])}}function we(n){var t=-1,r=null==n?0:n.length;for(this.clear();++t<r;){var e=n[t];this.set(e[0],e[1])}}function xe(n){var t=-1,r=null==n?0:n.length;for(this.clear();++t<r;){var e=n[t];this.set(e[0],e[1])}}function be(n){var t=-1,r=null==n?0:n.length;for(this.__data__=new xe;++t<r;)this.add(n[t])}function Ee(n){var t=this.__data__=new we(n);this.size=t.size}function me(n,t){var r=df(n),e=!r&&yf(n),u=!r&&!e&&Ef(n),i=!r&&!e&&!u&&Tf(n),o=r||e||u||i,f=o?hr(n.length,ut):[],c=f.length;for(var a in n)!t&&!ht.call(n,a)||o&&("length"==a||u&&("offset"==a||"parent"==a)||i&&("buffer"==a||"byteLength"==a||"byteOffset"==a)||Yi(a,c))||f.push(a);return f}function ze(t){var r=t.length;return r?t[bu(0,r-1)]:n}function Se(n,t){return fo(ri(n),Be(t,0,n.length))}function Oe(n){return fo(ri(n))}function $e(t,r,e){(e===n||_f(t[r],e))&&(e!==n||r in t)||qe(t,r,e)}function Ue(t,r,e){var u=t[r];ht.call(t,r)&&_f(u,e)&&(e!==n||r in t)||qe(t,r,e)}function We(n,t){for(var r=n.length;r--;)if(_f(n[r][0],t))return r;return-1}function Re(n,t,r,e){return Ke(n,function(n,u,i){t(e,n,r(n),i)}),e}function De(n,t){return n&&ei(t,ic(t),n)}function qe(n,t,r){"__proto__"==t&&Br?Br(n,t,{configurable:!0,enumerable:!0,value:r,writable:!0}):n[t]=r}function Ne(t,r){for(var e=-1,u=r.length,i=Hn(u),o=null==t;++e<u;)i[e]=o?n:nc(t,r[e]);return i}function Be(t,r,e){return t==t&&(e!==n&&(t=t<=e?t:e),r!==n&&(t=t>=r?t:r)),t}function Ze(t,r,e,u,i,o){var l,h=r&f,v=r&c,p=r&a;if(e&&(l=i?e(t,u,i,o):e(t)),l!==n)return l;if(!Uf(t))return t;var _=df(t);if(_){if(l=function(n){var t=n.length,r=new n.constructor(t);return t&&"string"==typeof n[0]&&ht.call(n,"index")&&(r.index=n.index,r.input=n.input),r}(t),!h)return ri(t,l)}else{var s=Ji(t),g=s==Q||s==X;if(Ef(t))return Gu(t,h);if(s==P||s==M||g&&!i){if(l=v||g?{}:Qi(t),!h)return v?function(n,t){return ei(n,Ai(n),t)}(t,function(n,t){return n&&ei(t,oc(t),n)}(l,t)):function(n,t){return ei(n,Ki(n),t)}(t,De(l,t))}else{if(!mt[s])return i?t:{};l=function(n,t,r){var e,u,i,o=n.constructor;switch(t){case en:return Hu(n);case K:case A:return new o(+n);case un:return function(n,t){var r=t?Hu(n.buffer):n.buffer;return new n.constructor(r,n.byteOffset,n.byteLength)}(n,r);case on:case fn:case cn:case an:case ln:case hn:case vn:case pn:case _n:return ku(n,r);case Y:return new o;case I:case k:return new o(n);case G:return(i=new(u=n).constructor(u.source,Kn.exec(u))).lastIndex=u.lastIndex,i;case H:return new o;case V:return e=n,he?rt(he.call(e)):{}}}(t,s,h)}}o||(o=new Ee);var y=o.get(t);if(y)return y;if(o.set(t,l),Bf(t))return t.forEach(function(n){l.add(Ze(n,r,e,n,t,o))}),l;if(Rf(t))return t.forEach(function(n,u){l.set(u,Ze(n,r,e,u,t,o))}),l;var d=_?n:(p?v?Di:Ri:v?oc:ic)(t);return Qt(d||t,function(n,u){d&&(n=t[u=n]),Ue(l,u,Ze(n,r,e,u,t,o))}),l}function Me(t,r,e){var u=e.length;if(null==t)return!u;for(t=rt(t);u--;){var i=e[u],o=r[i],f=t[i];if(f===n&&!(i in t)||!o(f))return!1}return!0}function Te(t,r,u){if("function"!=typeof t)throw new it(e);return eo(function(){t.apply(n,u)},r)}function je(n,r,e,u){var i=-1,o=Ct,f=!0,c=n.length,a=[],l=r.length;if(!c)return a;e&&(r=Ft(r,vr(e))),u?(o=Pt,f=!1):r.length>=t&&(o=_r,f=!1,r=new be(r));n:for(;++i<c;){var h=n[i],v=null==e?h:e(h);if(h=u||0!==h?h:0,f&&v==v){for(var p=l;p--;)if(r[p]===v)continue n;a.push(h)}else o(r,v,u)||a.push(h)}return a}pe.templateSettings={escape:En,evaluate:mn,interpolate:zn,variable:"",imports:{_:pe}},pe.prototype=se.prototype,pe.prototype.constructor=pe,ge.prototype=_e(se.prototype),ge.prototype.constructor=ge,ye.prototype=_e(se.prototype),ye.prototype.constructor=ye,de.prototype.clear=function(){this.__data__=re?re(null):{},this.size=0},de.prototype.delete=function(n){var t=this.has(n)&&delete this.__data__[n];return this.size-=t?1:0,t},de.prototype.get=function(t){var r=this.__data__;if(re){var e=r[t];return e===u?n:e}return ht.call(r,t)?r[t]:n},de.prototype.has=function(t){var r=this.__data__;return re?r[t]!==n:ht.call(r,t)},de.prototype.set=function(t,r){var e=this.__data__;return this.size+=this.has(t)?0:1,e[t]=re&&r===n?u:r,this},we.prototype.clear=function(){this.__data__=[],this.size=0},we.prototype.delete=function(n){var t=this.__data__,r=We(t,n);return!(r<0||(r==t.length-1?t.pop():Rr.call(t,r,1),--this.size,0))},we.prototype.get=function(t){var r=this.__data__,e=We(r,t);return e<0?n:r[e][1]},we.prototype.has=function(n){return We(this.__data__,n)>-1},we.prototype.set=function(n,t){var r=this.__data__,e=We(r,n);return e<0?(++this.size,r.push([n,t])):r[e][1]=t,this},xe.prototype.clear=function(){this.size=0,this.__data__={hash:new de,map:new(kr||we),string:new de}},xe.prototype.delete=function(n){var t=Mi(this,n).delete(n);return this.size-=t?1:0,t},xe.prototype.get=function(n){return Mi(this,n).get(n)},xe.prototype.has=function(n){return Mi(this,n).has(n)},xe.prototype.set=function(n,t){var r=Mi(this,n),e=r.size;return r.set(n,t),this.size+=r.size==e?0:1,this},be.prototype.add=be.prototype.push=function(n){return this.__data__.set(n,u),this},be.prototype.has=function(n){return this.__data__.has(n)},Ee.prototype.clear=function(){this.__data__=new we,this.size=0},Ee.prototype.delete=function(n){var t=this.__data__,r=t.delete(n);return this.size=t.size,r},Ee.prototype.get=function(n){return this.__data__.get(n)},Ee.prototype.has=function(n){return this.__data__.has(n)},Ee.prototype.set=function(n,r){var e=this.__data__;if(e instanceof we){var u=e.__data__;if(!kr||u.length<t-1)return u.push([n,r]),this.size=++e.size,this;e=this.__data__=new xe(u)}return e.set(n,r),this.size=e.size,this};var Ke=oi(Ce),Ae=oi(Pe,!0);function Je(n,t){var r=!0;return Ke(n,function(n,e,u){return r=!!t(n,e,u)}),r}function Le(t,r,e){for(var u=-1,i=t.length;++u<i;){var o=t[u],f=r(o);if(null!=f&&(c===n?f==f&&!Mf(f):e(f,c)))var c=f,a=o}return a}function Qe(n,t){var r=[];return Ke(n,function(n,e,u){t(n,e,u)&&r.push(n)}),r}function Xe(n,t,r,e,u){var i=-1,o=n.length;for(r||(r=Xi),u||(u=[]);++i<o;){var f=n[i];t>0&&r(f)?t>1?Xe(f,t-1,r,e,u):Gt(u,f):e||(u[u.length]=f)}return u}var Ye=fi(),Ie=fi(!0);function Ce(n,t){return n&&Ye(n,t,ic)}function Pe(n,t){return n&&Ie(n,t,ic)}function Fe(n,t){return It(t,function(t){return Sf(n[t])})}function Ge(t,r){for(var e=0,u=(r=Iu(r,t)).length;null!=t&&e<u;)t=t[ao(r[e++])];return e&&e==u?t:n}function He(n,t,r){var e=t(n);return df(n)?e:Gt(e,r(n))}function ke(t){return null==t?t===n?nn:C:Nr&&Nr in rt(t)?function(t){var r=ht.call(t,Nr),e=t[Nr];try{t[Nr]=n;var u=!0}catch(n){}var i=gt.call(t);return u&&(r?t[Nr]=e:delete t[Nr]),i}(t):function(n){return gt.call(n)}(t)}function Ve(n,t){return n>t}function nu(n,t){return null!=n&&ht.call(n,t)}function tu(n,t){return null!=n&&t in rt(n)}function ru(t,r,e){for(var u=e?Pt:Ct,i=t[0].length,o=t.length,f=o,c=Hn(o),a=1/0,l=[];f--;){var h=t[f];f&&r&&(h=Ft(h,vr(r))),a=Ir(h.length,a),c[f]=!e&&(r||i>=120&&h.length>=120)?new be(f&&h):n}h=t[0];var v=-1,p=c[0];n:for(;++v<i&&l.length<a;){var _=h[v],s=r?r(_):_;if(_=e||0!==_?_:0,!(p?_r(p,s):u(l,s,e))){for(f=o;--f;){var g=c[f];if(!(g?_r(g,s):u(t[f],s,e)))continue n}p&&p.push(s),l.push(_)}}return l}function eu(t,r,e){var u=null==(t=no(t,r=Iu(r,t)))?t:t[ao(mo(r))];return null==u?n:Jt(u,t,e)}function uu(n){return Wf(n)&&ke(n)==M}function iu(t,r,e,u,i){return t===r||(null==t||null==r||!Wf(t)&&!Wf(r)?t!=t&&r!=r:function(t,r,e,u,i,o){var f=df(t),c=df(r),a=f?T:Ji(t),v=c?T:Ji(r),p=(a=a==M?P:a)==P,_=(v=v==M?P:v)==P,s=a==v;if(s&&Ef(t)){if(!Ef(r))return!1;f=!0,p=!1}if(s&&!p)return o||(o=new Ee),f||Tf(t)?Ui(t,r,e,u,i,o):function(n,t,r,e,u,i,o){switch(r){case un:if(n.byteLength!=t.byteLength||n.byteOffset!=t.byteOffset)return!1;n=n.buffer,t=t.buffer;case en:return!(n.byteLength!=t.byteLength||!i(new Dt(n),new Dt(t)));case K:case A:case I:return _f(+n,+t);case L:return n.name==t.name&&n.message==t.message;case G:case k:return n==t+"";case Y:var f=br;case H:var c=e&l;if(f||(f=zr),n.size!=t.size&&!c)return!1;var a=o.get(n);if(a)return a==t;e|=h,o.set(n,t);var v=Ui(f(n),f(t),e,u,i,o);return o.delete(n),v;case V:if(he)return he.call(n)==he.call(t)}return!1}(t,r,a,e,u,i,o);if(!(e&l)){var g=p&&ht.call(t,"__wrapped__"),y=_&&ht.call(r,"__wrapped__");if(g||y){var d=g?t.value():t,w=y?r.value():r;return o||(o=new Ee),i(d,w,e,u,o)}}return!!s&&(o||(o=new Ee),function(t,r,e,u,i,o){var f=e&l,c=Ri(t),a=c.length,h=Ri(r).length;if(a!=h&&!f)return!1;for(var v=a;v--;){var p=c[v];if(!(f?p in r:ht.call(r,p)))return!1}var _=o.get(t);if(_&&o.get(r))return _==r;var s=!0;o.set(t,r),o.set(r,t);for(var g=f;++v<a;){p=c[v];var y=t[p],d=r[p];if(u)var w=f?u(d,y,p,r,t,o):u(y,d,p,t,r,o);if(!(w===n?y===d||i(y,d,e,u,o):w)){s=!1;break}g||(g="constructor"==p)}if(s&&!g){var x=t.constructor,b=r.constructor;x!=b&&"constructor"in t&&"constructor"in r&&!("function"==typeof x&&x instanceof x&&"function"==typeof b&&b instanceof b)&&(s=!1)}return o.delete(t),o.delete(r),s}(t,r,e,u,i,o))}(t,r,e,u,iu,i))}function ou(t,r,e,u){var i=e.length,o=i,f=!u;if(null==t)return!o;for(t=rt(t);i--;){var c=e[i];if(f&&c[2]?c[1]!==t[c[0]]:!(c[0]in t))return!1}for(;++i<o;){var a=(c=e[i])[0],v=t[a],p=c[1];if(f&&c[2]){if(v===n&&!(a in t))return!1}else{var _=new Ee;if(u)var s=u(v,p,a,t,r,_);if(!(s===n?iu(p,v,l|h,u,_):s))return!1}}return!0}function fu(n){return!(!Uf(n)||(t=n,pt&&pt in t))&&(Sf(n)?$t:Ln).test(lo(n));var t}function cu(n){return"function"==typeof n?n:null==n?Dc:"object"==typeof n?df(n)?_u(n[0],n[1]):pu(n):Ac(n)}function au(n){if(!Gi(n))return Xr(n);var t=[];for(var r in rt(n))ht.call(n,r)&&"constructor"!=r&&t.push(r);return t}function lu(n){if(!Uf(n))return function(n){var t=[];if(null!=n)for(var r in rt(n))t.push(r);return t}(n);var t=Gi(n),r=[];for(var e in n)("constructor"!=e||!t&&ht.call(n,e))&&r.push(e);return r}function hu(n,t){return n<t}function vu(n,t){var r=-1,e=xf(n)?Hn(n.length):[];return Ke(n,function(n,u,i){e[++r]=t(n,u,i)}),e}function pu(n){var t=Ti(n);return 1==t.length&&t[0][2]?ki(t[0][0],t[0][1]):function(r){return r===n||ou(r,n,t)}}function _u(t,r){return Ci(t)&&Hi(r)?ki(ao(t),r):function(e){var u=nc(e,t);return u===n&&u===r?tc(e,t):iu(r,u,l|h)}}function su(t,r,e,u,i){t!==r&&Ye(r,function(o,f){if(Uf(o))i||(i=new Ee),function(t,r,e,u,i,o,f){var c=to(t,e),a=to(r,e),l=f.get(a);if(l)$e(t,e,l);else{var h=o?o(c,a,e+"",t,r,f):n,v=h===n;if(v){var p=df(a),_=!p&&Ef(a),s=!p&&!_&&Tf(a);h=a,p||_||s?df(c)?h=c:bf(c)?h=ri(c):_?(v=!1,h=Gu(a,!0)):s?(v=!1,h=ku(a,!0)):h=[]:qf(a)||yf(a)?(h=c,yf(c)?h=Yf(c):Uf(c)&&!Sf(c)||(h=Qi(a))):v=!1}v&&(f.set(a,h),i(h,a,u,o,f),f.delete(a)),$e(t,e,h)}}(t,r,f,e,su,u,i);else{var c=u?u(to(t,f),o,f+"",t,r,i):n;c===n&&(c=o),$e(t,f,c)}},oc)}function gu(t,r){var e=t.length;if(e)return Yi(r+=r<0?e:0,e)?t[r]:n}function yu(n,t,r){var e=-1;return t=Ft(t.length?t:[Dc],vr(Zi())),function(n,t){var r=n.length;for(n.sort(t);r--;)n[r]=n[r].value;return n}(vu(n,function(n,r,u){return{criteria:Ft(t,function(t){return t(n)}),index:++e,value:n}}),function(n,t){return function(n,t,r){for(var e=-1,u=n.criteria,i=t.criteria,o=u.length,f=r.length;++e<o;){var c=Vu(u[e],i[e]);if(c){if(e>=f)return c;var a=r[e];return c*("desc"==a?-1:1)}}return n.index-t.index}(n,t,r)})}function du(n,t,r){for(var e=-1,u=t.length,i={};++e<u;){var o=t[e],f=Ge(n,o);r(f,o)&&Ou(i,Iu(o,n),f)}return i}function wu(n,t,r,e){var u=e?ur:er,i=-1,o=t.length,f=n;for(n===t&&(t=ri(t)),r&&(f=Ft(n,vr(r)));++i<o;)for(var c=0,a=t[i],l=r?r(a):a;(c=u(f,l,c,e))>-1;)f!==n&&Rr.call(f,c,1),Rr.call(n,c,1);return n}function xu(n,t){for(var r=n?t.length:0,e=r-1;r--;){var u=t[r];if(r==e||u!==i){var i=u;Yi(u)?Rr.call(n,u,1):ju(n,u)}}return n}function bu(n,t){return n+Kr(Fr()*(t-n+1))}function Eu(n,t){var r="";if(!n||t<1||t>W)return r;do{t%2&&(r+=n),(t=Kr(t/2))&&(n+=n)}while(t);return r}function mu(n,t){return uo(Vi(n,t,Dc),n+"")}function zu(n){return ze(_c(n))}function Su(n,t){var r=_c(n);return fo(r,Be(t,0,r.length))}function Ou(t,r,e,u){if(!Uf(t))return t;for(var i=-1,o=(r=Iu(r,t)).length,f=o-1,c=t;null!=c&&++i<o;){var a=ao(r[i]),l=e;if(i!=f){var h=c[a];(l=u?u(h,a,c):n)===n&&(l=Uf(h)?h:Yi(r[i+1])?[]:{})}Ue(c,a,l),c=c[a]}return t}var $u=ee?function(n,t){return ee.set(n,t),n}:Dc,Uu=Br?function(n,t){return Br(n,"toString",{configurable:!0,enumerable:!1,value:Uc(t),writable:!0})}:Dc;function Wu(n){return fo(_c(n))}function Ru(n,t,r){var e=-1,u=n.length;t<0&&(t=-t>u?0:u+t),(r=r>u?u:r)<0&&(r+=u),u=t>r?0:r-t>>>0,t>>>=0;for(var i=Hn(u);++e<u;)i[e]=n[e+t];return i}function Du(n,t){var r;return Ke(n,function(n,e,u){return!(r=t(n,e,u))}),!!r}function qu(n,t,r){var e=0,u=null==n?e:n.length;if("number"==typeof t&&t==t&&u<=B){for(;e<u;){var i=e+u>>>1,o=n[i];null!==o&&!Mf(o)&&(r?o<=t:o<t)?e=i+1:u=i}return u}return Nu(n,t,Dc,r)}function Nu(t,r,e,u){r=e(r);for(var i=0,o=null==t?0:t.length,f=r!=r,c=null===r,a=Mf(r),l=r===n;i<o;){var h=Kr((i+o)/2),v=e(t[h]),p=v!==n,_=null===v,s=v==v,g=Mf(v);if(f)var y=u||s;else y=l?s&&(u||p):c?s&&p&&(u||!_):a?s&&p&&!_&&(u||!g):!_&&!g&&(u?v<=r:v<r);y?i=h+1:o=h}return Ir(o,N)}function Bu(n,t){for(var r=-1,e=n.length,u=0,i=[];++r<e;){var o=n[r],f=t?t(o):o;if(!r||!_f(f,c)){var c=f;i[u++]=0===o?0:o}}return i}function Zu(n){return"number"==typeof n?n:Mf(n)?D:+n}function Mu(n){if("string"==typeof n)return n;if(df(n))return Ft(n,Mu)+"";if(Mf(n))return ve?ve.call(n):"";var t=n+"";return"0"==t&&1/n==-U?"-0":t}function Tu(n,r,e){var u=-1,i=Ct,o=n.length,f=!0,c=[],a=c;if(e)f=!1,i=Pt;else if(o>=t){var l=r?null:Ei(n);if(l)return zr(l);f=!1,i=_r,a=new be}else a=r?[]:c;n:for(;++u<o;){var h=n[u],v=r?r(h):h;if(h=e||0!==h?h:0,f&&v==v){for(var p=a.length;p--;)if(a[p]===v)continue n;r&&a.push(v),c.push(h)}else i(a,v,e)||(a!==c&&a.push(v),c.push(h))}return c}function ju(n,t){return null==(n=no(n,t=Iu(t,n)))||delete n[ao(mo(t))]}function Ku(n,t,r,e){return Ou(n,t,r(Ge(n,t)),e)}function Au(n,t,r,e){for(var u=n.length,i=e?u:-1;(e?i--:++i<u)&&t(n[i],i,n););return r?Ru(n,e?0:i,e?i+1:u):Ru(n,e?i+1:0,e?u:i)}function Ju(n,t){var r=n;return r instanceof ye&&(r=r.value()),Ht(t,function(n,t){return t.func.apply(t.thisArg,Gt([n],t.args))},r)}function Lu(n,t,r){var e=n.length;if(e<2)return e?Tu(n[0]):[];for(var u=-1,i=Hn(e);++u<e;)for(var o=n[u],f=-1;++f<e;)f!=u&&(i[u]=je(i[u]||o,n[f],t,r));return Tu(Xe(i,1),t,r)}function Qu(t,r,e){for(var u=-1,i=t.length,o=r.length,f={};++u<i;){var c=u<o?r[u]:n;e(f,t[u],c)}return f}function Xu(n){return bf(n)?n:[]}function Yu(n){return"function"==typeof n?n:Dc}function Iu(n,t){return df(n)?n:Ci(n,t)?[n]:co(If(n))}var Cu=mu;function Pu(t,r,e){var u=t.length;return e=e===n?u:e,!r&&e>=u?t:Ru(t,r,e)}var Fu=Zr||function(n){return Wt.clearTimeout(n)};function Gu(n,t){if(t)return n.slice();var r=n.length,e=Nt?Nt(r):new n.constructor(r);return n.copy(e),e}function Hu(n){var t=new n.constructor(n.byteLength);return new Dt(t).set(new Dt(n)),t}function ku(n,t){var r=t?Hu(n.buffer):n.buffer;return new n.constructor(r,n.byteOffset,n.length)}function Vu(t,r){if(t!==r){var e=t!==n,u=null===t,i=t==t,o=Mf(t),f=r!==n,c=null===r,a=r==r,l=Mf(r);if(!c&&!l&&!o&&t>r||o&&f&&a&&!c&&!l||u&&f&&a||!e&&a||!i)return 1;if(!u&&!o&&!l&&t<r||l&&e&&i&&!u&&!o||c&&e&&i||!f&&i||!a)return-1}return 0}function ni(n,t,r,e){for(var u=-1,i=n.length,o=r.length,f=-1,c=t.length,a=Yr(i-o,0),l=Hn(c+a),h=!e;++f<c;)l[f]=t[f];for(;++u<o;)(h||u<i)&&(l[r[u]]=n[u]);for(;a--;)l[f++]=n[u++];return l}function ti(n,t,r,e){for(var u=-1,i=n.length,o=-1,f=r.length,c=-1,a=t.length,l=Yr(i-f,0),h=Hn(l+a),v=!e;++u<l;)h[u]=n[u];for(var p=u;++c<a;)h[p+c]=t[c];for(;++o<f;)(v||u<i)&&(h[p+r[o]]=n[u++]);return h}function ri(n,t){var r=-1,e=n.length;for(t||(t=Hn(e));++r<e;)t[r]=n[r];return t}function ei(t,r,e,u){var i=!e;e||(e={});for(var o=-1,f=r.length;++o<f;){var c=r[o],a=u?u(e[c],t[c],c,e,t):n;a===n&&(a=t[c]),i?qe(e,c,a):Ue(e,c,a)}return e}function ui(n,t){return function(r,e){var u=df(r)?Lt:Re,i=t?t():{};return u(r,n,Zi(e,2),i)}}function ii(t){return mu(function(r,e){var u=-1,i=e.length,o=i>1?e[i-1]:n,f=i>2?e[2]:n;for(o=t.length>3&&"function"==typeof o?(i--,o):n,f&&Ii(e[0],e[1],f)&&(o=i<3?n:o,i=1),r=rt(r);++u<i;){var c=e[u];c&&t(r,c,u,o)}return r})}function oi(n,t){return function(r,e){if(null==r)return r;if(!xf(r))return n(r,e);for(var u=r.length,i=t?u:-1,o=rt(r);(t?i--:++i<u)&&!1!==e(o[i],i,o););return r}}function fi(n){return function(t,r,e){for(var u=-1,i=rt(t),o=e(t),f=o.length;f--;){var c=o[n?f:++u];if(!1===r(i[c],c,i))break}return t}}function ci(t){return function(r){var e=xr(r=If(r))?$r(r):n,u=e?e[0]:r.charAt(0),i=e?Pu(e,1).join(""):r.slice(1);return u[t]()+i}}function ai(n){return function(t){return Ht(Sc(yc(t).replace(_t,"")),n,"")}}function li(n){return function(){var t=arguments;switch(t.length){case 0:return new n;case 1:return new n(t[0]);case 2:return new n(t[0],t[1]);case 3:return new n(t[0],t[1],t[2]);case 4:return new n(t[0],t[1],t[2],t[3]);case 5:return new n(t[0],t[1],t[2],t[3],t[4]);case 6:return new n(t[0],t[1],t[2],t[3],t[4],t[5]);case 7:return new n(t[0],t[1],t[2],t[3],t[4],t[5],t[6])}var r=_e(n.prototype),e=n.apply(r,t);return Uf(e)?e:r}}function hi(t){return function(r,e,u){var i=rt(r);if(!xf(r)){var o=Zi(e,3);r=ic(r),e=function(n){return o(i[n],n,i)}}var f=t(r,e,u);return f>-1?i[o?r[f]:f]:n}}function vi(t){return Wi(function(r){var u=r.length,i=u,o=ge.prototype.thru;for(t&&r.reverse();i--;){var f=r[i];if("function"!=typeof f)throw new it(e);if(o&&!c&&"wrapper"==Ni(f))var c=new ge([],!0)}for(i=c?i:u;++i<u;){var a=Ni(f=r[i]),l="wrapper"==a?qi(f):n;c=l&&Pi(l[0])&&l[1]==(w|s|y|x)&&!l[4].length&&1==l[9]?c[Ni(l[0])].apply(c,l[3]):1==f.length&&Pi(f)?c[a]():c.thru(f)}return function(){var n=arguments,t=n[0];if(c&&1==n.length&&df(t))return c.plant(t).value();for(var e=0,i=u?r[e].apply(this,n):t;++e<u;)i=r[e].call(this,i);return i}})}function pi(t,r,e,u,i,o,f,c,a,l){var h=r&w,_=r&v,y=r&p,d=r&(s|g),x=r&b,E=y?n:li(t);return function v(){for(var p=arguments.length,s=Hn(p),g=p;g--;)s[g]=arguments[g];if(d)var w=Bi(v),b=function(n,t){for(var r=n.length,e=0;r--;)n[r]===t&&++e;return e}(s,w);if(u&&(s=ni(s,u,i,d)),o&&(s=ti(s,o,f,d)),p-=b,d&&p<l){var m=mr(s,w);return xi(t,r,pi,v.placeholder,e,s,m,c,a,l-p)}var z=_?e:this,S=y?z[t]:t;return p=s.length,c?s=function(t,r){for(var e=t.length,u=Ir(r.length,e),i=ri(t);u--;){var o=r[u];t[u]=Yi(o,e)?i[o]:n}return t}(s,c):x&&p>1&&s.reverse(),h&&a<p&&(s.length=a),this&&this!==Wt&&this instanceof v&&(S=E||li(S)),S.apply(z,s)}}function _i(n,t){return function(r,e){return function(n,t,r,e){return Ce(n,function(n,u,i){t(e,r(n),u,i)}),e}(r,n,t(e),{})}}function si(t,r){return function(e,u){var i;if(e===n&&u===n)return r;if(e!==n&&(i=e),u!==n){if(i===n)return u;"string"==typeof e||"string"==typeof u?(e=Mu(e),u=Mu(u)):(e=Zu(e),u=Zu(u)),i=t(e,u)}return i}}function gi(n){return Wi(function(t){return t=Ft(t,vr(Zi())),mu(function(r){var e=this;return n(t,function(n){return Jt(n,e,r)})})})}function yi(t,r){var e=(r=r===n?" ":Mu(r)).length;if(e<2)return e?Eu(r,t):r;var u=Eu(r,jr(t/Or(r)));return xr(r)?Pu($r(u),0,t).join(""):u.slice(0,t)}function di(t){return function(r,e,u){return u&&"number"!=typeof u&&Ii(r,e,u)&&(e=u=n),r=Jf(r),e===n?(e=r,r=0):e=Jf(e),function(n,t,r,e){for(var u=-1,i=Yr(jr((t-n)/(r||1)),0),o=Hn(i);i--;)o[e?i:++u]=n,n+=r;return o}(r,e,u=u===n?r<e?1:-1:Jf(u),t)}}function wi(n){return function(t,r){return"string"==typeof t&&"string"==typeof r||(t=Xf(t),r=Xf(r)),n(t,r)}}function xi(t,r,e,u,i,o,f,c,a,l){var h=r&s;r|=h?y:d,(r&=~(h?d:y))&_||(r&=~(v|p));var g=[t,r,i,h?o:n,h?f:n,h?n:o,h?n:f,c,a,l],w=e.apply(n,g);return Pi(t)&&ro(w,g),w.placeholder=u,io(w,t,r)}function bi(n){var t=tt[n];return function(n,r){if(n=Xf(n),r=null==r?0:Ir(Lf(r),292)){var e=(If(n)+"e").split("e");return+((e=(If(t(e[0]+"e"+(+e[1]+r)))+"e").split("e"))[0]+"e"+(+e[1]-r))}return t(n)}}var Ei=ne&&1/zr(new ne([,-0]))[1]==U?function(n){return new ne(n)}:Mc;function mi(n){return function(t){var r=Ji(t);return r==Y?br(t):r==H?Sr(t):function(n,t){return Ft(t,function(t){return[t,n[t]]})}(t,n(t))}}function zi(t,r,u,i,f,c,a,l){var h=r&p;if(!h&&"function"!=typeof t)throw new it(e);var b=i?i.length:0;if(b||(r&=~(y|d),i=f=n),a=a===n?a:Yr(Lf(a),0),l=l===n?l:Lf(l),b-=f?f.length:0,r&d){var E=i,m=f;i=f=n}var z=h?n:qi(t),S=[t,r,u,i,f,E,m,c,a,l];if(z&&function(n,t){var r=n[1],e=t[1],u=r|e,i=u<(v|p|w),f=e==w&&r==s||e==w&&r==x&&n[7].length<=t[8]||e==(w|x)&&t[7].length<=t[8]&&r==s;if(!i&&!f)return n;e&v&&(n[2]=t[2],u|=r&v?0:_);var c=t[3];if(c){var a=n[3];n[3]=a?ni(a,c,t[4]):c,n[4]=a?mr(n[3],o):t[4]}(c=t[5])&&(a=n[5],n[5]=a?ti(a,c,t[6]):c,n[6]=a?mr(n[5],o):t[6]),(c=t[7])&&(n[7]=c),e&w&&(n[8]=null==n[8]?t[8]:Ir(n[8],t[8])),null==n[9]&&(n[9]=t[9]),n[0]=t[0],n[1]=u}(S,z),t=S[0],r=S[1],u=S[2],i=S[3],f=S[4],!(l=S[9]=S[9]===n?h?0:t.length:Yr(S[9]-b,0))&&r&(s|g)&&(r&=~(s|g)),r&&r!=v)O=r==s||r==g?function(t,r,e){var u=li(t);return function i(){for(var o=arguments.length,f=Hn(o),c=o,a=Bi(i);c--;)f[c]=arguments[c];var l=o<3&&f[0]!==a&&f[o-1]!==a?[]:mr(f,a);return(o-=l.length)<e?xi(t,r,pi,i.placeholder,n,f,l,n,n,e-o):Jt(this&&this!==Wt&&this instanceof i?u:t,this,f)}}(t,r,l):r!=y&&r!=(v|y)||f.length?pi.apply(n,S):function(n,t,r,e){var u=t&v,i=li(n);return function t(){for(var o=-1,f=arguments.length,c=-1,a=e.length,l=Hn(a+f),h=this&&this!==Wt&&this instanceof t?i:n;++c<a;)l[c]=e[c];for(;f--;)l[c++]=arguments[++o];return Jt(h,u?r:this,l)}}(t,r,u,i);else var O=function(n,t,r){var e=t&v,u=li(n);return function t(){return(this&&this!==Wt&&this instanceof t?u:n).apply(e?r:this,arguments)}}(t,r,u);return io((z?$u:ro)(O,S),t,r)}function Si(t,r,e,u){return t===n||_f(t,ct[e])&&!ht.call(u,e)?r:t}function Oi(t,r,e,u,i,o){return Uf(t)&&Uf(r)&&(o.set(r,t),su(t,r,n,Oi,o),o.delete(r)),t}function $i(t){return qf(t)?n:t}function Ui(t,r,e,u,i,o){var f=e&l,c=t.length,a=r.length;if(c!=a&&!(f&&a>c))return!1;var v=o.get(t);if(v&&o.get(r))return v==r;var p=-1,_=!0,s=e&h?new be:n;for(o.set(t,r),o.set(r,t);++p<c;){var g=t[p],y=r[p];if(u)var d=f?u(y,g,p,r,t,o):u(g,y,p,t,r,o);if(d!==n){if(d)continue;_=!1;break}if(s){if(!Vt(r,function(n,t){if(!_r(s,t)&&(g===n||i(g,n,e,u,o)))return s.push(t)})){_=!1;break}}else if(g!==y&&!i(g,y,e,u,o)){_=!1;break}}return o.delete(t),o.delete(r),_}function Wi(t){return uo(Vi(t,n,yo),t+"")}function Ri(n){return He(n,ic,Ki)}function Di(n){return He(n,oc,Ai)}var qi=ee?function(n){return ee.get(n)}:Mc;function Ni(n){for(var t=n.name+"",r=ue[t],e=ht.call(ue,t)?r.length:0;e--;){var u=r[e],i=u.func;if(null==i||i==n)return u.name}return t}function Bi(n){return(ht.call(pe,"placeholder")?pe:n).placeholder}function Zi(){var n=pe.iteratee||qc;return n=n===qc?cu:n,arguments.length?n(arguments[0],arguments[1]):n}function Mi(n,t){var r,e,u=n.__data__;return("string"==(e=typeof(r=t))||"number"==e||"symbol"==e||"boolean"==e?"__proto__"!==r:null===r)?u["string"==typeof t?"string":"hash"]:u.map}function Ti(n){for(var t=ic(n),r=t.length;r--;){var e=t[r],u=n[e];t[r]=[e,u,Hi(u)]}return t}function ji(t,r){var e=function(t,r){return null==t?n:t[r]}(t,r);return fu(e)?e:n}var Ki=Ar?function(n){return null==n?[]:(n=rt(n),It(Ar(n),function(t){return cr.call(n,t)}))}:Qc,Ai=Ar?function(n){for(var t=[];n;)Gt(t,Ki(n)),n=Bt(n);return t}:Qc,Ji=ke;function Li(n,t,r){for(var e=-1,u=(t=Iu(t,n)).length,i=!1;++e<u;){var o=ao(t[e]);if(!(i=null!=n&&r(n,o)))break;n=n[o]}return i||++e!=u?i:!!(u=null==n?0:n.length)&&$f(u)&&Yi(o,u)&&(df(n)||yf(n))}function Qi(n){return"function"!=typeof n.constructor||Gi(n)?{}:_e(Bt(n))}function Xi(n){return df(n)||yf(n)||!!(Dr&&n&&n[Dr])}function Yi(n,t){var r=typeof n;return!!(t=null==t?W:t)&&("number"==r||"symbol"!=r&&Xn.test(n))&&n>-1&&n%1==0&&n<t}function Ii(n,t,r){if(!Uf(r))return!1;var e=typeof t;return!!("number"==e?xf(r)&&Yi(t,r.length):"string"==e&&t in r)&&_f(r[t],n)}function Ci(n,t){if(df(n))return!1;var r=typeof n;return!("number"!=r&&"symbol"!=r&&"boolean"!=r&&null!=n&&!Mf(n))||On.test(n)||!Sn.test(n)||null!=t&&n in rt(t)}function Pi(n){var t=Ni(n),r=pe[t];if("function"!=typeof r||!(t in ye.prototype))return!1;if(n===r)return!0;var e=qi(r);return!!e&&n===e[0]}(Hr&&Ji(new Hr(new ArrayBuffer(1)))!=un||kr&&Ji(new kr)!=Y||Vr&&"[object Promise]"!=Ji(Vr.resolve())||ne&&Ji(new ne)!=H||te&&Ji(new te)!=tn)&&(Ji=function(t){var r=ke(t),e=r==P?t.constructor:n,u=e?lo(e):"";if(u)switch(u){case ie:return un;case oe:return Y;case fe:return"[object Promise]";case ce:return H;case ae:return tn}return r});var Fi=at?Sf:Xc;function Gi(n){var t=n&&n.constructor;return n===("function"==typeof t&&t.prototype||ct)}function Hi(n){return n==n&&!Uf(n)}function ki(t,r){return function(e){return null!=e&&e[t]===r&&(r!==n||t in rt(e))}}function Vi(t,r,e){return r=Yr(r===n?t.length-1:r,0),function(){for(var n=arguments,u=-1,i=Yr(n.length-r,0),o=Hn(i);++u<i;)o[u]=n[r+u];u=-1;for(var f=Hn(r+1);++u<r;)f[u]=n[u];return f[r]=e(o),Jt(t,this,f)}}function no(n,t){return t.length<2?n:Ge(n,Ru(t,0,-1))}function to(n,t){if("__proto__"!=t)return n[t]}var ro=oo($u),eo=Tr||function(n,t){return Wt.setTimeout(n,t)},uo=oo(Uu);function io(n,t,r){var e=t+"";return uo(n,function(n,t){var r=t.length;if(!r)return n;var e=r-1;return t[e]=(r>1?"& ":"")+t[e],t=t.join(r>2?", ":" "),n.replace(Nn,"{\n/* [wrapped with "+t+"] */\n")}(e,function(n,t){return Qt(Z,function(r){var e="_."+r[0];t&r[1]&&!Ct(n,e)&&n.push(e)}),n.sort()}(function(n){var t=n.match(Bn);return t?t[1].split(Zn):[]}(e),r)))}function oo(t){var r=0,e=0;return function(){var u=Cr(),i=S-(u-e);if(e=u,i>0){if(++r>=z)return arguments[0]}else r=0;return t.apply(n,arguments)}}function fo(t,r){var e=-1,u=t.length,i=u-1;for(r=r===n?u:r;++e<r;){var o=bu(e,i),f=t[o];t[o]=t[e],t[e]=f}return t.length=r,t}var co=function(n){var t=cf(n,function(n){return r.size===i&&r.clear(),n}),r=t.cache;return t}(function(n){var t=[];return 46===n.charCodeAt(0)&&t.push(""),n.replace($n,function(n,r,e,u){t.push(e?u.replace(Tn,"$1"):r||n)}),t});function ao(n){if("string"==typeof n||Mf(n))return n;var t=n+"";return"0"==t&&1/n==-U?"-0":t}function lo(n){if(null!=n){try{return lt.call(n)}catch(n){}try{return n+""}catch(n){}}return""}function ho(n){if(n instanceof ye)return n.clone();var t=new ge(n.__wrapped__,n.__chain__);return t.__actions__=ri(n.__actions__),t.__index__=n.__index__,t.__values__=n.__values__,t}var vo=mu(function(n,t){return bf(n)?je(n,Xe(t,1,bf,!0)):[]}),po=mu(function(t,r){var e=mo(r);return bf(e)&&(e=n),bf(t)?je(t,Xe(r,1,bf,!0),Zi(e,2)):[]}),_o=mu(function(t,r){var e=mo(r);return bf(e)&&(e=n),bf(t)?je(t,Xe(r,1,bf,!0),n,e):[]});function so(n,t,r){var e=null==n?0:n.length;if(!e)return-1;var u=null==r?0:Lf(r);return u<0&&(u=Yr(e+u,0)),rr(n,Zi(t,3),u)}function go(t,r,e){var u=null==t?0:t.length;if(!u)return-1;var i=u-1;return e!==n&&(i=Lf(e),i=e<0?Yr(u+i,0):Ir(i,u-1)),rr(t,Zi(r,3),i,!0)}function yo(n){return null!=n&&n.length?Xe(n,1):[]}function wo(t){return t&&t.length?t[0]:n}var xo=mu(function(n){var t=Ft(n,Xu);return t.length&&t[0]===n[0]?ru(t):[]}),bo=mu(function(t){var r=mo(t),e=Ft(t,Xu);return r===mo(e)?r=n:e.pop(),e.length&&e[0]===t[0]?ru(e,Zi(r,2)):[]}),Eo=mu(function(t){var r=mo(t),e=Ft(t,Xu);return(r="function"==typeof r?r:n)&&e.pop(),e.length&&e[0]===t[0]?ru(e,n,r):[]});function mo(t){var r=null==t?0:t.length;return r?t[r-1]:n}var zo=mu(So);function So(n,t){return n&&n.length&&t&&t.length?wu(n,t):n}var Oo=Wi(function(n,t){var r=null==n?0:n.length,e=Ne(n,t);return xu(n,Ft(t,function(n){return Yi(n,r)?+n:n}).sort(Vu)),e});function $o(n){return null==n?n:Gr.call(n)}var Uo=mu(function(n){return Tu(Xe(n,1,bf,!0))}),Wo=mu(function(t){var r=mo(t);return bf(r)&&(r=n),Tu(Xe(t,1,bf,!0),Zi(r,2))}),Ro=mu(function(t){var r=mo(t);return r="function"==typeof r?r:n,Tu(Xe(t,1,bf,!0),n,r)});function Do(n){if(!n||!n.length)return[];var t=0;return n=It(n,function(n){if(bf(n))return t=Yr(n.length,t),!0}),hr(t,function(t){return Ft(n,fr(t))})}function qo(t,r){if(!t||!t.length)return[];var e=Do(t);return null==r?e:Ft(e,function(t){return Jt(r,n,t)})}var No=mu(function(n,t){return bf(n)?je(n,t):[]}),Bo=mu(function(n){return Lu(It(n,bf))}),Zo=mu(function(t){var r=mo(t);return bf(r)&&(r=n),Lu(It(t,bf),Zi(r,2))}),Mo=mu(function(t){var r=mo(t);return r="function"==typeof r?r:n,Lu(It(t,bf),n,r)}),To=mu(Do);var jo=mu(function(t){var r=t.length,e=r>1?t[r-1]:n;return e="function"==typeof e?(t.pop(),e):n,qo(t,e)});function Ko(n){var t=pe(n);return t.__chain__=!0,t}function Ao(n,t){return t(n)}var Jo=Wi(function(t){var r=t.length,e=r?t[0]:0,u=this.__wrapped__,i=function(n){return Ne(n,t)};return!(r>1||this.__actions__.length)&&u instanceof ye&&Yi(e)?((u=u.slice(e,+e+(r?1:0))).__actions__.push({func:Ao,args:[i],thisArg:n}),new ge(u,this.__chain__).thru(function(t){return r&&!t.length&&t.push(n),t})):this.thru(i)});var Lo=ui(function(n,t,r){ht.call(n,r)?++n[r]:qe(n,r,1)});var Qo=hi(so),Xo=hi(go);function Yo(n,t){return(df(n)?Qt:Ke)(n,Zi(t,3))}function Io(n,t){return(df(n)?Xt:Ae)(n,Zi(t,3))}var Co=ui(function(n,t,r){ht.call(n,r)?n[r].push(t):qe(n,r,[t])});var Po=mu(function(n,t,r){var e=-1,u="function"==typeof t,i=xf(n)?Hn(n.length):[];return Ke(n,function(n){i[++e]=u?Jt(t,n,r):eu(n,t,r)}),i}),Fo=ui(function(n,t,r){qe(n,r,t)});function Go(n,t){return(df(n)?Ft:vu)(n,Zi(t,3))}var Ho=ui(function(n,t,r){n[r?0:1].push(t)},function(){return[[],[]]});var ko=mu(function(n,t){if(null==n)return[];var r=t.length;return r>1&&Ii(n,t[0],t[1])?t=[]:r>2&&Ii(t[0],t[1],t[2])&&(t=[t[0]]),yu(n,Xe(t,1),[])}),Vo=Mr||function(){return Wt.Date.now()};function nf(t,r,e){return r=e?n:r,r=t&&null==r?t.length:r,zi(t,w,n,n,n,n,r)}function tf(t,r){var u;if("function"!=typeof r)throw new it(e);return t=Lf(t),function(){return--t>0&&(u=r.apply(this,arguments)),t<=1&&(r=n),u}}var rf=mu(function(n,t,r){var e=v;if(r.length){var u=mr(r,Bi(rf));e|=y}return zi(n,e,t,r,u)}),ef=mu(function(n,t,r){var e=v|p;if(r.length){var u=mr(r,Bi(ef));e|=y}return zi(t,e,n,r,u)});function uf(t,r,u){var i,o,f,c,a,l,h=0,v=!1,p=!1,_=!0;if("function"!=typeof t)throw new it(e);function s(r){var e=i,u=o;return i=o=n,h=r,c=t.apply(u,e)}function g(t){var e=t-l;return l===n||e>=r||e<0||p&&t-h>=f}function y(){var n=Vo();if(g(n))return d(n);a=eo(y,function(n){var t=r-(n-l);return p?Ir(t,f-(n-h)):t}(n))}function d(t){return a=n,_&&i?s(t):(i=o=n,c)}function w(){var t=Vo(),e=g(t);if(i=arguments,o=this,l=t,e){if(a===n)return function(n){return h=n,a=eo(y,r),v?s(n):c}(l);if(p)return a=eo(y,r),s(l)}return a===n&&(a=eo(y,r)),c}return r=Xf(r)||0,Uf(u)&&(v=!!u.leading,f=(p="maxWait"in u)?Yr(Xf(u.maxWait)||0,r):f,_="trailing"in u?!!u.trailing:_),w.cancel=function(){a!==n&&Fu(a),h=0,i=l=o=a=n},w.flush=function(){return a===n?c:d(Vo())},w}var of=mu(function(n,t){return Te(n,1,t)}),ff=mu(function(n,t,r){return Te(n,Xf(t)||0,r)});function cf(n,t){if("function"!=typeof n||null!=t&&"function"!=typeof t)throw new it(e);var r=function(){var e=arguments,u=t?t.apply(this,e):e[0],i=r.cache;if(i.has(u))return i.get(u);var o=n.apply(this,e);return r.cache=i.set(u,o)||i,o};return r.cache=new(cf.Cache||xe),r}function af(n){if("function"!=typeof n)throw new it(e);return function(){var t=arguments;switch(t.length){case 0:return!n.call(this);case 1:return!n.call(this,t[0]);case 2:return!n.call(this,t[0],t[1]);case 3:return!n.call(this,t[0],t[1],t[2])}return!n.apply(this,t)}}cf.Cache=xe;var lf=Cu(function(n,t){var r=(t=1==t.length&&df(t[0])?Ft(t[0],vr(Zi())):Ft(Xe(t,1),vr(Zi()))).length;return mu(function(e){for(var u=-1,i=Ir(e.length,r);++u<i;)e[u]=t[u].call(this,e[u]);return Jt(n,this,e)})}),hf=mu(function(t,r){var e=mr(r,Bi(hf));return zi(t,y,n,r,e)}),vf=mu(function(t,r){var e=mr(r,Bi(vf));return zi(t,d,n,r,e)}),pf=Wi(function(t,r){return zi(t,x,n,n,n,r)});function _f(n,t){return n===t||n!=n&&t!=t}var sf=wi(Ve),gf=wi(function(n,t){return n>=t}),yf=uu(function(){return arguments}())?uu:function(n){return Wf(n)&&ht.call(n,"callee")&&!cr.call(n,"callee")},df=Hn.isArray,wf=Zt?vr(Zt):function(n){return Wf(n)&&ke(n)==en};function xf(n){return null!=n&&$f(n.length)&&!Sf(n)}function bf(n){return Wf(n)&&xf(n)}var Ef=Jr||Xc,mf=Mt?vr(Mt):function(n){return Wf(n)&&ke(n)==A};function zf(n){if(!Wf(n))return!1;var t=ke(n);return t==L||t==J||"string"==typeof n.message&&"string"==typeof n.name&&!qf(n)}function Sf(n){if(!Uf(n))return!1;var t=ke(n);return t==Q||t==X||t==j||t==F}function Of(n){return"number"==typeof n&&n==Lf(n)}function $f(n){return"number"==typeof n&&n>-1&&n%1==0&&n<=W}function Uf(n){var t=typeof n;return null!=n&&("object"==t||"function"==t)}function Wf(n){return null!=n&&"object"==typeof n}var Rf=Tt?vr(Tt):function(n){return Wf(n)&&Ji(n)==Y};function Df(n){return"number"==typeof n||Wf(n)&&ke(n)==I}function qf(n){if(!Wf(n)||ke(n)!=P)return!1;var t=Bt(n);if(null===t)return!0;var r=ht.call(t,"constructor")&&t.constructor;return"function"==typeof r&&r instanceof r&&lt.call(r)==dt}var Nf=jt?vr(jt):function(n){return Wf(n)&&ke(n)==G};var Bf=Kt?vr(Kt):function(n){return Wf(n)&&Ji(n)==H};function Zf(n){return"string"==typeof n||!df(n)&&Wf(n)&&ke(n)==k}function Mf(n){return"symbol"==typeof n||Wf(n)&&ke(n)==V}var Tf=At?vr(At):function(n){return Wf(n)&&$f(n.length)&&!!Et[ke(n)]};var jf=wi(hu),Kf=wi(function(n,t){return n<=t});function Af(n){if(!n)return[];if(xf(n))return Zf(n)?$r(n):ri(n);if(qr&&n[qr])return function(n){for(var t,r=[];!(t=n.next()).done;)r.push(t.value);return r}(n[qr]());var t=Ji(n);return(t==Y?br:t==H?zr:_c)(n)}function Jf(n){return n?(n=Xf(n))===U||n===-U?(n<0?-1:1)*R:n==n?n:0:0===n?n:0}function Lf(n){var t=Jf(n),r=t%1;return t==t?r?t-r:t:0}function Qf(n){return n?Be(Lf(n),0,q):0}function Xf(n){if("number"==typeof n)return n;if(Mf(n))return D;if(Uf(n)){var t="function"==typeof n.valueOf?n.valueOf():n;n=Uf(t)?t+"":t}if("string"!=typeof n)return 0===n?n:+n;n=n.replace(Rn,"");var r=Jn.test(n);return r||Qn.test(n)?Ot(n.slice(2),r?2:8):An.test(n)?D:+n}function Yf(n){return ei(n,oc(n))}function If(n){return null==n?"":Mu(n)}var Cf=ii(function(n,t){if(Gi(t)||xf(t))ei(t,ic(t),n);else for(var r in t)ht.call(t,r)&&Ue(n,r,t[r])}),Pf=ii(function(n,t){ei(t,oc(t),n)}),Ff=ii(function(n,t,r,e){ei(t,oc(t),n,e)}),Gf=ii(function(n,t,r,e){ei(t,ic(t),n,e)}),Hf=Wi(Ne);var kf=mu(function(t,r){t=rt(t);var e=-1,u=r.length,i=u>2?r[2]:n;for(i&&Ii(r[0],r[1],i)&&(u=1);++e<u;)for(var o=r[e],f=oc(o),c=-1,a=f.length;++c<a;){var l=f[c],h=t[l];(h===n||_f(h,ct[l])&&!ht.call(t,l))&&(t[l]=o[l])}return t}),Vf=mu(function(t){return t.push(n,Oi),Jt(cc,n,t)});function nc(t,r,e){var u=null==t?n:Ge(t,r);return u===n?e:u}function tc(n,t){return null!=n&&Li(n,t,tu)}var rc=_i(function(n,t,r){null!=t&&"function"!=typeof t.toString&&(t=gt.call(t)),n[t]=r},Uc(Dc)),ec=_i(function(n,t,r){null!=t&&"function"!=typeof t.toString&&(t=gt.call(t)),ht.call(n,t)?n[t].push(r):n[t]=[r]},Zi),uc=mu(eu);function ic(n){return xf(n)?me(n):au(n)}function oc(n){return xf(n)?me(n,!0):lu(n)}var fc=ii(function(n,t,r){su(n,t,r)}),cc=ii(function(n,t,r,e){su(n,t,r,e)}),ac=Wi(function(n,t){var r={};if(null==n)return r;var e=!1;t=Ft(t,function(t){return t=Iu(t,n),e||(e=t.length>1),t}),ei(n,Di(n),r),e&&(r=Ze(r,f|c|a,$i));for(var u=t.length;u--;)ju(r,t[u]);return r});var lc=Wi(function(n,t){return null==n?{}:function(n,t){return du(n,t,function(t,r){return tc(n,r)})}(n,t)});function hc(n,t){if(null==n)return{};var r=Ft(Di(n),function(n){return[n]});return t=Zi(t),du(n,r,function(n,r){return t(n,r[0])})}var vc=mi(ic),pc=mi(oc);function _c(n){return null==n?[]:pr(n,ic(n))}var sc=ai(function(n,t,r){return t=t.toLowerCase(),n+(r?gc(t):t)});function gc(n){return zc(If(n).toLowerCase())}function yc(n){return(n=If(n))&&n.replace(Yn,yr).replace(st,"")}var dc=ai(function(n,t,r){return n+(r?"-":"")+t.toLowerCase()}),wc=ai(function(n,t,r){return n+(r?" ":"")+t.toLowerCase()}),xc=ci("toLowerCase");var bc=ai(function(n,t,r){return n+(r?"_":"")+t.toLowerCase()});var Ec=ai(function(n,t,r){return n+(r?" ":"")+zc(t)});var mc=ai(function(n,t,r){return n+(r?" ":"")+t.toUpperCase()}),zc=ci("toUpperCase");function Sc(t,r,e){return t=If(t),(r=e?n:r)===n?function(n){return wt.test(n)}(t)?function(n){return n.match(yt)||[]}(t):function(n){return n.match(Mn)||[]}(t):t.match(r)||[]}var Oc=mu(function(t,r){try{return Jt(t,n,r)}catch(n){return zf(n)?n:new Vn(n)}}),$c=Wi(function(n,t){return Qt(t,function(t){t=ao(t),qe(n,t,rf(n[t],n))}),n});function Uc(n){return function(){return n}}var Wc=vi(),Rc=vi(!0);function Dc(n){return n}function qc(n){return cu("function"==typeof n?n:Ze(n,f))}var Nc=mu(function(n,t){return function(r){return eu(r,n,t)}}),Bc=mu(function(n,t){return function(r){return eu(n,r,t)}});function Zc(n,t,r){var e=ic(t),u=Fe(t,e);null!=r||Uf(t)&&(u.length||!e.length)||(r=t,t=n,n=this,u=Fe(t,ic(t)));var i=!(Uf(r)&&"chain"in r&&!r.chain),o=Sf(n);return Qt(u,function(r){var e=t[r];n[r]=e,o&&(n.prototype[r]=function(){var t=this.__chain__;if(i||t){var r=n(this.__wrapped__);return(r.__actions__=ri(this.__actions__)).push({func:e,args:arguments,thisArg:n}),r.__chain__=t,r}return e.apply(n,Gt([this.value()],arguments))})}),n}function Mc(){}var Tc=gi(Ft),jc=gi(Yt),Kc=gi(Vt);function Ac(n){return Ci(n)?fr(ao(n)):function(n){return function(t){return Ge(t,n)}}(n)}var Jc=di(),Lc=di(!0);function Qc(){return[]}function Xc(){return!1}var Yc=si(function(n,t){return n+t},0),Ic=bi("ceil"),Cc=si(function(n,t){return n/t},1),Pc=bi("floor");var Fc,Gc=si(function(n,t){return n*t},1),Hc=bi("round"),kc=si(function(n,t){return n-t},0);return pe.after=function(n,t){if("function"!=typeof t)throw new it(e);return n=Lf(n),function(){if(--n<1)return t.apply(this,arguments)}},pe.ary=nf,pe.assign=Cf,pe.assignIn=Pf,pe.assignInWith=Ff,pe.assignWith=Gf,pe.at=Hf,pe.before=tf,pe.bind=rf,pe.bindAll=$c,pe.bindKey=ef,pe.castArray=function(){if(!arguments.length)return[];var n=arguments[0];return df(n)?n:[n]},pe.chain=Ko,pe.chunk=function(t,r,e){r=(e?Ii(t,r,e):r===n)?1:Yr(Lf(r),0);var u=null==t?0:t.length;if(!u||r<1)return[];for(var i=0,o=0,f=Hn(jr(u/r));i<u;)f[o++]=Ru(t,i,i+=r);return f},pe.compact=function(n){for(var t=-1,r=null==n?0:n.length,e=0,u=[];++t<r;){var i=n[t];i&&(u[e++]=i)}return u},pe.concat=function(){var n=arguments.length;if(!n)return[];for(var t=Hn(n-1),r=arguments[0],e=n;e--;)t[e-1]=arguments[e];return Gt(df(r)?ri(r):[r],Xe(t,1))},pe.cond=function(n){var t=null==n?0:n.length,r=Zi();return n=t?Ft(n,function(n){if("function"!=typeof n[1])throw new it(e);return[r(n[0]),n[1]]}):[],mu(function(r){for(var e=-1;++e<t;){var u=n[e];if(Jt(u[0],this,r))return Jt(u[1],this,r)}})},pe.conforms=function(n){return function(n){var t=ic(n);return function(r){return Me(r,n,t)}}(Ze(n,f))},pe.constant=Uc,pe.countBy=Lo,pe.create=function(n,t){var r=_e(n);return null==t?r:De(r,t)},pe.curry=function t(r,e,u){var i=zi(r,s,n,n,n,n,n,e=u?n:e);return i.placeholder=t.placeholder,i},pe.curryRight=function t(r,e,u){var i=zi(r,g,n,n,n,n,n,e=u?n:e);return i.placeholder=t.placeholder,i},pe.debounce=uf,pe.defaults=kf,pe.defaultsDeep=Vf,pe.defer=of,pe.delay=ff,pe.difference=vo,pe.differenceBy=po,pe.differenceWith=_o,pe.drop=function(t,r,e){var u=null==t?0:t.length;return u?Ru(t,(r=e||r===n?1:Lf(r))<0?0:r,u):[]},pe.dropRight=function(t,r,e){var u=null==t?0:t.length;return u?Ru(t,0,(r=u-(r=e||r===n?1:Lf(r)))<0?0:r):[]},pe.dropRightWhile=function(n,t){return n&&n.length?Au(n,Zi(t,3),!0,!0):[]},pe.dropWhile=function(n,t){return n&&n.length?Au(n,Zi(t,3),!0):[]},pe.fill=function(t,r,e,u){var i=null==t?0:t.length;return i?(e&&"number"!=typeof e&&Ii(t,r,e)&&(e=0,u=i),function(t,r,e,u){var i=t.length;for((e=Lf(e))<0&&(e=-e>i?0:i+e),(u=u===n||u>i?i:Lf(u))<0&&(u+=i),u=e>u?0:Qf(u);e<u;)t[e++]=r;return t}(t,r,e,u)):[]},pe.filter=function(n,t){return(df(n)?It:Qe)(n,Zi(t,3))},pe.flatMap=function(n,t){return Xe(Go(n,t),1)},pe.flatMapDeep=function(n,t){return Xe(Go(n,t),U)},pe.flatMapDepth=function(t,r,e){return e=e===n?1:Lf(e),Xe(Go(t,r),e)},pe.flatten=yo,pe.flattenDeep=function(n){return null!=n&&n.length?Xe(n,U):[]},pe.flattenDepth=function(t,r){return null!=t&&t.length?Xe(t,r=r===n?1:Lf(r)):[]},pe.flip=function(n){return zi(n,b)},pe.flow=Wc,pe.flowRight=Rc,pe.fromPairs=function(n){for(var t=-1,r=null==n?0:n.length,e={};++t<r;){var u=n[t];e[u[0]]=u[1]}return e},pe.functions=function(n){return null==n?[]:Fe(n,ic(n))},pe.functionsIn=function(n){return null==n?[]:Fe(n,oc(n))},pe.groupBy=Co,pe.initial=function(n){return null!=n&&n.length?Ru(n,0,-1):[]},pe.intersection=xo,pe.intersectionBy=bo,pe.intersectionWith=Eo,pe.invert=rc,pe.invertBy=ec,pe.invokeMap=Po,pe.iteratee=qc,pe.keyBy=Fo,pe.keys=ic,pe.keysIn=oc,pe.map=Go,pe.mapKeys=function(n,t){var r={};return t=Zi(t,3),Ce(n,function(n,e,u){qe(r,t(n,e,u),n)}),r},pe.mapValues=function(n,t){var r={};return t=Zi(t,3),Ce(n,function(n,e,u){qe(r,e,t(n,e,u))}),r},pe.matches=function(n){return pu(Ze(n,f))},pe.matchesProperty=function(n,t){return _u(n,Ze(t,f))},pe.memoize=cf,pe.merge=fc,pe.mergeWith=cc,pe.method=Nc,pe.methodOf=Bc,pe.mixin=Zc,pe.negate=af,pe.nthArg=function(n){return n=Lf(n),mu(function(t){return gu(t,n)})},pe.omit=ac,pe.omitBy=function(n,t){return hc(n,af(Zi(t)))},pe.once=function(n){return tf(2,n)},pe.orderBy=function(t,r,e,u){return null==t?[]:(df(r)||(r=null==r?[]:[r]),df(e=u?n:e)||(e=null==e?[]:[e]),yu(t,r,e))},pe.over=Tc,pe.overArgs=lf,pe.overEvery=jc,pe.overSome=Kc,pe.partial=hf,pe.partialRight=vf,pe.partition=Ho,pe.pick=lc,pe.pickBy=hc,pe.property=Ac,pe.propertyOf=function(t){return function(r){return null==t?n:Ge(t,r)}},pe.pull=zo,pe.pullAll=So,pe.pullAllBy=function(n,t,r){return n&&n.length&&t&&t.length?wu(n,t,Zi(r,2)):n},pe.pullAllWith=function(t,r,e){return t&&t.length&&r&&r.length?wu(t,r,n,e):t},pe.pullAt=Oo,pe.range=Jc,pe.rangeRight=Lc,pe.rearg=pf,pe.reject=function(n,t){return(df(n)?It:Qe)(n,af(Zi(t,3)))},pe.remove=function(n,t){var r=[];if(!n||!n.length)return r;var e=-1,u=[],i=n.length;for(t=Zi(t,3);++e<i;){var o=n[e];t(o,e,n)&&(r.push(o),u.push(e))}return xu(n,u),r},pe.rest=function(t,r){if("function"!=typeof t)throw new it(e);return mu(t,r=r===n?r:Lf(r))},pe.reverse=$o,pe.sampleSize=function(t,r,e){return r=(e?Ii(t,r,e):r===n)?1:Lf(r),(df(t)?Se:Su)(t,r)},pe.set=function(n,t,r){return null==n?n:Ou(n,t,r)},pe.setWith=function(t,r,e,u){return u="function"==typeof u?u:n,null==t?t:Ou(t,r,e,u)},pe.shuffle=function(n){return(df(n)?Oe:Wu)(n)},pe.slice=function(t,r,e){var u=null==t?0:t.length;return u?(e&&"number"!=typeof e&&Ii(t,r,e)?(r=0,e=u):(r=null==r?0:Lf(r),e=e===n?u:Lf(e)),Ru(t,r,e)):[]},pe.sortBy=ko,pe.sortedUniq=function(n){return n&&n.length?Bu(n):[]},pe.sortedUniqBy=function(n,t){return n&&n.length?Bu(n,Zi(t,2)):[]},pe.split=function(t,r,e){return e&&"number"!=typeof e&&Ii(t,r,e)&&(r=e=n),(e=e===n?q:e>>>0)?(t=If(t))&&("string"==typeof r||null!=r&&!Nf(r))&&!(r=Mu(r))&&xr(t)?Pu($r(t),0,e):t.split(r,e):[]},pe.spread=function(n,t){if("function"!=typeof n)throw new it(e);return t=null==t?0:Yr(Lf(t),0),mu(function(r){var e=r[t],u=Pu(r,0,t);return e&&Gt(u,e),Jt(n,this,u)})},pe.tail=function(n){var t=null==n?0:n.length;return t?Ru(n,1,t):[]},pe.take=function(t,r,e){return t&&t.length?Ru(t,0,(r=e||r===n?1:Lf(r))<0?0:r):[]},pe.takeRight=function(t,r,e){var u=null==t?0:t.length;return u?Ru(t,(r=u-(r=e||r===n?1:Lf(r)))<0?0:r,u):[]},pe.takeRightWhile=function(n,t){return n&&n.length?Au(n,Zi(t,3),!1,!0):[]},pe.takeWhile=function(n,t){return n&&n.length?Au(n,Zi(t,3)):[]},pe.tap=function(n,t){return t(n),n},pe.throttle=function(n,t,r){var u=!0,i=!0;if("function"!=typeof n)throw new it(e);return Uf(r)&&(u="leading"in r?!!r.leading:u,i="trailing"in r?!!r.trailing:i),uf(n,t,{leading:u,maxWait:t,trailing:i})},pe.thru=Ao,pe.toArray=Af,pe.toPairs=vc,pe.toPairsIn=pc,pe.toPath=function(n){return df(n)?Ft(n,ao):Mf(n)?[n]:ri(co(If(n)))},pe.toPlainObject=Yf,pe.transform=function(n,t,r){var e=df(n),u=e||Ef(n)||Tf(n);if(t=Zi(t,4),null==r){var i=n&&n.constructor;r=u?e?new i:[]:Uf(n)&&Sf(i)?_e(Bt(n)):{}}return(u?Qt:Ce)(n,function(n,e,u){return t(r,n,e,u)}),r},pe.unary=function(n){return nf(n,1)},pe.union=Uo,pe.unionBy=Wo,pe.unionWith=Ro,pe.uniq=function(n){return n&&n.length?Tu(n):[]},pe.uniqBy=function(n,t){return n&&n.length?Tu(n,Zi(t,2)):[]},pe.uniqWith=function(t,r){return r="function"==typeof r?r:n,t&&t.length?Tu(t,n,r):[]},pe.unset=function(n,t){return null==n||ju(n,t)},pe.unzip=Do,pe.unzipWith=qo,pe.update=function(n,t,r){return null==n?n:Ku(n,t,Yu(r))},pe.updateWith=function(t,r,e,u){return u="function"==typeof u?u:n,null==t?t:Ku(t,r,Yu(e),u)},pe.values=_c,pe.valuesIn=function(n){return null==n?[]:pr(n,oc(n))},pe.without=No,pe.words=Sc,pe.wrap=function(n,t){return hf(Yu(t),n)},pe.xor=Bo,pe.xorBy=Zo,pe.xorWith=Mo,pe.zip=To,pe.zipObject=function(n,t){return Qu(n||[],t||[],Ue)},pe.zipObjectDeep=function(n,t){return Qu(n||[],t||[],Ou)},pe.zipWith=jo,pe.entries=vc,pe.entriesIn=pc,pe.extend=Pf,pe.extendWith=Ff,Zc(pe,pe),pe.add=Yc,pe.attempt=Oc,pe.camelCase=sc,pe.capitalize=gc,pe.ceil=Ic,pe.clamp=function(t,r,e){return e===n&&(e=r,r=n),e!==n&&(e=(e=Xf(e))==e?e:0),r!==n&&(r=(r=Xf(r))==r?r:0),Be(Xf(t),r,e)},pe.clone=function(n){return Ze(n,a)},pe.cloneDeep=function(n){return Ze(n,f|a)},pe.cloneDeepWith=function(t,r){return Ze(t,f|a,r="function"==typeof r?r:n)},pe.cloneWith=function(t,r){return Ze(t,a,r="function"==typeof r?r:n)},pe.conformsTo=function(n,t){return null==t||Me(n,t,ic(t))},pe.deburr=yc,pe.defaultTo=function(n,t){return null==n||n!=n?t:n},pe.divide=Cc,pe.endsWith=function(t,r,e){t=If(t),r=Mu(r);var u=t.length,i=e=e===n?u:Be(Lf(e),0,u);return(e-=r.length)>=0&&t.slice(e,i)==r},pe.eq=_f,pe.escape=function(n){return(n=If(n))&&bn.test(n)?n.replace(wn,dr):n},pe.escapeRegExp=function(n){return(n=If(n))&&Wn.test(n)?n.replace(Un,"\\$&"):n},pe.every=function(t,r,e){var u=df(t)?Yt:Je;return e&&Ii(t,r,e)&&(r=n),u(t,Zi(r,3))},pe.find=Qo,pe.findIndex=so,pe.findKey=function(n,t){return tr(n,Zi(t,3),Ce)},pe.findLast=Xo,pe.findLastIndex=go,pe.findLastKey=function(n,t){return tr(n,Zi(t,3),Pe)},pe.floor=Pc,pe.forEach=Yo,pe.forEachRight=Io,pe.forIn=function(n,t){return null==n?n:Ye(n,Zi(t,3),oc)},pe.forInRight=function(n,t){return null==n?n:Ie(n,Zi(t,3),oc)},pe.forOwn=function(n,t){return n&&Ce(n,Zi(t,3))},pe.forOwnRight=function(n,t){return n&&Pe(n,Zi(t,3))},pe.get=nc,pe.gt=sf,pe.gte=gf,pe.has=function(n,t){return null!=n&&Li(n,t,nu)},pe.hasIn=tc,pe.head=wo,pe.identity=Dc,pe.includes=function(n,t,r,e){n=xf(n)?n:_c(n),r=r&&!e?Lf(r):0;var u=n.length;return r<0&&(r=Yr(u+r,0)),Zf(n)?r<=u&&n.indexOf(t,r)>-1:!!u&&er(n,t,r)>-1},pe.indexOf=function(n,t,r){var e=null==n?0:n.length;if(!e)return-1;var u=null==r?0:Lf(r);return u<0&&(u=Yr(e+u,0)),er(n,t,u)},pe.inRange=function(t,r,e){return r=Jf(r),e===n?(e=r,r=0):e=Jf(e),function(n,t,r){return n>=Ir(t,r)&&n<Yr(t,r)}(t=Xf(t),r,e)},pe.invoke=uc,pe.isArguments=yf,pe.isArray=df,pe.isArrayBuffer=wf,pe.isArrayLike=xf,pe.isArrayLikeObject=bf,pe.isBoolean=function(n){return!0===n||!1===n||Wf(n)&&ke(n)==K},pe.isBuffer=Ef,pe.isDate=mf,pe.isElement=function(n){return Wf(n)&&1===n.nodeType&&!qf(n)},pe.isEmpty=function(n){if(null==n)return!0;if(xf(n)&&(df(n)||"string"==typeof n||"function"==typeof n.splice||Ef(n)||Tf(n)||yf(n)))return!n.length;var t=Ji(n);if(t==Y||t==H)return!n.size;if(Gi(n))return!au(n).length;for(var r in n)if(ht.call(n,r))return!1;return!0},pe.isEqual=function(n,t){return iu(n,t)},pe.isEqualWith=function(t,r,e){var u=(e="function"==typeof e?e:n)?e(t,r):n;return u===n?iu(t,r,n,e):!!u},pe.isError=zf,pe.isFinite=function(n){return"number"==typeof n&&Lr(n)},pe.isFunction=Sf,pe.isInteger=Of,pe.isLength=$f,pe.isMap=Rf,pe.isMatch=function(n,t){return n===t||ou(n,t,Ti(t))},pe.isMatchWith=function(t,r,e){return e="function"==typeof e?e:n,ou(t,r,Ti(r),e)},pe.isNaN=function(n){return Df(n)&&n!=+n},pe.isNative=function(n){if(Fi(n))throw new Vn(r);return fu(n)},pe.isNil=function(n){return null==n},pe.isNull=function(n){return null===n},pe.isNumber=Df,pe.isObject=Uf,pe.isObjectLike=Wf,pe.isPlainObject=qf,pe.isRegExp=Nf,pe.isSafeInteger=function(n){return Of(n)&&n>=-W&&n<=W},pe.isSet=Bf,pe.isString=Zf,pe.isSymbol=Mf,pe.isTypedArray=Tf,pe.isUndefined=function(t){return t===n},pe.isWeakMap=function(n){return Wf(n)&&Ji(n)==tn},pe.isWeakSet=function(n){return Wf(n)&&ke(n)==rn},pe.join=function(n,t){return null==n?"":Qr.call(n,t)},pe.kebabCase=dc,pe.last=mo,pe.lastIndexOf=function(t,r,e){var u=null==t?0:t.length;if(!u)return-1;var i=u;return e!==n&&(i=(i=Lf(e))<0?Yr(u+i,0):Ir(i,u-1)),r==r?function(n,t,r){for(var e=r+1;e--;)if(n[e]===t)return e;return e}(t,r,i):rr(t,ir,i,!0)},pe.lowerCase=wc,pe.lowerFirst=xc,pe.lt=jf,pe.lte=Kf,pe.max=function(t){return t&&t.length?Le(t,Dc,Ve):n},pe.maxBy=function(t,r){return t&&t.length?Le(t,Zi(r,2),Ve):n},pe.mean=function(n){return or(n,Dc)},pe.meanBy=function(n,t){return or(n,Zi(t,2))},pe.min=function(t){return t&&t.length?Le(t,Dc,hu):n},pe.minBy=function(t,r){return t&&t.length?Le(t,Zi(r,2),hu):n},pe.stubArray=Qc,pe.stubFalse=Xc,pe.stubObject=function(){return{}},pe.stubString=function(){return""},pe.stubTrue=function(){return!0},pe.multiply=Gc,pe.nth=function(t,r){return t&&t.length?gu(t,Lf(r)):n},pe.noConflict=function(){return Wt._===this&&(Wt._=zt),this},pe.noop=Mc,pe.now=Vo,pe.pad=function(n,t,r){n=If(n);var e=(t=Lf(t))?Or(n):0;if(!t||e>=t)return n;var u=(t-e)/2;return yi(Kr(u),r)+n+yi(jr(u),r)},pe.padEnd=function(n,t,r){n=If(n);var e=(t=Lf(t))?Or(n):0;return t&&e<t?n+yi(t-e,r):n},pe.padStart=function(n,t,r){n=If(n);var e=(t=Lf(t))?Or(n):0;return t&&e<t?yi(t-e,r)+n:n},pe.parseInt=function(n,t,r){return r||null==t?t=0:t&&(t=+t),Pr(If(n).replace(Dn,""),t||0)},pe.random=function(t,r,e){if(e&&"boolean"!=typeof e&&Ii(t,r,e)&&(r=e=n),e===n&&("boolean"==typeof r?(e=r,r=n):"boolean"==typeof t&&(e=t,t=n)),t===n&&r===n?(t=0,r=1):(t=Jf(t),r===n?(r=t,t=0):r=Jf(r)),t>r){var u=t;t=r,r=u}if(e||t%1||r%1){var i=Fr();return Ir(t+i*(r-t+St("1e-"+((i+"").length-1))),r)}return bu(t,r)},pe.reduce=function(n,t,r){var e=df(n)?Ht:ar,u=arguments.length<3;return e(n,Zi(t,4),r,u,Ke)},pe.reduceRight=function(n,t,r){var e=df(n)?kt:ar,u=arguments.length<3;return e(n,Zi(t,4),r,u,Ae)},pe.repeat=function(t,r,e){return r=(e?Ii(t,r,e):r===n)?1:Lf(r),Eu(If(t),r)},pe.replace=function(){var n=arguments,t=If(n[0]);return n.length<3?t:t.replace(n[1],n[2])},pe.result=function(t,r,e){var u=-1,i=(r=Iu(r,t)).length;for(i||(i=1,t=n);++u<i;){var o=null==t?n:t[ao(r[u])];o===n&&(u=i,o=e),t=Sf(o)?o.call(t):o}return t},pe.round=Hc,pe.runInContext=Pn,pe.sample=function(n){return(df(n)?ze:zu)(n)},pe.size=function(n){if(null==n)return 0;if(xf(n))return Zf(n)?Or(n):n.length;var t=Ji(n);return t==Y||t==H?n.size:au(n).length},pe.snakeCase=bc,pe.some=function(t,r,e){var u=df(t)?Vt:Du;return e&&Ii(t,r,e)&&(r=n),u(t,Zi(r,3))},pe.sortedIndex=function(n,t){return qu(n,t)},pe.sortedIndexBy=function(n,t,r){return Nu(n,t,Zi(r,2))},pe.sortedIndexOf=function(n,t){var r=null==n?0:n.length;if(r){var e=qu(n,t);if(e<r&&_f(n[e],t))return e}return-1},pe.sortedLastIndex=function(n,t){return qu(n,t,!0)},pe.sortedLastIndexBy=function(n,t,r){return Nu(n,t,Zi(r,2),!0)},pe.sortedLastIndexOf=function(n,t){if(null!=n&&n.length){var r=qu(n,t,!0)-1;if(_f(n[r],t))return r}return-1},pe.startCase=Ec,pe.startsWith=function(n,t,r){return n=If(n),r=null==r?0:Be(Lf(r),0,n.length),t=Mu(t),n.slice(r,r+t.length)==t},pe.subtract=kc,pe.sum=function(n){return n&&n.length?lr(n,Dc):0},pe.sumBy=function(n,t){return n&&n.length?lr(n,Zi(t,2)):0},pe.template=function(t,r,e){var u=pe.templateSettings;e&&Ii(t,r,e)&&(r=n),t=If(t),r=Ff({},r,u,Si);var i,o,f=Ff({},r.imports,u.imports,Si),c=ic(f),a=pr(f,c),l=0,h=r.interpolate||In,v="__p += '",p=et((r.escape||In).source+"|"+h.source+"|"+(h===zn?jn:In).source+"|"+(r.evaluate||In).source+"|$","g"),_="//# sourceURL="+("sourceURL"in r?r.sourceURL:"lodash.templateSources["+ ++bt+"]")+"\n";t.replace(p,function(n,r,e,u,f,c){return e||(e=u),v+=t.slice(l,c).replace(Cn,wr),r&&(i=!0,v+="' +\n__e("+r+") +\n'"),f&&(o=!0,v+="';\n"+f+";\n__p += '"),e&&(v+="' +\n((__t = ("+e+")) == null ? '' : __t) +\n'"),l=c+n.length,n}),v+="';\n";var s=r.variable;s||(v="with (obj) {\n"+v+"\n}\n"),v=(o?v.replace(sn,""):v).replace(gn,"$1").replace(yn,"$1;"),v="function("+(s||"obj")+") {\n"+(s?"":"obj || (obj = {});\n")+"var __t, __p = ''"+(i?", __e = _.escape":"")+(o?", __j = Array.prototype.join;\nfunction print() { __p += __j.call(arguments, '') }\n":";\n")+v+"return __p\n}";var g=Oc(function(){return nt(c,_+"return "+v).apply(n,a)});if(g.source=v,zf(g))throw g;return g},pe.times=function(n,t){if((n=Lf(n))<1||n>W)return[];var r=q,e=Ir(n,q);t=Zi(t),n-=q;for(var u=hr(e,t);++r<n;)t(r);return u},pe.toFinite=Jf,pe.toInteger=Lf,pe.toLength=Qf,pe.toLower=function(n){return If(n).toLowerCase()},pe.toNumber=Xf,pe.toSafeInteger=function(n){return n?Be(Lf(n),-W,W):0===n?n:0},pe.toString=If,pe.toUpper=function(n){return If(n).toUpperCase()},pe.trim=function(t,r,e){if((t=If(t))&&(e||r===n))return t.replace(Rn,"");if(!t||!(r=Mu(r)))return t;var u=$r(t),i=$r(r);return Pu(u,sr(u,i),gr(u,i)+1).join("")},pe.trimEnd=function(t,r,e){if((t=If(t))&&(e||r===n))return t.replace(qn,"");if(!t||!(r=Mu(r)))return t;var u=$r(t);return Pu(u,0,gr(u,$r(r))+1).join("")},pe.trimStart=function(t,r,e){if((t=If(t))&&(e||r===n))return t.replace(Dn,"");if(!t||!(r=Mu(r)))return t;var u=$r(t);return Pu(u,sr(u,$r(r))).join("")},pe.truncate=function(t,r){var e=E,u=m;if(Uf(r)){var i="separator"in r?r.separator:i;e="length"in r?Lf(r.length):e,u="omission"in r?Mu(r.omission):u}var o=(t=If(t)).length;if(xr(t)){var f=$r(t);o=f.length}if(e>=o)return t;var c=e-Or(u);if(c<1)return u;var a=f?Pu(f,0,c).join(""):t.slice(0,c);if(i===n)return a+u;if(f&&(c+=a.length-c),Nf(i)){if(t.slice(c).search(i)){var l,h=a;for(i.global||(i=et(i.source,If(Kn.exec(i))+"g")),i.lastIndex=0;l=i.exec(h);)var v=l.index;a=a.slice(0,v===n?c:v)}}else if(t.indexOf(Mu(i),c)!=c){var p=a.lastIndexOf(i);p>-1&&(a=a.slice(0,p))}return a+u},pe.unescape=function(n){return(n=If(n))&&xn.test(n)?n.replace(dn,Ur):n},pe.uniqueId=function(n){var t=++vt;return If(n)+t},pe.upperCase=mc,pe.upperFirst=zc,pe.each=Yo,pe.eachRight=Io,pe.first=wo,Zc(pe,(Fc={},Ce(pe,function(n,t){ht.call(pe.prototype,t)||(Fc[t]=n)}),Fc),{chain:!1}),pe.VERSION="4.17.11",Qt(["bind","bindKey","curry","curryRight","partial","partialRight"],function(n){pe[n].placeholder=pe}),Qt(["drop","take"],function(t,r){ye.prototype[t]=function(e){e=e===n?1:Yr(Lf(e),0);var u=this.__filtered__&&!r?new ye(this):this.clone();return u.__filtered__?u.__takeCount__=Ir(e,u.__takeCount__):u.__views__.push({size:Ir(e,q),type:t+(u.__dir__<0?"Right":"")}),u},ye.prototype[t+"Right"]=function(n){return this.reverse()[t](n).reverse()}}),Qt(["filter","map","takeWhile"],function(n,t){var r=t+1,e=r==O||3==r;ye.prototype[n]=function(n){var t=this.clone();return t.__iteratees__.push({iteratee:Zi(n,3),type:r}),t.__filtered__=t.__filtered__||e,t}}),Qt(["head","last"],function(n,t){var r="take"+(t?"Right":"");ye.prototype[n]=function(){return this[r](1).value()[0]}}),Qt(["initial","tail"],function(n,t){var r="drop"+(t?"":"Right");ye.prototype[n]=function(){return this.__filtered__?new ye(this):this[r](1)}}),ye.prototype.compact=function(){return this.filter(Dc)},ye.prototype.find=function(n){return this.filter(n).head()},ye.prototype.findLast=function(n){return this.reverse().find(n)},ye.prototype.invokeMap=mu(function(n,t){return"function"==typeof n?new ye(this):this.map(function(r){return eu(r,n,t)})}),ye.prototype.reject=function(n){return this.filter(af(Zi(n)))},ye.prototype.slice=function(t,r){t=Lf(t);var e=this;return e.__filtered__&&(t>0||r<0)?new ye(e):(t<0?e=e.takeRight(-t):t&&(e=e.drop(t)),r!==n&&(e=(r=Lf(r))<0?e.dropRight(-r):e.take(r-t)),e)},ye.prototype.takeRightWhile=function(n){return this.reverse().takeWhile(n).reverse()},ye.prototype.toArray=function(){return this.take(q)},Ce(ye.prototype,function(t,r){var e=/^(?:filter|find|map|reject)|While$/.test(r),u=/^(?:head|last)$/.test(r),i=pe[u?"take"+("last"==r?"Right":""):r],o=u||/^find/.test(r);i&&(pe.prototype[r]=function(){var r=this.__wrapped__,f=u?[1]:arguments,c=r instanceof ye,a=f[0],l=c||df(r),h=function(n){var t=i.apply(pe,Gt([n],f));return u&&v?t[0]:t};l&&e&&"function"==typeof a&&1!=a.length&&(c=l=!1);var v=this.__chain__,p=!!this.__actions__.length,_=o&&!v,s=c&&!p;if(!o&&l){r=s?r:new ye(this);var g=t.apply(r,f);return g.__actions__.push({func:Ao,args:[h],thisArg:n}),new ge(g,v)}return _&&s?t.apply(this,f):(g=this.thru(h),_?u?g.value()[0]:g.value():g)})}),Qt(["pop","push","shift","sort","splice","unshift"],function(n){var t=ot[n],r=/^(?:push|sort|unshift)$/.test(n)?"tap":"thru",e=/^(?:pop|shift)$/.test(n);pe.prototype[n]=function(){var n=arguments;if(e&&!this.__chain__){var u=this.value();return t.apply(df(u)?u:[],n)}return this[r](function(r){return t.apply(df(r)?r:[],n)})}}),Ce(ye.prototype,function(n,t){var r=pe[t];if(r){var e=r.name+"";(ue[e]||(ue[e]=[])).push({name:t,func:r})}}),ue[pi(n,p).name]=[{name:"wrapper",func:n}],ye.prototype.clone=function(){var n=new ye(this.__wrapped__);return n.__actions__=ri(this.__actions__),n.__dir__=this.__dir__,n.__filtered__=this.__filtered__,n.__iteratees__=ri(this.__iteratees__),n.__takeCount__=this.__takeCount__,n.__views__=ri(this.__views__),n},ye.prototype.reverse=function(){if(this.__filtered__){var n=new ye(this);n.__dir__=-1,n.__filtered__=!0}else(n=this.clone()).__dir__*=-1;return n},ye.prototype.value=function(){var n=this.__wrapped__.value(),t=this.__dir__,r=df(n),e=t<0,u=r?n.length:0,i=function(n,t,r){for(var e=-1,u=r.length;++e<u;){var i=r[e],o=i.size;switch(i.type){case"drop":n+=o;break;case"dropRight":t-=o;break;case"take":t=Ir(t,n+o);break;case"takeRight":n=Yr(n,t-o)}}return{start:n,end:t}}(0,u,this.__views__),o=i.start,f=i.end,c=f-o,a=e?f:o-1,l=this.__iteratees__,h=l.length,v=0,p=Ir(c,this.__takeCount__);if(!r||!e&&u==c&&p==c)return Ju(n,this.__actions__);var _=[];n:for(;c--&&v<p;){for(var s=-1,g=n[a+=t];++s<h;){var y=l[s],d=y.iteratee,w=y.type,x=d(g);if(w==$)g=x;else if(!x){if(w==O)continue n;break n}}_[v++]=g}return _},pe.prototype.at=Jo,pe.prototype.chain=function(){return Ko(this)},pe.prototype.commit=function(){return new ge(this.value(),this.__chain__)},pe.prototype.next=function(){this.__values__===n&&(this.__values__=Af(this.value()));var t=this.__index__>=this.__values__.length;return{done:t,value:t?n:this.__values__[this.__index__++]}},pe.prototype.plant=function(t){for(var r,e=this;e instanceof se;){var u=ho(e);u.__index__=0,u.__values__=n,r?i.__wrapped__=u:r=u;var i=u;e=e.__wrapped__}return i.__wrapped__=t,r},pe.prototype.reverse=function(){var t=this.__wrapped__;if(t instanceof ye){var r=t;return this.__actions__.length&&(r=new ye(this)),(r=r.reverse()).__actions__.push({func:Ao,args:[$o],thisArg:n}),new ge(r,this.__chain__)}return this.thru($o)},pe.prototype.toJSON=pe.prototype.valueOf=pe.prototype.value=function(){return Ju(this.__wrapped__,this.__actions__)},pe.prototype.first=pe.prototype.head,qr&&(pe.prototype[qr]=function(){return this}),pe}();"function"==typeof define&&"object"==typeof define.amd&&define.amd?(Wt._=Wr,define(function(){return Wr})):Dt?((Dt.exports=Wr)._=Wr,Rt._=Wr):Wt._=Wr}).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],110:[function(require,module,exports){
@@ -7526,7 +9775,7 @@ var indexOf=function(e,t){if(e.indexOf)return e.indexOf(t);for(var n=0;n<e.lengt
 module.exports={
   "name": "azure-maps-control",
   "author": "Microsoft Corporation",
-  "version": "2.0.2",
+  "version": "2.0.5",
   "description": "Map SDK for Azure Maps",
   "keywords": [
     "azure",
@@ -7553,9 +9802,10 @@ module.exports={
     "@microsoft/applicationinsights-web": "^1.0.0-beta.11",
     "@types/jwt-decode": "^2.2.0",
     "@types/lodash": "4.14.106",
-    "@types/mapbox-gl": "0.47.0",
+    "@types/mapbox-gl": "0.51.4",
     "@types/mocha": "5.2.5",
     "@types/puppeteer": "1.6.3",
+    "acorn": "^6.0.0",
     "adal-angular": "^1.0.17",
     "browserify": "^16.2.3",
     "deamdify": "0.3.0",
@@ -7564,7 +9814,7 @@ module.exports={
     "jwt-decode": "^2.2.0",
     "less": "^3.9.0",
     "less-plugin-clean-css": "^1.5.1",
-    "lodash": "4.17.5",
+    "lodash": "4.17.11",
     "mapbox-gl": "0.53.0",
     "mocha": "5.2.0",
     "mocha-parallel-tests": "2.0.4",
@@ -7572,13 +9822,12 @@ module.exports={
     "puppeteer": "1.8.0",
     "ts-node": "7.0.1",
     "tsify": "^4.0.1",
-    "tslint": "^5.11.0",
+    "tslint": "^5.15.0",
     "tslint-microsoft-contrib": "^5.2.1",
-    "typescript": "^2.8.1",
+    "typescript": "^3.4.3",
     "uglifyify": "^5.0.1",
     "uuid-random": "^1.0.6",
-    "whatwg-fetch": "2.0.3",
-    "acorn": "^6.0.0"
+    "whatwg-fetch": "2.0.3"
   },
   "license": "SEE LICENSE IN LICENSE.TXT",
   "files": [
@@ -7587,355 +9836,367 @@ module.exports={
     "thirdpartynotices.txt"
   ],
   "types": "./typings/index.d.ts",
-  "main": "./dist/js/atlas.min.js"
+  "main": "./dist/atlas.min.js"
 }
 
 },{}],166:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),mapboxgl=require("mapbox-gl"),uuid=require("uuid-random"),Localizer_1=require("./helpers/localization/Localizer"),Version_1=require("./helpers/Version"),AuthenticationOptions_1=require("./map/services/options/AuthenticationOptions"),defaultUserRegion="Unified",defaultLanguage="NGT",defaultSessionId=uuid(),defaultAuthOptions=new AuthenticationOptions_1.AuthenticationOptions,hasSetAuthenticationOptions=!1,hasSetUserRegion=!1,hasSetLanguage=!1,hasSetSessionId=!1;function getAuthenticationOptions(){return _.clone(defaultAuthOptions)}function getLanguage(){return defaultLanguage}function getSessionId(){return defaultSessionId}function getSubscriptionKey(){return defaultAuthOptions.authType===AuthenticationOptions_1.AuthenticationType.subscriptionKey?defaultAuthOptions.subscriptionKey:void 0}function getUserRegion(){return defaultUserRegion}function getVersion(){return Version_1.Version.getFullVersion()}function isSupported(e){return mapboxgl.supported({failIfMajorPerformanceCaveat:e})}function setAuthenticationOptions(e){defaultAuthOptions=(new AuthenticationOptions_1.AuthenticationOptions).merge(defaultAuthOptions,e),hasSetAuthenticationOptions=!0}function setLanguage(e){defaultLanguage=Localizer_1.Localizer.getCode(e),hasSetLanguage=!0}function setSessionId(e){defaultSessionId=e,hasSetSessionId=!0}function setSubscriptionKey(e){defaultAuthOptions.setSubscriptionKey(e),hasSetAuthenticationOptions=!0}function setUserRegion(e){defaultUserRegion=e,hasSetUserRegion=!0}function _hasSetSessionId(){return hasSetSessionId}function _hasSetLanguage(){return hasSetLanguage}function _hasSetUserRegion(){return hasSetUserRegion}function _hasSetAuthenticationOptions(){return hasSetAuthenticationOptions}exports.getAuthenticationOptions=getAuthenticationOptions,exports.getLanguage=getLanguage,exports.getSessionId=getSessionId,exports.getSubscriptionKey=getSubscriptionKey,exports.getUserRegion=getUserRegion,exports.getVersion=getVersion,exports.isSupported=isSupported,exports.setAuthenticationOptions=setAuthenticationOptions,exports.setLanguage=setLanguage,exports.setSessionId=setSessionId,exports.setSubscriptionKey=setSubscriptionKey,exports.setUserRegion=setUserRegion,exports._hasSetSessionId=_hasSetSessionId,exports._hasSetLanguage=_hasSetLanguage,exports._hasSetUserRegion=_hasSetUserRegion,exports._hasSetAuthenticationOptions=_hasSetAuthenticationOptions;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var defaultView,defaultTilesetId,_=require("lodash"),mapboxgl=require("mapbox-gl"),uuid=require("uuid-random"),Localizer_1=require("./helpers/localization/Localizer"),Version_1=require("./helpers/Version"),AuthenticationOptions_1=require("./map/services/options/AuthenticationOptions"),defaultLanguage="NGT",defaultSessionId=uuid(),defaultAuthOptions=new AuthenticationOptions_1.AuthenticationOptions,hasSetAuthenticationOptions=!1,hasSetView=!1,hasSetLanguage=!1,hasSetSessionId=!1,hasTilesetId=!1;function getAuthenticationOptions(){return _.clone(defaultAuthOptions)}function getLanguage(){return defaultLanguage}function getSessionId(){return defaultSessionId}function getTilesetId(){return defaultTilesetId}function getSubscriptionKey(){return defaultAuthOptions.authType===AuthenticationOptions_1.AuthenticationType.subscriptionKey?defaultAuthOptions.subscriptionKey:void 0}function getUserRegion(){return defaultView}function getView(){return defaultView}function getVersion(){return Version_1.Version.getFullVersion()}function isSupported(e){return mapboxgl.supported({failIfMajorPerformanceCaveat:e})}function setAuthenticationOptions(e){defaultAuthOptions=(new AuthenticationOptions_1.AuthenticationOptions).merge(defaultAuthOptions,e),hasSetAuthenticationOptions=!0}function setLanguage(e){defaultLanguage=Localizer_1.Localizer.getCode(e),hasSetLanguage=!0}function setSessionId(e){defaultSessionId=e,hasSetSessionId=!0}function setTilesetId(e){defaultTilesetId=e,hasTilesetId=!0}function setSubscriptionKey(e){defaultAuthOptions.setSubscriptionKey(e),hasSetAuthenticationOptions=!0}function setUserRegion(e){defaultView=e,hasSetView=!0}function setView(e){defaultView=e,hasSetView=!0}function _hasSetSessionId(){return hasSetSessionId}function _hasTilesetId(){return hasTilesetId}function _hasSetLanguage(){return hasSetLanguage}function _hasSetView(){return hasSetView}function _hasSetAuthenticationOptions(){return hasSetAuthenticationOptions}exports.getAuthenticationOptions=getAuthenticationOptions,exports.getLanguage=getLanguage,exports.getSessionId=getSessionId,exports.getTilesetId=getTilesetId,exports.getSubscriptionKey=getSubscriptionKey,exports.getUserRegion=getUserRegion,exports.getView=getView,exports.getVersion=getVersion,exports.isSupported=isSupported,exports.setAuthenticationOptions=setAuthenticationOptions,exports.setLanguage=setLanguage,exports.setSessionId=setSessionId,exports.setTilesetId=setTilesetId,exports.setSubscriptionKey=setSubscriptionKey,exports.setUserRegion=setUserRegion,exports.setView=setView,exports._hasSetSessionId=_hasSetSessionId,exports._hasTilesetId=_hasTilesetId,exports._hasSetLanguage=_hasSetLanguage,exports._hasSetView=_hasSetView,exports._hasSetAuthenticationOptions=_hasSetAuthenticationOptions;
 
-},{"./helpers/Version":177,"./helpers/localization/Localizer":181,"./map/services/options/AuthenticationOptions":215,"lodash":109,"mapbox-gl":110,"uuid-random":162}],167:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var n in t)t.hasOwnProperty(n)&&(e[n]=t[n])};return function(t,n){function i(){this.constructor=t}e(t,n),t.prototype=null===n?Object.create(n):(i.prototype=n.prototype,new i)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),mapboxgl=require("mapbox-gl"),Html_1=require("./helpers/Html"),UserAgent_1=require("./helpers/UserAgent"),EventEmitter_1=require("./map/events/EventEmitter"),data_1=require("./namespace/data"),HtmlMarkerOptions_1=require("./options/HtmlMarkerOptions"),HtmlMarker=function(e){function t(t){var n=e.call(this,["click","contextmenu","dblclick","drag","dragstart","dragend","keydown","keypress","keyup","mousedown","mousemove","mouseout","mouseover","mouseup"])||this;return n._onDrag=function(){var e=n.marker.getLngLat().wrap();n.options.position=new data_1.Position(e.lng,e.lat),n._invokeEvent("drag",{type:"drag",target:n})},n._onDragStart=function(){n._invokeEvent("dragstart",{type:"dragstart",target:n})},n._onDragEnd=function(){n._invokeEvent("dragend",{type:"dragend",target:n})},n._bubbleElementEvent=function(e){n._invokeEvent(e.type,{type:e.type,target:n})},n.options=(new HtmlMarkerOptions_1.HtmlMarkerOptions).merge(_.cloneDeepWith(t,HtmlMarkerOptions_1.HtmlMarkerOptions._cloneCustomizer)),n._buildMarker(n.options),n}return __extends(t,e),t.prototype.getOptions=function(){return _.cloneDeepWith(this.options,HtmlMarkerOptions_1.HtmlMarkerOptions._cloneCustomizer)},t.prototype.setOptions=function(e){var n=(new HtmlMarkerOptions_1.HtmlMarkerOptions).merge(this.options,_.cloneDeepWith(e,HtmlMarkerOptions_1.HtmlMarkerOptions._cloneCustomizer));_.isEqual(n.htmlContent,this.options.htmlContent)&&n.anchor===this.options.anchor?("string"!=typeof n.htmlContent||n.color===this.options.color&&n.text===this.options.text||(this.element.innerHTML=this._getSubbedHtmlString(n)),n.draggable!==this.options.draggable&&this.marker.setDraggable(n.draggable),_.isEqual(n.pixelOffset,this.options.pixelOffset)||this.marker.setOffset(n.pixelOffset),_.isEqual(n.position,this.options.position)||this.marker.setLngLat(n.position),n.visible!==this.options.visible&&(n.visible?this.element.classList.remove(t.hiddenClass):this.element.classList.add(t.hiddenClass))):(this.marker.remove(),this._buildMarker(n),this.map&&(this.marker.addTo(this.map._getMap()),this._getCollectionContainer().appendChild(this.element))),this.options=n},t.prototype.togglePopup=function(){if(this.options.popup)if(this.options.popup.isOpen())this.options.popup.close();else{if(!this.map)throw new Error("The marker must be added to a map before calling togglePopup().");this.options.popup.setOptions({position:this.options.position}),this.options.popup.open(this.map)}},t.prototype._addToMap=function(e,t){this.map&&this.map!==e&&this._removeFromMap(),t&&(this.options.position=_.cloneDeep(t),this.marker.setLngLat(this.options.position)),this.map!==e&&(this.map=e,this.marker.addTo(e._getMap()),this._getCollectionContainer().appendChild(this.element))},t.prototype._removeFromMap=function(){this.map&&(this.marker.remove(),delete this.map)},t.prototype._getId=function(){if(this.element)return"string"==typeof this.options.htmlContent?this.element.firstChild.id:this.element.id},t.prototype._buildMarker=function(e){if("string"==typeof e.htmlContent){var n=this._getSubbedHtmlString(e);this.element=Html_1.Html.convertHtmlString(n)}else this.element=e.htmlContent;this.element.classList.add(t.containerClass),this.element.draggable=!UserAgent_1.UserAgent.isEdgeOrIE(),e.visible||this.element.classList.add(t.hiddenClass),this.marker=new mapboxgl.Marker({element:this.element,offset:e.pixelOffset,draggable:e.draggable,anchor:e.anchor}).setLngLat(e.position),this.marker.on("drag",this._onDrag),this.marker.on("dragstart",this._onDragStart),this.marker.on("dragend",this._onDragEnd),this.element.addEventListener("click",this._bubbleElementEvent),this.element.addEventListener("dblclick",this._bubbleElementEvent),this.element.addEventListener("contextmenu",this._bubbleElementEvent),this.element.addEventListener("mousedown",this._bubbleElementEvent),this.element.addEventListener("mouseup",this._bubbleElementEvent),this.element.addEventListener("mouseover",this._bubbleElementEvent),this.element.addEventListener("mousemove",this._bubbleElementEvent),this.element.addEventListener("mouseout",this._bubbleElementEvent),this.element.addEventListener("keydown",this._bubbleElementEvent),this.element.addEventListener("keypress",this._bubbleElementEvent),this.element.addEventListener("keyup",this._bubbleElementEvent)},t.prototype._getSubbedHtmlString=function(e){if("string"==typeof e.htmlContent)return e.htmlContent.replace(/{color}/g,e.color||"").replace(/{text}/g,e.text||"")},t.prototype._getCollectionContainer=function(){var e=this.map.getCanvasContainer().querySelector("."+t.collectionContainerClass);return e||((e=document.createElement("div")).classList.add(t.collectionContainerClass),this.map.getCanvasContainer().appendChild(e)),e},t.collectionContainerClass="marker-collection-container",t.hiddenClass="hidden-accessible-element",t.containerClass="marker-container",t}(EventEmitter_1.EventEmitter);exports.HtmlMarker=HtmlMarker;
+},{"./helpers/Version":178,"./helpers/localization/Localizer":182,"./map/services/options/AuthenticationOptions":217,"lodash":109,"mapbox-gl":110,"uuid-random":162}],167:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var e=function(t,n){return(e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var n in t)t.hasOwnProperty(n)&&(e[n]=t[n])})(t,n)};return function(t,n){function i(){this.constructor=t}e(t,n),t.prototype=null===n?Object.create(n):(i.prototype=n.prototype,new i)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),mapboxgl=require("mapbox-gl"),Html_1=require("./helpers/Html"),UserAgent_1=require("./helpers/UserAgent"),data_1=require("./namespace/data"),internal_1=require("./namespace/internal"),HtmlMarkerOptions_1=require("./options/HtmlMarkerOptions"),HtmlMarker=function(e){function t(t){var n=e.call(this,["click","contextmenu","dblclick","drag","dragstart","dragend","keydown","keypress","keyup","mousedown","mousemove","mouseout","mouseover","mouseup"])||this;return n._onDrag=function(){var e=n.marker.getLngLat().wrap();n.options.position=new data_1.Position(e.lng,e.lat),n._invokeEvent("drag",{type:"drag",target:n})},n._onDragStart=function(){n._invokeEvent("dragstart",{type:"dragstart",target:n})},n._onDragEnd=function(){n._invokeEvent("dragend",{type:"dragend",target:n})},n._bubbleElementEvent=function(e){n._invokeEvent(e.type,{type:e.type,target:n})},n.options=(new HtmlMarkerOptions_1.HtmlMarkerOptions).merge(_.cloneDeepWith(t,HtmlMarkerOptions_1.HtmlMarkerOptions._cloneCustomizer)),n._buildMarker(n.options),n}return __extends(t,e),t.prototype.getOptions=function(){return _.cloneDeepWith(this.options,HtmlMarkerOptions_1.HtmlMarkerOptions._cloneCustomizer)},t.prototype.setOptions=function(e){var n=(new HtmlMarkerOptions_1.HtmlMarkerOptions).merge(this.options,_.cloneDeepWith(e,HtmlMarkerOptions_1.HtmlMarkerOptions._cloneCustomizer));_.isEqual(n.htmlContent,this.options.htmlContent)&&n.anchor===this.options.anchor?("string"!=typeof n.htmlContent||n.color===this.options.color&&n.text===this.options.text||(this.element.innerHTML=this._getSubbedHtmlString(n)),n.draggable!==this.options.draggable&&this.marker.setDraggable(n.draggable),_.isEqual(n.pixelOffset,this.options.pixelOffset)||this.marker.setOffset(n.pixelOffset),_.isEqual(n.position,this.options.position)||this.marker.setLngLat(n.position),n.visible!==this.options.visible&&(n.visible?this.element.classList.remove(t.hiddenClass):this.element.classList.add(t.hiddenClass))):(this.marker.remove(),this._buildMarker(n),this.map&&(this.marker.addTo(this.map._getMap()),this._getCollectionContainer().appendChild(this.element))),this.options=n},t.prototype.togglePopup=function(){if(this.options.popup)if(this.options.popup.isOpen())this.options.popup.close();else{if(!this.map)throw new Error("The marker must be added to a map before calling togglePopup().");this.options.popup.setOptions({position:this.options.position}),this.options.popup.open(this.map)}},t.prototype._addToMap=function(e,t){this.map&&this.map!==e&&this._removeFromMap(),t&&(this.options.position=_.cloneDeep(t),this.marker.setLngLat(this.options.position)),this.map!==e&&(this.map=e,this.marker.addTo(e._getMap()),this._getCollectionContainer().appendChild(this.element))},t.prototype._removeFromMap=function(){this.map&&(this.marker.remove(),delete this.map)},t.prototype._getId=function(){if(this.element)return"string"==typeof this.options.htmlContent?this.element.firstChild.id:this.element.id},t.prototype._buildMarker=function(e){if("string"==typeof e.htmlContent){var n=this._getSubbedHtmlString(e);this.element=Html_1.Html.convertHtmlString(n)}else this.element=e.htmlContent;this.element.classList.add(t.containerClass),this.element.draggable=!UserAgent_1.UserAgent.isEdgeOrIE(),e.visible||this.element.classList.add(t.hiddenClass),this.marker=new mapboxgl.Marker({element:this.element,offset:e.pixelOffset,draggable:e.draggable,anchor:e.anchor}).setLngLat(e.position),this.marker.on("drag",this._onDrag),this.marker.on("dragstart",this._onDragStart),this.marker.on("dragend",this._onDragEnd),this.element.addEventListener("click",this._bubbleElementEvent),this.element.addEventListener("dblclick",this._bubbleElementEvent),this.element.addEventListener("contextmenu",this._bubbleElementEvent),this.element.addEventListener("mousedown",this._bubbleElementEvent),this.element.addEventListener("mouseup",this._bubbleElementEvent),this.element.addEventListener("mouseover",this._bubbleElementEvent),this.element.addEventListener("mousemove",this._bubbleElementEvent),this.element.addEventListener("mouseout",this._bubbleElementEvent),this.element.addEventListener("keydown",this._bubbleElementEvent),this.element.addEventListener("keypress",this._bubbleElementEvent),this.element.addEventListener("keyup",this._bubbleElementEvent)},t.prototype._getSubbedHtmlString=function(e){if("string"==typeof e.htmlContent)return e.htmlContent.replace(/{color}/g,e.color||"").replace(/{text}/g,e.text||"")},t.prototype._getCollectionContainer=function(){var e=this.map.getCanvasContainer().querySelector("."+t.collectionContainerClass);return e||((e=document.createElement("div")).classList.add(t.collectionContainerClass),this.map.getCanvasContainer().appendChild(e)),e},t.collectionContainerClass="marker-collection-container",t.hiddenClass="hidden-accessible-element",t.containerClass="marker-container",t}(internal_1.EventEmitter);exports.HtmlMarker=HtmlMarker;
 
-},{"./helpers/Html":173,"./helpers/UserAgent":176,"./map/events/EventEmitter":190,"./namespace/data":246,"./options/HtmlMarkerOptions":279,"lodash":109,"mapbox-gl":110}],168:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])};return function(e,n){function o(){this.constructor=e}t(e,n),e.prototype=null===n?Object.create(n):(o.prototype=n.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("./helpers/Options"),Padding=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.bottom=0,e.left=0,e.right=0,e.top=0,e}return __extends(e,t),e}(Options_1.Options);exports.Padding=Padding;
+},{"./helpers/Html":174,"./helpers/UserAgent":177,"./namespace/data":248,"./namespace/internal":250,"./options/HtmlMarkerOptions":283,"lodash":109,"mapbox-gl":110}],168:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(n,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,n){t.__proto__=n}||function(t,n){for(var e in n)n.hasOwnProperty(e)&&(t[e]=n[e])})(n,e)};return function(n,e){function o(){this.constructor=n}t(n,e),n.prototype=null===e?Object.create(e):(o.prototype=e.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("./helpers/Options"),Padding=function(t){function n(){var n=null!==t&&t.apply(this,arguments)||this;return n.bottom=0,n.left=0,n.right=0,n.top=0,n}return __extends(n,t),n}(Options_1.Options);exports.Padding=Padding;
 
-},{"./helpers/Options":174}],169:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])};return function(e,n){function r(){this.constructor=e}t(e,n),e.prototype=null===n?Object.create(n):(r.prototype=n.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Pixel=function(t){function e(e,n){return t.call(this,e,n)||this}return __extends(e,t),e.fromData=function(t){var n=NaN,r=NaN,o=new Set(["y"]),a=new Set(["x"]);return Object.keys(t).forEach(function(e){var i=e.toLowerCase();isNaN(n)&&o.has(i)&&"number"==typeof t[e]?n=t[e]:isNaN(r)&&a.has(i)&&"number"==typeof t[e]&&(r=t[e])}),isNaN(n)||isNaN(r)?null:new e(n,r)},e.getX=function(t){return t.length>0?t[0]:NaN},e.getY=function(t){return t.length>1?t[1]:NaN},e.getDistance=function(t,n){var r=e.getX(t)-e.getX(n),o=e.getY(t)-e.getY(n);return Math.sqrt(r*r+o*o)},e}(Array);exports.Pixel=Pixel;
+},{"./helpers/Options":175}],169:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(e,n){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])})(e,n)};return function(e,n){function r(){this.constructor=e}t(e,n),e.prototype=null===n?Object.create(n):(r.prototype=n.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Pixel=function(t){function e(e,n){return t.call(this,e,n)||this}return __extends(e,t),e.fromData=function(t){var n=NaN,r=NaN,o=new Set(["y"]),a=new Set(["x"]);return Object.keys(t).forEach(function(e){var i=e.toLowerCase();isNaN(n)&&o.has(i)&&"number"==typeof t[e]?n=t[e]:isNaN(r)&&a.has(i)&&"number"==typeof t[e]&&(r=t[e])}),isNaN(n)||isNaN(r)?null:new e(n,r)},e.getX=function(t){return t.length>0?t[0]:NaN},e.getY=function(t){return t.length>1?t[1]:NaN},e.getDistance=function(t,n){var r=e.getX(t)-e.getX(n),o=e.getY(t)-e.getY(n);return Math.sqrt(r*r+o*o)},e}(Array);exports.Pixel=Pixel;
 
 },{}],170:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])};return function(e,n){function o(){this.constructor=e}t(e,n),e.prototype=null===n?Object.create(n):(o.prototype=n.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),mapboxgl=require("mapbox-gl"),Html_1=require("./helpers/Html"),EventEmitter_1=require("./map/events/EventEmitter"),PopupOptions_1=require("./options/PopupOptions"),Popup=function(t){function e(n){var o=t.call(this,["open","close"])||this;return o.attach=function(t){o.map!==t&&(o.map&&o.remove(),o.map=t,o.marker.addTo(o.map._getMap()),o._getCollectionContainer().appendChild(o.containerHtml),o.map._trackPopup(o))},o.open=function(t){o.attach(t),o.containerHtml.classList.remove(e.hiddenClass),o._invokeEvent("open",{target:o,type:"open"})},o.close=function(){o.containerHtml.classList.add(e.hiddenClass),o._invokeEvent("close",{target:o,type:"close"})},o.remove=function(){o.map&&(o.map._untrackPopup(o),o.marker.remove(),delete o.map)},o.isOpen=function(){return o.map&&!o.containerHtml.classList.contains(e.hiddenClass)},o.options=(new PopupOptions_1.PopupOptions).merge(_.cloneDeepWith(n,PopupOptions_1.PopupOptions._cloneCustomizer)),o.containerHtml=document.createElement("div"),o.containerHtml.classList.add(e.containerClass),o.containerHtml.classList.add(e.hiddenClass),o.containerHtml.addEventListener("focusin",function(){o.map&&!o.isOpen()&&o.open(o.map)}),o.contentContainerHtml=document.createElement("div"),o.contentContainerHtml.classList.add(e.contentContainerClass),o.contentContainerHtml.setAttribute("role","dialog"),o.contentContainerHtml.setAttribute("aria-label","Map Information Window"),o.contentContainerHtml.setAttribute("tabindex","0"),o.contentContainerHtml.appendChild(Html_1.Html.convertHtmlString(o.options.content)),o.containerHtml.appendChild(o.contentContainerHtml),o.arrowHtml=document.createElement("div"),o.arrowHtml.classList.add(e.arrowClass),o.containerHtml.appendChild(o.arrowHtml),o.options.closeButton&&(o.closeButton=o._createCloseButton(),o.containerHtml.appendChild(o.closeButton)),o.marker=new mapboxgl.Marker({element:o.containerHtml,offset:o.options.pixelOffset,anchor:"bottom"}).setLngLat(o.options.position),o}return __extends(e,t),e.prototype.setPopupOptions=function(t){this.setOptions(t)},e.prototype.setOptions=function(t){var e=(new PopupOptions_1.PopupOptions).merge(this.options,_.cloneDeepWith(t,PopupOptions_1.PopupOptions._cloneCustomizer));if(e.content!==this.options.content){for(;this.contentContainerHtml.firstChild;)this.contentContainerHtml.removeChild(this.contentContainerHtml.firstChild);this.contentContainerHtml.appendChild(Html_1.Html.convertHtmlString(e.content))}e.closeButton&&!this.closeButton?(this.closeButton=this._createCloseButton(),this.containerHtml.appendChild(this.closeButton)):!e.closeButton&&this.closeButton&&(this.containerHtml.removeChild(this.closeButton),delete this.closeButton),_.isEqual(e.position,this.options.position)||this.marker.setLngLat(e.position),_.isEqual(e.pixelOffset,this.options.pixelOffset)||this.marker.setOffset(e.pixelOffset),this.options=e},e.prototype.getPopupOptions=function(){return this.getOptions()},e.prototype.getOptions=function(){return _.cloneDeepWith(this.options,PopupOptions_1.PopupOptions._cloneCustomizer)},e.prototype._getCollectionContainer=function(){var t=this.map.getMapContainer().querySelector("."+e.collectionContainerClass);return t||((t=document.createElement("div")).classList.add(e.collectionContainerClass),t.setAttribute("role","region"),t.setAttribute("aria-label","Map Information"),this.map.getMapContainer().appendChild(t)),t},e.prototype._createCloseButton=function(){var t=document.createElement("button");return t.addEventListener("click",this.close),t.classList.add(e.closeClass),t.setAttribute("aria-hidden","true"),t.setAttribute("tabindex","0"),t.innerHTML="x",t},e.collectionContainerClass="popup-collection-container",e.contentContainerClass="popup-content-container",e.hiddenClass="hidden-accessible-element",e.containerClass="popup-container",e.arrowClass="popup-arrow",e.closeClass="popup-close",e}(EventEmitter_1.EventEmitter);exports.Popup=Popup;
+"use strict";var __extends=this&&this.__extends||function(){var t=function(e,n){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])})(e,n)};return function(e,n){function o(){this.constructor=e}t(e,n),e.prototype=null===n?Object.create(n):(o.prototype=n.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),mapboxgl=require("mapbox-gl"),Html_1=require("./helpers/Html"),internal_1=require("./namespace/internal"),PopupOptions_1=require("./options/PopupOptions"),Popup=function(t){function e(n){var o=t.call(this,["open","close"])||this;return o.attach=function(t){o.map!==t&&(o.map&&o.remove(),o.map=t,o.marker.addTo(o.map._getMap()),o._getCollectionContainer().appendChild(o.containerHtml),o.map._trackPopup(o))},o.open=function(t){o.attach(t),o.containerHtml.classList.remove(e.hiddenClass),o._invokeEvent("open",{target:o,type:"open"})},o.close=function(){o.containerHtml.classList.add(e.hiddenClass),o._invokeEvent("close",{target:o,type:"close"})},o.remove=function(){o.map&&(o.map._untrackPopup(o),o.marker.remove(),delete o.map)},o.isOpen=function(){return o.map&&!o.containerHtml.classList.contains(e.hiddenClass)},o.options=(new PopupOptions_1.PopupOptions).merge(_.cloneDeepWith(n,PopupOptions_1.PopupOptions._cloneCustomizer)),o.containerHtml=document.createElement("div"),o.containerHtml.classList.add(e.containerClass),o.containerHtml.classList.add(e.hiddenClass),o.containerHtml.addEventListener("focusin",function(){o.map&&!o.isOpen()&&o.open(o.map)}),o.contentContainerHtml=document.createElement("div"),o.contentContainerHtml.classList.add(e.contentContainerClass),o.contentContainerHtml.setAttribute("role","dialog"),o.contentContainerHtml.setAttribute("aria-label","Map Information Window"),o.contentContainerHtml.setAttribute("tabindex","0"),o.contentContainerHtml.appendChild(Html_1.Html.convertHtmlString(o.options.content)),o.containerHtml.appendChild(o.contentContainerHtml),o.arrowHtml=document.createElement("div"),o.arrowHtml.classList.add(e.arrowClass),o.containerHtml.appendChild(o.arrowHtml),o.options.closeButton&&(o.closeButton=o._createCloseButton(),o.containerHtml.appendChild(o.closeButton)),o.marker=new mapboxgl.Marker({element:o.containerHtml,offset:o.options.pixelOffset,anchor:"bottom"}).setLngLat(o.options.position),o}return __extends(e,t),e.prototype.setPopupOptions=function(t){this.setOptions(t)},e.prototype.setOptions=function(t){var e=(new PopupOptions_1.PopupOptions).merge(this.options,_.cloneDeepWith(t,PopupOptions_1.PopupOptions._cloneCustomizer));if(e.content!==this.options.content){for(;this.contentContainerHtml.firstChild;)this.contentContainerHtml.removeChild(this.contentContainerHtml.firstChild);this.contentContainerHtml.appendChild(Html_1.Html.convertHtmlString(e.content))}e.closeButton&&!this.closeButton?(this.closeButton=this._createCloseButton(),this.containerHtml.appendChild(this.closeButton)):!e.closeButton&&this.closeButton&&(this.containerHtml.removeChild(this.closeButton),delete this.closeButton),_.isEqual(e.position,this.options.position)||this.marker.setLngLat(e.position),_.isEqual(e.pixelOffset,this.options.pixelOffset)||this.marker.setOffset(e.pixelOffset),this.options=e},e.prototype.getPopupOptions=function(){return this.getOptions()},e.prototype.getOptions=function(){return _.cloneDeepWith(this.options,PopupOptions_1.PopupOptions._cloneCustomizer)},e.prototype._getCollectionContainer=function(){var t=this.map.getMapContainer().querySelector("."+e.collectionContainerClass);return t||((t=document.createElement("div")).classList.add(e.collectionContainerClass),t.setAttribute("role","region"),t.setAttribute("aria-label","Map Information"),this.map.getMapContainer().appendChild(t)),t},e.prototype._createCloseButton=function(){var t=document.createElement("button");return t.addEventListener("click",this.close),t.classList.add(e.closeClass),t.setAttribute("aria-hidden","true"),t.setAttribute("tabindex","0"),t.innerHTML="x",t},e.collectionContainerClass="popup-collection-container",e.contentContainerClass="popup-content-container",e.hiddenClass="hidden-accessible-element",e.containerClass="popup-container",e.arrowClass="popup-arrow",e.closeClass="popup-close",e}(internal_1.EventEmitter);exports.Popup=Popup;
 
-},{"./helpers/Html":173,"./map/events/EventEmitter":190,"./options/PopupOptions":280,"lodash":109,"mapbox-gl":110}],171:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),uuid=require("uuid-random"),data_1=require("./namespace/data"),math=require("./namespace/math"),Shape=function(){function e(t,r,i){var a;if("Feature"===t.type){var n=t;a=_.cloneDeep(n.geometry),i=n.properties?_.cloneDeep(n.properties):{},r=n.id||uuid()}else a=_.cloneDeep(t),r=r||uuid(),i=i?_.cloneDeep(i):{};i[e._shapeIdPropName]=r,this.data=new data_1.Feature(a,i,r),this._handleCircle()}return e.prototype.addProperty=function(e,t){_.isEqual(this.data.properties[e],t)||(this.data.properties[e]=_.cloneDeep(t),"subType"!==e&&"radius"!==e||this._handleCircle(),this.dataSource&&this.dataSource._updateSource())},e.prototype.getBounds=function(){var e,t=this.getCoordinates(),r=this.getType();if("Point"===r)if(this.circlePolygon){var i=this.circlePolygon.geometry.coordinates;e=data_1.BoundingBox.fromPositions(i[0])}else{i=t;e=new data_1.BoundingBox(i,i)}else if("MultiPoint"===r||"LineString"===r){i=t;e=data_1.BoundingBox.fromPositions(i)}else if("Polygon"===r){i=t;e=data_1.BoundingBox.fromPositions(i[0])}else if("MultiLineString"===r)for(var a=0,n=i=t;a<n.length;a++){var o=n[a];e=data_1.BoundingBox.merge(e,data_1.BoundingBox.fromPositions(o))}else if("MultiPolygon"===r)for(var d=0,u=i=t;d<u.length;d++){var c=u[d];e=data_1.BoundingBox.merge(e,data_1.BoundingBox.fromPositions(c[0]))}return e},e.prototype.getCoordinates=function(){return _.cloneDeep(this.data.geometry.coordinates)},e.prototype.getId=function(){return this.data.id},e.prototype.getProperties=function(){return _.cloneDeep(this.data.properties)},e.prototype.getType=function(){return this.data.geometry.type},e.prototype.isCircle=function(){return e._isCircle(this.data)},e.prototype.setCoordinates=function(e){var t;t="Polygon"===this.getType()&&1===data_1.Position._getDimensions(e)?[e]:e,_.isEqual(this.data.geometry.coordinates,t)||(this.data.geometry.coordinates=_.cloneDeep(t),this._handleCircle(),this.dataSource&&this.dataSource._updateSource())},e.prototype.setProperties=function(t){t[e._shapeIdPropName]=this.data.id,_.isEqual(this.data.properties,t)||(this.data.properties=_.cloneDeep(t),this._handleCircle(),this.dataSource&&this.dataSource._updateSource())},e.prototype.toJson=function(){return JSON.parse(JSON.stringify(this.data))},e.prototype._toJson=function(){return JSON.parse(JSON.stringify(this.circlePolygon||this.data))},e.prototype._setDataSource=function(e){void 0===e||null==e?delete this.dataSource:this.dataSource=e},e.prototype._handleCircle=function(){if(this.isCircle()){var t=e._getCirclePositions(this.data);this.circlePolygon=new data_1.Feature(new data_1.Polygon([t]),this.data.properties,this.data.id)}else delete this.circlePolygon},e._isCircle=function(e){return"Point"===e.geometry.type&&e.geometry.coordinates&&"Circle"===e.properties.subType&&"number"==typeof e.properties.radius},e._getCirclePositions=function(e){return math.getRegularPolygonPath(e.geometry.coordinates,e.properties.radius,72,"meters")},e._shapeIdPropName="_azureMapsShapeId",e}();exports.Shape=Shape;
+},{"./helpers/Html":174,"./namespace/internal":250,"./options/PopupOptions":284,"lodash":109,"mapbox-gl":110}],171:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),uuid=require("uuid-random"),data_1=require("./namespace/data"),math=require("./namespace/math"),Shape=function(){function e(t,r,i){var a;if("Feature"===t.type){var n=t;a=_.cloneDeep(n.geometry),i=n.properties?_.cloneDeep(n.properties):{},r=n.id||uuid()}else a=_.cloneDeep(t),r=r||uuid(),i=i?_.cloneDeep(i):{};i[e._shapeIdPropName]=r,this.data=new data_1.Feature(a,i,r),this._handleCircle()}return e.prototype.addProperty=function(e,t){_.isEqual(this.data.properties[e],t)||(this.data.properties[e]=_.cloneDeep(t),"subType"!==e&&"radius"!==e||this._handleCircle(),this.dataSource&&this.dataSource._updateSource())},e.prototype.getBounds=function(){var e,t=this.getCoordinates(),r=this.getType();if("Point"===r)if(this.circlePolygon){var i=this.circlePolygon.geometry.coordinates;e=data_1.BoundingBox.fromPositions(i[0])}else{i=t;e=new data_1.BoundingBox(i,i)}else if("MultiPoint"===r||"LineString"===r){i=t;e=data_1.BoundingBox.fromPositions(i)}else if("Polygon"===r){i=t;e=data_1.BoundingBox.fromPositions(i[0])}else if("MultiLineString"===r)for(var a=0,n=i=t;a<n.length;a++){var o=n[a];e=data_1.BoundingBox.merge(e,data_1.BoundingBox.fromPositions(o))}else if("MultiPolygon"===r)for(var d=0,u=i=t;d<u.length;d++){var s=u[d];e=data_1.BoundingBox.merge(e,data_1.BoundingBox.fromPositions(s[0]))}return e},e.prototype.getCoordinates=function(){return _.cloneDeep(this.data.geometry.coordinates)},e.prototype.getId=function(){return this.data.id},e.prototype.getProperties=function(){return _.cloneDeep(this.data.properties)},e.prototype.getType=function(){return this.data.geometry.type},e.prototype.isCircle=function(){return e._isCircle(this.data)},e.prototype.isRectangle=function(){return e._isRectangle(this.data)},e.prototype.setCoordinates=function(e){var t;t="Polygon"===this.getType()&&1===data_1.Position._getDimensions(e)?[e]:e,_.isEqual(this.data.geometry.coordinates,t)||(this.data.geometry.coordinates=_.cloneDeep(t),this._handleCircle(),this.dataSource&&this.dataSource._updateSource())},e.prototype.setProperties=function(t){t[e._shapeIdPropName]=this.data.id,_.isEqual(this.data.properties,t)||(this.data.properties=_.cloneDeep(t),this._handleCircle(),this.dataSource&&this.dataSource._updateSource())},e.prototype.toJson=function(){return JSON.parse(JSON.stringify(this.data))},e.prototype._toJson=function(){return JSON.parse(JSON.stringify(this.circlePolygon||this.data))},e.prototype._setDataSource=function(e){void 0===e||null==e?delete this.dataSource:this.dataSource=e},e.prototype._handleCircle=function(){if(this.isCircle()){var t=e._getCirclePositions(this.data);this.circlePolygon=new data_1.Feature(new data_1.Polygon([t]),this.data.properties,this.data.id),this.data.properties.subType="Circle"}else delete this.circlePolygon},e._isCircle=function(e){return"Point"===e.geometry.type&&e.geometry.coordinates&&"string"==typeof e.properties.subType&&"circle"===e.properties.subType.toLowerCase()&&"number"==typeof e.properties.radius},e._isRectangle=function(e){if("Polygon"===e.geometry.type&&e.geometry.coordinates&&"string"==typeof e.properties.subType&&"rectangle"===e.properties.subType.toLowerCase()){var t=e.geometry.coordinates;if(1===t.length){var r=t[0];if(5===r.length)return r[0][0]===r[4][0]&&r[0][1]===r[4][1];if(4===r.length)return!0}}return!1},e._getCirclePositions=function(e){return math.getRegularPolygonPath(e.geometry.coordinates,e.properties.radius,72,"meters")},e._shapeIdPropName="_azureMapsShapeId",e}();exports.Shape=Shape;
 
-},{"./namespace/data":246,"./namespace/math":271,"lodash":109,"uuid-random":162}],172:[function(require,module,exports){
+},{"./namespace/data":248,"./namespace/math":275,"lodash":109,"uuid-random":162}],172:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.Dictionary=Map;
 
 },{}],173:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Map_1=require("../map/Map"),ErrorHandler=function(){function r(){}return r.throwOnError=function(r,t){var n=r instanceof Map_1.Map?r._getMap():r,o=function(r){throw n.off("error",o),r.error};n.on("error",o);var e=t();return n.off("error",o),e},r.tryCatch=function(r,t,n,o){try{return this.throwOnError(r,t)}catch(r){return n(r)}finally{"function"==typeof o&&o()}},r.tryFinally=function(r,t,n){try{return this.throwOnError(r,t)}finally{n()}},r}();exports.ErrorHandler=ErrorHandler;
+
+},{"../map/Map":185}],174:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Html=function(){function t(){}return t.convertHtmlString=function(t){if("string"==typeof t){var e=document.createElement("div");return e.innerHTML=t,e}return t},t}();exports.Html=Html;
 
-},{}],174:[function(require,module,exports){
+},{}],175:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Options=function(){function t(){}return t.prototype.merge=function(){for(var r,e=[],o=0;o<arguments.length;o++)e[o]=arguments[o];for(var n=0,i=e;n<i.length;n++){var s=i[n];if(s)for(var h in s)s.hasOwnProperty(h)&&this.hasOwnProperty(h)&&(void 0!==s[h]&&null!=s[h]?this[h]instanceof t?this[h].merge(s[h]):this[h]=s[h]:(r||(r=new(Object.getPrototypeOf(this).constructor)),this[h]=r[h]))}return this},t}();exports.Options=Options;
 
-},{}],175:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var r in o)o.hasOwnProperty(r)&&(t[r]=o[r])};return function(o,r){function n(){this.constructor=o}t(o,r),o.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("./Options"),UrlOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.domain=void 0,o.path="",o.queryParams={},o.protocol="https",o.subdomain="",o.headers={},o}return __extends(o,t),o}(Options_1.Options);exports.UrlOptions=UrlOptions;var Url=function(){function t(t){this.options=(new UrlOptions).merge(t)}return t.prototype.get=function(){return fetch(this.toString(),{method:"GET",mode:"cors",headers:new Headers(this.options.headers)}).then(function(t){if(t.ok)return t.json();throw new Error("HTTP "+t.status+": "+t.statusText)})},t.prototype.toString=function(){var t="";for(var o in this.options.queryParams)this.options.queryParams.hasOwnProperty(o)&&(t+="&"+o+"="+this.options.queryParams[o]);var r=this.options.protocol+"://";return r+=this.options.subdomain?this.options.subdomain+".":"",r+=this.options.domain,r+=this.options.path?"/"+this.options.path:"",r+=t?"?"+t:""},t}();exports.Url=Url;
+},{}],176:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(o,r){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var r in o)o.hasOwnProperty(r)&&(t[r]=o[r])})(o,r)};return function(o,r){function n(){this.constructor=o}t(o,r),o.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("./Options"),UrlOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.domain=void 0,o.path="",o.queryParams={},o.protocol="https",o.subdomain="",o.headers={},o}return __extends(o,t),o}(Options_1.Options);exports.UrlOptions=UrlOptions;var Url=function(){function t(t){this.options=(new UrlOptions).merge(t)}return t.prototype.get=function(){return fetch(this.toString(),{method:"GET",mode:"cors",headers:new Headers(this.options.headers)}).then(function(t){if(t.ok)return t.json();throw new Error("HTTP "+t.status+": "+t.statusText)})},t.prototype.toString=function(){var t="";for(var o in this.options.queryParams)this.options.queryParams.hasOwnProperty(o)&&(t+="&"+o+"="+this.options.queryParams[o]);var r=this.options.protocol+"://";return r+=this.options.subdomain?this.options.subdomain+".":"",r+=this.options.domain,r+=this.options.path?"/"+this.options.path:"",r+=t?"?"+t:""},t}();exports.Url=Url;
 
-},{"./Options":174}],176:[function(require,module,exports){
+},{"./Options":175}],177:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var UserAgent=function(){function e(){}return e.isEdgeOrIE=function(){var e=window.navigator.userAgent;return e.indexOf("MSIE ")>0||(e.indexOf("Trident/")>0||e.indexOf("Edge/")>0)},e}();exports.UserAgent=UserAgent;
 
-},{}],177:[function(require,module,exports){
+},{}],178:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var pkg=require("../../../package.json"),Version=function(){function e(){}return e.getFullVersion=function(){return pkg.version},e.getEndpointVersion=function(){var e=pkg.version.indexOf(".");return-1===(e=pkg.version.indexOf(".",e+1))?pkg.version:pkg.version.substring(0,e)},e}();exports.Version=Version;
 
-},{"../../../package.json":165}],178:[function(require,module,exports){
+},{"../../../package.json":165}],179:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var CultureCode=function(){function e(){}return e.parse=function(e){var r=(e=e.toLowerCase()).lastIndexOf("-");return-1!==r?{code:e,language:e.substring(0,r),region:e.substring(r+1)}:{code:e,language:e}},e}();exports.CultureCode=CultureCode;
 
-},{}],179:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.localeIndex={localizationsPath:"sdk/localizations",sensitiveUserRegions:["il","kr","pk","in","cn","ar","bh","eg","jo","sa","kw","om","qa","ma","ae"],locales:{defaultLanguage:{defaultRegion:{code:"NGT",strings:"en.json"}},ar:{defaultRegion:{code:"ar-SA",strings:"en.json"}},bg:{defaultRegion:{code:"bg-BG",strings:"en.json"}},cs:{defaultRegion:{code:"cs-CZ",strings:"en.json"}},da:{defaultRegion:{code:"da-DK",strings:"en.json"}},de:{defaultRegion:{code:"de-DE",strings:"en.json"}},el:{defaultRegion:{code:"el-GR",strings:"en.json"}},en:{defaultRegion:{code:"en",strings:"en.json"},us:{code:"en-US",strings:"en.json"}},es:{defaultRegion:{code:"es-ES",strings:"en.json"},mx:{code:"es-MX",strings:"en.json"}},fi:{defaultRegion:{code:"fi-FI",strings:"en.json"}},fr:{defaultRegion:{code:"fr-FR",strings:"en.json"}},hu:{defaultRegion:{code:"hu-HU",strings:"en.json"}},id:{defaultRegion:{code:"id-ID",strings:"en.json"}},it:{defaultRegion:{code:"it-IT",strings:"en.json"}},ko:{defaultRegion:{code:"ko-KR",strings:"en.json"}},lt:{defaultRegion:{code:"lt-LT",strings:"en.json"}},ms:{defaultRegion:{code:"ms-MY",strings:"en.json"}},nb:{defaultRegion:{code:"nb-NO",strings:"en.json"}},nl:{defaultRegion:{code:"nl-NL",strings:"en.json"}},pl:{defaultRegion:{code:"pl-PL",strings:"en.json"}},pt:{defaultRegion:{code:"pt-PT",strings:"en.json"},br:{code:"pt-BR",strings:"en.json"}},ru:{defaultRegion:{code:"ru-RU",strings:"en.json"}},sk:{defaultRegion:{code:"sk-SK",strings:"en.json"}},sl:{defaultRegion:{code:"sl-SL",strings:"en.json"}},sv:{defaultRegion:{code:"sv-SE",strings:"en.json"}},th:{defaultRegion:{code:"th-TH",strings:"en.json"}},tr:{defaultRegion:{code:"tr-TR",strings:"en.json"}},zh:{defaultRegion:{code:"zh-Hant",strings:"en.json"}},"zh-hant":{defaultRegion:{code:"zh-Hant",strings:"en.json"}}}};
-
 },{}],180:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var LocalizedStrings=function(){return function(){this.Unknown="Unknown",this.Accident="Accident",this.Fog="Fog",this.Danger="Danger",this.Rain="Rain",this.Ice="Ice",this.Jam="Jam",this.LaneClosed="Lane Closed",this.RoadClosed="Road Closed",this.RoadWorks="Road Works",this.Wind="Wind",this.Flood="Flood",this.Detour="Detour"}}();exports.LocalizedStrings=LocalizedStrings;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.localeIndex={localizationsPath:"locs/mapcontrol/2019-3-12",sensitiveUserRegions:["il","kr","pk","in","cn","ar","bh","eg","jo","sa","kw","om","qa","ma","ae"],locales:{defaultLanguage:{defaultRegion:{code:"NGT",strings:"en/resource.json"}},ar:{defaultRegion:{code:"ar",strings:"ar-SA/resource.json"}},bg:{defaultRegion:{code:"bg-BG",strings:"bg-BG/resource.json"}},cs:{defaultRegion:{code:"cs-CZ",strings:"cs-cz/resource.json"}},da:{defaultRegion:{code:"da-DK",strings:"da-DK/resource.json"}},de:{defaultRegion:{code:"de-DE",strings:"de-de/resource.json"}},el:{defaultRegion:{code:"el-GR",strings:"el-GR/resource.json"}},en:{defaultRegion:{code:"en",strings:"en/resource.json"},us:{code:"en-US",strings:"en/resource.json"}},es:{defaultRegion:{code:"es-ES",strings:"es-es/resource.json"},mx:{code:"es-MX",strings:"es-MX/resource.json"}},fi:{defaultRegion:{code:"fi-FI",strings:"fi-FI/resource.json"}},fr:{defaultRegion:{code:"fr-FR",strings:"fr-fr/resource.json"}},hu:{defaultRegion:{code:"hu-HU",strings:"hu-hu/resource.json"}},id:{defaultRegion:{code:"id-ID",strings:"id-ID/resource.json"}},it:{defaultRegion:{code:"it-IT",strings:"it-it/resource.json"}},ko:{defaultRegion:{code:"ko-KR",strings:"ko-kr/resource.json"}},lt:{defaultRegion:{code:"lt-LT",strings:"lt-LT/resource.json"}},ms:{defaultRegion:{code:"ms-MY",strings:"ms-MY/resource.json"}},nb:{defaultRegion:{code:"nb-NO",strings:"nb-NO/resource.json"}},nl:{defaultRegion:{code:"nl-NL",strings:"nl-nl/resource.json"}},pl:{defaultRegion:{code:"pl-PL",strings:"pl-pl/resource.json"}},pt:{defaultRegion:{code:"pt-PT",strings:"pt-pt/resource.json"},br:{code:"pt-BR",strings:"pt-br/resource.json"}},ru:{defaultRegion:{code:"ru-RU",strings:"ru-ru/resource.json"}},sk:{defaultRegion:{code:"sk-SK",strings:"sk-SK/resource.json"}},sl:{defaultRegion:{code:"sl-SL",strings:"sl-SL/resource.json"}},sv:{defaultRegion:{code:"sv-SE",strings:"sv-se/resource.json"}},th:{defaultRegion:{code:"th-TH",strings:"th-TH/resource.json"}},tr:{defaultRegion:{code:"tr-TR",strings:"tr-tr/resource.json"}},zh:{defaultRegion:{code:"zh-Hant",strings:"zh-tw/resource.json"}},"zh-hant":{defaultRegion:{code:"zh-Hant",strings:"zh-tw/resource.json"}}}};
 
 },{}],181:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var vars=require("../../../../variables.json"),Url_1=require("../Url"),Version_1=require("../Version"),CultureCode_1=require("./CultureCode"),LocaleIndex_1=require("./LocaleIndex"),LocalizedStrings_1=require("./LocalizedStrings"),Localizer=function(){function e(){}return e.getCode=function(e){var r=CultureCode_1.CultureCode.parse(e);return-1===LocaleIndex_1.localeIndex.sensitiveUserRegions.indexOf(r.region)?this.getLocaleData(r).code:e},e.getStrings=function(e){var r=this.getLocaleData(e);return new Url_1.Url((new Url_1.UrlOptions).merge({domain:vars.env.staticAssetsDomain,path:LocaleIndex_1.localeIndex.localizationsPath+"/"+r.strings,queryParams:{"api-version":Version_1.Version.getEndpointVersion()}})).get().then(function(e){return e},function(){return new LocalizedStrings_1.LocalizedStrings})},e.getLocaleData=function(e){if("string"==typeof e&&(e=CultureCode_1.CultureCode.parse(e)),LocaleIndex_1.localeIndex.locales[e.code])return LocaleIndex_1.localeIndex.locales[e.code].defaultRegion;var r;if(LocaleIndex_1.localeIndex.locales[e.language])r=LocaleIndex_1.localeIndex.locales[e.language];else{if(-1!==e.language.indexOf("-"))return this.getLocaleData(e.language);r=LocaleIndex_1.localeIndex.locales.defaultLanguage}return e.region&&r[e.region]?r[e.region]:r.defaultRegion},e}();exports.Localizer=Localizer;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var LocalizedStrings=function(){return function(){this.Unknown="Unknown",this.Accident="Accident",this.Fog="Fog",this.Danger="Danger",this.Rain="Rain",this.Ice="Ice",this.Jam="Jam",this.LaneClosed="Lane Closed",this.RoadClosed="Road Closed",this.RoadWorks="Road Works",this.Wind="Wind",this.Flood="Flood",this.Detour="Detour"}}();exports.LocalizedStrings=LocalizedStrings;
 
-},{"../../../../variables.json":281,"../Url":175,"../Version":177,"./CultureCode":178,"./LocaleIndex":179,"./LocalizedStrings":180}],182:[function(require,module,exports){
-"use strict";function __export(e){for(var r in e)exports.hasOwnProperty(r)||(exports[r]=e[r])}Object.defineProperty(exports,"__esModule",{value:!0});var es6_promise_1=require("es6-promise");require("whatwg-fetch");var vars=require("../../variables.json");window.Promise=window.Promise||es6_promise_1.Promise;var mapboxgl=require("mapbox-gl"),Url_1=require("./helpers/Url"),Version_1=require("./helpers/Version"),rtlPluginUrl=new Url_1.Url((new Url_1.UrlOptions).merge({domain:vars.env.staticAssetsDomain,path:"sdk/js/mapbox-gl-rtl-text.js",queryParams:{"api-version":Version_1.Version.getEndpointVersion()}}));mapboxgl.setRTLTextPlugin(rtlPluginUrl.toString(),function(e){});var control=require("./namespace/controls");exports.control=control;var data=require("./namespace/data");exports.data=data;var layer=require("./namespace/layer");exports.layer=layer;var math=require("./namespace/math");exports.math=math;var source=require("./namespace/source");exports.source=source;var HtmlMarker_1=require("./HtmlMarker");exports.HtmlMarker=HtmlMarker_1.HtmlMarker;var Map_1=require("./map/Map");exports.Map=Map_1.Map;var Pixel_1=require("./Pixel");exports.Pixel=Pixel_1.Pixel;var Popup_1=require("./Popup");exports.Popup=Popup_1.Popup;var Shape_1=require("./Shape");exports.Shape=Shape_1.Shape;var AuthenticationOptions_1=require("./map/services/options/AuthenticationOptions");exports.AuthenticationType=AuthenticationOptions_1.AuthenticationType;var ControlOptions_1=require("./map/options/ControlOptions");exports.ControlPosition=ControlOptions_1.ControlPosition;var ControlStyle_1=require("./namespace/controls/ControlStyle");exports.ControlStyle=ControlStyle_1.ControlStyle,__export(require("./Atlas"));
+},{}],182:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var vars=require("../../../../variables.json"),Url_1=require("../Url"),CultureCode_1=require("./CultureCode"),LocaleIndex_1=require("./LocaleIndex"),LocalizedStrings_1=require("./LocalizedStrings"),Localizer=function(){function e(){}return e.getCode=function(e){var a=CultureCode_1.CultureCode.parse(e);return-1===LocaleIndex_1.localeIndex.sensitiveUserRegions.indexOf(a.region)?this.getLocaleData(a).code:e},e.getStrings=function(e){var a=this.getLocaleData(e);return new Url_1.Url((new Url_1.UrlOptions).merge({domain:vars.env.staticAssetsDomain,path:LocaleIndex_1.localeIndex.localizationsPath+"/"+a.strings})).get().then(function(e){return e},function(){return new LocalizedStrings_1.LocalizedStrings})},e.getLocaleData=function(e){if("string"==typeof e&&(e=CultureCode_1.CultureCode.parse(e)),LocaleIndex_1.localeIndex.locales[e.code])return LocaleIndex_1.localeIndex.locales[e.code].defaultRegion;var a;if(LocaleIndex_1.localeIndex.locales[e.language])a=LocaleIndex_1.localeIndex.locales[e.language];else{if(-1!==e.language.indexOf("-"))return this.getLocaleData(e.language);a=LocaleIndex_1.localeIndex.locales.defaultLanguage}return e.region&&a[e.region]?a[e.region]:a.defaultRegion},e}();exports.Localizer=Localizer;
 
-},{"../../variables.json":281,"./Atlas":166,"./HtmlMarker":167,"./Pixel":169,"./Popup":170,"./Shape":171,"./helpers/Url":175,"./helpers/Version":177,"./map/Map":184,"./map/options/ControlOptions":204,"./map/services/options/AuthenticationOptions":215,"./namespace/controls":234,"./namespace/controls/ControlStyle":225,"./namespace/data":246,"./namespace/layer":257,"./namespace/math":271,"./namespace/source":276,"es6-promise":85,"mapbox-gl":110,"whatwg-fetch":164}],183:[function(require,module,exports){
+},{"../../../../variables.json":285,"../Url":176,"./CultureCode":179,"./LocaleIndex":180,"./LocalizedStrings":181}],183:[function(require,module,exports){
+"use strict";function __export(e){for(var r in e)exports.hasOwnProperty(r)||(exports[r]=e[r])}Object.defineProperty(exports,"__esModule",{value:!0});var es6_promise_1=require("es6-promise");require("whatwg-fetch");var vars=require("../../variables.json");window.Promise=window.Promise||es6_promise_1.Promise;var mapboxgl=require("mapbox-gl"),Url_1=require("./helpers/Url"),Version_1=require("./helpers/Version"),rtlPluginUrl=new Url_1.Url((new Url_1.UrlOptions).merge({domain:vars.env.staticAssetsDomain,path:"sdk/js/mapbox-gl-rtl-text.js",queryParams:{"api-version":Version_1.Version.getEndpointVersion()}}));mapboxgl.setRTLTextPlugin(rtlPluginUrl.toString(),function(e){});var control=require("./namespace/controls");exports.control=control;var data=require("./namespace/data");exports.data=data;var internal=require("./namespace/internal");exports.internal=internal;var layer=require("./namespace/layer");exports.layer=layer;var math=require("./namespace/math");exports.math=math;var source=require("./namespace/source");exports.source=source;var HtmlMarker_1=require("./HtmlMarker");exports.HtmlMarker=HtmlMarker_1.HtmlMarker;var Map_1=require("./map/Map");exports.Map=Map_1.Map;var Pixel_1=require("./Pixel");exports.Pixel=Pixel_1.Pixel;var Popup_1=require("./Popup");exports.Popup=Popup_1.Popup;var Shape_1=require("./Shape");exports.Shape=Shape_1.Shape;var AuthenticationOptions_1=require("./map/services/options/AuthenticationOptions");exports.AuthenticationType=AuthenticationOptions_1.AuthenticationType;var ControlOptions_1=require("./map/options/ControlOptions");exports.ControlPosition=ControlOptions_1.ControlPosition;var ControlStyle_1=require("./namespace/controls/ControlStyle");exports.ControlStyle=ControlStyle_1.ControlStyle,__export(require("./Atlas"));
+
+},{"../../variables.json":285,"./Atlas":166,"./HtmlMarker":167,"./Pixel":169,"./Popup":170,"./Shape":171,"./helpers/Url":176,"./helpers/Version":178,"./map/Map":185,"./map/options/ControlOptions":206,"./map/services/options/AuthenticationOptions":217,"./namespace/controls":236,"./namespace/controls/ControlStyle":227,"./namespace/data":248,"./namespace/internal":250,"./namespace/layer":261,"./namespace/math":275,"./namespace/source":280,"es6-promise":85,"mapbox-gl":110,"whatwg-fetch":164}],184:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var applicationinsights_common_1=require("@microsoft/applicationinsights-common"),applicationinsights_web_1=require("@microsoft/applicationinsights-web"),vars=require("../../../variables.json"),Version_1=require("../helpers/Version"),Insights=function(){function i(i){this.options=i,!this.options.disableTelemetry&&vars.env.appInsightsKey&&(this.appInsights=new applicationinsights_web_1.ApplicationInsights({config:{instrumentationKey:vars.env.appInsightsKey,disableExceptionTracking:!0,disableAjaxTracking:!0,isCookieUseDisabled:!0,maxBatchInterval:5e3}}),this.appInsights.loadAppInsights(),this.appInsights.addTelemetryInitializer(function(i){i.tags[applicationinsights_common_1.UnmappedKeys.applicationVersion]=Version_1.Version.getFullVersion()}))}return i.prototype.trackEvent=function(i,t){!this.options.disableTelemetry&&this.appInsights&&this.appInsights.trackEvent(i,t)},i.prototype.setAuthenticatedUserContext=function(i,t){!this.options.disableTelemetry&&this.appInsights&&this.appInsights.setAuthenticatedUserContext(i,t)},i.prototype.trackException=function(i){!this.options.disableTelemetry&&this.appInsights&&this.appInsights.trackException(i)},i.prototype.flush=function(i){!this.options.disableTelemetry&&this.appInsights&&this.appInsights.flush(i)},i}();exports.Insights=Insights;
 
-},{"../../../variables.json":281,"../helpers/Version":177,"@microsoft/applicationinsights-common":1,"@microsoft/applicationinsights-web":2}],184:[function(require,module,exports){
-"use strict";var __assign=this&&this.__assign||Object.assign||function(e){for(var t,i=1,o=arguments.length;i<o;i++)for(var r in t=arguments[i])Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r]);return e};Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),mapboxgl=require("mapbox-gl"),uuid=require("uuid-random"),vars=require("../../../variables.json"),atlas=require("../Atlas"),Localizer_1=require("../helpers/localization/Localizer"),HtmlMarker_1=require("../HtmlMarker"),Insights_1=require("../instrumentation/Insights"),AzureLogoControl_1=require("../namespace/controls/AzureLogoControl"),CopyrightControl_1=require("../namespace/controls/CopyrightControl"),data_1=require("../namespace/data"),layer_1=require("../namespace/layer"),math=require("../namespace/math"),source_1=require("../namespace/source"),Pixel_1=require("../Pixel"),AccessibleMapDelegate_1=require("./delegates/accessibility/AccessibleMapDelegate"),FlowServiceDelegate_1=require("./delegates/flow/FlowServiceDelegate"),IncidentServiceDelegate_1=require("./delegates/incidents/IncidentServiceDelegate"),managers_1=require("./managers"),AnimationOptions_1=require("./options/AnimationOptions"),CameraBoundsOptions_1=require("./options/CameraBoundsOptions"),CameraOptions_1=require("./options/CameraOptions"),CircleLayerOptions_1=require("./options/CircleLayerOptions"),ControlOptions_1=require("./options/ControlOptions"),LinestringLayerOptions_1=require("./options/LinestringLayerOptions"),PinLayerOptions_1=require("./options/PinLayerOptions"),PolygonLayerOptions_1=require("./options/PolygonLayerOptions"),RasterLayerOptions_1=require("./options/RasterLayerOptions"),StyleOptions_1=require("./options/StyleOptions"),TrafficOptions_1=require("./options/TrafficOptions"),UserInteractionOptions_1=require("./options/UserInteractionOptions"),ServiceOptions_1=require("./services/options/ServiceOptions"),StyleBuilder_1=require("./style/StyleBuilder"),StyleDefinitions_1=require("./style/StyleDefinitions"),Map=function(){function e(e,t){var i=this;this.trackedPopups=new Set,this.removed=!1,this.loaded=!1,this.ready=!1,this._windowResizeCallback=function(){var e=i.getMapContainer().clientHeight,t=i.getMapContainer().clientWidth;i.getCanvas().height=e,i.getCanvas().width=t,i.getCanvas().style.height=e+"px",i.getCanvas().style.width=t+"px",i.map.resize()};var o=!0;t&&(t.authOptions&&!atlas._hasSetAuthenticationOptions()&&atlas.setAuthenticationOptions(t.authOptions),!t.subscriptionKey&&!t["subscription-key"]||atlas._hasSetAuthenticationOptions()||atlas.setSubscriptionKey(t.subscriptionKey||t["subscription-key"]),!t.sessionId&&!t["session-id"]||atlas._hasSetSessionId()||atlas.setSessionId(t.sessionId||t["session-id"]),t.language&&!atlas._hasSetLanguage()&&atlas.setLanguage(t.language),!t.userRegion&&!t.view||atlas._hasSetUserRegion()||atlas.setUserRegion(t.userRegion||t.view)),this.serviceOptions=(new ServiceOptions_1.ServiceOptions).merge(t),this.styleOptions=(new StyleOptions_1.StyleOptions).merge(t),this.userInteractionOptions=(new UserInteractionOptions_1.UserInteractionOptions).merge(t),this.trafficOptions=new TrafficOptions_1.TrafficOptions,this.styleDefinitions=new StyleDefinitions_1.StyleDefinitions,this.insights=new Insights_1.Insights(this.serviceOptions);var r,a={preserveDrawingBuffer:this.styleOptions.preserveDrawingBuffer,container:e,attributionControl:!1,trackResize:!1,refreshExpiredTiles:this.serviceOptions.refreshExpiredTiles,transformRequest:function(e,t){var o={url:e};return"Tile"===t&&_.startsWith(e,"https://"+vars.env.domain)&&(i.insights.trackEvent({name:"TileLoad"}),i.authentication.signRequest(o)),i.serviceOptions.transformRequest&&_.merge(o,i.serviceOptions.transformRequest(o.url,t)),o}};r=this.serviceOptions.authOptions.clientId?this.serviceOptions.authOptions.clientId:this.serviceOptions.authOptions.subscriptionKey?this.serviceOptions.authOptions.subscriptionKey.replace(/.(?=.{3,}$)/g,"*"):"invalid-setting",this.insights.setAuthenticatedUserContext(this.serviceOptions.sessionId,r);try{var n=new mapboxgl.Map(a);this.map=n,this.authentication=new managers_1.AuthenticationManager(this),this.controls=new managers_1.ControlManager(this),this.events=new managers_1.EventManager(this),this.imageSprite=new managers_1.ImageSpriteManager(this),this.layers=new managers_1.LayerManager(this),this.markers=new managers_1.HtmlMarkerManager(this),this.sources=new managers_1.SourceManager(this),this.styleBuilder=new StyleBuilder_1.StyleBuilder(this.sources,this.layers),this.map.getContainer().classList.add("atlas-map"),this.map.getCanvasContainer().classList.add("atlas-map-canvas-container"),this.map.getCanvasContainer().id="atlas-map_"+uuid(),this.map.getCanvas().classList.add("atlas-map-canvas"),this.controls.add(new AzureLogoControl_1.AzureLogoControl,{position:ControlOptions_1.ControlPosition.NonFixed}),this.copyrightControl=new CopyrightControl_1.CopyrightControl,this.controls.add(this.copyrightControl,{position:ControlOptions_1.ControlPosition.NonFixed});var s=this.authentication.initialize();if(this.removed)return;var p=function(){i.loaded=!0,i.map.off("load",p)};this.map.on("load",p);var l=function(){i.ready=!0,i.map.off("styledata",l);var e={map:i,type:"ready"};i.events.invoke("ready",e)};this.map.on("styledata",l),this._setAutoResize(this.styleOptions.autoResize),this.localizedStringsPromise=Localizer_1.Localizer.getStrings(this.styleOptions.language);var c=this.styleDefinitions.initialize();Promise.all([s,c]).then(function(){if(!i.removed){if(!i.authentication.getToken())throw new Error("AuthenticationManager finished initializing, but no token is available");i.serviceOptions["enable-accessibility"]&&i.accessibleMapDelegate.addToMap(),i._addStyleComponents(i.styleOptions)}}).catch(function(e){var t=e instanceof Error?e:new Error(e);i.insights.trackException({error:t});var o={map:i,type:"error",error:t};i.events.invoke("error",o)}),this.setCamera(__assign({},t,{type:"jump",duration:0})),this.setUserInteraction(this.userInteractionOptions),this.incidentDelegate=new IncidentServiceDelegate_1.IncidentServiceDelegate(this),this.flowDelegate=new FlowServiceDelegate_1.FlowServiceDelegate(this,this.styleDefinitions),this.accessibleMapDelegate=new AccessibleMapDelegate_1.AccessibleMapDelegate(this)}catch(e){throw o=!1,this.insights.trackException({error:e instanceof Error?e:new Error(e)}),e}finally{this.insights.trackEvent({name:"MapLoad"},{success:o}),this.insights.flush()}}return e.prototype.getCanvas=function(){return this.map.getCanvas()},e.prototype.getCanvasContainer=function(){return this.map.getCanvasContainer()},e.prototype.getMapContainer=function(){return this.map.getContainer()},e.prototype.getServiceOptions=function(){return _.cloneDeepWith(this.serviceOptions,ServiceOptions_1.ServiceOptions._cloneCustomizer)},e.prototype.setServiceOptions=function(e){this.serviceOptions=(new ServiceOptions_1.ServiceOptions).merge(this.serviceOptions,e),this.serviceOptions["enable-accessibility"]?this.accessibleMapDelegate.addToMap():this.accessibleMapDelegate.removeFromMap()},e.prototype.setCamera=function(e){var t;if("padding"in e||"offset"in e||"bounds"in e){for(var i=(new CameraBoundsOptions_1.CameraBoundsOptions).merge({maxZoom:this.getCamera().maxZoom},e),o=data_1.BoundingBox.getSouth(i.bounds),r=data_1.BoundingBox.getWest(i.bounds),a=data_1.BoundingBox.getNorth(i.bounds),n=data_1.BoundingBox.getEast(i.bounds);r>n;)n+=360;if(!(t=this.map.cameraForBounds([[r,o],[n,a]],{padding:i.padding,offset:i.offset,maxZoom:i.maxZoom})))throw new Error("The map cannot be fit to the current canvas with the given CameraBoundsOptions.");this.map.setMaxZoom(i.maxZoom)}else{var s=(new CameraOptions_1.CameraOptions).merge(this.getCamera(),e);if(s.centerOffset&&s.centerOffset.length>=2){var p=s.centerOffset,l=math.mercatorPositionsToPixels([s.center],s.zoom);l[0][0]+=p[0],l[0][1]+=p[1],s.center=math.mercatorPixelsToPositions(l,s.zoom)[0]}t={center:s.center,zoom:s.zoom,bearing:s.bearing,pitch:s.pitch,around:void 0},this.map.setMinZoom(s.minZoom),this.map.setMaxZoom(s.maxZoom)}var c=(new AnimationOptions_1.AnimationOptions).merge(e),d={duration:c.duration,easing:function(e){return e},offset:[0,0],animate:!0};"jump"===c.type?this.map.jumpTo(t):"ease"===c.type?this.map.easeTo(__assign({},t,d)):"fly"===c.type&&this.map.flyTo(__assign({},t,d))},e.prototype.setCameraBounds=function(e){this.setCamera(e)},e.prototype.getCamera=function(){var e=this.map.getBounds().getSouthWest().toArray(),t=this.map.getBounds().getNorthEast().toArray();return{zoom:this.map.getZoom(),center:this.map.getCenter().toArray(),bearing:this.map.getBearing(),pitch:this.map.getPitch(),bounds:new data_1.BoundingBox(e,t),minZoom:this.map.getMinZoom(),maxZoom:this.map.getMaxZoom()}},e.prototype.setStyle=function(e){delete e.preserveDrawingBuffer;var t=(new StyleOptions_1.StyleOptions).merge(this.styleOptions,e);t.autoResize!==this.styleOptions.autoResize&&this._setAutoResize(t.autoResize),t.language!==this.styleOptions.language&&(this.localizedStringsPromise=Localizer_1.Localizer.getStrings(t.language)),this._addStyleComponents(t),this.styleOptions=t},e.prototype.getStyle=function(){return _.cloneDeep(this.styleOptions)},e.prototype.addIcon=function(e,t){this.imageSprite.add(e,t)},e.prototype.addPins=function(e,t){var i,o=(new PinLayerOptions_1.PinLayerOptions).merge(t),r=this.layers.getLayerById(o.name),a=!1;if(r||(a=!0,r=new layer_1.SymbolLayer(o.name+"-source",o.name,{source:o.name+"-source",minZoom:o.minZoom,maxZoom:o.maxZoom,iconOptions:{anchor:"center",size:o.iconSize,image:{type:"identity",property:"icon",default:o.icon},ignorePlacement:!o.cluster,opacity:o.opacity},textOptions:{anchor:"center",textField:["case",["has","point_count"],["to-string",["get","point_count"]],["has","title"],["to-string",["get","title"]],o.title],font:["case",["has","point_count"],["literal",["StandardFontCondensed-Bold"]],["literal",[o.textFont]]],size:["case",["has","point_count"],20,o.fontSize],ignorePlacement:!o.cluster,opacity:o.opacity,offset:["case",["has","point_count"],["literal",[.5,-.45]],["literal",[o.textOffset[0]/16,o.textOffset[1]/16]]],color:o.fontColor}})),!(r instanceof layer_1.SymbolLayer))throw new Error("A layer with name '"+o.name+"' already exists but it is not a SymbolLayer.A SymbolLayer should be used for rendering pins.");var n=r.getSource();"string"==typeof n?(i=n,n=this.sources.getById(i)):i=n.getId();var s=!1;if(n||(s=!0,n=new source_1.DataSource(i,{cluster:o.cluster})),!(n instanceof source_1.DataSource))throw new Error("The source with name '"+i+"' already exists but it is not a DataSource.New data can only be added to a DataSource.");s&&this.sources.add(n),a&&this.layers.add(r,o.before);var p=new data_1.FeatureCollection(e);o.defer?(o.overwrite&&n._clearNoUpdate(),n._addNoUpdate(p)):o.overwrite?n.setShapes(p):n.add(p)},e.prototype.addCircles=function(e,t){var i,o=(new CircleLayerOptions_1.CircleLayerOptions).merge(t),r=this.layers.getLayerById(o.name),a=!1;if(r||(a=!0,r=new layer_1.BubbleLayer(o.name+"-source",o.name,{source:o.name+"-source",minZoom:o.minZoom,maxZoom:o.maxZoom,opacity:o.opacity,radius:{type:"identity",property:"radius",default:o.radius},color:{type:"identity",property:"color",default:o.color},strokeColor:{type:"identity",property:"outlineColor",default:o.outlineColor},strokeWidth:{type:"identity",property:"outlineWidth",default:o.outlineWidth}})),!(r instanceof layer_1.BubbleLayer))throw new Error("A layer with name '"+o.name+"' already exists but it is not a BubbleLayer.A BubbleLayer should be used for rendering circles.");var n=r.getSource();"string"==typeof n?(i=n,n=this.sources.getById(i)):i=n.getId();var s=!1;if(n||(s=!0,n=new source_1.DataSource(i)),!(n instanceof source_1.DataSource))throw new Error("The source with name '"+i+"' already exists but it is not a DataSource.New data can only be added to a DataSource.");s&&this.sources.add(n),a&&this.layers.add(r,o.before);var p=new data_1.FeatureCollection(e);o.defer?(o.overwrite&&n._clearNoUpdate(),n._addNoUpdate(p)):o.overwrite?n.setShapes(p):n.add(p)},e.prototype.addLinestrings=function(e,t){var i,o=(new LinestringLayerOptions_1.LinestringLayerOptions).merge(t),r=this.layers.getLayerById(o.name),a=!1;if(r||(a=!0,r=new layer_1.LineLayer(o.name+"-source",o.name,{source:o.name+"-source",minZoom:o.minZoom,maxZoom:o.maxZoom,lineCap:o.cap,lineJoin:o.join,strokeOpacity:o.opacity,strokeColor:{type:"identity",property:"color",default:o.color},strokeWidth:{type:"identity",property:"width",default:o.width}})),!(r instanceof layer_1.LineLayer))throw new Error("A layer with name '"+o.name+"' already exists but it is not a LineLayer.A LineLayer should be used for rendering linestrings.");var n=r.getSource();"string"==typeof n?(i=n,n=this.sources.getById(i)):i=n.getId();var s=!1;if(n||(s=!0,n=new source_1.DataSource(i)),!(n instanceof source_1.DataSource))throw new Error("The source with name '"+i+"' already exists but it is not a DataSource.New data can only be added to a DataSource.");s&&this.sources.add(n),a&&this.layers.add(r,o.before);var p=new data_1.FeatureCollection(e);o.defer?(o.overwrite&&n._clearNoUpdate(),n._addNoUpdate(p)):o.overwrite?n.setShapes(p):n.add(p)},e.prototype.addPolygons=function(e,t){var i,o=(new PolygonLayerOptions_1.PolygonLayerOptions).merge(t),r=this.layers.getLayerById(o.name),a=!1;if(r||(a=!0,r=new layer_1.PolygonLayer(o.name+"-source",o.name,{source:o.name+"-source",minZoom:o.minZoom,maxZoom:o.maxZoom,fillOpacity:o.opacity,fillColor:{type:"identity",property:"color",default:o.color}})),!(r instanceof layer_1.PolygonLayer))throw new Error("A layer with name '"+o.name+"' already exists but it is not a PolygonLayer.A PolygonLayer should be used for rendering linestrings.");var n=r.getSource();"string"==typeof n?(i=n,n=this.sources.getById(i)):i=n.getId();var s=!1;if(n||(s=!0,n=new source_1.DataSource(i)),!(n instanceof source_1.DataSource))throw new Error("The source with name '"+i+"' already exists but it is not a DataSource.New data can only be added to a DataSource.");s&&this.sources.add(n),a&&this.layers.add(r,o.before);var p=new data_1.FeatureCollection(e);o.defer?(o.overwrite&&n._clearNoUpdate(),n._addNoUpdate(p)):o.overwrite?n.setShapes(p):n.add(p)},e.prototype.addRaster=function(e,t){var i,o=(new RasterLayerOptions_1.RasterLayerOptions).merge(t),r=this.layers.getLayerById(o.name),a=!1;if(r||(a=!0,r=new layer_1.TileLayer({maxZoom:o.maxZoom,minZoom:o.minZoom,opacity:o.opacity,tileSize:256,tileUrl:"{subdomain}"},o.name)),!(r instanceof layer_1.TileLayer))throw new Error("A layer with name '"+o.name+"' already exists but it is not a TileLayer.A TileLayer should be used for rendering raster images.");if("{subdomain}"!==r.getOptions().tileUrl)throw new Error("A TileLayer with name '"+o.name+"' already exists but was configured for a single tile url [default for new TileLayer(...)].");(i=o.overwrite?[]:r.getOptions().subdomains||[]).push.apply(i,e),r._setOptionsNoUpdate({subdomains:i}),o.defer?a&&this.layers._addNoUpdate(r,o.before):this.layers.add(r,o.before)},e.prototype.getLayers=function(){return this.layers.getLayers().map(function(e){return e.getId()})},e.prototype.removeLayers=function(e){for(var t=0,i=e;t<i.length;t++){var o=i[t];if(this.layers.getLayerById(o)){this.layers.remove(o);var r=o+"-source";this.sources.getById(r)&&this.sources.remove(r)}}},e.prototype.addHtml=function(e,t){e.id||(e.id="marker_"+uuid());var i=new HtmlMarker_1.HtmlMarker({htmlContent:e});return this.markers.add(i,t),e.id},e.prototype.removeHtml=function(e){this.markers.remove(e)},e.prototype.addEventListener=function(e,t,i){this.events._addLegacy(e,t,i)},e.prototype.removeEventListener=function(e,t,i){this.events._removeLegacy(e,t,i)},e.prototype.setUserInteraction=function(e){this.userInteractionOptions=(new UserInteractionOptions_1.UserInteractionOptions).merge(this.userInteractionOptions,e),this.userInteractionOptions.interactive?(this.userInteractionOptions.boxZoomInteraction?this.map.boxZoom.enable():this.map.boxZoom.disable(),this.userInteractionOptions.dblClickZoomInteraction?this.map.doubleClickZoom.enable():this.map.doubleClickZoom.disable(),this.userInteractionOptions.dragPanInteraction?this.map.dragPan.enable():this.map.dragPan.disable(),this.userInteractionOptions.dragRotateInteraction?this.map.dragRotate.enable():this.map.dragRotate.disable(),this.userInteractionOptions.keyboardInteraction?this.map.keyboard.enable():this.map.keyboard.disable(),this.userInteractionOptions.scrollZoomInteraction?this.map.scrollZoom.enable():this.map.scrollZoom.disable(),this.userInteractionOptions.touchInteraction?this.map.touchZoomRotate.enable():this.map.touchZoomRotate.disable()):(this.map.boxZoom.disable(),this.map.doubleClickZoom.disable(),this.map.dragPan.disable(),this.map.dragRotate.disable(),this.map.keyboard.disable(),this.map.scrollZoom.disable(),this.map.touchZoomRotate.disable())},e.prototype.getUserInteraction=function(){return _.cloneDeep(this.userInteractionOptions)},e.prototype.addControl=function(e,t){this.controls.add(e,t)},e.prototype.removeControl=function(e){this.controls.remove(e)},e.prototype.setTraffic=function(e){var t=this.trafficOptions.incidents,i=this.trafficOptions.flow;if(this.trafficOptions=(new TrafficOptions_1.TrafficOptions).merge(this.trafficOptions,e),this.trafficOptions.incidents?t||this.incidentDelegate.addToMap():this.incidentDelegate.removeFromMap(),this.trafficOptions.flow&&"none"!==this.trafficOptions.flow)try{this.flowDelegate.addToMap()}catch(e){throw this.trafficOptions.flow=i,e}else this.flowDelegate.removeFromMap()},e.prototype.getTraffic=function(){return _.cloneDeep(this.trafficOptions)},e.prototype.remove=function(){this.dispose()},e.prototype.clear=function(){this.trackedPopups.forEach(function(e){e.remove()}),this.layers.clear(),this.sources.clear(),this.markers.clear()},e.prototype.dispose=function(){for(this.map.remove(),this.removed=!0;this.getMapContainer().firstChild;){var e=this.getMapContainer().firstChild;this.getMapContainer().removeChild(e)}},e.prototype.resize=function(e,t,i){if("number"!=typeof e&&"string"!=typeof e||"number"!=typeof t&&"string"!=typeof t)i=e;else{var o=e;this.getMapContainer().style.height="number"==typeof o?o+"px":o,this.getMapContainer().style.width="number"==typeof t?t+"px":t}this.map.resize(i)},e.prototype.pixelsToPositions=function(e){for(var t=[],i=0,o=e;i<o.length;i++){var r=o[i],a=this.map.unproject(r);t.push(new data_1.Position(a.lng,a.lat))}return t},e.prototype.positionsToPixels=function(e){for(var t=[],i=0,o=e;i<o.length;i++){var r=o[i],a=this.map.project(r);t.push(new Pixel_1.Pixel(a.x,a.y))}return t},e.prototype.areTilesLoaded=function(){return this.map.areTilesLoaded()},e.prototype.stop=function(){this.map.stop()},e.prototype._getMap=function(){return this.map},e.prototype._trackPopup=function(e){this.trackedPopups.add(e)},e.prototype._untrackPopup=function(e){this.trackedPopups.delete(e)},e.prototype._rebuildStyle=function(){this.map.setStyle(this.styleBuilder.build()),this.imageSprite._restoreImages()},e.prototype._isLoaded=function(){return this.loaded},e.prototype._isReady=function(){return this.ready},e.prototype._getLocalizedStrings=function(){return this.localizedStringsPromise},e.prototype._getStyleDefs=function(){return this.styleDefinitions},e.prototype._setAutoResize=function(e){e?window.addEventListener("resize",this._windowResizeCallback):window.removeEventListener("resize",this._windowResizeCallback)},e.prototype._addStyleComponents=function(e){var t=this;this.styleDefinitions.getStyleComponents(e).then(function(i){if(!t.removed){t.copyrightControl.update(t.styleDefinitions.getCopyrightCaption(e)),t.styleBuilder.setGlyphs(t.styleDefinitions.getGlyphs(e)),t.styleBuilder.setSprite(t.styleDefinitions.getSprite(e));for(var o=0,r=i;o<r.length;o++){var a=r[o];t.sources._addNoUpdate(a.sources),t.layers._addNoUpdate(a.layer)}t._rebuildStyle()}})},e}();exports.Map=Map;
+},{"../../../variables.json":285,"../helpers/Version":178,"@microsoft/applicationinsights-common":1,"@microsoft/applicationinsights-web":2}],185:[function(require,module,exports){
+"use strict";var __assign=this&&this.__assign||function(){return(__assign=Object.assign||function(e){for(var t,i=1,o=arguments.length;i<o;i++)for(var r in t=arguments[i])Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r]);return e}).apply(this,arguments)};Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),mapboxgl=require("mapbox-gl"),uuid=require("uuid-random"),vars=require("../../../variables.json"),atlas=require("../Atlas"),Localizer_1=require("../helpers/localization/Localizer"),HtmlMarker_1=require("../HtmlMarker"),Insights_1=require("../instrumentation/Insights"),AzureLogoControl_1=require("../namespace/controls/AzureLogoControl"),CopyrightControl_1=require("../namespace/controls/CopyrightControl"),data_1=require("../namespace/data"),layer_1=require("../namespace/layer"),math=require("../namespace/math"),source_1=require("../namespace/source"),Pixel_1=require("../Pixel"),AccessibleMapDelegate_1=require("./delegates/accessibility/AccessibleMapDelegate"),FlowServiceDelegate_1=require("./delegates/flow/FlowServiceDelegate"),IncidentServiceDelegate_1=require("./delegates/incidents/IncidentServiceDelegate"),managers_1=require("./managers"),AnimationOptions_1=require("./options/AnimationOptions"),CameraBoundsOptions_1=require("./options/CameraBoundsOptions"),CameraOptions_1=require("./options/CameraOptions"),CircleLayerOptions_1=require("./options/CircleLayerOptions"),ControlOptions_1=require("./options/ControlOptions"),LinestringLayerOptions_1=require("./options/LinestringLayerOptions"),PinLayerOptions_1=require("./options/PinLayerOptions"),PolygonLayerOptions_1=require("./options/PolygonLayerOptions"),RasterLayerOptions_1=require("./options/RasterLayerOptions"),StyleOptions_1=require("./options/StyleOptions"),TrafficOptions_1=require("./options/TrafficOptions"),UserInteractionOptions_1=require("./options/UserInteractionOptions"),ServiceOptions_1=require("./services/options/ServiceOptions"),StyleBuilder_1=require("./style/StyleBuilder"),StyleDefinitions_1=require("./style/StyleDefinitions"),Map=function(){function e(e,t){var i=this;this.trackedPopups=new Set,this.removed=!1,this.loaded=!1,this.ready=!1,this._windowResizeCallback=function(){var e=i.getMapContainer().clientHeight,t=i.getMapContainer().clientWidth;i.getCanvas().height=e,i.getCanvas().width=t,i.getCanvas().style.height=e+"px",i.getCanvas().style.width=t+"px",i.map.resize()};var o=!0;t&&(t.authOptions&&!atlas._hasSetAuthenticationOptions()&&atlas.setAuthenticationOptions(t.authOptions),!t.subscriptionKey&&!t["subscription-key"]||atlas._hasSetAuthenticationOptions()||atlas.setSubscriptionKey(t.subscriptionKey||t["subscription-key"]),!t.sessionId&&!t["session-id"]||atlas._hasSetSessionId()||atlas.setSessionId(t.sessionId||t["session-id"]),t.language&&!atlas._hasSetLanguage()&&atlas.setLanguage(t.language),!t.userRegion&&!t.view||atlas._hasSetView()||atlas.setUserRegion(t.userRegion||t.view),t.tilesetId&&!atlas._hasTilesetId()&&atlas.setTilesetId(t.tilesetId)),this.serviceOptions=(new ServiceOptions_1.ServiceOptions).merge(t),this.styleOptions=(new StyleOptions_1.StyleOptions).merge(t),this.userInteractionOptions=(new UserInteractionOptions_1.UserInteractionOptions).merge(t),this.trafficOptions=new TrafficOptions_1.TrafficOptions,this.styleDefinitions=new StyleDefinitions_1.StyleDefinitions,this.insights=new Insights_1.Insights(this.serviceOptions);var r,a={preserveDrawingBuffer:this.styleOptions.preserveDrawingBuffer,container:e,attributionControl:!1,trackResize:!1,refreshExpiredTiles:this.serviceOptions.refreshExpiredTiles,transformRequest:function(e,t){var o={url:e};return"Tile"===t&&_.startsWith(e,"https://"+vars.env.domain)&&(i.insights.trackEvent({name:"TileLoad"}),i.authentication.signRequest(o)),i.serviceOptions.transformRequest&&_.merge(o,i.serviceOptions.transformRequest(o.url,t)),o}};r=this.serviceOptions.authOptions.clientId?this.serviceOptions.authOptions.clientId:this.serviceOptions.authOptions.subscriptionKey?this.serviceOptions.authOptions.subscriptionKey.replace(/.(?=.{3,}$)/g,"*"):"invalid-setting",this.insights.setAuthenticatedUserContext(this.serviceOptions.sessionId,r);try{var s=new mapboxgl.Map(a);this.map=s,this.authentication=new managers_1.AuthenticationManager(this),this.controls=new managers_1.ControlManager(this),this.events=new managers_1.EventManager(this),this.imageSprite=new managers_1.ImageSpriteManager(this),this.layers=new managers_1.LayerManager(this),this.markers=new managers_1.HtmlMarkerManager(this),this.sources=new managers_1.SourceManager(this),this.styleBuilder=new StyleBuilder_1.StyleBuilder(this.sources,this.layers),this.map.getContainer().classList.add("atlas-map"),this.map.getCanvasContainer().classList.add("atlas-map-canvas-container"),this.map.getCanvasContainer().id="atlas-map_"+uuid(),this.map.getCanvas().classList.add("atlas-map-canvas"),this.controls.add(new AzureLogoControl_1.AzureLogoControl,{position:ControlOptions_1.ControlPosition.NonFixed}),this.copyrightControl=new CopyrightControl_1.CopyrightControl,this.controls.add(this.copyrightControl,{position:ControlOptions_1.ControlPosition.NonFixed});var n=this.authentication.initialize();if(this.removed)return;var l=function(){i.loaded=!0,i.map.off("load",l)};this.map.on("load",l);var p=function(){i.ready=!0,i.map.off("styledata",p);var e={map:i,type:"ready"};i.events.invoke("ready",e)};this.map.on("styledata",p),this._setAutoResize(this.styleOptions.autoResize),this.localizedStringsPromise=Localizer_1.Localizer.getStrings(this.styleOptions.language);var c=this.styleDefinitions.initialize();Promise.all([n,c]).then(function(){if(!i.removed){if(!i.authentication.getToken())throw new Error("AuthenticationManager finished initializing, but no token is available");i.serviceOptions["enable-accessibility"]&&i.accessibleMapDelegate.addToMap(),i._addStyleComponents(i.styleOptions)}}).catch(function(e){var t=e instanceof Error?e:new Error(e);i.insights.trackException({error:t});var o={map:i,type:"error",error:t};i.events.invoke("error",o)}),this.setCamera(__assign({},t,{type:"jump",duration:0})),this.setUserInteraction(this.userInteractionOptions),this.incidentDelegate=new IncidentServiceDelegate_1.IncidentServiceDelegate(this),this.flowDelegate=new FlowServiceDelegate_1.FlowServiceDelegate(this,this.styleDefinitions),this.accessibleMapDelegate=new AccessibleMapDelegate_1.AccessibleMapDelegate(this)}catch(e){throw o=!1,this.insights.trackException({error:e instanceof Error?e:new Error(e)}),e}finally{this.insights.trackEvent({name:"MapLoad"},{success:o}),this.insights.flush()}}return e.prototype.getCanvas=function(){return this.map.getCanvas()},e.prototype.getCanvasContainer=function(){return this.map.getCanvasContainer()},e.prototype.getMapContainer=function(){return this.map.getContainer()},e.prototype.getServiceOptions=function(){return _.cloneDeepWith(this.serviceOptions,ServiceOptions_1.ServiceOptions._cloneCustomizer)},e.prototype.setServiceOptions=function(e){this.serviceOptions=(new ServiceOptions_1.ServiceOptions).merge(this.serviceOptions,e),this.serviceOptions["enable-accessibility"]?this.accessibleMapDelegate.addToMap():this.accessibleMapDelegate.removeFromMap()},e.prototype.setCamera=function(e){var t;if("padding"in e||"offset"in e||"bounds"in e){for(var i=(new CameraBoundsOptions_1.CameraBoundsOptions).merge({maxZoom:this.getCamera().maxZoom},e),o=data_1.BoundingBox.getSouth(i.bounds),r=data_1.BoundingBox.getWest(i.bounds),a=data_1.BoundingBox.getNorth(i.bounds),s=data_1.BoundingBox.getEast(i.bounds);r>s;)s+=360;if(!(t=this.map.cameraForBounds([[r,o],[s,a]],{padding:i.padding,offset:i.offset,maxZoom:i.maxZoom})))throw new Error("The map cannot be fit to the current canvas with the given CameraBoundsOptions.");this.map.setMaxZoom(i.maxZoom)}else{var n=(new CameraOptions_1.CameraOptions).merge(this.getCamera(),e);if(n.centerOffset&&n.centerOffset.length>=2){var l=n.centerOffset,p=math.mercatorPositionsToPixels([n.center],n.zoom);p[0][0]+=l[0],p[0][1]+=l[1],n.center=math.mercatorPixelsToPositions(p,n.zoom)[0]}t={center:n.center,zoom:n.zoom,bearing:n.bearing,pitch:n.pitch,around:void 0},this.map.setMinZoom(n.minZoom),this.map.setMaxZoom(n.maxZoom)}var c=(new AnimationOptions_1.AnimationOptions).merge(e),h={duration:c.duration,easing:function(e){return e},offset:[0,0],animate:!0};"jump"===c.type?this.map.jumpTo(t):"ease"===c.type?this.map.easeTo(__assign({},t,h)):"fly"===c.type&&this.map.flyTo(__assign({},t,h))},e.prototype.setCameraBounds=function(e){this.setCamera(e)},e.prototype.getCamera=function(){var e=this.map.getBounds().getSouthWest().toArray(),t=this.map.getBounds().getNorthEast().toArray();return{zoom:this.map.getZoom(),center:this.map.getCenter().toArray(),bearing:this.map.getBearing(),pitch:this.map.getPitch(),bounds:new data_1.BoundingBox(e,t),minZoom:this.map.getMinZoom(),maxZoom:this.map.getMaxZoom()}},e.prototype.setStyle=function(e){delete e.preserveDrawingBuffer;var t=(new StyleOptions_1.StyleOptions).merge(this.styleOptions,e);t.autoResize!==this.styleOptions.autoResize&&this._setAutoResize(t.autoResize),t.language!==this.styleOptions.language&&(this.localizedStringsPromise=Localizer_1.Localizer.getStrings(t.language)),this._addStyleComponents(t),this.styleOptions=t},e.prototype.getStyle=function(){return _.cloneDeep(this.styleOptions)},e.prototype.addIcon=function(e,t){this.imageSprite.add(e,t)},e.prototype.addPins=function(e,t){var i,o=(new PinLayerOptions_1.PinLayerOptions).merge(t),r=this.layers.getLayerById(o.name),a=!1;if(r||(a=!0,r=new layer_1.SymbolLayer(o.name+"-source",o.name,{source:o.name+"-source",minZoom:o.minZoom,maxZoom:o.maxZoom,iconOptions:{anchor:"center",size:o.iconSize,image:["case",["has","icon"],["get","icon"],o.icon],ignorePlacement:!o.cluster,opacity:o.opacity},textOptions:{anchor:"center",textField:["case",["has","point_count"],["to-string",["get","point_count"]],["has","title"],["to-string",["get","title"]],o.title],font:["case",["has","point_count"],["literal",["StandardFontCondensed-Bold"]],["literal",[o.textFont]]],size:["case",["has","point_count"],20,o.fontSize],ignorePlacement:!o.cluster,opacity:o.opacity,offset:["case",["has","point_count"],["literal",[.5,-.45]],["literal",[o.textOffset[0]/16,o.textOffset[1]/16]]],color:o.fontColor}})),!(r instanceof layer_1.SymbolLayer))throw new Error("A layer with name '"+o.name+"' already exists but it is not a SymbolLayer.A SymbolLayer should be used for rendering pins.");var s=r.getSource();"string"==typeof s?(i=s,s=this.sources.getById(i)):i=s.getId();var n=!1;if(s||(n=!0,s=new source_1.DataSource(i,{cluster:o.cluster})),!(s instanceof source_1.DataSource))throw new Error("The source with name '"+i+"' already exists but it is not a DataSource.New data can only be added to a DataSource.");n&&this.sources.add(s),a&&this.layers.add(r,o.before);var l=new data_1.FeatureCollection(e);o.defer?(o.overwrite&&s._clearNoUpdate(),s._addNoUpdate(l)):o.overwrite?s.setShapes(l):s.add(l)},e.prototype.addCircles=function(e,t){var i,o=(new CircleLayerOptions_1.CircleLayerOptions).merge(t),r=this.layers.getLayerById(o.name),a=!1;if(r||(a=!0,r=new layer_1.BubbleLayer(o.name+"-source",o.name,{source:o.name+"-source",minZoom:o.minZoom,maxZoom:o.maxZoom,opacity:o.opacity,radius:["case",["has","radius"],["get","radius"],o.radius],color:["case",["has","color"],["get","color"],o.color],strokeColor:["case",["has","outlineColor"],["get","outlineColor"],o.outlineColor],strokeWidth:["case",["has","outlineWidth"],["get","outlineWidth"],o.outlineWidth]})),!(r instanceof layer_1.BubbleLayer))throw new Error("A layer with name '"+o.name+"' already exists but it is not a BubbleLayer.A BubbleLayer should be used for rendering circles.");var s=r.getSource();"string"==typeof s?(i=s,s=this.sources.getById(i)):i=s.getId();var n=!1;if(s||(n=!0,s=new source_1.DataSource(i)),!(s instanceof source_1.DataSource))throw new Error("The source with name '"+i+"' already exists but it is not a DataSource.New data can only be added to a DataSource.");n&&this.sources.add(s),a&&this.layers.add(r,o.before);var l=new data_1.FeatureCollection(e);o.defer?(o.overwrite&&s._clearNoUpdate(),s._addNoUpdate(l)):o.overwrite?s.setShapes(l):s.add(l)},e.prototype.addLinestrings=function(e,t){var i,o=(new LinestringLayerOptions_1.LinestringLayerOptions).merge(t),r=this.layers.getLayerById(o.name),a=!1;if(r||(a=!0,r=new layer_1.LineLayer(o.name+"-source",o.name,{source:o.name+"-source",minZoom:o.minZoom,maxZoom:o.maxZoom,lineCap:o.cap,lineJoin:o.join,strokeOpacity:o.opacity,strokeColor:["case",["has","color"],["get","color"],o.color],strokeWidth:["case",["has","width"],["get","width"],o.width]})),!(r instanceof layer_1.LineLayer))throw new Error("A layer with name '"+o.name+"' already exists but it is not a LineLayer.A LineLayer should be used for rendering linestrings.");var s=r.getSource();"string"==typeof s?(i=s,s=this.sources.getById(i)):i=s.getId();var n=!1;if(s||(n=!0,s=new source_1.DataSource(i)),!(s instanceof source_1.DataSource))throw new Error("The source with name '"+i+"' already exists but it is not a DataSource.New data can only be added to a DataSource.");n&&this.sources.add(s),a&&this.layers.add(r,o.before);var l=new data_1.FeatureCollection(e);o.defer?(o.overwrite&&s._clearNoUpdate(),s._addNoUpdate(l)):o.overwrite?s.setShapes(l):s.add(l)},e.prototype.addPolygons=function(e,t){var i,o=(new PolygonLayerOptions_1.PolygonLayerOptions).merge(t),r=this.layers.getLayerById(o.name),a=!1;if(r||(a=!0,r=new layer_1.PolygonLayer(o.name+"-source",o.name,{source:o.name+"-source",minZoom:o.minZoom,maxZoom:o.maxZoom,fillOpacity:o.opacity,fillColor:["case",["has","color"],["get","color"],o.color]})),!(r instanceof layer_1.PolygonLayer))throw new Error("A layer with name '"+o.name+"' already exists but it is not a PolygonLayer.A PolygonLayer should be used for rendering linestrings.");var s=r.getSource();"string"==typeof s?(i=s,s=this.sources.getById(i)):i=s.getId();var n=!1;if(s||(n=!0,s=new source_1.DataSource(i)),!(s instanceof source_1.DataSource))throw new Error("The source with name '"+i+"' already exists but it is not a DataSource.New data can only be added to a DataSource.");n&&this.sources.add(s),a&&this.layers.add(r,o.before);var l=new data_1.FeatureCollection(e);o.defer?(o.overwrite&&s._clearNoUpdate(),s._addNoUpdate(l)):o.overwrite?s.setShapes(l):s.add(l)},e.prototype.addRaster=function(e,t){var i,o=(new RasterLayerOptions_1.RasterLayerOptions).merge(t),r=this.layers.getLayerById(o.name),a=!1;if(r||(a=!0,r=new layer_1.TileLayer({maxZoom:o.maxZoom,minZoom:o.minZoom,opacity:o.opacity,tileSize:256,tileUrl:"{subdomain}"},o.name)),!(r instanceof layer_1.TileLayer))throw new Error("A layer with name '"+o.name+"' already exists but it is not a TileLayer.A TileLayer should be used for rendering raster images.");if("{subdomain}"!==r.getOptions().tileUrl)throw new Error("A TileLayer with name '"+o.name+"' already exists but was configured for a single tile url [default for new TileLayer(...)].");(i=o.overwrite?[]:r.getOptions().subdomains||[]).push.apply(i,e),r._setOptionsNoUpdate({subdomains:i}),o.defer?a&&this.layers._addNoUpdate(r,o.before):this.layers.add(r,o.before)},e.prototype.getLayers=function(){return this.layers.getLayers().map(function(e){return e.getId()})},e.prototype.removeLayers=function(e){for(var t=0,i=e;t<i.length;t++){var o=i[t];if(this.layers.getLayerById(o)){this.layers.remove(o);var r=o+"-source";this.sources.getById(r)&&this.sources.remove(r)}}},e.prototype.addHtml=function(e,t){e.id||(e.id="marker_"+uuid());var i=new HtmlMarker_1.HtmlMarker({htmlContent:e});return this.markers.add(i,t),e.id},e.prototype.removeHtml=function(e){this.markers.remove(e)},e.prototype.addEventListener=function(e,t,i){this.events._addLegacy(e,t,i)},e.prototype.removeEventListener=function(e,t,i){this.events._removeLegacy(e,t,i)},e.prototype.setUserInteraction=function(e){this.userInteractionOptions=(new UserInteractionOptions_1.UserInteractionOptions).merge(this.userInteractionOptions,e),this.userInteractionOptions.interactive?(this.userInteractionOptions.boxZoomInteraction?this.map.boxZoom.enable():this.map.boxZoom.disable(),this.userInteractionOptions.dblClickZoomInteraction?this.map.doubleClickZoom.enable():this.map.doubleClickZoom.disable(),this.userInteractionOptions.dragPanInteraction?this.map.dragPan.enable():this.map.dragPan.disable(),this.userInteractionOptions.dragRotateInteraction?this.map.dragRotate.enable():this.map.dragRotate.disable(),this.userInteractionOptions.keyboardInteraction?this.map.keyboard.enable():this.map.keyboard.disable(),this.userInteractionOptions.scrollZoomInteraction?this.map.scrollZoom.enable():this.map.scrollZoom.disable(),this.userInteractionOptions.touchInteraction?this.map.touchZoomRotate.enable():this.map.touchZoomRotate.disable()):(this.map.boxZoom.disable(),this.map.doubleClickZoom.disable(),this.map.dragPan.disable(),this.map.dragRotate.disable(),this.map.keyboard.disable(),this.map.scrollZoom.disable(),this.map.touchZoomRotate.disable())},e.prototype.getUserInteraction=function(){return _.cloneDeep(this.userInteractionOptions)},e.prototype.addControl=function(e,t){this.controls.add(e,t)},e.prototype.removeControl=function(e){this.controls.remove(e)},e.prototype.setTraffic=function(e){var t=this.trafficOptions.incidents,i=this.trafficOptions.flow;if(this.trafficOptions=(new TrafficOptions_1.TrafficOptions).merge(this.trafficOptions,e),this.trafficOptions.incidents?t||this.incidentDelegate.addToMap():this.incidentDelegate.removeFromMap(),this.trafficOptions.flow&&"none"!==this.trafficOptions.flow)try{this.flowDelegate.addToMap()}catch(e){throw this.trafficOptions.flow=i,e}else this.flowDelegate.removeFromMap()},e.prototype.getTraffic=function(){return _.cloneDeep(this.trafficOptions)},e.prototype.remove=function(){this.dispose()},e.prototype.clear=function(){this.trackedPopups.forEach(function(e){e.remove()}),this.layers.clear(),this.sources.clear(),this.markers.clear()},e.prototype.dispose=function(){for(this.map.remove(),this.removed=!0;this.getMapContainer().firstChild;){var e=this.getMapContainer().firstChild;this.getMapContainer().removeChild(e)}},e.prototype.resize=function(e,t,i){if("number"!=typeof e&&"string"!=typeof e||"number"!=typeof t&&"string"!=typeof t)i=e;else{var o=e;this.getMapContainer().style.height="number"==typeof o?o+"px":o,this.getMapContainer().style.width="number"==typeof t?t+"px":t}this.map.resize(i)},e.prototype.pixelsToPositions=function(e){for(var t=[],i=0,o=e;i<o.length;i++){var r=o[i],a=this.map.unproject(r);t.push(new data_1.Position(a.lng,a.lat))}return t},e.prototype.positionsToPixels=function(e){for(var t=[],i=0,o=e;i<o.length;i++){var r=o[i],a=this.map.project(r);t.push(new Pixel_1.Pixel(a.x,a.y))}return t},e.prototype.areTilesLoaded=function(){return this.map.areTilesLoaded()},e.prototype.stop=function(){this.map.stop()},e.prototype._getMap=function(){return this.map},e.prototype._trackPopup=function(e){this.trackedPopups.add(e)},e.prototype._untrackPopup=function(e){this.trackedPopups.delete(e)},e.prototype._rebuildStyle=function(){this.map.setStyle(this.styleBuilder.build()),this.imageSprite._restoreImages()},e.prototype._isLoaded=function(){return this.loaded},e.prototype._isReady=function(){return this.ready},e.prototype._getLocalizedStrings=function(){return this.localizedStringsPromise},e.prototype._getStyleDefs=function(){return this.styleDefinitions},e.prototype._setAutoResize=function(e){e?window.addEventListener("resize",this._windowResizeCallback):window.removeEventListener("resize",this._windowResizeCallback)},e.prototype._addStyleComponents=function(e){var t=this;this.styleDefinitions.getStyleComponents(e).then(function(i){if(!t.removed){t.copyrightControl.update(t.styleDefinitions.getCopyrightCaption(e)),t.styleBuilder.setGlyphs(t.styleDefinitions.getGlyphs(e)),t.styleBuilder.setSprite(t.styleDefinitions.getSprite(e));for(var o=0,r=i;o<r.length;o++){var a=r[o];t.sources._addNoUpdate(a.sources),t.layers._addNoUpdate(a.layer)}t._rebuildStyle()}})},e}();exports.Map=Map;
 
-},{"../../../variables.json":281,"../Atlas":166,"../HtmlMarker":167,"../Pixel":169,"../helpers/localization/Localizer":181,"../instrumentation/Insights":183,"../namespace/controls/AzureLogoControl":222,"../namespace/controls/CopyrightControl":227,"../namespace/data":246,"../namespace/layer":257,"../namespace/math":271,"../namespace/source":276,"./delegates/accessibility/AccessibleMapDelegate":185,"./delegates/flow/FlowServiceDelegate":186,"./delegates/incidents/IncidentServiceDelegate":189,"./managers":199,"./options/AnimationOptions":200,"./options/CameraBoundsOptions":201,"./options/CameraOptions":202,"./options/CircleLayerOptions":203,"./options/ControlOptions":204,"./options/LinestringLayerOptions":206,"./options/PinLayerOptions":207,"./options/PolygonLayerOptions":208,"./options/RasterLayerOptions":209,"./options/StyleOptions":210,"./options/TrafficOptions":211,"./options/UserInteractionOptions":212,"./services/options/ServiceOptions":217,"./style/StyleBuilder":219,"./style/StyleDefinitions":220,"lodash":109,"mapbox-gl":110,"uuid-random":162}],185:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var NearbyGeographySearchService_1=require("../../services/NearbyGeographySearchService"),AccessibleMapDelegate=function(){function e(a){var t=this;this.addToMap=function(){t.nearbyGeographySearch=new NearbyGeographySearchService_1.NearbyGeographySearchService(t.map.authentication),t.createMapKeyBindingInfo(),t.initializeMapLiveStateInfo(),t.initializeMapStyleInfo(),t.map.getMapContainer().setAttribute("role","application"),t.map.getMapContainer().setAttribute("aria-label","Map Application"),t.map.getCanvas().setAttribute("aria-label","Interactive Map"),t.map.getCanvas().setAttribute("aria-describedby","atlas-map-state atlas-map-shortcuts"),t.map.getCanvas().setAttribute("title","Interactive Map"),t.map.getCanvas().setAttribute("alt","Interactive Map")},this.removeFromMap=function(){t.nearbyGeographySearch=null,null!=t.atlasMapKeyBindings&&t.map.getCanvasContainer().removeChild(t.atlasMapKeyBindings),t.atlasMapKeyBindings=null,null!=t.atlasMapLiveStateInfo&&t.map.getCanvasContainer().removeChild(t.atlasMapLiveStateInfo),t.atlasMapLiveStateInfo=null,null!=t.atlasMapStyleInfo&&t.map.getCanvasContainer().removeChild(t.atlasMapStyleInfo),t.atlasMapStyleInfo=null,t.map.getMapContainer().removeAttribute("role"),t.map.getMapContainer().removeAttribute("aria-label"),t.map.getCanvas().removeAttribute("aria-label"),t.map.getCanvas().removeAttribute("aria-describedby"),t.map.getCanvas().removeAttribute("title"),t.map.getCanvas().removeAttribute("alt"),t.map.events.remove("moveend",t.updateMapState),t.map.events.remove("styledata",t.updateMapStyle)},this.createMapKeyBindingInfo=function(){t.atlasMapKeyBindings=document.createElement("div"),t.atlasMapKeyBindings.setAttribute("tabindex","-1"),t.atlasMapKeyBindings.setAttribute("aria-label","Interactive Map Key Bindings"),t.atlasMapKeyBindings.id="atlas-map-shortcuts",t.atlasMapKeyBindings.classList.add("hidden-accessible-element"),t.map.getCanvasContainer().appendChild(t.atlasMapKeyBindings);var e=document.createElement("p");e.innerText="Zoom out: hyphen",t.atlasMapKeyBindings.appendChild(e);var a=document.createElement("p");a.innerText="Zoom in: plus",t.atlasMapKeyBindings.appendChild(a);var n=document.createElement("p");n.innerText="Pan right 100 pixels: right arrow",t.atlasMapKeyBindings.appendChild(n);var i=document.createElement("p");i.innerText="Pan left 100 pixels: left arrow",t.atlasMapKeyBindings.appendChild(i);var r=document.createElement("p");r.innerText="Pan up 100 pixels: up arrow",t.atlasMapKeyBindings.appendChild(r);var p=document.createElement("p");p.innerText="Pan down 100 pixels: down arrow",t.atlasMapKeyBindings.appendChild(p);var l=document.createElement("p");l.innerText="Rotate 15 degrees clockwise: shift + right arrow",t.atlasMapKeyBindings.appendChild(l);var s=document.createElement("p");s.innerText="Rotate 15 degrees counter clockwise: shift + left arrow",t.atlasMapKeyBindings.appendChild(s);var o=document.createElement("p");o.innerText="Increase pitch 10 degrees: shift + up arrow",t.atlasMapKeyBindings.appendChild(o);var d=document.createElement("p");d.innerText="Decrease pitch 10 degrees: shift + down arrow",t.atlasMapKeyBindings.appendChild(d)},this.initializeMapLiveStateInfo=function(){t.atlasMapLiveStateInfo=document.createElement("div"),t.atlasMapLiveStateInfo.setAttribute("tabindex","-1"),t.atlasMapLiveStateInfo.setAttribute("aria-label","Interactive Map State"),t.atlasMapLiveStateInfo.setAttribute("aria-live","polite"),t.atlasMapLiveStateInfo.setAttribute("aria-atomic","true"),t.atlasMapLiveStateInfo.id="atlas-map-state",t.atlasMapLiveStateInfo.classList.add("hidden-accessible-element"),t.map.getCanvasContainer().appendChild(t.atlasMapLiveStateInfo),t.updateMapState(),t.map.events.add("moveend",t.updateMapState)},this.initializeMapStyleInfo=function(){t.atlasMapStyleInfo=document.createElement("div"),t.atlasMapStyleInfo.setAttribute("aria-label","Interactive Map Style"),t.atlasMapStyleInfo.setAttribute("aria-live","polite"),t.atlasMapStyleInfo.setAttribute("aria-atomic","true"),t.atlasMapStyleInfo.classList.add("hidden-accessible-element"),t.map.getCanvasContainer().appendChild(t.atlasMapStyleInfo),t.updateMapStyle(),t.map.events.add("styledata",t.updateMapStyle)},this.updateMapStyle=function(){t.atlasMapStyleInfo.innerText="Style: "+t.map.getStyle().style},this.updateMapState=function(){var a=t.map.getCamera();t.nearbyGeographySearch.request(a.center).then(function(n){t.atlasMapLiveStateInfo.innerHTML="";var i=document.createElement("p");i.innerText="Zoom: "+a.zoom.toFixed(e.ZOOM_FRACTION_PRECISION),t.atlasMapLiveStateInfo.appendChild(i);var r=document.createElement("p"),p=n.results.length>0?n.results[0].address.freeformAddress:e.UNKNOWN_LOCATION_STRING;r.innerText="Location: "+p,t.atlasMapLiveStateInfo.appendChild(r);var l=document.createElement("p");l.innerText="Latitude: "+a.center[1].toFixed(e.COORDINATE_FRACTION_PRECISION),t.atlasMapLiveStateInfo.appendChild(l);var s=document.createElement("p");s.innerText="Longitude: "+a.center[0].toFixed(e.COORDINATE_FRACTION_PRECISION),t.atlasMapLiveStateInfo.appendChild(s)}).catch(function(n){t.atlasMapLiveStateInfo.innerHTML="";var i=document.createElement("p");i.innerText="Zoom: "+a.zoom.toFixed(e.ZOOM_FRACTION_PRECISION),t.atlasMapLiveStateInfo.appendChild(i);var r=document.createElement("p");r.innerText="Location: "+e.UNKNOWN_LOCATION_STRING,t.atlasMapLiveStateInfo.appendChild(r);var p=document.createElement("p");p.innerText="Latitude: "+a.center[1].toFixed(e.COORDINATE_FRACTION_PRECISION),t.atlasMapLiveStateInfo.appendChild(p);var l=document.createElement("p");l.innerText="Longitude: "+a.center[0].toFixed(e.COORDINATE_FRACTION_PRECISION),t.atlasMapLiveStateInfo.appendChild(l)})},this.map=a}return e.COORDINATE_FRACTION_PRECISION=5,e.ZOOM_FRACTION_PRECISION=2,e.UNKNOWN_LOCATION_STRING="unknown",e}();exports.AccessibleMapDelegate=AccessibleMapDelegate;
+},{"../../../variables.json":285,"../Atlas":166,"../HtmlMarker":167,"../Pixel":169,"../helpers/localization/Localizer":182,"../instrumentation/Insights":184,"../namespace/controls/AzureLogoControl":224,"../namespace/controls/CopyrightControl":229,"../namespace/data":248,"../namespace/layer":261,"../namespace/math":275,"../namespace/source":280,"./delegates/accessibility/AccessibleMapDelegate":186,"./delegates/flow/FlowServiceDelegate":189,"./delegates/incidents/IncidentServiceDelegate":192,"./managers":201,"./options/AnimationOptions":202,"./options/CameraBoundsOptions":203,"./options/CameraOptions":204,"./options/CircleLayerOptions":205,"./options/ControlOptions":206,"./options/LinestringLayerOptions":208,"./options/PinLayerOptions":209,"./options/PolygonLayerOptions":210,"./options/RasterLayerOptions":211,"./options/StyleOptions":212,"./options/TrafficOptions":213,"./options/UserInteractionOptions":214,"./services/options/ServiceOptions":219,"./style/StyleBuilder":221,"./style/StyleDefinitions":222,"lodash":109,"mapbox-gl":110,"uuid-random":162}],186:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var MapViewDescriptor_1=require("./MapViewDescriptor"),AccessibleMapDelegate=function(){return function(a){var e=this;this.addToMap=function(){e.createMapKeyBindingInfo(),e.initializeMapLiveStateInfo(),e.initializeMapStyleInfo(),e.map.getMapContainer().setAttribute("role","application"),e.map.getMapContainer().setAttribute("aria-label","Map Application"),e.map.getCanvas().setAttribute("aria-label","Interactive Map"),e.map.getCanvas().setAttribute("aria-describedby","atlas-map-state atlas-map-shortcuts"),e.map.getCanvas().setAttribute("title","Interactive Map"),e.map.getCanvas().setAttribute("alt","Interactive Map")},this.removeFromMap=function(){null!=e.mapViewDesc&&e.mapViewDesc.dispose(),e.mapViewDesc=null,null!=e.atlasMapKeyBindings&&e.map.getCanvasContainer().removeChild(e.atlasMapKeyBindings),e.atlasMapKeyBindings=null,null!=e.atlasMapLiveStateInfo&&e.map.getCanvasContainer().removeChild(e.atlasMapLiveStateInfo),e.atlasMapLiveStateInfo=null,null!=e.atlasMapStyleInfo&&e.map.getCanvasContainer().removeChild(e.atlasMapStyleInfo),e.atlasMapStyleInfo=null,e.map.getMapContainer().removeAttribute("role"),e.map.getMapContainer().removeAttribute("aria-label"),e.map.getCanvas().removeAttribute("aria-label"),e.map.getCanvas().removeAttribute("aria-describedby"),e.map.getCanvas().removeAttribute("title"),e.map.getCanvas().removeAttribute("alt"),e.map.events.remove("styledata",e.updateMapStyle)},this.createMapKeyBindingInfo=function(){e.atlasMapKeyBindings=document.createElement("div"),e.atlasMapKeyBindings.setAttribute("tabindex","-1"),e.atlasMapKeyBindings.setAttribute("aria-label","Interactive Map Key Bindings"),e.atlasMapKeyBindings.id="atlas-map-shortcuts",e.atlasMapKeyBindings.classList.add("hidden-accessible-element"),e.map.getCanvasContainer().appendChild(e.atlasMapKeyBindings),e.atlasMapKeyBindings.innerHTML="<p>Zoom out: hyphen</p><p>Zoom in: plus</p><p>Pan right 100 pixels: right arrow</p><p>Pan left 100 pixels: left arrow</p><p>Pan up 100 pixels: up arrow</p><p>Pan down 100 pixels: down arrow</p><p>Rotate 15 degrees clockwise: shift + right arrow</p><p>Rotate 15 degrees counter clockwise: shift + left arrow</p><p>Increase pitch 10 degrees: shift + up arrow</p><p>Decrease pitch 10 degrees: shift + down arrow</p><p>Toggle verbose map state: control + alt + D</p>"},this.initializeMapLiveStateInfo=function(){e.mapViewDesc=new MapViewDescriptor_1.MapViewDescriptor(e.map,e.updateMapState),e.atlasMapLiveStateInfo=document.createElement("div"),e.atlasMapLiveStateInfo.setAttribute("tabindex","-1"),e.atlasMapLiveStateInfo.setAttribute("aria-label","Interactive Map State"),e.atlasMapLiveStateInfo.setAttribute("aria-live","polite"),e.atlasMapLiveStateInfo.setAttribute("aria-atomic","true"),e.atlasMapLiveStateInfo.id="atlas-map-state",e.atlasMapLiveStateInfo.classList.add("hidden-accessible-element"),e.map.getCanvasContainer().appendChild(e.atlasMapLiveStateInfo)},this.initializeMapStyleInfo=function(){e.atlasMapStyleInfo=document.createElement("div"),e.atlasMapStyleInfo.setAttribute("aria-label","Interactive Map Style"),e.atlasMapStyleInfo.setAttribute("aria-live","polite"),e.atlasMapStyleInfo.setAttribute("aria-atomic","true"),e.atlasMapStyleInfo.classList.add("hidden-accessible-element"),e.map.getCanvasContainer().appendChild(e.atlasMapStyleInfo),e.updateMapStyle(),e.map.events.add("styledata",e.updateMapStyle)},this.updateMapStyle=function(){e.atlasMapStyleInfo.innerHTML="<p>Style: "+e.map.getStyle().style+"</p>"},this.updateMapState=function(a){e.atlasMapLiveStateInfo.innerHTML=a},this.map=a}}();exports.AccessibleMapDelegate=AccessibleMapDelegate;
 
-},{"../../services/NearbyGeographySearchService":214}],186:[function(require,module,exports){
+},{"./MapViewDescriptor":188}],187:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var math_1=require("../../../namespace/math"),MapLabelCache=function(){function e(){this._labelCache={},this._labelIdx={},this._preloadedCache=new Set}return e.prototype.cache=function(e,a,c,i){var t=e+"_"+c[0]+"_"+c[1]+"_"+i;this._labelIdx[a.labelType]||(this._labelIdx[a.labelType]=[],this._labelCache[a.labelType]=[]),-1===this._labelIdx[a.labelType].indexOf(t)&&(this._labelCache[a.labelType].push({name:e,radius:a.radius,minZoom:a.minZoom,maxZoom:a.maxZoom||24,position:c}),this._labelIdx[a.labelType].push(t))},e.prototype.getNearestLabel=function(e,a,c){var i=null,t=this._labelCache[e];if(t)for(var h=1/0,n=0,s=t.length;n<s;n++)if(c>=t[n].minZoom&&c<=t[n].maxZoom){var l=math_1.getDistanceTo(t[n].position,a);l<=t[n].radius&&l<=h&&(h=l,i=t[n])}return i},e.prototype._preloadCache=function(e){if(!this._preloadedCache.has(e)){this._preloadedCache.add(e);var a={source:["Ocean label","Ocean name"],labelType:"water",minZoom:0,radius:395e4,polygonSources:["Ocean","Ocean or sea"]},c=e,i=c.indexOf("-");switch(-1!==i&&(c=c.substr(0,i)),c){case"fr":this.cache("Océan Pacifique",a,[-170,32],e),this.cache("Océan Pacifique",a,[-138,-27],e),this.cache("Océan Atlantique",a,[-40,32],e),this.cache("Océan Atlantique",a,[-17,-29],e);break;case"es":this.cache("Océan Pacifique",a,[-170,32],e),this.cache("Océan Pacifique",a,[-138,-27],e),this.cache("Océano Atlántico",a,[-40,32],e),this.cache("Océano Atlántico",a,[-17,-29],e);break;case"pt":this.cache("Oceano Pacífico",a,[-170,32],e),this.cache("Oceano Pacífico",a,[-138,-27],e),this.cache("Oceano Atlântico",a,[-40,32],e),this.cache("Oceano Atlântico",a,[-17,-29],e);break;case"ja":this.cache("太平洋",a,[-170,32],e),this.cache("太平洋",a,[-138,-27],e);break;case"en":this.cache("Pacific Ocean",a,[-170,32],e),this.cache("Pacific Ocean",a,[-138,-27],e),this.cache("Atlantic Ocean",a,[-40,32],e),this.cache("Atlantic Ocean",a,[-17,-29],e),this.cache("Indian Ocean",a,[77,-26],e)}}},e}();exports.MapLabelCache=MapLabelCache;
+
+},{"../../../namespace/math":275}],188:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var ErrorHandler_1=require("../../../helpers/ErrorHandler"),math_1=require("../../../namespace/math"),Pixel_1=require("../../../Pixel"),NearbyGeographySearchService_1=require("../../services/NearbyGeographySearchService"),MapLabelCache_1=require("./MapLabelCache"),MapViewDescriptor=function(){function e(o,a){var r=this;this._restFallback=!0,this._disposed=!1,this._mapMoveThreshold=25,this._roadPixelRadius=120,this._minRoadDistance=25,this._minIntersectionPixelDistance=50,this._baseVectorTileSourceId="vectorTiles",this._lableConfig=[{source:["Ocean label","Ocean name"],labelType:"water",minZoom:0,radius:395e4,polygonSources:["Ocean","Ocean or sea"]},{source:["Sea label"],labelType:"water",minZoom:3,radius:1e6,polygonSources:["Sea","Ocean or sea"]},{source:["Country name"],labelType:"country",minZoom:0,maxZoom:5,radius:3e5},{source:["State name","State name short"],labelType:"state",minZoom:4,maxZoom:7,radius:3e5},{source:["Capital city","Large city"],labelType:"city",minZoom:8,radius:4e4},{source:["Medium city"],labelType:"city",minZoom:8,radius:3e4},{source:["Small city"],labelType:"city",minZoom:8,radius:2e4},{source:["Island label"],labelType:"city",minZoom:8,radius:1e4},{source:["Town"],labelType:"city",minZoom:10,radius:1e4},{source:["Village"],labelType:"neighbourhood",minZoom:12,radius:6e3},{source:["Amusement area label"],labelType:"poi",minZoom:14,radius:2e3,polygonSources:["Amusement park"]},{source:["Hospital label"],labelType:"poi",minZoom:14,radius:1e3,polygonSources:["Hospital"]},{source:["Shopping centre label"],labelType:"poi",minZoom:14,radius:1e3,polygonSources:["Shopping"]},{source:["Stadium label"],labelType:"poi",minZoom:14,radius:1e3,polygonSources:["Stadium"]},{source:["University/School label"],labelType:"poi",minZoom:14,radius:1e3,polygonSources:["University"]},{source:["Zoo label"],labelType:"poi",minZoom:14,radius:1e3,polygonSources:["Zoo"]},{source:["Airport Label","Airport name","Airport POI"],labelType:"majorPoi",minZoom:11,radius:3e3,polygonSources:["Airport","Runway"]},{source:["National park name"],labelType:"majorPoi",minZoom:7,radius:15e3,polygonSources:["National or state park","National park","Forest"]},{source:["Reservation label"],labelType:"majorPoi",minZoom:7,radius:15e3,polygonSources:["Reservation"]}],this._polygonStyleLayer=["National or state park","National park","Reservation","Airport","Runway","Stadium","University","Zoo","Shopping","Hospital","Amusement park","Ocean","Sea","Ocean or sea"],this._labelCache=new Set(["city","state","country","water","majorPoi"]),this._roadLayers=new Set(["Connecting road","Connecting road tunnel","International road","International road tunnel","Local road","Local road tunnel","Major local road","Major local road tunnel","Major road","Major road tunnel","Minor local road","Minor local road tunnel","Motorway","Motorway tunnel","Secondary road","Secondary road tunnel","Toll connecting road","Toll connecting road tunnel","Toll international road","Toll international road tunnel","Toll local road","Toll local road tunnel","Toll major local road","Toll major local road tunnel","Toll major road","Toll major road tunnel","Toll minor local road","Toll minor local road tunnel","Toll motorway","Toll motorway tunnel","Toll secondary road","Toll secondary road tunnel"]),this._returnDetailedDescriptions=!1,this._mapUpdate=function(){setTimeout(function(){var o=r._map.getCamera(),a=r._map.getStyle().language.toLowerCase();if(r._lastLang!==a)e._labelCache._preloadCache(a),r._getDescriptor(o,a);else if(r._lastCamera)if(Math.round(r._lastCamera.zoom)!==Math.round(o.zoom))r._getDescriptor(o,a);else{var t=r._map.positionsToPixels([r._lastCamera.center,o.center]);Pixel_1.Pixel.getDistance(t[0],t[1])>r._mapMoveThreshold&&r._getDescriptor(o,a)}else r._getDescriptor(o,a)},100)},this._shortcutListener=function(e){e.altKey&&e.ctrlKey&&68===e.keyCode&&(r._returnDetailedDescriptions=!r._returnDetailedDescriptions,r._getDescriptor(r._map.getCamera(),r._map.getStyle().language.toLowerCase()))},this._map=o,this._mapDescriptionUpdated=a,this._reverseSearch=new NearbyGeographySearchService_1.NearbyGeographySearchService(o.authentication),e._labelCache||(e._labelCache=new MapLabelCache_1.MapLabelCache),this._lastLang=this._map.getStyle().language.toLowerCase(),e._labelCache._preloadCache(this._lastLang);var t=function(){r._map.events.remove("load",t),r._disposed||(r._mapUpdate(),r._map.events.add("moveend",r._mapUpdate),r._map.events.add("styledata",r._mapUpdate))};this._map.events.add("load",t),this._map.getMapContainer().addEventListener("keydown",this._shortcutListener)}return e.prototype.dispose=function(){this._disposed=!0,this._map.events.remove("moveend",this._mapUpdate),this._map.events.remove("styledata",this._mapUpdate),this._map.getMapContainer().removeEventListener("keydown",this._shortcutListener)},e.prototype._getDescriptor=function(o,a){var r=this;this._lastCamera=o,this._lastLang=a;var t,n={},i=this._map.positionsToPixels([o.center])[0];ErrorHandler_1.ErrorHandler.tryCatch(this._map,function(){t=r._map._getMap().queryRenderedFeatures(i,{layers:r._polygonStyleLayer,filter:["==",["geometry-type"],"Polygon"]})},function(){});var s=null;t&&t.length>0&&(s=t[0]);for(var l,c=null,p=0,u=this._lableConfig.length;p<u;p++){var d=this._lableConfig[p];o.zoom>=d.minZoom?d.polygonSources?s&&-1!==d.polygonSources.indexOf(s.layer["source-layer"])?(c=d.labelType,this._getClosestLabel(d,o,a,n,!1)):this._getClosestLabel(d,o,a,n,!0):this._getClosestLabel(d,o,a,n,!1):this._getClosestLabel(d,o,a,n,!0)}o.zoom>=8&&this._processRoads(n,o,a),this._labelCache.forEach(function(a){n[a]||(l=null,"water"===a||"majorPoi"===a?a===c&&(l=e._labelCache.getNearestLabel(a,o.center,o.zoom)):l=e._labelCache.getNearestLabel(a,o.center,o.zoom),l&&(n[a]=l.name))}),this._createDescription(o,c,n,this._restFallback).then(function(e){e!==r._lastDescription&&""!==e&&(r._lastDescription=e,r._mapDescriptionUpdated(e))})},e.prototype._getClosestLabel=function(o,a,r,t,n){for(var i=o.radius,s=0,l=o.source.length;s<l;s++){var c={sourceLayer:o.source[s]},p=!1;"National park name"===o.source[s]&&(p=!0);var u=this._map._getMap().querySourceFeatures(this._baseVectorTileSourceId,c),d=null,m=1/0,y=this._labelCache.has(o.labelType);if(!n||n&&y)for(var h=0,_=u.length;h<_;h++){var g=u[h].geometry.coordinates;if(!n){var b=p?math_1.getClosestPointOnGeometry(a.center,u[h].geometry).properties.distance:math_1.getDistanceTo(a.center,g);b<m&&(m=b,d=u[h])}y&&e._labelCache.cache(u[h].properties.name,o,g,r)}if(!n){var v=o.labelType+"Dis";d&&m<=i&&("number"!=typeof t[v]||m<=t[v])&&(t[o.labelType]=d.properties.name,t[v]=m)}}},e.prototype._processRoads=function(o,a,r,t){var n=this._map._getMap().queryRenderedFeatures(t,{filter:["==",["geometry-type"],"LineString"]});if(n){for(var i=void 0,s=void 0,l=void 0,c=void 0,p=0,u=n.length;p<u;p++)if(this._roadLayers.has(n[p].layer["source-layer"])&&n[p].properties.name&&""!==n[p].properties.name){var d=math_1.getClosestPointOnGeometry(a.center,n[p]);(!l||d.properties.distance<l.properties.distance)&&(i&&n[p].properties.name===i.properties.name?l=d:i&&n[p].properties.name===i.properties.name?(!c||d.properties.distance<c.properties.distance)&&(c=d,s=n[p]):(c=l,s=i,l=d,i=n[p]))}if(i&&(o.country||(o.country=i.properties.country_code,o.countryDis=0,e._labelCache.cache(o.country,{source:["Country name"],labelType:"country",radius:5e3,minZoom:0},l.geometry.coordinates,r)),o.state||(o.state=i.properties.country_subdivision,o.stateDis=0,e._labelCache.cache(o.state,{source:["State name"],labelType:"state",radius:5e3,minZoom:4},l.geometry.coordinates,r)),a.zoom>=15)){var m=this._map.positionsToPixels([a.center,l.geometry.coordinates]),y=Pixel_1.Pixel.getDistance(m[0],m[1]);if((y<this._roadPixelRadius||l.properties.distance<this._minRoadDistance)&&(o.road=i.properties.name),s){var h=this._map.positionsToPixels([c.geometry.coordinates]);((y=Pixel_1.Pixel.getDistance(m[0],h[0]))<this._minIntersectionPixelDistance||c.properties.distance<this._minRoadDistance)&&(o.secondRoad=s.properties.name,o.secondRoadDis=c.properties.distance)}}}},e.prototype._createDescription=function(e,o,a,r){var t=this;return new Promise(function(n,i){var s=[];a&&(o&&("water"===o&&a.water?s.push(a.water):"majorPoi"===o&&a.majorPoi&&s.push(a.majorPoi)),0===s.length&&(a.majorPoi&&e.zoom>=8?s.push(a.majorPoi):(a.poi&&e.zoom>=14?s.push(a.poi):a.road&&e.zoom>=15&&(a.secondRoad?s.push(a.road+" & "+a.secondRoad):s.push(a.road)),a.neighbourhood&&e.zoom>=12&&s.push(a.neighbourhood),a.city&&e.zoom>=6&&s.push(a.city)),a.state&&e.zoom>=4&&s.push(a.state),0===s.length?a.water?s.push(a.water):a.country&&s.push(a.country):1===s.length&&a.state&&e.zoom>=4&&a.country&&s.push(a.country)));var l=[];if(s.length>0)l.push("<p>Location: ",s.join(", "),"</p>");else if(r&&"water"!==o)return void t._reverseGeocodeDescription(e).then(function(e){n(e)},function(){i("<p>Location: unknown</p>")});t._returnDetailedDescriptions&&(l.push("<p>Zoom: ",math_1._precision(e.zoom,2),"</p>"),l.push("<p>Latitude: ",math_1._precision(e.center[1],5),"</p>"),l.push("<p>Longitude: ",math_1._precision(e.center[0],5),"</p>")),n(l.join(""))})},e.prototype._reverseGeocodeDescription=function(o){var a=this;return new Promise(function(r){var t=a._map.getStyle();a._reverseSearch.request({position:o.center,style:t}).then(function(n){var i={};if(n&&n.addresses&&n.addresses.length>0&&n.addresses[0].address){var s=n.addresses[0].address;s.country&&(i.country=s.country,e._labelCache.cache(i.country,{source:["Country name"],labelType:"country",radius:5e3,minZoom:0},o.center,t.language)),s.countrySubdivision&&(i.state=s.countrySubdivision,e._labelCache.cache(i.state,{source:["State name"],labelType:"state",radius:5e3,minZoom:4},o.center,t.language)),s.municipality&&(i.city=s.municipality,e._labelCache.cache(i.state,{source:["Small city"],labelType:"city",radius:1e3,minZoom:10},o.center,t.language)),s.streetNameAndNumber?i.road=s.streetNameAndNumber:s.street&&(i.road=s.street)}a._createDescription(o,null,i,!1).then(function(e){r(e)})},function(e){a._createDescription(o,null,null,!1).then(function(e){r(e)})}).catch(function(e){a._createDescription(o,null,null,!1).then(function(e){r(e)})})})},e}();exports.MapViewDescriptor=MapViewDescriptor;
+
+},{"../../../Pixel":169,"../../../helpers/ErrorHandler":173,"../../../namespace/math":275,"../../services/NearbyGeographySearchService":216,"./MapLabelCache":187}],189:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),FlowServiceDelegate=function(){return function(e,o){var t=this;this.callCounter=0,this.listenerEnabled=!1,this.flowComponent=void 0,this.flowPath=void 0,this.addToMap=function(){if(!t.map._isReady())throw new Error("Traffic flow could not be added to the map because the map is not ready. Please use a ready event listener to guarantee the map is ready before enabling traffic flow.");t.listenerEnabled||(t.map.events.add("styledata",t.addToMap),t.listenerEnabled=!0);var e=t.map.getStyle(),o=t.map.getTraffic(),a=t.styleDefinitions.getFlowPath(e,o);if(a&&t.flowPath!==a){t.callCounter++;var n=t.callCounter;t.styleDefinitions.getFlowComponent(e,o).then(function(e){if(t.callCounter===n){t.flowComponent&&(t.map.layers.remove(t.flowComponent.layer),t.map.sources.remove(t.flowComponent.sources),delete t.flowComponent);var o=t.map.layers.getLayers(),l=_.findIndex(o,function(e){return"transit"===e.getId()}),r=-1!==l?o[l+1]:void 0;t.map.sources.add(e.sources),t.map.layers.add(e.layer,r),t.flowComponent=e,t.flowPath=a}})}},this.removeFromMap=function(){t.callCounter++,t.listenerEnabled&&(t.map.events.remove("styledata",t.addToMap),t.listenerEnabled=!1),t.flowPath&&delete t.flowPath,t.flowComponent&&(t.map.layers.remove(t.flowComponent.layer),t.map.sources.remove(t.flowComponent.sources),delete t.flowComponent)},this.styleDefinitions=o,this.map=e}}();exports.FlowServiceDelegate=FlowServiceDelegate;
 
-},{"lodash":109}],187:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,r){e.__proto__=r}||function(e,r){for(var t in r)r.hasOwnProperty(t)&&(e[t]=r[t])};return function(r,t){function n(){this.constructor=r}e(r,t),r.prototype=null===t?Object.create(t):(n.prototype=t.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var data_1=require("../../../namespace/data"),Incident=function(e){function r(t,n){var a=new data_1.Point(new data_1.Position(t.op.x,t.op.y)),c={icon:r.getSeverityColorName(t.ty)+"-"+r.getIncidentTypeIconName(t.ic),incidentType:r.getIncidentTypeName(t.ic,n),description:t.d,length:t.l,delay:t.dl,from:t.f,color:r.getSeverityColorHexCode(t.ty),to:t.t,id:t.id};return e.call(this,a,c)||this}return __extends(r,e),r.getIncidentTypeName=function(e,r){switch(e){case 0:return r.Unknown;case 1:return r.Accident;case 2:return r.Fog;case 3:return r.Danger;case 4:return r.Rain;case 5:return r.Ice;case 6:return r.Jam;case 7:return r.LaneClosed;case 8:return r.RoadClosed;case 9:return r.RoadWorks;case 10:return r.Wind;case 11:return r.Flood;case 12:return r.Detour;default:return r.Unknown}},r.getIncidentTypeIconName=function(e){switch(e){case 0:return"unknown";case 1:return"accident";case 2:return"fog";case 3:return"danger";case 4:return"rain";case 5:return"ice";case 6:return"jam";case 7:return"lane-closed";case 8:return"road-closed";case 9:return"road-work";case 10:return"wind";case 11:return"flood";case 12:return"detour";default:return"unknown"}},r.getSeverityColorName=function(e){switch(e){case 0:return"grey";case 1:return"yellow";case 2:return"orange";case 3:return"red";case 4:default:return"grey"}},r.getSeverityColorHexCode=function(e){switch(e){case 0:return"#B5B6B7";case 1:return"#F4C951";case 2:return"#F4873F";case 3:return"#F04F4E";case 4:default:return"#B5B6B7"}},r}(data_1.Feature);exports.Incident=Incident;
+},{"lodash":109}],190:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var e=function(r,t){return(e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,r){e.__proto__=r}||function(e,r){for(var t in r)r.hasOwnProperty(t)&&(e[t]=r[t])})(r,t)};return function(r,t){function n(){this.constructor=r}e(r,t),r.prototype=null===t?Object.create(t):(n.prototype=t.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var data_1=require("../../../namespace/data"),Incident=function(e){function r(t,n){var a=new data_1.Point(new data_1.Position(t.op.x,t.op.y)),c={icon:r.getSeverityColorName(t.ty)+"-"+r.getIncidentTypeIconName(t.ic),incidentType:r.getIncidentTypeName(t.ic,n),description:t.d,length:t.l,delay:t.dl,from:t.f,color:r.getSeverityColorHexCode(t.ty),to:t.t,id:t.id};return e.call(this,a,c)||this}return __extends(r,e),r.getIncidentTypeName=function(e,r){switch(e){case 0:return r.Unknown;case 1:return r.Accident;case 2:return r.Fog;case 3:return r.Danger;case 4:return r.Rain;case 5:return r.Ice;case 6:return r.Jam;case 7:return r.LaneClosed;case 8:return r.RoadClosed;case 9:return r.RoadWorks;case 10:return r.Wind;case 11:return r.Flood;case 12:return r.Detour;default:return r.Unknown}},r.getIncidentTypeIconName=function(e){switch(e){case 0:return"unknown";case 1:return"accident";case 2:return"fog";case 3:return"danger";case 4:return"rain";case 5:return"ice";case 6:return"jam";case 7:return"lane-closed";case 8:return"road-closed";case 9:return"road-work";case 10:return"wind";case 11:return"flood";case 12:return"detour";default:return"unknown"}},r.getSeverityColorName=function(e){switch(e){case 0:return"grey";case 1:return"yellow";case 2:return"orange";case 3:return"red";case 4:default:return"grey"}},r.getSeverityColorHexCode=function(e){switch(e){case 0:return"#B5B6B7";case 1:return"#F4C951";case 2:return"#F4873F";case 3:return"#F04F4E";case 4:default:return"#B5B6B7"}},r}(data_1.Feature);exports.Incident=Incident;
 
-},{"../../../namespace/data":246}],188:[function(require,module,exports){
+},{"../../../namespace/data":248}],191:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var IncidentPopupIconName,math=require("../../../namespace/math"),Popup_1=require("../../../Popup");!function(e){e.DELAY="delay",e.LENGTH="length",e.FROM="from",e.TO="to"}(IncidentPopupIconName||(IncidentPopupIconName={}));var IncidentPopupFactory=function(){function e(){}return e.build=function(e,t){void 0===t&&(t="en-US");var i=document.createElement("div");i.classList.add("incident-popup-title"),i.classList.add("font-segoeui-b"),i.setAttribute("tabindex","0"),i.innerText=e.properties.incidentType,i.setAttribute("aria-label","Incident Type "+e.properties.incidentType);var n=document.createElement("div");n.classList.add("incident-popup-subtitle"),n.classList.add("font-segoeui-b"),n.setAttribute("aria-label","Incident Description "+e.properties.description),n.setAttribute("tabindex","0"),n.innerText=e.properties.description;var o=document.createElement("div");o.classList.add("incident-popup-header"),o.style.backgroundColor=e.properties.color,o.appendChild(i),o.appendChild(n);var a=document.createElement("div");if(a.classList.add("incident-popup-body"),e.properties.delay){var r=Math.floor(e.properties.delay/60)+" min",p=this.createInfoSection(r,IncidentPopupIconName.DELAY);a.appendChild(p)}if(e.properties.length){var d=new Intl.NumberFormat([t,"en-US"],{maximumFractionDigits:2}),c=void 0;if("en-US"===t){var s=math.convertDistance(e.properties.length,"meters","miles");c=d.format(s)+" miles"}else{var u=math.convertDistance(e.properties.length,"meters","kilometers");c=d.format(u)+" km"}var l=this.createInfoSection(c,IncidentPopupIconName.LENGTH);a.appendChild(l)}if(e.properties.from){var m=this.createInfoSection(e.properties.from,IncidentPopupIconName.FROM);a.appendChild(m)}if(e.properties.to){var v=this.createInfoSection(e.properties.to,IncidentPopupIconName.TO);a.appendChild(v)}var f=document.createElement("div");return f.classList.add("incident-popup-content"),f.appendChild(o),f.appendChild(a),new Popup_1.Popup({content:f,position:e.geometry.coordinates})},e.createInfoSection=function(e,t){var i=document.createElement("div");i.classList.add("incident-popup-info");var n=document.createElement("div");n.classList.add("icon"),n.classList.add(t);var o=document.createElement("span");return o.classList.add("message"),o.classList.add("font-segoeui"),o.setAttribute("aria-label","Incident "+t+" "+e),o.setAttribute("tabindex","0"),o.innerText=e,i.appendChild(n),i.appendChild(o),i},e}();exports.IncidentPopupFactory=IncidentPopupFactory;
 
-},{"../../../Popup":170,"../../../namespace/math":271}],189:[function(require,module,exports){
+},{"../../../Popup":170,"../../../namespace/math":275}],192:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Dictionary_1=require("../../../helpers/Dictionary"),data_1=require("../../../namespace/data"),IncidentService_1=require("../../services/IncidentService"),Incident_1=require("./Incident"),IncidentPopupFactory_1=require("./IncidentPopupFactory"),IncidentServiceDelegate=function(){return function(e){var n=this;this.incidentLayerName="incidents",this.popups=new Dictionary_1.Dictionary,this.addToMap=function(){n.map.addPins([],{name:n.incidentLayerName,cluster:!1}),n.map.addEventListener("mouseenter",n.incidentLayerName,n.cursorToPointer),n.map.addEventListener("mouseleave",n.incidentLayerName,n.cursorToDefault),n.map.addEventListener("click",n.incidentLayerName,n.openIncidentPopup),n.map.events.add("moveend",n.updateIncidents),n.map.events.add("styledata",n.updateLanguage),n.updateIncidents()},this.removeFromMap=function(){n.map.removeLayers([n.incidentLayerName]),n.map.removeEventListener("click",n.incidentLayerName,n.openIncidentPopup),n.map.removeEventListener("mouseenter",n.incidentLayerName,n.cursorToPointer),n.map.removeEventListener("mouseleave",n.incidentLayerName,n.cursorToDefault),n.map.events.remove("moveend",n.updateIncidents),n.map.events.remove("styledata",n.updateLanguage),n.cleanUpPopups()},this.updateIncidents=function(){var e=Math.ceil(n.map.getCamera().zoom),t=n.map.getCamera().bounds;n.incidentLanguage=n.map.getStyle().language;var i=n.map._getLocalizedStrings(),a=n.incidentService.request({bbox:t,zoom:e,params:{expandCluster:!0,originalPosition:!0,language:n.incidentLanguage}});Promise.all([a,i]).then(function(e){var i=e[0],a=e[1];if(n.map.getTraffic().incidents){var p=[];n.cleanUpPopups();for(var o=0,r=i.tm.poi||[];o<r.length;o++)for(var c=r[o],s=function(e){if(data_1.BoundingBox.containsPosition(t,[e.op.x,e.op.y])){var i=new Incident_1.Incident(e,a);p.push(i);var o=IncidentPopupFactory_1.IncidentPopupFactory.build(i,n.incidentLanguage);n.popups.set(i.properties.id,o),n.map.events.add("open",o,function(){n.openPopupId=i.properties.id,n.popups.forEach(function(e,t){n.openPopupId!==t&&e.close()})}),n.map.events.add("close",o,function(){n.openPopupId===i.properties.id&&delete n.openPopupId}),n.openPopupId===i.properties.id?n.popups.get(i.properties.id).open(n.map):n.popups.get(i.properties.id).attach(n.map)}},d=0,u=c.cpoi||[c];d<u.length;d++)s(u[d]);n.map.addPins(p,{overwrite:p.length>0,name:n.incidentLayerName})}})},this.cursorToPointer=function(e){n.map.getCanvas().style.cursor="pointer"},this.cursorToDefault=function(e){n.map.getCanvas().style.cursor=""},this.openIncidentPopup=function(e){var t=e.features[0].properties.id;n.popups.has(t)&&n.popups.get(t).open(n.map)},this.cleanUpPopups=function(){n.popups.forEach(function(e){e.remove()}),n.popups.clear()},this.updateLanguage=function(){n.map.getStyle().language!==n.incidentLanguage&&n.updateIncidents()},this.map=e,this.incidentService=new IncidentService_1.IncidentService(this.map.authentication)}}();exports.IncidentServiceDelegate=IncidentServiceDelegate;
 
-},{"../../../helpers/Dictionary":172,"../../../namespace/data":246,"../../services/IncidentService":213,"./Incident":187,"./IncidentPopupFactory":188}],190:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Dictionary_1=require("../../helpers/Dictionary"),EventEmitter=function(){function t(t){this.listeners=new Dictionary_1.Dictionary,this.supportedEvents=new Set;for(var e=0,n=t;e<n.length;e++){var s=n[e];this.supportedEvents.add(s)}}return t.prototype._addEventListener=function(t,e,n){this.supportedEvents.has(t)&&(this.listeners.has(t)||this.listeners.set(t,new Dictionary_1.Dictionary),this.listeners.get(t).set(e,n))},t.prototype._removeEventListener=function(t,e){this.listeners.has(t)&&this.listeners.get(t).delete(e)},t.prototype._getSupportedEvents=function(){var t=0,e=new Array(this.supportedEvents.size);return this.supportedEvents.forEach(function(n){return e[t++]=n}),e},t.prototype._invokeEvent=function(t,e){var n=this;if(!this.supportedEvents.has(t))throw new Error("Attempting to invoke an event '"+t+"' that is not supported by this EventEmitter.");this.listeners.has(t)&&this.listeners.get(t).forEach(function(s,r){s&&n._removeEventListener(t,r),r(e)})},t}();exports.EventEmitter=EventEmitter;
-
-},{"../../helpers/Dictionary":172}],191:[function(require,module,exports){
+},{"../../../helpers/Dictionary":172,"../../../namespace/data":248,"../../services/IncidentService":215,"./Incident":190,"./IncidentPopupFactory":191}],193:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Dictionary_1=require("../../helpers/Dictionary"),data_1=require("../../namespace/data"),Pixel_1=require("../../Pixel"),MapCallbackHandler=function(){function e(e){this.callbacks=new Dictionary_1.Dictionary,this.map=e}return e.prototype.addCallback=function(e,t,n,i,a){var r,s,l=this;if(i)r=function(e){var t=e.lngLat?new data_1.Position(e.lngLat.lng,e.lngLat.lat):void 0,i=e.point?[e.point.x,e.point.y]:void 0,a=e.features?e.features.map(function(e){return new data_1.Feature(e.geometry,e.properties,e.id)}):[],r={type:e.type,originalEvent:e.originalEvent,position:t,coordinate:i,features:a};n(r)};else switch(e){case"touchstart":case"touchend":case"touchmove":case"touchcancel":r=function(i){if(i.originalEvent){if(i.originalEvent===s)return;s=i.originalEvent}var r=i.point?new Pixel_1.Pixel(i.point.x,i.point.y):void 0,o=i.points?i.points.map(function(e){return new Pixel_1.Pixel(e.x,e.y)}):[],c=i.lngLat?new data_1.Position(i.lngLat.lng,i.lngLat.lat):void 0,p=i.lngLats?i.lngLats.map(function(e){return new data_1.Position(e.lng,e.lat)}):[],g=c?l.map.layers.getRenderedShapes(new data_1.Point(c),t?[t]:void 0):[],v={map:l.map,originalEvent:i.originalEvent,pixel:r,pixels:o,position:c,positions:p,shapes:g,preventDefault:i.preventDefault,type:i.type};a&&l.map.events._removeListener(e,t,n),n(v)};break;case"mousedown":case"mouseup":case"mouseover":case"mousemove":case"click":case"dblclick":case"mouseout":case"mouseenter":case"mouseleave":case"contextmenu":r=function(i){if(i.originalEvent){if(i.originalEvent===s)return;s=i.originalEvent}var r=i.lngLat?new data_1.Position(i.lngLat.lng,i.lngLat.lat):void 0,o=i.point?new Pixel_1.Pixel(i.point.x,i.point.y):void 0,c=r?l.map.layers.getRenderedShapes(new data_1.Point(r),t?[t]:void 0):[],p={map:l.map,originalEvent:i.originalEvent,position:r,pixel:o,preventDefault:i.preventDefault,shapes:c,type:i.type};a&&l.map.events._removeListener(e,t,n),n(p)};break;case"wheel":r=function(i){if(i.originalEvent){if(i.originalEvent===s)return;s=i.originalEvent}var r={map:l.map,originalEvent:i.originalEvent,preventDefault:i.preventDefault,type:i.type};a&&l.map.events._removeListener(e,t,n),n(r)};break;case"error":r=function(i){var r={error:i.error,map:l.map,type:i.type};a&&l.map.events._removeListener(e,t,n),n(r)};break;case"resize":r=function(i){var r={map:l.map,type:i.type};for(var s in i)"type"!==s&&"target"!==s&&(r[s]=i[s]);a&&l.map.events._removeListener(e,t,n),n(r)};break;default:r=function(i){var r={map:l.map,type:i.type};i.originalEvent&&(r.originalEvent=i.originalEvent),a&&l.map.events._removeListener(e,t,n),n(r)}}this.callbacks.has(t)||this.callbacks.set(t,new Dictionary_1.Dictionary),this.callbacks.get(t).has(e)||this.callbacks.get(t).set(e,new Dictionary_1.Dictionary),this.callbacks.get(t).get(e).set(n,[r,a])},e.prototype.removeCallback=function(e,t,n){this.callbacks.has(t)&&this.callbacks.get(t).has(e)&&this.callbacks.get(t).get(e).has(n)&&this.callbacks.get(t).get(e).delete(n)},e.prototype.getModifiedCallback=function(e,t,n){if(this.callbacks.has(t)&&this.callbacks.get(t).has(e)&&this.callbacks.get(t).get(e).has(n))return this.callbacks.get(t).get(e).get(n)[0]},e.prototype.getLayerCallbacks=function(e){if(this.callbacks.has(e))return this.callbacks.get(e)},e.prototype.getEventCallbacks=function(e,t){if(this.callbacks.has(t)){var n=this.callbacks.get(t);if(n.has(e))return n.get(e)}},e}();exports.MapCallbackHandler=MapCallbackHandler;
 
-},{"../../Pixel":169,"../../helpers/Dictionary":172,"../../namespace/data":246}],192:[function(require,module,exports){
+},{"../../Pixel":169,"../../helpers/Dictionary":172,"../../namespace/data":248}],194:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var AuthenticationContext=require("adal-angular"),jwt_decode=require("jwt-decode"),pkg=require("../../../../package.json"),vars=require("../../../../variables.json"),AuthenticationOptions_1=require("../services/options/AuthenticationOptions"),AuthenticationManager=function(){function t(e){var o=this;this._triggerTokenFetch=function(){return new Promise(function(e,n){o.options.getToken(function(n){o._storeAccessToken(n),clearTimeout(o.tokenTimeOutHandle);var s=o._getTokenExpiry(n)-t.constants.tokenRefreshClockSkew;o.tokenTimeOutHandle=setTimeout(o._triggerTokenFetch,1e3*s),e()},function(t){n(t)},o.map)})};var n=e.getServiceOptions();this.options=n.authOptions,this.sessionId=n.sessionId,this.map=e}return t.prototype.initialize=function(){var e=this;return this.initPromise||(this.initPromise=new Promise(function(o,n){if(e.options.authType===AuthenticationOptions_1.AuthenticationType.subscriptionKey)o();else if(e.options.authType===AuthenticationOptions_1.AuthenticationType.aad){if(e.options.authContext=e.options.authContext||t.getDefaultAuthContext(e.options),e.options.authContext.handleWindowCallback(),e.options.authContext.isCallback(window.location.hash))return void e.map.dispose();setTimeout(function(){return e._loginAndAcquire(o,n)})}else e.options.authType===AuthenticationOptions_1.AuthenticationType.anonymous?o(e._triggerTokenFetch()):n(new Error("An invalid authentication type was specified."))})),this.initPromise},t.getDefaultAuthContext=function(t){if(!t.aadAppId)throw new Error("No AAD app ID was specified.");if(!t.aadTenant)throw new Error("No AAD tenant was specified.");return this.defaultAuthContext||(this.defaultAuthContext=new AuthenticationContext({instance:t.aadInstance||vars.env.aadInstance,tenant:t.aadTenant,clientId:t.aadAppId,cacheLocation:this.constants.preferredCacheLocation})),this.defaultAuthContext},t.prototype._loginAndAcquire=function(e,o){var n=this,s=function(){n.options.authContext.acquireToken(vars.constants.resourceId,function(s){if(s)o(new Error(s));else{var i={map:n.map,type:t.constants.events.tokenAcquired};n.map.events.invoke(t.constants.events.tokenAcquired,i),e()}})},i=this.options.authContext.getCachedToken(this.options.aadAppId),a=this.options.authContext.getCachedUser();if(i&&a)s();else{this.options.authContext.loginInProgress()||this.options.authContext.login();var r=setInterval(function(){n.options.authContext.loginInProgress()||(clearInterval(r),n.options.authContext.getCachedToken(n.options.aadAppId)?s():o(new Error(n.options.authContext.getLoginError()||"The AAD authentication context is not logged-in for the specified app ID: "+n.options.aadAppId)))},25)}},t.prototype.getAuthType=function(){return this.options.authType},t.prototype.getClientId=function(){return this.options.clientId},t.prototype.getToken=function(){var e=this;if(this.options.authType===AuthenticationOptions_1.AuthenticationType.aad){var o=this.options.authContext.getCachedToken(vars.constants.resourceId);return o||(this.options.authContext.getCachedUser()||this.options.authContext.login(),this.options.authContext.acquireToken(vars.constants.resourceId,function(n,s){if(!n){o=s;var i={map:e.map,type:t.constants.events.tokenAcquired};e.map.events.invoke(t.constants.events.tokenAcquired,i)}})),o}if(this.options.authType===AuthenticationOptions_1.AuthenticationType.anonymous){var n=this._getItem(t.constants.storage.accessTokenKey);if(n){var s=this._getTokenExpiry(n);if(s<300&&s>0)this._triggerTokenFetch();else if(s<=0)throw this._saveItem(t.constants.storage.accessTokenKey,""),new Error(t.constants.errors.tokenExpired)}else this._triggerTokenFetch();return n}if(this.options.authType===AuthenticationOptions_1.AuthenticationType.subscriptionKey)return this.options.subscriptionKey},t.prototype._getTokenExpiry=function(t){var e=jwt_decode(t).exp,o=this._getCurrentTime();return e-o>0?e-o:-1},t.prototype._storeAccessToken=function(e){this._saveItem(t.constants.storage.accessTokenKey,e);var o={map:this.map,type:t.constants.events.tokenAcquired};this.map.events.invoke(t.constants.events.tokenAcquired,o)},t.prototype._saveItem=function(t,e){return this._supportsLocalStorage()?(localStorage.setItem(t,e),!0):!!this._supportsSessionStorage()&&(sessionStorage.setItem(t,e),!0)},t.prototype._getItem=function(t){return this._supportsLocalStorage()?localStorage.getItem(t):this._supportsSessionStorage()?sessionStorage.getItem(t):null},t.prototype._supportsLocalStorage=function(){try{return!!window.localStorage&&(window.localStorage.setItem(t.constants.storage.testStorageKey,"A"),"A"===window.localStorage.getItem(t.constants.storage.testStorageKey)&&(window.localStorage.removeItem(t.constants.storage.testStorageKey),!window.localStorage.getItem(t.constants.storage.testStorageKey)))}catch(t){return!1}},t.prototype._supportsSessionStorage=function(){try{return!!window.sessionStorage&&(window.sessionStorage.setItem(t.constants.storage.testStorageKey,"A"),"A"===window.sessionStorage.getItem(t.constants.storage.testStorageKey)&&(window.sessionStorage.removeItem(t.constants.storage.testStorageKey),!window.sessionStorage.getItem(t.constants.storage.testStorageKey)))}catch(t){return!1}},t.prototype._getCurrentTime=function(){return Math.round((new Date).getTime()/1e3)},t.prototype.signRequest=function(t){t.headers=t.headers||{},t.headers[vars.constants.sessionIdHeaderName]=this.sessionId,t.headers[vars.constants.msOriginHeaderName]=vars.constants.msOriginHeaderValue,t.headers[vars.constants.mapAgentHeaderName]="MapControl/"+pkg.version+" (Web)";var e=this.getToken();switch(this.options.authType){case AuthenticationOptions_1.AuthenticationType.aad:case AuthenticationOptions_1.AuthenticationType.anonymous:t.headers[vars.constants.msClientIdHeaderName]=this.options.clientId,t.headers[vars.constants.authorizationHeaderName]=vars.constants.authorizationTokenPrefix+e;break;case AuthenticationOptions_1.AuthenticationType.subscriptionKey:if("url"in t)-1!==t.url.indexOf("?")?t.url+="&subscription-key="+e:t.url+="?&subscription-key="+e;else{if(!("domain"in t))throw new Error("Could not determine if the provided object was UrlOptions or RequestParameters");t.queryParams=t.queryParams||{},t.queryParams["subscription-key"]=e}break;default:throw new Error("An invalid authentication type was specified")}return t},t.constants={preferredCacheLocation:"localStorage",storage:{accessTokenKey:"access.token.key",testStorageKey:"testStorage"},events:{tokenAcquired:"tokenacquired"},tokenExpiresIn:3599,tokenRefreshClockSkew:300,errors:{tokenExpired:"Token Expired, Try again"}},t}();exports.AuthenticationManager=AuthenticationManager;
 
-},{"../../../../package.json":165,"../../../../variables.json":281,"../services/options/AuthenticationOptions":215,"adal-angular":3,"jwt-decode":108}],193:[function(require,module,exports){
+},{"../../../../package.json":165,"../../../../variables.json":285,"../services/options/AuthenticationOptions":217,"adal-angular":3,"jwt-decode":108}],195:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var ControlOptions_1=require("../options/ControlOptions"),ControlManager=function(){function t(t){for(var e in this.map=t,this.controlContainer=document.createElement("div"),this.controlContainer.classList.add("atlas-control-container"),ControlOptions_1.ControlPosition)if(ControlOptions_1.ControlPosition.hasOwnProperty(e)){var o=document.createElement("div");o.classList.add(ControlOptions_1.ControlPosition[e]),o.classList.add("subcontrol-container"),this.controlContainer.appendChild(o)}this.map.getMapContainer().appendChild(this.controlContainer)}return t.prototype.add=function(t,e){if(Array.isArray(t))for(var o=0,n=t;o<n.length;o++){var r=n[o];this._add(r,e)}else this._add(t,e)},t.prototype.remove=function(t){if(Array.isArray(t))for(var e=0,o=t;e<o.length;e++){var n=o[e];this._remove(n)}else this._remove(t)},t.prototype._add=function(t,e){var o=(new ControlOptions_1.ControlOptions).merge(e),n=t.onAdd(this.map,e),r=this.controlContainer.getElementsByClassName(o.position);if(!(r.length>0))throw new Error("Control position "+o.position+" does not exist.");r.item(0).appendChild(n)},t.prototype._remove=function(t){t.onRemove()},t}();exports.ControlManager=ControlManager;
 
-},{"../options/ControlOptions":204}],194:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var layer_1=require("../../namespace/layer"),EventEmitter_1=require("../events/EventEmitter"),MapCallbackHandler_1=require("../events/MapCallbackHandler"),EventManager=function(){function e(e){this.map=e,this.mapCallbackHandler=new MapCallbackHandler_1.MapCallbackHandler(this.map)}return e.prototype.add=function(e,n,t){if("function"==typeof n)this._addGlobalListener(e,n,!1,!1);else if(Array.isArray(n))for(var i=0,o=n;i<o.length;i++){var s=o[i];s instanceof EventEmitter_1.EventEmitter?s._addEventListener(e,t,!1):this._addLayerListener(e,s,t,!1,!1)}else n instanceof EventEmitter_1.EventEmitter?n._addEventListener(e,t,!1):this._addLayerListener(e,n,t,!1,!1)},e.prototype.addOnce=function(e,n,t){"function"==typeof n?this._addGlobalListener(e,n,!1,!0):n instanceof EventEmitter_1.EventEmitter?n._addEventListener(e,t,!0):this._addLayerListener(e,n,t,!1,!0)},e.prototype._addLegacy=function(e,n,t){"function"==typeof n?this._addGlobalListener(e,n,!0,!1):this._addLayerListener(e,n,t,!0,!1)},e.prototype._addLayerListener=function(e,n,t,i,o){var s=n instanceof layer_1.Layer?n.getId():n,r=this.map.layers.getLayerById(s),f=this.mapCallbackHandler.getModifiedCallback(e,s,t);if(f&&r)for(var a=0,p=r._getLayerIds();a<p.length;a++){var d=p[a];this.map._getMap().off(e,d,f)}if(this.mapCallbackHandler.addCallback(e,s,t,i,o),r){f=this.mapCallbackHandler.getModifiedCallback(e,s,t);for(var h=0,v=r._getLayerIds();h<v.length;h++){d=v[h];this.map._getMap().on(e,d,f)}}},e.prototype._addGlobalListener=function(e,n,t,i){var o=this.mapCallbackHandler.getModifiedCallback(e,"",n);if(o&&this.map._getMap().off(e,o),this.mapCallbackHandler.addCallback(e,"",n,t,i),o=this.mapCallbackHandler.getModifiedCallback(e,"",n),"load"===e&&this.map._isLoaded()){var s={type:"load",map:this.map};setTimeout(function(){return o(s)})}else if("ready"===e){if(this.map._isReady()){var r={type:"ready",map:this.map};setTimeout(function(){return o(r)})}}else this.map._getMap().on(e,o)},e.prototype.invoke=function(e,n,t){if(void 0===t)this._invokeListeners(e,"",n);else if(n instanceof EventEmitter_1.EventEmitter)n._invokeEvent(e,t);else{if(!(n instanceof layer_1.Layer))throw new Error("The invoke target is invalid.");this._invokeListeners(e,n.getId(),t)}},e.prototype._invokeListeners=function(e,n,t){var i=this,o=this.mapCallbackHandler.getEventCallbacks(e,n);o?o.forEach(function(o,s){o[0];o[1]&&i._removeListener(e,n,s),s(t)}):"error"===e&&console.error("error"in t?t.error:t)},e.prototype.remove=function(e,n,t){if("function"==typeof n)this._removeListener(e,"",n);else if(Array.isArray(n))for(var i=0,o=n;i<o.length;i++){var s=o[i];s instanceof EventEmitter_1.EventEmitter?s._removeEventListener(e,t):this._removeListener(e,s,t)}else n instanceof EventEmitter_1.EventEmitter?n._removeEventListener(e,t):this._removeListener(e,n,t)},e.prototype._removeLegacy=function(e,n,t){"function"==typeof n?this._removeListener(e,"",n):this._removeListener(e,n,t)},e.prototype._removeListener=function(e,n,t){var i=n instanceof layer_1.Layer?n.getId():n,o=this.mapCallbackHandler.getModifiedCallback(e,i,t);if(o)if(i){var s=this.map.layers.getLayerById(i);if(s)for(var r=0,f=s._getLayerIds();r<f.length;r++){var a=f[r];this.map._getMap().off(e,a,o)}}else this.map._getMap().off(e,o);this.mapCallbackHandler.removeCallback(e,i,t)},e.prototype._enableLayerEvents=function(e){var n=this,t=this.mapCallbackHandler.getLayerCallbacks(e.getId());t&&t.forEach(function(t,i){t.forEach(function(t){for(var o=t[0],s=0,r=e._getLayerIds();s<r.length;s++){var f=r[s];n.map._getMap().on(i,f,o)}})})},e.prototype._disableLayerEvents=function(e){var n=this,t=this.mapCallbackHandler.getLayerCallbacks(e.getId());t&&t.forEach(function(t,i){t.forEach(function(t){for(var o=t[0],s=0,r=e._getLayerIds();s<r.length;s++){var f=r[s];n.map._getMap().off(i,f,o)}})})},e}();exports.EventManager=EventManager;
+},{"../options/ControlOptions":206}],196:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var internal_1=require("../../namespace/internal"),layer_1=require("../../namespace/layer"),MapCallbackHandler_1=require("../events/MapCallbackHandler"),EventManager=function(){function e(e){this.map=e,this.mapCallbackHandler=new MapCallbackHandler_1.MapCallbackHandler(this.map)}return e.prototype.add=function(e,n,i){if("function"==typeof n)this._addGlobalListener(e,n,!1,!1);else if(Array.isArray(n))for(var o=0,t=n;o<t.length;o++){var s=t[o];s instanceof internal_1.EventEmitter?s._addEventListener(e,i,!1):this._addLayerListener(e,s,i,!1,!1)}else n instanceof internal_1.EventEmitter?n._addEventListener(e,i,!1):this._addLayerListener(e,n,i,!1,!1)},e.prototype.addOnce=function(e,n,i){"function"==typeof n?this._addGlobalListener(e,n,!1,!0):n instanceof internal_1.EventEmitter?n._addEventListener(e,i,!0):this._addLayerListener(e,n,i,!1,!0)},e.prototype._addLegacy=function(e,n,i){"function"==typeof n?this._addGlobalListener(e,n,!0,!1):this._addLayerListener(e,n,i,!0,!1)},e.prototype._addLayerListener=function(e,n,i,o,t){var s=n instanceof layer_1.Layer?n.getId():n,r=this.map.layers.getLayerById(s),a=this.mapCallbackHandler.getModifiedCallback(e,s,i);if(a&&r)for(var f=0,p=r._getLayerIds();f<p.length;f++){var d=p[f];this.map._getMap().off(e,d,a)}if(this.mapCallbackHandler.addCallback(e,s,i,o,t),r){a=this.mapCallbackHandler.getModifiedCallback(e,s,i);for(var h=0,m=r._getLayerIds();h<m.length;h++){d=m[h];this.map._getMap().on(e,d,a)}}},e.prototype._addGlobalListener=function(e,n,i,o){var t=this.mapCallbackHandler.getModifiedCallback(e,"",n);if(t&&this.map._getMap().off(e,t),this.mapCallbackHandler.addCallback(e,"",n,i,o),t=this.mapCallbackHandler.getModifiedCallback(e,"",n),"load"===e&&this.map._isLoaded()){var s={type:"load",map:this.map};setTimeout(function(){return t(s)})}else if("ready"===e){if(this.map._isReady()){var r={type:"ready",map:this.map};setTimeout(function(){return t(r)})}}else this.map._getMap().on(e,t)},e.prototype.invoke=function(e,n,i){if(void 0===i)this._invokeListeners(e,"",n);else if(n instanceof internal_1.EventEmitter)n._invokeEvent(e,i);else{if(!(n instanceof layer_1.Layer))throw new Error("The invoke target is invalid.");this._invokeListeners(e,n.getId(),i)}},e.prototype._invokeListeners=function(e,n,i){var o=this,t=this.mapCallbackHandler.getEventCallbacks(e,n);t?t.forEach(function(t,s){t[0];t[1]&&o._removeListener(e,n,s),s(i)}):"error"===e&&console.error("error"in i?i.error:i)},e.prototype.remove=function(e,n,i){if("function"==typeof n)this._removeListener(e,"",n);else if(Array.isArray(n))for(var o=0,t=n;o<t.length;o++){var s=t[o];s instanceof internal_1.EventEmitter?s._removeEventListener(e,i):this._removeListener(e,s,i)}else n instanceof internal_1.EventEmitter?n._removeEventListener(e,i):this._removeListener(e,n,i)},e.prototype._removeLegacy=function(e,n,i){"function"==typeof n?this._removeListener(e,"",n):this._removeListener(e,n,i)},e.prototype._removeListener=function(e,n,i){var o=n instanceof layer_1.Layer?n.getId():n,t=this.mapCallbackHandler.getModifiedCallback(e,o,i);if(t)if(o){var s=this.map.layers.getLayerById(o);if(s)for(var r=0,a=s._getLayerIds();r<a.length;r++){var f=a[r];this.map._getMap().off(e,f,t)}}else this.map._getMap().off(e,t);this.mapCallbackHandler.removeCallback(e,o,i)},e.prototype._enableLayerEvents=function(e){var n=this,i=this.mapCallbackHandler.getLayerCallbacks(e.getId());i&&i.forEach(function(i,o){i.forEach(function(i){for(var t=i[0],s=0,r=e._getLayerIds();s<r.length;s++){var a=r[s];n.map._getMap().on(o,a,t)}})})},e.prototype._disableLayerEvents=function(e){var n=this,i=this.mapCallbackHandler.getLayerCallbacks(e.getId());i&&i.forEach(function(i,o){i.forEach(function(i){for(var t=i[0],s=0,r=e._getLayerIds();s<r.length;s++){var a=r[s];n.map._getMap().off(o,a,t)}})})},e}();exports.EventManager=EventManager;
 
-},{"../../namespace/layer":257,"../events/EventEmitter":190,"../events/MapCallbackHandler":191}],195:[function(require,module,exports){
+},{"../../namespace/internal":250,"../../namespace/layer":261,"../events/MapCallbackHandler":193}],197:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var HtmlMarker_1=require("../../HtmlMarker"),HtmlMarkerManager=function(){function e(e){this.markers=new Set,this.map=e}return e.prototype.add=function(e,r){e._addToMap(this.map,r),this.markers.add(e)},e.prototype.remove=function(e){if(Array.isArray(e))for(var r=0,t=e;r<t.length;r++){var o=t[r];this._removeMarker(o)}else this._removeMarker(e)},e.prototype._removeMarker=function(e){var r=this;e instanceof HtmlMarker_1.HtmlMarker?(e._removeFromMap(),this.markers.delete(e)):this.markers.forEach(function(t){t._getId()===e&&(t._removeFromMap(),r.markers.delete(t))})},e.prototype.clear=function(){var e=this;this.markers.forEach(function(r){r._removeFromMap(),e.markers.delete(r)})},e}();exports.HtmlMarkerManager=HtmlMarkerManager;
 
-},{"../../HtmlMarker":167}],196:[function(require,module,exports){
+},{"../../HtmlMarker":167}],198:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Dictionary_1=require("../../helpers/Dictionary"),ImageSpriteManager=function(){function e(e){this.userImages=new Dictionary_1.Dictionary,this.imageLoadTimeout=5e3,this.map=e}return e.prototype.add=function(e,a){var t=this;return new Promise(function(o,r){if(t.userImages.has(e))o();else if(a instanceof HTMLImageElement||a instanceof ImageData)t.map._getMap().addImage(e,a),t.userImages.set(e,a),o();else if("string"==typeof a){var i=void 0;i=/<svg/i.test(a)&&!/^data:/i.test(a)?"data:image/svg+xml;base64,"+window.btoa(a):a;var n,s=document.createElement("img");s.onload=function(){clearTimeout(n),t.map._getMap().addImage(e,s),t.userImages.set(e,s),o()},s.onerror=s.onabort=function(){clearTimeout(n),r("Failed to load image into HTML element.")},n=setTimeout(function(){s.onload=s.onabort=s.onerror=function(){},r("Failed to load image within specified timeout: "+t.imageLoadTimeout+" ms.")},t.imageLoadTimeout),s.crossOrigin="anonymous",s.src=i}})},e.prototype.clear=function(){var e=this;this.userImages.forEach(function(a,t){e.map._getMap().removeImage(t)}),this.userImages.clear()},e.prototype.getImageIds=function(){var e=[];return this.userImages.forEach(function(a,t){e.push(t)}),e},e.prototype.hasImage=function(e){return this.userImages.has(e)},e.prototype.remove=function(e){this.map._getMap().removeImage(e),this.userImages.delete(e)},e.prototype._restoreImages=function(){var e=this;this.userImages.forEach(function(a,t){e.map._getMap().hasImage(t)||e.map._getMap().addImage(t,a)})},e}();exports.ImageSpriteManager=ImageSpriteManager;
 
-},{"../../helpers/Dictionary":172}],197:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),Dictionary_1=require("../../helpers/Dictionary"),data_1=require("../../namespace/data"),layer_1=require("../../namespace/layer"),SourceBuildingLayer_1=require("../../namespace/layer/SourceBuildingLayer"),LayerManager=function(){function t(t){this.layersById=new Dictionary_1.Dictionary,this.layers=[],this.map=t}return t.prototype.add=function(t,s){this._addLayers(t,s,!0)},t.prototype._addNoUpdate=function(t,s){this._addLayers(t,s,!1)},t.prototype._addLayers=function(t,s,i){var a=s instanceof layer_1.Layer?s.getId():s;if(Array.isArray(t))for(var h=0,o=t;h<o.length;h++){var e=o[h];this._addLayer(e,a,i)}else this._addLayer(t,a,i)},t.prototype._addLayer=function(t,s,i){if(s!==t.getId()&&this.layersById.has(s))if(this.layersById.has(t.getId())){var a=_.findIndex(this.layers,function(s){return s.getId()===t.getId()});i&&(this._removeMapboxLayers(this.layers[a]),this._addMapboxLayers(t,s)),this.layers[a]._setMap(void 0),t._setMap(this.map),this.map.events._disableLayerEvents(this.layers[a]),this.map.events._enableLayerEvents(t),this.layersById.set(t.getId(),t),this.layers.splice(a,1);var h=_.findIndex(this.layers,function(t){return t.getId()===s});this.layers.splice(h,0,t)}else{i&&this._addMapboxLayers(t,s);h=_.findIndex(this.layers,function(t){return t.getId()===s});this.layers.splice(h,0,t),this.layersById.set(t.getId(),t),t._setMap(this.map),this.map.events._enableLayerEvents(t)}else if(this.layersById.has(t.getId())){a=_.findIndex(this.layers,function(s){return s.getId()===t.getId()});i&&(this._removeMapboxLayers(this.layers[a]),this._addMapboxLayers(t,a+1)),this.layers[a]._setMap(void 0),t._setMap(this.map),this.map.events._disableLayerEvents(this.layers[a]),this.map.events._enableLayerEvents(t),this.layersById.set(t.getId(),t),this.layers[a]=t}else i&&this._addMapboxLayers(t),this.layersById.set(t.getId(),t),this.layers.push(t),t._setMap(this.map),this.map.events._enableLayerEvents(t)},t.prototype._addMapboxLayers=function(t,s){if(!this.map._isReady())throw new Error("The layer '"+t.getId()+"' could not be added to the map because the map is not ready. Please use a ready event listener to guarantee the map is ready before adding a layer to it.");t instanceof SourceBuildingLayer_1.SourceBuildingLayer&&this.map._getMap().addSource(t._getSourceId(),t._buildSource());for(var i=this._getMapboxBefore(s),a=0,h=t._buildLayers();a<h.length;a++){var o=h[a];this.map._getMap().addLayer(o,i)}},t.prototype._removeMapboxLayers=function(t){for(var s=0,i=t._getLayerIds();s<i.length;s++){var a=i[s];this.map._getMap().getLayer(a)&&this.map._getMap().removeLayer(a)}t instanceof SourceBuildingLayer_1.SourceBuildingLayer&&this.map._getMap().getSource(t._getSourceId())&&this.map._getMap().removeSource(t._getSourceId())},t.prototype._getMapboxBefore=function(t){if("string"==typeof t){var s=this.layersById.get(t);if(!s)return;for(var i=0,a=s._getLayerIds();i<a.length;i++){var h=a[i];if(this.map._getMap().getLayer(h))return h}t=_.findIndex(this.layers,function(s){return s.getId()===t})+1}for(var o=t;o<this.layers.length;o++)for(var e=0,p=this.layers[o]._getLayerIds();e<p.length;e++){h=p[e];if(this.map._getMap().getLayer(h))return h}},t.prototype.clear=function(){for(var t=this.layers.length-1;t>=0;t--)this._removeMapboxLayers(this.layers[t]),this.layers[t]._setMap(void 0),this.map.events._disableLayerEvents(this.layers[t]),this.layersById.delete(this.layers[t].getId()),this.layers.splice(t,1)},t.prototype.getLayerById=function(t){return this.layersById.get(t)},t.prototype.getLayers=function(){return this.layers.slice(0)},t.prototype.move=function(t,s){var i=t instanceof layer_1.Layer?t.getId():t,a=s instanceof layer_1.Layer?s.getId():s;if(!this.layersById.has(i))throw new Error("The layer '"+i+"' has not been added to the map and cannot be moved.");var h=_.findIndex(this.layers,function(t){return t.getId()===i});if(this._moveMapboxLayers(this.layers[h],a),t=this.layers[h],this.layers.splice(h,1),this.layersById.has(a)){var o=_.findIndex(this.layers,function(t){return t.getId()===a});this.layers.splice(o,0,t)}else this.layers.push(t)},t.prototype._moveMapboxLayers=function(t,s){for(var i=this._getMapboxBefore(s),a=0,h=t._getLayerIds();a<h.length;a++){var o=h[a];this.map._getMap().moveLayer(o,i)}},t.prototype.getRenderedShapes=function(t,s,i){var a,h,o=this;if(t||(t=[-180,-85.0511,180,85.0511]),Array.isArray(t)?4===t.length||6===t.length?a=this.map.positionsToPixels([data_1.BoundingBox.getSouthWest(t),data_1.BoundingBox.getNorthEast(t)]):2!==t.length&&3!==t.length||(a=this.map.positionsToPixels([t])[0]):a=this.map.positionsToPixels([t.coordinates])[0],Array.isArray(s)){h=[];for(var e=0,p=s;e<p.length;e++){var r=p[e],n=r instanceof layer_1.Layer?r.getId():r;if(!this.layersById.has(n))throw new Error("The layer '"+n+"' has not been added to the map and its rendered features cannot be retrieved.");h.push.apply(h,this.layersById.get(n)._getLayerIds().filter(function(t){return!!o.map._getMap().getLayer(t)}))}}var g=this.map._getMap().queryRenderedFeatures(a,{layers:h,filter:i});return this.map.sources._mapFeaturesToShapes(g)},t.prototype.remove=function(t){if(Array.isArray(t))for(var s=0,i=t;s<i.length;s++){var a=i[s];this._removeLayer(a)}else this._removeLayer(t)},t.prototype._removeLayer=function(t){var s=t instanceof layer_1.Layer?t.getId():t;if(!this.layersById.has(s))throw new Error("The layer '"+s+"' has not been added to the map and cannot be removed.");var i=_.findIndex(this.layers,function(t){return t.getId()===s});this._removeMapboxLayers(this.layers[i]),this.layers[i]._setMap(void 0),this.map.events._disableLayerEvents(this.layers[i]),this.layersById.delete(s),this.layers.splice(i,1)},t}();exports.LayerManager=LayerManager;
+},{"../../helpers/Dictionary":172}],199:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),Dictionary_1=require("../../helpers/Dictionary"),data_1=require("../../namespace/data"),layer_1=require("../../namespace/layer"),SourceBuildingLayer_1=require("../../namespace/layer/SourceBuildingLayer"),LayerManager=function(){function t(t){this.layersById=new Dictionary_1.Dictionary,this.layers=[],this.map=t}return t.prototype.add=function(t,s){this._addLayers(t,s,!0)},t.prototype.setFloorNumber=function(t){var s=this;this.layers.forEach(function(i){i._buildLayers().forEach(function(i){var a=s.map._getMap().getFilter(i.id);if(a){var h=void 0;(h="has"===a[0]&&0===a[1].indexOf("floor")?a:a.find(function(t){return"has"===t[0]&&0===t[1].indexOf("floor")}))&&(h[1]="floor"+t,s.map._getMap().setFilter(i.id,a))}})})},t.prototype._addNoUpdate=function(t,s){this._addLayers(t,s,!1)},t.prototype._addLayers=function(t,s,i){var a=s instanceof layer_1.Layer?s.getId():s;if(Array.isArray(t))for(var h=0,o=t;h<o.length;h++){var e=o[h];this._addLayer(e,a,i)}else this._addLayer(t,a,i)},t.prototype._addLayer=function(t,s,i){if(s!==t.getId()&&this.layersById.has(s))if(this.layersById.has(t.getId())){var a=_.findIndex(this.layers,function(s){return s.getId()===t.getId()});i&&(this._removeMapboxLayers(this.layers[a]),this._addMapboxLayers(t,s)),this.layers[a]._setMap(void 0),t._setMap(this.map),this.map.events._disableLayerEvents(this.layers[a]),this.map.events._enableLayerEvents(t),this.layersById.set(t.getId(),t),this.layers.splice(a,1);var h=_.findIndex(this.layers,function(t){return t.getId()===s});this.layers.splice(h,0,t)}else{i&&this._addMapboxLayers(t,s);h=_.findIndex(this.layers,function(t){return t.getId()===s});this.layers.splice(h,0,t),this.layersById.set(t.getId(),t),t._setMap(this.map),this.map.events._enableLayerEvents(t)}else if(this.layersById.has(t.getId())){a=_.findIndex(this.layers,function(s){return s.getId()===t.getId()});i&&(this._removeMapboxLayers(this.layers[a]),this._addMapboxLayers(t,a+1)),this.layers[a]._setMap(void 0),t._setMap(this.map),this.map.events._disableLayerEvents(this.layers[a]),this.map.events._enableLayerEvents(t),this.layersById.set(t.getId(),t),this.layers[a]=t}else i&&this._addMapboxLayers(t),this.layersById.set(t.getId(),t),this.layers.push(t),t._setMap(this.map),this.map.events._enableLayerEvents(t)},t.prototype._addMapboxLayers=function(t,s){if(!this.map._isReady())throw new Error("The layer '"+t.getId()+"' could not be added to the map because the map is not ready. Please use a ready event listener to guarantee the map is ready before adding a layer to it.");t instanceof SourceBuildingLayer_1.SourceBuildingLayer&&this.map._getMap().addSource(t._getSourceId(),t._buildSource());for(var i=this._getMapboxBefore(s),a=0,h=t._buildLayers();a<h.length;a++){var o=h[a];this.map._getMap().addLayer(o,i)}},t.prototype._removeMapboxLayers=function(t){for(var s=0,i=t._getLayerIds();s<i.length;s++){var a=i[s];this.map._getMap().getLayer(a)&&this.map._getMap().removeLayer(a)}t instanceof SourceBuildingLayer_1.SourceBuildingLayer&&this.map._getMap().getSource(t._getSourceId())&&this.map._getMap().removeSource(t._getSourceId())},t.prototype._getMapboxBefore=function(t){if("string"==typeof t){var s=this.layersById.get(t);if(!s)return;for(var i=0,a=s._getLayerIds();i<a.length;i++){var h=a[i];if(this.map._getMap().getLayer(h))return h}t=_.findIndex(this.layers,function(s){return s.getId()===t})+1}for(var o=t;o<this.layers.length;o++)for(var e=0,r=this.layers[o]._getLayerIds();e<r.length;e++){h=r[e];if(this.map._getMap().getLayer(h))return h}},t.prototype.clear=function(){for(var t=this.layers.length-1;t>=0;t--)this._removeMapboxLayers(this.layers[t]),this.layers[t]._setMap(void 0),this.map.events._disableLayerEvents(this.layers[t]),this.layersById.delete(this.layers[t].getId()),this.layers.splice(t,1)},t.prototype.getLayerById=function(t){return this.layersById.get(t)},t.prototype.getLayers=function(){return this.layers.slice(0)},t.prototype.move=function(t,s){var i=t instanceof layer_1.Layer?t.getId():t,a=s instanceof layer_1.Layer?s.getId():s;if(!this.layersById.has(i))throw new Error("The layer '"+i+"' has not been added to the map and cannot be moved.");var h=_.findIndex(this.layers,function(t){return t.getId()===i});if(this._moveMapboxLayers(this.layers[h],a),t=this.layers[h],this.layers.splice(h,1),this.layersById.has(a)){var o=_.findIndex(this.layers,function(t){return t.getId()===a});this.layers.splice(o,0,t)}else this.layers.push(t)},t.prototype._moveMapboxLayers=function(t,s){for(var i=this._getMapboxBefore(s),a=0,h=t._getLayerIds();a<h.length;a++){var o=h[a];this.map._getMap().moveLayer(o,i)}},t.prototype.getRenderedShapes=function(t,s,i){var a,h,o=this;if(t||(t=[-180,-85.0511,180,85.0511]),Array.isArray(t)?4===t.length||6===t.length?a=this.map.positionsToPixels([data_1.BoundingBox.getSouthWest(t),data_1.BoundingBox.getNorthEast(t)]):2!==t.length&&3!==t.length||(a=this.map.positionsToPixels([t])[0]):a=this.map.positionsToPixels([t.coordinates])[0],Array.isArray(s)){h=[];for(var e=0,r=s;e<r.length;e++){var p=r[e],n=p instanceof layer_1.Layer?p.getId():p;if(!this.layersById.has(n))throw new Error("The layer '"+n+"' has not been added to the map and its rendered features cannot be retrieved.");h.push.apply(h,this.layersById.get(n)._getLayerIds().filter(function(t){return!!o.map._getMap().getLayer(t)}))}}var g=this.map._getMap().queryRenderedFeatures(a,{layers:h,filter:i});return this.map.sources._mapFeaturesToShapes(g)},t.prototype.remove=function(t){if(Array.isArray(t))for(var s=0,i=t;s<i.length;s++){var a=i[s];this._removeLayer(a)}else this._removeLayer(t)},t.prototype._removeLayer=function(t){var s=t instanceof layer_1.Layer?t.getId():t;if(!this.layersById.has(s))throw new Error("The layer '"+s+"' has not been added to the map and cannot be removed.");var i=_.findIndex(this.layers,function(t){return t.getId()===s});this._removeMapboxLayers(this.layers[i]),this.layers[i]._setMap(void 0),this.map.events._disableLayerEvents(this.layers[i]),this.layersById.delete(s),this.layers.splice(i,1)},t}();exports.LayerManager=LayerManager;
 
-},{"../../helpers/Dictionary":172,"../../namespace/data":246,"../../namespace/layer":257,"../../namespace/layer/SourceBuildingLayer":254,"lodash":109}],198:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Dictionary_1=require("../../helpers/Dictionary"),source_1=require("../../namespace/source"),Shape_1=require("../../Shape"),SourceManager=function(){function e(e){this.map=e,this.sources=new Dictionary_1.Dictionary}return e.prototype.add=function(e){if(Array.isArray(e))for(var t=0,r=e;t<r.length;t++){var a=r[t];this._addSource(a,!0)}else this._addSource(e,!0)},e.prototype._addNoUpdate=function(e){if(Array.isArray(e))for(var t=0,r=e;t<r.length;t++){var a=r[t];this._addSource(a,!1)}else this._addSource(e,!1)},e.prototype._buildSources=function(){var e={};return this.sources.forEach(function(t){e[t.getId()]=t._buildSource()}),e},e.prototype.clear=function(){var e=this;this.sources.forEach(function(t){e.remove(t)})},e.prototype.getById=function(e){return this.sources.get(e)},e.prototype.isSourceLoaded=function(e){var t=e instanceof source_1.Source?e.getId():e;return this.map._getMap().isSourceLoaded(t)},e.prototype.remove=function(e){if(Array.isArray(e))for(var t=0,r=e;t<r.length;t++){var a=r[t];this._removeSource(a)}else this._removeSource(e)},e.prototype._removeSource=function(e){var t=e instanceof source_1.Source?e.getId():e;if(this.sources.has(t)){if(this.map._getMap().getSource(t)&&this.map._getMap().removeSource(t),this.map._getMap().getSource(t))throw new Error("One or more layers have a dependency on the source '"+t+"'");return this.sources.get(t)._setMap(null),void this.sources.delete(t)}throw new Error("'"+t+"' is not added to the map")},e.prototype._addSource=function(e,t){if(this.sources.has(e.getId())){if(t)throw new Error("'"+e.getId()+"' is already added to the map");this.sources.get(e.getId())._setMap(null),this.sources.delete(e.getId())}if(t){if(!this.map._isReady())throw new Error("The source '"+e.getId()+"' could not be added to the map because the map is not ready. Please use a ready event listener to guarantee the map is ready before adding a source to it.");this.map._getMap().addSource(e.getId(),e._buildSource())}this.sources.set(e.getId(),e),e._setMap(this.map)},e.prototype._mapFeaturesToShapes=function(e,t,r){for(var a=[],o=0,p=e;o<p.length;o++){var s=p[o];if(r||"string"==typeof s.source&&"string"==typeof s.properties[Shape_1.Shape._shapeIdPropName]){var n=r||this.sources.get(s.source);if(n instanceof source_1.DataSource){var d=n.getShapeById(s.properties[Shape_1.Shape._shapeIdPropName]);if(d instanceof Shape_1.Shape){a.push(d);continue}}}t||a.push(s)}return a},e}();exports.SourceManager=SourceManager;
+},{"../../helpers/Dictionary":172,"../../namespace/data":248,"../../namespace/layer":261,"../../namespace/layer/SourceBuildingLayer":258,"lodash":109}],200:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Dictionary_1=require("../../helpers/Dictionary"),source_1=require("../../namespace/source"),Shape_1=require("../../Shape"),SourceManager=function(){function e(e){this.map=e,this.sources=new Dictionary_1.Dictionary}return e.prototype.add=function(e){if(Array.isArray(e))for(var t=0,r=e;t<r.length;t++){var a=r[t];this._addSource(a,!0)}else this._addSource(e,!0)},e.prototype._addNoUpdate=function(e){if(Array.isArray(e))for(var t=0,r=e;t<r.length;t++){var a=r[t];this._addSource(a,!1)}else this._addSource(e,!1)},e.prototype._buildSources=function(){var e={};return this.sources.forEach(function(t){e[t.getId()]=t._buildSource()}),e},e.prototype.clear=function(){var e=this;this.sources.forEach(function(t){e.remove(t)})},e.prototype.getById=function(e){return this.sources.get(e)},e.prototype.isSourceLoaded=function(e){var t=e instanceof source_1.Source?e.getId():e;return this.map._getMap().isSourceLoaded(t)},e.prototype.remove=function(e){if(Array.isArray(e))for(var t=0,r=e;t<r.length;t++){var a=r[t];this._removeSource(a)}else this._removeSource(e)},e.prototype._removeSource=function(e){var t=e instanceof source_1.Source?e.getId():e;if(this.sources.has(t)){if(this.map._getMap().getSource(t)&&this.map._getMap().removeSource(t),this.map._getMap().getSource(t))throw new Error("One or more layers have a dependency on the source '"+t+"'");return this.sources.get(t)._setMap(null),void this.sources.delete(t)}throw new Error("'"+t+"' is not added to the map")},e.prototype._addSource=function(e,t){if(this.sources.has(e.getId())){if(t)throw new Error("'"+e.getId()+"' is already added to the map");this.sources.get(e.getId())._setMap(null),this.sources.delete(e.getId())}if(t){if(!this.map._isReady())throw new Error("The source '"+e.getId()+"' could not be added to the map because the map is not ready. Please use a ready event listener to guarantee the map is ready before adding a source to it.");this.map._getMap().addSource(e.getId(),e._buildSource())}this.sources.set(e.getId(),e),e._setMap(this.map)},e.prototype._mapFeaturesToShapes=function(e,t,r){for(var a=[],o=0,p=e;o<p.length;o++){var s=p[o];if((r||"string"==typeof s.source)&&"string"==typeof s.properties[Shape_1.Shape._shapeIdPropName]){var n=r||this.sources.get(s.source);if(n instanceof source_1.DataSource){var d=n.getShapeById(s.properties[Shape_1.Shape._shapeIdPropName]);if(d instanceof Shape_1.Shape){a.push(d);continue}}}t||a.push(s)}return a},e}();exports.SourceManager=SourceManager;
 
-},{"../../Shape":171,"../../helpers/Dictionary":172,"../../namespace/source":276}],199:[function(require,module,exports){
+},{"../../Shape":171,"../../helpers/Dictionary":172,"../../namespace/source":280}],201:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var AuthenticationManager_1=require("./AuthenticationManager");exports.AuthenticationManager=AuthenticationManager_1.AuthenticationManager;var ControlManager_1=require("./ControlManager");exports.ControlManager=ControlManager_1.ControlManager;var EventManager_1=require("./EventManager");exports.EventManager=EventManager_1.EventManager;var HtmlMarkerManager_1=require("./HtmlMarkerManager");exports.HtmlMarkerManager=HtmlMarkerManager_1.HtmlMarkerManager;var ImageSpriteManager_1=require("./ImageSpriteManager");exports.ImageSpriteManager=ImageSpriteManager_1.ImageSpriteManager;var LayerManager_1=require("./LayerManager");exports.LayerManager=LayerManager_1.LayerManager;var SourceManager_1=require("./SourceManager");exports.SourceManager=SourceManager_1.SourceManager;
 
-},{"./AuthenticationManager":192,"./ControlManager":193,"./EventManager":194,"./HtmlMarkerManager":195,"./ImageSpriteManager":196,"./LayerManager":197,"./SourceManager":198}],200:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,n){t.__proto__=n}||function(t,n){for(var o in n)n.hasOwnProperty(o)&&(t[o]=n[o])};return function(n,o){function e(){this.constructor=n}t(n,o),n.prototype=null===o?Object.create(o):(e.prototype=o.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../helpers/Options"),AnimationOptions=function(t){function n(){var n=null!==t&&t.apply(this,arguments)||this;return n.duration=1e3,n.type="jump",n}return __extends(n,t),n}(Options_1.Options);exports.AnimationOptions=AnimationOptions;
+},{"./AuthenticationManager":194,"./ControlManager":195,"./EventManager":196,"./HtmlMarkerManager":197,"./ImageSpriteManager":198,"./LayerManager":199,"./SourceManager":200}],202:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(n,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,n){t.__proto__=n}||function(t,n){for(var o in n)n.hasOwnProperty(o)&&(t[o]=n[o])})(n,o)};return function(n,o){function e(){this.constructor=n}t(n,o),n.prototype=null===o?Object.create(o):(e.prototype=o.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../helpers/Options"),AnimationOptions=function(t){function n(){var n=null!==t&&t.apply(this,arguments)||this;return n.duration=1e3,n.type="jump",n}return __extends(n,t),n}(Options_1.Options);exports.AnimationOptions=AnimationOptions;
 
-},{"../../helpers/Options":174}],201:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])};return function(e,n){function o(){this.constructor=e}t(e,n),e.prototype=null===n?Object.create(n):(o.prototype=n.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../helpers/Options"),Padding_1=require("../../Padding"),Pixel_1=require("../../Pixel"),CameraBoundsOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.bounds=[-180,-89,180,90],e.maxZoom=20,e.offset=new Pixel_1.Pixel(0,0),e.padding=new Padding_1.Padding,e}return __extends(e,t),e.prototype.merge=function(){for(var e=[],n=0;n<arguments.length;n++)e[n]=arguments[n];for(var o=0,r=e;o<r.length;o++){var i=r[o];i&&"number"==typeof i.padding&&(i.padding={top:i.padding,bottom:i.padding,left:i.padding,right:i.padding})}return t.prototype.merge.apply(this,e)},e}(Options_1.Options);exports.CameraBoundsOptions=CameraBoundsOptions;
+},{"../../helpers/Options":175}],203:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(e,n){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])})(e,n)};return function(e,n){function r(){this.constructor=e}t(e,n),e.prototype=null===n?Object.create(n):(r.prototype=n.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../helpers/Options"),Padding_1=require("../../Padding"),Pixel_1=require("../../Pixel"),CameraBoundsOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.bounds=[-180,-89,180,90],e.maxZoom=20,e.offset=new Pixel_1.Pixel(0,0),e.padding=new Padding_1.Padding,e}return __extends(e,t),e.prototype.merge=function(){for(var e=[],n=0;n<arguments.length;n++)e[n]=arguments[n];for(var r=0,o=e;r<o.length;r++){var i=o[r];i&&"number"==typeof i.padding&&(i.padding={top:i.padding,bottom:i.padding,left:i.padding,right:i.padding})}return t.prototype.merge.apply(this,e)},e}(Options_1.Options);exports.CameraBoundsOptions=CameraBoundsOptions;
 
-},{"../../Padding":168,"../../Pixel":169,"../../helpers/Options":174}],202:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])};return function(e,n){function o(){this.constructor=e}t(e,n),e.prototype=null===n?Object.create(n):(o.prototype=n.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../helpers/Options"),data_1=require("../../namespace/data"),Pixel_1=require("../../Pixel"),CameraOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.zoom=1,e.center=new data_1.Position(0,0),e.centerOffset=new Pixel_1.Pixel(0,0),e.bearing=0,e.pitch=0,e.minZoom=1,e.maxZoom=20,e}return __extends(e,t),e}(Options_1.Options);exports.CameraOptions=CameraOptions;
+},{"../../Padding":168,"../../Pixel":169,"../../helpers/Options":175}],204:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(e,n){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])})(e,n)};return function(e,n){function r(){this.constructor=e}t(e,n),e.prototype=null===n?Object.create(n):(r.prototype=n.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../helpers/Options"),data_1=require("../../namespace/data"),Pixel_1=require("../../Pixel"),CameraOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.zoom=1,e.center=new data_1.Position(0,0),e.centerOffset=new Pixel_1.Pixel(0,0),e.bearing=0,e.pitch=0,e.minZoom=1,e.maxZoom=20,e}return __extends(e,t),e}(Options_1.Options);exports.CameraOptions=CameraOptions;
 
-},{"../../Pixel":169,"../../helpers/Options":174,"../../namespace/data":246}],203:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])};return function(e,r){function o(){this.constructor=e}t(e,r),e.prototype=null===r?Object.create(r):(o.prototype=r.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),CircleLayerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.color="rgba(0,0,0,.5)",e.outlineColor="#000",e.radius=1,e.outlineWidth=5,e.name="default-circles",e}return __extends(e,t),e}(LayerOptions_1.LayerOptions);exports.CircleLayerOptions=CircleLayerOptions;
+},{"../../Pixel":169,"../../helpers/Options":175,"../../namespace/data":248}],205:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(e,r){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])})(e,r)};return function(e,r){function n(){this.constructor=e}t(e,r),e.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),CircleLayerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.color="rgba(0,0,0,.5)",e.outlineColor="#000",e.radius=1,e.outlineWidth=5,e.name="default-circles",e}return __extends(e,t),e}(LayerOptions_1.LayerOptions);exports.CircleLayerOptions=CircleLayerOptions;
 
-},{"./LayerOptions":205}],204:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var n in o)o.hasOwnProperty(n)&&(t[n]=o[n])};return function(o,n){function r(){this.constructor=o}t(o,n),o.prototype=null===n?Object.create(n):(r.prototype=n.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var ControlPosition,Options_1=require("../../helpers/Options");!function(t){t.TopLeft="top-left",t.TopRight="top-right",t.BottomLeft="bottom-left",t.BottomRight="bottom-right",t.NonFixed="non-fixed"}(ControlPosition=exports.ControlPosition||(exports.ControlPosition={}));var ControlOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.position=ControlPosition.NonFixed,o}return __extends(o,t),o}(Options_1.Options);exports.ControlOptions=ControlOptions;
+},{"./LayerOptions":207}],206:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(o,n){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var n in o)o.hasOwnProperty(n)&&(t[n]=o[n])})(o,n)};return function(o,n){function r(){this.constructor=o}t(o,n),o.prototype=null===n?Object.create(n):(r.prototype=n.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var ControlPosition,Options_1=require("../../helpers/Options");!function(t){t.TopLeft="top-left",t.TopRight="top-right",t.BottomLeft="bottom-left",t.BottomRight="bottom-right",t.NonFixed="non-fixed"}(ControlPosition=exports.ControlPosition||(exports.ControlPosition={}));var ControlOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.position=ControlPosition.NonFixed,o}return __extends(o,t),o}(Options_1.Options);exports.ControlOptions=ControlOptions;
 
-},{"../../helpers/Options":174}],205:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var o in e)e.hasOwnProperty(o)&&(t[o]=e[o])};return function(e,o){function r(){this.constructor=e}t(e,o),e.prototype=null===o?Object.create(o):(r.prototype=o.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../helpers/Options"),LayerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.name=void 0,e.before=void 0,e.minZoom=1,e.maxZoom=20,e.overwrite=!1,e.defer=!1,e.opacity=1,e}return __extends(e,t),e}(Options_1.Options);exports.LayerOptions=LayerOptions;
+},{"../../helpers/Options":175}],207:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(e,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var o in e)e.hasOwnProperty(o)&&(t[o]=e[o])})(e,o)};return function(e,o){function r(){this.constructor=e}t(e,o),e.prototype=null===o?Object.create(o):(r.prototype=o.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../helpers/Options"),LayerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.name=void 0,e.before=void 0,e.minZoom=1,e.maxZoom=20,e.overwrite=!1,e.defer=!1,e.opacity=1,e}return __extends(e,t),e}(Options_1.Options);exports.LayerOptions=LayerOptions;
 
-},{"../../helpers/Options":174}],206:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])};return function(e,n){function r(){this.constructor=e}t(e,n),e.prototype=null===n?Object.create(n):(r.prototype=n.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),LinestringLayerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.cap="butt",e.join="miter",e.name="default-linestrings",e.color="#000",e.width=1,e}return __extends(e,t),e}(LayerOptions_1.LayerOptions);exports.LinestringLayerOptions=LinestringLayerOptions;
+},{"../../helpers/Options":175}],208:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(n,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,n){t.__proto__=n}||function(t,n){for(var e in n)n.hasOwnProperty(e)&&(t[e]=n[e])})(n,e)};return function(n,e){function r(){this.constructor=n}t(n,e),n.prototype=null===e?Object.create(e):(r.prototype=e.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),LinestringLayerOptions=function(t){function n(){var n=null!==t&&t.apply(this,arguments)||this;return n.cap="butt",n.join="miter",n.name="default-linestrings",n.color="#000",n.width=1,n}return __extends(n,t),n}(LayerOptions_1.LayerOptions);exports.LinestringLayerOptions=LinestringLayerOptions;
 
-},{"./LayerOptions":205}],207:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])};return function(e,n){function o(){this.constructor=e}t(e,n),e.prototype=null===n?Object.create(n):(o.prototype=n.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),PinLayerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.iconSize=1,e.fontSize=14,e.fontColor="#000",e.textFont="SegoeUi-Regular",e.cluster=!0,e.clusterIcon=void 0,e.textOffset=[0,0],e.name="default-pins",e.icon="pin-darkblue",e.title="",e}return __extends(e,t),e}(LayerOptions_1.LayerOptions);exports.PinLayerOptions=PinLayerOptions;
+},{"./LayerOptions":207}],209:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(e,n){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])})(e,n)};return function(e,n){function o(){this.constructor=e}t(e,n),e.prototype=null===n?Object.create(n):(o.prototype=n.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),PinLayerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.iconSize=1,e.fontSize=14,e.fontColor="#000",e.textFont="SegoeUi-Regular",e.cluster=!0,e.clusterIcon=void 0,e.textOffset=[0,0],e.name="default-pins",e.icon="pin-darkblue",e.title="",e}return __extends(e,t),e}(LayerOptions_1.LayerOptions);exports.PinLayerOptions=PinLayerOptions;
 
-},{"./LayerOptions":205}],208:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])};return function(o,e){function n(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(n.prototype=e.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),PolygonLayerOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.color="rgba(0,0,0,.5)",o.outlineColor="#000",o.name="default-polygons",o}return __extends(o,t),o}(LayerOptions_1.LayerOptions);exports.PolygonLayerOptions=PolygonLayerOptions;
+},{"./LayerOptions":207}],210:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(o,n){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var n in o)o.hasOwnProperty(n)&&(t[n]=o[n])})(o,n)};return function(o,n){function e(){this.constructor=o}t(o,n),o.prototype=null===n?Object.create(n):(e.prototype=n.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),PolygonLayerOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.color="rgba(0,0,0,.5)",o.outlineColor="#000",o.name="default-polygons",o}return __extends(o,t),o}(LayerOptions_1.LayerOptions);exports.PolygonLayerOptions=PolygonLayerOptions;
 
-},{"./LayerOptions":205}],209:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])};return function(e,r){function n(){this.constructor=e}t(e,r),e.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),RasterLayerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.name="default-raster",e}return __extends(e,t),e}(LayerOptions_1.LayerOptions);exports.RasterLayerOptions=RasterLayerOptions;
+},{"./LayerOptions":207}],211:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(e,r){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])})(e,r)};return function(e,r){function n(){this.constructor=e}t(e,r),e.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),RasterLayerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.name="default-raster",e}return __extends(e,t),e}(LayerOptions_1.LayerOptions);exports.RasterLayerOptions=RasterLayerOptions;
 
-},{"./LayerOptions":205}],210:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])};return function(t,r){function o(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(o.prototype=r.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var atlas=require("../../Atlas"),Localizer_1=require("../../helpers/localization/Localizer"),Options_1=require("../../helpers/Options"),StyleOptions=function(e){function t(){var t=null!==e&&e.apply(this,arguments)||this;return t.autoResize=!0,t.preserveDrawingBuffer=!1,t.style="road",t.language=atlas.getLanguage(),t.userRegion=atlas.getUserRegion(),t.view=t.userRegion,t}return __extends(t,e),t.prototype.merge=function(){for(var t=[],r=0;r<arguments.length;r++)t[r]=arguments[r];for(var o=0,n=t;o<n.length;o++){var i=n[o];i&&("string"==typeof i.userRegion?i.view=i.userRegion:"string"==typeof i.view&&(i.userRegion=i.view),"string"==typeof i.language&&(i.language=Localizer_1.Localizer.getCode(i.language)))}return e.prototype.merge.apply(this,t)},t}(Options_1.Options);exports.StyleOptions=StyleOptions;
+},{"./LayerOptions":207}],212:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var e=function(t,r){return(e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])})(t,r)};return function(t,r){function o(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(o.prototype=r.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var atlas=require("../../Atlas"),Localizer_1=require("../../helpers/localization/Localizer"),Options_1=require("../../helpers/Options"),StyleOptions=function(e){function t(){var t=null!==e&&e.apply(this,arguments)||this;return t.autoResize=!0,t.preserveDrawingBuffer=!1,t.style="road",t.language=atlas.getLanguage(),t.view=atlas.getView(),t.userRegion=t.view,t.tilesetId=atlas.getTilesetId(),t}return __extends(t,e),t.prototype.merge=function(){for(var t=[],r=0;r<arguments.length;r++)t[r]=arguments[r];for(var o=0,n=t;o<n.length;o++){var i=n[o];i&&(i.hasOwnProperty("view")?i.userRegion=i.view:i.hasOwnProperty("userRegion")&&(i.view=i.userRegion),"string"==typeof i.language&&(i.language=Localizer_1.Localizer.getCode(i.language)))}return e.prototype.merge.apply(this,t)},t}(Options_1.Options);exports.StyleOptions=StyleOptions;
 
-},{"../../Atlas":166,"../../helpers/Options":174,"../../helpers/localization/Localizer":181}],211:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,n){t.__proto__=n}||function(t,n){for(var e in n)n.hasOwnProperty(e)&&(t[e]=n[e])};return function(n,e){function o(){this.constructor=n}t(n,e),n.prototype=null===e?Object.create(e):(o.prototype=e.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../helpers/Options"),TrafficOptions=function(t){function n(){var n=null!==t&&t.apply(this,arguments)||this;return n.flow="none",n.incidents=!1,n}return __extends(n,t),n}(Options_1.Options);exports.TrafficOptions=TrafficOptions;
+},{"../../Atlas":166,"../../helpers/Options":175,"../../helpers/localization/Localizer":182}],213:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(n,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,n){t.__proto__=n}||function(t,n){for(var e in n)n.hasOwnProperty(e)&&(t[e]=n[e])})(n,e)};return function(n,e){function o(){this.constructor=n}t(n,e),n.prototype=null===e?Object.create(e):(o.prototype=e.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../helpers/Options"),TrafficOptions=function(t){function n(){var n=null!==t&&t.apply(this,arguments)||this;return n.flow="none",n.incidents=!1,n}return __extends(n,t),n}(Options_1.Options);exports.TrafficOptions=TrafficOptions;
 
-},{"../../helpers/Options":174}],212:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,n){t.__proto__=n}||function(t,n){for(var o in n)n.hasOwnProperty(o)&&(t[o]=n[o])};return function(n,o){function e(){this.constructor=n}t(n,o),n.prototype=null===o?Object.create(o):(e.prototype=o.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../helpers/Options"),UserInteractionOptions=function(t){function n(){var n=null!==t&&t.apply(this,arguments)||this;return n.interactive=!0,n.scrollZoomInteraction=!0,n.boxZoomInteraction=!0,n.dragRotateInteraction=!0,n.dragPanInteraction=!0,n.keyboardInteraction=!0,n.dblClickZoomInteraction=!0,n.touchInteraction=!0,n}return __extends(n,t),n}(Options_1.Options);exports.UserInteractionOptions=UserInteractionOptions;
+},{"../../helpers/Options":175}],214:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(n,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,n){t.__proto__=n}||function(t,n){for(var o in n)n.hasOwnProperty(o)&&(t[o]=n[o])})(n,o)};return function(n,o){function e(){this.constructor=n}t(n,o),n.prototype=null===o?Object.create(o):(e.prototype=o.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../helpers/Options"),UserInteractionOptions=function(t){function n(){var n=null!==t&&t.apply(this,arguments)||this;return n.interactive=!0,n.scrollZoomInteraction=!0,n.boxZoomInteraction=!0,n.dragRotateInteraction=!0,n.dragPanInteraction=!0,n.keyboardInteraction=!0,n.dblClickZoomInteraction=!0,n.touchInteraction=!0,n}return __extends(n,t),n}(Options_1.Options);exports.UserInteractionOptions=UserInteractionOptions;
 
-},{"../../helpers/Options":174}],213:[function(require,module,exports){
-"use strict";var __assign=this&&this.__assign||Object.assign||function(e){for(var n,r=1,i=arguments.length;r<i;r++)for(var t in n=arguments[r])Object.prototype.hasOwnProperty.call(n,t)&&(e[t]=n[t]);return e};Object.defineProperty(exports,"__esModule",{value:!0});var vars=require("../../../../variables.json"),Url_1=require("../../helpers/Url"),IncidentOptions_1=require("./options/IncidentOptions"),IncidentService=function(){function e(e){this.authManager=e}return e.prototype.request=function(e){var n=(new IncidentOptions_1.IncidentOptions).merge(e),r=n.bbox[1]+","+n.bbox[0]+","+n.bbox[3]+","+n.bbox[2],i={domain:vars.env.domain,path:"traffic/incident/detail/json",queryParams:__assign({"api-version":n.version,projection:"EPSG4326",style:"s3",boundingbox:r,boundingzoom:n.zoom,trafficmodelid:-1},n.params)};return new Url_1.Url(this.authManager.signRequest(i)).get()},e}();exports.IncidentService=IncidentService;
+},{"../../helpers/Options":175}],215:[function(require,module,exports){
+"use strict";var __assign=this&&this.__assign||function(){return(__assign=Object.assign||function(e){for(var n,r=1,i=arguments.length;r<i;r++)for(var t in n=arguments[r])Object.prototype.hasOwnProperty.call(n,t)&&(e[t]=n[t]);return e}).apply(this,arguments)};Object.defineProperty(exports,"__esModule",{value:!0});var vars=require("../../../../variables.json"),Url_1=require("../../helpers/Url"),IncidentOptions_1=require("./options/IncidentOptions"),IncidentService=function(){function e(e){this.authManager=e}return e.prototype.request=function(e){var n=(new IncidentOptions_1.IncidentOptions).merge(e),r=n.bbox[1]+","+n.bbox[0]+","+n.bbox[3]+","+n.bbox[2],i={domain:vars.env.domain,path:"traffic/incident/detail/json",queryParams:__assign({"api-version":n.version,projection:"EPSG4326",style:"s3",boundingbox:r,boundingzoom:n.zoom,trafficmodelid:-1},n.params)};return new Url_1.Url(this.authManager.signRequest(i)).get()},e}();exports.IncidentService=IncidentService;
 
-},{"../../../../variables.json":281,"../../helpers/Url":175,"./options/IncidentOptions":216}],214:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var vars=require("../../../../variables.json"),Url_1=require("../../helpers/Url"),NearbyGeographySearchService=function(){function e(e){this.authManager=e}return e.prototype.request=function(e){var r={domain:vars.env.domain,path:"search/fuzzy/json",queryParams:{"api-version":"1.0",query:e[1].toFixed(6)+", "+e[0].toFixed(6),idxSet:"Geo",limit:1,lat:e[1].toFixed(6),lon:e[0].toFixed(6),radius:1e3}};return new Url_1.Url(this.authManager.signRequest(r)).get()},e}();exports.NearbyGeographySearchService=NearbyGeographySearchService;
+},{"../../../../variables.json":285,"../../helpers/Url":176,"./options/IncidentOptions":218}],216:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var vars=require("../../../../variables.json"),Url_1=require("../../helpers/Url"),NearbyGeographySearchService=function(){function e(e){this.authManager=e}return e.prototype.request=function(e){var r={domain:vars.env.domain,path:"search/address/reverse/json",queryParams:{"api-version":"1.0",language:e.style.language,limit:1,query:e.position[1]+","+e.position[0],view:e.style.view}};return new Url_1.Url(this.authManager.signRequest(r)).get()},e}();exports.NearbyGeographySearchService=NearbyGeographySearchService;
 
-},{"../../../../variables.json":281,"../../helpers/Url":175}],215:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,n){t.__proto__=n}||function(t,n){for(var e in n)n.hasOwnProperty(e)&&(t[e]=n[e])};return function(n,e){function o(){this.constructor=n}t(n,e),n.prototype=null===e?Object.create(e):(o.prototype=e.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var AuthenticationType,Options_1=require("../../../helpers/Options");!function(t){t.subscriptionKey="subscriptionKey",t.aad="aad",t.anonymous="anonymous"}(AuthenticationType=exports.AuthenticationType||(exports.AuthenticationType={}));var AuthenticationOptions=function(t){function n(){var n=null!==t&&t.apply(this,arguments)||this;return n.authType=void 0,n.subscriptionKey=void 0,n.clientId=void 0,n.aadAppId=void 0,n.aadTenant=void 0,n.aadInstance=void 0,n.getToken=void 0,n.authContext=void 0,n}return __extends(n,t),n.prototype.setSubscriptionKey=function(t){this.authType=AuthenticationType.subscriptionKey,this.subscriptionKey=t},n.prototype.setAadProperties=function(t,n,e,o,i){this.authType=AuthenticationType.aad,this.authContext=i||this.authContext,this.aadInstance=o||this.aadInstance,this.clientId=t,this.aadAppId=n,this.aadTenant=e},n.prototype.setTokenCallbackFunction=function(t){this.authType=AuthenticationType.anonymous,this.getToken=t},n.prototype.merge=function(){for(var n=[],e=0;e<arguments.length;e++)n[e]=arguments[e];var o=t.prototype.merge.apply(this,n);return o.authType===AuthenticationType.subscriptionKey?o.authContext=o.aadAppId=o.getToken=void 0:o.authType===AuthenticationType.aad?o.subscriptionKey=o.getToken=void 0:o.authType===AuthenticationType.anonymous&&(o.subscriptionKey=o.authContext=o.aadAppId=void 0),o},n}(Options_1.Options);exports.AuthenticationOptions=AuthenticationOptions;
+},{"../../../../variables.json":285,"../../helpers/Url":176}],217:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(n,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,n){t.__proto__=n}||function(t,n){for(var e in n)n.hasOwnProperty(e)&&(t[e]=n[e])})(n,e)};return function(n,e){function o(){this.constructor=n}t(n,e),n.prototype=null===e?Object.create(e):(o.prototype=e.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var AuthenticationType,Options_1=require("../../../helpers/Options");!function(t){t.subscriptionKey="subscriptionKey",t.aad="aad",t.anonymous="anonymous"}(AuthenticationType=exports.AuthenticationType||(exports.AuthenticationType={}));var AuthenticationOptions=function(t){function n(){var n=null!==t&&t.apply(this,arguments)||this;return n.authType=void 0,n.subscriptionKey=void 0,n.clientId=void 0,n.aadAppId=void 0,n.aadTenant=void 0,n.aadInstance=void 0,n.getToken=void 0,n.authContext=void 0,n}return __extends(n,t),n.prototype.setSubscriptionKey=function(t){this.authType=AuthenticationType.subscriptionKey,this.subscriptionKey=t},n.prototype.setAadProperties=function(t,n,e,o,i){this.authType=AuthenticationType.aad,this.authContext=i||this.authContext,this.aadInstance=o||this.aadInstance,this.clientId=t,this.aadAppId=n,this.aadTenant=e},n.prototype.setTokenCallbackFunction=function(t){this.authType=AuthenticationType.anonymous,this.getToken=t},n.prototype.merge=function(){for(var n=[],e=0;e<arguments.length;e++)n[e]=arguments[e];var o=t.prototype.merge.apply(this,n);return o.authType===AuthenticationType.subscriptionKey?o.authContext=o.aadAppId=o.getToken=void 0:o.authType===AuthenticationType.aad?o.subscriptionKey=o.getToken=void 0:o.authType===AuthenticationType.anonymous&&(o.subscriptionKey=o.authContext=o.aadAppId=void 0),o},n}(Options_1.Options);exports.AuthenticationOptions=AuthenticationOptions;
 
-},{"../../../helpers/Options":174}],216:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,n){t.__proto__=n}||function(t,n){for(var o in n)n.hasOwnProperty(o)&&(t[o]=n[o])};return function(n,o){function e(){this.constructor=n}t(n,o),n.prototype=null===o?Object.create(o):(e.prototype=o.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),IncidentOptions=function(t){function n(){var n=null!==t&&t.apply(this,arguments)||this;return n.version="1.0",n.bbox=void 0,n.zoom=void 0,n.params={},n}return __extends(n,t),n}(Options_1.Options);exports.IncidentOptions=IncidentOptions;
+},{"../../../helpers/Options":175}],218:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(n,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,n){t.__proto__=n}||function(t,n){for(var o in n)n.hasOwnProperty(o)&&(t[o]=n[o])})(n,o)};return function(n,o){function e(){this.constructor=n}t(n,o),n.prototype=null===o?Object.create(o):(e.prototype=o.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),IncidentOptions=function(t){function n(){var n=null!==t&&t.apply(this,arguments)||this;return n.version="1.0",n.bbox=void 0,n.zoom=void 0,n.params={},n}return __extends(n,t),n}(Options_1.Options);exports.IncidentOptions=IncidentOptions;
 
-},{"../../../helpers/Options":174}],217:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var i in t)t.hasOwnProperty(i)&&(e[i]=t[i])};return function(t,i){function s(){this.constructor=t}e(t,i),t.prototype=null===i?Object.create(i):(s.prototype=i.prototype,new s)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),atlas=require("../../../Atlas"),Options_1=require("../../../helpers/Options"),AuthenticationOptions_1=require("./AuthenticationOptions"),ServiceOptions=function(e){function t(){var t=null!==e&&e.apply(this,arguments)||this;return t.authOptions=atlas.getAuthenticationOptions(),t.subscriptionKey=atlas.getSubscriptionKey(),t["subscription-key"]=t.subscriptionKey,t.sessionId=atlas.getSessionId(),t["session-id"]=t.sessionId,t.disableTelemetry=!1,t["disable-telemetry"]=t.disableTelemetry,t.enableAccessibility=!1,t["enable-accessibility"]=t.enableAccessibility,t.refreshExpiredTiles=!0,t.transformRequest=void 0,t}return __extends(t,e),t.prototype.merge=function(){for(var t=[],i=0;i<arguments.length;i++)t[i]=arguments[i];for(var s=0,n=t;s<n.length;s++){var o=n[s];o&&(o.authOptions?"string"==typeof o.authOptions.subscriptionKey&&(o.subscriptionKey=o["subscription-key"]=o.authOptions.subscriptionKey):"string"==typeof o.subscriptionKey?(o["subscription-key"]=o.subscriptionKey,o.authOptions={authType:AuthenticationOptions_1.AuthenticationType.subscriptionKey,subscriptionKey:o.subscriptionKey}):"string"==typeof o["subscription-key"]&&(o.subscriptionKey=o["subscription-key"],o.authOptions={authType:AuthenticationOptions_1.AuthenticationType.subscriptionKey,subscriptionKey:o["subscription-key"]}),"string"==typeof o.sessionId?o["session-id"]=o.sessionId:"string"==typeof o["session-id"]&&(o.sessionId=o["session-id"]),"boolean"==typeof o.disableTelemetry?o["disable-telemetry"]=o.disableTelemetry:"boolean"==typeof o["disable-telemetry"]&&(o.disableTelemetry=o["disable-telemetry"]),"boolean"==typeof o.enableAccessibility?o["enable-accessibility"]=o.enableAccessibility:"boolean"==typeof o["enable-accessibility"]&&(o.enableAccessibility=o["enable-accessibility"]))}var r=e.prototype.merge.apply(this,t);return r.authOptions.authType!==AuthenticationOptions_1.AuthenticationType.subscriptionKey&&(r["subscription-key"]=r.subscriptionKey=void 0),r},t._cloneCustomizer=function(e){if("object"==typeof e)return _.clone(e)},t}(Options_1.Options);exports.ServiceOptions=ServiceOptions;
+},{"../../../helpers/Options":175}],219:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var e=function(t,i){return(e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var i in t)t.hasOwnProperty(i)&&(e[i]=t[i])})(t,i)};return function(t,i){function s(){this.constructor=t}e(t,i),t.prototype=null===i?Object.create(i):(s.prototype=i.prototype,new s)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),atlas=require("../../../Atlas"),Options_1=require("../../../helpers/Options"),AuthenticationOptions_1=require("./AuthenticationOptions"),ServiceOptions=function(e){function t(){var t=null!==e&&e.apply(this,arguments)||this;return t.authOptions=atlas.getAuthenticationOptions(),t.subscriptionKey=atlas.getSubscriptionKey(),t["subscription-key"]=t.subscriptionKey,t.sessionId=atlas.getSessionId(),t["session-id"]=t.sessionId,t.disableTelemetry=!1,t["disable-telemetry"]=t.disableTelemetry,t.enableAccessibility=!1,t["enable-accessibility"]=t.enableAccessibility,t.refreshExpiredTiles=!0,t.transformRequest=void 0,t}return __extends(t,e),t.prototype.merge=function(){for(var t=[],i=0;i<arguments.length;i++)t[i]=arguments[i];for(var s=0,n=t;s<n.length;s++){var o=n[s];o&&(o.authOptions?"string"==typeof o.authOptions.subscriptionKey&&(o.subscriptionKey=o["subscription-key"]=o.authOptions.subscriptionKey):"string"==typeof o.subscriptionKey?(o["subscription-key"]=o.subscriptionKey,o.authOptions={authType:AuthenticationOptions_1.AuthenticationType.subscriptionKey,subscriptionKey:o.subscriptionKey}):"string"==typeof o["subscription-key"]&&(o.subscriptionKey=o["subscription-key"],o.authOptions={authType:AuthenticationOptions_1.AuthenticationType.subscriptionKey,subscriptionKey:o["subscription-key"]}),"string"==typeof o.sessionId?o["session-id"]=o.sessionId:"string"==typeof o["session-id"]&&(o.sessionId=o["session-id"]),"boolean"==typeof o.disableTelemetry?o["disable-telemetry"]=o.disableTelemetry:"boolean"==typeof o["disable-telemetry"]&&(o.disableTelemetry=o["disable-telemetry"]),"boolean"==typeof o.enableAccessibility?o["enable-accessibility"]=o.enableAccessibility:"boolean"==typeof o["enable-accessibility"]&&(o.enableAccessibility=o["enable-accessibility"]))}var r=e.prototype.merge.apply(this,t);return r.authOptions.authType!==AuthenticationOptions_1.AuthenticationType.subscriptionKey&&(r["subscription-key"]=r.subscriptionKey=void 0),r},t._cloneCustomizer=function(e){if("object"==typeof e)return _.clone(e)},t}(Options_1.Options);exports.ServiceOptions=ServiceOptions;
 
-},{"../../../Atlas":166,"../../../helpers/Options":174,"./AuthenticationOptions":215,"lodash":109}],218:[function(require,module,exports){
+},{"../../../Atlas":166,"../../../helpers/Options":175,"./AuthenticationOptions":217,"lodash":109}],220:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Style=function(){return function(){this.version=8,this.sprite="",this.glyphs="",this.sources={},this.layers=[]}}();exports.Style=Style;
 
-},{}],219:[function(require,module,exports){
+},{}],221:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var SourceBuildingLayer_1=require("../../namespace/layer/SourceBuildingLayer"),Style_1=require("./Style"),StyleBuilder=function(){function e(e,r){this.sprite="",this.glyphs="{fontstack}/{range}",this.source=e,this.layer=r}return e.prototype.build=function(){var e=new Style_1.Style;if(null!=this.glyphs&&(e.glyphs=this.glyphs),null!=this.sprite&&(e.sprite=this.sprite),null!=this.source&&(e.sources=this.source._buildSources()),null!=this.layer)for(var r=0,t=this.layer.getLayers();r<t.length;r++){var s=t[r];e.layers=e.layers.concat(s._buildLayers()),s instanceof SourceBuildingLayer_1.SourceBuildingLayer&&(e.sources[s._getSourceId()]=s._buildSource())}return e},e.prototype.setGlyphs=function(e){this.glyphs=e},e.prototype.setSprite=function(e){this.sprite=e},e}();exports.StyleBuilder=StyleBuilder;
 
-},{"../../namespace/layer/SourceBuildingLayer":254,"./Style":218}],220:[function(require,module,exports){
-"use strict";var __awaiter=this&&this.__awaiter||function(t,e,n,r){return new(n||(n=Promise))(function(i,o){function a(t){try{s(r.next(t))}catch(t){o(t)}}function u(t){try{s(r.throw(t))}catch(t){o(t)}}function s(t){t.done?i(t.value):new n(function(e){e(t.value)}).then(a,u)}s((r=r.apply(t,e||[])).next())})},__generator=this&&this.__generator||function(t,e){var n,r,i,o,a={label:0,sent:function(){if(1&i[0])throw i[1];return i[1]},trys:[],ops:[]};return o={next:u(0),throw:u(1),return:u(2)},"function"==typeof Symbol&&(o[Symbol.iterator]=function(){return this}),o;function u(o){return function(u){return function(o){if(n)throw new TypeError("Generator is already executing.");for(;a;)try{if(n=1,r&&(i=2&o[0]?r.return:o[0]?r.throw||((i=r.return)&&i.call(r),0):r.next)&&!(i=i.call(r,o[1])).done)return i;switch(r=0,i&&(o=[2&o[0],i.value]),o[0]){case 0:case 1:i=o;break;case 4:return a.label++,{value:o[1],done:!1};case 5:a.label++,r=o[1],o=[0];continue;case 7:o=a.ops.pop(),a.trys.pop();continue;default:if(!(i=(i=a.trys).length>0&&i[i.length-1])&&(6===o[0]||2===o[0])){a=0;continue}if(3===o[0]&&(!i||o[1]>i[0]&&o[1]<i[3])){a.label=o[1];break}if(6===o[0]&&a.label<i[1]){a.label=i[1],i=o;break}if(i&&a.label<i[2]){a.label=i[2],a.ops.push(o);break}i[2]&&a.ops.pop(),a.trys.pop();continue}o=e.call(t,a)}catch(t){o=[6,t],r=0}finally{n=i=0}if(5&o[0])throw o[1];return{value:o[0]?o[1]:void 0,done:!0}}([o,u])}}};Object.defineProperty(exports,"__esModule",{value:!0});var vars=require("../../../../variables.json"),Url_1=require("../../helpers/Url"),FundamentalMapLayer_1=require("../../namespace/layer/FundamentalMapLayer"),FundamentalMapSource_1=require("../../namespace/source/FundamentalMapSource"),StyleDefinitions=function(){function t(){}return t.prototype.initialize=function(){var t=this;return this.initPromise||(this.initPromise=this.request(vars.env.staticAssetsDomain,vars.env.styleDefinitionsPath).then(function(e){t.definitions=e}).catch(function(t){throw new Error("Failed to retrieve the style definitions: "+t)})),this.initPromise},t.prototype.getStyleComponents=function(t){return __awaiter(this,void 0,void 0,function(){var e,n,r,i=this;return __generator(this,function(o){return e=new Set,n=this.lookUp(t),r=n.layerGroups.map(function(n){var r=n.layerPath,o=n.name,a={view:t.userRegion,language:t.language};return i.buildComponent(o,r,a,e)}),[2,Promise.all(r)]})})},t.prototype.getFlowComponent=function(t,e){return __awaiter(this,void 0,void 0,function(){var n;return __generator(this,function(r){return n=this.getFlowPath(t,e),[2,this.buildComponent("flow",n)]})})},t.prototype.getCopyrightCaption=function(t){return this.lookUp(t).copyright.join(" ")},t.prototype.getSprite=function(t){var e=this.lookUp(t);return new Url_1.Url({domain:this.definitions.domain,path:e.spritePath}).toString()},t.prototype.getGlyphs=function(t){var e=this.lookUp(t);return new Url_1.Url({domain:this.definitions.domain,path:e.glyphsPath}).toString()},t.prototype.getFlowPath=function(t,e){return this.lookUp(t).flowPaths[e.flow]},t.prototype.getDef=function(){return this.definitions},t.prototype.lookUp=function(t){for(var e,n=t.style||this.definitions.defaultStyle,r=0,i=this.definitions.styles;r<i.length;r++){var o=i[r];if(o.name===n)return o;o.name===this.definitions.defaultStyle&&(e=o)}return e},t.prototype.request=function(t,e){return __awaiter(this,void 0,void 0,function(){return __generator(this,function(n){return[2,new Url_1.Url({domain:t,path:e}).get()]})})},t.prototype.buildComponent=function(t,e,n,r){return __awaiter(this,void 0,void 0,function(){return __generator(this,function(i){return[2,this.request(this.definitions.domain,e).then(function(e){for(var i=new FundamentalMapLayer_1.FundamentalMapLayer(e.layers,t),o=[],a=0,u=e.sources;a<u.length;a++){var s=u[a],l=s.name;if(r){if(r.has(l))continue;r.add(l)}o.push(new FundamentalMapSource_1.FundamentalMapSource(l,s,n))}return{layer:i,sources:o}})]})})},t}();exports.StyleDefinitions=StyleDefinitions;
+},{"../../namespace/layer/SourceBuildingLayer":258,"./Style":220}],222:[function(require,module,exports){
+"use strict";var __awaiter=this&&this.__awaiter||function(t,e,n,r){return new(n||(n=Promise))(function(i,o){function a(t){try{s(r.next(t))}catch(t){o(t)}}function u(t){try{s(r.throw(t))}catch(t){o(t)}}function s(t){t.done?i(t.value):new n(function(e){e(t.value)}).then(a,u)}s((r=r.apply(t,e||[])).next())})},__generator=this&&this.__generator||function(t,e){var n,r,i,o,a={label:0,sent:function(){if(1&i[0])throw i[1];return i[1]},trys:[],ops:[]};return o={next:u(0),throw:u(1),return:u(2)},"function"==typeof Symbol&&(o[Symbol.iterator]=function(){return this}),o;function u(o){return function(u){return function(o){if(n)throw new TypeError("Generator is already executing.");for(;a;)try{if(n=1,r&&(i=2&o[0]?r.return:o[0]?r.throw||((i=r.return)&&i.call(r),0):r.next)&&!(i=i.call(r,o[1])).done)return i;switch(r=0,i&&(o=[2&o[0],i.value]),o[0]){case 0:case 1:i=o;break;case 4:return a.label++,{value:o[1],done:!1};case 5:a.label++,r=o[1],o=[0];continue;case 7:o=a.ops.pop(),a.trys.pop();continue;default:if(!(i=(i=a.trys).length>0&&i[i.length-1])&&(6===o[0]||2===o[0])){a=0;continue}if(3===o[0]&&(!i||o[1]>i[0]&&o[1]<i[3])){a.label=o[1];break}if(6===o[0]&&a.label<i[1]){a.label=i[1],i=o;break}if(i&&a.label<i[2]){a.label=i[2],a.ops.push(o);break}i[2]&&a.ops.pop(),a.trys.pop();continue}o=e.call(t,a)}catch(t){o=[6,t],r=0}finally{n=i=0}if(5&o[0])throw o[1];return{value:o[0]?o[1]:void 0,done:!0}}([o,u])}}};Object.defineProperty(exports,"__esModule",{value:!0});var vars=require("../../../../variables.json"),Url_1=require("../../helpers/Url"),FundamentalMapLayer_1=require("../../namespace/layer/FundamentalMapLayer"),FundamentalMapSource_1=require("../../namespace/source/FundamentalMapSource"),StyleDefinitions=function(){function t(){}return t.prototype.initialize=function(){var t=this;return this.initPromise||(this.initPromise=this.request(vars.env.staticAssetsDomain,vars.env.styleDefinitionsPath).then(function(e){t.definitions=e}).catch(function(t){throw new Error("Failed to retrieve the style definitions: "+t)})),this.initPromise},t.prototype.getStyleComponents=function(t){return __awaiter(this,void 0,void 0,function(){var e,n,r,i=this;return __generator(this,function(o){return e=new Set,n=this.lookUp(t),r=n.layerGroups.map(function(n){var r,o=n.layerPath,a=n.name;return r="indoor"===t.style?t.userRegion?{view:t.userRegion,language:t.language,tilesetId:t.tilesetId}:{language:t.language,tilesetId:t.tilesetId}:t.userRegion?{view:t.userRegion,language:t.language}:{language:t.language},i.buildComponent(a,o,r,e)}),[2,Promise.all(r)]})})},t.prototype.getFlowComponent=function(t,e){return __awaiter(this,void 0,void 0,function(){var n;return __generator(this,function(r){return n=this.getFlowPath(t,e),[2,this.buildComponent("flow",n)]})})},t.prototype.getCopyrightCaption=function(t){return this.lookUp(t).copyright.join(" ")},t.prototype.getSprite=function(t){var e=this.lookUp(t);return new Url_1.Url({domain:this.definitions.domain,path:e.spritePath}).toString()},t.prototype.getGlyphs=function(t){var e=this.lookUp(t);return new Url_1.Url({domain:this.definitions.domain,path:e.glyphsPath}).toString()},t.prototype.getFlowPath=function(t,e){return this.lookUp(t).flowPaths[e.flow]},t.prototype.getDef=function(){return this.definitions},t.prototype.lookUp=function(t){for(var e,n=t.style||this.definitions.defaultStyle,r=0,i=this.definitions.styles;r<i.length;r++){var o=i[r];if(o.name===n)return o;o.name===this.definitions.defaultStyle&&(e=o)}return e},t.prototype.request=function(t,e){return __awaiter(this,void 0,void 0,function(){return __generator(this,function(n){return[2,new Url_1.Url({domain:t,path:e}).get()]})})},t.prototype.buildComponent=function(t,e,n,r){return __awaiter(this,void 0,void 0,function(){return __generator(this,function(i){return[2,this.request(this.definitions.domain,e).then(function(e){for(var i=new FundamentalMapLayer_1.FundamentalMapLayer(e.layers,t),o=[],a=0,u=e.sources;a<u.length;a++){var s=u[a],l=s.name;if(r){if(r.has(l))continue;r.add(l)}o.push(new FundamentalMapSource_1.FundamentalMapSource(l,s,n))}return{layer:i,sources:o}})]})})},t}();exports.StyleDefinitions=StyleDefinitions;
 
-},{"../../../../variables.json":281,"../../helpers/Url":175,"../../namespace/layer/FundamentalMapLayer":248,"../../namespace/source/FundamentalMapSource":273}],221:[function(require,module,exports){
+},{"../../../../variables.json":285,"../../helpers/Url":176,"../../namespace/layer/FundamentalMapLayer":252,"../../namespace/source/FundamentalMapSource":277}],223:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var AzureLogoControl=function(){function o(){}return o.prototype.onAdd=function(o){return this.container=document.createElement("div"),this.container.className="azure-map-logo",this.container},o.prototype.onRemove=function(){this.container.remove()},o}();exports.AzureLogoControl=AzureLogoControl;
 
-},{}],222:[function(require,module,exports){
+},{}],224:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var AzureLogoControl_1=require("./AzureLogoControl");exports.AzureLogoControl=AzureLogoControl_1.AzureLogoControl;
 
-},{"./AzureLogoControl":221}],223:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var ControlOptions_1=require("../../../map/options/ControlOptions"),CompassControlOptions_1=require("./CompassControlOptions"),CompassControl=function(){function t(t){this.options=(new CompassControlOptions_1.CompassControlOptions).merge(t)}return t.prototype.onAdd=function(t,e){var n=this;this.map=t,this.container=document.createElement("div"),this.container.classList.add("azure-maps-control-container"),this.container.setAttribute("aria-label","Rotation Control");var s=this.constructRotationButton(),o=this.constructRightRotationButton(),i=this.constructLeftRotationButton();return this.container.addEventListener("mouseover",function(t){n.container.classList.add("in-use"),o.classList.remove("hidden-accessible-element"),i.classList.remove("hidden-accessible-element")}),this.container.addEventListener("focusin",function(t){n.container.classList.add("in-use"),o.classList.remove("hidden-accessible-element"),i.classList.remove("hidden-accessible-element")}),this.container.addEventListener("mouseout",function(t){n.container.classList.remove("in-use"),o.classList.add("hidden-accessible-element"),i.classList.add("hidden-accessible-element")}),this.container.addEventListener("focusout",function(t){n.container.classList.remove("in-use"),o.classList.add("hidden-accessible-element"),i.classList.add("hidden-accessible-element")}),!e||e.position!==ControlOptions_1.ControlPosition.TopRight&&e.position!==ControlOptions_1.ControlPosition.BottomRight?(this.container.style.flexDirection="row",this.container.appendChild(s),this.container.appendChild(o),this.container.appendChild(i)):(this.container.style.flexDirection="row-reverse",this.container.appendChild(s),this.container.appendChild(i),this.container.appendChild(o)),this.container},t.prototype.constructRotationButton=function(){var e=this,n=document.createElement("button");return n.classList.add("azure-maps-control-button"),n.classList.add("rotation"),n.classList.add(this.options.style),n.setAttribute("title","Reset to Default Rotation"),n.setAttribute("alt","Reset to Default Rotation"),n.addEventListener("click",function(n){e.map.setCamera({bearing:t.DEFAULT_ROTATION})}),n},t.prototype.constructRightRotationButton=function(){var e=this,n=document.createElement("button");return n.classList.add("azure-maps-control-button"),n.classList.add("rotation-right"),n.classList.add("hidden-accessible-element"),n.classList.add(this.options.style),n.setAttribute("title","Rotate Right"),n.setAttribute("alt","Rotate Right"),n.addEventListener("click",function(n){e.map.setCamera({bearing:e.map.getCamera().bearing+e.options.rotationDegreesDelta,type:"ease",duration:t.ROTATION_DURATION_MS})}),n},t.prototype.constructLeftRotationButton=function(){var e=this,n=document.createElement("button");return n.classList.add("azure-maps-control-button"),n.classList.add("rotation-left"),n.classList.add("hidden-accessible-element"),n.classList.add(this.options.style),n.setAttribute("title","Rotate Left"),n.setAttribute("alt","Rotate Left"),n.addEventListener("click",function(n){e.map.setCamera({bearing:e.map.getCamera().bearing-e.options.rotationDegreesDelta,type:"ease",duration:t.ROTATION_DURATION_MS})}),n},t.prototype.onRemove=function(){this.container.remove()},t.ROTATION_DURATION_MS=100,t.DEFAULT_ROTATION=0,t}();exports.CompassControl=CompassControl;
+},{"./AzureLogoControl":223}],225:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var ControlOptions_1=require("../../../map/options/ControlOptions"),CompassControlOptions_1=require("./CompassControlOptions"),CompassControl=function(){function t(t){this.options=(new CompassControlOptions_1.CompassControlOptions).merge(t)}return t.prototype.onAdd=function(t,e){var n=this;this.map=t,this.container=document.createElement("div"),this.container.classList.add("azure-maps-control-container"),this.container.setAttribute("aria-label","Rotation Control");var s=this.constructRotationButton(),o=this.constructRightRotationButton(),i=this.constructLeftRotationButton();return this.container.addEventListener("mouseover",function(t){n.container.classList.add("in-use"),o.classList.remove("hidden-accessible-element"),i.classList.remove("hidden-accessible-element")}),this.container.addEventListener("focusin",function(t){n.container.classList.add("in-use"),o.classList.remove("hidden-accessible-element"),i.classList.remove("hidden-accessible-element")}),this.container.addEventListener("mouseout",function(t){n.container.classList.remove("in-use"),o.classList.add("hidden-accessible-element"),i.classList.add("hidden-accessible-element")}),this.container.addEventListener("focusout",function(t){n.container.classList.remove("in-use"),o.classList.add("hidden-accessible-element"),i.classList.add("hidden-accessible-element")}),!e||e.position!==ControlOptions_1.ControlPosition.TopRight&&e.position!==ControlOptions_1.ControlPosition.BottomRight?(this.container.style.flexDirection="row",this.container.appendChild(s),this.container.appendChild(o),this.container.appendChild(i)):(this.container.style.flexDirection="row-reverse",this.container.appendChild(s),this.container.appendChild(i),this.container.appendChild(o)),this.container},t.prototype.constructRotationButton=function(){var e=this,n=document.createElement("button");return n.classList.add("azure-maps-control-button"),n.classList.add("rotation"),n.classList.add(this.options.style),n.setAttribute("title","Reset to Default Rotation"),n.setAttribute("alt","Reset to Default Rotation"),n.setAttribute("type","button"),n.addEventListener("click",function(n){e.map.setCamera({bearing:t.DEFAULT_ROTATION})}),n},t.prototype.constructRightRotationButton=function(){var e=this,n=document.createElement("button");return n.classList.add("azure-maps-control-button"),n.classList.add("rotation-right"),n.classList.add("hidden-accessible-element"),n.classList.add(this.options.style),n.setAttribute("title","Rotate Right"),n.setAttribute("alt","Rotate Right"),n.setAttribute("type","button"),n.addEventListener("click",function(n){e.map.setCamera({bearing:e.map.getCamera().bearing+e.options.rotationDegreesDelta,type:"ease",duration:t.ROTATION_DURATION_MS})}),n},t.prototype.constructLeftRotationButton=function(){var e=this,n=document.createElement("button");return n.classList.add("azure-maps-control-button"),n.classList.add("rotation-left"),n.classList.add("hidden-accessible-element"),n.classList.add(this.options.style),n.setAttribute("title","Rotate Left"),n.setAttribute("alt","Rotate Left"),n.setAttribute("type","button"),n.addEventListener("click",function(n){e.map.setCamera({bearing:e.map.getCamera().bearing-e.options.rotationDegreesDelta,type:"ease",duration:t.ROTATION_DURATION_MS})}),n},t.prototype.onRemove=function(){this.container.remove()},t.ROTATION_DURATION_MS=100,t.DEFAULT_ROTATION=0,t}();exports.CompassControl=CompassControl;
 
-},{"../../../map/options/ControlOptions":204,"./CompassControlOptions":224}],224:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])};return function(o,e){function n(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(n.prototype=e.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),ControlStyle_1=require("../ControlStyle"),CompassControlOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.rotationDegreesDelta=15,o.style=ControlStyle_1.ControlStyle.light,o}return __extends(o,t),o}(Options_1.Options);exports.CompassControlOptions=CompassControlOptions;
+},{"../../../map/options/ControlOptions":206,"./CompassControlOptions":226}],226:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(o,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])})(o,e)};return function(o,e){function n(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(n.prototype=e.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),ControlStyle_1=require("../ControlStyle"),CompassControlOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.rotationDegreesDelta=15,o.style=ControlStyle_1.ControlStyle.light,o}return __extends(o,t),o}(Options_1.Options);exports.CompassControlOptions=CompassControlOptions;
 
-},{"../../../helpers/Options":174,"../ControlStyle":225}],225:[function(require,module,exports){
+},{"../../../helpers/Options":175,"../ControlStyle":227}],227:[function(require,module,exports){
 "use strict";var ControlStyle;Object.defineProperty(exports,"__esModule",{value:!0}),function(t){t.light="light",t.dark="dark"}(ControlStyle=exports.ControlStyle||(exports.ControlStyle={}));
 
-},{}],226:[function(require,module,exports){
+},{}],228:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var CopyrightControl=function(){function t(t){void 0===t&&(t=""),this.copyrightMessage=t}return t.prototype.onAdd=function(t){return this.container=document.createElement("div"),this.container.className="map-copyright",this.container.innerText=this.copyrightMessage,this.container},t.prototype.onRemove=function(){this.container.remove()},t.prototype.update=function(t){this.copyrightMessage=t,this.container.innerText=this.copyrightMessage},t}();exports.CopyrightControl=CopyrightControl;
 
-},{}],227:[function(require,module,exports){
+},{}],229:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var CopyrightControl_1=require("./CopyrightControl");exports.CopyrightControl=CopyrightControl_1.CopyrightControl;
 
-},{"./CopyrightControl":226}],228:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var ControlOptions_1=require("../../../map/options/ControlOptions"),PitchControlOptions_1=require("./PitchControlOptions"),PitchControl=function(){function t(t){this.options=(new PitchControlOptions_1.PitchControlOptions).merge(t)}return t.prototype.onAdd=function(t,e){var i=this;this.map=t,this.container=document.createElement("div"),this.container.classList.add("azure-maps-control-container"),this.container.setAttribute("aria-label","Pitch Control"),this.container.style.flexDirection=!e||e.position!==ControlOptions_1.ControlPosition.TopRight&&e.position!==ControlOptions_1.ControlPosition.BottomRight?"row":"row-reverse";var s=this.constructPitchButton(),n=this.constructPitchIncrementButton(),o=this.constructPitchDecrementButton();return this.container.addEventListener("mouseover",function(t){i.container.classList.add("in-use"),n.classList.remove("hidden-accessible-element"),o.classList.remove("hidden-accessible-element")}),this.container.addEventListener("focusin",function(t){i.container.classList.add("in-use"),n.classList.remove("hidden-accessible-element"),o.classList.remove("hidden-accessible-element")}),this.container.addEventListener("mouseout",function(t){i.container.classList.remove("in-use"),n.classList.add("hidden-accessible-element"),o.classList.add("hidden-accessible-element")}),this.container.addEventListener("focusout",function(t){i.container.classList.remove("in-use"),n.classList.add("hidden-accessible-element"),o.classList.add("hidden-accessible-element")}),this.container.appendChild(s),this.container.appendChild(n),this.container.appendChild(o),this.container},t.prototype.constructPitchButton=function(){var e=this,i=document.createElement("button");return i.classList.add("azure-maps-control-button"),i.classList.add("pitch"),i.classList.add(this.options.style),i.setAttribute("title","Reset to Default Pitch"),i.setAttribute("alt","Reset to Default Pitch"),i.addEventListener("click",function(i){e.map.setCamera({pitch:t.DEFAULT_PITCH})}),i},t.prototype.constructPitchDecrementButton=function(){var e=this,i=document.createElement("button");return i.classList.add("azure-maps-control-button"),i.classList.add("pitch-down"),i.classList.add("hidden-accessible-element"),i.classList.add(this.options.style),i.setAttribute("title","Decrease Pitch"),i.setAttribute("alt","Decrease Pitch"),i.addEventListener("click",function(i){e.map.setCamera({pitch:e.map.getCamera().pitch-e.options.pitchDegreesDelta,type:"ease",duration:t.PITCH_DURATION_MS})}),i},t.prototype.constructPitchIncrementButton=function(){var e=this,i=document.createElement("button");return i.classList.add("azure-maps-control-button"),i.classList.add("pitch-up"),i.classList.add("hidden-accessible-element"),i.classList.add(this.options.style),i.setAttribute("title","Increase Pitch"),i.setAttribute("alt","Increase Pitch"),i.addEventListener("click",function(i){e.map.setCamera({pitch:e.map.getCamera().pitch+e.options.pitchDegreesDelta,type:"ease",duration:t.PITCH_DURATION_MS})}),i},t.prototype.onRemove=function(){this.container.remove()},t.PITCH_DURATION_MS=100,t.DEFAULT_PITCH=0,t}();exports.PitchControl=PitchControl;
+},{"./CopyrightControl":228}],230:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var ControlOptions_1=require("../../../map/options/ControlOptions"),PitchControlOptions_1=require("./PitchControlOptions"),PitchControl=function(){function t(t){this.options=(new PitchControlOptions_1.PitchControlOptions).merge(t)}return t.prototype.onAdd=function(t,e){var i=this;this.map=t,this.container=document.createElement("div"),this.container.classList.add("azure-maps-control-container"),this.container.setAttribute("aria-label","Pitch Control"),this.container.style.flexDirection=!e||e.position!==ControlOptions_1.ControlPosition.TopRight&&e.position!==ControlOptions_1.ControlPosition.BottomRight?"row":"row-reverse";var s=this.constructPitchButton(),n=this.constructPitchIncrementButton(),o=this.constructPitchDecrementButton();return this.container.addEventListener("mouseover",function(t){i.container.classList.add("in-use"),n.classList.remove("hidden-accessible-element"),o.classList.remove("hidden-accessible-element")}),this.container.addEventListener("focusin",function(t){i.container.classList.add("in-use"),n.classList.remove("hidden-accessible-element"),o.classList.remove("hidden-accessible-element")}),this.container.addEventListener("mouseout",function(t){i.container.classList.remove("in-use"),n.classList.add("hidden-accessible-element"),o.classList.add("hidden-accessible-element")}),this.container.addEventListener("focusout",function(t){i.container.classList.remove("in-use"),n.classList.add("hidden-accessible-element"),o.classList.add("hidden-accessible-element")}),this.container.appendChild(s),this.container.appendChild(n),this.container.appendChild(o),this.container},t.prototype.constructPitchButton=function(){var e=this,i=document.createElement("button");return i.classList.add("azure-maps-control-button"),i.classList.add("pitch"),i.classList.add(this.options.style),i.setAttribute("title","Reset to Default Pitch"),i.setAttribute("alt","Reset to Default Pitch"),i.setAttribute("type","button"),i.addEventListener("click",function(i){e.map.setCamera({pitch:t.DEFAULT_PITCH})}),i},t.prototype.constructPitchDecrementButton=function(){var e=this,i=document.createElement("button");return i.classList.add("azure-maps-control-button"),i.classList.add("pitch-down"),i.classList.add("hidden-accessible-element"),i.classList.add(this.options.style),i.setAttribute("title","Decrease Pitch"),i.setAttribute("alt","Decrease Pitch"),i.setAttribute("type","button"),i.addEventListener("click",function(i){e.map.setCamera({pitch:e.map.getCamera().pitch-e.options.pitchDegreesDelta,type:"ease",duration:t.PITCH_DURATION_MS})}),i},t.prototype.constructPitchIncrementButton=function(){var e=this,i=document.createElement("button");return i.classList.add("azure-maps-control-button"),i.classList.add("pitch-up"),i.classList.add("hidden-accessible-element"),i.classList.add(this.options.style),i.setAttribute("title","Increase Pitch"),i.setAttribute("alt","Increase Pitch"),i.setAttribute("type","button"),i.addEventListener("click",function(i){e.map.setCamera({pitch:e.map.getCamera().pitch+e.options.pitchDegreesDelta,type:"ease",duration:t.PITCH_DURATION_MS})}),i},t.prototype.onRemove=function(){this.container.remove()},t.PITCH_DURATION_MS=100,t.DEFAULT_PITCH=0,t}();exports.PitchControl=PitchControl;
 
-},{"../../../map/options/ControlOptions":204,"./PitchControlOptions":229}],229:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])};return function(o,e){function n(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(n.prototype=e.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),ControlStyle_1=require("../ControlStyle"),PitchControlOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.pitchDegreesDelta=10,o.style=ControlStyle_1.ControlStyle.light,o}return __extends(o,t),o}(Options_1.Options);exports.PitchControlOptions=PitchControlOptions;
+},{"../../../map/options/ControlOptions":206,"./PitchControlOptions":231}],231:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(o,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])})(o,e)};return function(o,e){function n(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(n.prototype=e.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),ControlStyle_1=require("../ControlStyle"),PitchControlOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.pitchDegreesDelta=10,o.style=ControlStyle_1.ControlStyle.light,o}return __extends(o,t),o}(Options_1.Options);exports.PitchControlOptions=PitchControlOptions;
 
-},{"../../../helpers/Options":174,"../ControlStyle":225}],230:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),Dictionary_1=require("../../../helpers/Dictionary"),Url_1=require("../../../helpers/Url"),ControlOptions_1=require("../../../map/options/ControlOptions"),StyleControlOptions_1=require("./StyleControlOptions"),StyleControl=function(){function t(t){var e=this;this.styleIcons=new Dictionary_1.Dictionary,this.options=(new StyleControlOptions_1.StyleControlOptions).merge(_.cloneDeep(t)),this.container=document.createElement("div"),this.container.classList.add("azure-maps-control-container"),this.container.setAttribute("aria-label","Map Style Control"),this.styleOptionsGrid=this.constructStyleOptionsGrid(),this.container.addEventListener("mouseover",function(t){e.container.classList.add("in-use"),e.styleOptionsGrid.classList.remove("hidden-accessible-element")}),this.container.addEventListener("focusin",function(t){e.container.classList.add("in-use"),e.styleOptionsGrid.classList.remove("hidden-accessible-element")}),this.container.addEventListener("mouseout",function(t){e.container.classList.remove("in-use"),e.styleOptionsGrid.classList.add("hidden-accessible-element")}),this.container.addEventListener("focusout",function(t){e.container.classList.remove("in-use"),e.styleOptionsGrid.classList.add("hidden-accessible-element")});var n=this.constructCurrStyleButton(this.options.style);this.container.appendChild(n),this.container.appendChild(this.styleOptionsGrid)}return t.prototype.constructSelectStyleButton=function(t,e){var n=this,s=document.createElement("button");s.classList.add("azure-maps-control-button"),s.classList.add(this.options.style),s.setAttribute("title",t),s.setAttribute("alt",t),s.dataset.style=t;var i=new Image(28,28);return i.src=e,i.alt=t,s.appendChild(i),s.addEventListener("click",function(t){if(t.currentTarget instanceof HTMLElement){var e=t.currentTarget;n.map.setStyle({style:e.dataset.style})}}),s},t.prototype.constructCurrStyleButton=function(t){var e=document.createElement("button");e.classList.add("azure-maps-control-button"),e.classList.add("curr-style"),e.classList.add(t),e.setAttribute("title","Select Style"),e.setAttribute("alt","Select Style"),this.currStyleImage=new Image(28,28),e.appendChild(this.currStyleImage);var n=document.createElement("div");return n.classList.add("icon"),e.appendChild(n),e},t.prototype.constructStyleOptionsGrid=function(){var t=document.createElement("div");return t.classList.add("style-options"),t.classList.add("hidden-accessible-element"),t.setAttribute("aria-label","Style Options"),t},t.prototype.onAdd=function(t,e){var n=this;this.map=t,this.container.style.flexDirection=e&&-1!==[ControlOptions_1.ControlPosition.TopRight,ControlOptions_1.ControlPosition.BottomRight].indexOf(e.position)?"row-reverse":"row";var s=this.map._getStyleDefs();return s.initialize().then(function(){for(var t=s.getDef(),e=n.map.getStyle().style,i=0,o=t.styles;i<o.length;i++){var r=o[i],a=new Url_1.Url({domain:t.domain,path:r.iconPath}).toString();if(n.styleIcons.set(r.name,a),r.name===e&&(n.currStyleImage.src=a,n.currStyleImage.alt=r.name),-1!==n.options.mapStyles.indexOf(r.name)){var l=n.constructSelectStyleButton(r.name,a);n.styleOptionsGrid.appendChild(l)}}n.map.events.add("styledata",function(){var t=n.map.getStyle().style;n.styleIcons.has(t)&&(n.currStyleImage.src=n.styleIcons.get(t),n.currStyleImage.alt=t)})}),this.container},t.prototype.onRemove=function(){this.container.remove()},t}();exports.StyleControl=StyleControl;
+},{"../../../helpers/Options":175,"../ControlStyle":227}],232:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),Dictionary_1=require("../../../helpers/Dictionary"),Url_1=require("../../../helpers/Url"),ControlOptions_1=require("../../../map/options/ControlOptions"),StyleControlOptions_1=require("./StyleControlOptions"),StyleControl=function(){function t(t){var e=this;this.styleIcons=new Dictionary_1.Dictionary,this.options=(new StyleControlOptions_1.StyleControlOptions).merge(_.cloneDeep(t)),this.container=document.createElement("div"),this.container.classList.add("azure-maps-control-container"),this.container.setAttribute("aria-label","Map Style Control"),this.styleOptionsGrid=this.constructStyleOptionsGrid(),this.container.addEventListener("mouseover",function(t){e.container.classList.add("in-use"),e.styleOptionsGrid.classList.remove("hidden-accessible-element")}),this.container.addEventListener("focusin",function(t){e.container.classList.add("in-use"),e.styleOptionsGrid.classList.remove("hidden-accessible-element")}),this.container.addEventListener("mouseout",function(t){e.container.classList.remove("in-use"),e.styleOptionsGrid.classList.add("hidden-accessible-element")}),this.container.addEventListener("focusout",function(t){e.container.classList.remove("in-use"),e.styleOptionsGrid.classList.add("hidden-accessible-element")});var n=this.constructCurrStyleButton(this.options.style);this.container.appendChild(n),this.container.appendChild(this.styleOptionsGrid)}return t.prototype.constructSelectStyleButton=function(t,e){var n=this,s=document.createElement("button");s.classList.add("azure-maps-control-button"),s.classList.add(this.options.style),s.setAttribute("title",t),s.setAttribute("alt",t),s.setAttribute("type","button"),s.dataset.style=t;var i=new Image(28,28);return i.src=e,i.alt=t,s.appendChild(i),s.addEventListener("click",function(t){if(t.currentTarget instanceof HTMLElement){var e=t.currentTarget;n.map.setStyle({style:e.dataset.style})}}),s},t.prototype.constructCurrStyleButton=function(t){var e=document.createElement("button");e.classList.add("azure-maps-control-button"),e.classList.add("curr-style"),e.classList.add(t),e.setAttribute("title","Select Style"),e.setAttribute("alt","Select Style"),e.setAttribute("type","button"),this.currStyleImage=new Image(28,28),e.appendChild(this.currStyleImage);var n=document.createElement("div");return n.classList.add("icon"),e.appendChild(n),e},t.prototype.constructStyleOptionsGrid=function(){var t=document.createElement("div");return t.classList.add("style-options"),t.classList.add("hidden-accessible-element"),t.setAttribute("aria-label","Style Options"),t},t.prototype.onAdd=function(t,e){var n=this;this.map=t,this.container.style.flexDirection=e&&-1!==[ControlOptions_1.ControlPosition.TopRight,ControlOptions_1.ControlPosition.BottomRight].indexOf(e.position)?"row-reverse":"row";var s=this.map._getStyleDefs();return s.initialize().then(function(){for(var t=s.getDef(),e=n.map.getStyle().style,i=0,o=t.styles;i<o.length;i++){var r=o[i],a=new Url_1.Url({domain:t.domain,path:r.iconPath}).toString();if(n.styleIcons.set(r.name,a),r.name===e&&(n.currStyleImage.src=a,n.currStyleImage.alt=r.name),-1!==n.options.mapStyles.indexOf(r.name)){var l=n.constructSelectStyleButton(r.name,a);n.styleOptionsGrid.appendChild(l)}}n.map.events.add("styledata",function(){var t=n.map.getStyle().style;n.styleIcons.has(t)&&(n.currStyleImage.src=n.styleIcons.get(t),n.currStyleImage.alt=t)})}),this.container},t.prototype.onRemove=function(){this.container.remove()},t}();exports.StyleControl=StyleControl;
 
-},{"../../../helpers/Dictionary":172,"../../../helpers/Url":175,"../../../map/options/ControlOptions":204,"./StyleControlOptions":231,"lodash":109}],231:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])};return function(o,e){function r(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(r.prototype=e.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),ControlStyle_1=require("../ControlStyle"),StyleControlOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.style=ControlStyle_1.ControlStyle.light,o.mapStyles=["road","grayscale_dark","night","road_shaded_relief"],o}return __extends(o,t),o}(Options_1.Options);exports.StyleControlOptions=StyleControlOptions;
+},{"../../../helpers/Dictionary":172,"../../../helpers/Url":176,"../../../map/options/ControlOptions":206,"./StyleControlOptions":233,"lodash":109}],233:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(o,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])})(o,e)};return function(o,e){function r(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(r.prototype=e.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),ControlStyle_1=require("../ControlStyle"),StyleControlOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.style=ControlStyle_1.ControlStyle.light,o.mapStyles=["road","grayscale_dark","night","road_shaded_relief"],o}return __extends(o,t),o}(Options_1.Options);exports.StyleControlOptions=StyleControlOptions;
 
-},{"../../../helpers/Options":174,"../ControlStyle":225}],232:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var ZoomControlOptions_1=require("./ZoomControlOptions"),ZoomControl=function(){function t(t){this.options=(new ZoomControlOptions_1.ZoomControlOptions).merge(t)}return t.prototype.onAdd=function(t){this.container=document.createElement("div"),this.container.classList.add("azure-maps-control-container"),this.container.setAttribute("aria-label","Zoom Control"),this.container.style.flexDirection="column";var o=this.constructZoomInButton(t),e=this.constructZoomOutButton(t);return this.container.appendChild(o),this.container.appendChild(e),this.container},t.prototype.constructZoomInButton=function(o){var e=this,n=document.createElement("button");return n.classList.add("azure-maps-control-button"),n.classList.add("zoom-in"),n.classList.add(this.options.style),n.setAttribute("title","Zoom In"),n.setAttribute("alt","Zoom In"),n.addEventListener("click",function(n){o.setCamera({zoom:o.getCamera().zoom+e.options.zoomDelta,type:"ease",duration:t.ZOOM_DURATION_MS})}),n},t.prototype.constructZoomOutButton=function(o){var e=this,n=document.createElement("button");return n.classList.add("azure-maps-control-button"),n.classList.add("zoom-out"),n.classList.add(this.options.style),n.setAttribute("title","Zoom Out"),n.setAttribute("alt","Zoom Out"),n.addEventListener("click",function(n){o.setCamera({zoom:o.getCamera().zoom-e.options.zoomDelta,type:"ease",duration:t.ZOOM_DURATION_MS})}),n},t.prototype.onRemove=function(){this.container.remove()},t.ZOOM_DURATION_MS=200,t}();exports.ZoomControl=ZoomControl;
+},{"../../../helpers/Options":175,"../ControlStyle":227}],234:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var ZoomControlOptions_1=require("./ZoomControlOptions"),ZoomControl=function(){function t(t){this.options=(new ZoomControlOptions_1.ZoomControlOptions).merge(t)}return t.prototype.onAdd=function(t){this.container=document.createElement("div"),this.container.classList.add("azure-maps-control-container"),this.container.setAttribute("aria-label","Zoom Control"),this.container.style.flexDirection="column";var o=this.constructZoomInButton(t),e=this.constructZoomOutButton(t);return this.container.appendChild(o),this.container.appendChild(e),this.container},t.prototype.constructZoomInButton=function(o){var e=this,n=document.createElement("button");return n.classList.add("azure-maps-control-button"),n.classList.add("zoom-in"),n.classList.add(this.options.style),n.setAttribute("title","Zoom In"),n.setAttribute("alt","Zoom In"),n.setAttribute("type","button"),n.addEventListener("click",function(n){o.setCamera({zoom:o.getCamera().zoom+e.options.zoomDelta,type:"ease",duration:t.ZOOM_DURATION_MS})}),n},t.prototype.constructZoomOutButton=function(o){var e=this,n=document.createElement("button");return n.classList.add("azure-maps-control-button"),n.classList.add("zoom-out"),n.classList.add(this.options.style),n.setAttribute("title","Zoom Out"),n.setAttribute("alt","Zoom Out"),n.setAttribute("type","button"),n.addEventListener("click",function(n){o.setCamera({zoom:o.getCamera().zoom-e.options.zoomDelta,type:"ease",duration:t.ZOOM_DURATION_MS})}),n},t.prototype.onRemove=function(){this.container.remove()},t.ZOOM_DURATION_MS=200,t}();exports.ZoomControl=ZoomControl;
 
-},{"./ZoomControlOptions":233}],233:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])};return function(o,e){function n(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(n.prototype=e.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),ControlStyle_1=require("../ControlStyle"),ZoomControlOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.zoomDelta=1,o.style=ControlStyle_1.ControlStyle.light,o}return __extends(o,t),o}(Options_1.Options);exports.ZoomControlOptions=ZoomControlOptions;
+},{"./ZoomControlOptions":235}],235:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(o,n){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var n in o)o.hasOwnProperty(n)&&(t[n]=o[n])})(o,n)};return function(o,n){function e(){this.constructor=o}t(o,n),o.prototype=null===n?Object.create(n):(e.prototype=n.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),ControlStyle_1=require("../ControlStyle"),ZoomControlOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.zoomDelta=1,o.style=ControlStyle_1.ControlStyle.light,o}return __extends(o,t),o}(Options_1.Options);exports.ZoomControlOptions=ZoomControlOptions;
 
-},{"../../../helpers/Options":174,"../ControlStyle":225}],234:[function(require,module,exports){
+},{"../../../helpers/Options":175,"../ControlStyle":227}],236:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var CompassControl_1=require("./CompassControl/CompassControl");exports.CompassControl=CompassControl_1.CompassControl;var PitchControl_1=require("./PitchControl/PitchControl");exports.PitchControl=PitchControl_1.PitchControl;var StyleControl_1=require("./StyleControl/StyleControl");exports.StyleControl=StyleControl_1.StyleControl;var ZoomControl_1=require("./ZoomControl/ZoomControl");exports.ZoomControl=ZoomControl_1.ZoomControl;
 
-},{"./CompassControl/CompassControl":223,"./PitchControl/PitchControl":228,"./StyleControl/StyleControl":230,"./ZoomControl/ZoomControl":232}],235:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])};return function(e,r){function a(){this.constructor=e}t(e,r),e.prototype=null===r?Object.create(r):(a.prototype=r.prototype,new a)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Shape_1=require("../../Shape"),math=require("../math"),Position_1=require("./Position"),BoundingBox=function(t){function e(e,r){var a=this;if(e&&r){var n=e;a=n[2]&&r[2]?t.call(this,n[0],n[1],n[2]||0,r[0],r[1],r[2]||0)||this:t.call(this,n[0],n[1],r[0],r[1])||this}else if(e){var i=e;i&&(4===i.length?a=t.call(this,i[0],i[1],i[2],i[3])||this:i.length>=6&&(a=t.call(this,i[0],i[1],i[2],i[3],i[4],i[5])||this))}return a}return __extends(e,t),e.fromBoundingBox=function(t){var r=e.getWest(t),a=e.getSouth(t),n=e.getEast(t),i=e.getNorth(t);return new e([r,a,n,i])},e.fromDimensions=function(t,r,a){var n=t[0],i=t[1],l=Math.min(Math.max(i+a/2,-85.5),85.5),g=Math.min(Math.max(i-a/2,-85.5),85.5),m=math.normalizeLongitude(n+r/2);return new e([math.normalizeLongitude(n-r/2),g,m,l])},e.fromEdges=function(t,r,a,n){return new e([t,r,a,n])},e.containsPosition=function(t,r){var a=e.getCenter(t),n=Math.abs(a[1]-r[1]),i=Math.abs(a[0]-r[0]);i>180&&(i=360-i);var l=e.getHeight(t),g=e.getWidth(t);return n<=l/2+1e-8&&i<=g/2+1e-8},e.crossesAntimeridian=function(t){return math.normalizeLongitude(e.getEast(t))-math.normalizeLongitude(e.getWest(t))<0},e.getCenter=function(t){var r=math.normalizeLongitude(e.getEast(t)),a=math.normalizeLongitude(e.getWest(t));a>r&&(r+=360);var n=math.normalizeLongitude((a+r)/2),i=math.normalizeLatitude(e.getSouth(t)),l=math.normalizeLatitude(e.getNorth(t));return[n,math.normalizeLatitude((i+l)/2)]},e.getHeight=function(t){var r=math.normalizeLatitude(e.getNorth(t))-math.normalizeLatitude(e.getSouth(t));return isNaN(r)?0:r},e.getWidth=function(t){var r=math.normalizeLongitude(e.getEast(t))-math.normalizeLongitude(e.getWest(t));return isNaN(r)?0:r<0?r+=360:r},e.getSouthWest=function(t){var e=this.getSouth(t),r=this.getWest(t);return isNaN(e)||isNaN(r)?null:[r,e]},e.getNorthEast=function(t){var e=this.getNorth(t),r=this.getEast(t);return isNaN(e)||isNaN(r)?null:[r,e]},e.getNorthWest=function(t){var e=this.getNorth(t),r=this.getWest(t);return isNaN(e)||isNaN(r)?null:[r,e]},e.getSouthEast=function(t){var e=this.getSouth(t),r=this.getEast(t);return isNaN(e)||isNaN(r)?null:[r,e]},e.getSouth=function(t){return t&&t.length>=4?t[1]:NaN},e.getWest=function(t){return t&&t.length>=4?t[0]:NaN},e.getNorth=function(t){if(t){if(4===t.length)return t[3];if(6===t.length)return t[4]}return NaN},e.getEast=function(t){if(t){if(4===t.length)return t[2];if(6===t.length)return t[3]}return NaN},e.intersect=function(t,r){var a=e.getCenter(t),n=e.getCenter(r),i=Math.abs(a[1]-n[1]),l=Math.abs(a[0]-n[0]);l>180&&(l=360-l);var g=e.getHeight(t),m=e.getWidth(t),u=e.getHeight(r),f=e.getWidth(r);return i<=g/2+u/2&&l<=m/2+f/2},e.merge=function(t,r){var a=t&&4===t.length,n=r&&4===r.length;if(a&&!n)return t;if(n&&!a)return r;if(!a&&!n)return null;var i=Math.max(math.normalizeLatitude(e.getNorth(t)),math.normalizeLatitude(e.getNorth(r))),l=Math.min(math.normalizeLatitude(e.getSouth(t)),math.normalizeLatitude(e.getSouth(r))),g=[t,r],m=[],u=0;for(u=0;u<g.length;u++){var f=g[u],h=math.normalizeLongitude(e.getWest(f)),c=math.normalizeLongitude(e.getEast(f));e.crossesAntimeridian(f)?(m.push([h,180]),m.push([-180,c])):m.push([h,c])}m.sort(function(t,e){return t[0]===e[0]?t[1]-e[1]:t[0]-e[0]});var N=[],v=m[0];for(u=1;u<m.length;){var L=m[u];v[1]>=L[0]?v[1]=Math.max(v[1],L[1]):(N.push(v),v=L),u++}N.push(v);var o=N.length,p=N[0][0]+360-N[o-1][1],z=[N[o-1][1],N[0][0]];for(u=1;u<o;u++){var S=N[u][0]-N[u-1][1];S>p&&(p=S,z=[N[u-1][1],N[u][0]])}return new e([z[1],l],[z[0],i])},e.fromPositions=function(t){for(var r,a=NaN,n=NaN,i=NaN,l=NaN,g=t.length,m=new Array(g),u=0;g--;)if((r=t[g])&&r.length>=2){var f=math.normalizeLatitude(r[1]);a=isNaN(a)?f:Math.max(a,f),n=isNaN(n)?f:Math.min(n,f),m[u++]=math.normalizeLongitude(r[0])}if(u){m.length=u,m.sort(function(t,e){return t-e});var h=m[0]+360-m[u-1],c=0;for(g=1;g<u;g++){var N=m[g]-m[g-1];N>h&&(h=N,c=g)}i=m[c],l=m[(c||u)-1]}return isNaN(i)||isNaN(n)||isNaN(l)||isNaN(a)?null:new e([i,n,l,a])},e.fromLatLngs=function(t){return e.fromPositions(Position_1.Position.fromLatLngs(t))},e.fromData=function(t){var r,a=null;if(Array.isArray(t)&&t.length>0){for(var n=0,i=t;n<i.length;n++){var l=i[n];null!=(r=e.fromData(l))&&(a=null===a?r:e.merge(a,r))}return a}if(t instanceof Shape_1.Shape)return t.getBounds();if(t.type){var g=t;if(g.bbox&&4===g.bbox.length)return g.bbox;switch(g.type){case"FeatureCollection":return e.fromData(g.features);case"Feature":return Shape_1.Shape._isCircle(g)?e.fromPositions(Shape_1.Shape._getCirclePositions(g)):e.fromData(g.geometry);case"GeometryCollection":return e.fromData(g.geometries);case"Point":var m=g.coordinates;if(m&&m.length>=2)return[m[0],m[1],m[0],m[1]];break;case"LineString":case"MultiPoint":return e.fromPositions(g.coordinates);case"Polygon":case"MultiLineString":var u=g.coordinates;if(u&&u.length>0){for(var f=0,h=u.length;f<h;f++)null!=(r=e.fromPositions(u[f]))&&(a=null===a?r:e.merge(a,r));if(null!=a)return a}break;case"MultiPolygon":var c=g.coordinates;if(c&&c.length>0){for(f=0,h=c.length;f<h;f++)for(var N=0,v=c[f].length;N<v;N++)null!=(r=e.fromPositions(c[f][N]))&&(a=null===a?r:e.merge(a,r));return a}}}return null},e.splitOnAntimeridian=function(t){var r=[];if(e.crossesAntimeridian(t)){var a=void 0,n=void 0,i=math.normalizeLongitude(e.getWest(t)),l=math.normalizeLongitude(e.getEast(t)),g=math.normalizeLatitude(e.getNorth(t)),m=math.normalizeLatitude(e.getSouth(t));t.length>=6?(a=new e([i,m,t[2],180,g,t[5]]),n=new e([-180,m,t[2],l,g,t[5]])):(a=new e([i,m,180,g]),n=new e([-180,m,l,g])),r.push(a,n)}else r.push(new e(t));return r},e}(Array);exports.BoundingBox=BoundingBox;
+},{"./CompassControl/CompassControl":225,"./PitchControl/PitchControl":230,"./StyleControl/StyleControl":232,"./ZoomControl/ZoomControl":234}],237:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(e,r){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])})(e,r)};return function(e,r){function a(){this.constructor=e}t(e,r),e.prototype=null===r?Object.create(r):(a.prototype=r.prototype,new a)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Shape_1=require("../../Shape"),math=require("../math"),Position_1=require("./Position"),BoundingBox=function(t){function e(e,r){var a=this;if(e&&r){var n=e;a=n[2]&&r[2]?t.call(this,n[0],n[1],n[2]||0,r[0],r[1],r[2]||0)||this:t.call(this,n[0],n[1],r[0],r[1])||this}else if(e){var i=e;i&&(4===i.length?a=t.call(this,i[0],i[1],i[2],i[3])||this:i.length>=6&&(a=t.call(this,i[0],i[1],i[2],i[3],i[4],i[5])||this))}return a}return __extends(e,t),e.fromBoundingBox=function(t){var r=e.getWest(t),a=e.getSouth(t),n=e.getEast(t),i=e.getNorth(t);return new e([r,a,n,i])},e.fromDimensions=function(t,r,a){var n=t[0],i=t[1],l=Math.min(Math.max(i+a/2,-85.5),85.5),g=Math.min(Math.max(i-a/2,-85.5),85.5),m=math.normalizeLongitude(n+r/2);return new e([math.normalizeLongitude(n-r/2),g,m,l])},e.fromEdges=function(t,r,a,n){return new e([t,r,a,n])},e.containsPosition=function(t,r){var a=e.getCenter(t),n=Math.abs(a[1]-r[1]),i=Math.abs(a[0]-r[0]);i>180&&(i=360-i);var l=e.getHeight(t),g=e.getWidth(t);return n<=l/2+1e-8&&i<=g/2+1e-8},e.crossesAntimeridian=function(t){return math.normalizeLongitude(e.getEast(t))-math.normalizeLongitude(e.getWest(t))<0},e.getCenter=function(t){var r=math.normalizeLongitude(e.getEast(t)),a=math.normalizeLongitude(e.getWest(t));a>r&&(r+=360);var n=math.normalizeLongitude((a+r)/2),i=math.normalizeLatitude(e.getSouth(t)),l=math.normalizeLatitude(e.getNorth(t));return[n,math.normalizeLatitude((i+l)/2)]},e.getHeight=function(t){var r=math.normalizeLatitude(e.getNorth(t))-math.normalizeLatitude(e.getSouth(t));return isNaN(r)?0:r},e.getWidth=function(t){var r=math.normalizeLongitude(e.getEast(t))-math.normalizeLongitude(e.getWest(t));return isNaN(r)?0:r<0?r+=360:r},e.getSouthWest=function(t){var e=this.getSouth(t),r=this.getWest(t);return isNaN(e)||isNaN(r)?null:[r,e]},e.getNorthEast=function(t){var e=this.getNorth(t),r=this.getEast(t);return isNaN(e)||isNaN(r)?null:[r,e]},e.getNorthWest=function(t){var e=this.getNorth(t),r=this.getWest(t);return isNaN(e)||isNaN(r)?null:[r,e]},e.getSouthEast=function(t){var e=this.getSouth(t),r=this.getEast(t);return isNaN(e)||isNaN(r)?null:[r,e]},e.getSouth=function(t){return t&&t.length>=4?t[1]:NaN},e.getWest=function(t){return t&&t.length>=4?t[0]:NaN},e.getNorth=function(t){if(t){if(4===t.length)return t[3];if(6===t.length)return t[4]}return NaN},e.getEast=function(t){if(t){if(4===t.length)return t[2];if(6===t.length)return t[3]}return NaN},e.intersect=function(t,r){var a=e.getCenter(t),n=e.getCenter(r),i=Math.abs(a[1]-n[1]),l=Math.abs(a[0]-n[0]);l>180&&(l=360-l);var g=e.getHeight(t),m=e.getWidth(t),u=e.getHeight(r),f=e.getWidth(r);return i<=g/2+u/2&&l<=m/2+f/2},e.merge=function(t,r){var a=t&&4===t.length,n=r&&4===r.length;if(a&&!n)return t;if(n&&!a)return r;if(!a&&!n)return null;var i=Math.max(math.normalizeLatitude(e.getNorth(t)),math.normalizeLatitude(e.getNorth(r))),l=Math.min(math.normalizeLatitude(e.getSouth(t)),math.normalizeLatitude(e.getSouth(r))),g=[t,r],m=[],u=0;for(u=0;u<g.length;u++){var f=g[u],h=math.normalizeLongitude(e.getWest(f)),c=math.normalizeLongitude(e.getEast(f));e.crossesAntimeridian(f)?(m.push([h,180]),m.push([-180,c])):m.push([h,c])}m.sort(function(t,e){return t[0]===e[0]?t[1]-e[1]:t[0]-e[0]});var N=[],v=m[0];for(u=1;u<m.length;){var L=m[u];v[1]>=L[0]?v[1]=Math.max(v[1],L[1]):(N.push(v),v=L),u++}N.push(v);var o=N.length,p=N[0][0]+360-N[o-1][1],z=[N[o-1][1],N[0][0]];for(u=1;u<o;u++){var S=N[u][0]-N[u-1][1];S>p&&(p=S,z=[N[u-1][1],N[u][0]])}return new e([z[1],l],[z[0],i])},e.fromPositions=function(t){for(var r,a=NaN,n=NaN,i=NaN,l=NaN,g=t.length,m=new Array(g),u=0;g--;)if((r=t[g])&&r.length>=2){var f=math.normalizeLatitude(r[1]);a=isNaN(a)?f:Math.max(a,f),n=isNaN(n)?f:Math.min(n,f),m[u++]=math.normalizeLongitude(r[0])}if(u){m.length=u,m.sort(function(t,e){return t-e});var h=m[0]+360-m[u-1],c=0;for(g=1;g<u;g++){var N=m[g]-m[g-1];N>h&&(h=N,c=g)}i=m[c],l=m[(c||u)-1]}return isNaN(i)||isNaN(n)||isNaN(l)||isNaN(a)?null:new e([i,n,l,a])},e.fromLatLngs=function(t){return e.fromPositions(Position_1.Position.fromLatLngs(t))},e.fromData=function(t){var r,a=null;if(Array.isArray(t)&&t.length>0){for(var n=0,i=t;n<i.length;n++){var l=i[n];null!=(r=e.fromData(l))&&(a=null===a?r:e.merge(a,r))}return a}if(t instanceof Shape_1.Shape)return t.getBounds();if(t.type){var g=t;if(g.bbox&&4===g.bbox.length)return g.bbox;switch(g.type){case"FeatureCollection":return e.fromData(g.features);case"Feature":return Shape_1.Shape._isCircle(g)?e.fromPositions(Shape_1.Shape._getCirclePositions(g)):e.fromData(g.geometry);case"GeometryCollection":return e.fromData(g.geometries);case"Point":var m=g.coordinates;if(m&&m.length>=2)return[m[0],m[1],m[0],m[1]];break;case"LineString":case"MultiPoint":return e.fromPositions(g.coordinates);case"Polygon":case"MultiLineString":var u=g.coordinates;if(u&&u.length>0){for(var f=0,h=u.length;f<h;f++)null!=(r=e.fromPositions(u[f]))&&(a=null===a?r:e.merge(a,r));if(null!=a)return a}break;case"MultiPolygon":var c=g.coordinates;if(c&&c.length>0){for(f=0,h=c.length;f<h;f++)for(var N=0,v=c[f].length;N<v;N++)null!=(r=e.fromPositions(c[f][N]))&&(a=null===a?r:e.merge(a,r));return a}}}return null},e.splitOnAntimeridian=function(t){var r=[];if(e.crossesAntimeridian(t)){var a=void 0,n=void 0,i=math.normalizeLongitude(e.getWest(t)),l=math.normalizeLongitude(e.getEast(t)),g=math.normalizeLatitude(e.getNorth(t)),m=math.normalizeLatitude(e.getSouth(t));t.length>=6?(a=new e([i,m,t[2],180,g,t[5]]),n=new e([-180,m,t[2],l,g,t[5]])):(a=new e([i,m,180,g]),n=new e([-180,m,l,g])),r.push(a,n)}else r.push(new e(t));return r},e}(Array);exports.BoundingBox=BoundingBox;
 
-},{"../../Shape":171,"../math":271,"./Position":245}],236:[function(require,module,exports){
+},{"../../Shape":171,"../math":275,"./Position":247}],238:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Feature=function(){function e(t,r,i){this.type="Feature",this.type=e.TYPE,this.properties=r||{},this.id=i,this.geometry=t}return e.TYPE="Feature",e}();exports.Feature=Feature;
 
-},{}],237:[function(require,module,exports){
+},{}],239:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var FeatureCollection=function(){function e(t){this.type="FeatureCollection",this.type=e.TYPE,this.features=t}return e.TYPE="FeatureCollection",e}();exports.FeatureCollection=FeatureCollection;
 
-},{}],238:[function(require,module,exports){
+},{}],240:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var GeometryCollection=function(){function e(t){this.type="GeometryCollection",this.type=e.TYPE,this.geometries=t}return e.TYPE="GeometryCollection",e}();exports.GeometryCollection=GeometryCollection;
 
-},{}],239:[function(require,module,exports){
+},{}],241:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var LineString=function(){function t(e,i){this.type="LineString",this.type=t.TYPE,this.coordinates=e,this.bbox=i}return t.TYPE="LineString",t}();exports.LineString=LineString;
 
-},{}],240:[function(require,module,exports){
+},{}],242:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var MultiLineString=function(){function t(i,e){this.type="MultiLineString",this.type=t.TYPE,this.coordinates=i,this.bbox=e}return t.TYPE="MultiLineString",t}();exports.MultiLineString=MultiLineString;
 
-},{}],241:[function(require,module,exports){
+},{}],243:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var MultiPoint=function(){function t(i,e){this.type="MultiPoint",this.type=t.TYPE,this.coordinates=i,this.bbox=e}return t.TYPE="MultiPoint",t}();exports.MultiPoint=MultiPoint;
 
-},{}],242:[function(require,module,exports){
+},{}],244:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var MultiPolygon=function(){function t(o,e){this.type="MultiPolygon",this.type=t.TYPE,this.coordinates=o,this.bbox=e}return t.TYPE="MultiPolygon",t}();exports.MultiPolygon=MultiPolygon;
 
-},{}],243:[function(require,module,exports){
+},{}],245:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Point=function(){function t(e){this.type="Point",this.type=t.TYPE,this.coordinates=e}return t.TYPE="Point",t}();exports.Point=Point;
 
-},{}],244:[function(require,module,exports){
+},{}],246:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Position_1=require("./Position"),Polygon=function(){function o(t,i){this.type="Polygon",this.type=o.TYPE,1===Position_1.Position._getDimensions(t)?this.coordinates=[t]:this.coordinates=t,this.bbox=i}return o.TYPE="Polygon",o}();exports.Polygon=Polygon;
 
-},{"./Position":245}],245:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])};return function(e,r){function n(){this.constructor=e}t(e,r),e.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var math=require("../math"),Position=function(t){function e(e,r,n){return n?t.call(this,e,r,n)||this:t.call(this,e,r)||this}return __extends(e,t),e.fromPosition=function(t){return 2===t.length?new e(t[0],t[1]):t.length>2?new e(t[0],t[1],t[2]):null},e.areEqual=function(t,e,r){if(void 0===r&&(r=6),t&&t.length>=2&&e&&e.length>=2){var n=Math.pow(10,r),a=math.normalizeLatitude(t[1]),u=math.normalizeLatitude(e[1]),o=math.normalizeLongitude(t[0]),i=math.normalizeLongitude(e[0]);if(0!==Math.round((a-u)*n)/n)return!1;var f=Math.round((o-i)*n)/n;return 0===f||360===f}return!1},e.fromLatLng=function(t,e,r){var n=[];if("number"==typeof t)n.push(t),"number"==typeof e&&n.push(e),"number"==typeof r&&n.push(r);else if(Array.isArray(t))t.length>=2&&"number"==typeof t[0]&&"number"==typeof t[1]&&(t.length>=3&&"number"==typeof t[2]?n.push(t[0],t[1],t[2]):n.push(t[0],t[1]));else if("object"==typeof t){var a=["lat","latitude","y"],u=["lng","longitude","lon","x"],o=["elv","elevation","alt","altitude","z"],i=NaN,f=NaN,s=NaN;Object.keys(t).forEach(function(e,r,n){var l=e.toLowerCase();isNaN(i)&&a.indexOf(l)>=0&&"number"==typeof t[e]?i=t[e]:isNaN(f)&&u.indexOf(l)>=0&&"number"==typeof t[e]?f=t[e]:isNaN(s)&&o.indexOf(l)>=0&&"number"==typeof t[e]&&(s=t[e])}),isNaN(i)||isNaN(f)||(n.push(f,i),isNaN(s)||n.push(s))}return n.length>=2?n:null},e.fromLatLngs=function(t){var r=[];if(Array.isArray(t))for(var n=0,a=t.length;n<a;n++){var u=e.fromLatLng(t[n]);u&&r.push(u)}return r},e._getDimensions=function(t){for(var e=0;Array.isArray(t);)t=t[0],e++;return e-1},e}(Array);exports.Position=Position;
+},{"./Position":247}],247:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(e,r){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])})(e,r)};return function(e,r){function n(){this.constructor=e}t(e,r),e.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var math=require("../math"),Position=function(t){function e(e,r,n){return n?t.call(this,e,r,n)||this:t.call(this,e,r)||this}return __extends(e,t),e.fromPosition=function(t){return 2===t.length?new e(t[0],t[1]):t.length>2?new e(t[0],t[1],t[2]):null},e.areEqual=function(t,e,r){if(void 0===r&&(r=6),t&&t.length>=2&&e&&e.length>=2){var n=Math.pow(10,r),a=math.normalizeLatitude(t[1]),u=math.normalizeLatitude(e[1]),o=math.normalizeLongitude(t[0]),i=math.normalizeLongitude(e[0]);if(0!==Math.round((a-u)*n)/n)return!1;var f=Math.round((o-i)*n)/n;return 0===f||360===f}return!1},e.fromLatLng=function(t,e,r){var n=[];if("number"==typeof t)n.push(t),"number"==typeof e&&n.push(e),"number"==typeof r&&n.push(r);else if(Array.isArray(t))t.length>=2&&"number"==typeof t[0]&&"number"==typeof t[1]&&(t.length>=3&&"number"==typeof t[2]?n.push(t[0],t[1],t[2]):n.push(t[0],t[1]));else if("object"==typeof t){var a=["lat","latitude","y"],u=["lng","longitude","lon","x"],o=["elv","elevation","alt","altitude","z"],i=NaN,f=NaN,s=NaN;Object.keys(t).forEach(function(e,r,n){var l=e.toLowerCase();isNaN(i)&&a.indexOf(l)>=0&&"number"==typeof t[e]?i=t[e]:isNaN(f)&&u.indexOf(l)>=0&&"number"==typeof t[e]?f=t[e]:isNaN(s)&&o.indexOf(l)>=0&&"number"==typeof t[e]&&(s=t[e])}),isNaN(i)||isNaN(f)||(n.push(f,i),isNaN(s)||n.push(s))}return n.length>=2?n:null},e.fromLatLngs=function(t){var r=[];if(Array.isArray(t))for(var n=0,a=t.length;n<a;n++){var u=e.fromLatLng(t[n]);u&&r.push(u)}return r},e._getDimensions=function(t){for(var e=0;Array.isArray(t);)t=t[0],e++;return"number"==typeof t&&e--,e},e}(Array);exports.Position=Position;
 
-},{"../math":271}],246:[function(require,module,exports){
+},{"../math":275}],248:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var BoundingBox_1=require("./BoundingBox");exports.BoundingBox=BoundingBox_1.BoundingBox;var Feature_1=require("./Feature");exports.Feature=Feature_1.Feature;var FeatureCollection_1=require("./FeatureCollection");exports.FeatureCollection=FeatureCollection_1.FeatureCollection;var GeometryCollection_1=require("./GeometryCollection");exports.GeometryCollection=GeometryCollection_1.GeometryCollection;var LineString_1=require("./LineString");exports.LineString=LineString_1.LineString;var MultiLineString_1=require("./MultiLineString");exports.MultiLineString=MultiLineString_1.MultiLineString;var MultiPoint_1=require("./MultiPoint");exports.MultiPoint=MultiPoint_1.MultiPoint;var MultiPolygon_1=require("./MultiPolygon");exports.MultiPolygon=MultiPolygon_1.MultiPolygon;var Point_1=require("./Point");exports.Point=Point_1.Point;var Polygon_1=require("./Polygon");exports.Polygon=Polygon_1.Polygon;var Position_1=require("./Position");exports.Position=Position_1.Position;
 
-},{"./BoundingBox":235,"./Feature":236,"./FeatureCollection":237,"./GeometryCollection":238,"./LineString":239,"./MultiLineString":240,"./MultiPoint":241,"./MultiPolygon":242,"./Point":243,"./Polygon":244,"./Position":245}],247:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])};return function(o,e){function i(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(i.prototype=e.prototype,new i)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),source_1=require("../source"),Layer_1=require("./Layer"),BubbleLayerOptions_1=require("./options/BubbleLayerOptions"),BubbleLayer=function(t){function o(o,e,i){var r=t.call(this,e)||this;return r.options=(new BubbleLayerOptions_1.BubbleLayerOptions).merge(_.cloneDeepWith(i,BubbleLayerOptions_1.BubbleLayerOptions._cloneCustomizer)),r.options.source=o||r.options.source,r}return __extends(o,t),o.prototype.getOptions=function(){return _.cloneDeepWith(this.options,BubbleLayerOptions_1.BubbleLayerOptions._cloneCustomizer)},o.prototype.getSource=function(){return this.options.source},o.prototype.setOptions=function(t){var o=(new BubbleLayerOptions_1.BubbleLayerOptions).merge(this.options,_.cloneDeepWith(t,BubbleLayerOptions_1.BubbleLayerOptions._cloneCustomizer));if(this.map){if(o.source!==this.options.source||o.sourceLayer!==this.options.sourceLayer)return this.options=o,void this.map.layers.add(this);this._updateBaseProperties(o,this.options),this._updatePaintProperty("circle-blur",o.blur,this.options.blur),this._updatePaintProperty("circle-color",o.color,this.options.color),this._updatePaintProperty("circle-opacity",o.opacity,this.options.opacity),this._updatePaintProperty("circle-radius",o.radius,this.options.radius),this._updatePaintProperty("circle-stroke-color",o.strokeColor,this.options.strokeColor),this._updatePaintProperty("circle-stroke-opacity",o.strokeOpacity,this.options.strokeOpacity),this._updatePaintProperty("circle-stroke-width",o.strokeWidth,this.options.strokeWidth)}this.options=o},o.prototype._buildLayers=function(){var t={id:this.id,type:"circle",source:this.options.source instanceof source_1.Source?this.options.source.getId():this.options.source,layout:{visibility:this.options.visible?"visible":"none"},paint:{"circle-color":this.options.color,"circle-blur":this.options.blur,"circle-opacity":this.options.opacity,"circle-stroke-color":this.options.strokeColor,"circle-stroke-opacity":this.options.strokeOpacity,"circle-stroke-width":this.options.strokeWidth,"circle-radius":this.options.radius},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.filter&&(t.filter=this.options.filter),this.options.sourceLayer&&(t["source-layer"]=this.options.sourceLayer),[t]},o.prototype._getLayerIds=function(){return[this.id]},o}(Layer_1.Layer);exports.BubbleLayer=BubbleLayer;
+},{"./BoundingBox":237,"./Feature":238,"./FeatureCollection":239,"./GeometryCollection":240,"./LineString":241,"./MultiLineString":242,"./MultiPoint":243,"./MultiPolygon":244,"./Point":245,"./Polygon":246,"./Position":247}],249:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Dictionary_1=require("../../helpers/Dictionary"),EventEmitter=function(){function t(t){this.listeners=new Dictionary_1.Dictionary,this.supportedEvents=new Set;for(var e=0,n=t;e<n.length;e++){var s=n[e];this.supportedEvents.add(s)}}return t.prototype._addEventListener=function(t,e,n){this.supportedEvents.has(t)&&(this.listeners.has(t)||this.listeners.set(t,new Dictionary_1.Dictionary),this.listeners.get(t).set(e,n))},t.prototype._removeEventListener=function(t,e){this.listeners.has(t)&&this.listeners.get(t).delete(e)},t.prototype._getSupportedEvents=function(){var t=0,e=new Array(this.supportedEvents.size);return this.supportedEvents.forEach(function(n){return e[t++]=n}),e},t.prototype._invokeEvent=function(t,e){var n=this;if(!this.supportedEvents.has(t))throw new Error("Attempting to invoke an event '"+t+"' that is not supported by this EventEmitter.");this.listeners.has(t)&&this.listeners.get(t).forEach(function(s,r){s&&n._removeEventListener(t,r),r(e)})},t}();exports.EventEmitter=EventEmitter;
 
-},{"../source":276,"./Layer":251,"./options/BubbleLayerOptions":258,"lodash":109}],248:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])};return function(e,r){function n(){this.constructor=e}t(e,r),e.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Layer_1=require("./Layer"),FundamentalMapLayer=function(t){function e(e,r){var n=t.call(this,r)||this;return n.layers=e,n}return __extends(e,t),e.prototype._buildLayers=function(){return this.layers},e.prototype._getLayerIds=function(){return this.layers.map(function(t){return t.id})},e}(Layer_1.Layer);exports.FundamentalMapLayer=FundamentalMapLayer;
+},{"../../helpers/Dictionary":172}],250:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var EventEmitter_1=require("./EventEmitter");exports.EventEmitter=EventEmitter_1.EventEmitter;
 
-},{"./Layer":251}],249:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])};return function(o,e){function i(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(i.prototype=e.prototype,new i)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),source_1=require("../source"),Layer_1=require("./Layer"),HeatMapLayerOptions_1=require("./options/HeatMapLayerOptions"),HeatMapLayer=function(t){function o(o,e,i){var s=t.call(this,e)||this;return s.options=(new HeatMapLayerOptions_1.HeatMapLayerOptions).merge(_.cloneDeepWith(i,HeatMapLayerOptions_1.HeatMapLayerOptions._cloneCustomizer)),s.options.source=o||s.options.source,s}return __extends(o,t),o.prototype.getOptions=function(){return _.cloneDeepWith(this.options,HeatMapLayerOptions_1.HeatMapLayerOptions._cloneCustomizer)},o.prototype.getSource=function(){return this.options.source},o.prototype.setOptions=function(t){var o=(new HeatMapLayerOptions_1.HeatMapLayerOptions).merge(this.options,_.cloneDeepWith(t,HeatMapLayerOptions_1.HeatMapLayerOptions._cloneCustomizer));if(this.map){if(o.source!==this.options.source||o.sourceLayer!==this.options.sourceLayer)return this.options=o,void this.map.layers.add(this);this._updateBaseProperties(o,this.options),this._updatePaintProperty("heatmap-color",o.color,this.options.color),this._updatePaintProperty("heatmap-intensity",o.intensity,this.options.intensity),this._updatePaintProperty("heatmap-opacity",o.opacity,this.options.opacity),this._updatePaintProperty("heatmap-radius",o.radius,this.options.radius),this._updatePaintProperty("heatmap-weight",o.weight,this.options.weight)}this.options=o},o.prototype._buildLayers=function(){var t={id:this.id,type:"heatmap",source:this.options.source instanceof source_1.Source?this.options.source.getId():this.options.source,layout:{visibility:this.options.visible?"visible":"none"},paint:{"heatmap-color":this.options.color,"heatmap-intensity":this.options.intensity,"heatmap-opacity":this.options.opacity,"heatmap-radius":this.options.radius,"heatmap-weight":this.options.weight},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.filter&&(t.filter=this.options.filter),this.options.sourceLayer&&(t["source-layer"]=this.options.sourceLayer),[t]},o.prototype._getLayerIds=function(){return[this.id]},o}(Layer_1.Layer);exports.HeatMapLayer=HeatMapLayer;
+},{"./EventEmitter":249}],251:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(o,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])})(o,e)};return function(o,e){function i(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(i.prototype=e.prototype,new i)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),source_1=require("../source"),Layer_1=require("./Layer"),BubbleLayerOptions_1=require("./options/BubbleLayerOptions"),BubbleLayer=function(t){function o(o,e,i){var r=t.call(this,e)||this;return r.options=(new BubbleLayerOptions_1.BubbleLayerOptions).merge(_.cloneDeepWith(i,BubbleLayerOptions_1.BubbleLayerOptions._cloneCustomizer)),r.options.source=o||r.options.source,r}return __extends(o,t),o.prototype.getOptions=function(){return _.cloneDeepWith(this.options,BubbleLayerOptions_1.BubbleLayerOptions._cloneCustomizer)},o.prototype.getSource=function(){return this.options.source},o.prototype.setOptions=function(t){var o=(new BubbleLayerOptions_1.BubbleLayerOptions).merge(this.options,_.cloneDeepWith(t,BubbleLayerOptions_1.BubbleLayerOptions._cloneCustomizer));if(this.map){if(o.source!==this.options.source||o.sourceLayer!==this.options.sourceLayer)return this.options=o,void this.map.layers.add(this);this._updateBaseProperties(o,this.options),this._updatePaintProperty("circle-blur",o.blur,this.options.blur),this._updatePaintProperty("circle-color",o.color,this.options.color),this._updatePaintProperty("circle-opacity",o.opacity,this.options.opacity),this._updatePaintProperty("circle-radius",o.radius,this.options.radius),this._updatePaintProperty("circle-stroke-color",o.strokeColor,this.options.strokeColor),this._updatePaintProperty("circle-stroke-opacity",o.strokeOpacity,this.options.strokeOpacity),this._updatePaintProperty("circle-stroke-width",o.strokeWidth,this.options.strokeWidth)}this.options=o},o.prototype._buildLayers=function(){var t={id:this.id,type:"circle",source:this.options.source instanceof source_1.Source?this.options.source.getId():this.options.source,layout:{visibility:this.options.visible?"visible":"none"},paint:{"circle-color":this.options.color,"circle-blur":this.options.blur,"circle-opacity":this.options.opacity,"circle-stroke-color":this.options.strokeColor,"circle-stroke-opacity":this.options.strokeOpacity,"circle-stroke-width":this.options.strokeWidth,"circle-radius":this.options.radius},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.filter&&(t.filter=this.options.filter),this.options.sourceLayer&&(t["source-layer"]=this.options.sourceLayer),[t]},o.prototype._getLayerIds=function(){return[this.id]},o}(Layer_1.Layer);exports.BubbleLayer=BubbleLayer;
 
-},{"../source":276,"./Layer":251,"./options/HeatMapLayerOptions":259,"lodash":109}],250:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])};return function(o,e){function i(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(i.prototype=e.prototype,new i)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),data_1=require("../data"),math=require("../math/Math"),ImageLayerOptions_1=require("./options/ImageLayerOptions"),SourceBuildingLayer_1=require("./SourceBuildingLayer"),ImageLayer=function(t){function o(o,e){var i=t.call(this,e)||this;return i.options=(new ImageLayerOptions_1.ImageLayerOptions).merge(_.cloneDeepWith(o,ImageLayerOptions_1.ImageLayerOptions._cloneCustomizer)),i}return __extends(o,t),o.prototype.getOptions=function(){return _.cloneDeepWith(this.options,ImageLayerOptions_1.ImageLayerOptions._cloneCustomizer)},o.prototype.setOptions=function(t){var o=(new ImageLayerOptions_1.ImageLayerOptions).merge(this.options,_.cloneDeepWith(t,ImageLayerOptions_1.ImageLayerOptions._cloneCustomizer));if(this.map){if(!_.isEqual(o.url,this.options.url))return this.options=o,void this.map.layers.add(this);if(!_.isEqual(o.coordinates,this.options.coordinates)){var e=this.map._getMap().getSource(this._getSourceId());e&&e.setCoordinates(o.coordinates)}this._updateBaseProperties(o,this.options),this._updatePaintProperty("raster-contrast",o.contrast,this.options.contrast),this._updatePaintProperty("raster-fade-duration",o.fadeDuration,this.options.fadeDuration),this._updatePaintProperty("raster-hue-rotate",o.hueRotation,this.options.hueRotation),this._updatePaintProperty("raster-brightness-max",o.maxBrightness,this.options.maxBrightness),this._updatePaintProperty("raster-opacity",o.opacity,this.options.opacity),this._updatePaintProperty("raster-saturation",o.saturation,this.options.saturation)}this.options=o},o.getCoordinatesFromEdges=function(t,o,e,i,r){"number"!=typeof r&&(r=0);var s=[Math.min(i,e),o,Math.max(i,e),t],a=data_1.BoundingBox.getCenter(s),n=data_1.BoundingBox.getNorthWest(s),p=data_1.BoundingBox.getNorthEast(s),u=data_1.BoundingBox.getSouthEast(s),h=data_1.BoundingBox.getSouthWest(s);return math.rotatePositions([n,p,u,h],a,r)},o.prototype._buildLayers=function(){var t={id:this.id,type:"raster",source:this._getSourceId(),layout:{visibility:this.options.visible?"visible":"none"},paint:{"raster-opacity":this.options.opacity,"raster-hue-rotate":this.options.hueRotation,"raster-brightness-min":this.options.minBrightness,"raster-brightness-max":this.options.maxBrightness,"raster-saturation":this.options.saturation,"raster-contrast":this.options.contrast,"raster-fade-duration":this.options.fadeDuration},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.filter&&(t.filter=this.options.filter),[t]},o.prototype._getLayerIds=function(){return[this.id]},o.prototype._buildSource=function(){return{type:"image",url:this.options.url,coordinates:this.options.coordinates}},o.prototype._getSourceId=function(){return this.getId()+"-ImageSource"},o}(SourceBuildingLayer_1.SourceBuildingLayer);exports.ImageLayer=ImageLayer;
+},{"../source":280,"./Layer":255,"./options/BubbleLayerOptions":262,"lodash":109}],252:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(e,r){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])})(e,r)};return function(e,r){function n(){this.constructor=e}t(e,r),e.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Layer_1=require("./Layer"),FundamentalMapLayer=function(t){function e(e,r){var n=t.call(this,r)||this;return n.layers=e,n}return __extends(e,t),e.prototype._buildLayers=function(){return this.layers},e.prototype._getLayerIds=function(){return this.layers.map(function(t){return t.id})},e}(Layer_1.Layer);exports.FundamentalMapLayer=FundamentalMapLayer;
 
-},{"../data":246,"../math/Math":270,"./SourceBuildingLayer":254,"./options/ImageLayerOptions":261,"lodash":109}],251:[function(require,module,exports){
+},{"./Layer":255}],253:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(o,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])})(o,e)};return function(o,e){function i(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(i.prototype=e.prototype,new i)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),source_1=require("../source"),Layer_1=require("./Layer"),HeatMapLayerOptions_1=require("./options/HeatMapLayerOptions"),HeatMapLayer=function(t){function o(o,e,i){var s=t.call(this,e)||this;return s.options=(new HeatMapLayerOptions_1.HeatMapLayerOptions).merge(_.cloneDeepWith(i,HeatMapLayerOptions_1.HeatMapLayerOptions._cloneCustomizer)),s.options.source=o||s.options.source,s}return __extends(o,t),o.prototype.getOptions=function(){return _.cloneDeepWith(this.options,HeatMapLayerOptions_1.HeatMapLayerOptions._cloneCustomizer)},o.prototype.getSource=function(){return this.options.source},o.prototype.setOptions=function(t){var o=(new HeatMapLayerOptions_1.HeatMapLayerOptions).merge(this.options,_.cloneDeepWith(t,HeatMapLayerOptions_1.HeatMapLayerOptions._cloneCustomizer));if(this.map){if(o.source!==this.options.source||o.sourceLayer!==this.options.sourceLayer)return this.options=o,void this.map.layers.add(this);this._updateBaseProperties(o,this.options),this._updatePaintProperty("heatmap-color",o.color,this.options.color),this._updatePaintProperty("heatmap-intensity",o.intensity,this.options.intensity),this._updatePaintProperty("heatmap-opacity",o.opacity,this.options.opacity),this._updatePaintProperty("heatmap-radius",o.radius,this.options.radius),this._updatePaintProperty("heatmap-weight",o.weight,this.options.weight)}this.options=o},o.prototype._buildLayers=function(){var t={id:this.id,type:"heatmap",source:this.options.source instanceof source_1.Source?this.options.source.getId():this.options.source,layout:{visibility:this.options.visible?"visible":"none"},paint:{"heatmap-color":this.options.color,"heatmap-intensity":this.options.intensity,"heatmap-opacity":this.options.opacity,"heatmap-radius":this.options.radius,"heatmap-weight":this.options.weight},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.filter&&(t.filter=this.options.filter),this.options.sourceLayer&&(t["source-layer"]=this.options.sourceLayer),[t]},o.prototype._getLayerIds=function(){return[this.id]},o}(Layer_1.Layer);exports.HeatMapLayer=HeatMapLayer;
+
+},{"../source":280,"./Layer":255,"./options/HeatMapLayerOptions":263,"lodash":109}],254:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(o,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])})(o,e)};return function(o,e){function i(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(i.prototype=e.prototype,new i)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),data_1=require("../data"),math=require("../math/Math"),ImageLayerOptions_1=require("./options/ImageLayerOptions"),SourceBuildingLayer_1=require("./SourceBuildingLayer"),ImageLayer=function(t){function o(o,e){var i=t.call(this,e)||this;return i.options=(new ImageLayerOptions_1.ImageLayerOptions).merge(_.cloneDeepWith(o,ImageLayerOptions_1.ImageLayerOptions._cloneCustomizer)),i}return __extends(o,t),o.prototype.getOptions=function(){return _.cloneDeepWith(this.options,ImageLayerOptions_1.ImageLayerOptions._cloneCustomizer)},o.prototype.setOptions=function(t){var o=(new ImageLayerOptions_1.ImageLayerOptions).merge(this.options,_.cloneDeepWith(t,ImageLayerOptions_1.ImageLayerOptions._cloneCustomizer));if(this.map){if(!_.isEqual(o.url,this.options.url))return this.options=o,void this.map.layers.add(this);if(!_.isEqual(o.coordinates,this.options.coordinates)){var e=this.map._getMap().getSource(this._getSourceId());e&&e.setCoordinates(o.coordinates)}this._updateBaseProperties(o,this.options),this._updatePaintProperty("raster-contrast",o.contrast,this.options.contrast),this._updatePaintProperty("raster-fade-duration",o.fadeDuration,this.options.fadeDuration),this._updatePaintProperty("raster-hue-rotate",o.hueRotation,this.options.hueRotation),this._updatePaintProperty("raster-brightness-max",o.maxBrightness,this.options.maxBrightness),this._updatePaintProperty("raster-opacity",o.opacity,this.options.opacity),this._updatePaintProperty("raster-saturation",o.saturation,this.options.saturation)}this.options=o},o.getCoordinatesFromEdges=function(t,o,e,i,r){"number"!=typeof r&&(r=0);var s=[Math.min(i,e),o,Math.max(i,e),t],n=data_1.BoundingBox.getCenter(s),a=data_1.BoundingBox.getNorthWest(s),p=data_1.BoundingBox.getNorthEast(s),u=data_1.BoundingBox.getSouthEast(s),h=data_1.BoundingBox.getSouthWest(s);return math.rotatePositions([a,p,u,h],n,r)},o.prototype._buildLayers=function(){var t={id:this.id,type:"raster",source:this._getSourceId(),layout:{visibility:this.options.visible?"visible":"none"},paint:{"raster-opacity":this.options.opacity,"raster-hue-rotate":this.options.hueRotation,"raster-brightness-min":this.options.minBrightness,"raster-brightness-max":this.options.maxBrightness,"raster-saturation":this.options.saturation,"raster-contrast":this.options.contrast,"raster-fade-duration":this.options.fadeDuration},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.filter&&(t.filter=this.options.filter),[t]},o.prototype._getLayerIds=function(){return[this.id]},o.prototype._buildSource=function(){return{type:"image",url:this.options.url,coordinates:this.options.coordinates}},o.prototype._getSourceId=function(){return this.getId()+"-ImageSource"},o}(SourceBuildingLayer_1.SourceBuildingLayer);exports.ImageLayer=ImageLayer;
+
+},{"../data":248,"../math/Math":274,"./SourceBuildingLayer":258,"./options/ImageLayerOptions":265,"lodash":109}],255:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),uuid=require("uuid-random"),Layer=function(){function t(t){this.id=t||uuid()}return t.prototype.getId=function(){return this.id},t.prototype._setMap=function(t){null==t||void 0===t?delete this.map:this.map=t},t.prototype._updateBaseProperties=function(t,e){this._updateFilter(t.filter,e.filter),this._updateZoomRange(t.minZoom,e.minZoom,t.maxZoom,e.maxZoom),this._updateLayoutProperty("visibility",t.visible,e.visible,t.visible?"visible":"none")},t.prototype._updateFilter=function(t,e){_.isEqual(t,e)||this.map._getMap().setFilter(this.id,t)},t.prototype._updatePaintProperty=function(t,e,i,o){_.isEqual(e,i)||this.map._getMap().setPaintProperty(this.id,t,o||e)},t.prototype._updateLayoutProperty=function(t,e,i,o){_.isEqual(e,i)||this.map._getMap().setLayoutProperty(this.id,t,o||e)},t.prototype._updateZoomRange=function(t,e,i,o){t===e&&o===i||this.map._getMap().setLayerZoomRange(this.id,t,i)},t}();exports.Layer=Layer;
 
-},{"lodash":109,"uuid-random":162}],252:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,i){t.__proto__=i}||function(t,i){for(var o in i)i.hasOwnProperty(o)&&(t[o]=i[o])};return function(i,o){function e(){this.constructor=i}t(i,o),i.prototype=null===o?Object.create(o):(e.prototype=o.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),source_1=require("../source"),Layer_1=require("./Layer"),LineLayerOptions_1=require("./options/LineLayerOptions"),LineLayer=function(t){function i(i,o,e){var s=t.call(this,o)||this;return s.options=(new LineLayerOptions_1.LineLayerOptions).merge(_.cloneDeepWith(e,LineLayerOptions_1.LineLayerOptions._cloneCustomizer)),s.options.source=i||s.options.source,s}return __extends(i,t),i.prototype.getOptions=function(){return _.cloneDeepWith(this.options,LineLayerOptions_1.LineLayerOptions._cloneCustomizer)},i.prototype.getSource=function(){return this.options.source},i.prototype.setOptions=function(t){var i=(new LineLayerOptions_1.LineLayerOptions).merge(this.options,_.cloneDeepWith(t,LineLayerOptions_1.LineLayerOptions._cloneCustomizer));if(this.map){if(i.source!==this.options.source||i.sourceLayer!==this.options.sourceLayer)return this.options=i,void this.map.layers.add(this);this._updateBaseProperties(i,this.options),this._updatePaintProperty("line-blur",i.blur,this.options.blur),this._updateLayoutProperty("line-cap",i.lineCap,this.options.lineCap),this._updateLayoutProperty("line-join",i.lineJoin,this.options.lineJoin),this._updatePaintProperty("line-offset",i.offset,this.options.offset),this._updatePaintProperty("line-color",i.strokeColor,this.options.strokeColor),this._updatePaintProperty("line-dasharray",i.strokeDashArray,this.options.strokeDashArray),this._updatePaintProperty("line-gradient",i.strokeGradient,this.options.strokeGradient),this._updatePaintProperty("line-opacity",i.strokeOpacity,this.options.strokeOpacity),this._updatePaintProperty("line-width",i.strokeWidth,this.options.strokeWidth)}this.options=i},i.prototype._buildLayers=function(){var t={id:this.id,type:"line",source:this.options.source instanceof source_1.Source?this.options.source.getId():this.options.source,layout:{visibility:this.options.visible?"visible":"none","line-cap":this.options.lineCap,"line-join":this.options.lineJoin},paint:{"line-blur":this.options.blur,"line-color":this.options.strokeColor,"line-offset":this.options.offset,"line-opacity":this.options.strokeOpacity,"line-width":this.options.strokeWidth},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.strokeDashArray&&(t.paint["line-dasharray"]=this.options.strokeDashArray),this.options.strokeGradient&&(t.paint["line-gradient"]=this.options.strokeGradient),this.options.filter&&(t.filter=this.options.filter),this.options.sourceLayer&&(t["source-layer"]=this.options.sourceLayer),[t]},i.prototype._getLayerIds=function(){return[this.id]},i}(Layer_1.Layer);exports.LineLayer=LineLayer;
+},{"lodash":109,"uuid-random":162}],256:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(i,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,i){t.__proto__=i}||function(t,i){for(var o in i)i.hasOwnProperty(o)&&(t[o]=i[o])})(i,o)};return function(i,o){function e(){this.constructor=i}t(i,o),i.prototype=null===o?Object.create(o):(e.prototype=o.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),source_1=require("../source"),Layer_1=require("./Layer"),LineLayerOptions_1=require("./options/LineLayerOptions"),LineLayer=function(t){function i(i,o,e){var s=t.call(this,o)||this;return s.options=(new LineLayerOptions_1.LineLayerOptions).merge(_.cloneDeepWith(e,LineLayerOptions_1.LineLayerOptions._cloneCustomizer)),s.options.source=i||s.options.source,s}return __extends(i,t),i.prototype.getOptions=function(){return _.cloneDeepWith(this.options,LineLayerOptions_1.LineLayerOptions._cloneCustomizer)},i.prototype.getSource=function(){return this.options.source},i.prototype.setOptions=function(t){var i=(new LineLayerOptions_1.LineLayerOptions).merge(this.options,_.cloneDeepWith(t,LineLayerOptions_1.LineLayerOptions._cloneCustomizer));if(this.map){if(i.source!==this.options.source||i.sourceLayer!==this.options.sourceLayer)return this.options=i,void this.map.layers.add(this);this._updateBaseProperties(i,this.options),this._updatePaintProperty("line-blur",i.blur,this.options.blur),this._updateLayoutProperty("line-cap",i.lineCap,this.options.lineCap),this._updateLayoutProperty("line-join",i.lineJoin,this.options.lineJoin),this._updatePaintProperty("line-offset",i.offset,this.options.offset),this._updatePaintProperty("line-color",i.strokeColor,this.options.strokeColor),this._updatePaintProperty("line-dasharray",i.strokeDashArray,this.options.strokeDashArray),this._updatePaintProperty("line-gradient",i.strokeGradient,this.options.strokeGradient),this._updatePaintProperty("line-opacity",i.strokeOpacity,this.options.strokeOpacity),this._updatePaintProperty("line-width",i.strokeWidth,this.options.strokeWidth)}this.options=i},i.prototype._buildLayers=function(){var t={id:this.id,type:"line",source:this.options.source instanceof source_1.Source?this.options.source.getId():this.options.source,layout:{visibility:this.options.visible?"visible":"none","line-cap":this.options.lineCap,"line-join":this.options.lineJoin},paint:{"line-blur":this.options.blur,"line-color":this.options.strokeColor,"line-offset":this.options.offset,"line-opacity":this.options.strokeOpacity,"line-width":this.options.strokeWidth},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.strokeDashArray&&(t.paint["line-dasharray"]=this.options.strokeDashArray),this.options.strokeGradient&&(t.paint["line-gradient"]=this.options.strokeGradient),this.options.filter&&(t.filter=this.options.filter),this.options.sourceLayer&&(t["source-layer"]=this.options.sourceLayer),[t]},i.prototype._getLayerIds=function(){return[this.id]},i}(Layer_1.Layer);exports.LineLayer=LineLayer;
 
-},{"../source":276,"./Layer":251,"./options/LineLayerOptions":263,"lodash":109}],253:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var o=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(o,t){o.__proto__=t}||function(o,t){for(var i in t)t.hasOwnProperty(i)&&(o[i]=t[i])};return function(t,i){function e(){this.constructor=t}o(t,i),t.prototype=null===i?Object.create(i):(e.prototype=i.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),source_1=require("../source"),Layer_1=require("./Layer"),PolygonLayerOptions_1=require("./options/PolygonLayerOptions"),PolygonLayer=function(o){function t(t,i,e){var r=o.call(this,i)||this;return r.options=(new PolygonLayerOptions_1.PolygonLayerOptions).merge(_.cloneDeepWith(e,PolygonLayerOptions_1.PolygonLayerOptions._cloneCustomizer)),r.options.source=t||r.options.source,r}return __extends(t,o),t.prototype.getOptions=function(){return _.cloneDeepWith(this.options,PolygonLayerOptions_1.PolygonLayerOptions._cloneCustomizer)},t.prototype.getSource=function(){return this.options.source},t.prototype.setOptions=function(o){var t=(new PolygonLayerOptions_1.PolygonLayerOptions).merge(this.options,_.cloneDeepWith(o,PolygonLayerOptions_1.PolygonLayerOptions._cloneCustomizer));if(this.map){if(t.source!==this.options.source||t.sourceLayer!==this.options.sourceLayer)return this.options=t,void this.map.layers.add(this);this._updateBaseProperties(t,this.options),this._updatePaintProperty("fill-color",t.fillColor,this.options.fillColor),this._updatePaintProperty("fill-opacity",t.fillOpacity,this.options.fillOpacity),this._updatePaintProperty("fill-pattern",t.fillPattern,this.options.fillPattern)}this.options=t},t.prototype._buildLayers=function(){var o={id:this.id,type:"fill",source:this.options.source instanceof source_1.Source?this.options.source.getId():this.options.source,layout:{visibility:this.options.visible?"visible":"none"},paint:{"fill-opacity":this.options.fillOpacity},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.filter&&(o.filter=this.options.filter),this.options.sourceLayer&&(o["source-layer"]=this.options.sourceLayer),this.options.fillPattern?o.paint["fill-pattern"]=this.options.fillPattern:o.paint["fill-color"]=this.options.fillColor,[o]},t.prototype._getLayerIds=function(){return[this.id]},t}(Layer_1.Layer);exports.PolygonLayer=PolygonLayer;
+},{"../source":280,"./Layer":255,"./options/LineLayerOptions":267,"lodash":109}],257:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var o=function(t,i){return(o=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(o,t){o.__proto__=t}||function(o,t){for(var i in t)t.hasOwnProperty(i)&&(o[i]=t[i])})(t,i)};return function(t,i){function e(){this.constructor=t}o(t,i),t.prototype=null===i?Object.create(i):(e.prototype=i.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),source_1=require("../source"),Layer_1=require("./Layer"),PolygonLayerOptions_1=require("./options/PolygonLayerOptions"),PolygonLayer=function(o){function t(t,i,e){var n=o.call(this,i)||this;return n.options=(new PolygonLayerOptions_1.PolygonLayerOptions).merge(_.cloneDeepWith(e,PolygonLayerOptions_1.PolygonLayerOptions._cloneCustomizer)),n.options.source=t||n.options.source,n}return __extends(t,o),t.prototype.getOptions=function(){return _.cloneDeepWith(this.options,PolygonLayerOptions_1.PolygonLayerOptions._cloneCustomizer)},t.prototype.getSource=function(){return this.options.source},t.prototype.setOptions=function(o){var t=(new PolygonLayerOptions_1.PolygonLayerOptions).merge(this.options,_.cloneDeepWith(o,PolygonLayerOptions_1.PolygonLayerOptions._cloneCustomizer));if(this.map){if(t.source!==this.options.source||t.sourceLayer!==this.options.sourceLayer)return this.options=t,void this.map.layers.add(this);this._updateBaseProperties(t,this.options),this._updatePaintProperty("fill-color",t.fillColor,this.options.fillColor),this._updatePaintProperty("fill-opacity",t.fillOpacity,this.options.fillOpacity),this._updatePaintProperty("fill-pattern",t.fillPattern,this.options.fillPattern)}this.options=t},t.prototype._buildLayers=function(){var o={id:this.id,type:"fill",source:this.options.source instanceof source_1.Source?this.options.source.getId():this.options.source,layout:{visibility:this.options.visible?"visible":"none"},paint:{"fill-opacity":this.options.fillOpacity},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.filter&&(o.filter=this.options.filter),this.options.sourceLayer&&(o["source-layer"]=this.options.sourceLayer),this.options.fillPattern?o.paint["fill-pattern"]=this.options.fillPattern:o.paint["fill-color"]=this.options.fillColor,[o]},t.prototype._getLayerIds=function(){return[this.id]},t}(Layer_1.Layer);exports.PolygonLayer=PolygonLayer;
 
-},{"../source":276,"./Layer":251,"./options/PolygonLayerOptions":265,"lodash":109}],254:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])};return function(t,r){function n(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Layer_1=require("./Layer"),SourceBuildingLayer=function(e){function t(){return null!==e&&e.apply(this,arguments)||this}return __extends(t,e),t}(Layer_1.Layer);exports.SourceBuildingLayer=SourceBuildingLayer;
+},{"../source":280,"./Layer":255,"./options/PolygonLayerOptions":269,"lodash":109}],258:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var e=function(t,r){return(e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])})(t,r)};return function(t,r){function n(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Layer_1=require("./Layer"),SourceBuildingLayer=function(e){function t(){return null!==e&&e.apply(this,arguments)||this}return __extends(t,e),t}(Layer_1.Layer);exports.SourceBuildingLayer=SourceBuildingLayer;
 
-},{"./Layer":251}],255:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var i in o)o.hasOwnProperty(i)&&(t[i]=o[i])};return function(o,i){function n(){this.constructor=o}t(o,i),o.prototype=null===i?Object.create(i):(n.prototype=i.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),source_1=require("../source"),Layer_1=require("./Layer"),SymbolLayerOptions_1=require("./options/SymbolLayerOptions"),SymbolLayer=function(t){function o(o,i,n){var e=t.call(this,i)||this;return e.options=(new SymbolLayerOptions_1.SymbolLayerOptions).merge(_.cloneDeepWith(n,SymbolLayerOptions_1.SymbolLayerOptions._cloneCustomizer)),e.options.source=o||e.options.source,e}return __extends(o,t),o.prototype.getOptions=function(){return _.cloneDeepWith(this.options,SymbolLayerOptions_1.SymbolLayerOptions._cloneCustomizer)},o.prototype.getSource=function(){return this.options.source},o.prototype.setOptions=function(t){var o=(new SymbolLayerOptions_1.SymbolLayerOptions).merge(this.options,_.cloneDeepWith(t,SymbolLayerOptions_1.SymbolLayerOptions._cloneCustomizer));if(this.map){if(o.source!==this.options.source||o.sourceLayer!==this.options.sourceLayer)return this.options=o,void this.map.layers.add(this);this._updateBaseProperties(o,this.options),this._updateLayoutProperty("symbol-spacing",o.lineSpacing,this.options.lineSpacing),this._updateLayoutProperty("symbol-placement",o.placement,this.options.placement),this._updateLayoutProperty("icon-anchor",o.iconOptions.anchor,this.options.iconOptions.anchor),this._updateLayoutProperty("icon-ignore-placement",o.iconOptions.ignorePlacement,this.options.iconOptions.ignorePlacement),this._updateLayoutProperty("icon-image",o.iconOptions.image,this.options.iconOptions.image),this._updateLayoutProperty("icon-offset",o.iconOptions.offset,this.options.iconOptions.offset),this._updatePaintProperty("icon-opacity",o.iconOptions.opacity,this.options.iconOptions.opacity),this._updateLayoutProperty("icon-optional",o.iconOptions.optional,this.options.iconOptions.optional),this._updateLayoutProperty("icon-rotate",o.iconOptions.rotation,this.options.iconOptions.rotation),this._updateLayoutProperty("icon-rotation-alignment",o.iconOptions.rotationAlignment,this.options.iconOptions.rotationAlignment),this._updateLayoutProperty("icon-size",o.iconOptions.size,this.options.iconOptions.size),this._updateLayoutProperty("text-allow-overlap",o.textOptions.allowOverlap,this.options.textOptions.allowOverlap),this._updateLayoutProperty("text-anchor",o.textOptions.anchor,this.options.textOptions.anchor),this._updatePaintProperty("text-color",o.textOptions.color,this.options.textOptions.color),this._updateLayoutProperty("text-font",o.textOptions.font,this.options.textOptions.font),this._updateLayoutProperty("text-ignore-placement",o.textOptions.ignorePlacement,this.options.textOptions.ignorePlacement),this._updatePaintProperty("text-halo-blur",o.textOptions.haloBlur,this.options.textOptions.haloBlur),this._updatePaintProperty("text-halo-color",o.textOptions.haloColor,this.options.textOptions.haloColor),this._updatePaintProperty("text-halo-width",o.textOptions.haloWidth,this.options.textOptions.haloWidth),this._updateLayoutProperty("text-offset",o.textOptions.offset,this.options.textOptions.offset),this._updatePaintProperty("text-opacity",o.textOptions.opacity,this.options.textOptions.opacity),this._updateLayoutProperty("text-optional",o.textOptions.optional,this.options.textOptions.optional),this._updateLayoutProperty("text-size",o.textOptions.size,this.options.textOptions.size),this._updateLayoutProperty("text-field",o.textOptions.textField,this.options.textOptions.textField)}this.options=o},o.prototype._buildLayers=function(){var t={id:this.id,type:"symbol",source:this.options.source instanceof source_1.Source?this.options.source.getId():this.options.source,layout:{visibility:this.options.visible?"visible":"none","symbol-placement":this.options.placement,"symbol-spacing":this.options.lineSpacing,"text-allow-overlap":this.options.textOptions.allowOverlap,"text-anchor":this.options.textOptions.anchor,"text-font":this.options.textOptions.font,"text-ignore-placement":this.options.textOptions.ignorePlacement,"text-offset":this.options.textOptions.offset,"text-optional":this.options.textOptions.optional,"text-size":this.options.textOptions.size,"icon-allow-overlap":this.options.iconOptions.allowOverlap,"icon-anchor":this.options.iconOptions.anchor,"icon-ignore-placement":this.options.iconOptions.ignorePlacement,"icon-image":this.options.iconOptions.image,"icon-offset":this.options.iconOptions.offset,"icon-optional":this.options.iconOptions.optional,"icon-rotate":this.options.iconOptions.rotation,"icon-rotation-alignment":this.options.iconOptions.rotationAlignment,"icon-size":this.options.iconOptions.size},paint:{"text-color":this.options.textOptions.color,"text-halo-blur":this.options.textOptions.haloBlur,"text-halo-color":this.options.textOptions.haloColor,"text-halo-width":this.options.textOptions.haloWidth,"text-opacity":this.options.textOptions.opacity,"icon-opacity":this.options.iconOptions.opacity},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.filter&&(t.filter=this.options.filter),this.options.sourceLayer&&(t["source-layer"]=this.options.sourceLayer),this.options.textOptions.textField&&(t.layout["text-field"]=this.options.textOptions.textField),[t]},o.prototype._getLayerIds=function(){return[this.id]},o}(Layer_1.Layer);exports.SymbolLayer=SymbolLayer;
+},{"./Layer":255}],259:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(o,i){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var i in o)o.hasOwnProperty(i)&&(t[i]=o[i])})(o,i)};return function(o,i){function n(){this.constructor=o}t(o,i),o.prototype=null===i?Object.create(i):(n.prototype=i.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),source_1=require("../source"),Layer_1=require("./Layer"),SymbolLayerOptions_1=require("./options/SymbolLayerOptions"),SymbolLayer=function(t){function o(o,i,n){var e=t.call(this,i)||this;return e.options=(new SymbolLayerOptions_1.SymbolLayerOptions).merge(_.cloneDeepWith(n,SymbolLayerOptions_1.SymbolLayerOptions._cloneCustomizer)),e.options.source=o||e.options.source,e}return __extends(o,t),o.prototype.getOptions=function(){return _.cloneDeepWith(this.options,SymbolLayerOptions_1.SymbolLayerOptions._cloneCustomizer)},o.prototype.getSource=function(){return this.options.source},o.prototype.setOptions=function(t){var o=(new SymbolLayerOptions_1.SymbolLayerOptions).merge(this.options,_.cloneDeepWith(t,SymbolLayerOptions_1.SymbolLayerOptions._cloneCustomizer));if(this.map){if(o.source!==this.options.source||o.sourceLayer!==this.options.sourceLayer)return this.options=o,void this.map.layers.add(this);this._updateBaseProperties(o,this.options),this._updateLayoutProperty("symbol-spacing",o.lineSpacing,this.options.lineSpacing),this._updateLayoutProperty("symbol-placement",o.placement,this.options.placement),this._updateLayoutProperty("icon-allow-overlap",o.iconOptions.allowOverlap,this.options.iconOptions.allowOverlap),this._updateLayoutProperty("icon-anchor",o.iconOptions.anchor,this.options.iconOptions.anchor),this._updateLayoutProperty("icon-ignore-placement",o.iconOptions.ignorePlacement,this.options.iconOptions.ignorePlacement),this._updateLayoutProperty("icon-image",o.iconOptions.image,this.options.iconOptions.image),this._updateLayoutProperty("icon-offset",o.iconOptions.offset,this.options.iconOptions.offset),this._updatePaintProperty("icon-opacity",o.iconOptions.opacity,this.options.iconOptions.opacity),this._updateLayoutProperty("icon-optional",o.iconOptions.optional,this.options.iconOptions.optional),this._updateLayoutProperty("icon-rotate",o.iconOptions.rotation,this.options.iconOptions.rotation),this._updateLayoutProperty("icon-rotation-alignment",o.iconOptions.rotationAlignment,this.options.iconOptions.rotationAlignment),this._updateLayoutProperty("icon-size",o.iconOptions.size,this.options.iconOptions.size),this._updateLayoutProperty("text-allow-overlap",o.textOptions.allowOverlap,this.options.textOptions.allowOverlap),this._updateLayoutProperty("text-anchor",o.textOptions.anchor,this.options.textOptions.anchor),this._updatePaintProperty("text-color",o.textOptions.color,this.options.textOptions.color),this._updateLayoutProperty("text-font",o.textOptions.font,this.options.textOptions.font),this._updateLayoutProperty("text-ignore-placement",o.textOptions.ignorePlacement,this.options.textOptions.ignorePlacement),this._updatePaintProperty("text-halo-blur",o.textOptions.haloBlur,this.options.textOptions.haloBlur),this._updatePaintProperty("text-halo-color",o.textOptions.haloColor,this.options.textOptions.haloColor),this._updatePaintProperty("text-halo-width",o.textOptions.haloWidth,this.options.textOptions.haloWidth),this._updateLayoutProperty("text-offset",o.textOptions.offset,this.options.textOptions.offset),this._updatePaintProperty("text-opacity",o.textOptions.opacity,this.options.textOptions.opacity),this._updateLayoutProperty("text-optional",o.textOptions.optional,this.options.textOptions.optional),this._updateLayoutProperty("text-size",o.textOptions.size,this.options.textOptions.size),this._updateLayoutProperty("text-field",o.textOptions.textField,this.options.textOptions.textField)}this.options=o},o.prototype._buildLayers=function(){var t={id:this.id,type:"symbol",source:this.options.source instanceof source_1.Source?this.options.source.getId():this.options.source,layout:{visibility:this.options.visible?"visible":"none","symbol-placement":this.options.placement,"symbol-spacing":this.options.lineSpacing,"text-allow-overlap":this.options.textOptions.allowOverlap,"text-anchor":this.options.textOptions.anchor,"text-font":this.options.textOptions.font,"text-ignore-placement":this.options.textOptions.ignorePlacement,"text-offset":this.options.textOptions.offset,"text-optional":this.options.textOptions.optional,"text-size":this.options.textOptions.size,"icon-allow-overlap":this.options.iconOptions.allowOverlap,"icon-anchor":this.options.iconOptions.anchor,"icon-ignore-placement":this.options.iconOptions.ignorePlacement,"icon-image":this.options.iconOptions.image,"icon-offset":this.options.iconOptions.offset,"icon-optional":this.options.iconOptions.optional,"icon-rotate":this.options.iconOptions.rotation,"icon-rotation-alignment":this.options.iconOptions.rotationAlignment,"icon-size":this.options.iconOptions.size},paint:{"text-color":this.options.textOptions.color,"text-halo-blur":this.options.textOptions.haloBlur,"text-halo-color":this.options.textOptions.haloColor,"text-halo-width":this.options.textOptions.haloWidth,"text-opacity":this.options.textOptions.opacity,"icon-opacity":this.options.iconOptions.opacity},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.filter&&(t.filter=this.options.filter),this.options.sourceLayer&&(t["source-layer"]=this.options.sourceLayer),this.options.textOptions.textField&&(t.layout["text-field"]=this.options.textOptions.textField),[t]},o.prototype._getLayerIds=function(){return[this.id]},o}(Layer_1.Layer);exports.SymbolLayer=SymbolLayer;
 
-},{"../source":276,"./Layer":251,"./options/SymbolLayerOptions":266,"lodash":109}],256:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var i in o)o.hasOwnProperty(i)&&(t[i]=o[i])};return function(o,i){function e(){this.constructor=o}t(o,i),o.prototype=null===i?Object.create(i):(e.prototype=i.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),TileLayerOptions_1=require("./options/TileLayerOptions"),SourceBuildingLayer_1=require("./SourceBuildingLayer"),TileLayer=function(t){function o(o,i){var e=t.call(this,i)||this;return e.options=(new TileLayerOptions_1.TileLayerOptions).merge(_.cloneDeepWith(o,TileLayerOptions_1.TileLayerOptions._cloneCustomizer)),e}return __extends(o,t),o.prototype.getOptions=function(){return _.cloneDeepWith(this.options,TileLayerOptions_1.TileLayerOptions._cloneCustomizer)},o.prototype.setOptions=function(t){var o=(new TileLayerOptions_1.TileLayerOptions).merge(this.options,_.cloneDeepWith(t,TileLayerOptions_1.TileLayerOptions._cloneCustomizer));if(this.map){if(!_.isEqual(o.bounds,this.options.bounds)||o.isTMS!==this.options.isTMS||o.maxSourceZoom!==this.options.maxSourceZoom||o.minSourceZoom!==this.options.minSourceZoom||!_.isEqual(o.subdomains,this.options.subdomains)||o.tileSize!==this.options.tileSize||o.tileUrl!==this.options.tileUrl)return this.options=o,void this.map.layers.add(this);this._updateBaseProperties(o,this.options),this._updatePaintProperty("raster-contrast",o.contrast,this.options.contrast),this._updatePaintProperty("raster-fade-duration",o.fadeDuration,this.options.fadeDuration),this._updatePaintProperty("raster-hue-rotate",o.hueRotation,this.options.hueRotation),this._updatePaintProperty("raster-brightness-max",o.maxBrightness,this.options.maxBrightness),this._updatePaintProperty("raster-opacity",o.opacity,this.options.opacity),this._updatePaintProperty("raster-saturation",o.saturation,this.options.saturation)}this.options=o},o.prototype._setOptionsNoUpdate=function(t){this.options=(new TileLayerOptions_1.TileLayerOptions).merge(this.options,_.cloneDeepWith(t,TileLayerOptions_1.TileLayerOptions._cloneCustomizer))},o.prototype._buildLayers=function(){var t={id:this.id,type:"raster",source:this._getSourceId(),layout:{visibility:this.options.visible?"visible":"none"},paint:{"raster-contrast":this.options.contrast,"raster-fade-duration":this.options.fadeDuration,"raster-hue-rotate":this.options.hueRotation,"raster-brightness-max":this.options.maxBrightness,"raster-brightness-min":this.options.minBrightness,"raster-opacity":this.options.opacity,"raster-saturation":this.options.saturation},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.filter&&(t.filter=this.options.filter),[t]},o.prototype._getLayerIds=function(){return[this.id]},o.prototype._buildSource=function(){var t={type:"raster",bounds:this.options.bounds,maxzoom:this.options.maxSourceZoom,minzoom:this.options.minSourceZoom,scheme:this.options.isTMS?"tms":"xyz",tileSize:this.options.tileSize};if(this.options.tileUrl)if(-1!==this.options.tileUrl.indexOf("{"))if(-1!==this.options.tileUrl.indexOf("{subdomain}")){if(!(this.options.subdomains&&this.options.subdomains.length>0))throw new Error("The {subdomain} placeholder was included in the tileUrl but no subdomains were specified");for(var o=[],i=0,e=this.options.subdomains;i<e.length;i++){var s=e[i];o.push(this.options.tileUrl.replace(/{subdomain}/g,s))}t.tiles=o}else t.tiles=[this.options.tileUrl];else t.url=this.options.tileUrl;return t},o.prototype._getSourceId=function(){return this.getId()+"-RasterSource"},o}(SourceBuildingLayer_1.SourceBuildingLayer);exports.TileLayer=TileLayer;
+},{"../source":280,"./Layer":255,"./options/SymbolLayerOptions":270,"lodash":109}],260:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(o,i){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var i in o)o.hasOwnProperty(i)&&(t[i]=o[i])})(o,i)};return function(o,i){function e(){this.constructor=o}t(o,i),o.prototype=null===i?Object.create(i):(e.prototype=i.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),TileLayerOptions_1=require("./options/TileLayerOptions"),SourceBuildingLayer_1=require("./SourceBuildingLayer"),TileLayer=function(t){function o(o,i){var e=t.call(this,i)||this;return e.options=(new TileLayerOptions_1.TileLayerOptions).merge(_.cloneDeepWith(o,TileLayerOptions_1.TileLayerOptions._cloneCustomizer)),e}return __extends(o,t),o.prototype.getOptions=function(){return _.cloneDeepWith(this.options,TileLayerOptions_1.TileLayerOptions._cloneCustomizer)},o.prototype.setOptions=function(t){var o=(new TileLayerOptions_1.TileLayerOptions).merge(this.options,_.cloneDeepWith(t,TileLayerOptions_1.TileLayerOptions._cloneCustomizer));if(this.map){if(!_.isEqual(o.bounds,this.options.bounds)||o.isTMS!==this.options.isTMS||o.maxSourceZoom!==this.options.maxSourceZoom||o.minSourceZoom!==this.options.minSourceZoom||!_.isEqual(o.subdomains,this.options.subdomains)||o.tileSize!==this.options.tileSize||o.tileUrl!==this.options.tileUrl)return this.options=o,void this.map.layers.add(this);this._updateBaseProperties(o,this.options),this._updatePaintProperty("raster-contrast",o.contrast,this.options.contrast),this._updatePaintProperty("raster-fade-duration",o.fadeDuration,this.options.fadeDuration),this._updatePaintProperty("raster-hue-rotate",o.hueRotation,this.options.hueRotation),this._updatePaintProperty("raster-brightness-max",o.maxBrightness,this.options.maxBrightness),this._updatePaintProperty("raster-opacity",o.opacity,this.options.opacity),this._updatePaintProperty("raster-saturation",o.saturation,this.options.saturation)}this.options=o},o.prototype._setOptionsNoUpdate=function(t){this.options=(new TileLayerOptions_1.TileLayerOptions).merge(this.options,_.cloneDeepWith(t,TileLayerOptions_1.TileLayerOptions._cloneCustomizer))},o.prototype._buildLayers=function(){var t={id:this.id,type:"raster",source:this._getSourceId(),layout:{visibility:this.options.visible?"visible":"none"},paint:{"raster-contrast":this.options.contrast,"raster-fade-duration":this.options.fadeDuration,"raster-hue-rotate":this.options.hueRotation,"raster-brightness-max":this.options.maxBrightness,"raster-brightness-min":this.options.minBrightness,"raster-opacity":this.options.opacity,"raster-saturation":this.options.saturation},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.filter&&(t.filter=this.options.filter),[t]},o.prototype._getLayerIds=function(){return[this.id]},o.prototype._buildSource=function(){var t={type:"raster",bounds:this.options.bounds,maxzoom:this.options.maxSourceZoom,minzoom:this.options.minSourceZoom,scheme:this.options.isTMS?"tms":"xyz",tileSize:this.options.tileSize};if(this.options.tileUrl)if(-1!==this.options.tileUrl.indexOf("{"))if(-1!==this.options.tileUrl.indexOf("{subdomain}")){if(!(this.options.subdomains&&this.options.subdomains.length>0))throw new Error("The {subdomain} placeholder was included in the tileUrl but no subdomains were specified");for(var o=[],i=0,e=this.options.subdomains;i<e.length;i++){var s=e[i];o.push(this.options.tileUrl.replace(/{subdomain}/g,s))}t.tiles=o}else t.tiles=[this.options.tileUrl];else t.url=this.options.tileUrl;return t},o.prototype._getSourceId=function(){return this.getId()+"-RasterSource"},o}(SourceBuildingLayer_1.SourceBuildingLayer);exports.TileLayer=TileLayer;
 
-},{"./SourceBuildingLayer":254,"./options/TileLayerOptions":268,"lodash":109}],257:[function(require,module,exports){
+},{"./SourceBuildingLayer":258,"./options/TileLayerOptions":272,"lodash":109}],261:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var BubbleLayer_1=require("./BubbleLayer");exports.BubbleLayer=BubbleLayer_1.BubbleLayer;var HeatMapLayer_1=require("./HeatMapLayer");exports.HeatMapLayer=HeatMapLayer_1.HeatMapLayer;var ImageLayer_1=require("./ImageLayer");exports.ImageLayer=ImageLayer_1.ImageLayer;var Layer_1=require("./Layer");exports.Layer=Layer_1.Layer;var LineLayer_1=require("./LineLayer");exports.LineLayer=LineLayer_1.LineLayer;var PolygonLayer_1=require("./PolygonLayer");exports.PolygonLayer=PolygonLayer_1.PolygonLayer;var SymbolLayer_1=require("./SymbolLayer");exports.SymbolLayer=SymbolLayer_1.SymbolLayer;var TileLayer_1=require("./TileLayer");exports.TileLayer=TileLayer_1.TileLayer;
 
-},{"./BubbleLayer":247,"./HeatMapLayer":249,"./ImageLayer":250,"./Layer":251,"./LineLayer":252,"./PolygonLayer":253,"./SymbolLayer":255,"./TileLayer":256}],258:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])};return function(e,r){function o(){this.constructor=e}t(e,r),e.prototype=null===r?Object.create(r):(o.prototype=r.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),BubbleLayerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.source=void 0,e.sourceLayer=void 0,e.color="#1A73AA",e.blur=0,e.opacity=1,e.strokeColor="#FFFFFF",e.strokeOpacity=1,e.strokeWidth=2,e.radius=8,e}return __extends(e,t),e}(LayerOptions_1.LayerOptions);exports.BubbleLayerOptions=BubbleLayerOptions;
+},{"./BubbleLayer":251,"./HeatMapLayer":253,"./ImageLayer":254,"./Layer":255,"./LineLayer":256,"./PolygonLayer":257,"./SymbolLayer":259,"./TileLayer":260}],262:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(r,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,r){t.__proto__=r}||function(t,r){for(var e in r)r.hasOwnProperty(e)&&(t[e]=r[e])})(r,e)};return function(r,e){function o(){this.constructor=r}t(r,e),r.prototype=null===e?Object.create(e):(o.prototype=e.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),BubbleLayerOptions=function(t){function r(){var r=null!==t&&t.apply(this,arguments)||this;return r.source=void 0,r.sourceLayer=void 0,r.color="#1A73AA",r.blur=0,r.opacity=1,r.strokeColor="#FFFFFF",r.strokeOpacity=1,r.strokeWidth=2,r.radius=8,r}return __extends(r,t),r}(LayerOptions_1.LayerOptions);exports.BubbleLayerOptions=BubbleLayerOptions;
 
-},{"./LayerOptions":262}],259:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])};return function(t,r){function o(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(o.prototype=r.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var source_1=require("../../source"),LayerOptions_1=require("./LayerOptions"),HeatMapLayerOptions=function(e){function t(){var t=null!==e&&e.apply(this,arguments)||this;return t.source=void 0,t.sourceLayer=void 0,t.color=["interpolate",["linear"],["heatmap-density"],0,"rgba(0,0, 255,0)",.1,"royalblue",.3,"cyan",.5,"lime",.7,"yellow",1,"red"],t.intensity=1,t.opacity=1,t.radius=30,t.weight=1,t}return __extends(t,e),t._cloneCustomizer=function(e){if(e instanceof source_1.Source)return e},t}(LayerOptions_1.LayerOptions);exports.HeatMapLayerOptions=HeatMapLayerOptions;
+},{"./LayerOptions":266}],263:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var e=function(t,r){return(e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])})(t,r)};return function(t,r){function o(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(o.prototype=r.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var source_1=require("../../source"),LayerOptions_1=require("./LayerOptions"),HeatMapLayerOptions=function(e){function t(){var t=null!==e&&e.apply(this,arguments)||this;return t.source=void 0,t.sourceLayer=void 0,t.color=["interpolate",["linear"],["heatmap-density"],0,"rgba(0,0, 255,0)",.1,"royalblue",.3,"cyan",.5,"lime",.7,"yellow",1,"red"],t.intensity=1,t.opacity=1,t.radius=30,t.weight=1,t}return __extends(t,e),t._cloneCustomizer=function(e){if(e instanceof source_1.Source)return e},t}(LayerOptions_1.LayerOptions);exports.HeatMapLayerOptions=HeatMapLayerOptions;
 
-},{"../../source":276,"./LayerOptions":262}],260:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var o in e)e.hasOwnProperty(o)&&(t[o]=e[o])};return function(e,o){function n(){this.constructor=e}t(e,o),e.prototype=null===o?Object.create(o):(n.prototype=o.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),Pixel_1=require("../../../Pixel"),IconOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.allowOverlap=!1,e.anchor="bottom",e.ignorePlacement=!1,e.image="marker-blue",e.offset=new Pixel_1.Pixel(0,0),e.optional=!1,e.rotation=0,e.rotationAlignment="auto",e.size=1,e.opacity=1,e}return __extends(e,t),e}(Options_1.Options);exports.IconOptions=IconOptions;
+},{"../../source":280,"./LayerOptions":266}],264:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(e,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var o in e)e.hasOwnProperty(o)&&(t[o]=e[o])})(e,o)};return function(e,o){function n(){this.constructor=e}t(e,o),e.prototype=null===o?Object.create(o):(n.prototype=o.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),Pixel_1=require("../../../Pixel"),IconOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.allowOverlap=!1,e.anchor="bottom",e.ignorePlacement=!1,e.image="marker-blue",e.offset=new Pixel_1.Pixel(0,0),e.optional=!1,e.rotation=0,e.rotationAlignment="auto",e.size=1,e.opacity=1,e}return __extends(e,t),e}(Options_1.Options);exports.IconOptions=IconOptions;
 
-},{"../../../Pixel":169,"../../../helpers/Options":174}],261:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])};return function(t,r){function o(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(o.prototype=r.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var source_1=require("../../source"),MediaLayerOptions_1=require("./MediaLayerOptions"),ImageLayerOptions=function(e){function t(){var t=null!==e&&e.apply(this,arguments)||this;return t.url=void 0,t.coordinates=void 0,t}return __extends(t,e),t._cloneCustomizer=function(e){if(e instanceof source_1.Source)return e},t}(MediaLayerOptions_1.MediaLayerOptions);exports.ImageLayerOptions=ImageLayerOptions;
+},{"../../../Pixel":169,"../../../helpers/Options":175}],265:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var e=function(t,r){return(e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])})(t,r)};return function(t,r){function o(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(o.prototype=r.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var source_1=require("../../source"),MediaLayerOptions_1=require("./MediaLayerOptions"),ImageLayerOptions=function(e){function t(){var t=null!==e&&e.apply(this,arguments)||this;return t.url=void 0,t.coordinates=void 0,t}return __extends(t,e),t._cloneCustomizer=function(e){if(e instanceof source_1.Source)return e},t}(MediaLayerOptions_1.MediaLayerOptions);exports.ImageLayerOptions=ImageLayerOptions;
 
-},{"../../source":276,"./MediaLayerOptions":264}],262:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var o in e)e.hasOwnProperty(o)&&(t[o]=e[o])};return function(e,o){function r(){this.constructor=e}t(e,o),e.prototype=null===o?Object.create(o):(r.prototype=o.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),source_1=require("../../source"),LayerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.filter=void 0,e.minZoom=0,e.maxZoom=24,e.visible=!0,e}return __extends(e,t),e._cloneCustomizer=function(t){if(t instanceof source_1.Source)return t},e}(Options_1.Options);exports.LayerOptions=LayerOptions;
+},{"../../source":280,"./MediaLayerOptions":268}],266:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(e,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var o in e)e.hasOwnProperty(o)&&(t[o]=e[o])})(e,o)};return function(e,o){function r(){this.constructor=e}t(e,o),e.prototype=null===o?Object.create(o):(r.prototype=o.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),source_1=require("../../source"),LayerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.filter=void 0,e.minZoom=0,e.maxZoom=24,e.visible=!0,e}return __extends(e,t),e._cloneCustomizer=function(t){if(t instanceof source_1.Source)return t},e}(Options_1.Options);exports.LayerOptions=LayerOptions;
 
-},{"../../../helpers/Options":174,"../../source":276}],263:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])};return function(e,r){function o(){this.constructor=e}t(e,r),e.prototype=null===r?Object.create(r):(o.prototype=r.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),LineLayerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.source=void 0,e.sourceLayer=void 0,e.lineCap="round",e.lineJoin="round",e.blur=0,e.strokeColor="#1E90FF",e.strokeDashArray=void 0,e.strokeGradient=void 0,e.offset=0,e.strokeOpacity=1,e.strokeWidth=2,e}return __extends(e,t),e}(LayerOptions_1.LayerOptions);exports.LineLayerOptions=LineLayerOptions;
+},{"../../../helpers/Options":175,"../../source":280}],267:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(e,r){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])})(e,r)};return function(e,r){function o(){this.constructor=e}t(e,r),e.prototype=null===r?Object.create(r):(o.prototype=r.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),LineLayerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.source=void 0,e.sourceLayer=void 0,e.lineCap="round",e.lineJoin="round",e.blur=0,e.strokeColor="#1E90FF",e.strokeDashArray=void 0,e.strokeGradient=void 0,e.offset=0,e.strokeOpacity=1,e.strokeWidth=2,e}return __extends(e,t),e}(LayerOptions_1.LayerOptions);exports.LineLayerOptions=LineLayerOptions;
 
-},{"./LayerOptions":262}],264:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])};return function(e,r){function n(){this.constructor=e}t(e,r),e.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),MediaLayerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.contrast=0,e.fadeDuration=300,e.hueRotation=0,e.maxBrightness=1,e.minBrightness=0,e.opacity=1,e.saturation=0,e}return __extends(e,t),e}(LayerOptions_1.LayerOptions);exports.MediaLayerOptions=MediaLayerOptions;
+},{"./LayerOptions":266}],268:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(e,n){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])})(e,n)};return function(e,n){function r(){this.constructor=e}t(e,n),e.prototype=null===n?Object.create(n):(r.prototype=n.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),MediaLayerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.contrast=0,e.fadeDuration=300,e.hueRotation=0,e.maxBrightness=1,e.minBrightness=0,e.opacity=1,e.saturation=0,e}return __extends(e,t),e}(LayerOptions_1.LayerOptions);exports.MediaLayerOptions=MediaLayerOptions;
 
-},{"./LayerOptions":262}],265:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])};return function(o,e){function r(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(r.prototype=e.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),PolygonLayerOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.source=void 0,o.sourceLayer=void 0,o.fillColor="#1E90FF",o.fillOpacity=.5,o.fillPattern=void 0,o}return __extends(o,t),o}(LayerOptions_1.LayerOptions);exports.PolygonLayerOptions=PolygonLayerOptions;
+},{"./LayerOptions":266}],269:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(o,r){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var r in o)o.hasOwnProperty(r)&&(t[r]=o[r])})(o,r)};return function(o,r){function e(){this.constructor=o}t(o,r),o.prototype=null===r?Object.create(r):(e.prototype=r.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),PolygonLayerOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.source=void 0,o.sourceLayer=void 0,o.fillColor="#1E90FF",o.fillOpacity=.5,o.fillPattern=void 0,o}return __extends(o,t),o}(LayerOptions_1.LayerOptions);exports.PolygonLayerOptions=PolygonLayerOptions;
 
-},{"./LayerOptions":262}],266:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])};return function(o,e){function n(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(n.prototype=e.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var IconOptions_1=require("./IconOptions"),LayerOptions_1=require("./LayerOptions"),TextOptions_1=require("./TextOptions"),SymbolLayerOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.source=void 0,o.sourceLayer=void 0,o.iconOptions=new IconOptions_1.IconOptions,o.textOptions=new TextOptions_1.TextOptions,o.placement="point",o.lineSpacing=250,o}return __extends(o,t),o}(LayerOptions_1.LayerOptions);exports.SymbolLayerOptions=SymbolLayerOptions;
+},{"./LayerOptions":266}],270:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(n,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,n){t.__proto__=n}||function(t,n){for(var o in n)n.hasOwnProperty(o)&&(t[o]=n[o])})(n,o)};return function(n,o){function e(){this.constructor=n}t(n,o),n.prototype=null===o?Object.create(o):(e.prototype=o.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var IconOptions_1=require("./IconOptions"),LayerOptions_1=require("./LayerOptions"),TextOptions_1=require("./TextOptions"),SymbolLayerOptions=function(t){function n(){var n=null!==t&&t.apply(this,arguments)||this;return n.source=void 0,n.sourceLayer=void 0,n.iconOptions=new IconOptions_1.IconOptions,n.textOptions=new TextOptions_1.TextOptions,n.placement="point",n.lineSpacing=250,n}return __extends(n,t),n}(LayerOptions_1.LayerOptions);exports.SymbolLayerOptions=SymbolLayerOptions;
 
-},{"./IconOptions":260,"./LayerOptions":262,"./TextOptions":267}],267:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var o in e)e.hasOwnProperty(o)&&(t[o]=e[o])};return function(e,o){function n(){this.constructor=e}t(e,o),e.prototype=null===o?Object.create(o):(n.prototype=o.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),Pixel_1=require("../../../Pixel"),TextOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.allowOverlap=!1,e.anchor="center",e.textField=void 0,e.font=["StandardFont-Regular"],e.ignorePlacement=!1,e.offset=new Pixel_1.Pixel(0,0),e.optional=!1,e.size=16,e.color="#000000",e.haloBlur=0,e.haloColor="rgba(0,0,0,0)",e.haloWidth=0,e.opacity=1,e}return __extends(e,t),e}(Options_1.Options);exports.TextOptions=TextOptions;
+},{"./IconOptions":264,"./LayerOptions":266,"./TextOptions":271}],271:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(e,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var o in e)e.hasOwnProperty(o)&&(t[o]=e[o])})(e,o)};return function(e,o){function n(){this.constructor=e}t(e,o),e.prototype=null===o?Object.create(o):(n.prototype=o.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),Pixel_1=require("../../../Pixel"),TextOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.allowOverlap=!1,e.anchor="center",e.textField=void 0,e.font=["StandardFont-Regular"],e.ignorePlacement=!1,e.offset=new Pixel_1.Pixel(0,0),e.optional=!1,e.size=16,e.color="#000000",e.haloBlur=0,e.haloColor="rgba(0,0,0,0)",e.haloWidth=0,e.opacity=1,e}return __extends(e,t),e}(Options_1.Options);exports.TextOptions=TextOptions;
 
-},{"../../../Pixel":169,"../../../helpers/Options":174}],268:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var o in t)t.hasOwnProperty(o)&&(e[o]=t[o])};return function(t,o){function r(){this.constructor=t}e(t,o),t.prototype=null===o?Object.create(o):(r.prototype=o.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var MediaLayerOptions_1=require("./MediaLayerOptions"),TileLayerOptions=function(e){function t(){var t=null!==e&&e.apply(this,arguments)||this;return t.bounds=[-180,-85.0511,180,85.0511],t.minSourceZoom=0,t.maxSourceZoom=22,t.tileSize=512,t.isTMS=!1,t.subdomains=void 0,t.tileUrl=void 0,t}return __extends(t,e),t}(MediaLayerOptions_1.MediaLayerOptions);exports.TileLayerOptions=TileLayerOptions;
+},{"../../../Pixel":169,"../../../helpers/Options":175}],272:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var e=function(t,o){return(e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var o in t)t.hasOwnProperty(o)&&(e[o]=t[o])})(t,o)};return function(t,o){function r(){this.constructor=t}e(t,o),t.prototype=null===o?Object.create(o):(r.prototype=o.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var MediaLayerOptions_1=require("./MediaLayerOptions"),TileLayerOptions=function(e){function t(){var t=null!==e&&e.apply(this,arguments)||this;return t.bounds=[-180,-85.0511,180,85.0511],t.minSourceZoom=0,t.maxSourceZoom=22,t.tileSize=512,t.isTMS=!1,t.subdomains=void 0,t.tileUrl=void 0,t}return __extends(t,e),t}(MediaLayerOptions_1.MediaLayerOptions);exports.TileLayerOptions=TileLayerOptions;
 
-},{"./MediaLayerOptions":264}],269:[function(require,module,exports){
+},{"./MediaLayerOptions":268}],273:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Math_1=require("./Math"),AffineTransform=function(){function r(t,e){this.M=r._calculateAffineTransform(t,e),this.inverseM=r._calculateAffineTransform(e,t)}return r.prototype.toTarget=function(r,t){if(void 0!==typeof r)return this.transformArray(r,this.M,t);throw new Error("Invalid sourcePoints specified.")},r.prototype.toSource=function(r,t){if(void 0!==typeof r)return this.transformArray(r,this.inverseM,t);throw new Error("Invalid targetPoints specified.")},r.prototype.transformArray=function(r,t,e){if(r&&Array.isArray(r)&&Array.isArray(r[0])){for(var n=[],o=0,a=r;o<a.length;o++){var i=a[o];n.push(this.transform(i,t,e))}return n}return null},r.prototype.transform=function(r,t,e){var n=r[0]*t[0][3]+r[1]*t[1][3]+t[2][3],o=r[0]*t[0][4]+r[1]*t[1][4]+t[2][4];return"number"==typeof e&&e>=0?[Math_1._precision(n,e),Math_1._precision(o,e)]:[Math_1._precision(n,6),Math_1._precision(o,6)]},r._calculateAffineTransform=function(r,t){if(r.length!==t.length||r.length<1)throw new Error("Error: source and target arrays must have the same length.");var e=Math.min(r[0].length,t[0].length),n=e+1;if(r.length<e)throw new Error("Erorr: At least "+e+" reference points required.");for(var o=[],a=[],i=0;i<n;i++){a[i]=[];for(var f=0;f<n;f++){f<e&&(o[f]=0),a[i][f]=0;for(var s=0;s<r.length;s++)f<e&&(o[f]+=i<e?r[s][i]*t[s][f]:t[s][f]),a[i][f]+=i>=e&&f>=e?1:i>=e?r[s][f]:f>=e?r[s][i]:r[s][i]*r[s][f]}a[i]=a[i].concat(o)}if(!this._gaussJordanElimination(a))throw new Error("Error: Singular matrix. Points are likely coplanar.");return a},r._gaussJordanElimination=function(r){for(var t,e,n=r.length,o=2*n-1,a=0;a<n;a++){for(var i=a,f=a+1;f<n;f++)Math.abs(r[f][a])>Math.abs(r[i][a])&&(i=f);if(e=r[i],r[i]=r[a],r[a]=e,Math.abs(r[a][a])<=1e-10)return!1;for(var s=a+1;s<n;s++){t=r[s][a]/r[a][a];for(var h=a;h<o;h++)r[s][h]-=r[a][h]*t}}for(a=n-1;a>-1;a--){t=r[a][a];for(f=0;f<a;f++)for(var u=o-1;u>a-1;u--)r[f][u]-=r[a][u]*r[f][a]/t;r[a][a]/=t;for(var c=n;c<o;c++)r[a][c]/=t}return!0},r}();exports.AffineTransform=AffineTransform;
 
-},{"./Math":270}],270:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var AreaUnits,DistanceUnits,TimeUnits,SpeedUnits,AccelerationUnits,Pixel_1=require("../../Pixel"),data_1=require("../data"),EARTH_RADIUS_SEMI_MAJOR_AXIS=6378137,PI_BY_180=Math.PI/180,INV_PI_BY_180=180/Math.PI,POWERS_OF_10=[1,10,100,1e3,1e4,1e5,1e6,1e7,1e8,1e9];function _toRadians(e){return e*PI_BY_180}function _toDegrees(e){return e*INV_PI_BY_180}function _clip(e,t,r){return Math.min(Math.max(e,t),r)}function _haversineDistance(e,t){var r=_toRadians(t[1]-e[1]),s=_toRadians(t[0]-e[0]),n=Math.pow(Math.sin(r/2),2)+Math.cos(_toRadians(e[1]))*Math.cos(_toRadians(t[1]))*Math.pow(Math.sin(s/2),2),a=2*Math.atan2(Math.sqrt(n),Math.sqrt(1-n));return Math.round(EARTH_RADIUS_SEMI_MAJOR_AXIS*a*100)/100}function _normalizeDistanceUnit(e){if(e)switch(e.toLowerCase()){case"feet":case"foot":case"ft":return DistanceUnits.feet;case"kilometers":case"kilometer":case"kilometres":case"kilometre":case"km":case"kms":return DistanceUnits.kilometers;case"miles":case"mile":case"mi":return DistanceUnits.miles;case"nauticalmiles":case"nauticalmile":case"nms":case"nm":return DistanceUnits.nauticalMiles;case"yards":case"yard":case"yds":case"yrd":case"yrds":return DistanceUnits.yards;case"meters":case"metres":case"m":default:return DistanceUnits.meters}return DistanceUnits.meters}function _normalizeAccelerationUnit(e){if(e)switch(e.toLowerCase()){case"milespersecondsquared":case"milepersecondsquared":case"mi/s^2":case"mi/s2":return AccelerationUnits.milesPerSecondSquared;case"kilometerspersecondsquared":case"kilometrespersecondsquared":case"kilometerpersecondsquared":case"kilometrepersecondsquared":case"km/s^2":case"km/s2":return AccelerationUnits.kilometersPerSecondSquared;case"knotspersecond":case"knotpersecond":case"knts/s":case"kn/s":case"kt/s":return AccelerationUnits.knotsPerSecond;case"standardgravity":case"g":return AccelerationUnits.standardGravity;case"feetpersecondsquared":case"footpersecondsquared":case"ft/s^2":case"ft/s2":return AccelerationUnits.feetPerSecondSquared;case"yardspersecondsquared":case"yardpersecondsquared":case"yds/s^2":case"yds/s2":case"yd/s^2":case"yd/s2":return AccelerationUnits.yardsPerSecondSquared;case"milesperhoursecond":case"mileperhoursecond":case"milesperhourseconds":case"mileperhourseconds":case"mi/h/s":return AccelerationUnits.milesPerHourSecond;case"kilometersperhoursecond":case"kilometrespersoursecond":case"kilometerperhoursecond":case"kilometrepersoursecond":case"kilometersperhourssecond":case"kilometrespersourssecond":case"kilometerperhourssecond":case"kilometrepersourssecond":case"kmhs":case"km/h/s":return AccelerationUnits.kilometersPerHourSecond;case"meterspersecondsquared":case"metrespersecondsquared":case"meterpersecondsquared":case"metrepersecondsquared":case"m/s^2":case"m/s2":default:return AccelerationUnits.metersPerSecondSquared}return AccelerationUnits.metersPerSecondSquared}function _normalizeAreaUnits(e){if(e)switch(e){case"acres":case"ac":return AreaUnits.acres;case"hectares":case"ha":return AreaUnits.hectares;case"squareFeet":case"ft^2":case"ft2":return AreaUnits.squareFeet;case"squareYards":case"squareYard":case"yds^2":case"yds2":case"yd^2":case"yd2":return AreaUnits.squareYards;case"squareKilometers":case"squareKilometres":case"squareKilometer":case"squareKilometre":case"km^2":case"km2":return AreaUnits.squareKilometers;case"squareMiles":case"squareMile":case"mi^2":case"mi2":return AreaUnits.squareMiles;case"squareMeters":case"squareMetres":case"squareMeter":case"squareMetre":case"m^2":case"m2":default:return AreaUnits.squareMeters}return AreaUnits.squareMeters}function _normalizeSpeedUnit(e){if(e)switch(e.toLowerCase()){case"feetpersecond":case"footsecond":case"ftps":case"ft/s":return SpeedUnits.feetPerSecond;case"milesperhour":case"mileperhour":case"mph":case"mi/hr":case"mi/h":return SpeedUnits.milesPerHour;case"knots":case"knot":case"knts":case"knt":case"kn":case"kt":return SpeedUnits.knots;case"mach":case"m":return SpeedUnits.mach;case"kilometersperhour":case"kilometresperhour":case"kmperhour":case"kmph":case"km/hr":case"km/h":return SpeedUnits.kilometersPerHour;case"meterspersecond":case"metrespersecond":case"mps":case"ms":case"m/s":default:return SpeedUnits.metersPerSecond}return SpeedUnits.metersPerSecond}function _normalizeTimeUnit(e){if(e)switch(e.toLowerCase()){case"milliseconds":case"ms":return TimeUnits.ms;case"minutes":case"minute":case"mins":case"min":return TimeUnits.minutes;case"hours":case"hour":case"hr":case"h":return TimeUnits.hours;case"days":case"day":case"d":return TimeUnits.days;case"seconds":case"second":case"secs":case"sec":case"s":default:return TimeUnits.seconds}return TimeUnits.seconds}function _calculatePolygonArea(e){var t=0;if(e&&e.length>0){t=Math.abs(_calculatePolygonRingArea(e[0]));for(var r=1,s=e.length;r<s;r++)t-=Math.abs(_calculatePolygonRingArea(e[r]))}return t}function _calculatePolygonRingArea(e){var t=0;if(e.length>=3){for(var r=void 0,s=void 0,n=void 0,a=0,i=e.length;a<i;a++)a===i-2?(r=i-2,s=i-1,n=0):a===i-1?(r=i-1,s=0,n=1):(r=a,s=a+1,n=a+2),t+=(_toRadians(e[n][0])-_toRadians(e[r][0]))*Math.sin(_toRadians(e[s][1]));t=t*EARTH_RADIUS_SEMI_MAJOR_AXIS*EARTH_RADIUS_SEMI_MAJOR_AXIS/2}return t}function _cross(e,t,r){return(e[0]-r[0])*(t[1]-r[1])-(e[1]-r[1])*(t[0]-r[0])}function _closestPointOnPath(e,t,r){if(r.length>=2){for(var s=1/0,n=void 0,a=null,i=mercatorPositionsToPixels(r,22),o=void 0,c=0,u=i.length-1;c<u;c++)o=_closestPixelOnLineSegment(t,i[c],i[c+1]),(n=Pixel_1.Pixel.getDistance(t,o))<s&&(s=n,a=o);if(a){var d=mercatorPixelsToPositions([a],22)[0];return new data_1.Feature(new data_1.Point(d),{distance:getDistanceTo(e,d)})}}else if(1===r.length)return new data_1.Feature(new data_1.Point(r[0]),{distance:getDistanceTo(e,r[0])});return null}function _closestPixelOnLineSegment(e,t,r){if(t[0]===r[0]&&t[1]===r[1])return t;var s=e[0]-t[0],n=e[1]-t[1],a=r[0]-t[0],i=r[1]-t[1],o=(a*s+i*n)/(a*a+i*i);return o<0?t:o>1?r:[t[0]+a*o,t[1]+i*o]}function _precision(e,t){if(!isNaN(e)&&"number"==typeof t&&t>=0){var r=void 0;r=t<POWERS_OF_10.length?POWERS_OF_10[t]:Math.pow(10,t),e=Math.round(e*r)/r}return e}function boundingBoxToPolygon(e){var t=normalizeLongitude(data_1.BoundingBox.getWest(e)),r=normalizeLongitude(data_1.BoundingBox.getEast(e)),s=normalizeLatitude(data_1.BoundingBox.getNorth(e)),n=normalizeLatitude(data_1.BoundingBox.getSouth(e)),a=data_1.BoundingBox.getCenter(e),i=[[t,s],[t,n],[a[0],n],[r,n],[r,s],[a[0],s],[t,s]];return new data_1.Polygon([i])}function convertDistance(e,t,r,s){switch(_normalizeDistanceUnit(t)){case DistanceUnits.meters:e/=1e3;break;case DistanceUnits.feet:e/=3280.8399;break;case DistanceUnits.miles:e/=.62137119;break;case DistanceUnits.yards:e/=1093.6133;break;case DistanceUnits.nauticalMiles:e/=.5399568;break;case DistanceUnits.kilometers:}switch(_normalizeDistanceUnit(r)){case DistanceUnits.meters:e*=1e3;break;case DistanceUnits.feet:e*=3280.8399;break;case DistanceUnits.miles:e*=.62137119;break;case DistanceUnits.yards:e*=1093.6133;break;case DistanceUnits.nauticalMiles:e*=.5399568;break;case DistanceUnits.kilometers:}if("number"==typeof s&&s>=0){var n=Math.pow(10,s);e=Math.round(e*n)/n}return e}function getCardinalSpline(e,t,r,s){var n;if(!e||e.length<=2)return n;"number"!=typeof t&&(t=.5),("number"!=typeof r||r<=0)&&(r=15);var a=e.length;n=e.slice(0),s?(data_1.Position.areEqual(n[0],n[a-1])&&(n.pop(),a--),n.unshift(e[a-1]),n.push(e[0]),n.push(e[1]),a++):(n.unshift(e[0]),n.push(e[a-1]));var i,o,c,u=[];u.push([1,0,0,0]);for(var d=1;d<r-1;d++)c=(i=d/r)*(o=i*i),u.push([2*c-3*o+1,-2*c+3*o,c-2*o+i,c-o]);u.push([0,1,0,0]);var l,g,m,h,p,P,f,U=[];for(d=1;d<a;d++)for(g=t*(n[d+1][0]-n[d-1][0]),m=t*(n[d+1][1]-n[d-1][1]),h=t*(n[d+2][0]-n[d][0]),p=t*(n[d+2][1]-n[d][1]),i=0;i<r;i++)f=(l=u[i])[0]*n[d][0]+l[1]*n[d+1][0]+l[2]*g+l[3]*h,P=_clip(P=l[0]*n[d][1]+l[1]*n[d+1][1]+l[2]*m+l[3]*p,-85,85),U.push([f,P]);return U}function getDestination(e,t,r,s){s=s||"meters",e=getPosition(e);var n=getEarthRadius(s),a=_toRadians(e[1]),i=_toRadians(e[0]),o=_toRadians(t),c=r/n,u=Math.asin(Math.sin(a)*Math.cos(c)+Math.cos(a)*Math.sin(c)*Math.cos(o)),d=i+Math.atan2(Math.sin(o)*Math.sin(c)*Math.cos(a),Math.cos(c)-Math.sin(a)*Math.sin(u)),l=_clip(normalizeLatitude(_toDegrees(u)),-85,85);return[normalizeLongitude(_toDegrees(d)),l]}function getDistanceTo(e,t,r){var s=_haversineDistance(e=getPosition(e),t=getPosition(t));return"meters"===r?s:convertDistance(s,"meters",r||"meters")}function getEarthRadius(e){var t=_normalizeDistanceUnit(e);return convertDistance(EARTH_RADIUS_SEMI_MAJOR_AXIS,DistanceUnits.meters,t)}function getGeodesicPath(e,t){var r;(!t||t<=0)&&(t=15),Array.isArray(e)?r=e:e.type&&"LineString"===e.type&&(r=e.coordinates);for(var s=r.length-1,n=[],a=0;a<s;a++)for(var i=_toRadians(r[a][1]),o=_toRadians(r[a][0]),c=_toRadians(r[a+1][1]),u=_toRadians(r[a+1][0]),d=2*Math.asin(Math.sqrt(Math.pow(Math.sin((i-c)/2),2)+Math.cos(i)*Math.cos(c)*Math.pow(Math.sin((o-u)/2),2))),l=0;l<=t;l++){var g=l/t,m=Math.sin((1-g)*d)/Math.sin(d),h=Math.sin(g*d)/Math.sin(d),p=m*Math.cos(i)*Math.cos(o)+h*Math.cos(c)*Math.cos(u),P=m*Math.cos(i)*Math.sin(o)+h*Math.cos(c)*Math.sin(u),f=m*Math.sin(i)+h*Math.sin(c),U=Math.atan2(f,Math.sqrt(Math.pow(p,2)+Math.pow(P,2))),S=Math.atan2(P,p);U=_clip(_toDegrees(U),-85,85),S=_toDegrees(S),n.push([S,U])}return n}function getHeading(e,t){if(e=getPosition(e),t=getPosition(t),e&&e.length>=2&&t&&t.length>=2){var r=_toRadians(e[1]),s=_toRadians(t[1]),n=_toRadians(t[0]-e[0]),a=Math.sin(n)*Math.cos(s),i=Math.cos(r)*Math.sin(s)-Math.sin(r)*Math.cos(s)*Math.cos(n);return(_toDegrees(Math.atan2(a,i))+360)%360}return NaN}function getLengthOfPath(e,t){var r,s=0;Array.isArray(e)?r=e:e.type&&"LineString"===e.type&&(r=e.coordinates);for(var n=0,a=r.length-1;n<a;n++)s+=_haversineDistance(r[n],r[n+1]);return convertDistance(s,"meters",t||"meters")}function getPositionAlongPath(e,t,r){r=r||"meters";var s,n,a=0;if(Array.isArray(e)?n=e:e.type&&"LineString"===e.type&&(n=e.coordinates),n.length>=2){for(var i=n.length,o=1;o<i;o++){if(a+(s=getDistanceTo(n[o-1],n[o],r))>=t){var c=getHeading(n[o-1],n[o]);return getDestination(n[o-1],c,t-a,r)}a+=s}return t>=a?n[i-1]:n[0]}return null}function getRegularPolygonPath(e,t,r,s,n){s=s||"meters",n=n||0,e=getPosition(e);for(var a=[],i=360/r,o=0;o<=r;o++)a.push(getDestination(e,(o*i+n)%360,t,s));return a}function interpolate(e,t,r){r=void 0===r?.5:r;var s=getDistanceTo(e=getPosition(e),t=getPosition(t),"kilometers");return getDestination(e,getHeading(e,t),s*r,"kilometers")}function normalizeLatitude(e){return e>90?(e=(e+90)%360)>180?90-(e-180):e-90:e<-90?(e=(e-90)%360)<-180?-90-(e+180):e+90:e}function normalizeLongitude(e){return e>180?(e+180)%360-180:e<-180?(e-180)%360+180:e}function rotatePositions(e,t,r){t=getPosition(t);for(var s,n,a=[],i=0,o=e.length;i<o;i++)s=getDistanceTo(t,e[i]),n=getHeading(t,e[i]),a.push(getDestination(t,n+r,s));return a}function getPixelHeading(e,t){var r=mercatorPositionsToPixels([e=getPosition(e),t=getPosition(t)],21),s=r[0],n=r[1],a=n[0]-s[0],i=s[1]-n[1];return(2.5*Math.PI-Math.atan2(i,a))*INV_PI_BY_180%360}function mercatorPixelsToPositions(e,t){for(var r,s,n=512*Math.pow(2,t),a=[],i=0,o=e.length;i<o;i++)r=e[i][0]/n-.5,s=.5-e[i][1]/n,a.push([360*r,90-360*Math.atan(Math.exp(2*-s*Math.PI))/Math.PI]);return a}function mercatorPositionsToPixels(e,t){for(var r,s,n,a=512*Math.pow(2,t),i=[],o=0,c=e.length;o<c;o++)n=Math.sin(e[o][1]*Math.PI/180),r=(e[o][0]+180)/360,s=.5-Math.log((1+n)/(1-n))/(4*Math.PI),i.push([Math.round(r*a),Math.round(s*a)]);return i}function convertAcceleration(e,t,r,s){switch(_normalizeAccelerationUnit(t)){case AccelerationUnits.kilometersPerHourSecond:e/=3.6;break;case AccelerationUnits.milesPerHourSecond:e/=2.236936292054;break;case AccelerationUnits.knotsPerSecond:e/=1.943844492441;break;case AccelerationUnits.standardGravity:e/=.1019716212978;break;case AccelerationUnits.kilometersPerSecondSquared:e/=.001;break;case AccelerationUnits.milesPerSecondSquared:e/=.000621371192;break;case AccelerationUnits.feetPerSecondSquared:e/=3.280839895012;break;case AccelerationUnits.yardsPerSecondSquared:e/=1.093613298338;break;case AccelerationUnits.metersPerSecondSquared:}switch(_normalizeAccelerationUnit(r)){case AccelerationUnits.kilometersPerHourSecond:e*=3.6;break;case AccelerationUnits.milesPerHourSecond:e*=2.236936292054;break;case AccelerationUnits.knotsPerSecond:e*=1.943844492441;break;case AccelerationUnits.standardGravity:e*=.1019716212978;break;case AccelerationUnits.kilometersPerSecondSquared:e*=.001;break;case AccelerationUnits.milesPerSecondSquared:e*=.000621371192;break;case AccelerationUnits.feetPerSecondSquared:e*=3.280839895012;break;case AccelerationUnits.yardsPerSecondSquared:e*=1.093613298338;break;case AccelerationUnits.metersPerSecondSquared:}return _precision(e,s)}function convertArea(e,t,r,s){switch(_normalizeAreaUnits(t)){case AreaUnits.acres:e*=4046.8564224;break;case AreaUnits.hectares:e*=1e4;break;case AreaUnits.squareFeet:e*=.09290304;break;case AreaUnits.squareKilometers:e*=1e6;break;case AreaUnits.squareMiles:e*=259e4;break;case AreaUnits.squareYards:e*=.83612736;break;case AreaUnits.squareMeters:}switch(_normalizeAreaUnits(r)){case AreaUnits.acres:e/=4046.8564224;break;case AreaUnits.hectares:e/=1e4;break;case AreaUnits.squareFeet:e/=.09290304;break;case AreaUnits.squareKilometers:e/=1e6;break;case AreaUnits.squareMiles:e/=259e4;break;case AreaUnits.squareYards:e/=.83612736;break;case AreaUnits.squareMeters:}return _precision(e,s)}function convertSpeed(e,t,r,s){switch(_normalizeSpeedUnit(t)){case SpeedUnits.feetPerSecond:e*=1.09728;break;case SpeedUnits.milesPerHour:e*=1.6093;break;case SpeedUnits.knots:e*=1.852;break;case SpeedUnits.metersPerSecond:e*=3.6;break;case SpeedUnits.mach:e*=1234.8;break;case SpeedUnits.kilometersPerHour:}switch(_normalizeSpeedUnit(r)){case SpeedUnits.feetPerSecond:e/=1.09728;break;case SpeedUnits.milesPerHour:e/=1.6093;break;case SpeedUnits.knots:e/=1.852;break;case SpeedUnits.metersPerSecond:e/=3.6;break;case SpeedUnits.mach:e/=1234.8;break;case SpeedUnits.kilometersPerHour:}return _precision(e,s)}function convertTimespan(e,t,r,s){switch(_normalizeTimeUnit(t)){case TimeUnits.ms:e/=1e3;break;case TimeUnits.hours:e*=3600;break;case TimeUnits.minutes:e*=60;break;case TimeUnits.days:e*=86400;break;case TimeUnits.seconds:}switch(_normalizeTimeUnit(r)){case TimeUnits.ms:e*=1e3;break;case TimeUnits.hours:e/=3600;break;case TimeUnits.minutes:e/=60;break;case TimeUnits.days:e/=86400;break;case TimeUnits.seconds:}return _precision(e,s)}function getAcceleration(e,t,r,s,n,a,i,o){var c=convertDistance(t,n,DistanceUnits.meters),u=convertTimespan(r,a,TimeUnits.seconds);return convertAcceleration(2*(c-convertSpeed(e,s,SpeedUnits.metersPerSecond)*u)/(u*u),AccelerationUnits.metersPerSecondSquared,i,o)}function getAccelerationFromSpeeds(e,t,r,s,n,a,i){var o=convertSpeed(e,s,SpeedUnits.metersPerSecond);return convertAcceleration((convertSpeed(t,s,SpeedUnits.metersPerSecond)-o)/convertTimespan(r,n,TimeUnits.seconds),AccelerationUnits.metersPerSecondSquared,a,i)}function getAccelerationFromFeatures(e,t,r,s,n,a,i){if("string"==typeof r&&"Feature"===e.type&&"Point"===e.geometry.type&&"Feature"===t.type&&"Point"===t.geometry.type){var o=getTimespan(e.properties[r],t.properties[r],TimeUnits.seconds);if(!isNaN(o)){var c=0;if(s&&"string"==typeof s){var u=e.properties[s],d=t.properties[s];if("number"==typeof u&&(c=u,"number"==typeof d))return getAccelerationFromSpeeds(u,d,o,n,TimeUnits.seconds,a,i)}return getAcceleration(c,getDistanceTo(e.geometry.coordinates,t.geometry.coordinates,DistanceUnits.meters),o,n,DistanceUnits.meters,TimeUnits.seconds,a,i)}}return NaN}function getArea(e,t,r){if(e){var s=0;switch(e.type){case"Feature":var n=e;if(n.geometry)return getArea(n.geometry,t,r);break;case"Polygon":var a=e;a.coordinates&&(s=_calculatePolygonArea(a.coordinates));break;case"MultiPolygon":var i=e;if(i.coordinates)for(var o=0,c=i.coordinates.length;o<c;o++)s+=_calculatePolygonArea(i.coordinates[o])}return convertArea(s,AreaUnits.squareMeters,t,r)}return 0}function getSpeed(e,t,r,s,n,a){var i=getPosition(e),o=getPosition(t);if(i&&o){var c=convertTimespan(r,s,TimeUnits.seconds);return convertSpeed(getDistanceTo(i,o,DistanceUnits.meters)/c,SpeedUnits.metersPerSecond,n,a)}return 0}function getSpeedFromFeatures(e,t,r,s,n){if("string"==typeof r&&"Feature"===e.type&&"Point"===e.geometry.type&&"Feature"===t.type&&"Point"===t.geometry.type){var a=this.getTimespan(e.properties[r],t.properties[r],TimeUnits.seconds);if(!isNaN(a)){var i=this.getDistanceTo(e.geometry.coordinates,t.geometry.coordinates,DistanceUnits.meters);return this.convertSpeed(i/a,SpeedUnits.metersPerSecond,s,n)}}return NaN}function getTimespan(e,t,r,s){var n=parseTimestamp(e),a=parseTimestamp(t);return null!=n&&null!=a?convertTimespan(a.getTime()-n.getTime(),TimeUnits.ms,r,s):NaN}function getTravelDistance(e,t,r,s,n,a,i,o){t=this.convertTimespan(t,n,TimeUnits.seconds);var c=(r=this.convertSpeed(r,a,SpeedUnits.metersPerSecond))*t;return"number"==typeof s&&(c+=.5*this.convertAcceleration(s,i,AccelerationUnits.metersPerSecondSquared)*t*t),this.convertDistance(c,DistanceUnits.meters,e,o)}function parseTimestamp(e){if("[object Date]"===Object.prototype.toString.call(e))return e;if("string"==typeof e){var t=Date.parse(e);if(!isNaN(t))return new Date(t);if(e.indexOf("Date(")>=0){var r=0;return r=(e=e.replace("/Date(","").replace(")/","")).indexOf("+")>0?parseInt(e.substr(0,e.indexOf("+")),10):e.indexOf("-")>0?parseInt(e.substr(0,e.indexOf("-")),10):parseInt(e,10),new Date(r)}}else if("number"==typeof e)return new Date(e);return null}function getConvexHull(e){var t=getPositions(e).map(function(e){return[normalizeLongitude(e[0]),normalizeLatitude(e[1])]});t.sort(function(e,t){return e[0]===t[0]?e[1]-t[1]:e[0]-t[0]});for(var r=[],s=0,n=t;s<n.length;s++){for(var a=n[s];r.length>=2&&_cross(r[r.length-2],r[r.length-1],a)<=0;)r.pop();r.push(a)}for(var i=[],o=t.length-1;o>=0;o--){for(;i.length>=2&&_cross(i[i.length-2],i[i.length-1],t[o])<=0;)i.pop();i.push(t[o])}return new data_1.Polygon([r.concat(i)])}function getPositions(e){var t=[],r=null,s=null;if(Array.isArray(e)&&e.length>0)if(Array.isArray(e[0])&&"number"==typeof e[0][0])t=e;else for(var n=e.length,a=0;a<n;a++)t=t.concat(getPositions(e[a]));else if(e.type)switch(e.type){case"Point":t=[e.coordinates];break;case"LineString":t=e.coordinates;break;case"Polygon":r=e.coordinates;break;case"MultiPoint":t=e.coordinates;break;case"MultiLineString":r=e.coordinates;break;case"MultiPolygon":s=e.coordinates;break;case"Feature":var i=e;t="Point"===i.geometry.type&&"Circle"===i.properties.subType&&"number"==typeof i.properties.radius?getRegularPolygonPath(i.geometry.coordinates,i.properties.radius,72,"meters"):getPositions(i.geometry);break;case"FeatureCollection":t=getPositions(e.features);break;case"GeometryCollection":t=getPositions(e.geometries)}if(r)for(n=r.length,a=0;a<n;a++)t=t.concat(r[a]);else if(s){var o=s.length;for(a=0;a<o;a++)for(var c=s[a].length,u=0;u<c;u++)t=t.concat(s[a][u])}return t}function getPosition(e){if(Array.isArray(e)&&"number"==typeof e[0])return e;if(e.type){if("Point"===e.type)return e.coordinates;if("Feature"===e.type&&"Point"===e.geometry.type)return e.geometry.coordinates}return null}function getPositionsAlongPath(e,t){if(t<2)return[];for(var r=[],s=getLengthOfPath(e,DistanceUnits.meters)/(t-1),n=0;n<t;n++){var a=getPositionAlongPath(e,s*n,DistanceUnits.meters);null!=a&&r.push(a)}return r}function getPointWithHeadingAlongPath(e,t,r){r=r||"meters";var s,n,a=0;if(Array.isArray(e)?n=e:e.type&&"LineString"===e.type&&(n=e.coordinates),n.length>=2){for(var i=n.length,o=1;o<i;o++){if(a+(s=getDistanceTo(n[o-1],n[o],r))>=t){var c=getHeading(n[o-1],n[o]),u=getDestination(n[o-1],c,t-a,r);return new data_1.Feature(new data_1.Point(u),{heading:c})}a+=s}return t>=a?new data_1.Feature(new data_1.Point(n[i-1]),{heading:getHeading(n[i-2],n[i-1])}):new data_1.Feature(new data_1.Point(n[0]),{heading:getHeading(n[0],n[1])})}return null}function getPointsWithHeadingsAlongPath(e,t){if(t<=0)return[];for(var r=[],s=getLengthOfPath(e,DistanceUnits.meters)/(t-1),n=0;n<t;n++){var a=getPointWithHeadingAlongPath(e,s*n,DistanceUnits.meters);null!=a&&r.push(a)}return r}function getClosestPointOnGeometry(e,t,r,s){var n,a=getPosition(e),i=mercatorPositionsToPixels([a],22)[0],o=null,c=1/0;switch(t.type){case"Feature":return getClosestPointOnGeometry(e,t.geometry,r);case"Point":n=[[t.coordinates]];break;case"MultiPoint":for(var u=void 0,d=t.coordinates,l=0,g=d.length;l<g;l++)(u=getDistanceTo(a,d[l]))<c&&(c=u,o=new data_1.Feature(new data_1.Point(d[l]),{distance:u}));break;case"LineString":n=[t.coordinates];break;case"Polygon":case"MultiLineString":n=t.coordinates;break;case"MultiPolygon":var m=t.coordinates;if(m.length>0){n=m[0];for(l=1,g=m.length;l<g;l++)n=n.concat(m[l])}}if(n){var h=void 0;for(l=0,g=n.length;l<g;l++)(h=_closestPointOnPath(a,i,n[l]))&&h.properties.distance<c&&(c=h.properties.distance,o=h)}return o&&(o.properties.distance=convertDistance(o.properties.distance,"meters",r,s)),o}exports._precision=_precision,function(e){e.squareMeters="squareMeters",e.acres="acres",e.hectares="hectares",e.squareFeet="squareFeet",e.squareKilometers="squareKilometers",e.squareMiles="squareMiles",e.squareYards="squareYards"}(AreaUnits=exports.AreaUnits||(exports.AreaUnits={})),function(e){e.meters="meters",e.kilometers="kilometers",e.feet="feet",e.miles="miles",e.nauticalMiles="nauticalMiles",e.yards="yards"}(DistanceUnits=exports.DistanceUnits||(exports.DistanceUnits={})),function(e){e.seconds="seconds",e.hours="hours",e.ms="ms",e.minutes="minutes",e.days="days"}(TimeUnits=exports.TimeUnits||(exports.TimeUnits={})),function(e){e.metersPerSecond="metersPerSecond",e.kilometersPerHour="kilometersPerHour",e.feetPerSecond="feetPerSecond",e.milesPerHour="milesPerHour",e.knots="knots",e.mach="mach"}(SpeedUnits=exports.SpeedUnits||(exports.SpeedUnits={})),function(e){e.milesPerSecondSquared="milesPerSecondSquared",e.kilometersPerSecondSquared="kilometersPerSecondSquared",e.knotsPerSecond="knotsPerSecond",e.standardGravity="standardGravity",e.feetPerSecondSquared="feetPerSecondSquared",e.yardsPerSecondSquared="yardsPerSecondSquared",e.milesPerHourSecond="milesPerHourSecond",e.kilometersPerHourSecond="kilometersPerHourSecond",e.metersPerSecondSquared="metersPerSecondSquared"}(AccelerationUnits=exports.AccelerationUnits||(exports.AccelerationUnits={})),exports.boundingBoxToPolygon=boundingBoxToPolygon,exports.convertDistance=convertDistance,exports.getCardinalSpline=getCardinalSpline,exports.getDestination=getDestination,exports.getDistanceTo=getDistanceTo,exports.getEarthRadius=getEarthRadius,exports.getGeodesicPath=getGeodesicPath,exports.getHeading=getHeading,exports.getLengthOfPath=getLengthOfPath,exports.getPositionAlongPath=getPositionAlongPath,exports.getRegularPolygonPath=getRegularPolygonPath,exports.interpolate=interpolate,exports.normalizeLatitude=normalizeLatitude,exports.normalizeLongitude=normalizeLongitude,exports.rotatePositions=rotatePositions,exports.getPixelHeading=getPixelHeading,exports.mercatorPixelsToPositions=mercatorPixelsToPositions,exports.mercatorPositionsToPixels=mercatorPositionsToPixels,exports.convertAcceleration=convertAcceleration,exports.convertArea=convertArea,exports.convertSpeed=convertSpeed,exports.convertTimespan=convertTimespan,exports.getAcceleration=getAcceleration,exports.getAccelerationFromSpeeds=getAccelerationFromSpeeds,exports.getAccelerationFromFeatures=getAccelerationFromFeatures,exports.getArea=getArea,exports.getSpeed=getSpeed,exports.getSpeedFromFeatures=getSpeedFromFeatures,exports.getTimespan=getTimespan,exports.getTravelDistance=getTravelDistance,exports.parseTimestamp=parseTimestamp,exports.getConvexHull=getConvexHull,exports.getPositions=getPositions,exports.getPosition=getPosition,exports.getPositionsAlongPath=getPositionsAlongPath,exports.getPointWithHeadingAlongPath=getPointWithHeadingAlongPath,exports.getPointsWithHeadingsAlongPath=getPointsWithHeadingsAlongPath,exports.getClosestPointOnGeometry=getClosestPointOnGeometry;
+},{"./Math":274}],274:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var AreaUnits,DistanceUnits,TimeUnits,SpeedUnits,AccelerationUnits,_=require("lodash"),Pixel_1=require("../../Pixel"),Shape_1=require("../../Shape"),data_1=require("../data"),EARTH_RADIUS_SEMI_MAJOR_AXIS=6378137,PI_BY_180=Math.PI/180,INV_PI_BY_180=180/Math.PI,POWERS_OF_10=[1,10,100,1e3,1e4,1e5,1e6,1e7,1e8,1e9];function _toRadians(e){return e*PI_BY_180}function _toDegrees(e){return e*INV_PI_BY_180}function _clip(e,t,r){return Math.min(Math.max(e,t),r)}function _haversineDistance(e,t){var r=_toRadians(t[1]-e[1]),s=_toRadians(t[0]-e[0]),n=Math.pow(Math.sin(r/2),2)+Math.cos(_toRadians(e[1]))*Math.cos(_toRadians(t[1]))*Math.pow(Math.sin(s/2),2),a=2*Math.atan2(Math.sqrt(n),Math.sqrt(1-n));return Math.round(EARTH_RADIUS_SEMI_MAJOR_AXIS*a*100)/100}function _normalizeDistanceUnit(e){if(e)switch(e.toLowerCase()){case"feet":case"foot":case"ft":return DistanceUnits.feet;case"kilometers":case"kilometer":case"kilometres":case"kilometre":case"km":case"kms":return DistanceUnits.kilometers;case"miles":case"mile":case"mi":return DistanceUnits.miles;case"nauticalmiles":case"nauticalmile":case"nms":case"nm":return DistanceUnits.nauticalMiles;case"yards":case"yard":case"yds":case"yrd":case"yrds":return DistanceUnits.yards;case"meters":case"metres":case"m":default:return DistanceUnits.meters}return DistanceUnits.meters}function _normalizeAccelerationUnit(e){if(e)switch(e.toLowerCase()){case"milespersecondsquared":case"milepersecondsquared":case"mi/s^2":case"mi/s2":return AccelerationUnits.milesPerSecondSquared;case"kilometerspersecondsquared":case"kilometrespersecondsquared":case"kilometerpersecondsquared":case"kilometrepersecondsquared":case"km/s^2":case"km/s2":return AccelerationUnits.kilometersPerSecondSquared;case"knotspersecond":case"knotpersecond":case"knts/s":case"kn/s":case"kt/s":return AccelerationUnits.knotsPerSecond;case"standardgravity":case"g":return AccelerationUnits.standardGravity;case"feetpersecondsquared":case"footpersecondsquared":case"ft/s^2":case"ft/s2":return AccelerationUnits.feetPerSecondSquared;case"yardspersecondsquared":case"yardpersecondsquared":case"yds/s^2":case"yds/s2":case"yd/s^2":case"yd/s2":return AccelerationUnits.yardsPerSecondSquared;case"milesperhoursecond":case"mileperhoursecond":case"milesperhourseconds":case"mileperhourseconds":case"mi/h/s":return AccelerationUnits.milesPerHourSecond;case"kilometersperhoursecond":case"kilometrespersoursecond":case"kilometerperhoursecond":case"kilometrepersoursecond":case"kilometersperhourssecond":case"kilometrespersourssecond":case"kilometerperhourssecond":case"kilometrepersourssecond":case"kmhs":case"km/h/s":return AccelerationUnits.kilometersPerHourSecond;case"meterspersecondsquared":case"metrespersecondsquared":case"meterpersecondsquared":case"metrepersecondsquared":case"m/s^2":case"m/s2":default:return AccelerationUnits.metersPerSecondSquared}return AccelerationUnits.metersPerSecondSquared}function _normalizeAreaUnits(e){if(e)switch(e){case"acres":case"ac":return AreaUnits.acres;case"hectares":case"ha":return AreaUnits.hectares;case"squareFeet":case"ft^2":case"ft2":return AreaUnits.squareFeet;case"squareYards":case"squareYard":case"yds^2":case"yds2":case"yd^2":case"yd2":return AreaUnits.squareYards;case"squareKilometers":case"squareKilometres":case"squareKilometer":case"squareKilometre":case"km^2":case"km2":return AreaUnits.squareKilometers;case"squareMiles":case"squareMile":case"mi^2":case"mi2":return AreaUnits.squareMiles;case"squareMeters":case"squareMetres":case"squareMeter":case"squareMetre":case"m^2":case"m2":default:return AreaUnits.squareMeters}return AreaUnits.squareMeters}function _normalizeSpeedUnit(e){if(e)switch(e.toLowerCase()){case"feetpersecond":case"footsecond":case"ftps":case"ft/s":return SpeedUnits.feetPerSecond;case"milesperhour":case"mileperhour":case"mph":case"mi/hr":case"mi/h":return SpeedUnits.milesPerHour;case"knots":case"knot":case"knts":case"knt":case"kn":case"kt":return SpeedUnits.knots;case"mach":case"m":return SpeedUnits.mach;case"kilometersperhour":case"kilometresperhour":case"kmperhour":case"kmph":case"km/hr":case"km/h":return SpeedUnits.kilometersPerHour;case"meterspersecond":case"metrespersecond":case"mps":case"ms":case"m/s":default:return SpeedUnits.metersPerSecond}return SpeedUnits.metersPerSecond}function _normalizeTimeUnit(e){if(e)switch(e.toLowerCase()){case"milliseconds":case"ms":return TimeUnits.ms;case"minutes":case"minute":case"mins":case"min":return TimeUnits.minutes;case"hours":case"hour":case"hr":case"h":return TimeUnits.hours;case"days":case"day":case"d":return TimeUnits.days;case"seconds":case"second":case"secs":case"sec":case"s":default:return TimeUnits.seconds}return TimeUnits.seconds}function _calculatePolygonArea(e){var t=0;if(e&&e.length>0){t=Math.abs(_calculatePolygonRingArea(e[0]));for(var r=1,s=e.length;r<s;r++)t-=Math.abs(_calculatePolygonRingArea(e[r]))}return t}function _calculatePolygonRingArea(e){var t=0;if(e.length>=3){for(var r=void 0,s=void 0,n=void 0,a=0,i=e.length;a<i;a++)a===i-2?(r=i-2,s=i-1,n=0):a===i-1?(r=i-1,s=0,n=1):(r=a,s=a+1,n=a+2),t+=(_toRadians(e[n][0])-_toRadians(e[r][0]))*Math.sin(_toRadians(e[s][1]));t=t*EARTH_RADIUS_SEMI_MAJOR_AXIS*EARTH_RADIUS_SEMI_MAJOR_AXIS/2}return t}function _cross(e,t,r){return(e[0]-r[0])*(t[1]-r[1])-(e[1]-r[1])*(t[0]-r[0])}function _closestPointOnPath(e,t,r){if(r.length>=2){for(var s=1/0,n=void 0,a=null,i=mercatorPositionsToPixels(r,22),o=void 0,c=0,u=i.length-1;c<u;c++)o=_closestPixelOnLineSegment(t,i[c],i[c+1]),(n=Pixel_1.Pixel.getDistance(t,o))<s&&(s=n,a=o);if(a){var d=mercatorPixelsToPositions([a],22)[0];return new data_1.Feature(new data_1.Point(d),{distance:getDistanceTo(e,d)})}}else if(1===r.length)return new data_1.Feature(new data_1.Point(r[0]),{distance:getDistanceTo(e,r[0])});return null}function _closestPixelOnLineSegment(e,t,r){if(t[0]===r[0]&&t[1]===r[1])return t;var s=e[0]-t[0],n=e[1]-t[1],a=r[0]-t[0],i=r[1]-t[1],o=(a*s+i*n)/(a*a+i*i);return o<0?t:o>1?r:[t[0]+a*o,t[1]+i*o]}function _precision(e,t){if(!isNaN(e)&&"number"==typeof t&&t>=0){var r=void 0;r=t<POWERS_OF_10.length?POWERS_OF_10[t]:Math.pow(10,t),e=Math.round(e*r)/r}return e}function boundingBoxToPolygon(e){var t=normalizeLongitude(data_1.BoundingBox.getWest(e)),r=normalizeLongitude(data_1.BoundingBox.getEast(e)),s=normalizeLatitude(data_1.BoundingBox.getNorth(e)),n=normalizeLatitude(data_1.BoundingBox.getSouth(e)),a=data_1.BoundingBox.getCenter(e),i=[[t,s],[t,n],[a[0],n],[r,n],[r,s],[a[0],s],[t,s]];return new data_1.Polygon([i])}function convertDistance(e,t,r,s){switch(_normalizeDistanceUnit(t)){case DistanceUnits.meters:e/=1e3;break;case DistanceUnits.feet:e/=3280.8399;break;case DistanceUnits.miles:e/=.62137119;break;case DistanceUnits.yards:e/=1093.6133;break;case DistanceUnits.nauticalMiles:e/=.5399568;break;case DistanceUnits.kilometers:}switch(_normalizeDistanceUnit(r)){case DistanceUnits.meters:e*=1e3;break;case DistanceUnits.feet:e*=3280.8399;break;case DistanceUnits.miles:e*=.62137119;break;case DistanceUnits.yards:e*=1093.6133;break;case DistanceUnits.nauticalMiles:e*=.5399568;break;case DistanceUnits.kilometers:}if("number"==typeof s&&s>=0){var n=Math.pow(10,s);e=Math.round(e*n)/n}return e}function getCardinalSpline(e,t,r,s){var n;if(!e||e.length<=2)return n;"number"!=typeof t&&(t=.5),("number"!=typeof r||r<=0)&&(r=15);var a=e.length;n=e.slice(0),s?(data_1.Position.areEqual(n[0],n[a-1])&&(n.pop(),a--),n.unshift(e[a-1]),n.push(e[0]),n.push(e[1]),a++):(n.unshift(e[0]),n.push(e[a-1]));var i,o,c,u=[];u.push([1,0,0,0]);for(var d=1;d<r-1;d++)c=(i=d/r)*(o=i*i),u.push([2*c-3*o+1,-2*c+3*o,c-2*o+i,c-o]);u.push([0,1,0,0]);var l,g,m,h,p,P,f,S=[];for(d=1;d<a;d++)for(g=t*(n[d+1][0]-n[d-1][0]),m=t*(n[d+1][1]-n[d-1][1]),h=t*(n[d+2][0]-n[d][0]),p=t*(n[d+2][1]-n[d][1]),i=0;i<r;i++)f=(l=u[i])[0]*n[d][0]+l[1]*n[d+1][0]+l[2]*g+l[3]*h,P=_clip(P=l[0]*n[d][1]+l[1]*n[d+1][1]+l[2]*m+l[3]*p,-85,85),S.push([f,P]);return S}function getDestination(e,t,r,s){s=s||"meters",e=getPosition(e);var n=getEarthRadius(s),a=_toRadians(e[1]),i=_toRadians(e[0]),o=_toRadians(t),c=r/n,u=Math.asin(Math.sin(a)*Math.cos(c)+Math.cos(a)*Math.sin(c)*Math.cos(o)),d=i+Math.atan2(Math.sin(o)*Math.sin(c)*Math.cos(a),Math.cos(c)-Math.sin(a)*Math.sin(u)),l=_clip(normalizeLatitude(_toDegrees(u)),-85,85);return[normalizeLongitude(_toDegrees(d)),l]}function getDistanceTo(e,t,r){var s=_haversineDistance(e=getPosition(e),t=getPosition(t));return"meters"===r?s:convertDistance(s,"meters",r||"meters")}function getEarthRadius(e){var t=_normalizeDistanceUnit(e);return convertDistance(EARTH_RADIUS_SEMI_MAJOR_AXIS,DistanceUnits.meters,t)}function getGeodesicPath(e,t){var r;(!t||t<=0)&&(t=15),Array.isArray(e)?r=e:e.type&&"LineString"===e.type&&(r=e.coordinates);for(var s=r.length-1,n=[],a=0;a<s;a++)for(var i=_toRadians(r[a][1]),o=_toRadians(r[a][0]),c=_toRadians(r[a+1][1]),u=_toRadians(r[a+1][0]),d=2*Math.asin(Math.sqrt(Math.pow(Math.sin((i-c)/2),2)+Math.cos(i)*Math.cos(c)*Math.pow(Math.sin((o-u)/2),2))),l=0;l<=t;l++){var g=l/t,m=Math.sin((1-g)*d)/Math.sin(d),h=Math.sin(g*d)/Math.sin(d),p=m*Math.cos(i)*Math.cos(o)+h*Math.cos(c)*Math.cos(u),P=m*Math.cos(i)*Math.sin(o)+h*Math.cos(c)*Math.sin(u),f=m*Math.sin(i)+h*Math.sin(c),S=Math.atan2(f,Math.sqrt(Math.pow(p,2)+Math.pow(P,2))),U=Math.atan2(P,p);S=_clip(_toDegrees(S),-85,85),U=_toDegrees(U),n.push([U,S])}return n}function getHeading(e,t){if(e=getPosition(e),t=getPosition(t),e&&e.length>=2&&t&&t.length>=2){var r=_toRadians(e[1]),s=_toRadians(t[1]),n=_toRadians(t[0]-e[0]),a=Math.sin(n)*Math.cos(s),i=Math.cos(r)*Math.sin(s)-Math.sin(r)*Math.cos(s)*Math.cos(n);return(_toDegrees(Math.atan2(a,i))+360)%360}return NaN}function getLengthOfPath(e,t){var r,s=0;Array.isArray(e)?r=e:e.type&&"LineString"===e.type&&(r=e.coordinates);for(var n=0,a=r.length-1;n<a;n++)s+=_haversineDistance(r[n],r[n+1]);return convertDistance(s,"meters",t||"meters")}function getPositionAlongPath(e,t,r){r=r||"meters";var s,n,a=0;if(Array.isArray(e)?n=e:e.type&&"LineString"===e.type&&(n=e.coordinates),n.length>=2){for(var i=n.length,o=1;o<i;o++){if(a+(s=getDistanceTo(n[o-1],n[o],r))>=t){var c=getHeading(n[o-1],n[o]);return getDestination(n[o-1],c,t-a,r)}a+=s}return t>=a?n[i-1]:n[0]}return null}function getRegularPolygonPath(e,t,r,s,n){s=s||"meters",n=n||0,e=getPosition(e);for(var a=[],i=360/r,o=0;o<=r;o++)a.push(getDestination(e,(o*i+n)%360,t,s));return a}function interpolate(e,t,r){r=void 0===r?.5:r;var s=getDistanceTo(e=getPosition(e),t=getPosition(t),"kilometers");return getDestination(e,getHeading(e,t),s*r,"kilometers")}function normalizeLatitude(e){return e>90?(e=(e+90)%360)>180?90-(e-180):e-90:e<-90?(e=(e-90)%360)<-180?-90-(e+180):e+90:e}function normalizeLongitude(e){return e>180?(e+180)%360-180:e<-180?(e-180)%360+180:e}function rotatePositions(e,t,r){if(0===r)return _.clone(e);t=getPosition(t);for(var s,n,a=[],i=0,o=e.length;i<o;i++)s=getDistanceTo(t,e[i]),n=getHeading(t,e[i]),a.push(getDestination(t,n+r,s));return a}function getPixelHeading(e,t){var r=mercatorPositionsToPixels([e=getPosition(e),t=getPosition(t)],21),s=r[0],n=r[1],a=n[0]-s[0],i=s[1]-n[1];return(2.5*Math.PI-Math.atan2(i,a))*INV_PI_BY_180%360}function mercatorPixelsToPositions(e,t){for(var r,s,n=512*Math.pow(2,t),a=[],i=0,o=e.length;i<o;i++)r=e[i][0]/n-.5,s=.5-e[i][1]/n,a.push([360*r,90-360*Math.atan(Math.exp(2*-s*Math.PI))/Math.PI]);return a}function mercatorPositionsToPixels(e,t){for(var r,s,n,a=512*Math.pow(2,t),i=[],o=0,c=e.length;o<c;o++)n=Math.sin(e[o][1]*Math.PI/180),r=(e[o][0]+180)/360,s=.5-Math.log((1+n)/(1-n))/(4*Math.PI),i.push([Math.round(r*a),Math.round(s*a)]);return i}function convertAcceleration(e,t,r,s){switch(_normalizeAccelerationUnit(t)){case AccelerationUnits.kilometersPerHourSecond:e/=3.6;break;case AccelerationUnits.milesPerHourSecond:e/=2.236936292054;break;case AccelerationUnits.knotsPerSecond:e/=1.943844492441;break;case AccelerationUnits.standardGravity:e/=.1019716212978;break;case AccelerationUnits.kilometersPerSecondSquared:e/=.001;break;case AccelerationUnits.milesPerSecondSquared:e/=.000621371192;break;case AccelerationUnits.feetPerSecondSquared:e/=3.280839895012;break;case AccelerationUnits.yardsPerSecondSquared:e/=1.093613298338;break;case AccelerationUnits.metersPerSecondSquared:}switch(_normalizeAccelerationUnit(r)){case AccelerationUnits.kilometersPerHourSecond:e*=3.6;break;case AccelerationUnits.milesPerHourSecond:e*=2.236936292054;break;case AccelerationUnits.knotsPerSecond:e*=1.943844492441;break;case AccelerationUnits.standardGravity:e*=.1019716212978;break;case AccelerationUnits.kilometersPerSecondSquared:e*=.001;break;case AccelerationUnits.milesPerSecondSquared:e*=.000621371192;break;case AccelerationUnits.feetPerSecondSquared:e*=3.280839895012;break;case AccelerationUnits.yardsPerSecondSquared:e*=1.093613298338;break;case AccelerationUnits.metersPerSecondSquared:}return _precision(e,s)}function convertArea(e,t,r,s){switch(_normalizeAreaUnits(t)){case AreaUnits.acres:e*=4046.8564224;break;case AreaUnits.hectares:e*=1e4;break;case AreaUnits.squareFeet:e*=.09290304;break;case AreaUnits.squareKilometers:e*=1e6;break;case AreaUnits.squareMiles:e*=259e4;break;case AreaUnits.squareYards:e*=.83612736;break;case AreaUnits.squareMeters:}switch(_normalizeAreaUnits(r)){case AreaUnits.acres:e/=4046.8564224;break;case AreaUnits.hectares:e/=1e4;break;case AreaUnits.squareFeet:e/=.09290304;break;case AreaUnits.squareKilometers:e/=1e6;break;case AreaUnits.squareMiles:e/=259e4;break;case AreaUnits.squareYards:e/=.83612736;break;case AreaUnits.squareMeters:}return _precision(e,s)}function convertSpeed(e,t,r,s){switch(_normalizeSpeedUnit(t)){case SpeedUnits.feetPerSecond:e*=1.09728;break;case SpeedUnits.milesPerHour:e*=1.6093;break;case SpeedUnits.knots:e*=1.852;break;case SpeedUnits.metersPerSecond:e*=3.6;break;case SpeedUnits.mach:e*=1234.8;break;case SpeedUnits.kilometersPerHour:}switch(_normalizeSpeedUnit(r)){case SpeedUnits.feetPerSecond:e/=1.09728;break;case SpeedUnits.milesPerHour:e/=1.6093;break;case SpeedUnits.knots:e/=1.852;break;case SpeedUnits.metersPerSecond:e/=3.6;break;case SpeedUnits.mach:e/=1234.8;break;case SpeedUnits.kilometersPerHour:}return _precision(e,s)}function convertTimespan(e,t,r,s){switch(_normalizeTimeUnit(t)){case TimeUnits.ms:e/=1e3;break;case TimeUnits.hours:e*=3600;break;case TimeUnits.minutes:e*=60;break;case TimeUnits.days:e*=86400;break;case TimeUnits.seconds:}switch(_normalizeTimeUnit(r)){case TimeUnits.ms:e*=1e3;break;case TimeUnits.hours:e/=3600;break;case TimeUnits.minutes:e/=60;break;case TimeUnits.days:e/=86400;break;case TimeUnits.seconds:}return _precision(e,s)}function getAcceleration(e,t,r,s,n,a,i,o){var c=convertDistance(t,n,DistanceUnits.meters),u=convertTimespan(r,a,TimeUnits.seconds);return convertAcceleration(2*(c-convertSpeed(e,s,SpeedUnits.metersPerSecond)*u)/(u*u),AccelerationUnits.metersPerSecondSquared,i,o)}function getAccelerationFromSpeeds(e,t,r,s,n,a,i){var o=convertSpeed(e,s,SpeedUnits.metersPerSecond);return convertAcceleration((convertSpeed(t,s,SpeedUnits.metersPerSecond)-o)/convertTimespan(r,n,TimeUnits.seconds),AccelerationUnits.metersPerSecondSquared,a,i)}function getAccelerationFromFeatures(e,t,r,s,n,a,i){if("string"==typeof r&&"Feature"===e.type&&"Point"===e.geometry.type&&"Feature"===t.type&&"Point"===t.geometry.type){var o=getTimespan(e.properties[r],t.properties[r],TimeUnits.seconds);if(!isNaN(o)){var c=0;if(s&&"string"==typeof s){var u=e.properties[s],d=t.properties[s];if("number"==typeof u&&(c=u,"number"==typeof d))return getAccelerationFromSpeeds(u,d,o,n,TimeUnits.seconds,a,i)}return getAcceleration(c,getDistanceTo(e.geometry.coordinates,t.geometry.coordinates,DistanceUnits.meters),o,n,DistanceUnits.meters,TimeUnits.seconds,a,i)}}return NaN}function getArea(e,t,r){if(e){var s=0;switch(e.type){case"Feature":var n=e;if(n.geometry)return getArea(n.geometry,t,r);break;case"Polygon":var a=e;a.coordinates&&(s=_calculatePolygonArea(a.coordinates));break;case"MultiPolygon":var i=e;if(i.coordinates)for(var o=0,c=i.coordinates.length;o<c;o++)s+=_calculatePolygonArea(i.coordinates[o])}return convertArea(s,AreaUnits.squareMeters,t,r)}return 0}function getSpeed(e,t,r,s,n,a){var i=getPosition(e),o=getPosition(t);if(i&&o){var c=convertTimespan(r,s,TimeUnits.seconds);return convertSpeed(getDistanceTo(i,o,DistanceUnits.meters)/c,SpeedUnits.metersPerSecond,n,a)}return 0}function getSpeedFromFeatures(e,t,r,s,n){if("string"==typeof r&&"Feature"===e.type&&"Point"===e.geometry.type&&"Feature"===t.type&&"Point"===t.geometry.type){var a=this.getTimespan(e.properties[r],t.properties[r],TimeUnits.seconds);if(!isNaN(a)){var i=this.getDistanceTo(e.geometry.coordinates,t.geometry.coordinates,DistanceUnits.meters);return this.convertSpeed(i/a,SpeedUnits.metersPerSecond,s,n)}}return NaN}function getTimespan(e,t,r,s){var n=parseTimestamp(e),a=parseTimestamp(t);return null!=n&&null!=a?convertTimespan(a.getTime()-n.getTime(),TimeUnits.ms,r,s):NaN}function getTravelDistance(e,t,r,s,n,a,i,o){t=this.convertTimespan(t,n,TimeUnits.seconds);var c=(r=this.convertSpeed(r,a,SpeedUnits.metersPerSecond))*t;return"number"==typeof s&&(c+=.5*this.convertAcceleration(s,i,AccelerationUnits.metersPerSecondSquared)*t*t),this.convertDistance(c,DistanceUnits.meters,e,o)}function parseTimestamp(e){if("[object Date]"===Object.prototype.toString.call(e))return e;if("string"==typeof e){var t=Date.parse(e);if(!isNaN(t))return new Date(t);if(e.indexOf("Date(")>=0){var r=0;return r=(e=e.replace("/Date(","").replace(")/","")).indexOf("+")>0?parseInt(e.substr(0,e.indexOf("+")),10):e.indexOf("-")>0?parseInt(e.substr(0,e.indexOf("-")),10):parseInt(e,10),new Date(r)}}else if("number"==typeof e)return new Date(e);return null}function getConvexHull(e){var t=getPositions(e).map(function(e){return[normalizeLongitude(e[0]),normalizeLatitude(e[1])]});t.sort(function(e,t){return e[0]===t[0]?e[1]-t[1]:e[0]-t[0]});for(var r=[],s=0,n=t;s<n.length;s++){for(var a=n[s];r.length>=2&&_cross(r[r.length-2],r[r.length-1],a)<=0;)r.pop();r.push(a)}for(var i=[],o=t.length-1;o>=0;o--){for(;i.length>=2&&_cross(i[i.length-2],i[i.length-1],t[o])<=0;)i.pop();i.push(t[o])}return new data_1.Polygon([r.concat(i)])}function getPositions(e){var t=[],r=null,s=null;if(Array.isArray(e)&&e.length>0)if(Array.isArray(e[0])&&"number"==typeof e[0][0])t=e;else for(var n=e.length,a=0;a<n;a++)t=t.concat(getPositions(e[a]));else if(e.type)switch(e.type){case"Point":t=[e.coordinates];break;case"LineString":t=e.coordinates;break;case"Polygon":r=e.coordinates;break;case"MultiPoint":t=e.coordinates;break;case"MultiLineString":r=e.coordinates;break;case"MultiPolygon":s=e.coordinates;break;case"Feature":var i=e;t=Shape_1.Shape._isCircle(i)?Shape_1.Shape._getCirclePositions(i):getPositions(i.geometry);break;case"FeatureCollection":t=getPositions(e.features);break;case"GeometryCollection":t=getPositions(e.geometries)}if(r)for(n=r.length,a=0;a<n;a++)t=t.concat(r[a]);else if(s){var o=s.length;for(a=0;a<o;a++)for(var c=s[a].length,u=0;u<c;u++)t=t.concat(s[a][u])}return t}function getPosition(e){if(Array.isArray(e)&&"number"==typeof e[0])return e;if(e.type){if("Point"===e.type)return e.coordinates;if("Feature"===e.type&&"Point"===e.geometry.type)return e.geometry.coordinates}return null}function getPositionsAlongPath(e,t){if(t<2)return[];for(var r=[],s=getLengthOfPath(e,DistanceUnits.meters)/(t-1),n=0;n<t;n++){var a=getPositionAlongPath(e,s*n,DistanceUnits.meters);null!=a&&r.push(a)}return r}function getPointWithHeadingAlongPath(e,t,r){r=r||"meters";var s,n,a=0;if(Array.isArray(e)?n=e:e.type&&"LineString"===e.type&&(n=e.coordinates),n.length>=2){for(var i=n.length,o=1;o<i;o++){if(a+(s=getDistanceTo(n[o-1],n[o],r))>=t){var c=getHeading(n[o-1],n[o]),u=getDestination(n[o-1],c,t-a,r);return new data_1.Feature(new data_1.Point(u),{heading:c})}a+=s}return t>=a?new data_1.Feature(new data_1.Point(n[i-1]),{heading:getHeading(n[i-2],n[i-1])}):new data_1.Feature(new data_1.Point(n[0]),{heading:getHeading(n[0],n[1])})}return null}function getPointsWithHeadingsAlongPath(e,t){if(t<=0)return[];for(var r=[],s=getLengthOfPath(e,DistanceUnits.meters)/(t-1),n=0;n<t;n++){var a=getPointWithHeadingAlongPath(e,s*n,DistanceUnits.meters);null!=a&&r.push(a)}return r}function getClosestPointOnGeometry(e,t,r,s){var n,a=getPosition(e),i=mercatorPositionsToPixels([a],22)[0],o=null,c=1/0;switch(t.type){case"Feature":return getClosestPointOnGeometry(e,t.geometry,r);case"Point":n=[[t.coordinates]];break;case"MultiPoint":for(var u=void 0,d=t.coordinates,l=0,g=d.length;l<g;l++)(u=getDistanceTo(a,d[l]))<c&&(c=u,o=new data_1.Feature(new data_1.Point(d[l]),{distance:u}));break;case"LineString":n=[t.coordinates];break;case"Polygon":case"MultiLineString":n=t.coordinates;break;case"MultiPolygon":var m=t.coordinates;if(m.length>0){n=m[0];for(l=1,g=m.length;l<g;l++)n=n.concat(m[l])}}if(n){var h=void 0;for(l=0,g=n.length;l<g;l++)(h=_closestPointOnPath(a,i,n[l]))&&h.properties.distance<c&&(c=h.properties.distance,o=h)}return o&&(o.properties.distance=convertDistance(o.properties.distance,"meters",r,s)),o}exports._precision=_precision,function(e){e.squareMeters="squareMeters",e.acres="acres",e.hectares="hectares",e.squareFeet="squareFeet",e.squareKilometers="squareKilometers",e.squareMiles="squareMiles",e.squareYards="squareYards"}(AreaUnits=exports.AreaUnits||(exports.AreaUnits={})),function(e){e.meters="meters",e.kilometers="kilometers",e.feet="feet",e.miles="miles",e.nauticalMiles="nauticalMiles",e.yards="yards"}(DistanceUnits=exports.DistanceUnits||(exports.DistanceUnits={})),function(e){e.seconds="seconds",e.hours="hours",e.ms="ms",e.minutes="minutes",e.days="days"}(TimeUnits=exports.TimeUnits||(exports.TimeUnits={})),function(e){e.metersPerSecond="metersPerSecond",e.kilometersPerHour="kilometersPerHour",e.feetPerSecond="feetPerSecond",e.milesPerHour="milesPerHour",e.knots="knots",e.mach="mach"}(SpeedUnits=exports.SpeedUnits||(exports.SpeedUnits={})),function(e){e.milesPerSecondSquared="milesPerSecondSquared",e.kilometersPerSecondSquared="kilometersPerSecondSquared",e.knotsPerSecond="knotsPerSecond",e.standardGravity="standardGravity",e.feetPerSecondSquared="feetPerSecondSquared",e.yardsPerSecondSquared="yardsPerSecondSquared",e.milesPerHourSecond="milesPerHourSecond",e.kilometersPerHourSecond="kilometersPerHourSecond",e.metersPerSecondSquared="metersPerSecondSquared"}(AccelerationUnits=exports.AccelerationUnits||(exports.AccelerationUnits={})),exports.boundingBoxToPolygon=boundingBoxToPolygon,exports.convertDistance=convertDistance,exports.getCardinalSpline=getCardinalSpline,exports.getDestination=getDestination,exports.getDistanceTo=getDistanceTo,exports.getEarthRadius=getEarthRadius,exports.getGeodesicPath=getGeodesicPath,exports.getHeading=getHeading,exports.getLengthOfPath=getLengthOfPath,exports.getPositionAlongPath=getPositionAlongPath,exports.getRegularPolygonPath=getRegularPolygonPath,exports.interpolate=interpolate,exports.normalizeLatitude=normalizeLatitude,exports.normalizeLongitude=normalizeLongitude,exports.rotatePositions=rotatePositions,exports.getPixelHeading=getPixelHeading,exports.mercatorPixelsToPositions=mercatorPixelsToPositions,exports.mercatorPositionsToPixels=mercatorPositionsToPixels,exports.convertAcceleration=convertAcceleration,exports.convertArea=convertArea,exports.convertSpeed=convertSpeed,exports.convertTimespan=convertTimespan,exports.getAcceleration=getAcceleration,exports.getAccelerationFromSpeeds=getAccelerationFromSpeeds,exports.getAccelerationFromFeatures=getAccelerationFromFeatures,exports.getArea=getArea,exports.getSpeed=getSpeed,exports.getSpeedFromFeatures=getSpeedFromFeatures,exports.getTimespan=getTimespan,exports.getTravelDistance=getTravelDistance,exports.parseTimestamp=parseTimestamp,exports.getConvexHull=getConvexHull,exports.getPositions=getPositions,exports.getPosition=getPosition,exports.getPositionsAlongPath=getPositionsAlongPath,exports.getPointWithHeadingAlongPath=getPointWithHeadingAlongPath,exports.getPointsWithHeadingsAlongPath=getPointsWithHeadingsAlongPath,exports.getClosestPointOnGeometry=getClosestPointOnGeometry;
 
-},{"../../Pixel":169,"../data":246}],271:[function(require,module,exports){
+},{"../../Pixel":169,"../../Shape":171,"../data":248,"lodash":109}],275:[function(require,module,exports){
 "use strict";function __export(r){for(var e in r)exports.hasOwnProperty(e)||(exports[e]=r[e])}Object.defineProperty(exports,"__esModule",{value:!0}),__export(require("./Math"));var AffineTransform_1=require("./AffineTransform");exports.AffineTransform=AffineTransform_1.AffineTransform;
 
-},{"./AffineTransform":269,"./Math":270}],272:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var o in e)e.hasOwnProperty(o)&&(t[o]=e[o])};return function(e,o){function s(){this.constructor=e}t(e,o),e.prototype=null===o?Object.create(o):(s.prototype=o.prototype,new s)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),Dictionary_1=require("../../helpers/Dictionary"),Shape_1=require("../../Shape"),data_1=require("../data"),DataSourceOptions_1=require("./options/DataSourceOptions"),Source_1=require("./Source"),DataSource=function(t){function e(e,o){var s=t.call(this,e)||this;return s.nextUpdate=performance.now(),s.timeoutId=void 0,s.minFrameRate=1e3/60,s.options=(new DataSourceOptions_1.DataSourceOptions).merge(_.cloneDeep(o)),s.shapes=[],s.shapesMap=new Dictionary_1.Dictionary,s}return __extends(e,t),e.prototype.add=function(t,e){this._addNoUpdate(t,e),this._updateSource()},e.prototype.clear=function(){this._clearNoUpdate(),this._updateSource()},e.prototype.dispose=function(){this.options=null,this.shapes=null,this.shapesMap=null,this.map=null},e.prototype.getClusterExpansionZoom=function(t){var e=this;return new Promise(function(o,s){if(e.map){var p=e.map._getMap().getSource(e.getId());p&&"geojson"===p.type&&p.getClusterExpansionZoom(t,function(t,e){t?s(t):"number"!=typeof e||o(e)})}else s("The DataSource hasn't been added to a map.")})},e.prototype.getClusterChildren=function(t){var e=this;return new Promise(function(o,s){if(e.map){var p=e.map._getMap().getSource(e.getId());p&&"geojson"===p.type&&p.getClusterChildren(t,function(t,p){t?s(t):p&&o(e.map.sources._mapFeaturesToShapes(p))})}else s("The DataSource hasn't been added to a map.")})},e.prototype.getClusterLeaves=function(t,e,o){var s=this;return new Promise(function(p,a){if(s.map){var n=s.map._getMap().getSource(s.getId());n&&"geojson"===n.type&&n.getClusterLeaves(t,e,o,function(t,e){t?a(t):e&&p(s.map.sources._mapFeaturesToShapes(e))})}else a("The DataSource hasn't been added to a map.")})},e.prototype.getOptions=function(){return _.cloneDeep(this.options)},e.prototype.getShapes=function(t){var e=this.map._getMap().querySourceFeatures(this.getId(),{filter:t});return this.map.sources._mapFeaturesToShapes(e,!0,this)},e.prototype.importDataFromUrl=function(t){var e=this;return fetch(t,{method:"GET",mode:"cors"}).then(function(t){if(t.ok)return t.json();throw new Error("HTTP "+t.status+": "+t.statusText)}).then(function(t){e.add(t)})},e.prototype.getShapeById=function(t){return this.shapes[this.shapesMap.get(t)]||null},e.prototype.remove=function(t){if("number"==typeof t)this._removeFromSources(t);else{var e=t instanceof Shape_1.Shape?t.getId():"string"==typeof t?t:t.id;this._removeFromSources(e)}this._updateSource()},e.prototype.setOptions=function(t){var e=(new DataSourceOptions_1.DataSourceOptions).merge(this.options,_.cloneDeep(t));this.map&&!_.isEqual(this.options,e)&&this.map._rebuildStyle(),this.options=e},e.prototype.setShapes=function(t){this._clearNoUpdate(),this.add(t)},e.prototype.toJson=function(){for(var t=[],e=0,o=this.shapes;e<o.length;e++){var s=o[e];t.push(s.toJson())}return new data_1.FeatureCollection(t)},e.prototype._toJson=function(){for(var t=[],e=0,o=this.shapes;e<o.length;e++){var s=o[e];t.push(s._toJson())}return new data_1.FeatureCollection(t)},e.prototype._buildSource=function(){var t={type:"geojson",data:this._toJson(),maxzoom:this.options.maxZoom,cluster:this.options.cluster,clusterRadius:this.options.clusterRadius,tolerance:this.options.tolerance,lineMetrics:this.options.lineMetrics};return"number"==typeof this.options.clusterMaxZoom&&(t.clusterMaxZoom=this.options.clusterMaxZoom),t},e.prototype._addNoUpdate=function(t,e){if(t instanceof Shape_1.Shape)this._addToSources(t,e);else if(Array.isArray(t))for(var o=t.length-1;o>=0;o--){var s=t[o];s instanceof Shape_1.Shape?this._addToSources(s,e):this._addToSources(new Shape_1.Shape(s),e)}else if("FeatureCollection"===t.type){var p=t.features;for(o=p.length-1;o>=0;o--)this._addToSources(new Shape_1.Shape(p[o]),e)}else if("GeometryCollection"===t.type){var a=t.geometries;for(o=a.length-1;o>=0;o--)this._addToSources(new Shape_1.Shape(a[o]),e)}else this._addToSources(new Shape_1.Shape(t),e)},e.prototype._clearNoUpdate=function(){this.shapes=[],this.shapesMap=new Dictionary_1.Dictionary},e.prototype._updateSource=function(){var t=this;void 0===this.timeoutId&&(performance.now()<this.nextUpdate?this.timeoutId=setTimeout(function(){t._updateMboxSource(),t.timeoutId=void 0},this.nextUpdate-performance.now()):this._updateMboxSource())},e.prototype._addToSources=function(t,e){"number"!=typeof e?(this.shapes.push(t),this.shapesMap.set(t.getId(),this.shapes.length-1)):(this.shapes.splice(e,0,t),this._updateShapesMap(e)),t._setDataSource(this)},e.prototype._removeFromSources=function(t){if("number"==typeof t){if(t>=this.shapes.length)throw new Error("The specified remove index '"+t+"' is greater than the maximum possible index '"+(this.shapes.length-1)+"'");this.shapesMap.delete(this.shapes[t].getId()),this.shapes[t]._setDataSource(null),this.shapes.splice(t,1),this._updateShapesMap(t)}else this.shapes[this.shapesMap.get(t)]._setDataSource(null),this.shapes.splice(this.shapesMap.get(t),1),this._updateShapesMap(this.shapesMap.get(t)),this.shapesMap.delete(t)},e.prototype._updateShapesMap=function(t){for(var e=t;e<this.shapes.length;e++)this.shapesMap.set(this.shapes[e].getId(),e)},e.prototype._updateMboxSource=function(){if(this.map&&this.map._getMap()){this.nextUpdate=performance.now()+this.minFrameRate;var t=this.map._getMap().getSource(this.getId());t&&"geojson"===t.type&&t.setData(this._toJson())}},e}(Source_1.Source);exports.DataSource=DataSource;
+},{"./AffineTransform":273,"./Math":274}],276:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(e,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var o in e)e.hasOwnProperty(o)&&(t[o]=e[o])})(e,o)};return function(e,o){function s(){this.constructor=e}t(e,o),e.prototype=null===o?Object.create(o):(s.prototype=o.prototype,new s)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),Dictionary_1=require("../../helpers/Dictionary"),Shape_1=require("../../Shape"),data_1=require("../data"),DataSourceOptions_1=require("./options/DataSourceOptions"),Source_1=require("./Source"),DataSource=function(t){function e(e,o){var s=t.call(this,e)||this;return s.requestId=void 0,s.options=(new DataSourceOptions_1.DataSourceOptions).merge(_.cloneDeep(o)),s.shapes=[],s.shapesMap=new Dictionary_1.Dictionary,s}return __extends(e,t),e.prototype.add=function(t,e){this._addNoUpdate(t,e),this._updateSource()},e.prototype.clear=function(){this._clearNoUpdate(),this._updateSource()},e.prototype.dispose=function(){this.options=null,this.shapes=null,this.shapesMap=null,this.map=null},e.prototype.getClusterExpansionZoom=function(t){var e=this;return new Promise(function(o,s){if(e.map){var p=e.map._getMap().getSource(e.getId());p&&"geojson"===p.type&&p.getClusterExpansionZoom(t,function(t,e){t?s(t):"number"!=typeof e||o(e)})}else s("The DataSource hasn't been added to a map.")})},e.prototype.getClusterChildren=function(t){var e=this;return new Promise(function(o,s){if(e.map){var p=e.map._getMap().getSource(e.getId());p&&"geojson"===p.type&&p.getClusterChildren(t,function(t,p){t?s(t):p&&o(e.map.sources._mapFeaturesToShapes(p,!1,e))})}else s("The DataSource hasn't been added to a map.")})},e.prototype.getClusterLeaves=function(t,e,o){var s=this;return new Promise(function(p,a){if(s.map){var n=s.map._getMap().getSource(s.getId());n&&"geojson"===n.type&&n.getClusterLeaves(t,e,o,function(t,e){t?a(t):e&&p(s.map.sources._mapFeaturesToShapes(e,!1,s))})}else a("The DataSource hasn't been added to a map.")})},e.prototype.getOptions=function(){return _.cloneDeep(this.options)},e.prototype.getShapes=function(t){var e=this.map._getMap().querySourceFeatures(this.getId(),{filter:t});return this.map.sources._mapFeaturesToShapes(e,!0,this)},e.prototype.importDataFromUrl=function(t){var e=this;return fetch(t,{method:"GET",mode:"cors"}).then(function(t){if(t.ok)return t.json();throw new Error("HTTP "+t.status+": "+t.statusText)}).then(function(t){e.add(t)})},e.prototype.getShapeById=function(t){return this.shapes[this.shapesMap.get(t)]||null},e.prototype.remove=function(t){if("number"==typeof t)this._removeFromSources(t);else{var e=t instanceof Shape_1.Shape?t.getId():"string"==typeof t?t:t.id;this._removeFromSources(e)}this._updateSource()},e.prototype.setOptions=function(t){var e=(new DataSourceOptions_1.DataSourceOptions).merge(this.options,_.cloneDeep(t));this.map&&!_.isEqual(this.options,e)&&this.map._rebuildStyle(),this.options=e},e.prototype.setShapes=function(t){this._clearNoUpdate(),this.add(t)},e.prototype.toJson=function(){for(var t=[],e=0,o=this.shapes;e<o.length;e++){var s=o[e];t.push(s.toJson())}return new data_1.FeatureCollection(t)},e.prototype._toJson=function(){for(var t=[],e=0,o=this.shapes;e<o.length;e++){var s=o[e];t.push(s._toJson())}return new data_1.FeatureCollection(t)},e.prototype._buildSource=function(){var t={type:"geojson",data:this._toJson(),maxzoom:this.options.maxZoom,cluster:this.options.cluster,clusterRadius:this.options.clusterRadius,tolerance:this.options.tolerance,lineMetrics:this.options.lineMetrics};return"number"==typeof this.options.clusterMaxZoom&&(t.clusterMaxZoom=this.options.clusterMaxZoom),t},e.prototype._addNoUpdate=function(t,e){if(t instanceof Shape_1.Shape)this._addToSources(t,e);else if(Array.isArray(t))for(var o=t.length-1;o>=0;o--){var s=t[o];s instanceof Shape_1.Shape?this._addToSources(s,e):this._addToSources(new Shape_1.Shape(s),e)}else if("FeatureCollection"===t.type){var p=t.features;for(o=p.length-1;o>=0;o--)this._addToSources(new Shape_1.Shape(p[o]),e)}else if("GeometryCollection"===t.type){var a=t.geometries;for(o=a.length-1;o>=0;o--)this._addToSources(new Shape_1.Shape(a[o]),e)}else this._addToSources(new Shape_1.Shape(t),e)},e.prototype._clearNoUpdate=function(){this.shapes=[],this.shapesMap=new Dictionary_1.Dictionary},e.prototype._updateSource=function(){var t=this;void 0===this.requestId&&(this.requestId=requestAnimationFrame(function(){t._updateMboxSource(),t.requestId=void 0}))},e.prototype._addToSources=function(t,e){"number"!=typeof e?(this.shapes.push(t),this.shapesMap.set(t.getId(),this.shapes.length-1)):(this.shapes.splice(e,0,t),this._updateShapesMap(e)),t._setDataSource(this)},e.prototype._removeFromSources=function(t){if("number"==typeof t){if(t>=this.shapes.length)throw new Error("The specified remove index '"+t+"' is greater than the maximum possible index '"+(this.shapes.length-1)+"'");this.shapesMap.delete(this.shapes[t].getId()),this.shapes[t]._setDataSource(null),this.shapes.splice(t,1),this._updateShapesMap(t)}else this.shapes[this.shapesMap.get(t)]._setDataSource(null),this.shapes.splice(this.shapesMap.get(t),1),this._updateShapesMap(this.shapesMap.get(t)),this.shapesMap.delete(t)},e.prototype._updateShapesMap=function(t){for(var e=t;e<this.shapes.length;e++)this.shapesMap.set(this.shapes[e].getId(),e)},e.prototype._updateMboxSource=function(){if(this.map&&this.map._getMap()){var t=this.map._getMap().getSource(this.getId());t&&"geojson"===t.type&&t.setData(this._toJson())}},e}(Source_1.Source);exports.DataSource=DataSource;
 
-},{"../../Shape":171,"../../helpers/Dictionary":172,"../data":246,"./Source":274,"./options/DataSourceOptions":277,"lodash":109}],273:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var r=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(r,t){r.__proto__=t}||function(r,t){for(var e in t)t.hasOwnProperty(e)&&(r[e]=t[e])};return function(t,e){function n(){this.constructor=t}r(t,e),t.prototype=null===e?Object.create(e):(n.prototype=e.prototype,new n)}}(),__assign=this&&this.__assign||Object.assign||function(r){for(var t,e=1,n=arguments.length;e<n;e++)for(var o in t=arguments[e])Object.prototype.hasOwnProperty.call(t,o)&&(r[o]=t[o]);return r};Object.defineProperty(exports,"__esModule",{value:!0});var _1=require("."),vars=require("../../../../variables.json"),Url_1=require("../../helpers/Url"),FundamentalMapSource=function(r){function t(t,e,n){var o=r.call(this,t)||this;return o.source=o._modifySource(e,n),o}return __extends(t,r),t.prototype._buildSource=function(){return this.source},t.prototype._modifySource=function(r,t){var e=r.tiles.map(function(r){return"string"==typeof r?r:new Url_1.Url({domain:vars.env.domain,path:r.path,queryParams:__assign({},t,r.queryParams)}).toString()});return r.tiles=e,r},t}(_1.Source);exports.FundamentalMapSource=FundamentalMapSource;
+},{"../../Shape":171,"../../helpers/Dictionary":172,"../data":248,"./Source":278,"./options/DataSourceOptions":281,"lodash":109}],277:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var r=function(t,e){return(r=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(r,t){r.__proto__=t}||function(r,t){for(var e in t)t.hasOwnProperty(e)&&(r[e]=t[e])})(t,e)};return function(t,e){function n(){this.constructor=t}r(t,e),t.prototype=null===e?Object.create(e):(n.prototype=e.prototype,new n)}}(),__assign=this&&this.__assign||function(){return(__assign=Object.assign||function(r){for(var t,e=1,n=arguments.length;e<n;e++)for(var o in t=arguments[e])Object.prototype.hasOwnProperty.call(t,o)&&(r[o]=t[o]);return r}).apply(this,arguments)};Object.defineProperty(exports,"__esModule",{value:!0});var _1=require("."),vars=require("../../../../variables.json"),Url_1=require("../../helpers/Url"),FundamentalMapSource=function(r){function t(t,e,n){var o=r.call(this,t)||this;return o.source=o._modifySource(e,n),o}return __extends(t,r),t.prototype._buildSource=function(){return this.source},t.prototype._modifySource=function(r,t){var e=r.tiles.map(function(r){return"string"==typeof r?r:new Url_1.Url({domain:vars.env.domain,path:r.path,queryParams:__assign({},t,r.queryParams)}).toString()});return r.tiles=e,r},t}(_1.Source);exports.FundamentalMapSource=FundamentalMapSource;
 
-},{".":276,"../../../../variables.json":281,"../../helpers/Url":175}],274:[function(require,module,exports){
+},{".":280,"../../../../variables.json":285,"../../helpers/Url":176}],278:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var uuid=require("uuid-random"),Source=function(){function e(e){this.id=e||uuid()}return e.prototype.getId=function(){return this.id},e.prototype._setMap=function(e){null==e||void 0===e?delete this.map:this.map=e},e}();exports.Source=Source;
 
-},{"uuid-random":162}],275:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])};return function(o,e){function i(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(i.prototype=e.prototype,new i)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),_1=require("./"),VectorTileSourceOptions_1=require("./options/VectorTileSourceOptions"),VectorTileSource=function(t){function o(o,e){var i=t.call(this,o)||this;return i.options=(new VectorTileSourceOptions_1.VectorTileSourceOptions).merge(_.cloneDeep(e)),i}return __extends(o,t),o.prototype.getOptions=function(){return _.cloneDeep(this.options)},o.prototype.getShape=function(t,o){return this.map._getMap().querySourceFeatures(this.getId(),{sourceLayer:t,filter:o})},o.prototype._buildSource=function(){var t={type:"vector"};return this.options.bounds&&(t.bounds=this.options.bounds),this.options.tiles?(t.tiles=this.options.tiles,t.minzoom=this.options.minZoom,t.maxzoom=this.options.maxZoom):this.options.url&&(t.url=this.options.url),this.options.isTMS&&(t.scheme="tms"),this.options.tileSize&&(t.tileSize=this.options.tileSize),t},o}(_1.Source);exports.VectorTileSource=VectorTileSource;
+},{"uuid-random":162}],279:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(o,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])})(o,e)};return function(o,e){function i(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(i.prototype=e.prototype,new i)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),_1=require("./"),VectorTileSourceOptions_1=require("./options/VectorTileSourceOptions"),VectorTileSource=function(t){function o(o,e){var i=t.call(this,o)||this;return i.options=(new VectorTileSourceOptions_1.VectorTileSourceOptions).merge(_.cloneDeep(e)),i}return __extends(o,t),o.prototype.getOptions=function(){return _.cloneDeep(this.options)},o.prototype.getShape=function(t,o){return this.map._getMap().querySourceFeatures(this.getId(),{sourceLayer:t,filter:o})},o.prototype._buildSource=function(){var t={type:"vector"};return this.options.bounds&&(t.bounds=this.options.bounds),this.options.tiles?(t.tiles=this.options.tiles,t.minzoom=this.options.minZoom,t.maxzoom=this.options.maxZoom):this.options.url&&(t.url=this.options.url),this.options.isTMS&&(t.scheme="tms"),this.options.tileSize&&(t.tileSize=this.options.tileSize),t},o}(_1.Source);exports.VectorTileSource=VectorTileSource;
 
-},{"./":276,"./options/VectorTileSourceOptions":278,"lodash":109}],276:[function(require,module,exports){
+},{"./":280,"./options/VectorTileSourceOptions":282,"lodash":109}],280:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var DataSource_1=require("./DataSource");exports.DataSource=DataSource_1.DataSource;var Source_1=require("./Source");exports.Source=Source_1.Source;var VectorTileSource_1=require("./VectorTileSource");exports.VectorTileSource=VectorTileSource_1.VectorTileSource;
 
-},{"./DataSource":272,"./Source":274,"./VectorTileSource":275}],277:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var o in e)e.hasOwnProperty(o)&&(t[o]=e[o])};return function(e,o){function r(){this.constructor=e}t(e,o),e.prototype=null===o?Object.create(o):(r.prototype=o.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),DataSourceOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.maxZoom=18,e.cluster=!1,e.clusterRadius=50,e.clusterMaxZoom=void 0,e.lineMetrics=!1,e.tolerance=.375,e}return __extends(e,t),e}(Options_1.Options);exports.DataSourceOptions=DataSourceOptions;
+},{"./DataSource":276,"./Source":278,"./VectorTileSource":279}],281:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(e,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var o in e)e.hasOwnProperty(o)&&(t[o]=e[o])})(e,o)};return function(e,o){function r(){this.constructor=e}t(e,o),e.prototype=null===o?Object.create(o):(r.prototype=o.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),DataSourceOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.maxZoom=18,e.cluster=!1,e.clusterRadius=50,e.clusterMaxZoom=void 0,e.lineMetrics=!1,e.tolerance=.375,e}return __extends(e,t),e}(Options_1.Options);exports.DataSourceOptions=DataSourceOptions;
 
-},{"../../../helpers/Options":174}],278:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])};return function(o,e){function r(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(r.prototype=e.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),VectorTileSourceOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.bounds=void 0,o.minZoom=0,o.maxZoom=22,o.isTMS=!1,o.tiles=void 0,o.tileSize=512,o.url=void 0,o}return __extends(o,t),o}(Options_1.Options);exports.VectorTileSourceOptions=VectorTileSourceOptions;
+},{"../../../helpers/Options":175}],282:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(o,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])})(o,e)};return function(o,e){function r(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(r.prototype=e.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),VectorTileSourceOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.bounds=void 0,o.minZoom=0,o.maxZoom=22,o.isTMS=!1,o.tiles=void 0,o.tileSize=512,o.url=void 0,o}return __extends(o,t),o}(Options_1.Options);exports.VectorTileSourceOptions=VectorTileSourceOptions;
 
-},{"../../../helpers/Options":174}],279:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var i in e)e.hasOwnProperty(i)&&(t[i]=e[i])};return function(e,i){function o(){this.constructor=e}t(e,i),e.prototype=null===i?Object.create(i):(o.prototype=i.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),uuid=require("uuid-random"),Options_1=require("../helpers/Options"),Position_1=require("../namespace/data/Position"),Pixel_1=require("../Pixel"),Popup_1=require("../Popup"),HtmlMarkerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.anchor="center",e.color="#1A73AA",e.draggable=!1,e.htmlContent='<svg xmlns="http://www.w3.org/2000/svg" id="marker_'+uuid()+'" width="24" height="36" viewBox="0 0 24 36"><path fill="{color}" d="M 12 0 A 12.2543 12.2543 0 0 0 0 12.4937 C 0 18.9373 6.4879 24.603 11.059 35.0578 c 0.5493 1.2563 1.3327 1.2563 1.882 0 C 17.5121 24.6029 24 18.9357 24 12.4937 A 12.2543 12.2543 0 0 0 12 0 Z" /><text style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: white;" text-anchor="middle" x="12" y="18">{text}</text></svg>',e.pixelOffset=new Pixel_1.Pixel(0,-18),e.position=new Position_1.Position(0,0),e.popup=void 0,e.text=void 0,e.visible=!0,e}return __extends(e,t),e._cloneCustomizer=function(t){if(t instanceof Popup_1.Popup||_.isElement(t))return t},e}(Options_1.Options);exports.HtmlMarkerOptions=HtmlMarkerOptions;
+},{"../../../helpers/Options":175}],283:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(e,i){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var i in e)e.hasOwnProperty(i)&&(t[i]=e[i])})(e,i)};return function(e,i){function o(){this.constructor=e}t(e,i),e.prototype=null===i?Object.create(i):(o.prototype=i.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),uuid=require("uuid-random"),Options_1=require("../helpers/Options"),Position_1=require("../namespace/data/Position"),Pixel_1=require("../Pixel"),Popup_1=require("../Popup"),HtmlMarkerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.anchor="center",e.color="#1A73AA",e.draggable=!1,e.htmlContent='<svg xmlns="http://www.w3.org/2000/svg" id="marker_'+uuid()+'" width="24" height="36" viewBox="0 0 24 36"><path fill="{color}" d="M 12 0 A 12.2543 12.2543 0 0 0 0 12.4937 C 0 18.9373 6.4879 24.603 11.059 35.0578 c 0.5493 1.2563 1.3327 1.2563 1.882 0 C 17.5121 24.6029 24 18.9357 24 12.4937 A 12.2543 12.2543 0 0 0 12 0 Z" /><text style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: white;" text-anchor="middle" x="12" y="18">{text}</text></svg>',e.pixelOffset=new Pixel_1.Pixel(0,-18),e.position=new Position_1.Position(0,0),e.popup=void 0,e.text=void 0,e.visible=!0,e}return __extends(e,t),e._cloneCustomizer=function(t){if(t instanceof Popup_1.Popup||_.isElement(t))return t},e}(Options_1.Options);exports.HtmlMarkerOptions=HtmlMarkerOptions;
 
-},{"../Pixel":169,"../Popup":170,"../helpers/Options":174,"../namespace/data/Position":245,"lodash":109,"uuid-random":162}],280:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var o in e)e.hasOwnProperty(o)&&(t[o]=e[o])};return function(e,o){function n(){this.constructor=e}t(e,o),e.prototype=null===o?Object.create(o):(n.prototype=o.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),Options_1=require("../helpers/Options"),Position_1=require("../namespace/data/Position"),Pixel_1=require("../Pixel"),PopupOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.position=new Position_1.Position(0,0),e.content=document.createElement("span"),e.pixelOffset=new Pixel_1.Pixel(0,0),e.closeButton=!0,e}return __extends(e,t),e._cloneCustomizer=function(t){if(_.isElement(t))return t},e}(Options_1.Options);exports.PopupOptions=PopupOptions;
+},{"../Pixel":169,"../Popup":170,"../helpers/Options":175,"../namespace/data/Position":247,"lodash":109,"uuid-random":162}],284:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(e,n){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])})(e,n)};return function(e,n){function o(){this.constructor=e}t(e,n),e.prototype=null===n?Object.create(n):(o.prototype=n.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),Options_1=require("../helpers/Options"),Position_1=require("../namespace/data/Position"),Pixel_1=require("../Pixel"),PopupOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.position=new Position_1.Position(0,0),e.content=document.createElement("span"),e.pixelOffset=new Pixel_1.Pixel(0,0),e.closeButton=!0,e}return __extends(e,t),e._cloneCustomizer=function(t){if(_.isElement(t))return t},e}(Options_1.Options);exports.PopupOptions=PopupOptions;
 
-},{"../Pixel":169,"../helpers/Options":174,"../namespace/data/Position":245,"lodash":109}],281:[function(require,module,exports){
+},{"../Pixel":169,"../helpers/Options":175,"../namespace/data/Position":247,"lodash":109}],285:[function(require,module,exports){
 module.exports={
     "env":  {
                 "domain":  "atlas.microsoft.com",
@@ -7956,2241 +10217,10 @@ module.exports={
                   }
 }
 
-},{}]},{},[182])(182)
+},{}]},{},[183])(183)
 });
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__("c8ba")))
-
-/***/ }),
-
-/***/ "f605":
-/***/ (function(module, exports) {
-
-module.exports = function (it, Constructor, name, forbiddenField) {
-  if (!(it instanceof Constructor) || (forbiddenField !== undefined && forbiddenField in it)) {
-    throw TypeError(name + ': incorrect invocation!');
-  } return it;
-};
-
-
-/***/ }),
-
-/***/ "fa5b":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("5537")('native-function-to-string', Function.toString);
-
-
-/***/ }),
-
-/***/ "fab2":
-/***/ (function(module, exports, __webpack_require__) {
-
-var document = __webpack_require__("7726").document;
-module.exports = document && document.documentElement;
-
-
-/***/ }),
-
-/***/ "fb15":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-
-// CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
-// This file is imported into lib/wc client bundles.
-
-if (typeof window !== 'undefined') {
-  var i
-  if ((i = window.document.currentScript) && (i = i.src.match(/(.+\/)[^/]+\.js(\?.*)?$/))) {
-    __webpack_require__.p = i[1] // eslint-disable-line
-  }
-}
-
-// Indicate to webpack that this file can be concatenated
-/* harmony default export */ var setPublicPath = (null);
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
-var es6_promise = __webpack_require__("551c");
-
-// EXTERNAL MODULE: ./node_modules/azure-maps-control/dist/css/atlas.min.css
-var atlas_min = __webpack_require__("d753");
-
-// EXTERNAL MODULE: ./node_modules/azure-maps-control/dist/js/atlas.min.js
-var js_atlas_min = __webpack_require__("f001");
-
-// EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
-var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
-var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
-
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/classCallCheck.js
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/createClass.js
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-// CONCATENATED MODULE: ./src/plugin/vue-azure-maps.ts
-
-
-
-
-var vue_azure_maps_VueAzureMaps =
-/*#__PURE__*/
-function () {
-  function VueAzureMaps(lib, options) {
-    _classCallCheck(this, VueAzureMaps);
-
-    if (!options) options = {
-      key: ''
-    };
-    this.options = options;
-    this.key = options.key;
-    this.atlas = lib;
-    this.setSubscriptionKey(options.key);
-  }
-
-  _createClass(VueAzureMaps, [{
-    key: "setSubscriptionKey",
-    value: function setSubscriptionKey(key) {
-      // Set the Azure Maps subscription key to the map SDK.
-      this.atlas.setSubscriptionKey(key);
-    }
-  }]);
-
-  return VueAzureMaps;
-}();
-
-
-// CONCATENATED MODULE: ./src/plugin/install.ts
-//@ts-ignore
-
-
-
-var _Vue_;
-var _installed = false;
-function install(Vue, options) {
-  if (_installed && external_commonjs_vue_commonjs2_vue_root_Vue_default.a === Vue) return;
-  _installed = true;
-  _Vue_ = Vue;
-  Vue.prototype.$_azureMaps = new vue_azure_maps_VueAzureMaps(js_atlas_min, options);
-}
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1dcdf57b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=template&id=42a70ccc&
-var AzureMapvue_type_template_id_42a70ccc_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({ width: _vm.width, height: _vm.height }),attrs:{"id":_vm.mapId}},[(_vm.isMapReady)?[_vm._t("default",null,{"map":_vm.map})]:_vm._e()],2)}
-var staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue?vue&type=template&id=42a70ccc&
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
-var web_dom_iterable = __webpack_require__("ac6a");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.iterator.js
-var es6_array_iterator = __webpack_require__("cadf");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es7.object.values.js
-var es7_object_values = __webpack_require__("8615");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.number.constructor.js
-var es6_number_constructor = __webpack_require__("c5f6");
-
-// EXTERNAL MODULE: ./src/plugin/utils/index.ts
-var utils = __webpack_require__("32ef");
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=script&lang=ts&
-
-
-
-
-
-
-var AzureMapEvent;
-
-(function (AzureMapEvent) {
-  AzureMapEvent["Ready"] = "ready";
-})(AzureMapEvent || (AzureMapEvent = {}));
-
-var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
-  id: 0
-});
-/* harmony default export */ var AzureMapvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
-  name: 'AzureMap',
-  provide: function provide() {
-    return {
-      /**
-       * Provide a function to retreive the `atlas.Map` instance for descendent components that need to inject it
-       *
-       * Note that this method will only be available in the descendent component if it uses `inject: ['getMap']`
-       */
-      getMap: this.getMap
-    };
-  },
-  props: {
-    /**
-     * The `atlas.Map` container width
-     *
-     * Note this property is optional because it could be specified using CSS
-     */
-    width: {
-      type: String,
-      default: null
-    },
-
-    /**
-     * The `atlas.Map` container height
-     *
-     * Note this property is optional because it could be specified using CSS
-     */
-    height: {
-      type: String,
-      default: null
-    },
-
-    /**
-     * The authentication options used to customize how the map control authenticates with Azure Maps services.
-     * If these authentication options are specified then ServiceOptions.subscriptionKey should not be.
-     * Recommend using the atlas.setAuthenticationOptions function instead.
-     */
-    authOptions: {
-      type: Object,
-      default: null
-    },
-
-    /**
-     * The customer subscription key used to authorize requests.
-     * This option may only be set when initializing the map.
-     * Recommend using the atlas.setSubscriptionKey function instead
-     */
-    subscriptionKey: {
-      type: String,
-      default: null
-    },
-
-    /**
-     * The session id to pass with requests.
-     * Recommend using atlas.setSessionId instead.
-     * @default Random UUID generated at runtime
-     */
-    sessionId: {
-      type: String,
-      default: null
-    },
-
-    /**
-     * Disable telemetry collection
-     * This option may only be set when initializing the map.
-     * default: false
-     * @default false
-     */
-    disableTelemetry: {
-      type: Boolean,
-      default: null
-    },
-
-    /**
-     * Enable accessibility
-     * default: false
-     * @default false
-     */
-    enableAccessibility: {
-      type: Boolean,
-      default: null
-    },
-
-    /**
-     * A boolean that specifies if vector and raster tiles should be reloaded when they expire (based on expires header).
-     * This is useful for data sets that update frequently. When set to false, each tile will be loaded once, when needed, and not reloaded when they expire.
-     * default: true
-     * @default true
-     */
-    refreshExpiredTiles: {
-      type: Boolean,
-      default: null
-    },
-
-    /**
-     * If defined transformRequest will be called to provide custom request parameters for loading a tile.
-     * `(url: string, resourceType: string) => RequestParameters`
-     */
-    transformRequest: {
-      type: Function,
-      default: null
-    },
-
-    /**
-     * The zoom level of the map view.
-     * `default 1`
-     * @default 1
-     */
-    zoom: {
-      type: Number,
-      default: null
-    },
-
-    /**
-     * The position to align the center of the map view with.
-     * `default [0, 0]`
-     * @default [0, 0]
-     */
-    center: {
-      type: Array,
-      default: null
-    },
-
-    /**
-     * A pixel offset to apply to the center of the map.
-     * This is useful if you want to programmatically pan the map to another location or if you want to center the map over a shape, then offset the maps view to make room for a popup.
-     * Default `[0, 0]`.
-     * @default [0, 0]
-     */
-    centerOffset: {
-      type: Array,
-      default: null
-    },
-
-    /**
-     * The bearing of the map (rotation) in degrees.
-     * When the bearing is 0, 90, 180, or 270 the top of the map container will be north, east, south or west respectively.
-     * `default 0`
-     * @default 0
-     */
-    bearing: {
-      type: Number,
-      default: null
-    },
-
-    /**
-     * The pitch (tilt) of the map in degrees between 0 and 60, where 0 is looking straight down on the map.
-     * `default 0`
-     * @default 0
-     */
-    pitch: {
-      type: Number,
-      default: null
-    },
-
-    /**
-     * The minimum zoom level that the map can be zoomed out to during the animation. Must be between 0 and 24, and less than or equal to `maxZoom`.
-     * `default 1`
-     * @default 1
-     */
-    minZoom: {
-      type: Number,
-      default: null
-    },
-
-    /**
-     * The maximum zoom level that the map can be zoomed into during the animation. Must be between 0 and 24, and greater than or equal to `minZoom`.
-     * `default 20`
-     * @default 20
-     */
-    maxZoom: {
-      type: Number,
-      default: null
-    },
-
-    /**
-     * The bounds of the map control's camera.
-     * `default [-180, -89, 180, 90]`
-     * @default [-180, -89, 180, 90]
-     */
-    bounds: {
-      type: Object,
-      default: null
-    },
-
-    /**
-     * An offset of the center of the given bounds relative to the map's center, measured in pixels.
-     * `default [0, 0]`
-     * @default [0, 0]
-     */
-    offset: {
-      type: Array,
-      default: null
-    },
-
-    /**
-     * The amount of padding in pixels to add to the given bounds.
-     * `default {top: 0, bottom: 0, left: 0, right: 0}`
-     * @default {top: 0, bottom: 0, left: 0, right: 0}
-     */
-    padding: {
-      type: [Object, Number],
-      default: null
-    },
-
-    /**
-     * If true the map will automatically resize whenever the window's size changes.
-     * Otherwise map.resize() must be called.
-     * Default `true`.
-     * @default true
-     */
-    autoResize: {
-      type: Boolean,
-      default: null
-    },
-
-    /**
-     * If true, the map's canvas can be exported to a PNG using map.getCanvas().toDataURL().
-     * This option may only be set when initializing the map.
-     * Default `false`
-     * @default false
-     */
-    preserveDrawingBuffer: {
-      type: Boolean,
-      default: null
-    },
-
-    /**
-     * The name of the style to use when rendering the map. Available styles can be found in the
-     * [supported styles]{@link https://docs.microsoft.com/en-us/azure/azure-maps/supported-map-styles} article. The
-     * default style is "road".
-     */
-    mapStyle: {
-      type: String,
-      default: null
-    },
-
-    /**
-     * The language of the map labels.
-     * [Supported language]{@link https://docs.microsoft.com/en-us/azure/azure-maps/supported-languages}.
-     * Default `atlas.getLanguage()`.
-     * @default atlas.getLanguage()
-     */
-    language: {
-      type: String,
-      default: null
-    },
-
-    /**
-     * The geopolitical view of the map.
-     * <p>Unified: The unified view of the world.</p>
-     * Default `atlas.getUserRegion()`.
-     * @default atlas.getUserRegion()
-     */
-    userRegion: {
-      type: String,
-      default: null
-    },
-
-    /**
-     * Whether the map is interactive or static. If false, all user interaction is disabled.  If true, only selected
-     * user interactions will enabled.
-     * default `true`
-     * @default true
-     */
-    interactive: {
-      type: Boolean,
-      default: null
-    },
-
-    /**
-     * Whether the map should zoom on scroll input.
-     * default `true`
-     * @default true
-     */
-    scrollZoomInteraction: {
-      type: Boolean,
-      default: null
-    },
-
-    /**
-     * Whether the Shift + left click and drag will draw a zoom box.
-     * default `true`
-     * @default true
-     */
-    boxZoomInteraction: {
-      type: Boolean,
-      default: null
-    },
-
-    /**
-     * Whether right click and drag will rotate and pitch the map.
-     * default `true`
-     * @default true
-     */
-    dragRotateInteraction: {
-      type: Boolean,
-      default: null
-    },
-
-    /**
-     * Whether left click and drag will pan the map.
-     * default `true`
-     * @default true
-     */
-    dragPanInteraction: {
-      type: Boolean,
-      default: null
-    },
-
-    /**
-     * Whether the keyboard interactions are enabled.
-     * <style> .k-key { border: 1px solid grey; border-radius: 6px; background-color: #ccc; line-height: 14px;
-     * font-size: 14px; padding: 2px; } </style>
-     * <p><span class="k-key">+/=</span>: Increase zoom level by 1.</p>
-     * <p><span class="k-key">Shift</span> + <span class="k-key">+/=</span>: Increase the zoom level by 2.</p>
-     * <p><span class="k-key">-</span>: Decrease zoom level by 1.</p>
-     * <p><span class="k-key">Shift</span> + <span class="k-key">-</span>: Decrease zoom level by 2.</p>
-     * <p><span class="k-key">⇢</span>: Pan right 100 pixels.</p>
-     * <p><span class="k-key">⇠</span>: Pan left 100 pixels.</p>
-     * <p><span class="k-key">⇡</span>: Pan up 100 pixels.</p>
-     * <p><span class="k-key">⇣</span>: Pan down 100 pixels.</p>
-     * <p><span class="k-key">Shift</span> + <span class="k-key">⇢</span>: Rotate 15 degrees clockwise.</p>
-     * <p><span class="k-key">Shift</span> + <span class="k-key">⇠</span>: Rotate 15 degrees counter-clockwise.</p>
-     * <p><span class="k-key">Shift</span> + <span class="k-key">⇡</span>: Increase pitch by 10 degrees.</p>
-     * <p><span class="k-key">Shift</span> + <span class="k-key">⇣</span>: Decrease pitch by 10 degrees.</p>
-     * default `true`
-     * @default true
-     */
-    keyboardInteraction: {
-      type: Boolean,
-      default: null
-    },
-
-    /**
-     * Whether double left click will zoom the map inwards.
-     * default `true`
-     * @default true
-     */
-    dblClickZoomInteraction: {
-      type: Boolean,
-      default: null
-    },
-
-    /**
-     * Whether touch interactions are enabled for touch devices.
-     * default `true`
-     * @default true
-     */
-    touchInteraction: {
-      type: Boolean,
-      default: null
-    }
-  },
-  data: function data() {
-    return {
-      /**
-       * The `atlas.Map` container id
-       */
-      mapId: "azure-map-".concat(state.id++),
-
-      /**
-       * The `atlas.Map` instance
-       */
-      map: null,
-
-      /**
-       * Flag that indicates that the `atlas.Map` instance is ready
-       */
-      isMapReady: false
-    };
-  },
-  watch: {
-    center: function center(newPosition) {
-      if (!this.map || !newPosition) return;
-      this.map.setCamera({
-        center: newPosition
-      });
-    }
-  },
-  mounted: function mounted() {
-    this.initializeMap();
-  },
-  methods: {
-    initializeMap: function initializeMap() {
-      // Get map options from component props
-      var options = this.getOptionsFromProps() || {}; // Instantiate map to the HTMLElement with the auto-generated map id.
-
-      var map = new this.$_azureMaps.atlas.Map(this.mapId, options); // Save the map instance in a data property to provide it to descendent components
-
-      this.map = map; // Wait until the map resources are ready.
-
-      this.map.events.add('ready', this.mapReadyCallback); // Remove the map when the component is destroyed
-
-      this.$once('hook:destroyed', function () {
-        map.dispose();
-      });
-    },
-    mapReadyCallback: function mapReadyCallback(mapEvent) {
-      // Emit the custom ready event
-      this.$emit(AzureMapEvent.Ready, mapEvent); // Indicate that the map instance is ready,
-      // which triggers descendent components creation
-
-      this.isMapReady = true;
-
-      if (this.map) {
-        // Add the map events
-        this.addEventsFromListeners({
-          map: this.map,
-          reservedEventTypes: Object.values(AzureMapEvent)
-        });
-      }
-    },
-    getMap: function getMap() {
-      // Return the map instance for descendent components injection
-      return this.map;
-    },
-    getOptionsFromProps: utils["b" /* getOptionsFromProps */],
-    addEventsFromListeners: utils["a" /* addEventsFromListeners */]
-  }
-}));
-// CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue?vue&type=script&lang=ts&
- /* harmony default export */ var components_AzureMapvue_type_script_lang_ts_ = (AzureMapvue_type_script_lang_ts_); 
-// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
-var componentNormalizer = __webpack_require__("2877");
-
-// CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue
-
-
-
-
-
-/* normalize component */
-
-var component = Object(componentNormalizer["a" /* default */])(
-  components_AzureMapvue_type_script_lang_ts_,
-  AzureMapvue_type_template_id_42a70ccc_render,
-  staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var AzureMap = (component.exports);
-// EXTERNAL MODULE: ./src/plugin/components/AzureMapDataSource.vue + 4 modules
-var AzureMapDataSource = __webpack_require__("330c");
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapHtmlMarker.vue?vue&type=script&lang=ts&
-
-
-
-
-
-/**
- * Adds a custom HTML such as an image file to the map as an HTML Marker.
- */
-
-/* harmony default export */ var AzureMapHtmlMarkervue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
-  name: 'AzureMapHtmlMarker',
-
-  /**
-   * Inject the `getMap` function to get the `atlas.Map` instance
-   */
-  inject: ['getMap'],
-  props: {
-    /**
-     * Indicates the marker's location relative to its position on the map.
-     * Optional values: `"center"`, `"top"`, `"bottom"`, `"left"`, `"right"`,
-     * `"top-left"`, `"top-right"`, `"bottom-left"`, `"bottom-right"`.
-     * Default `"center"`
-     * @default "center"
-     */
-    anchor: {
-      type: String,
-      default: null
-    },
-
-    /**
-     * A color value that replaces any {color} placeholder property that has been included in a string htmlContent.
-     * default `"#1A73AA"`
-     * @default "#1A73AA"
-     */
-    color: {
-      type: String,
-      default: null
-    },
-
-    /**
-     * Indicates if the user can drag the position of the marker using the mouse or touch controls.
-     * default `false`
-     * @default false
-     */
-    draggable: {
-      type: Boolean,
-      default: null
-    },
-
-    /**
-     * The HTML content of the marker. Can be an HTMLElement or HTML string.
-     * Add {text} and {color} to HTML strings as placeholders to make it easy to update
-     * these values in your marker by using the setOptions function of the HtmlMarker class.
-     * This allows you to create a single HTML marker string that can be used as a template for multiple markers.
-     */
-    htmlContent: {
-      type: String,
-      default: null
-    },
-
-    /**
-     * An offset in pixels to move the popup relative to the markers center.
-     * Negatives indicate left and up.
-     * default `[0, -18]`
-     * @default [0, -18]
-     */
-    pixelOffset: {
-      type: Array,
-      default: null
-    },
-
-    /**
-     * The position of the marker.
-     * default `[0, 0]`
-     * @default [0, 0]
-     */
-    position: {
-      type: Array,
-      default: null
-    },
-
-    /**
-     * A popup that is attached to the marker.
-     */
-    popup: {
-      type: Object,
-      default: null
-    },
-
-    /**
-     * A string of text that replaces any {text} placeholder property that has been included in a string htmlContent.
-     */
-    text: {
-      type: String,
-      default: null
-    },
-
-    /**
-     * Specifies if the marker is visible or not.
-     * default `true`
-     * @default true
-     */
-    visible: {
-      type: Boolean,
-      default: null
-    }
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the map instance
-    var getMap = this.getMap;
-
-    if (!getMap) {
-      if (true) return; // If the function that retreives the map instance is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-
-      return console.warn("Invalid <AzureMapHtmlMarker> map instance.\nPlease make sure <AzureMapHtmlMarker> is a descendant of <AzureMap>.");
-    } // Retrieve the map instance from the injected function
-
-
-    var map = getMap(); // Create the HTML marker
-
-    var marker = new this.$_azureMaps.atlas.HtmlMarker(this.getOptionsFromProps()); // Watch for all props changes
-
-    this.$watch(function () {
-      var values = '';
-
-      var _arr = Object.values(_this.$props);
-
-      for (var _i = 0; _i < _arr.length; _i++) {
-        var value = _arr[_i];
-        values += value;
-      }
-
-      return values;
-    }, function () {
-      var newOptions = _this.getOptionsFromProps();
-
-      if (newOptions) {
-        marker.setOptions(newOptions);
-      }
-    }); // Add the marker to the map
-
-    map.markers.add(marker); // Remove the marker when the component is destroyed
-
-    this.$once('hook:destroyed', function () {
-      map.markers.remove(marker);
-    }); // Add the html marker events to the map
-
-    this.addEventsFromListeners({
-      map: map,
-      target: marker
-    });
-  },
-  methods: {
-    getOptionsFromProps: utils["b" /* getOptionsFromProps */],
-    addEventsFromListeners: utils["a" /* addEventsFromListeners */]
-  },
-  render: function render(createElement) {
-    return createElement();
-  }
-}));
-// CONCATENATED MODULE: ./src/plugin/components/AzureMapHtmlMarker.vue?vue&type=script&lang=ts&
- /* harmony default export */ var components_AzureMapHtmlMarkervue_type_script_lang_ts_ = (AzureMapHtmlMarkervue_type_script_lang_ts_); 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMapHtmlMarker.vue
-var AzureMapHtmlMarker_render, AzureMapHtmlMarker_staticRenderFns
-
-
-
-
-/* normalize component */
-
-var AzureMapHtmlMarker_component = Object(componentNormalizer["a" /* default */])(
-  components_AzureMapHtmlMarkervue_type_script_lang_ts_,
-  AzureMapHtmlMarker_render,
-  AzureMapHtmlMarker_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var AzureMapHtmlMarker = (AzureMapHtmlMarker_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1dcdf57b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=e49db368&
-var AzureMapUserPositionvue_type_template_id_e49db368_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.hasPosition)?_c('AzureMapDataSource',[_c('AzureMapPoint',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude,"properties":_vm.properties || undefined},on:_vm._d({},[_vm.circleEventName,function($event){return _vm.$emit(_vm.circleEventName, $event)}])}),(_vm.showAccuracy)?_c('AzureMapPolygonLayer',{attrs:{"options":_vm.polygonLayerOptions || undefined}}):_vm._e(),_c('AzureMapSymbolLayer',{attrs:{"options":_vm.symbolLayerOptions || undefined}})],1):_vm._e()}
-var AzureMapUserPositionvue_type_template_id_e49db368_staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=e49db368&
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/objectSpread.js + 1 modules
-var objectSpread = __webpack_require__("c93e");
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapUserPosition.vue?vue&type=script&lang=ts&
-
-
-
-
-var AzureMapUserPositionEvent;
-
-(function (AzureMapUserPositionEvent) {
-  AzureMapUserPositionEvent["Success"] = "success";
-  AzureMapUserPositionEvent["Error"] = "error";
-  AzureMapUserPositionEvent["PermissionDenied"] = "permission-denied";
-  AzureMapUserPositionEvent["PositionUnavailable"] = "permission-unavailable";
-  AzureMapUserPositionEvent["Timeout"] = "timeout";
-  AzureMapUserPositionEvent["UnknownError"] = "unknown-error";
-  AzureMapUserPositionEvent["Ready"] = "ready";
-})(AzureMapUserPositionEvent || (AzureMapUserPositionEvent = {}));
-
-/* harmony default export */ var AzureMapUserPositionvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
-  name: 'AzureMapUserPosition',
-
-  /**
-   * Inject the `getMap` function to get the `atlas.Map` instance
-   */
-  inject: ['getMap'],
-  components: {
-    AzureMapDataSource: function AzureMapDataSource() {
-      return Promise.resolve(/* import() */).then(__webpack_require__.bind(null, "330c"));
-    },
-    AzureMapPoint: function AzureMapPoint() {
-      return Promise.resolve(/* import() */).then(__webpack_require__.bind(null, "c343"));
-    },
-    AzureMapPolygonLayer: function AzureMapPolygonLayer() {
-      return Promise.resolve(/* import() */).then(__webpack_require__.bind(null, "6a51"));
-    },
-    AzureMapSymbolLayer: function AzureMapSymbolLayer() {
-      return Promise.resolve(/* import() */).then(__webpack_require__.bind(null, "4a0d"));
-    }
-  },
-  props: {
-    /**
-     * Indicates the application would like to receive the best possible results.
-     * If true and if the device is able to provide a more accurate position, it will do so.
-     */
-    enableHighAccuracy: {
-      type: Boolean,
-      default: false
-    },
-
-    /**
-     * integer (milliseconds]) | infinity - maximum cached position age.
-     */
-    maximumAge: {
-      type: Number,
-      default: null
-    },
-
-    /**
-     * integer (milliseconds]) - amount of time before the error callback is invoked, if 0 it will never invoke.
-     */
-    timeout: {
-      type: Number,
-      default: null
-    },
-
-    /**
-     * Flag that controls if an accuracy circle polygon will be shown
-     */
-    showAccuracy: {
-      type: Boolean,
-      default: false
-    },
-
-    /**
-     * Override the user position accuracy used for the circle polygon radius
-     */
-    accuracy: {
-      type: Number,
-      default: null
-    },
-
-    /**
-     * Flag that controls if the map will center on the users position
-     */
-    centerMapToUserPosition: {
-      type: Boolean,
-      default: false
-    },
-
-    /**
-     * If `centerMapToUserPosition` is true, this options are passed to the `map.setCamera` method
-     */
-    cameraOptions: {
-      type: Object,
-      default: null
-    },
-
-    /**
-     * The symbol layer options for the user position point
-     */
-    symbolLayerOptions: {
-      type: Object,
-      default: null
-    },
-
-    /**
-     * The polygon layer options for the accuracy circle polygon
-     */
-    polygonLayerOptions: {
-      type: Object,
-      default: null
-    }
-  },
-  data: function data() {
-    return {
-      longitude: null,
-      latitude: null,
-      properties: null,
-      hasPosition: false,
-      error: null
-    };
-  },
-  computed: {
-    circleEventName: function circleEventName() {
-      return this.showAccuracy ? 'circle-coordinates' : null;
-    }
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    var enableHighAccuracy = this.enableHighAccuracy,
-        maximumAge = this.maximumAge,
-        timeout = this.timeout;
-    navigator.geolocation.getCurrentPosition(function (position) {
-      // Clear any error
-      _this.error = null;
-
-      _this.$emit(AzureMapUserPositionEvent.Success, position); //@ts-ignore There is no TypeScript support for injections without decorators
-      // Look for the function that retreives the map instance
-
-
-      var getMap = _this.getMap;
-
-      if (!getMap) {
-        if (true) return; // If the function that retreives the map instance is not available,
-        // warn the user that is not a descendant of an ancestor component that provides the method
-
-        return console.warn("Invalid <AzureMapControl> map instance.\nPlease make sure <AzureMapControl> is a descendant of <AzureMap>.");
-      } // Retrieve the map instance from the injected function
-
-
-      var map = getMap();
-      var _position$coords = position.coords,
-          longitude = _position$coords.longitude,
-          latitude = _position$coords.latitude,
-          accuracy = _position$coords.accuracy;
-      _this.longitude = longitude;
-      _this.latitude = latitude;
-
-      if (_this.showAccuracy) {
-        // Create accuracy circle polygon
-        _this.properties = {
-          subType: 'Circle',
-          radius: _this.accuracy || accuracy
-        };
-      }
-
-      _this.hasPosition = true;
-
-      if (_this.centerMapToUserPosition) {
-        // Center the map on the users position.
-        map.setCamera(Object(objectSpread["a" /* default */])({}, _this.cameraOptions || {}, {
-          center: [_this.longitude, _this.latitude]
-        }));
-      }
-
-      _this.$emit(AzureMapUserPositionEvent.Ready);
-    }, function (error) {
-      //If an error occurs when trying to access the users position information, emit it with an error message.
-      _this.hasPosition = false;
-      _this.error = error;
-      var errorEvent;
-      var errorMessage;
-
-      switch (error.code) {
-        case error.PERMISSION_DENIED:
-          errorEvent = AzureMapUserPositionEvent.PermissionDenied;
-          errorMessage = 'User denied the request for Geolocation.';
-          break;
-
-        case error.POSITION_UNAVAILABLE:
-          errorEvent = AzureMapUserPositionEvent.PositionUnavailable;
-          errorMessage = 'Position information is unavailable.';
-          break;
-
-        case error.TIMEOUT:
-          errorEvent = AzureMapUserPositionEvent.Timeout;
-          errorMessage = 'The request to get user position timed out.';
-          break;
-
-        default:
-          errorEvent = AzureMapUserPositionEvent.UnknownError;
-          errorMessage = 'An unknown error occurred.';
-          break;
-      }
-
-      _this.$emit(errorEvent, errorMessage);
-
-      _this.$emit(AzureMapUserPositionEvent.Error);
-    }, this.getOptionsFromProps({
-      enableHighAccuracy: enableHighAccuracy,
-      maximumAge: maximumAge,
-      timeout: timeout
-    }));
-  },
-  methods: {
-    getOptionsFromProps: utils["b" /* getOptionsFromProps */]
-  }
-}));
-// CONCATENATED MODULE: ./src/plugin/components/AzureMapUserPosition.vue?vue&type=script&lang=ts&
- /* harmony default export */ var components_AzureMapUserPositionvue_type_script_lang_ts_ = (AzureMapUserPositionvue_type_script_lang_ts_); 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMapUserPosition.vue
-
-
-
-
-
-/* normalize component */
-
-var AzureMapUserPosition_component = Object(componentNormalizer["a" /* default */])(
-  components_AzureMapUserPositionvue_type_script_lang_ts_,
-  AzureMapUserPositionvue_type_template_id_e49db368_render,
-  AzureMapUserPositionvue_type_template_id_e49db368_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var AzureMapUserPosition = (AzureMapUserPosition_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/controls/AzureMapControl.vue?vue&type=script&lang=ts&
-
-/**
- * Adds a control to the `atlas.Map`.
- */
-
-/* harmony default export */ var AzureMapControlvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
-  name: 'AzureMapControl',
-
-  /**
-   * Inject the `getMap` function to get the `atlas.Map` instance
-   */
-  inject: ['getMap'],
-  props: {
-    control: {
-      type: Object,
-      default: null,
-      required: true
-    },
-    options: {
-      type: Object,
-      default: null
-    }
-  },
-  created: function created() {
-    var _this = this;
-
-    //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the map instance
-    var getMap = this.getMap;
-
-    if (!getMap) {
-      if (true) return; // If the function that retreives the map instance is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-
-      return console.warn("Invalid <AzureMapControl> map instance.\nPlease make sure <AzureMapControl> is a descendant of <AzureMap>.");
-    } // Retrieve the map instance from the injected function
-
-
-    var map = getMap(); // Add the control to the map
-
-    map.controls.add(this.control, this.options || undefined); // Remove the control when the component is destroyed
-
-    this.$once('hook:destroyed', function () {
-      map.controls.remove(_this.control);
-    });
-  },
-  render: function render(createElement) {
-    return createElement();
-  }
-}));
-// CONCATENATED MODULE: ./src/plugin/components/controls/AzureMapControl.vue?vue&type=script&lang=ts&
- /* harmony default export */ var controls_AzureMapControlvue_type_script_lang_ts_ = (AzureMapControlvue_type_script_lang_ts_); 
-// CONCATENATED MODULE: ./src/plugin/components/controls/AzureMapControl.vue
-var AzureMapControl_render, AzureMapControl_staticRenderFns
-
-
-
-
-/* normalize component */
-
-var AzureMapControl_component = Object(componentNormalizer["a" /* default */])(
-  controls_AzureMapControlvue_type_script_lang_ts_,
-  AzureMapControl_render,
-  AzureMapControl_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var AzureMapControl = (AzureMapControl_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/controls/AzureMapZoomControl.vue?vue&type=script&lang=ts&
-
-
-
-/**
- * Zoom control adds the ability to zoom in and out of the `atlas.Map`.
- */
-
-/* harmony default export */ var AzureMapZoomControlvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
-  name: 'AzureMapZoomControl',
-  functional: true,
-  props: {
-    position: {
-      type: String,
-      default: js_atlas_min["ControlPosition"].BottomRight
-    }
-  },
-  render: function render(createElement, context) {
-    //@ts-ignore Azure Maps Control types are incorrect, it declares 'controls' instead of 'control'
-    // Construct a zoom control
-    var zoomControl = new context.parent.$_azureMaps.atlas.control.ZoomControl();
-    return createElement(AzureMapControl, {
-      props: {
-        control: zoomControl,
-        options: context.props
-      }
-    });
-  }
-}));
-// CONCATENATED MODULE: ./src/plugin/components/controls/AzureMapZoomControl.vue?vue&type=script&lang=ts&
- /* harmony default export */ var controls_AzureMapZoomControlvue_type_script_lang_ts_ = (AzureMapZoomControlvue_type_script_lang_ts_); 
-// CONCATENATED MODULE: ./src/plugin/components/controls/AzureMapZoomControl.vue
-var AzureMapZoomControl_render, AzureMapZoomControl_staticRenderFns
-
-
-
-
-/* normalize component */
-
-var AzureMapZoomControl_component = Object(componentNormalizer["a" /* default */])(
-  controls_AzureMapZoomControlvue_type_script_lang_ts_,
-  AzureMapZoomControl_render,
-  AzureMapZoomControl_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var AzureMapZoomControl = (AzureMapZoomControl_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/controls/AzureMapPitchControl.vue?vue&type=script&lang=ts&
-
-
-
-/**
- * Pitch control adds the ability to change the pitch of the `atlas.Map`.
- */
-
-/* harmony default export */ var AzureMapPitchControlvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
-  name: 'AzureMapPitchControl',
-  functional: true,
-  props: {
-    position: {
-      type: String,
-      default: js_atlas_min["ControlPosition"].BottomRight
-    }
-  },
-  render: function render(createElement, context) {
-    //@ts-ignore Azure Maps Control types are incorrect, it declares 'controls' instead of 'control'
-    // Construct a pitch control
-    var pitchControl = new context.parent.$_azureMaps.atlas.control.PitchControl();
-    return createElement(AzureMapControl, {
-      props: {
-        control: pitchControl,
-        options: context.props
-      }
-    });
-  }
-}));
-// CONCATENATED MODULE: ./src/plugin/components/controls/AzureMapPitchControl.vue?vue&type=script&lang=ts&
- /* harmony default export */ var controls_AzureMapPitchControlvue_type_script_lang_ts_ = (AzureMapPitchControlvue_type_script_lang_ts_); 
-// CONCATENATED MODULE: ./src/plugin/components/controls/AzureMapPitchControl.vue
-var AzureMapPitchControl_render, AzureMapPitchControl_staticRenderFns
-
-
-
-
-/* normalize component */
-
-var AzureMapPitchControl_component = Object(componentNormalizer["a" /* default */])(
-  controls_AzureMapPitchControlvue_type_script_lang_ts_,
-  AzureMapPitchControl_render,
-  AzureMapPitchControl_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var AzureMapPitchControl = (AzureMapPitchControl_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/controls/AzureMapStyleControl.vue?vue&type=script&lang=ts&
-
-
-
-
-/**
- * Style control adds the ability to change the style of the `atlas.Map`.
- */
-
-/* harmony default export */ var AzureMapStyleControlvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
-  name: 'AzureMapStyleControl',
-  functional: true,
-  props: {
-    position: {
-      type: String,
-      default: js_atlas_min["ControlPosition"].BottomRight
-    }
-  },
-  render: function render(createElement, context) {
-    //@ts-ignore Azure Maps Control types are incorrect, it declares 'controls' instead of 'control'
-    // Construct a compass control
-    var styleControl = new context.parent.$_azureMaps.atlas.control.StyleControl();
-    return createElement(AzureMapControl, {
-      props: {
-        control: styleControl,
-        options: context.props
-      }
-    });
-  }
-}));
-// CONCATENATED MODULE: ./src/plugin/components/controls/AzureMapStyleControl.vue?vue&type=script&lang=ts&
- /* harmony default export */ var controls_AzureMapStyleControlvue_type_script_lang_ts_ = (AzureMapStyleControlvue_type_script_lang_ts_); 
-// CONCATENATED MODULE: ./src/plugin/components/controls/AzureMapStyleControl.vue
-var AzureMapStyleControl_render, AzureMapStyleControl_staticRenderFns
-
-
-
-
-/* normalize component */
-
-var AzureMapStyleControl_component = Object(componentNormalizer["a" /* default */])(
-  controls_AzureMapStyleControlvue_type_script_lang_ts_,
-  AzureMapStyleControl_render,
-  AzureMapStyleControl_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var AzureMapStyleControl = (AzureMapStyleControl_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/controls/AzureMapCompassControl.vue?vue&type=script&lang=ts&
-
-
-
-/**
- * Compass control adds the ability to change the rotation of the `atlas.Map`.
- */
-
-/* harmony default export */ var AzureMapCompassControlvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
-  name: 'AzureMapCompassControl',
-  functional: true,
-  props: {
-    position: {
-      type: String,
-      default: js_atlas_min["ControlPosition"].BottomRight
-    }
-  },
-  render: function render(createElement, context) {
-    //@ts-ignore Azure Maps Control types are incorrect, it declares 'controls' instead of 'control'
-    // Construct a compass control
-    var compassControl = new context.parent.$_azureMaps.atlas.control.CompassControl();
-    return createElement(AzureMapControl, {
-      props: {
-        control: compassControl,
-        options: context.props
-      }
-    });
-  }
-}));
-// CONCATENATED MODULE: ./src/plugin/components/controls/AzureMapCompassControl.vue?vue&type=script&lang=ts&
- /* harmony default export */ var controls_AzureMapCompassControlvue_type_script_lang_ts_ = (AzureMapCompassControlvue_type_script_lang_ts_); 
-// CONCATENATED MODULE: ./src/plugin/components/controls/AzureMapCompassControl.vue
-var AzureMapCompassControl_render, AzureMapCompassControl_staticRenderFns
-
-
-
-
-/* normalize component */
-
-var AzureMapCompassControl_component = Object(componentNormalizer["a" /* default */])(
-  controls_AzureMapCompassControlvue_type_script_lang_ts_,
-  AzureMapCompassControl_render,
-  AzureMapCompassControl_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var AzureMapCompassControl = (AzureMapCompassControl_component.exports);
-// EXTERNAL MODULE: ./src/plugin/components/layers/AzureMapSymbolLayer.vue + 2 modules
-var AzureMapSymbolLayer = __webpack_require__("4a0d");
-
-// EXTERNAL MODULE: ./src/plugin/components/layers/AzureMapPolygonLayer.vue + 2 modules
-var AzureMapPolygonLayer = __webpack_require__("6a51");
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapLineLayer.vue?vue&type=script&lang=ts&
-
-
-var AzureMapLineLayervue_type_script_lang_ts_state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
-  id: 0
-});
-/**
- * Renders line data on the map.
- */
-
-/* harmony default export */ var AzureMapLineLayervue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
-  name: 'AzureMapLineLayer',
-
-  /**
-   * Inject the `getMap` function to get the `atlas.Map` instance
-   * Inject the `getDataSource` function to get the `atlas.source.DataSource` instance
-   */
-  inject: ['getMap', 'getDataSource'],
-  props: {
-    id: {
-      type: String,
-      default: ''
-    },
-    options: {
-      type: Object,
-      default: null
-    }
-  },
-  mounted: function mounted() {
-    //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the map instance
-    var getMap = this.getMap;
-
-    if (!getMap) {
-      if (true) return; // If the function that retreives the map instance is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-
-      return console.warn("Invalid <AzureMapLineLayer> map instance.\nPlease make sure <AzureMapLineLayer> is a descendant of <AzureMap>.");
-    } //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the data source instance
-
-
-    var getDataSource = this.getDataSource;
-
-    if (!getDataSource) {
-      if (true) return; // If the function that retreives the data source is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-
-      return console.warn("Invalid <AzureMapLineLayer> data source.\nPlease make sure <AzureMapLineLayer> is a descendant of <AzureMapDataSource>.");
-    } // Retrieve the map instance from the injected function
-
-
-    var map = getMap(); // Retrieve the data source from the injected function
-
-    var dataSource = getDataSource(); // Create the line layer
-
-    var lineLayer = new this.$_azureMaps.atlas.layer.LineLayer(dataSource, this.id || "azure-map-line-layer-".concat(AzureMapLineLayervue_type_script_lang_ts_state.id++), this.options);
-    this.$watch('options', function (newOptions) {
-      lineLayer.setOptions(newOptions || {});
-    }, {
-      deep: true
-    }); // Add the layer to the map
-
-    map.layers.add(lineLayer); // Remove the layer when the component is destroyed
-
-    this.$once('hook:destroyed', function () {
-      map.layers.remove(lineLayer);
-    }); // Add the layer events to the map
-
-    this.addEventsFromListeners({
-      map: map,
-      target: lineLayer
-    });
-  },
-  methods: {
-    addEventsFromListeners: utils["a" /* addEventsFromListeners */]
-  },
-  render: function render(createElement) {
-    return createElement();
-  }
-}));
-// CONCATENATED MODULE: ./src/plugin/components/layers/AzureMapLineLayer.vue?vue&type=script&lang=ts&
- /* harmony default export */ var layers_AzureMapLineLayervue_type_script_lang_ts_ = (AzureMapLineLayervue_type_script_lang_ts_); 
-// CONCATENATED MODULE: ./src/plugin/components/layers/AzureMapLineLayer.vue
-var AzureMapLineLayer_render, AzureMapLineLayer_staticRenderFns
-
-
-
-
-/* normalize component */
-
-var AzureMapLineLayer_component = Object(componentNormalizer["a" /* default */])(
-  layers_AzureMapLineLayervue_type_script_lang_ts_,
-  AzureMapLineLayer_render,
-  AzureMapLineLayer_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var AzureMapLineLayer = (AzureMapLineLayer_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapHeatMapLayer.vue?vue&type=script&lang=ts&
-
-
-
-var AzureMapHeatMapLayervue_type_script_lang_ts_state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
-  id: 0
-});
-/**
- * Heat maps are a type of data visualization used to represent the density of data using a range of colors.
- */
-
-/* harmony default export */ var AzureMapHeatMapLayervue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
-  name: 'AzureMapHeatMapLayer',
-
-  /**
-   * Inject the `getMap` function to get the `atlas.Map` instance
-   * Inject the `getDataSource` function to get the `atlas.source.DataSource` instance
-   */
-  inject: ['getMap', 'getDataSource'],
-  props: {
-    id: {
-      type: String,
-      default: ''
-    },
-    options: {
-      type: Object,
-      default: null
-    }
-  },
-  mounted: function mounted() {
-    //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the map instance
-    var getMap = this.getMap;
-
-    if (!getMap) {
-      if (true) return; // If the function that retreives the map instance is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-
-      return console.warn("Invalid <AzureMapHeatMapLayer> map instance.\nPlease make sure <AzureMapHeatMapLayer> is a descendant of <AzureMap>.");
-    } //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the data source instance
-
-
-    var getDataSource = this.getDataSource;
-
-    if (!getDataSource) {
-      if (true) return; // If the function that retreives the data source is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-
-      return console.warn("Invalid <AzureMapHeatMapLayer> data source.\nPlease make sure <AzureMapHeatMapLayer> is a descendant of <AzureMapDataSource>.");
-    } // Retrieve the map instance from the injected function
-
-
-    var map = getMap(); // Retrieve the data source from the injected function
-
-    var dataSource = getDataSource(); // Create the heat map layer
-
-    var heatMapLayer = new this.$_azureMaps.atlas.layer.HeatMapLayer(dataSource, this.id || "azure-map-heat-map-layer-".concat(AzureMapHeatMapLayervue_type_script_lang_ts_state.id++), this.options); // Watch for options changes
-
-    this.$watch('options', function (newOptions) {
-      heatMapLayer.setOptions(newOptions || {});
-    }, {
-      deep: true
-    }); // Add the layer to the map
-
-    map.layers.add(heatMapLayer); // Remove the layer when the component is destroyed
-
-    this.$once('hook:destroyed', function () {
-      map.layers.remove(heatMapLayer);
-    }); // Add the layer events to the map
-
-    this.addEventsFromListeners({
-      map: map,
-      target: heatMapLayer
-    });
-  },
-  methods: {
-    addEventsFromListeners: utils["a" /* addEventsFromListeners */]
-  },
-  render: function render(createElement) {
-    return createElement();
-  }
-}));
-// CONCATENATED MODULE: ./src/plugin/components/layers/AzureMapHeatMapLayer.vue?vue&type=script&lang=ts&
- /* harmony default export */ var layers_AzureMapHeatMapLayervue_type_script_lang_ts_ = (AzureMapHeatMapLayervue_type_script_lang_ts_); 
-// CONCATENATED MODULE: ./src/plugin/components/layers/AzureMapHeatMapLayer.vue
-var AzureMapHeatMapLayer_render, AzureMapHeatMapLayer_staticRenderFns
-
-
-
-
-/* normalize component */
-
-var AzureMapHeatMapLayer_component = Object(componentNormalizer["a" /* default */])(
-  layers_AzureMapHeatMapLayervue_type_script_lang_ts_,
-  AzureMapHeatMapLayer_render,
-  AzureMapHeatMapLayer_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var AzureMapHeatMapLayer = (AzureMapHeatMapLayer_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapImageLayer.vue?vue&type=script&lang=ts&
-
-
-/**
- * Overlay an image to fixed set of coordinates on the map.
- */
-
-/* harmony default export */ var AzureMapImageLayervue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
-  name: 'AzureMapImageLayer',
-
-  /**
-   * Inject the `getMap` function to get the `atlas.Map` instance
-   * Inject the `getDataSource` function to get the `atlas.source.DataSource` instance
-   */
-  inject: ['getMap', 'getDataSource'],
-  props: {
-    options: {
-      type: Object,
-      default: null
-    }
-  },
-  mounted: function mounted() {
-    //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the map instance
-    var getMap = this.getMap;
-
-    if (!getMap) {
-      if (true) return; // If the function that retreives the map instance is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-
-      return console.warn("Invalid <AzureMapImageLayer> map instance.\nPlease make sure <AzureMapImageLayer> is a descendant of <AzureMap>.");
-    } //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the data source instance
-
-
-    var getDataSource = this.getDataSource;
-
-    if (!getDataSource) {
-      if (true) return; // If the function that retreives the data source is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-
-      return console.warn("Invalid <AzureMapImageLayer> data source.\nPlease make sure <AzureMapImageLayer> is a descendant of <AzureMapDataSource>.");
-    } // Retrieve the map instance from the injected function
-
-
-    var map = getMap(); // Retrieve the data source from the injected function
-
-    var dataSource = getDataSource(); // Create the image layer
-
-    var imageLayer = new this.$_azureMaps.atlas.layer.ImageLayer(this.options); // Watch for options changes
-
-    this.$watch('options', function (newOptions) {
-      imageLayer.setOptions(newOptions || {});
-    }, {
-      deep: true
-    }); // Add the layer to the map
-
-    map.layers.add(imageLayer); // Remove the layer when the component is destroyed
-
-    this.$once('hook:destroyed', function () {
-      map.layers.remove(imageLayer);
-    }); // Add the layer events to the map
-
-    this.addEventsFromListeners({
-      map: map,
-      target: imageLayer
-    });
-  },
-  methods: {
-    addEventsFromListeners: utils["a" /* addEventsFromListeners */]
-  },
-  render: function render(createElement) {
-    return createElement();
-  }
-}));
-// CONCATENATED MODULE: ./src/plugin/components/layers/AzureMapImageLayer.vue?vue&type=script&lang=ts&
- /* harmony default export */ var layers_AzureMapImageLayervue_type_script_lang_ts_ = (AzureMapImageLayervue_type_script_lang_ts_); 
-// CONCATENATED MODULE: ./src/plugin/components/layers/AzureMapImageLayer.vue
-var AzureMapImageLayer_render, AzureMapImageLayer_staticRenderFns
-
-
-
-
-/* normalize component */
-
-var AzureMapImageLayer_component = Object(componentNormalizer["a" /* default */])(
-  layers_AzureMapImageLayervue_type_script_lang_ts_,
-  AzureMapImageLayer_render,
-  AzureMapImageLayer_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var AzureMapImageLayer = (AzureMapImageLayer_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapTileLayer.vue?vue&type=script&lang=ts&
-
-
-/**
- * Tile layers allow you to superimpose images on top of Azure Maps base map tiles.
- */
-
-/* harmony default export */ var AzureMapTileLayervue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
-  name: 'AzureMapTileLayer',
-
-  /**
-   * Inject the `getMap` function to get the `atlas.Map` instance
-   * Inject the `getDataSource` function to get the `atlas.source.DataSource` instance
-   */
-  inject: ['getMap', 'getDataSource'],
-  props: {
-    options: {
-      type: Object,
-      default: null
-    }
-  },
-  mounted: function mounted() {
-    //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the map instance
-    var getMap = this.getMap;
-
-    if (!getMap) {
-      if (true) return; // If the function that retreives the map instance is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-
-      return console.warn("Invalid <AzureMapTileLayer> map instance.\nPlease make sure <AzureMapTileLayer> is a descendant of <AzureMap>.");
-    } //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the data source instance
-
-
-    var getDataSource = this.getDataSource;
-
-    if (!getDataSource) {
-      if (true) return; // If the function that retreives the data source is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-
-      return console.warn("Invalid <AzureMapTileLayer> data source.\nPlease make sure <AzureMapTileLayer> is a descendant of <AzureMapDataSource>.");
-    } // Retrieve the map instance from the injected function
-
-
-    var map = getMap(); // Retrieve the data source from the injected function
-
-    var dataSource = getDataSource(); // Create the tile layer
-
-    var tileLayer = new this.$_azureMaps.atlas.layer.TileLayer(this.options); // Watch for options changes
-
-    this.$watch('options', function (newOptions) {
-      tileLayer.setOptions(newOptions || {});
-    }, {
-      deep: true
-    }); // Add the layer to the map
-
-    map.layers.add(tileLayer); // Remove the layer when the component is destroyed
-
-    this.$once('hook:destroyed', function () {
-      map.layers.remove(tileLayer);
-    }); // Add the layer events to the map
-
-    this.addEventsFromListeners({
-      map: map,
-      target: tileLayer
-    });
-  },
-  methods: {
-    addEventsFromListeners: utils["a" /* addEventsFromListeners */]
-  },
-  render: function render(createElement) {
-    return createElement();
-  }
-}));
-// CONCATENATED MODULE: ./src/plugin/components/layers/AzureMapTileLayer.vue?vue&type=script&lang=ts&
- /* harmony default export */ var layers_AzureMapTileLayervue_type_script_lang_ts_ = (AzureMapTileLayervue_type_script_lang_ts_); 
-// CONCATENATED MODULE: ./src/plugin/components/layers/AzureMapTileLayer.vue
-var AzureMapTileLayer_render, AzureMapTileLayer_staticRenderFns
-
-
-
-
-/* normalize component */
-
-var AzureMapTileLayer_component = Object(componentNormalizer["a" /* default */])(
-  layers_AzureMapTileLayervue_type_script_lang_ts_,
-  AzureMapTileLayer_render,
-  AzureMapTileLayer_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var AzureMapTileLayer = (AzureMapTileLayer_component.exports);
-// EXTERNAL MODULE: ./src/plugin/components/geometries/AzureMapPoint.vue + 2 modules
-var AzureMapPoint = __webpack_require__("c343");
-
-// EXTERNAL MODULE: ./node_modules/regenerator-runtime/runtime.js
-var runtime = __webpack_require__("96cf");
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/asyncToGenerator.js
-var asyncToGenerator = __webpack_require__("3040");
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/geometries/AzureMapLineString.vue?vue&type=script&lang=ts&
-
-
-
-
-var AzureMapLineStringEvents;
-
-(function (AzureMapLineStringEvents) {
-  AzureMapLineStringEvents["Error"] = "error";
-})(AzureMapLineStringEvents || (AzureMapLineStringEvents = {}));
-
-var AzureMapLineStringvue_type_script_lang_ts_state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
-  id: 0
-});
-/**
- * A LineString represents a geographic curve.
- */
-
-/* harmony default export */ var AzureMapLineStringvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
-  name: 'AzureMapLineString',
-
-  /**
-   * Inject the `getDataSource` function to get the `atlas.source.DataSource` instance
-   */
-  inject: ['getDataSource'],
-  props: {
-    id: {
-      type: String,
-      default: ''
-    },
-    coordinates: {
-      type: Array,
-      default: null
-    },
-    properties: {
-      type: Object,
-      default: function _default() {
-        return {};
-      }
-    }
-  },
-  created: function () {
-    var _created = Object(asyncToGenerator["a" /* default */])(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee() {
-      var _this = this;
-
-      var getDataSource, dataSource, shape;
-      return regeneratorRuntime.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return this.validateProps();
-
-            case 2:
-              //@ts-ignore There is no TypeScript support for injections without decorators
-              // Look for the function that retreives the data source instance
-              getDataSource = this.getDataSource;
-
-              if (getDataSource) {
-                _context.next = 7;
-                break;
-              }
-
-              if (false) {}
-
-              return _context.abrupt("return");
-
-            case 6:
-              return _context.abrupt("return", console.warn("Invalid <AzureMapLineString> data source.\nPlease make sure <AzureMapLineString> is a descendant of an <AzureMapDataSource> component."));
-
-            case 7:
-              // Retrieve the data source from the injected function
-              dataSource = getDataSource(); // Create a shape from the line string geometry
-
-              shape = new this.$_azureMaps.atlas.Shape(new this.$_azureMaps.atlas.data.LineString(this.coordinates || []), this.id || "azure-map-line-string-".concat(AzureMapLineStringvue_type_script_lang_ts_state.id++), this.properties); // Add the shape to the data source.
-
-              dataSource.add([shape]); // Watch the shape position and update it every time it changes
-
-              this.$watch('coordinates', function (newCoordinates) {
-                _this.validateCoordinates(newCoordinates).then(function (coords) {
-                  shape.setCoordinates(coords);
-                });
-              }, {
-                deep: true
-              }); // Remove the shape when the component is destroyed
-
-              this.$once('hook:destroyed', function () {
-                dataSource.remove(shape);
-              });
-
-            case 12:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee, this);
-    }));
-
-    return function created() {
-      return _created.apply(this, arguments);
-    };
-  }(),
-  methods: {
-    // Perform more complex prop validations than is possible
-    // inside individual validator functions for each prop.
-    validateProps: function () {
-      var _validateProps = Object(asyncToGenerator["a" /* default */])(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee2() {
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return this.validateCoordinates(this.coordinates);
-
-              case 2:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this);
-      }));
-
-      return function validateProps() {
-        return _validateProps.apply(this, arguments);
-      };
-    }(),
-    validateCoordinates: function () {
-      var _validateCoordinates = Object(asyncToGenerator["a" /* default */])(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee3(coordinates) {
-        return regeneratorRuntime.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                _context3.prev = 0;
-
-                if (coordinates) {
-                  _context3.next = 3;
-                  break;
-                }
-
-                throw new Error("Invalid <AzureMapLineString> coordinates, coordinates are ".concat(coordinates, ".\nPlease make sure <AzureMapLineString> coordinates are valid."));
-
-              case 3:
-                return _context3.abrupt("return", Promise.resolve(coordinates || []));
-
-              case 6:
-                _context3.prev = 6;
-                _context3.t0 = _context3["catch"](0);
-
-                if (false) {}
-
-                this.$emit(AzureMapLineStringEvents.Error, _context3.t0);
-                return _context3.abrupt("return", Promise.reject(_context3.t0));
-
-              case 11:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3, this, [[0, 6]]);
-      }));
-
-      return function validateCoordinates(_x) {
-        return _validateCoordinates.apply(this, arguments);
-      };
-    }()
-  },
-  render: function render(createElement) {
-    return createElement();
-  }
-}));
-// CONCATENATED MODULE: ./src/plugin/components/geometries/AzureMapLineString.vue?vue&type=script&lang=ts&
- /* harmony default export */ var geometries_AzureMapLineStringvue_type_script_lang_ts_ = (AzureMapLineStringvue_type_script_lang_ts_); 
-// CONCATENATED MODULE: ./src/plugin/components/geometries/AzureMapLineString.vue
-var AzureMapLineString_render, AzureMapLineString_staticRenderFns
-
-
-
-
-/* normalize component */
-
-var AzureMapLineString_component = Object(componentNormalizer["a" /* default */])(
-  geometries_AzureMapLineStringvue_type_script_lang_ts_,
-  AzureMapLineString_render,
-  AzureMapLineString_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var AzureMapLineString = (AzureMapLineString_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/geometries/AzureMapPolygon.vue?vue&type=script&lang=ts&
-
-
-
-var AzureMapPolygonEvents;
-
-(function (AzureMapPolygonEvents) {
-  AzureMapPolygonEvents["Error"] = "error";
-})(AzureMapPolygonEvents || (AzureMapPolygonEvents = {}));
-
-var AzureMapPolygonvue_type_script_lang_ts_state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
-  id: 0
-});
-/**
- * A Polygon represents a geographic polygon.
- */
-
-/* harmony default export */ var AzureMapPolygonvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
-  name: 'AzureMapPolygon',
-
-  /**
-   * Inject the `getDataSource` function to get the `atlas.source.DataSource` instance
-   */
-  inject: ['getDataSource'],
-  props: {
-    id: {
-      type: String,
-      default: ''
-    },
-    coordinates: {
-      type: Array,
-      default: null
-    },
-    properties: {
-      type: Object,
-      default: function _default() {
-        return {};
-      }
-    }
-  },
-  created: function () {
-    var _created = Object(asyncToGenerator["a" /* default */])(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee() {
-      var _this = this;
-
-      var getDataSource, dataSource, shape;
-      return regeneratorRuntime.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return this.validateProps();
-
-            case 2:
-              //@ts-ignore There is no TypeScript support for injections without decorators
-              // Look for the function that retreives the data source instance
-              getDataSource = this.getDataSource;
-
-              if (getDataSource) {
-                _context.next = 7;
-                break;
-              }
-
-              if (false) {}
-
-              return _context.abrupt("return");
-
-            case 6:
-              return _context.abrupt("return", console.warn("Invalid <AzureMapPolygon> data source.\nPlease make sure <AzureMapPolygon> is a descendant of an <AzureMapDataSource> component."));
-
-            case 7:
-              // Retrieve the data source from the injected function
-              dataSource = getDataSource(); // Create a shape from the polygon geometry
-
-              shape = new this.$_azureMaps.atlas.Shape(new this.$_azureMaps.atlas.data.Polygon(this.coordinates || []), this.id || "azure-map-polygon-".concat(AzureMapPolygonvue_type_script_lang_ts_state.id++), this.properties); // Add the shape to the data source.
-
-              dataSource.add([shape]); // Watch the shape position and update it every time it changes
-
-              this.$watch('coordinates', function (newCoordinates) {
-                _this.validateCoordinates(newCoordinates).then(function (coords) {
-                  shape.setCoordinates(coords);
-                });
-              }, {
-                deep: true
-              }); // Remove the shape when the component is destroyed
-
-              this.$once('hook:destroyed', function () {
-                dataSource.remove(shape);
-              });
-
-            case 12:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee, this);
-    }));
-
-    return function created() {
-      return _created.apply(this, arguments);
-    };
-  }(),
-  methods: {
-    // Perform more complex prop validations than is possible
-    // inside individual validator functions for each prop.
-    validateProps: function () {
-      var _validateProps = Object(asyncToGenerator["a" /* default */])(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee2() {
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                if (false) {}
-
-                return _context2.abrupt("return");
-
-              case 2:
-                _context2.next = 4;
-                return this.validateCoordinates(this.coordinates);
-
-              case 4:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this);
-      }));
-
-      return function validateProps() {
-        return _validateProps.apply(this, arguments);
-      };
-    }(),
-    validateCoordinates: function () {
-      var _validateCoordinates = Object(asyncToGenerator["a" /* default */])(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee3(coordinates) {
-        return regeneratorRuntime.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                _context3.prev = 0;
-
-                if (coordinates) {
-                  _context3.next = 3;
-                  break;
-                }
-
-                throw new Error("Invalid <AzureMapLineString> coordinates, coordinates are ".concat(coordinates, ".\nPlease make sure <AzureMapLineString> coordinates are valid."));
-
-              case 3:
-                return _context3.abrupt("return", Promise.resolve(coordinates || []));
-
-              case 6:
-                _context3.prev = 6;
-                _context3.t0 = _context3["catch"](0);
-
-                if (false) {}
-
-                this.$emit(AzureMapPolygonEvents.Error, _context3.t0);
-                return _context3.abrupt("return", Promise.reject(_context3.t0));
-
-              case 11:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3, this, [[0, 6]]);
-      }));
-
-      return function validateCoordinates(_x) {
-        return _validateCoordinates.apply(this, arguments);
-      };
-    }()
-  },
-  render: function render(createElement) {
-    return createElement();
-  }
-}));
-// CONCATENATED MODULE: ./src/plugin/components/geometries/AzureMapPolygon.vue?vue&type=script&lang=ts&
- /* harmony default export */ var geometries_AzureMapPolygonvue_type_script_lang_ts_ = (AzureMapPolygonvue_type_script_lang_ts_); 
-// CONCATENATED MODULE: ./src/plugin/components/geometries/AzureMapPolygon.vue
-var AzureMapPolygon_render, AzureMapPolygon_staticRenderFns
-
-
-
-
-/* normalize component */
-
-var AzureMapPolygon_component = Object(componentNormalizer["a" /* default */])(
-  geometries_AzureMapPolygonvue_type_script_lang_ts_,
-  AzureMapPolygon_render,
-  AzureMapPolygon_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var AzureMapPolygon = (AzureMapPolygon_component.exports);
-// CONCATENATED MODULE: ./src/plugin/index.ts
-
-
-
- //===
-// Components
-//===
-
-
-
- //===
-// Custom components
-//===
-
- //===
-// Control components
-//===
-
-
-
-
-
- //===
-// Layer components
-//===
-
-
-
-
-
-
- //===
-// Geometry components
-//===
-
-
-
-
-vue_azure_maps_VueAzureMaps.install = install;
-vue_azure_maps_VueAzureMaps.version = Object({"NODE_ENV":"production","BASE_URL":"/"}).__VERSION__ || '';
-var plugin_VueAzureMaps = {
-  install: vue_azure_maps_VueAzureMaps.install,
-  name: 'vue-azure-maps'
-};
-if (typeof window !== 'undefined' && window.Vue) window.Vue.use(plugin_VueAzureMaps);
-
-/* harmony default export */ var src_plugin = (plugin_VueAzureMaps);
-// CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
-/* concated harmony reexport AzureMap */__webpack_require__.d(__webpack_exports__, "AzureMap", function() { return AzureMap; });
-/* concated harmony reexport AzureMapDataSource */__webpack_require__.d(__webpack_exports__, "AzureMapDataSource", function() { return AzureMapDataSource["default"]; });
-/* concated harmony reexport AzureMapHtmlMarker */__webpack_require__.d(__webpack_exports__, "AzureMapHtmlMarker", function() { return AzureMapHtmlMarker; });
-/* concated harmony reexport AzureMapUserPosition */__webpack_require__.d(__webpack_exports__, "AzureMapUserPosition", function() { return AzureMapUserPosition; });
-/* concated harmony reexport AzureMapPoint */__webpack_require__.d(__webpack_exports__, "AzureMapPoint", function() { return AzureMapPoint["default"]; });
-/* concated harmony reexport AzureMapLineString */__webpack_require__.d(__webpack_exports__, "AzureMapLineString", function() { return AzureMapLineString; });
-/* concated harmony reexport AzureMapPolygon */__webpack_require__.d(__webpack_exports__, "AzureMapPolygon", function() { return AzureMapPolygon; });
-/* concated harmony reexport AzureMapControl */__webpack_require__.d(__webpack_exports__, "AzureMapControl", function() { return AzureMapControl; });
-/* concated harmony reexport AzureMapZoomControl */__webpack_require__.d(__webpack_exports__, "AzureMapZoomControl", function() { return AzureMapZoomControl; });
-/* concated harmony reexport AzureMapPitchControl */__webpack_require__.d(__webpack_exports__, "AzureMapPitchControl", function() { return AzureMapPitchControl; });
-/* concated harmony reexport AzureMapStyleControl */__webpack_require__.d(__webpack_exports__, "AzureMapStyleControl", function() { return AzureMapStyleControl; });
-/* concated harmony reexport AzureMapCompassControl */__webpack_require__.d(__webpack_exports__, "AzureMapCompassControl", function() { return AzureMapCompassControl; });
-/* concated harmony reexport AzureMapSymbolLayer */__webpack_require__.d(__webpack_exports__, "AzureMapSymbolLayer", function() { return AzureMapSymbolLayer["default"]; });
-/* concated harmony reexport AzureMapPolygonLayer */__webpack_require__.d(__webpack_exports__, "AzureMapPolygonLayer", function() { return AzureMapPolygonLayer["default"]; });
-/* concated harmony reexport AzureMapLineLayer */__webpack_require__.d(__webpack_exports__, "AzureMapLineLayer", function() { return AzureMapLineLayer; });
-/* concated harmony reexport AzureMapHeatMapLayer */__webpack_require__.d(__webpack_exports__, "AzureMapHeatMapLayer", function() { return AzureMapHeatMapLayer; });
-/* concated harmony reexport AzureMapImageLayer */__webpack_require__.d(__webpack_exports__, "AzureMapImageLayer", function() { return AzureMapImageLayer; });
-/* concated harmony reexport AzureMapTileLayer */__webpack_require__.d(__webpack_exports__, "AzureMapTileLayer", function() { return AzureMapTileLayer; });
-
-
-/* harmony default export */ var entry_lib = __webpack_exports__["default"] = (src_plugin);
-
-
-
-/***/ }),
-
-/***/ "fdef":
-/***/ (function(module, exports) {
-
-module.exports = '\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u180E\u2000\u2001\u2002\u2003' +
-  '\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF';
-
 
 /***/ }),
 
