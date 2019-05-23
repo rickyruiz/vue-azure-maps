@@ -2,18 +2,23 @@
   <AzureMapDataSource
     v-if="hasPosition"
   >
+    <AzureMapCircle
+      v-if="showAccuracy && radius"
+      :longitude="longitude"
+      :latitude="latitude"
+      :radius="radius"
+      @[circleEventName]="$emit(circleEventName, $event)"
+    />
     <AzureMapPoint
       :longitude="longitude"
       :latitude="latitude"
-      :properties="properties || undefined"
-      @[circleEventName]="$emit(circleEventName, $event)"
     />
     <AzureMapPolygonLayer
       v-if="showAccuracy"
       :options="polygonLayerOptions || undefined"
     />
     <AzureMapSymbolLayer
-      :options="symbolLayerOptions || undefined"
+      :options="userPositionSymbolLayerOptions"
     />
   </AzureMapDataSource>
 </template>
@@ -45,6 +50,8 @@ export default Vue.extend({
   components: {
     AzureMapDataSource: () =>
       import(/* webpackChunkName: 'azure-map-data-source' */ '@/plugin/components/AzureMapDataSource.vue'),
+    AzureMapCircle: () =>
+      import(/* webpackChunkName: 'azure-map-circle' */ '@/plugin/components/geometries/AzureMapCircle.vue'),
     AzureMapPoint: () =>
       import(/* webpackChunkName: 'azure-map-point' */ '@/plugin/components/geometries/AzureMapPoint.vue'),
     AzureMapPolygonLayer: () =>
@@ -136,7 +143,14 @@ export default Vue.extend({
     return {
       longitude: null as number | null,
       latitude: null as number | null,
-      properties: null as Object | null,
+      radius: null as Number | null,
+      defaultSymbolLayerOptions: {
+        filter: [
+          'any',
+          ['==', ['geometry-type'], 'Point'],
+          ['==', ['geometry-type'], 'MultiPoint'],
+        ], // Only render Point or MultiPoints in this layer.
+      },
       hasPosition: false,
       error: null as PositionError | null,
     }
@@ -145,6 +159,13 @@ export default Vue.extend({
   computed: {
     circleEventName(): string | null {
       return this.showAccuracy ? 'circle-coordinates' : null
+    },
+
+    userPositionSymbolLayerOptions(): Record<string, any> {
+      return {
+        ...(this.symbolLayerOptions || {}),
+        ...this.defaultSymbolLayerOptions,
+      }
     },
   },
 
@@ -157,7 +178,7 @@ export default Vue.extend({
         this.error = null
         this.$emit(AzureMapUserPositionEvent.Success, position)
 
-        //@ts-ignore There is no TypeScript support for injections without decorators
+        // @ts-ignore There is no TypeScript support for injections without decorators
         // Look for the function that retreives the map instance
         const { getMap }: { getMap: () => atlas.Map } = this
 
@@ -181,10 +202,7 @@ export default Vue.extend({
 
         if (this.showAccuracy) {
           // Create accuracy circle polygon
-          this.properties = {
-            subType: 'Circle',
-            radius: this.accuracy || accuracy,
-          }
+          this.radius = this.accuracy || accuracy
         }
 
         this.hasPosition = true
@@ -200,7 +218,7 @@ export default Vue.extend({
         this.$emit(AzureMapUserPositionEvent.Ready)
       },
       error => {
-        //If an error occurs when trying to access the users position information, emit it with an error message.
+        // If an error occurs when trying to access the users position information, emit it with an error message.
         this.hasPosition = false
         this.error = error
 
