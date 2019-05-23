@@ -41,12 +41,12 @@
     "docs:clean": "rm -rf docs/**"
   },
   "dependencies": {
-    "azure-maps-control": "^2.0.5",
+    "azure-maps-control": "^2.0.6",
     "vue": "^2.6.10"
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",
-    "@types/webpack": "^4.4.31",
+    "@types/webpack": "^4.4.32",
     "@types/webpack-env": "^1.13.9",
     "@vue/cli-plugin-babel": "^3.7.0",
     "@vue/cli-plugin-eslint": "^3.7.0",
@@ -64,9 +64,5 @@
     "typescript": "^3.4.5",
     "vue-template-compiler": "^2.6.10",
     "vuepress": "^0.14.11"
-  },
-  "resolutions": {
-    "webpack-dev-middleware": "3.6.0",
-    "vue-server-renderer": "^2.6.10"
   }
 }
