@@ -113,7 +113,7 @@ export default Vue.extend({
 
     // If the point has a circle polygon,
     // emit the coordinates of the circle
-    if (shape.isCircle) {
+    if (shape.isCircle()) {
       this.emitCircleCoordinates(shape)
     }
 
@@ -147,7 +147,7 @@ export default Vue.extend({
             // Look for props that can generate or update circle coordinates
             if (
               (prop === 'radius' || (prop === 'subType' && val === 'Circle')) &&
-              shape.isCircle
+              shape.isCircle()
             ) {
               this.emitCircleCoordinates(shape)
             }
