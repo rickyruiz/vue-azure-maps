@@ -33,6 +33,7 @@ import AzureMapTileLayer from '@/plugin/components/layers/AzureMapTileLayer.vue'
 // Geometry components
 //===
 import AzureMapPoint from '@/plugin/components/geometries/AzureMapPoint.vue'
+import AzureMapCircle from '@/plugin/components/geometries/AzureMapCircle.vue'
 import AzureMapLineString from '@/plugin/components/geometries/AzureMapLineString.vue'
 import AzureMapPolygon from '@/plugin/components/geometries/AzureMapPolygon.vue'
 
@@ -51,6 +52,7 @@ export {
   AzureMapHtmlMarker,
   AzureMapUserPosition,
   AzureMapPoint,
+  AzureMapCircle,
   AzureMapLineString,
   AzureMapPolygon,
   AzureMapControl,
