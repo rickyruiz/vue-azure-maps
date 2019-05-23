@@ -3350,7 +3350,7 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
               this.$emit(AzureMapPointEvent.ShapeCreated, shape); // If the point has a circle polygon,
               // emit the coordinates of the circle
 
-              if (shape.isCircle) {
+              if (shape.isCircle()) {
                 this.emitCircleCoordinates(shape);
               } // Add the shape to the data source.
 
@@ -3377,7 +3377,7 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
                     // Add or update the shape property value
                     shape.addProperty(prop, val); // Look for props that can generate or update circle coordinates
 
-                    if ((prop === 'radius' || prop === 'subType' && val === 'Circle') && shape.isCircle) {
+                    if ((prop === 'radius' || prop === 'subType' && val === 'Circle') && shape.isCircle()) {
                       _this.emitCircleCoordinates(shape);
                     }
                   }
@@ -3803,6 +3803,92 @@ module.exports = function (object, names) {
   return result;
 };
 
+
+/***/ }),
+
+/***/ "d29e":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/objectSpread.js + 1 modules
+var objectSpread = __webpack_require__("c93e");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.number.constructor.js
+var es6_number_constructor = __webpack_require__("c5f6");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
+var es6_promise = __webpack_require__("551c");
+
+// EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
+var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
+var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
+
+// EXTERNAL MODULE: ./src/plugin/components/geometries/AzureMapPoint.vue + 2 modules
+var AzureMapPoint = __webpack_require__("c343");
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/geometries/AzureMapCircle.vue?vue&type=script&lang=ts&
+
+
+
+
+
+/**
+ * A Point with a circle subtype.
+ */
+
+/* harmony default export */ var AzureMapCirclevue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+  name: 'AzureMapCircle',
+  functional: true,
+  props: {
+    /**
+     * The circle radius
+     */
+    radius: {
+      type: Number,
+      default: 0
+    }
+  },
+  render: function render(createElement, context) {
+    var defaultProperties = {
+      subType: 'Circle',
+      radius: context.props.radius
+    };
+
+    if (!context.data.attrs) {
+      context.data.attrs = {};
+    }
+
+    context.data.attrs.properties = context.data.attrs.properties ? Object(objectSpread["a" /* default */])({}, context.data.attrs.properties, defaultProperties) : defaultProperties;
+    return createElement(AzureMapPoint["default"], context.data, context.children);
+  }
+}));
+// CONCATENATED MODULE: ./src/plugin/components/geometries/AzureMapCircle.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var geometries_AzureMapCirclevue_type_script_lang_ts_ = (AzureMapCirclevue_type_script_lang_ts_); 
+// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+var componentNormalizer = __webpack_require__("2877");
+
+// CONCATENATED MODULE: ./src/plugin/components/geometries/AzureMapCircle.vue
+var AzureMapCircle_render, staticRenderFns
+
+
+
+
+/* normalize component */
+
+var component = Object(componentNormalizer["a" /* default */])(
+  geometries_AzureMapCirclevue_type_script_lang_ts_,
+  AzureMapCircle_render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var AzureMapCircle = __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
@@ -4740,12 +4826,12 @@ var AzureMapHtmlMarker_component = Object(componentNormalizer["a" /* default */]
 )
 
 /* harmony default export */ var AzureMapHtmlMarker = (AzureMapHtmlMarker_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"22556f1c-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=e49db368&
-var AzureMapUserPositionvue_type_template_id_e49db368_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.hasPosition)?_c('AzureMapDataSource',[_c('AzureMapPoint',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude,"properties":_vm.properties || undefined},on:_vm._d({},[_vm.circleEventName,function($event){return _vm.$emit(_vm.circleEventName, $event)}])}),(_vm.showAccuracy)?_c('AzureMapPolygonLayer',{attrs:{"options":_vm.polygonLayerOptions || undefined}}):_vm._e(),_c('AzureMapSymbolLayer',{attrs:{"options":_vm.symbolLayerOptions || undefined}})],1):_vm._e()}
-var AzureMapUserPositionvue_type_template_id_e49db368_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"22556f1c-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=14d166a2&
+var AzureMapUserPositionvue_type_template_id_14d166a2_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.hasPosition)?_c('AzureMapDataSource',[(_vm.showAccuracy && _vm.radius)?_c('AzureMapCircle',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude,"radius":_vm.radius},on:_vm._d({},[_vm.circleEventName,function($event){return _vm.$emit(_vm.circleEventName, $event)}])}):_vm._e(),_c('AzureMapPoint',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude}}),(_vm.showAccuracy)?_c('AzureMapPolygonLayer',{attrs:{"options":_vm.polygonLayerOptions || undefined}}):_vm._e(),_c('AzureMapSymbolLayer',{attrs:{"options":_vm.userPositionSymbolLayerOptions}})],1):_vm._e()}
+var AzureMapUserPositionvue_type_template_id_14d166a2_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=e49db368&
+// CONCATENATED MODULE: ./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=14d166a2&
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/objectSpread.js + 1 modules
 var objectSpread = __webpack_require__("c93e");
@@ -4777,6 +4863,9 @@ var AzureMapUserPositionEvent;
   components: {
     AzureMapDataSource: function AzureMapDataSource() {
       return Promise.resolve(/* import() */).then(__webpack_require__.bind(null, "330c"));
+    },
+    AzureMapCircle: function AzureMapCircle() {
+      return Promise.resolve(/* import() */).then(__webpack_require__.bind(null, "d29e"));
     },
     AzureMapPoint: function AzureMapPoint() {
       return Promise.resolve(/* import() */).then(__webpack_require__.bind(null, "c343"));
@@ -4866,7 +4955,10 @@ var AzureMapUserPositionEvent;
     return {
       longitude: null,
       latitude: null,
-      properties: null,
+      radius: null,
+      defaultSymbolLayerOptions: {
+        filter: ['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]
+      },
       hasPosition: false,
       error: null
     };
@@ -4874,6 +4966,9 @@ var AzureMapUserPositionEvent;
   computed: {
     circleEventName: function circleEventName() {
       return this.showAccuracy ? 'circle-coordinates' : null;
+    },
+    userPositionSymbolLayerOptions: function userPositionSymbolLayerOptions() {
+      return Object(objectSpread["a" /* default */])({}, this.symbolLayerOptions || {}, this.defaultSymbolLayerOptions);
     }
   },
   mounted: function mounted() {
@@ -4886,7 +4981,7 @@ var AzureMapUserPositionEvent;
       // Clear any error
       _this.error = null;
 
-      _this.$emit(AzureMapUserPositionEvent.Success, position); //@ts-ignore There is no TypeScript support for injections without decorators
+      _this.$emit(AzureMapUserPositionEvent.Success, position); // @ts-ignore There is no TypeScript support for injections without decorators
       // Look for the function that retreives the map instance
 
 
@@ -4910,10 +5005,7 @@ var AzureMapUserPositionEvent;
 
       if (_this.showAccuracy) {
         // Create accuracy circle polygon
-        _this.properties = {
-          subType: 'Circle',
-          radius: _this.accuracy || accuracy
-        };
+        _this.radius = _this.accuracy || accuracy;
       }
 
       _this.hasPosition = true;
@@ -4927,7 +5019,7 @@ var AzureMapUserPositionEvent;
 
       _this.$emit(AzureMapUserPositionEvent.Ready);
     }, function (error) {
-      //If an error occurs when trying to access the users position information, emit it with an error message.
+      // If an error occurs when trying to access the users position information, emit it with an error message.
       _this.hasPosition = false;
       _this.error = error;
       var errorEvent;
@@ -4980,8 +5072,8 @@ var AzureMapUserPositionEvent;
 
 var AzureMapUserPosition_component = Object(componentNormalizer["a" /* default */])(
   components_AzureMapUserPositionvue_type_script_lang_ts_,
-  AzureMapUserPositionvue_type_template_id_e49db368_render,
-  AzureMapUserPositionvue_type_template_id_e49db368_staticRenderFns,
+  AzureMapUserPositionvue_type_template_id_14d166a2_render,
+  AzureMapUserPositionvue_type_template_id_14d166a2_staticRenderFns,
   false,
   null,
   null,
@@ -5678,6 +5770,9 @@ var AzureMapTileLayer_component = Object(componentNormalizer["a" /* default */])
 // EXTERNAL MODULE: ./src/plugin/components/geometries/AzureMapPoint.vue + 2 modules
 var AzureMapPoint = __webpack_require__("c343");
 
+// EXTERNAL MODULE: ./src/plugin/components/geometries/AzureMapCircle.vue + 2 modules
+var AzureMapCircle = __webpack_require__("d29e");
+
 // EXTERNAL MODULE: ./node_modules/regenerator-runtime/runtime.js
 var runtime = __webpack_require__("96cf");
 
@@ -6121,6 +6216,7 @@ var AzureMapPolygon_component = Object(componentNormalizer["a" /* default */])(
 
 
 
+
 vue_azure_maps_VueAzureMaps.install = install;
 vue_azure_maps_VueAzureMaps.version = Object({"NODE_ENV":"production","BASE_URL":"/"}).__VERSION__ || '';
 var plugin_VueAzureMaps = {
@@ -6136,6 +6232,7 @@ if (typeof window !== 'undefined' && window.Vue) window.Vue.use(plugin_VueAzureM
 /* concated harmony reexport AzureMapHtmlMarker */__webpack_require__.d(__webpack_exports__, "AzureMapHtmlMarker", function() { return AzureMapHtmlMarker; });
 /* concated harmony reexport AzureMapUserPosition */__webpack_require__.d(__webpack_exports__, "AzureMapUserPosition", function() { return AzureMapUserPosition; });
 /* concated harmony reexport AzureMapPoint */__webpack_require__.d(__webpack_exports__, "AzureMapPoint", function() { return AzureMapPoint["default"]; });
+/* concated harmony reexport AzureMapCircle */__webpack_require__.d(__webpack_exports__, "AzureMapCircle", function() { return AzureMapCircle["default"]; });
 /* concated harmony reexport AzureMapLineString */__webpack_require__.d(__webpack_exports__, "AzureMapLineString", function() { return AzureMapLineString; });
 /* concated harmony reexport AzureMapPolygon */__webpack_require__.d(__webpack_exports__, "AzureMapPolygon", function() { return AzureMapPolygon; });
 /* concated harmony reexport AzureMapControl */__webpack_require__.d(__webpack_exports__, "AzureMapControl", function() { return AzureMapControl; });
