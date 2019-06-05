@@ -41,18 +41,18 @@
     "docs:clean": "rm -rf docs/**"
   },
   "dependencies": {
-    "azure-maps-control": "^2.0.6",
+    "azure-maps-control": "^2.0.8",
     "vue": "^2.6.10"
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",
     "@types/webpack": "^4.4.32",
     "@types/webpack-env": "^1.13.9",
-    "@vue/cli-plugin-babel": "^3.7.0",
-    "@vue/cli-plugin-eslint": "^3.7.0",
-    "@vue/cli-plugin-typescript": "^3.7.0",
-    "@vue/cli-plugin-unit-jest": "^3.7.0",
-    "@vue/cli-service": "^3.7.0",
+    "@vue/cli-plugin-babel": "^3.8.0",
+    "@vue/cli-plugin-eslint": "^3.8.0",
+    "@vue/cli-plugin-typescript": "^3.8.1",
+    "@vue/cli-plugin-unit-jest": "^3.8.0",
+    "@vue/cli-service": "^3.8.0",
     "@vue/eslint-config-prettier": "^4.0.1",
     "@vue/eslint-config-typescript": "^4.0.0",
     "@vue/test-utils": "^1.0.0-beta.29",
@@ -61,7 +61,7 @@
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.2.2",
     "ts-jest": "^24.0.2",
-    "typescript": "^3.4.5",
+    "typescript": "^3.5.1",
     "vue-template-compiler": "^2.6.10",
     "vuepress": "^0.14.11"
   }
