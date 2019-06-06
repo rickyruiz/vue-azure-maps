@@ -814,7 +814,7 @@ function addEventsFromListeners(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"22556f1c-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=4d4c88ea&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5855f0b0-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=4d4c88ea&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}]},[(Boolean(_vm.dataSource))?[_vm._t("default",null,{"dataSource":_vm.dataSource})]:_vm._e()],2)}
 var staticRenderFns = []
 
@@ -2032,7 +2032,7 @@ module.exports = function () {
 /***/ "8378":
 /***/ (function(module, exports) {
 
-var core = module.exports = { version: '2.6.8' };
+var core = module.exports = { version: '2.6.9' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -3818,9 +3818,6 @@ var objectSpread = __webpack_require__("c93e");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.number.constructor.js
 var es6_number_constructor = __webpack_require__("c5f6");
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
-var es6_promise = __webpack_require__("551c");
-
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
@@ -3829,7 +3826,6 @@ var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpac
 var AzureMapPoint = __webpack_require__("c343");
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/geometries/AzureMapCircle.vue?vue&type=script&lang=ts&
-
 
 
 
@@ -4111,6 +4107,7 @@ function _createClass(Constructor, protoProps, staticProps) {
 
 
 
+
 var vue_azure_maps_VueAzureMaps =
 /*#__PURE__*/
 function () {
@@ -4139,6 +4136,7 @@ function () {
 
 
 // CONCATENATED MODULE: ./src/plugin/install.ts
+
 //@ts-ignore
 
 
@@ -4151,7 +4149,7 @@ function install(Vue, options) {
   _Vue_ = Vue;
   Vue.prototype.$_azureMaps = new vue_azure_maps_VueAzureMaps(dist_atlas_min, options);
 }
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"22556f1c-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=template&id=42a70ccc&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5855f0b0-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=template&id=42a70ccc&
 var AzureMapvue_type_template_id_42a70ccc_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({ width: _vm.width, height: _vm.height }),attrs:{"id":_vm.mapId}},[(_vm.isMapReady)?[_vm._t("default",null,{"map":_vm.map})]:_vm._e()],2)}
 var staticRenderFns = []
 
@@ -4826,7 +4824,7 @@ var AzureMapHtmlMarker_component = Object(componentNormalizer["a" /* default */]
 )
 
 /* harmony default export */ var AzureMapHtmlMarker = (AzureMapHtmlMarker_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"22556f1c-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=14d166a2&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5855f0b0-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=14d166a2&
 var AzureMapUserPositionvue_type_template_id_14d166a2_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.hasPosition)?_c('AzureMapDataSource',[(_vm.showAccuracy && _vm.radius)?_c('AzureMapCircle',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude,"radius":_vm.radius},on:_vm._d({},[_vm.circleEventName,function($event){return _vm.$emit(_vm.circleEventName, $event)}])}):_vm._e(),_c('AzureMapPoint',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude}}),(_vm.showAccuracy)?_c('AzureMapPolygonLayer',{attrs:{"options":_vm.polygonLayerOptions || undefined}}):_vm._e(),_c('AzureMapSymbolLayer',{attrs:{"options":_vm.userPositionSymbolLayerOptions}})],1):_vm._e()}
 var AzureMapUserPositionvue_type_template_id_14d166a2_staticRenderFns = []
 
@@ -5156,7 +5154,6 @@ var AzureMapControl_component = Object(componentNormalizer["a" /* default */])(
 
 /* harmony default export */ var AzureMapControl = (AzureMapControl_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/controls/AzureMapZoomControl.vue?vue&type=script&lang=ts&
-
 
 
 
@@ -6336,119 +6333,74 @@ preamble: |
 
 registrations:
 	- component:
-		name: esm
-		version: 3.2.13
+		name: rw
+		version: 1.3.3
 		license: |
-The MIT License (MIT)
-
-Copyright esm contributors
-
-Based on reify, copyright Ben Newman <https://github.com/benjamn/reify>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-
-
-	- component:
-		name: cardinal
-		version: 0.4.4
-		license: |
-Copyright 2012 Thorsten Lorenz. 
+Copyright (c) 2014-2016, Michael Bostock
 All rights reserved.
 
-Permission is hereby granted, free of charge, to any person
-obtaining a copy of this software and associated documentation
-files (the "Software"), to deal in the Software without
-restriction, including without limitation the rights to use,
-copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following
-conditions:
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
 
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* The name Michael Bostock may not be used to endorse or promote products
+  derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL MICHAEL BOSTOCK BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
+OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 
 	- component:
-		name: gl-matrix
-		version: 3.0.0
+		name: expect.js
+		version: 0.2.0
 		license: |
-Copyright (c) 2015-2019, Brandon Jones, Colin MacKenzie IV.
+(The MIT License)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Copyright (c) 2011 Guillermo Rauch <guillermo@learnboost.com>
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+3rd-party
+Heavily borrows from should.js by TJ Holowaychuck - MIT.
 
 
 	- component:
-		name: process-nextick-args
-		version: 2.0.0
+		name: isarray
+		version: 0.0.1
 		license: |
-# Copyright (c) 2015 Calvin Metcalf
+(MIT)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Copyright (c) 2013 Julian Gruber <julian@juliangruber.com>
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-**THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.**
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 	- component:
-		name: readable-stream
-		version: 2.3.6
+		name: string_decoder
+		version: 1.1.1
 		license: |
 Node.js is licensed for use as follows:
 
@@ -6500,9 +6452,879 @@ IN THE SOFTWARE.
 
 
 
+
 	- component:
-		name: @types/jwt-decode
-		version: 2.2.1
+		name: buffer-from
+		version: 1.1.0
+		license: |
+MIT License
+
+Copyright (c) 2016, 2018 Linus Unnebäck
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+	- component:
+		name: util-deprecate
+		version: 1.0.2
+		license: |
+(The MIT License)
+
+Copyright (c) 2014 Nathan Rajlich <nathan@tootallnate.net>
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+	- component:
+		name: split
+		version: 0.2.10
+		license: |
+Copyright (c) 2011 Dominic Tarr
+
+Permission is hereby granted, free of charge, 
+to any person obtaining a copy of this software and 
+associated documentation files (the "Software"), to 
+deal in the Software without restriction, including 
+without limitation the rights to use, copy, modify, 
+merge, publish, distribute, sublicense, and/or sell 
+copies of the Software, and to permit persons to whom 
+the Software is furnished to do so, 
+subject to the following conditions:
+
+The above copyright notice and this permission notice 
+shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR 
+ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+	- component:
+		name: quickselect
+		version: 2.0.0
+		license: |
+ISC License
+
+Copyright (c) 2018, Vladimir Agafonkin
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+THIS SOFTWARE.
+
+
+
+	- component:
+		name: pbf
+		version: 3.1.0
+		license: |
+Copyright (c) 2017, Mapbox
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of pbf nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+
+	- component:
+		name: es6-promise
+		version: 4.1.1
+		license: |
+Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+
+	- component:
+		name: typedarray
+		version: 0.0.6
+		license: |
+ Copyright (c) 2010, Linden Research, Inc.
+ Copyright (c) 2012, Joshua Bell
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+ $/LicenseInfo$
+
+// Original can be found at:
+//   https://bitbucket.org/lindenlab/llsd
+// Modifications by Joshua Bell inexorabletash@gmail.com
+//   https://github.com/inexorabletash/polyfill
+
+// ES3/ES5 implementation of the Krhonos Typed Array Specification
+//   Ref: http://www.khronos.org/registry/typedarray/specs/latest/
+//   Date: 2011-02-01
+//
+// Variations:
+//  * Allows typed_array.get/set() as alias for subscripts (typed_array[])
+
+
+	- component:
+		name: potpack
+		version: 1.0.1
+		license: |
+ISC License
+
+Copyright (c) 2018, Mapbox
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+THIS SOFTWARE.
+
+
+
+	- component:
+		name: @mapbox/whoots-js
+		version: 3.1.0
+		license: |
+ISC License
+
+Copyright (c) 2017, Mapbox
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+THIS SOFTWARE.
+
+
+
+	- component:
+		name: @types/mapbox-gl
+		version: 0.51.6
+		license: |
+    MIT License
+
+    Copyright (c) Microsoft Corporation. All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE
+
+
+
+	- component:
+		name: redeyed
+		version: 0.4.4
+		license: |
+Copyright 2012 Thorsten Lorenz. 
+All rights reserved.
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+	- component:
+		name: minimist
+		version: 0.0.5
+		license: |
+This software is released under the MIT license:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+	- component:
+		name: string_decoder
+		version: 0.10.31
+		license: |
+Node.js is licensed for use as follows:
+
+"""
+Copyright Node.js contributors. All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+"""
+
+This license applies to parts of Node.js originating from the
+https://github.com/joyent/node repository:
+
+"""
+Copyright Joyent, Inc. and other Node contributors. All rights reserved.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+"""
+
+
+
+
+	- component:
+		name: resolve-protobuf-schema
+		version: 2.1.0
+		license: |
+The MIT License (MIT)
+
+Copyright (c) 2014 Mathias Buus
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+
+	- component:
+		name: esprima
+		version: 2.7.3
+		license: |
+Copyright (c) jQuery Foundation, Inc. and Contributors, All Rights Reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+  * Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  * Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+
+	- component:
+		name: protocol-buffers-schema
+		version: 3.3.2
+		license: |
+The MIT License (MIT)
+
+Copyright (c) 2014 Mathias Buus
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+	- component:
+		name: cardinal
+		version: 0.4.4
+		license: |
+Copyright 2012 Thorsten Lorenz. 
+All rights reserved.
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+	- component:
+		name: @types/lodash
+		version: 4.14.106
+		license: |
+    MIT License
+
+    Copyright (c) Microsoft Corporation. All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE
+
+
+
+	- component:
+		name: esm
+		version: 3.2.13
+		license: |
+The MIT License (MIT)
+
+Copyright esm contributors
+
+Based on reify, copyright Ben Newman <https://github.com/benjamn/reify>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+
+	- component:
+		name: @mapbox/unitbezier
+		version: 0.0.0
+		license: |
+BSD-2-Clause
+
+Copyright (C) 2008 Apple Inc. All Rights Reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY APPLE INC. ``AS IS'' AND ANY
+EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL APPLE INC. OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
+OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Ported from Webkit
+http://svn.webkit.org/repository/webkit/trunk/Source/WebCore/platform/graphics/UnitBezier.h
+
+
+	- component:
+		name: ieee754
+		version: 1.1.11
+		license: |
+Copyright (c) 2008, Fair Oaks Labs, Inc.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+ * Redistributions of source code must retain the above copyright notice,
+   this list of conditions and the following disclaimer.
+
+ * Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+ * Neither the name of Fair Oaks Labs, Inc. nor the names of its contributors
+   may be used to endorse or promote products derived from this software
+   without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+
+
+	- component:
+		name: through
+		version: 2.3.8
+		license: |
+Apache License, Version 2.0
+
+Copyright (c) 2011 Dominic Tarr
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+
+The MIT License
+
+Copyright (c) 2011 Dominic Tarr
+
+Permission is hereby granted, free of charge, 
+to any person obtaining a copy of this software and 
+associated documentation files (the "Software"), to 
+deal in the Software without restriction, including 
+without limitation the rights to use, copy, modify, 
+merge, publish, distribute, sublicense, and/or sell 
+copies of the Software, and to permit persons to whom 
+the Software is furnished to do so, 
+subject to the following conditions:
+
+The above copyright notice and this permission notice 
+shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR 
+ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+	- component:
+		name: @types/geojson
+		version: 7946.0.7
+		license: |
+    MIT License
+
+    Copyright (c) Microsoft Corporation. All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE
+
+
+
+	- component:
+		name: supercluster
+		version: 6.0.1
+		license: |
+ISC License
+
+Copyright (c) 2016, Mapbox
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+THIS SOFTWARE.
+
+
+
+	- component:
+		name: @mapbox/geojson-types
+		version: 1.0.2
+		license: |
+MIT License
+
+Copyright (c) 2018 Mapbox
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+
+	- component:
+		name: mapbox-gl
+		version: 0.53.0
+		license: |
+Copyright (c) 2016, Mapbox
+
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+    * Neither the name of Mapbox GL JS nor the names of its contributors
+      may be used to endorse or promote products derived from this software
+      without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+-------------------------------------------------------------------------------
+
+Contains Hershey Simplex Font: http://paulbourke.net/dataformats/hershey/
+
+-------------------------------------------------------------------------------
+
+Contains code from glfx.js
+
+Copyright (C) 2011 by Evan Wallace
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+--------------------------------------------------------------------------------
+
+Contains a portion of d3-color https://github.com/d3/d3-color
+
+Copyright 2010-2016 Mike Bostock
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of the author nor the names of contributors may be used to
+  endorse or promote products derived from this software without specific prior
+  written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+
+	- component:
+		name: @mapbox/point-geometry
+		version: 0.1.0
+		license: |
+Copyright (c) 2015, Mapbox <>
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+
+
+	- component:
+		name: @microsoft/applicationinsights-analytics-js
+		version: 1.0.0-beta.15
 		license: |
     MIT License
 
@@ -6583,399 +7405,19 @@ terms above.
 
 
 	- component:
-		name: typescript
-		version: 3.4.5
+		name: @mapbox/jsonlint-lines-primitives
+		version: 2.0.2
 		license: |
-Apache License
-
-Version 2.0, January 2004
-
-http://www.apache.org/licenses/ 
-
-TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
-
-1. Definitions.
-
-"License" shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 9 of this document.
-
-"Licensor" shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.
-
-"Legal Entity" shall mean the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity. For the purposes of this definition, "control" means (i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (ii) ownership of fifty percent (50%) or more of the outstanding shares, or (iii) beneficial ownership of such entity.
-
-"You" (or "Your") shall mean an individual or Legal Entity exercising permissions granted by this License.
-
-"Source" form shall mean the preferred form for making modifications, including but not limited to software source code, documentation source, and configuration files.
-
-"Object" form shall mean any form resulting from mechanical transformation or translation of a Source form, including but not limited to compiled object code, generated documentation, and conversions to other media types.
-
-"Work" shall mean the work of authorship, whether in Source or Object form, made available under the License, as indicated by a copyright notice that is included in or attached to the work (an example is provided in the Appendix below).
-
-"Derivative Works" shall mean any work, whether in Source or Object form, that is based on (or derived from) the Work and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship. For the purposes of this License, Derivative Works shall not include works that remain separable from, or merely link (or bind by name) to the interfaces of, the Work and Derivative Works thereof.
-
-"Contribution" shall mean any work of authorship, including the original version of the Work and any modifications or additions to that Work or Derivative Works thereof, that is intentionally submitted to Licensor for inclusion in the Work by the copyright owner or by an individual or Legal Entity authorized to submit on behalf of the copyright owner. For the purposes of this definition, "submitted" means any form of electronic, verbal, or written communication sent to the Licensor or its representatives, including but not limited to communication on electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of, the Licensor for the purpose of discussing and improving the Work, but excluding communication that is conspicuously marked or otherwise designated in writing by the copyright owner as "Not a Contribution."
-
-"Contributor" shall mean Licensor and any individual or Legal Entity on behalf of whom a Contribution has been received by Licensor and subsequently incorporated within the Work.
-
-2. Grant of Copyright License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form.
-
-3. Grant of Patent License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this section) patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Work, where such license applies only to those patent claims licensable by such Contributor that are necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with the Work to which such Contribution(s) was submitted. If You institute patent litigation against any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Work or a Contribution incorporated within the Work constitutes direct or contributory patent infringement, then any patent licenses granted to You under this License for that Work shall terminate as of the date such litigation is filed.
-
-4. Redistribution. You may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without modifications, and in Source or Object form, provided that You meet the following conditions:
-
-You must give any other recipients of the Work or Derivative Works a copy of this License; and
-
-You must cause any modified files to carry prominent notices stating that You changed the files; and
-
-You must retain, in the Source form of any Derivative Works that You distribute, all copyright, patent, trademark, and attribution notices from the Source form of the Work, excluding those notices that do not pertain to any part of the Derivative Works; and
-
-If the Work includes a "NOTICE" text file as part of its distribution, then any Derivative Works that You distribute must include a readable copy of the attribution notices contained within such NOTICE file, excluding those notices that do not pertain to any part of the Derivative Works, in at least one of the following places: within a NOTICE text file distributed as part of the Derivative Works; within the Source form or documentation, if provided along with the Derivative Works; or, within a display generated by the Derivative Works, if and wherever such third-party notices normally appear. The contents of the NOTICE file are for informational purposes only and do not modify the License. You may add Your own attribution notices within Derivative Works that You distribute, alongside or as an addendum to the NOTICE text from the Work, provided that such additional attribution notices cannot be construed as modifying the License. You may add Your own copyright statement to Your modifications and may provide additional or different license terms and conditions for use, reproduction, or distribution of Your modifications, or for any such Derivative Works as a whole, provided Your use, reproduction, and distribution of the Work otherwise complies with the conditions stated in this License.
-
-5. Submission of Contributions. Unless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the Work by You to the Licensor shall be under the terms and conditions of this License, without any additional terms or conditions. Notwithstanding the above, nothing herein shall supersede or modify the terms of any separate license agreement you may have executed with Licensor regarding such Contributions.
-
-6. Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.
-
-7. Disclaimer of Warranty. Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License.
-
-8. Limitation of Liability. In no event and under no legal theory, whether in tort (including negligence), contract, or otherwise, unless required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall any Contributor be liable to You for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this License or out of the use or inability to use the Work (including but not limited to damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses), even if such Contributor has been advised of the possibility of such damages.
-
-9. Accepting Warranty or Additional Liability. While redistributing the Work or Derivative Works thereof, You may choose to offer, and charge a fee for, acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with this License. However, in accepting such obligations, You may act only on Your own behalf and on Your sole responsibility, not on behalf of any other Contributor, and only if You agree to indemnify, defend, and hold each Contributor harmless for any liability incurred by, or claims asserted against, such Contributor by reason of your accepting any such warranty or additional liability.
-
-END OF TERMS AND CONDITIONS
-
+No license information found
 
 
 	- component:
-		name: @types/mapbox-gl
-		version: 0.51.6
-		license: |
-    MIT License
-
-    Copyright (c) Microsoft Corporation. All rights reserved.
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE
-
-
-
-	- component:
-		name: @types/geojson
-		version: 7946.0.7
-		license: |
-    MIT License
-
-    Copyright (c) Microsoft Corporation. All rights reserved.
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE
-
-
-
-	- component:
-		name: @microsoft/applicationinsights-dependencies-js
-		version: 1.0.0-beta.16
-		license: |
-    MIT License
-
-    Copyright (c) Microsoft Corporation. All rights reserved.
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE
-
-
-
-	- component:
-		name: jwt-decode
-		version: 2.2.0
-		license: |
-The MIT License (MIT)
- 
-Copyright (c) 2015 Auth0, Inc. <support@auth0.com> (http://auth0.com)
- 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
- 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
- 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-
-
-	- component:
-		name: safe-buffer
-		version: 5.1.2
-		license: |
-The MIT License (MIT)
-
-Copyright (c) Feross Aboukhadijeh
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-
-	- component:
-		name: through
-		version: 2.3.8
-		license: |
-Apache License, Version 2.0
-
-Copyright (c) 2011 Dominic Tarr
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
-
-The MIT License
-
-Copyright (c) 2011 Dominic Tarr
-
-Permission is hereby granted, free of charge, 
-to any person obtaining a copy of this software and 
-associated documentation files (the "Software"), to 
-deal in the Software without restriction, including 
-without limitation the rights to use, copy, modify, 
-merge, publish, distribute, sublicense, and/or sell 
-copies of the Software, and to permit persons to whom 
-the Software is furnished to do so, 
-subject to the following conditions:
-
-The above copyright notice and this permission notice 
-shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR 
-ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-	- component:
-		name: @mapbox/vector-tile
-		version: 1.3.1
-		license: |
-Copyright (c) 2014, Mapbox
-
-
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without modification,
-are permitted provided that the following conditions are met:
-
-    * Redistributions of source code must retain the above copyright notice,
-      this list of conditions and the following disclaimer.
-    * Redistributions in binary form must reproduce the above copyright notice,
-      this list of conditions and the following disclaimer in the documentation
-      and/or other materials provided with the distribution.
-    * Neither the name of Mapbox nor the names of its contributors
-      may be used to endorse or promote products derived from this software
-      without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
-CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-
-
-	- component:
-		name: @mapbox/mapbox-gl-supported
-		version: 1.4.0
-		license: |
-
-BSD 3-Clause License
-
-Copyright (c) 2017, Mapbox
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-* Redistributions of source code must retain the above copyright notice, this
-  list of conditions and the following disclaimer.
-
-* Redistributions in binary form must reproduce the above copyright notice,
-  this list of conditions and the following disclaimer in the documentation
-  and/or other materials provided with the distribution.
-
-* Neither the name of the copyright holder nor the names of its
-  contributors may be used to endorse or promote products derived from
-  this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-
-
-	- component:
-		name: murmurhash-js
-		version: 1.0.0
-		license: |
-The MIT License (MIT)
-
-Copyright (c) 2011 Gary Court
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-	- component:
-		name: csscolorparser
-		version: 1.0.3
-		license: |
-(c) Dean McNamee <dean@gmail.com>, 2012.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to
-deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-IN THE SOFTWARE.
-
-
-	- component:
-		name: minimist
-		version: 0.0.5
-		license: |
-This software is released under the MIT license:
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-	- component:
-		name: kdbush
-		version: 3.0.0
+		name: earcut
+		version: 2.1.5
 		license: |
 ISC License
 
-Copyright (c) 2018, Vladimir Agafonkin
+Copyright (c) 2016, Mapbox
 
 Permission to use, copy, modify, and/or distribute this software for any purpose
 with or without fee is hereby granted, provided that the above copyright notice
@@ -6988,588 +7430,6 @@ INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
 OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
 TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
 THIS SOFTWARE.
-
-
-	- component:
-		name: @mapbox/unitbezier
-		version: 0.0.0
-		license: |
-BSD-2-Clause
-
-Copyright (C) 2008 Apple Inc. All Rights Reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions
-are met:
-
-1. Redistributions of source code must retain the above copyright
-   notice, this list of conditions and the following disclaimer.
-2. Redistributions in binary form must reproduce the above copyright
-   notice, this list of conditions and the following disclaimer in the
-   documentation and/or other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY APPLE INC. ``AS IS'' AND ANY
-EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
-PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL APPLE INC. OR
-CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
-OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-Ported from Webkit
-http://svn.webkit.org/repository/webkit/trunk/Source/WebCore/platform/graphics/UnitBezier.h
-
-
-	- component:
-		name: isarray
-		version: 0.0.1
-		license: |
-(MIT)
-
-Copyright (c) 2013 Julian Gruber <julian@juliangruber.com>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-	- component:
-		name: minimist
-		version: 1.2.0
-		license: |
-This software is released under the MIT license:
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-	- component:
-		name: string_decoder
-		version: 1.1.1
-		license: |
-Node.js is licensed for use as follows:
-
-"""
-Copyright Node.js contributors. All rights reserved.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to
-deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-IN THE SOFTWARE.
-"""
-
-This license applies to parts of Node.js originating from the
-https://github.com/joyent/node repository:
-
-"""
-Copyright Joyent, Inc. and other Node contributors. All rights reserved.
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to
-deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-IN THE SOFTWARE.
-"""
-
-
-
-
-	- component:
-		name: minimist
-		version: 0.0.8
-		license: |
-This software is released under the MIT license:
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-	- component:
-		name: split
-		version: 0.2.10
-		license: |
-Copyright (c) 2011 Dominic Tarr
-
-Permission is hereby granted, free of charge, 
-to any person obtaining a copy of this software and 
-associated documentation files (the "Software"), to 
-deal in the Software without restriction, including 
-without limitation the rights to use, copy, modify, 
-merge, publish, distribute, sublicense, and/or sell 
-copies of the Software, and to permit persons to whom 
-the Software is furnished to do so, 
-subject to the following conditions:
-
-The above copyright notice and this permission notice 
-shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR 
-ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-	- component:
-		name: @microsoft/applicationinsights-web
-		version: 1.0.0-beta.11
-		license: |
-    MIT License
-
-    Copyright (c) Microsoft Corporation. All rights reserved.
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE
-
-
-
-	- component:
-		name: @types/adal-angular
-		version: 1.0.1
-		license: |
-    MIT License
-
-    Copyright (c) Microsoft Corporation. All rights reserved.
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE
-
-
-
-	- component:
-		name: pbf
-		version: 3.1.0
-		license: |
-Copyright (c) 2017, Mapbox
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-* Redistributions of source code must retain the above copyright notice, this
-  list of conditions and the following disclaimer.
-
-* Redistributions in binary form must reproduce the above copyright notice,
-  this list of conditions and the following disclaimer in the documentation
-  and/or other materials provided with the distribution.
-
-* Neither the name of pbf nor the names of its
-  contributors may be used to endorse or promote products derived from
-  this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-
-
-	- component:
-		name: inherits
-		version: 2.0.3
-		license: |
-The ISC License
-
-Copyright (c) Isaac Z. Schlueter
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted, provided that the above
-copyright notice and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-
-
-
-
-	- component:
-		name: redeyed
-		version: 0.4.4
-		license: |
-Copyright 2012 Thorsten Lorenz. 
-All rights reserved.
-
-Permission is hereby granted, free of charge, to any person
-obtaining a copy of this software and associated documentation
-files (the "Software"), to deal in the Software without
-restriction, including without limitation the rights to use,
-copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following
-conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-	- component:
-		name: readable-stream
-		version: 1.1.14
-		license: |
-Node.js is licensed for use as follows:
-
-"""
-Copyright Node.js contributors. All rights reserved.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to
-deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-IN THE SOFTWARE.
-"""
-
-This license applies to parts of Node.js originating from the
-https://github.com/joyent/node repository:
-
-"""
-Copyright Joyent, Inc. and other Node contributors. All rights reserved.
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to
-deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-IN THE SOFTWARE.
-"""
-
-
-
-	- component:
-		name: @mapbox/whoots-js
-		version: 3.1.0
-		license: |
-ISC License
-
-Copyright (c) 2017, Mapbox
-
-Permission to use, copy, modify, and/or distribute this software for any purpose
-with or without fee is hereby granted, provided that the above copyright notice
-and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
-OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
-TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
-THIS SOFTWARE.
-
-
-
-	- component:
-		name: protocol-buffers-schema
-		version: 3.3.2
-		license: |
-The MIT License (MIT)
-
-Copyright (c) 2014 Mathias Buus
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-	- component:
-		name: wgs84
-		version: 0.0.0
-		license: |
-BSD 2-Clause License
-
-Copyright (c) 2017, Mapbox
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-* Redistributions of source code must retain the above copyright notice, this
-  list of conditions and the following disclaimer.
-
-* Redistributions in binary form must reproduce the above copyright notice,
-  this list of conditions and the following disclaimer in the documentation
-    and/or other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-
-	- component:
-		name: ieee754
-		version: 1.1.11
-		license: |
-Copyright (c) 2008, Fair Oaks Labs, Inc.
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
- * Redistributions of source code must retain the above copyright notice,
-   this list of conditions and the following disclaimer.
-
- * Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution.
-
- * Neither the name of Fair Oaks Labs, Inc. nor the names of its contributors
-   may be used to endorse or promote products derived from this software
-   without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
-LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-POSSIBILITY OF SUCH DAMAGE.
-
-
-
-	- component:
-		name: buffer-from
-		version: 1.1.0
-		license: |
-MIT License
-
-Copyright (c) 2016, 2018 Linus Unnebäck
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-
-	- component:
-		name: @mapbox/geojson-area
-		version: 0.2.2
-		license: |
-Copyright 2005-2013 OpenLayers Contributors. All rights reserved. See
-authors.txt for full list.
-
-Redistribution and use in source and binary forms, with or without modification,
-are permitted provided that the following conditions are met:
-
- 1. Redistributions of source code must retain the above copyright notice, this
-list of conditions and the following disclaimer.
-
- 2. Redistributions in binary form must reproduce the above copyright notice,
-this list of conditions and the following disclaimer in the documentation and/or
-other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY OPENLAYERS CONTRIBUTORS ``AS IS'' AND ANY EXPRESS
-OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
-SHALL COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-The views and conclusions contained in the software and documentation are those
-of the authors and should not be interpreted as representing official policies,
-either expressed or implied, of OpenLayers Contributors.
-
-
-
-	- component:
-		name: @microsoft/applicationinsights-analytics-js
-		version: 1.0.0-beta.15
-		license: |
-    MIT License
-
-    Copyright (c) Microsoft Corporation. All rights reserved.
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE
 
 
 
@@ -7782,30 +7642,75 @@ either expressed or implied, of OpenLayers Contributors.
 
 
 	- component:
-		name: @microsoft/applicationinsights-common
-		version: 1.0.0-beta.16
+		name: inherits
+		version: 2.0.3
 		license: |
-    MIT License
+The ISC License
 
-    Copyright (c) Microsoft Corporation. All rights reserved.
+Copyright (c) Isaac Z. Schlueter
 
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
 
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
 
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE
+
+
+
+	- component:
+		name: tinyqueue
+		version: 2.0.0
+		license: |
+ISC License
+
+Copyright (c) 2017, Vladimir Agafonkin
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+THIS SOFTWARE.
+
+
+
+	- component:
+		name: esprima
+		version: 1.0.4
+		license: |
+Copyright (c) jQuery Foundation, Inc. and Contributors, All Rights Reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+  * Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  * Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 
@@ -7838,57 +7743,126 @@ either expressed or implied, of OpenLayers Contributors.
 
 
 	- component:
-		name: whatwg-fetch
-		version: 2.0.3
+		name: acorn
+		version: 6.1.1
 		license: |
-Copyright (c) 2014-2016 GitHub, Inc.
+Copyright (C) 2012-2018 by various contributors (see AUTHORS)
 
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+
+	- component:
+		name: jwt-decode
+		version: 2.2.0
+		license: |
+The MIT License (MIT)
+ 
+Copyright (c) 2015 Auth0, Inc. <support@auth0.com> (http://auth0.com)
+ 
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+ 
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+ 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+
+	- component:
+		name: @mapbox/geojson-area
+		version: 0.2.2
+		license: |
+Copyright 2005-2013 OpenLayers Contributors. All rights reserved. See
+authors.txt for full list.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+ 1. Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.
+
+ 2. Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation and/or
+other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY OPENLAYERS CONTRIBUTORS ``AS IS'' AND ANY EXPRESS
+OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
+SHALL COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+The views and conclusions contained in the software and documentation are those
+of the authors and should not be interpreted as representing official policies,
+either expressed or implied, of OpenLayers Contributors.
+
+
+
+	- component:
+		name: ansicolors
+		version: 0.2.1
+		license: |
+Copyright 2013 Thorsten Lorenz. 
+All rights reserved.
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
 
 The above copyright notice and this permission notice shall be
 included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
 
 
 
 	- component:
-		name: earcut
-		version: 2.1.5
-		license: |
-ISC License
-
-Copyright (c) 2016, Mapbox
-
-Permission to use, copy, modify, and/or distribute this software for any purpose
-with or without fee is hereby granted, provided that the above copyright notice
-and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
-OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
-TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
-THIS SOFTWARE.
-
-
-
-	- component:
-		name: string_decoder
-		version: 0.10.31
+		name: readable-stream
+		version: 1.1.14
 		license: |
 Node.js is licensed for use as follows:
 
@@ -7940,513 +7914,31 @@ IN THE SOFTWARE.
 
 
 
-
 	- component:
-		name: resolve-protobuf-schema
-		version: 2.1.0
+		name: whatwg-fetch
+		version: 2.0.3
 		license: |
-The MIT License (MIT)
+Copyright (c) 2014-2016 GitHub, Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-Copyright (c) 2014 Mathias Buus
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-
-	- component:
-		name: @mapbox/point-geometry
-		version: 0.1.0
-		license: |
-Copyright (c) 2015, Mapbox <>
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted, provided that the above
-copyright notice and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
-OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
-
-
-	- component:
-		name: potpack
-		version: 1.0.1
-		license: |
-ISC License
-
-Copyright (c) 2018, Mapbox
-
-Permission to use, copy, modify, and/or distribute this software for any purpose
-with or without fee is hereby granted, provided that the above copyright notice
-and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
-OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
-TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
-THIS SOFTWARE.
-
-
-
-	- component:
-		name: tinyqueue
-		version: 2.0.0
-		license: |
-ISC License
-
-Copyright (c) 2017, Vladimir Agafonkin
-
-Permission to use, copy, modify, and/or distribute this software for any purpose
-with or without fee is hereby granted, provided that the above copyright notice
-and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
-OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
-TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
-THIS SOFTWARE.
-
-
-
-	- component:
-		name: stream-spigot
-		version: 2.1.2
-		license: |
-(The MIT License)
-
-Copyright (c) Bryce B. Baril <bryce@ravenwall.com>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-	- component:
-		name: mapbox-gl
-		version: 0.53.0
-		license: |
-Copyright (c) 2016, Mapbox
-
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without modification,
-are permitted provided that the following conditions are met:
-
-    * Redistributions of source code must retain the above copyright notice,
-      this list of conditions and the following disclaimer.
-    * Redistributions in binary form must reproduce the above copyright notice,
-      this list of conditions and the following disclaimer in the documentation
-      and/or other materials provided with the distribution.
-    * Neither the name of Mapbox GL JS nor the names of its contributors
-      may be used to endorse or promote products derived from this software
-      without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
-CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
--------------------------------------------------------------------------------
-
-Contains Hershey Simplex Font: http://paulbourke.net/dataformats/hershey/
-
--------------------------------------------------------------------------------
-
-Contains code from glfx.js
-
-Copyright (C) 2011 by Evan Wallace
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
---------------------------------------------------------------------------------
-
-Contains a portion of d3-color https://github.com/d3/d3-color
-
-Copyright 2010-2016 Mike Bostock
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without modification,
-are permitted provided that the following conditions are met:
-
-* Redistributions of source code must retain the above copyright notice, this
-  list of conditions and the following disclaimer.
-
-* Redistributions in binary form must reproduce the above copyright notice,
-  this list of conditions and the following disclaimer in the documentation
-  and/or other materials provided with the distribution.
-
-* Neither the name of the author nor the names of contributors may be used to
-  endorse or promote products derived from this software without specific prior
-  written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
-ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
-ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-
-
-	- component:
-		name: expect.js
-		version: 0.2.0
-		license: |
-(The MIT License)
-
-Copyright (c) 2011 Guillermo Rauch <guillermo@learnboost.com>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-3rd-party
-Heavily borrows from should.js by TJ Holowaychuck - MIT.
-
-
-	- component:
-		name: @mapbox/geojson-types
-		version: 1.0.2
-		license: |
-MIT License
-
-Copyright (c) 2018 Mapbox
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-
-
-	- component:
-		name: typedarray
-		version: 0.0.6
-		license: |
- Copyright (c) 2010, Linden Research, Inc.
- Copyright (c) 2012, Joshua Bell
-
- Permission is hereby granted, free of charge, to any person obtaining a copy
- of this software and associated documentation files (the "Software"), to deal
- in the Software without restriction, including without limitation the rights
- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- copies of the Software, and to permit persons to whom the Software is
- furnished to do so, subject to the following conditions:
-
- The above copyright notice and this permission notice shall be included in
- all copies or substantial portions of the Software.
-
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- THE SOFTWARE.
- $/LicenseInfo$
-
-// Original can be found at:
-//   https://bitbucket.org/lindenlab/llsd
-// Modifications by Joshua Bell inexorabletash@gmail.com
-//   https://github.com/inexorabletash/polyfill
-
-// ES3/ES5 implementation of the Krhonos Typed Array Specification
-//   Ref: http://www.khronos.org/registry/typedarray/specs/latest/
-//   Date: 2011-02-01
-//
-// Variations:
-//  * Allows typed_array.get/set() as alias for subscripts (typed_array[])
-
-
-	- component:
-		name: es6-promise
-		version: 4.1.1
-		license: |
-Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-of the Software, and to permit persons to whom the Software is furnished to do
-so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-
-
-	- component:
-		name: uuid-random
-		version: 1.0.6
-		license: |
-Copyright (c) 2016 Wes Roberts
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-	- component:
-		name: @microsoft/applicationinsights-core-js
-		version: 1.0.0-beta.5
-		license: |
-    MIT License
-
-    Copyright (c) Microsoft Corporation. All rights reserved.
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE
-
-
-
-	- component:
-		name: @mapbox/geojson-rewind
-		version: 0.4.0
-		license: |
-Copyright (c) {{ year }}, {{ organization }}
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted, provided that the above
-copyright notice and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-
-
-
-	- component:
-		name: esprima
-		version: 2.7.3
-		license: |
-Copyright (c) jQuery Foundation, Inc. and Contributors, All Rights Reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-  * Redistributions of source code must retain the above copyright
-    notice, this list of conditions and the following disclaimer.
-  * Redistributions in binary form must reproduce the above copyright
-    notice, this list of conditions and the following disclaimer in the
-    documentation and/or other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-ARE DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
-DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
-THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-
-
-	- component:
-		name: concat-stream
-		version: 1.6.2
-		license: |
-The MIT License
-
-Copyright (c) 2013 Max Ogden
-
-Permission is hereby granted, free of charge, 
-to any person obtaining a copy of this software and 
-associated documentation files (the "Software"), to 
-deal in the Software without restriction, including 
-without limitation the rights to use, copy, modify, 
-merge, publish, distribute, sublicense, and/or sell 
-copies of the Software, and to permit persons to whom 
-the Software is furnished to do so, 
-subject to the following conditions:
-
-The above copyright notice and this permission notice 
-shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR 
-ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-	- component:
-		name: esprima
-		version: 1.0.4
-		license: |
-Copyright (c) jQuery Foundation, Inc. and Contributors, All Rights Reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-  * Redistributions of source code must retain the above copyright
-    notice, this list of conditions and the following disclaimer.
-  * Redistributions in binary form must reproduce the above copyright
-    notice, this list of conditions and the following disclaimer in the
-    documentation and/or other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-ARE DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
-DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
-THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-
-
-	- component:
-		name: geojson-vt
-		version: 3.2.1
-		license: |
-ISC License
-
-Copyright (c) 2015, Mapbox
-
-Permission to use, copy, modify, and/or distribute this software for any purpose
-with or without fee is hereby granted, provided that the above copyright notice
-and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
-OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
-TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
-THIS SOFTWARE.
-
-
-
-	- component:
-		name: @mapbox/tiny-sdf
-		version: 1.1.0
-		license: |
-Copyright © 2016-2017 Mapbox, Inc.
-This code available under the terms of the BSD 2-Clause license.
-
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
-1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-© 2018 GitHub, Inc.
 
 
 	- component:
@@ -8501,163 +7993,58 @@ written authorization of the copyright holder.
 
 
 	- component:
-		name: acorn
-		version: 6.1.1
+		name: @types/jwt-decode
+		version: 2.2.1
 		license: |
-Copyright (C) 2012-2018 by various contributors (see AUTHORS)
+    MIT License
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+    Copyright (c) Microsoft Corporation. All rights reserved.
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE
 
 
 
 	- component:
-		name: grid-index
-		version: 1.1.0
+		name: @microsoft/applicationinsights-web
+		version: 1.0.0-beta.11
 		license: |
-Copyright (c) 2016, Mapbox
+    MIT License
 
-Permission to use, copy, modify, and/or distribute this software for any purpose
-with or without fee is hereby granted, provided that the above copyright notice
-and this permission notice appear in all copies.
+    Copyright (c) Microsoft Corporation. All rights reserved.
 
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
-OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
-TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
-THIS SOFTWARE.
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
 
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
 
-
-	- component:
-		name: rw
-		version: 1.3.3
-		license: |
-Copyright (c) 2014-2016, Michael Bostock
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-* Redistributions of source code must retain the above copyright notice, this
-  list of conditions and the following disclaimer.
-
-* Redistributions in binary form must reproduce the above copyright notice,
-  this list of conditions and the following disclaimer in the documentation
-  and/or other materials provided with the distribution.
-
-* The name Michael Bostock may not be used to endorse or promote products
-  derived from this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL MICHAEL BOSTOCK BE LIABLE FOR ANY DIRECT,
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
-OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
-EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-
-
-	- component:
-		name: @mapbox/jsonlint-lines-primitives
-		version: 2.0.2
-		license: |
-No license information found
-
-
-	- component:
-		name: quickselect
-		version: 2.0.0
-		license: |
-ISC License
-
-Copyright (c) 2018, Vladimir Agafonkin
-
-Permission to use, copy, modify, and/or distribute this software for any purpose
-with or without fee is hereby granted, provided that the above copyright notice
-and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
-OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
-TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
-THIS SOFTWARE.
-
-
-
-	- component:
-		name: supercluster
-		version: 6.0.1
-		license: |
-ISC License
-
-Copyright (c) 2016, Mapbox
-
-Permission to use, copy, modify, and/or distribute this software for any purpose
-with or without fee is hereby granted, provided that the above copyright notice
-and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
-OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
-TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
-THIS SOFTWARE.
-
-
-
-	- component:
-		name: util-deprecate
-		version: 1.0.2
-		license: |
-(The MIT License)
-
-Copyright (c) 2014 Nathan Rajlich <nathan@tootallnate.net>
-
-Permission is hereby granted, free of charge, to any person
-obtaining a copy of this software and associated documentation
-files (the "Software"), to deal in the Software without
-restriction, including without limitation the rights to use,
-copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following
-conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE
 
 
 
@@ -8690,10 +8077,67 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 
 	- component:
-		name: core-util-is
-		version: 1.0.2
+		name: @mapbox/tiny-sdf
+		version: 1.1.0
 		license: |
-Copyright Node.js contributors. All rights reserved.
+Copyright © 2016-2017 Mapbox, Inc.
+This code available under the terms of the BSD 2-Clause license.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+© 2018 GitHub, Inc.
+
+
+	- component:
+		name: murmurhash-js
+		version: 1.0.0
+		license: |
+The MIT License (MIT)
+
+Copyright (c) 2011 Gary Court
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+	- component:
+		name: safe-buffer
+		version: 5.1.2
+		license: |
+The MIT License (MIT)
+
+Copyright (c) Feross Aboukhadijeh
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+
+	- component:
+		name: csscolorparser
+		version: 1.0.3
+		license: |
+(c) Dean McNamee <dean@gmail.com>, 2012.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to
@@ -8712,37 +8156,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 IN THE SOFTWARE.
-
-
-
-	- component:
-		name: ansicolors
-		version: 0.2.1
-		license: |
-Copyright 2013 Thorsten Lorenz. 
-All rights reserved.
-
-Permission is hereby granted, free of charge, to any person
-obtaining a copy of this software and associated documentation
-files (the "Software"), to deal in the Software without
-restriction, including without limitation the rights to use,
-copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following
-conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
-
 
 
 	- component:
@@ -8807,8 +8220,219 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 	- component:
-		name: @types/lodash
-		version: 4.14.106
+		name: @mapbox/mapbox-gl-supported
+		version: 1.4.0
+		license: |
+
+BSD 3-Clause License
+
+Copyright (c) 2017, Mapbox
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of the copyright holder nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+
+	- component:
+		name: core-util-is
+		version: 1.0.2
+		license: |
+Copyright Node.js contributors. All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+
+
+
+	- component:
+		name: geojson-vt
+		version: 3.2.1
+		license: |
+ISC License
+
+Copyright (c) 2015, Mapbox
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+THIS SOFTWARE.
+
+
+
+	- component:
+		name: wgs84
+		version: 0.0.0
+		license: |
+BSD 2-Clause License
+
+Copyright (c) 2017, Mapbox
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+    and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+	- component:
+		name: process-nextick-args
+		version: 2.0.0
+		license: |
+# Copyright (c) 2015 Calvin Metcalf
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+**THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.**
+
+
+
+	- component:
+		name: isarray
+		version: 1.0.0
+		license: |
+(MIT)
+
+Copyright (c) 2013 Julian Gruber <julian@juliangruber.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+	- component:
+		name: readable-stream
+		version: 2.3.6
+		license: |
+Node.js is licensed for use as follows:
+
+"""
+Copyright Node.js contributors. All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+"""
+
+This license applies to parts of Node.js originating from the
+https://github.com/joyent/node repository:
+
+"""
+Copyright Joyent, Inc. and other Node contributors. All rights reserved.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+"""
+
+
+
+	- component:
+		name: @types/adal-angular
+		version: 1.0.1
 		license: |
     MIT License
 
@@ -8835,18 +8459,391 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 	- component:
-		name: isarray
-		version: 1.0.0
+		name: @microsoft/applicationinsights-dependencies-js
+		version: 1.0.0-beta.16
 		license: |
-(MIT)
+    MIT License
 
-Copyright (c) 2013 Julian Gruber <julian@juliangruber.com>
+    Copyright (c) Microsoft Corporation. All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE
+
+
+
+	- component:
+		name: uuid-random
+		version: 1.0.6
+		license: |
+Copyright (c) 2016 Wes Roberts
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+	- component:
+		name: @mapbox/geojson-rewind
+		version: 0.4.0
+		license: |
+Copyright (c) {{ year }}, {{ organization }}
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+
+
+
+	- component:
+		name: @mapbox/vector-tile
+		version: 1.3.1
+		license: |
+Copyright (c) 2014, Mapbox
+
+
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+    * Neither the name of Mapbox nor the names of its contributors
+      may be used to endorse or promote products derived from this software
+      without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+
+	- component:
+		name: @microsoft/applicationinsights-core-js
+		version: 1.0.0-beta.5
+		license: |
+    MIT License
+
+    Copyright (c) Microsoft Corporation. All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE
+
+
+
+	- component:
+		name: gl-matrix
+		version: 3.0.0
+		license: |
+Copyright (c) 2015-2019, Brandon Jones, Colin MacKenzie IV.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+	- component:
+		name: grid-index
+		version: 1.1.0
+		license: |
+Copyright (c) 2016, Mapbox
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+THIS SOFTWARE.
+
+
+
+	- component:
+		name: minimist
+		version: 0.0.8
+		license: |
+This software is released under the MIT license:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+	- component:
+		name: concat-stream
+		version: 1.6.2
+		license: |
+The MIT License
+
+Copyright (c) 2013 Max Ogden
+
+Permission is hereby granted, free of charge, 
+to any person obtaining a copy of this software and 
+associated documentation files (the "Software"), to 
+deal in the Software without restriction, including 
+without limitation the rights to use, copy, modify, 
+merge, publish, distribute, sublicense, and/or sell 
+copies of the Software, and to permit persons to whom 
+the Software is furnished to do so, 
+subject to the following conditions:
+
+The above copyright notice and this permission notice 
+shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR 
+ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+	- component:
+		name: @microsoft/applicationinsights-common
+		version: 1.0.0-beta.16
+		license: |
+    MIT License
+
+    Copyright (c) Microsoft Corporation. All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE
+
+
+
+	- component:
+		name: minimist
+		version: 1.2.0
+		license: |
+This software is released under the MIT license:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+	- component:
+		name: kdbush
+		version: 3.0.0
+		license: |
+ISC License
+
+Copyright (c) 2018, Vladimir Agafonkin
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+THIS SOFTWARE.
+
+
+	- component:
+		name: typescript
+		version: 3.4.5
+		license: |
+Apache License
+
+Version 2.0, January 2004
+
+http://www.apache.org/licenses/ 
+
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+1. Definitions.
+
+"License" shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 9 of this document.
+
+"Licensor" shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.
+
+"Legal Entity" shall mean the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity. For the purposes of this definition, "control" means (i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (ii) ownership of fifty percent (50%) or more of the outstanding shares, or (iii) beneficial ownership of such entity.
+
+"You" (or "Your") shall mean an individual or Legal Entity exercising permissions granted by this License.
+
+"Source" form shall mean the preferred form for making modifications, including but not limited to software source code, documentation source, and configuration files.
+
+"Object" form shall mean any form resulting from mechanical transformation or translation of a Source form, including but not limited to compiled object code, generated documentation, and conversions to other media types.
+
+"Work" shall mean the work of authorship, whether in Source or Object form, made available under the License, as indicated by a copyright notice that is included in or attached to the work (an example is provided in the Appendix below).
+
+"Derivative Works" shall mean any work, whether in Source or Object form, that is based on (or derived from) the Work and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship. For the purposes of this License, Derivative Works shall not include works that remain separable from, or merely link (or bind by name) to the interfaces of, the Work and Derivative Works thereof.
+
+"Contribution" shall mean any work of authorship, including the original version of the Work and any modifications or additions to that Work or Derivative Works thereof, that is intentionally submitted to Licensor for inclusion in the Work by the copyright owner or by an individual or Legal Entity authorized to submit on behalf of the copyright owner. For the purposes of this definition, "submitted" means any form of electronic, verbal, or written communication sent to the Licensor or its representatives, including but not limited to communication on electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of, the Licensor for the purpose of discussing and improving the Work, but excluding communication that is conspicuously marked or otherwise designated in writing by the copyright owner as "Not a Contribution."
+
+"Contributor" shall mean Licensor and any individual or Legal Entity on behalf of whom a Contribution has been received by Licensor and subsequently incorporated within the Work.
+
+2. Grant of Copyright License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form.
+
+3. Grant of Patent License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this section) patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Work, where such license applies only to those patent claims licensable by such Contributor that are necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with the Work to which such Contribution(s) was submitted. If You institute patent litigation against any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Work or a Contribution incorporated within the Work constitutes direct or contributory patent infringement, then any patent licenses granted to You under this License for that Work shall terminate as of the date such litigation is filed.
+
+4. Redistribution. You may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without modifications, and in Source or Object form, provided that You meet the following conditions:
+
+You must give any other recipients of the Work or Derivative Works a copy of this License; and
+
+You must cause any modified files to carry prominent notices stating that You changed the files; and
+
+You must retain, in the Source form of any Derivative Works that You distribute, all copyright, patent, trademark, and attribution notices from the Source form of the Work, excluding those notices that do not pertain to any part of the Derivative Works; and
+
+If the Work includes a "NOTICE" text file as part of its distribution, then any Derivative Works that You distribute must include a readable copy of the attribution notices contained within such NOTICE file, excluding those notices that do not pertain to any part of the Derivative Works, in at least one of the following places: within a NOTICE text file distributed as part of the Derivative Works; within the Source form or documentation, if provided along with the Derivative Works; or, within a display generated by the Derivative Works, if and wherever such third-party notices normally appear. The contents of the NOTICE file are for informational purposes only and do not modify the License. You may add Your own attribution notices within Derivative Works that You distribute, alongside or as an addendum to the NOTICE text from the Work, provided that such additional attribution notices cannot be construed as modifying the License. You may add Your own copyright statement to Your modifications and may provide additional or different license terms and conditions for use, reproduction, or distribution of Your modifications, or for any such Derivative Works as a whole, provided Your use, reproduction, and distribution of the Work otherwise complies with the conditions stated in this License.
+
+5. Submission of Contributions. Unless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the Work by You to the Licensor shall be under the terms and conditions of this License, without any additional terms or conditions. Notwithstanding the above, nothing herein shall supersede or modify the terms of any separate license agreement you may have executed with Licensor regarding such Contributions.
+
+6. Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.
+
+7. Disclaimer of Warranty. Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License.
+
+8. Limitation of Liability. In no event and under no legal theory, whether in tort (including negligence), contract, or otherwise, unless required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall any Contributor be liable to You for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this License or out of the use or inability to use the Work (including but not limited to damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses), even if such Contributor has been advised of the possibility of such damages.
+
+9. Accepting Warranty or Additional Liability. While redistributing the Work or Derivative Works thereof, You may choose to offer, and charge a fee for, acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with this License. However, in accepting such obligations, You may act only on Your own behalf and on Your sole responsibility, not on behalf of any other Contributor, and only if You agree to indemnify, defend, and hold each Contributor harmless for any liability incurred by, or claims asserted against, such Contributor by reason of your accepting any such warranty or additional liability.
+
+END OF TERMS AND CONDITIONS
+
+
+
+	- component:
+		name: stream-spigot
+		version: 2.1.2
+		license: |
+(The MIT License)
+
+Copyright (c) Bryce B. Baril <bryce@ravenwall.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 
 
 
@@ -9876,7 +9873,7 @@ var indexOf=function(e,t){if(e.indexOf)return e.indexOf(t);for(var n=0;n<e.lengt
 module.exports={
   "name": "azure-maps-control",
   "author": "Microsoft Corporation",
-  "version": "2.0.6",
+  "version": "2.0.9",
   "description": "Map SDK for Azure Maps",
   "keywords": [
     "azure",
@@ -9911,7 +9908,7 @@ module.exports={
     "browserify": "^16.2.3",
     "deamdify": "0.3.0",
     "es6-promise": "4.1.1",
-    "http-server": "^0.10.0",
+    "http-server": "^0.11.1",
     "jwt-decode": "^2.2.0",
     "less": "^3.9.0",
     "less-plugin-clean-css": "^1.5.1",
@@ -9923,7 +9920,7 @@ module.exports={
     "puppeteer": "1.16.0",
     "ts-node": "8.1.0",
     "tsify": "^4.0.1",
-    "tslint": "^5.15.0",
+    "tslint": "^5.16.0",
     "tslint-microsoft-contrib": "^5.2.1",
     "typescript": "^3.4.5",
     "uglifyify": "^5.0.1",
@@ -9946,19 +9943,19 @@ module.exports={
 },{"./helpers/Version":178,"./helpers/localization/Localizer":182,"./map/services/options/AuthenticationOptions":217,"lodash":109,"mapbox-gl":110,"uuid-random":162}],167:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var e=function(t,n){return(e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var n in t)t.hasOwnProperty(n)&&(e[n]=t[n])})(t,n)};return function(t,n){function i(){this.constructor=t}e(t,n),t.prototype=null===n?Object.create(n):(i.prototype=n.prototype,new i)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),mapboxgl=require("mapbox-gl"),Html_1=require("./helpers/Html"),UserAgent_1=require("./helpers/UserAgent"),data_1=require("./namespace/data"),internal_1=require("./namespace/internal"),HtmlMarkerOptions_1=require("./options/HtmlMarkerOptions"),HtmlMarker=function(e){function t(t){var n=e.call(this,["click","contextmenu","dblclick","drag","dragstart","dragend","keydown","keypress","keyup","mousedown","mousemove","mouseout","mouseover","mouseup"])||this;return n._onDrag=function(){var e=n.marker.getLngLat().wrap();n.options.position=new data_1.Position(e.lng,e.lat),n._invokeEvent("drag",{type:"drag",target:n})},n._onDragStart=function(){n._invokeEvent("dragstart",{type:"dragstart",target:n})},n._onDragEnd=function(){n._invokeEvent("dragend",{type:"dragend",target:n})},n._bubbleElementEvent=function(e){n._invokeEvent(e.type,{type:e.type,target:n})},n.options=(new HtmlMarkerOptions_1.HtmlMarkerOptions).merge(_.cloneDeepWith(t,HtmlMarkerOptions_1.HtmlMarkerOptions._cloneCustomizer)),n._buildMarker(n.options),n}return __extends(t,e),t.prototype.getOptions=function(){return _.cloneDeepWith(this.options,HtmlMarkerOptions_1.HtmlMarkerOptions._cloneCustomizer)},t.prototype.setOptions=function(e){var n=(new HtmlMarkerOptions_1.HtmlMarkerOptions).merge(this.options,_.cloneDeepWith(e,HtmlMarkerOptions_1.HtmlMarkerOptions._cloneCustomizer));_.isEqual(n.htmlContent,this.options.htmlContent)&&n.anchor===this.options.anchor?("string"!=typeof n.htmlContent||n.color===this.options.color&&n.text===this.options.text&&n.secondaryColor===this.options.secondaryColor||(this.element.innerHTML=this._getSubbedHtmlString(n)),n.draggable!==this.options.draggable&&this.marker.setDraggable(n.draggable),_.isEqual(n.pixelOffset,this.options.pixelOffset)||this.marker.setOffset(n.pixelOffset),_.isEqual(n.position,this.options.position)||this.marker.setLngLat(n.position),n.visible!==this.options.visible&&(n.visible?this.element.classList.remove(t.hiddenClass):this.element.classList.add(t.hiddenClass))):(this.marker.remove(),this._buildMarker(n),this.map&&(this.marker.addTo(this.map._getMap()),this._getCollectionContainer().appendChild(this.element))),this.options=n},t.prototype.togglePopup=function(){if(this.options.popup)if(this.options.popup.isOpen())this.options.popup.close();else{if(!this.map)throw new Error("The marker must be added to a map before calling togglePopup().");this.options.popup.setOptions({position:this.options.position}),this.options.popup.open(this.map)}},t.prototype._addToMap=function(e,t){this.map&&this.map!==e&&this._removeFromMap(),t&&(this.options.position=_.cloneDeep(t),this.marker.setLngLat(this.options.position)),this.map!==e&&(this.map=e,this.marker.addTo(e._getMap()),this._getCollectionContainer().appendChild(this.element))},t.prototype._removeFromMap=function(){this.map&&(this.marker.remove(),delete this.map)},t.prototype._getId=function(){if(this.element)return"string"==typeof this.options.htmlContent?this.element.firstChild.id:this.element.id},t.prototype._buildMarker=function(e){if("string"==typeof e.htmlContent){var n=this._getSubbedHtmlString(e);this.element=Html_1.Html.convertHtmlString(n)}else this.element=e.htmlContent;this.element.classList.add(t.containerClass),this.element.draggable=!UserAgent_1.UserAgent.isEdgeOrIE(),e.visible||this.element.classList.add(t.hiddenClass),this.marker=new mapboxgl.Marker({element:this.element,offset:e.pixelOffset,draggable:e.draggable,anchor:e.anchor}).setLngLat(e.position),this.marker.on("drag",this._onDrag),this.marker.on("dragstart",this._onDragStart),this.marker.on("dragend",this._onDragEnd),this.element.addEventListener("click",this._bubbleElementEvent),this.element.addEventListener("dblclick",this._bubbleElementEvent),this.element.addEventListener("contextmenu",this._bubbleElementEvent),this.element.addEventListener("mousedown",this._bubbleElementEvent),this.element.addEventListener("mouseup",this._bubbleElementEvent),this.element.addEventListener("mouseover",this._bubbleElementEvent),this.element.addEventListener("mousemove",this._bubbleElementEvent),this.element.addEventListener("mouseout",this._bubbleElementEvent),this.element.addEventListener("keydown",this._bubbleElementEvent),this.element.addEventListener("keypress",this._bubbleElementEvent),this.element.addEventListener("keyup",this._bubbleElementEvent)},t.prototype._getSubbedHtmlString=function(e){if("string"==typeof e.htmlContent)return e.htmlContent.replace(/{color}/gi,e.color||"").replace(/{secondaryColor}/gi,e.secondaryColor||"").replace(/{text}/gi,e.text||"")},t.prototype._getCollectionContainer=function(){var e=this.map.getCanvasContainer().querySelector("."+t.collectionContainerClass);return e||((e=document.createElement("div")).classList.add(t.collectionContainerClass),this.map.getCanvasContainer().appendChild(e)),e},t.collectionContainerClass="marker-collection-container",t.hiddenClass="hidden-accessible-element",t.containerClass="marker-container",t}(internal_1.EventEmitter);exports.HtmlMarker=HtmlMarker;
 
-},{"./helpers/Html":174,"./helpers/UserAgent":177,"./namespace/data":250,"./namespace/internal":252,"./options/HtmlMarkerOptions":285,"lodash":109,"mapbox-gl":110}],168:[function(require,module,exports){
+},{"./helpers/Html":174,"./helpers/UserAgent":177,"./namespace/data":252,"./namespace/internal":254,"./options/HtmlMarkerOptions":287,"lodash":109,"mapbox-gl":110}],168:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(n,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,n){t.__proto__=n}||function(t,n){for(var e in n)n.hasOwnProperty(e)&&(t[e]=n[e])})(n,e)};return function(n,e){function o(){this.constructor=n}t(n,e),n.prototype=null===e?Object.create(e):(o.prototype=e.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("./helpers/Options"),Padding=function(t){function n(){var n=null!==t&&t.apply(this,arguments)||this;return n.bottom=0,n.left=0,n.right=0,n.top=0,n}return __extends(n,t),n}(Options_1.Options);exports.Padding=Padding;
 
 },{"./helpers/Options":175}],169:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(e,n){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])})(e,n)};return function(e,n){function r(){this.constructor=e}t(e,n),e.prototype=null===n?Object.create(n):(r.prototype=n.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Pixel=function(t){function e(e,n){return t.call(this,e,n)||this}return __extends(e,t),e.fromData=function(t){var n=NaN,r=NaN,o=new Set(["y"]),a=new Set(["x"]);return Object.keys(t).forEach(function(e){var i=e.toLowerCase();isNaN(n)&&o.has(i)&&"number"==typeof t[e]?n=t[e]:isNaN(r)&&a.has(i)&&"number"==typeof t[e]&&(r=t[e])}),isNaN(n)||isNaN(r)?null:new e(n,r)},e.getX=function(t){return t.length>0?t[0]:NaN},e.getY=function(t){return t.length>1?t[1]:NaN},e.getDistance=function(t,n){var r=e.getX(t)-e.getX(n),o=e.getY(t)-e.getY(n);return Math.sqrt(r*r+o*o)},e}(Array);exports.Pixel=Pixel;
 
 },{}],170:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=function(e,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var o in e)e.hasOwnProperty(o)&&(t[o]=e[o])})(e,o)};return function(e,o){function n(){this.constructor=e}t(e,o),e.prototype=null===o?Object.create(o):(n.prototype=o.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),mapboxgl=require("mapbox-gl"),Html_1=require("./helpers/Html"),internal_1=require("./namespace/internal"),PopupOptions_1=require("./options/PopupOptions"),Popup=function(t){function e(o){var n=t.call(this,["open","close"])||this;return n.attach=function(t){n.map!==t&&(n.map&&n.remove(),n.map=t,n.marker.addTo(n.map._getMap()),n._getCollectionContainer(n.map).appendChild(n.container),n.map._trackPopup(n))},n.open=function(t){n.attach(t),n.container.classList.remove(e.Css.hidden),n._invokeEvent("open",{target:n,type:"open"})},n.close=function(){n.container.classList.add(e.Css.hidden),n._invokeEvent("close",{target:n,type:"close"})},n.remove=function(){n.map&&(n.map._untrackPopup(n),n.marker.remove(),delete n.map)},n.isOpen=function(){return n.map&&!n.container.classList.contains(e.Css.hidden)},n.options=(new PopupOptions_1.PopupOptions).merge(_.cloneDeepWith(o,PopupOptions_1.PopupOptions._cloneCustomizer)),n.container=n._createContainerDiv(n.options),n.content=n._createContentDiv(n.options),n.container.appendChild(n.content),n.options.showPointer&&(n.arrow=n._createArrowDiv(),n.container.appendChild(n.arrow)),n.options.closeButton&&(n.closeBtn=n._createCloseButton(),n.container.appendChild(n.closeBtn)),n.marker=new mapboxgl.Marker({element:n.container,offset:n.options.pixelOffset,anchor:"bottom"}).setLngLat(n.options.position),n}return __extends(e,t),e.prototype.setPopupOptions=function(t){this.setOptions(t)},e.prototype.setOptions=function(t){var e=(new PopupOptions_1.PopupOptions).merge(this.options,_.cloneDeepWith(t,PopupOptions_1.PopupOptions._cloneCustomizer));if(e.content!==this.options.content){for(;this.content.firstChild;)this.content.removeChild(this.content.firstChild);this.content.appendChild(Html_1.Html.convertHtmlString(e.content))}e.closeButton&&!this.closeBtn?(this.closeBtn=this._createCloseButton(),this.container.appendChild(this.closeBtn)):!e.closeButton&&this.closeBtn&&(this.container.removeChild(this.closeBtn),delete this.closeBtn),e.showPointer&&!this.arrow?(this.arrow=this._createArrowDiv(),this.container.appendChild(this.arrow)):!e.showPointer&&this.arrow&&(this.container.removeChild(this.arrow),delete this.arrow),e.fillColor!==this.options.fillColor&&(this.container.style.borderColor=e.fillColor,this.content.style.backgroundColor=e.fillColor),_.isEqual(e.position,this.options.position)||this.marker.setLngLat(e.position),_.isEqual(e.pixelOffset,this.options.pixelOffset)||this.marker.setOffset(e.pixelOffset),this.options=e},e.prototype.getPopupOptions=function(){return this.getOptions()},e.prototype.getOptions=function(){return _.cloneDeepWith(this.options,PopupOptions_1.PopupOptions._cloneCustomizer)},e.prototype._getCollectionContainer=function(t){var o=t.getMapContainer().querySelector("."+e.Css.collection);return o||((o=document.createElement("div")).classList.add(e.Css.collection),o.setAttribute("role","region"),o.setAttribute("aria-label","Map Information"),t.getMapContainer().appendChild(o)),o},e.prototype._createContainerDiv=function(t){var o=this,n=document.createElement("div");return n.classList.add(e.Css.container),n.classList.add(e.Css.hidden),n.style.borderColor=t.fillColor,n.addEventListener("focusin",function(){o.map&&!o.isOpen()&&o.open(o.map)}),n},e.prototype._createContentDiv=function(t){var o=document.createElement("div");return o.classList.add(e.Css.content),o.style.backgroundColor=t.fillColor,o.setAttribute("role","dialog"),o.setAttribute("aria-label","Map Information Window"),o.setAttribute("tabindex","0"),o.appendChild(Html_1.Html.convertHtmlString(t.content)),o},e.prototype._createArrowDiv=function(){var t=document.createElement("div");return t.classList.add(e.Css.arrow),t},e.prototype._createCloseButton=function(){var t=document.createElement("button");return t.addEventListener("click",this.close),t.classList.add(e.Css.close),t.setAttribute("aria-hidden","true"),t.setAttribute("tabindex","0"),t.innerHTML="x",t},e.Css={arrow:"popup-arrow",close:"popup-close",collection:"popup-collection-container",container:"popup-container",content:"popup-content-container",hidden:"hidden-accessible-element"},e}(internal_1.EventEmitter);exports.Popup=Popup;
+"use strict";var __extends=this&&this.__extends||function(){var t=function(e,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var o in e)e.hasOwnProperty(o)&&(t[o]=e[o])})(e,o)};return function(e,o){function n(){this.constructor=e}t(e,o),e.prototype=null===o?Object.create(o):(n.prototype=o.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),mapboxgl=require("mapbox-gl"),Html_1=require("./helpers/Html"),internal_1=require("./namespace/internal"),PopupOptions_1=require("./options/PopupOptions"),Popup=function(t){function e(o){var n=t.call(this,["open","close"])||this;return n.attach=function(t){n.map!==t&&(n.map&&n.remove(),n.map=t,n.marker.addTo(n.map._getMap()),n._getCollectionContainer(n.map).appendChild(n.container),n.map._trackPopup(n))},n.open=function(t){n.attach(t),n.container.classList.remove(e.Css.hidden),n._invokeEvent("open",{target:n,type:"open"})},n.close=function(){n.container.classList.add(e.Css.hidden),n._invokeEvent("close",{target:n,type:"close"})},n.remove=function(){n.map&&(n.map._untrackPopup(n),n.marker.remove(),delete n.map)},n.isOpen=function(){return n.map&&!n.container.classList.contains(e.Css.hidden)},n.options=(new PopupOptions_1.PopupOptions).merge(_.cloneDeepWith(o,PopupOptions_1.PopupOptions._cloneCustomizer)),n.container=n._createContainerDiv(n.options),n.content=n._createContentDiv(n.options),n.container.appendChild(n.content),n.options.showPointer&&(n.arrow=n._createArrowDiv(),n.container.appendChild(n.arrow)),n.options.closeButton&&(n.closeBtn=n._createCloseButton(),n.container.appendChild(n.closeBtn)),n.marker=new mapboxgl.Marker({element:n.container,offset:n.options.pixelOffset,anchor:"bottom"}).setLngLat(n.options.position),n}return __extends(e,t),e.prototype.setPopupOptions=function(t){this.setOptions(t)},e.prototype.setOptions=function(t){var e=(new PopupOptions_1.PopupOptions).merge(this.options,_.cloneDeepWith(t,PopupOptions_1.PopupOptions._cloneCustomizer));if(e.content!==this.options.content){for(;this.content.firstChild;)this.content.removeChild(this.content.firstChild);this.content.appendChild(Html_1.Html.convertHtmlString(e.content))}e.closeButton&&!this.closeBtn?(this.closeBtn=this._createCloseButton(),this.container.appendChild(this.closeBtn)):!e.closeButton&&this.closeBtn&&(this.container.removeChild(this.closeBtn),delete this.closeBtn),e.showPointer&&!this.arrow?(this.arrow=this._createArrowDiv(),this.container.appendChild(this.arrow)):!e.showPointer&&this.arrow&&(this.container.removeChild(this.arrow),delete this.arrow),e.fillColor!==this.options.fillColor&&(this.container.style.borderColor=e.fillColor,this.content.style.backgroundColor=e.fillColor),_.isEqual(e.position,this.options.position)||this.marker.setLngLat(e.position),_.isEqual(e.pixelOffset,this.options.pixelOffset)||this.marker.setOffset(e.pixelOffset),this.options=e},e.prototype.getPopupOptions=function(){return this.getOptions()},e.prototype.getOptions=function(){return _.cloneDeepWith(this.options,PopupOptions_1.PopupOptions._cloneCustomizer)},e.prototype._getCollectionContainer=function(t){var o=t.getMapContainer().querySelector("."+e.Css.collection);return o||((o=document.createElement("div")).classList.add(e.Css.collection),o.setAttribute("role","region"),o.setAttribute("aria-label","Map Information"),t.getMapContainer().appendChild(o)),o},e.prototype._createContainerDiv=function(t){var o=this,n=document.createElement("div");return n.classList.add(e.Css.container),n.classList.add(e.Css.hidden),n.style.borderColor=t.fillColor,n.addEventListener("focusin",function(){o.map&&!o.isOpen()&&o.open(o.map)}),n},e.prototype._createContentDiv=function(t){var o=document.createElement("div");return o.classList.add(e.Css.content),o.style.backgroundColor=t.fillColor,o.setAttribute("role","dialog"),o.setAttribute("aria-label","Map Information Window"),o.setAttribute("tabindex","0"),o.appendChild(Html_1.Html.convertHtmlString(t.content)),o},e.prototype._createArrowDiv=function(){var t=document.createElement("div");return t.classList.add(e.Css.arrow),t},e.prototype._createCloseButton=function(){var t=document.createElement("button");return t.addEventListener("click",this.close),t.classList.add(e.Css.close),t.setAttribute("aria-label","close"),t.setAttribute("title","close"),t.setAttribute("aria-hidden","true"),t.setAttribute("tabindex","0"),t.innerHTML="&times;",t},e.Css={arrow:"popup-arrow",close:"popup-close",collection:"popup-collection-container",container:"popup-container",content:"popup-content-container",hidden:"hidden-accessible-element"},e}(internal_1.EventEmitter);exports.Popup=Popup;
 
-},{"./helpers/Html":174,"./namespace/internal":252,"./options/PopupOptions":286,"lodash":109,"mapbox-gl":110}],171:[function(require,module,exports){
+},{"./helpers/Html":174,"./namespace/internal":254,"./options/PopupOptions":288,"lodash":109,"mapbox-gl":110}],171:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),uuid=require("uuid-random"),data_1=require("./namespace/data"),math=require("./namespace/math"),Shape=function(){function e(t,r,i){var a;if("Feature"===t.type){var n=t;a=_.cloneDeep(n.geometry),i=n.properties?_.cloneDeep(n.properties):{},r=n.id||uuid()}else a=_.cloneDeep(t),r=r||uuid(),i=i?_.cloneDeep(i):{};i[e._shapeIdPropName]=r,this.data=new data_1.Feature(a,i,r),this._handleCircle()}return e.prototype.addProperty=function(e,t){_.isEqual(this.data.properties[e],t)||(this.data.properties[e]=_.cloneDeep(t),"subType"!==e&&"radius"!==e||this._handleCircle(),this.dataSource&&this.dataSource._updateSource())},e.prototype.getBounds=function(){var e,t=this.getCoordinates(),r=this.getType();if("Point"===r)if(this.circlePolygon){var i=this.circlePolygon.geometry.coordinates;e=data_1.BoundingBox.fromPositions(i[0])}else{i=t;e=new data_1.BoundingBox(i,i)}else if("MultiPoint"===r||"LineString"===r){i=t;e=data_1.BoundingBox.fromPositions(i)}else if("Polygon"===r){i=t;e=data_1.BoundingBox.fromPositions(i[0])}else if("MultiLineString"===r)for(var a=0,n=i=t;a<n.length;a++){var o=n[a];e=data_1.BoundingBox.merge(e,data_1.BoundingBox.fromPositions(o))}else if("MultiPolygon"===r)for(var d=0,u=i=t;d<u.length;d++){var s=u[d];e=data_1.BoundingBox.merge(e,data_1.BoundingBox.fromPositions(s[0]))}return e},e.prototype.getCoordinates=function(){return _.cloneDeep(this.data.geometry.coordinates)},e.prototype.getId=function(){return this.data.id},e.prototype.getProperties=function(){return _.cloneDeep(this.data.properties)},e.prototype.getType=function(){return this.data.geometry.type},e.prototype.isCircle=function(){return e._isCircle(this.data)},e.prototype.isRectangle=function(){return e._isRectangle(this.data)},e.prototype.setCoordinates=function(e){var t;t="Polygon"===this.getType()&&1===data_1.Position._getDimensions(e)?[e]:e,_.isEqual(this.data.geometry.coordinates,t)||(this.data.geometry.coordinates=_.cloneDeep(t),this._handleCircle(),this.dataSource&&this.dataSource._updateSource())},e.prototype.setProperties=function(t){t[e._shapeIdPropName]=this.data.id,_.isEqual(this.data.properties,t)||(this.data.properties=_.cloneDeep(t),this._handleCircle(),this.dataSource&&this.dataSource._updateSource())},e.prototype.toJson=function(){return JSON.parse(JSON.stringify(this.data))},e.prototype._toJson=function(){return JSON.parse(JSON.stringify(this.circlePolygon||this.data))},e.prototype._setDataSource=function(e){void 0===e||null==e?delete this.dataSource:this.dataSource=e},e.prototype._handleCircle=function(){if(this.isCircle()){var t=e._getCirclePositions(this.data);this.circlePolygon=new data_1.Feature(new data_1.Polygon([t]),this.data.properties,this.data.id),this.data.properties.subType="Circle"}else delete this.circlePolygon},e._isCircle=function(e){return"Point"===e.geometry.type&&e.geometry.coordinates&&"string"==typeof e.properties.subType&&"circle"===e.properties.subType.toLowerCase()&&"number"==typeof e.properties.radius},e._isRectangle=function(e){if("Polygon"===e.geometry.type&&e.geometry.coordinates&&"string"==typeof e.properties.subType&&"rectangle"===e.properties.subType.toLowerCase()){var t=e.geometry.coordinates;if(1===t.length){var r=t[0];if(5===r.length)return r[0][0]===r[4][0]&&r[0][1]===r[4][1];if(4===r.length)return!0}}return!1},e._getCirclePositions=function(e){return math.getRegularPolygonPath(e.geometry.coordinates,e.properties.radius,72,"meters")},e._shapeIdPropName="_azureMapsShapeId",e}();exports.Shape=Shape;
 
-},{"./namespace/data":250,"./namespace/math":277,"lodash":109,"uuid-random":162}],172:[function(require,module,exports){
+},{"./namespace/data":252,"./namespace/math":279,"lodash":109,"uuid-random":162}],172:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.Dictionary=Map;
 
 },{}],173:[function(require,module,exports){
@@ -9991,61 +9988,61 @@ module.exports={
 },{}],182:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var vars=require("../../../../variables.json"),Url_1=require("../Url"),CultureCode_1=require("./CultureCode"),LocaleIndex_1=require("./LocaleIndex"),LocalizedStrings_1=require("./LocalizedStrings"),Localizer=function(){function e(){}return e.getCode=function(e){var a=CultureCode_1.CultureCode.parse(e);return-1===LocaleIndex_1.localeIndex.sensitiveUserRegions.indexOf(a.region)?this.getLocaleData(a).code:e},e.getStrings=function(e){var a=this.getLocaleData(e);return new Url_1.Url((new Url_1.UrlOptions).merge({domain:vars.env.staticAssetsDomain,path:LocaleIndex_1.localeIndex.localizationsPath+"/"+a.strings})).get().then(function(e){return e},function(){return new LocalizedStrings_1.LocalizedStrings})},e.getLocaleData=function(e){if("string"==typeof e&&(e=CultureCode_1.CultureCode.parse(e)),LocaleIndex_1.localeIndex.locales[e.code])return LocaleIndex_1.localeIndex.locales[e.code].defaultRegion;var a;if(LocaleIndex_1.localeIndex.locales[e.language])a=LocaleIndex_1.localeIndex.locales[e.language];else{if(-1!==e.language.indexOf("-"))return this.getLocaleData(e.language);a=LocaleIndex_1.localeIndex.locales.defaultLanguage}return e.region&&a[e.region]?a[e.region]:a.defaultRegion},e}();exports.Localizer=Localizer;
 
-},{"../../../../variables.json":287,"../Url":176,"./CultureCode":179,"./LocaleIndex":180,"./LocalizedStrings":181}],183:[function(require,module,exports){
+},{"../../../../variables.json":289,"../Url":176,"./CultureCode":179,"./LocaleIndex":180,"./LocalizedStrings":181}],183:[function(require,module,exports){
 "use strict";function __export(e){for(var r in e)exports.hasOwnProperty(r)||(exports[r]=e[r])}Object.defineProperty(exports,"__esModule",{value:!0});var es6_promise_1=require("es6-promise");require("whatwg-fetch");var vars=require("../../variables.json");window.Promise=window.Promise||es6_promise_1.Promise;var mapboxgl=require("mapbox-gl"),Url_1=require("./helpers/Url"),Version_1=require("./helpers/Version"),rtlPluginUrl=new Url_1.Url((new Url_1.UrlOptions).merge({domain:vars.env.staticAssetsDomain,path:"sdk/js/mapbox-gl-rtl-text.js",queryParams:{"api-version":Version_1.Version.getEndpointVersion()}}));mapboxgl.setRTLTextPlugin(rtlPluginUrl.toString(),function(e){});var control=require("./namespace/controls");exports.control=control;var data=require("./namespace/data");exports.data=data;var internal=require("./namespace/internal");exports.internal=internal;var layer=require("./namespace/layer");exports.layer=layer;var math=require("./namespace/math");exports.math=math;var source=require("./namespace/source");exports.source=source;var HtmlMarker_1=require("./HtmlMarker");exports.HtmlMarker=HtmlMarker_1.HtmlMarker;var Map_1=require("./map/Map");exports.Map=Map_1.Map;var Pixel_1=require("./Pixel");exports.Pixel=Pixel_1.Pixel;var Popup_1=require("./Popup");exports.Popup=Popup_1.Popup;var Shape_1=require("./Shape");exports.Shape=Shape_1.Shape;var AuthenticationOptions_1=require("./map/services/options/AuthenticationOptions");exports.AuthenticationType=AuthenticationOptions_1.AuthenticationType;var ControlOptions_1=require("./map/options/ControlOptions");exports.ControlPosition=ControlOptions_1.ControlPosition;var ControlStyle_1=require("./namespace/controls/ControlStyle");exports.ControlStyle=ControlStyle_1.ControlStyle,__export(require("./Atlas"));
 
-},{"../../variables.json":287,"./Atlas":166,"./HtmlMarker":167,"./Pixel":169,"./Popup":170,"./Shape":171,"./helpers/Url":176,"./helpers/Version":178,"./map/Map":185,"./map/options/ControlOptions":206,"./map/services/options/AuthenticationOptions":217,"./namespace/controls":238,"./namespace/controls/ControlStyle":227,"./namespace/data":250,"./namespace/internal":252,"./namespace/layer":263,"./namespace/math":277,"./namespace/source":282,"es6-promise":85,"mapbox-gl":110,"whatwg-fetch":164}],184:[function(require,module,exports){
+},{"../../variables.json":289,"./Atlas":166,"./HtmlMarker":167,"./Pixel":169,"./Popup":170,"./Shape":171,"./helpers/Url":176,"./helpers/Version":178,"./map/Map":185,"./map/options/ControlOptions":206,"./map/services/options/AuthenticationOptions":217,"./namespace/controls":240,"./namespace/controls/ControlStyle":227,"./namespace/data":252,"./namespace/internal":254,"./namespace/layer":265,"./namespace/math":279,"./namespace/source":284,"es6-promise":85,"mapbox-gl":110,"whatwg-fetch":164}],184:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var applicationinsights_common_1=require("@microsoft/applicationinsights-common"),applicationinsights_web_1=require("@microsoft/applicationinsights-web"),vars=require("../../../variables.json"),Version_1=require("../helpers/Version"),Insights=function(){function i(i){this.options=i,!this.options.disableTelemetry&&vars.env.appInsightsKey&&(this.appInsights=new applicationinsights_web_1.ApplicationInsights({config:{instrumentationKey:vars.env.appInsightsKey,disableExceptionTracking:!0,disableAjaxTracking:!0,isCookieUseDisabled:!0,maxBatchInterval:5e3}}),this.appInsights.loadAppInsights(),this.appInsights.addTelemetryInitializer(function(i){i.tags[applicationinsights_common_1.UnmappedKeys.applicationVersion]=Version_1.Version.getFullVersion()}))}return i.prototype.trackEvent=function(i,t){!this.options.disableTelemetry&&this.appInsights&&this.appInsights.trackEvent(i,t)},i.prototype.setAuthenticatedUserContext=function(i,t){!this.options.disableTelemetry&&this.appInsights&&this.appInsights.setAuthenticatedUserContext(i,t)},i.prototype.trackException=function(i){!this.options.disableTelemetry&&this.appInsights&&this.appInsights.trackException(i)},i.prototype.flush=function(i){!this.options.disableTelemetry&&this.appInsights&&this.appInsights.flush(i)},i}();exports.Insights=Insights;
 
-},{"../../../variables.json":287,"../helpers/Version":178,"@microsoft/applicationinsights-common":1,"@microsoft/applicationinsights-web":2}],185:[function(require,module,exports){
-"use strict";var __assign=this&&this.__assign||function(){return(__assign=Object.assign||function(e){for(var t,o=1,i=arguments.length;o<i;o++)for(var r in t=arguments[o])Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r]);return e}).apply(this,arguments)};Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),mapboxgl=require("mapbox-gl"),uuid=require("uuid-random"),vars=require("../../../variables.json"),atlas=require("../Atlas"),Localizer_1=require("../helpers/localization/Localizer"),HtmlMarker_1=require("../HtmlMarker"),Insights_1=require("../instrumentation/Insights"),AzureLogoControl_1=require("../namespace/controls/AzureLogoControl"),CopyrightControl_1=require("../namespace/controls/CopyrightControl"),FeedbackControl_1=require("../namespace/controls/FeedbackControl"),data_1=require("../namespace/data"),layer_1=require("../namespace/layer"),math=require("../namespace/math"),source_1=require("../namespace/source"),Pixel_1=require("../Pixel"),AccessibleMapDelegate_1=require("./delegates/accessibility/AccessibleMapDelegate"),FlowServiceDelegate_1=require("./delegates/flow/FlowServiceDelegate"),IncidentServiceDelegate_1=require("./delegates/incidents/IncidentServiceDelegate"),managers_1=require("./managers"),AnimationOptions_1=require("./options/AnimationOptions"),CameraBoundsOptions_1=require("./options/CameraBoundsOptions"),CameraOptions_1=require("./options/CameraOptions"),CircleLayerOptions_1=require("./options/CircleLayerOptions"),ControlOptions_1=require("./options/ControlOptions"),LinestringLayerOptions_1=require("./options/LinestringLayerOptions"),PinLayerOptions_1=require("./options/PinLayerOptions"),PolygonLayerOptions_1=require("./options/PolygonLayerOptions"),RasterLayerOptions_1=require("./options/RasterLayerOptions"),StyleOptions_1=require("./options/StyleOptions"),TrafficOptions_1=require("./options/TrafficOptions"),UserInteractionOptions_1=require("./options/UserInteractionOptions"),ServiceOptions_1=require("./services/options/ServiceOptions"),StyleBuilder_1=require("./style/StyleBuilder"),StyleDefinitions_1=require("./style/StyleDefinitions"),Map=function(){function e(e,t){var o=this;this.trackedPopups=new Set,this.removed=!1,this.loaded=!1,this.ready=!1,this._windowResizeCallback=function(){var e=o.getMapContainer().clientHeight,t=o.getMapContainer().clientWidth;o.getCanvas().height=e,o.getCanvas().width=t,o.getCanvas().style.height=e+"px",o.getCanvas().style.width=t+"px",o.map.resize()};var i=!0;t&&(t.authOptions&&!atlas._hasSetAuthenticationOptions()&&atlas.setAuthenticationOptions(t.authOptions),!t.subscriptionKey&&!t["subscription-key"]||atlas._hasSetAuthenticationOptions()||atlas.setSubscriptionKey(t.subscriptionKey||t["subscription-key"]),!t.sessionId&&!t["session-id"]||atlas._hasSetSessionId()||atlas.setSessionId(t.sessionId||t["session-id"]),t.language&&!atlas._hasSetLanguage()&&atlas.setLanguage(t.language),!t.userRegion&&!t.view||atlas._hasSetView()||atlas.setUserRegion(t.userRegion||t.view),t.tilesetId&&!atlas._hasTilesetId()&&atlas.setTilesetId(t.tilesetId)),this.serviceOptions=(new ServiceOptions_1.ServiceOptions).merge(t),this.styleOptions=(new StyleOptions_1.StyleOptions).merge(t),this.userInteractionOptions=(new UserInteractionOptions_1.UserInteractionOptions).merge(t),this.trafficOptions=new TrafficOptions_1.TrafficOptions,this.styleDefinitions=new StyleDefinitions_1.StyleDefinitions,this.insights=new Insights_1.Insights(this.serviceOptions);var r,s={attributionControl:!1,container:e,preserveDrawingBuffer:this.styleOptions.preserveDrawingBuffer,refreshExpiredTiles:this.serviceOptions.refreshExpiredTiles,renderWorldCopies:this.styleOptions.renderWorldCopies,trackResize:!1,transformRequest:function(e,t){var i={url:e};return"Tile"===t&&_.startsWith(e,"https://"+vars.env.domain)&&(o.insights.trackEvent({name:"TileLoad"}),o.authentication.signRequest(i)),o.serviceOptions.transformRequest&&_.merge(i,o.serviceOptions.transformRequest(i.url,t)),i}};r=this.serviceOptions.authOptions.clientId?this.serviceOptions.authOptions.clientId:this.serviceOptions.authOptions.subscriptionKey?this.serviceOptions.authOptions.subscriptionKey.replace(/.(?=.{3,}$)/g,"*"):"invalid-setting",this.insights.setAuthenticatedUserContext(this.serviceOptions.sessionId,r);try{var n=new mapboxgl.Map(s);this.map=n,this.authentication=new managers_1.AuthenticationManager(this),this.controls=new managers_1.ControlManager(this),this.events=new managers_1.EventManager(this),this.imageSprite=new managers_1.ImageSpriteManager(this),this.layers=new managers_1.LayerManager(this),this.markers=new managers_1.HtmlMarkerManager(this),this.sources=new managers_1.SourceManager(this),this.styleBuilder=new StyleBuilder_1.StyleBuilder(this.sources,this.layers),this.map.getContainer().classList.add("atlas-map"),this.map.getCanvasContainer().classList.add("atlas-map-canvas-container"),this.map.getCanvasContainer().id="atlas-map_"+uuid(),this.map.getCanvas().classList.add("atlas-map-canvas"),this.copyrightControl=new CopyrightControl_1.CopyrightControl,this.controls.add(this.copyrightControl,{position:ControlOptions_1.ControlPosition.NonFixed}),this.styleOptions.showLogo&&(this.logoControl=new AzureLogoControl_1.AzureLogoControl,this.controls.add(this.logoControl,{position:ControlOptions_1.ControlPosition.NonFixed})),this.styleOptions.showFeedbackLink&&(this.feedbackControl=new FeedbackControl_1.FeedbackControl(this.copyrightControl),this.controls.add(this.feedbackControl,{position:ControlOptions_1.ControlPosition.NonFixed}));var a=this.authentication.initialize();if(this.removed)return;var l=function(){o.loaded=!0,o.map.off("load",l)};this.map.on("load",l);var p=function(){o.ready=!0,o.map.off("styledata",p);var e={map:o,type:"ready"};o.events.invoke("ready",e)};this.map.on("styledata",p),this._setAutoResize(this.styleOptions.autoResize),this.localizedStringsPromise=Localizer_1.Localizer.getStrings(this.styleOptions.language);var c=this.styleDefinitions.initialize();Promise.all([a,c]).then(function(){if(!o.removed){if(!o.authentication.getToken())throw new Error("AuthenticationManager finished initializing, but no token is available");o.serviceOptions["enable-accessibility"]&&o.accessibleMapDelegate.addToMap(),o._addStyleComponents(o.styleOptions)}}).catch(function(e){var t=e instanceof Error?e:new Error(e);o.insights.trackException({error:t});var i={map:o,type:"error",error:t};o.events.invoke("error",i)}),this.setCamera(__assign({},t,{type:"jump",duration:0})),this.setUserInteraction(this.userInteractionOptions),this.incidentDelegate=new IncidentServiceDelegate_1.IncidentServiceDelegate(this),this.flowDelegate=new FlowServiceDelegate_1.FlowServiceDelegate(this,this.styleDefinitions),this.accessibleMapDelegate=new AccessibleMapDelegate_1.AccessibleMapDelegate(this)}catch(e){throw i=!1,this.insights.trackException({error:e instanceof Error?e:new Error(e)}),e}finally{this.insights.trackEvent({name:"MapLoad"},{success:i}),this.insights.flush()}}return e.prototype.getCanvas=function(){return this.map.getCanvas()},e.prototype.getCanvasContainer=function(){return this.map.getCanvasContainer()},e.prototype.getMapContainer=function(){return this.map.getContainer()},e.prototype.getServiceOptions=function(){return _.cloneDeepWith(this.serviceOptions,ServiceOptions_1.ServiceOptions._cloneCustomizer)},e.prototype.setServiceOptions=function(e){this.serviceOptions=(new ServiceOptions_1.ServiceOptions).merge(this.serviceOptions,e),this.serviceOptions["enable-accessibility"]?this.accessibleMapDelegate.addToMap():this.accessibleMapDelegate.removeFromMap()},e.prototype.setCamera=function(e){var t;if("padding"in e||"offset"in e||"bounds"in e){for(var o=(new CameraBoundsOptions_1.CameraBoundsOptions).merge({maxZoom:this.getCamera().maxZoom},e),i=data_1.BoundingBox.getSouth(o.bounds),r=data_1.BoundingBox.getWest(o.bounds),s=data_1.BoundingBox.getNorth(o.bounds),n=data_1.BoundingBox.getEast(o.bounds);r>n;)n+=360;if(!(t=this.map.cameraForBounds([[r,i],[n,s]],{padding:o.padding,offset:o.offset,maxZoom:o.maxZoom})))throw new Error("The map cannot be fit to the current canvas with the given CameraBoundsOptions.");this.map.setMaxZoom(o.maxZoom)}else{var a=(new CameraOptions_1.CameraOptions).merge(this.getCamera(),e);if(a.centerOffset&&a.centerOffset.length>=2){var l=a.centerOffset,p=math.mercatorPositionsToPixels([a.center],a.zoom);p[0][0]+=l[0],p[0][1]+=l[1],a.center=math.mercatorPixelsToPositions(p,a.zoom)[0]}t={center:a.center,zoom:a.zoom,bearing:a.bearing,pitch:a.pitch,around:void 0},this.map.setMinZoom(a.minZoom),this.map.setMaxZoom(a.maxZoom)}var c=(new AnimationOptions_1.AnimationOptions).merge(e),h={duration:c.duration,easing:function(e){return e},offset:[0,0],animate:!0};"jump"===c.type?this.map.jumpTo(t):"ease"===c.type?this.map.easeTo(__assign({},t,h)):"fly"===c.type&&this.map.flyTo(__assign({},t,h))},e.prototype.setCameraBounds=function(e){this.setCamera(e)},e.prototype.getCamera=function(){var e=this.map.getBounds().getSouthWest().toArray(),t=this.map.getBounds().getNorthEast().toArray();return{zoom:this.map.getZoom(),center:this.map.getCenter().toArray(),bearing:this.map.getBearing(),pitch:this.map.getPitch(),bounds:new data_1.BoundingBox(e,t),minZoom:this.map.getMinZoom(),maxZoom:this.map.getMaxZoom()}},e.prototype.setStyle=function(e){delete e.preserveDrawingBuffer;var t=(new StyleOptions_1.StyleOptions).merge(this.styleOptions,e);t.autoResize!==this.styleOptions.autoResize&&this._setAutoResize(t.autoResize),t.language!==this.styleOptions.language&&(this.localizedStringsPromise=Localizer_1.Localizer.getStrings(t.language)),t.renderWorldCopies!==this.styleOptions.renderWorldCopies&&this.map.setRenderWorldCopies(t.renderWorldCopies),t.showLogo&&!this.logoControl?(this.logoControl=new AzureLogoControl_1.AzureLogoControl,this.controls.add(this.logoControl,{position:ControlOptions_1.ControlPosition.NonFixed})):!t.showLogo&&this.logoControl&&(this.controls.remove(this.logoControl),delete this.logoControl),t.showFeedbackLink&&!this.feedbackControl?(this.feedbackControl=new FeedbackControl_1.FeedbackControl(this.copyrightControl),this.controls.add(this.feedbackControl,{position:ControlOptions_1.ControlPosition.NonFixed})):!t.showFeedbackLink&&this.feedbackControl&&(this.controls.remove(this.feedbackControl),delete this.feedbackControl),this._addStyleComponents(t),this.styleOptions=t},e.prototype.getStyle=function(){return _.cloneDeep(this.styleOptions)},e.prototype.addIcon=function(e,t){this.imageSprite.add(e,t)},e.prototype.addPins=function(e,t){var o,i=(new PinLayerOptions_1.PinLayerOptions).merge(t),r=this.layers.getLayerById(i.name),s=!1;if(r||(s=!0,r=new layer_1.SymbolLayer(i.name+"-source",i.name,{source:i.name+"-source",minZoom:i.minZoom,maxZoom:i.maxZoom,iconOptions:{anchor:"center",size:i.iconSize,image:["case",["has","icon"],["get","icon"],i.icon],ignorePlacement:!i.cluster,opacity:i.opacity},textOptions:{anchor:"center",textField:["case",["has","point_count"],["to-string",["get","point_count"]],["has","title"],["to-string",["get","title"]],i.title],font:["case",["has","point_count"],["literal",["StandardFontCondensed-Bold"]],["literal",[i.textFont]]],size:["case",["has","point_count"],20,i.fontSize],ignorePlacement:!i.cluster,opacity:i.opacity,offset:["case",["has","point_count"],["literal",[.5,-.45]],["literal",[i.textOffset[0]/16,i.textOffset[1]/16]]],color:i.fontColor}})),!(r instanceof layer_1.SymbolLayer))throw new Error("A layer with name '"+i.name+"' already exists but it is not a SymbolLayer.A SymbolLayer should be used for rendering pins.");var n=r.getSource();"string"==typeof n?(o=n,n=this.sources.getById(o)):o=n.getId();var a=!1;if(n||(a=!0,n=new source_1.DataSource(o,{cluster:i.cluster})),!(n instanceof source_1.DataSource))throw new Error("The source with name '"+o+"' already exists but it is not a DataSource.New data can only be added to a DataSource.");a&&this.sources.add(n),s&&this.layers.add(r,i.before);var l=new data_1.FeatureCollection(e);i.defer?(i.overwrite&&n._clearNoUpdate(),n._addNoUpdate(l)):i.overwrite?n.setShapes(l):n.add(l)},e.prototype.addCircles=function(e,t){var o,i=(new CircleLayerOptions_1.CircleLayerOptions).merge(t),r=this.layers.getLayerById(i.name),s=!1;if(r||(s=!0,r=new layer_1.BubbleLayer(i.name+"-source",i.name,{source:i.name+"-source",minZoom:i.minZoom,maxZoom:i.maxZoom,opacity:i.opacity,radius:["case",["has","radius"],["get","radius"],i.radius],color:["case",["has","color"],["get","color"],i.color],strokeColor:["case",["has","outlineColor"],["get","outlineColor"],i.outlineColor],strokeWidth:["case",["has","outlineWidth"],["get","outlineWidth"],i.outlineWidth]})),!(r instanceof layer_1.BubbleLayer))throw new Error("A layer with name '"+i.name+"' already exists but it is not a BubbleLayer.A BubbleLayer should be used for rendering circles.");var n=r.getSource();"string"==typeof n?(o=n,n=this.sources.getById(o)):o=n.getId();var a=!1;if(n||(a=!0,n=new source_1.DataSource(o)),!(n instanceof source_1.DataSource))throw new Error("The source with name '"+o+"' already exists but it is not a DataSource.New data can only be added to a DataSource.");a&&this.sources.add(n),s&&this.layers.add(r,i.before);var l=new data_1.FeatureCollection(e);i.defer?(i.overwrite&&n._clearNoUpdate(),n._addNoUpdate(l)):i.overwrite?n.setShapes(l):n.add(l)},e.prototype.addLinestrings=function(e,t){var o,i=(new LinestringLayerOptions_1.LinestringLayerOptions).merge(t),r=this.layers.getLayerById(i.name),s=!1;if(r||(s=!0,r=new layer_1.LineLayer(i.name+"-source",i.name,{source:i.name+"-source",minZoom:i.minZoom,maxZoom:i.maxZoom,lineCap:i.cap,lineJoin:i.join,strokeOpacity:i.opacity,strokeColor:["case",["has","color"],["get","color"],i.color],strokeWidth:["case",["has","width"],["get","width"],i.width]})),!(r instanceof layer_1.LineLayer))throw new Error("A layer with name '"+i.name+"' already exists but it is not a LineLayer.A LineLayer should be used for rendering linestrings.");var n=r.getSource();"string"==typeof n?(o=n,n=this.sources.getById(o)):o=n.getId();var a=!1;if(n||(a=!0,n=new source_1.DataSource(o)),!(n instanceof source_1.DataSource))throw new Error("The source with name '"+o+"' already exists but it is not a DataSource.New data can only be added to a DataSource.");a&&this.sources.add(n),s&&this.layers.add(r,i.before);var l=new data_1.FeatureCollection(e);i.defer?(i.overwrite&&n._clearNoUpdate(),n._addNoUpdate(l)):i.overwrite?n.setShapes(l):n.add(l)},e.prototype.addPolygons=function(e,t){var o,i=(new PolygonLayerOptions_1.PolygonLayerOptions).merge(t),r=this.layers.getLayerById(i.name),s=!1;if(r||(s=!0,r=new layer_1.PolygonLayer(i.name+"-source",i.name,{source:i.name+"-source",minZoom:i.minZoom,maxZoom:i.maxZoom,fillOpacity:i.opacity,fillColor:["case",["has","color"],["get","color"],i.color]})),!(r instanceof layer_1.PolygonLayer))throw new Error("A layer with name '"+i.name+"' already exists but it is not a PolygonLayer.A PolygonLayer should be used for rendering linestrings.");var n=r.getSource();"string"==typeof n?(o=n,n=this.sources.getById(o)):o=n.getId();var a=!1;if(n||(a=!0,n=new source_1.DataSource(o)),!(n instanceof source_1.DataSource))throw new Error("The source with name '"+o+"' already exists but it is not a DataSource.New data can only be added to a DataSource.");a&&this.sources.add(n),s&&this.layers.add(r,i.before);var l=new data_1.FeatureCollection(e);i.defer?(i.overwrite&&n._clearNoUpdate(),n._addNoUpdate(l)):i.overwrite?n.setShapes(l):n.add(l)},e.prototype.addRaster=function(e,t){var o,i=(new RasterLayerOptions_1.RasterLayerOptions).merge(t),r=this.layers.getLayerById(i.name),s=!1;if(r||(s=!0,r=new layer_1.TileLayer({maxZoom:i.maxZoom,minZoom:i.minZoom,opacity:i.opacity,tileSize:256,tileUrl:"{subdomain}"},i.name)),!(r instanceof layer_1.TileLayer))throw new Error("A layer with name '"+i.name+"' already exists but it is not a TileLayer.A TileLayer should be used for rendering raster images.");if("{subdomain}"!==r.getOptions().tileUrl)throw new Error("A TileLayer with name '"+i.name+"' already exists but was configured for a single tile url [default for new TileLayer(...)].");(o=i.overwrite?[]:r.getOptions().subdomains||[]).push.apply(o,e),r._setOptionsNoUpdate({subdomains:o}),i.defer?s&&this.layers._addNoUpdate(r,i.before):this.layers.add(r,i.before)},e.prototype.getLayers=function(){return this.layers.getLayers().map(function(e){return e.getId()})},e.prototype.removeLayers=function(e){for(var t=0,o=e;t<o.length;t++){var i=o[t];if(this.layers.getLayerById(i)){this.layers.remove(i);var r=i+"-source";this.sources.getById(r)&&this.sources.remove(r)}}},e.prototype.addHtml=function(e,t){e.id||(e.id="marker_"+uuid());var o=new HtmlMarker_1.HtmlMarker({htmlContent:e});return this.markers.add(o,t),e.id},e.prototype.removeHtml=function(e){this.markers.remove(e)},e.prototype.addEventListener=function(e,t,o){this.events._addLegacy(e,t,o)},e.prototype.removeEventListener=function(e,t,o){this.events._removeLegacy(e,t,o)},e.prototype.setUserInteraction=function(e){this.userInteractionOptions=(new UserInteractionOptions_1.UserInteractionOptions).merge(this.userInteractionOptions,e),this.userInteractionOptions.interactive?(this.userInteractionOptions.boxZoomInteraction?this.map.boxZoom.enable():this.map.boxZoom.disable(),this.userInteractionOptions.dblClickZoomInteraction?this.map.doubleClickZoom.enable():this.map.doubleClickZoom.disable(),this.userInteractionOptions.dragPanInteraction?this.map.dragPan.enable():this.map.dragPan.disable(),this.userInteractionOptions.dragRotateInteraction?this.map.dragRotate.enable():this.map.dragRotate.disable(),this.userInteractionOptions.keyboardInteraction?this.map.keyboard.enable():this.map.keyboard.disable(),this.userInteractionOptions.scrollZoomInteraction?this.map.scrollZoom.enable():this.map.scrollZoom.disable(),this.userInteractionOptions.touchInteraction?this.map.touchZoomRotate.enable():this.map.touchZoomRotate.disable()):(this.map.boxZoom.disable(),this.map.doubleClickZoom.disable(),this.map.dragPan.disable(),this.map.dragRotate.disable(),this.map.keyboard.disable(),this.map.scrollZoom.disable(),this.map.touchZoomRotate.disable())},e.prototype.getUserInteraction=function(){return _.cloneDeep(this.userInteractionOptions)},e.prototype.addControl=function(e,t){this.controls.add(e,t)},e.prototype.removeControl=function(e){this.controls.remove(e)},e.prototype.setTraffic=function(e){var t=this.trafficOptions.incidents,o=this.trafficOptions.flow;if(this.trafficOptions=(new TrafficOptions_1.TrafficOptions).merge(this.trafficOptions,e),this.trafficOptions.incidents?t||this.incidentDelegate.addToMap():this.incidentDelegate.removeFromMap(),this.trafficOptions.flow&&"none"!==this.trafficOptions.flow)try{this.flowDelegate.addToMap()}catch(e){throw this.trafficOptions.flow=o,e}else this.flowDelegate.removeFromMap()},e.prototype.getTraffic=function(){return _.cloneDeep(this.trafficOptions)},e.prototype.remove=function(){this.dispose()},e.prototype.clear=function(){this.trackedPopups.forEach(function(e){e.remove()}),this.layers.clear(),this.sources.clear(),this.markers.clear()},e.prototype.dispose=function(){for(this.map.remove(),this.removed=!0;this.getMapContainer().firstChild;){var e=this.getMapContainer().firstChild;this.getMapContainer().removeChild(e)}},e.prototype.resize=function(e,t,o){if("number"!=typeof e&&"string"!=typeof e||"number"!=typeof t&&"string"!=typeof t)o=e;else{var i=e;this.getMapContainer().style.height="number"==typeof i?i+"px":i,this.getMapContainer().style.width="number"==typeof t?t+"px":t}this.map.resize(o)},e.prototype.pixelsToPositions=function(e){for(var t=[],o=0,i=e;o<i.length;o++){var r=i[o],s=this.map.unproject(r);t.push(new data_1.Position(s.lng,s.lat))}return t},e.prototype.positionsToPixels=function(e){for(var t=[],o=0,i=e;o<i.length;o++){var r=i[o],s=this.map.project(r);t.push(new Pixel_1.Pixel(s.x,s.y))}return t},e.prototype.areTilesLoaded=function(){return this.map.areTilesLoaded()},e.prototype.stop=function(){this.map.stop()},e.prototype._getMap=function(){return this.map},e.prototype._trackPopup=function(e){this.trackedPopups.add(e)},e.prototype._untrackPopup=function(e){this.trackedPopups.delete(e)},e.prototype._rebuildStyle=function(){this.map.setStyle(this.styleBuilder.build()),this.imageSprite._restoreImages()},e.prototype._isLoaded=function(){return this.loaded},e.prototype._isReady=function(){return this.ready},e.prototype._getLocalizedStrings=function(){return this.localizedStringsPromise},e.prototype._getStyleDefs=function(){return this.styleDefinitions},e.prototype._setAutoResize=function(e){e?window.addEventListener("resize",this._windowResizeCallback):window.removeEventListener("resize",this._windowResizeCallback)},e.prototype._addStyleComponents=function(e){var t=this;this.styleDefinitions.getStyleComponents(e).then(function(o){if(!t.removed){t.copyrightControl.update(t.styleDefinitions.getCopyrightCaption(e)),t.styleBuilder.setGlyphs(t.styleDefinitions.getGlyphs(e)),t.styleBuilder.setSprite(t.styleDefinitions.getSprite(e));for(var i=0,r=o;i<r.length;i++){var s=r[i];t.sources._addNoUpdate(s.sources),t.layers._addNoUpdate(s.layer)}t._rebuildStyle()}})},e}();exports.Map=Map;
+},{"../../../variables.json":289,"../helpers/Version":178,"@microsoft/applicationinsights-common":1,"@microsoft/applicationinsights-web":2}],185:[function(require,module,exports){
+"use strict";var __assign=this&&this.__assign||function(){return(__assign=Object.assign||function(e){for(var t,o=1,i=arguments.length;o<i;o++)for(var r in t=arguments[o])Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r]);return e}).apply(this,arguments)};Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),mapboxgl=require("mapbox-gl"),uuid=require("uuid-random"),vars=require("../../../variables.json"),atlas=require("../Atlas"),Localizer_1=require("../helpers/localization/Localizer"),HtmlMarker_1=require("../HtmlMarker"),Insights_1=require("../instrumentation/Insights"),AzureLogoControl_1=require("../namespace/controls/AzureLogoControl"),CopyrightControl_1=require("../namespace/controls/CopyrightControl"),FeedbackControl_1=require("../namespace/controls/FeedbackControl"),data_1=require("../namespace/data"),layer_1=require("../namespace/layer"),math=require("../namespace/math"),source_1=require("../namespace/source"),Pixel_1=require("../Pixel"),AccessibleMapDelegate_1=require("./delegates/accessibility/AccessibleMapDelegate"),FlowServiceDelegate_1=require("./delegates/flow/FlowServiceDelegate"),IncidentServiceDelegate_1=require("./delegates/incidents/IncidentServiceDelegate"),managers_1=require("./managers"),AnimationOptions_1=require("./options/AnimationOptions"),CameraBoundsOptions_1=require("./options/CameraBoundsOptions"),CameraOptions_1=require("./options/CameraOptions"),CircleLayerOptions_1=require("./options/CircleLayerOptions"),ControlOptions_1=require("./options/ControlOptions"),LinestringLayerOptions_1=require("./options/LinestringLayerOptions"),PinLayerOptions_1=require("./options/PinLayerOptions"),PolygonLayerOptions_1=require("./options/PolygonLayerOptions"),RasterLayerOptions_1=require("./options/RasterLayerOptions"),StyleOptions_1=require("./options/StyleOptions"),TrafficOptions_1=require("./options/TrafficOptions"),UserInteractionOptions_1=require("./options/UserInteractionOptions"),ServiceOptions_1=require("./services/options/ServiceOptions"),StyleBuilder_1=require("./style/StyleBuilder"),StyleDefinitions_1=require("./style/StyleDefinitions"),Map=function(){function e(e,t){var o=this;this.trackedPopups=new Set,this.removed=!1,this.loaded=!1,this.ready=!1,this._windowResizeCallback=function(){var e=o.getMapContainer().clientHeight,t=o.getMapContainer().clientWidth;o.getCanvas().height=e,o.getCanvas().width=t,o.getCanvas().style.height=e+"px",o.getCanvas().style.width=t+"px",o.map.resize()};var i=!0;t&&(t.authOptions&&!atlas._hasSetAuthenticationOptions()&&atlas.setAuthenticationOptions(t.authOptions),!t.subscriptionKey&&!t["subscription-key"]||atlas._hasSetAuthenticationOptions()||atlas.setSubscriptionKey(t.subscriptionKey||t["subscription-key"]),!t.sessionId&&!t["session-id"]||atlas._hasSetSessionId()||atlas.setSessionId(t.sessionId||t["session-id"]),t.language&&!atlas._hasSetLanguage()&&atlas.setLanguage(t.language),!t.userRegion&&!t.view||atlas._hasSetView()||atlas.setUserRegion(t.userRegion||t.view),t.tilesetId&&!atlas._hasTilesetId()&&atlas.setTilesetId(t.tilesetId)),this.serviceOptions=(new ServiceOptions_1.ServiceOptions).merge(t),this.styleOptions=(new StyleOptions_1.StyleOptions).merge(t),this.userInteractionOptions=(new UserInteractionOptions_1.UserInteractionOptions).merge(t),this.trafficOptions=new TrafficOptions_1.TrafficOptions,this.styleDefinitions=new StyleDefinitions_1.StyleDefinitions,this.insights=new Insights_1.Insights(this.serviceOptions);var r,s={attributionControl:!1,container:e,preserveDrawingBuffer:this.styleOptions.preserveDrawingBuffer,refreshExpiredTiles:this.serviceOptions.refreshExpiredTiles,renderWorldCopies:this.styleOptions.renderWorldCopies,trackResize:!1,transformRequest:function(e,t){var i={url:e};return"Tile"===t&&_.startsWith(e,"https://"+vars.env.domain)&&(o.insights.trackEvent({name:"TileLoad"}),o.authentication.signRequest(i)),o.serviceOptions.transformRequest&&_.merge(i,o.serviceOptions.transformRequest(i.url,t)),i}};r=this.serviceOptions.authOptions.clientId?this.serviceOptions.authOptions.clientId:this.serviceOptions.authOptions.subscriptionKey?this.serviceOptions.authOptions.subscriptionKey.replace(/.(?=.{3,}$)/g,"*"):"invalid-setting",this.insights.setAuthenticatedUserContext(this.serviceOptions.sessionId,r);try{var n=new mapboxgl.Map(s);this.map=n,this.authentication=new managers_1.AuthenticationManager(this),this.controls=new managers_1.ControlManager(this),this.events=new managers_1.EventManager(this),this.imageSprite=new managers_1.ImageSpriteManager(this),this.layers=new managers_1.LayerManager(this),this.markers=new managers_1.HtmlMarkerManager(this),this.sources=new managers_1.SourceManager(this),this.styleBuilder=new StyleBuilder_1.StyleBuilder(this.sources,this.layers),this.map.getContainer().classList.add("atlas-map"),this.map.getCanvasContainer().classList.add("atlas-map-canvas-container"),this.map.getCanvasContainer().id="atlas-map_"+uuid(),this.map.getCanvas().classList.add("atlas-map-canvas"),this.copyrightControl=new CopyrightControl_1.CopyrightControl,this.controls.add(this.copyrightControl,{position:ControlOptions_1.ControlPosition.NonFixed}),this.styleOptions.showLogo&&(this.logoControl=new AzureLogoControl_1.AzureLogoControl,this.controls.add(this.logoControl,{position:ControlOptions_1.ControlPosition.NonFixed})),this.styleOptions.showFeedbackLink&&(this.feedbackControl=new FeedbackControl_1.FeedbackControl(this.copyrightControl),this.controls.add(this.feedbackControl,{position:ControlOptions_1.ControlPosition.NonFixed}));var a=this.authentication.initialize();if(this.removed)return;var l=function(){o.loaded=!0,o.map.off("load",l)};this.map.on("load",l);var p=function(){o.ready=!0,o.map.off("styledata",p);var e={map:o,type:"ready"};o.events.invoke("ready",e)};this.map.on("styledata",p),this._setAutoResize(this.styleOptions.autoResize),this.localizedStringsPromise=Localizer_1.Localizer.getStrings(this.styleOptions.language);var c=this.styleDefinitions.initialize();Promise.all([a,c]).then(function(){if(!o.removed){if(!o.authentication.getToken())throw new Error("AuthenticationManager finished initializing, but no token is available");o.serviceOptions["enable-accessibility"]&&o.accessibleMapDelegate.addToMap(),o._addStyleComponents(o.styleOptions)}}).catch(function(e){var t=e instanceof Error?e:new Error(e);o.insights.trackException({error:t});var i={map:o,type:"error",error:t};o.events.invoke("error",i)}),this.setCamera(__assign({},t,{type:"jump",duration:0})),this.setUserInteraction(this.userInteractionOptions),this.incidentDelegate=new IncidentServiceDelegate_1.IncidentServiceDelegate(this),this.flowDelegate=new FlowServiceDelegate_1.FlowServiceDelegate(this,this.styleDefinitions),this.accessibleMapDelegate=new AccessibleMapDelegate_1.AccessibleMapDelegate(this)}catch(e){throw i=!1,this.insights.trackException({error:e instanceof Error?e:new Error(e)}),e}finally{this.insights.trackEvent({name:"MapLoad"},{success:i,supported:atlas.isSupported(!1),supportedWithPerformance:atlas.isSupported(!0)}),this.insights.flush()}}return e.prototype.getCanvas=function(){return this.map.getCanvas()},e.prototype.getCanvasContainer=function(){return this.map.getCanvasContainer()},e.prototype.getMapContainer=function(){return this.map.getContainer()},e.prototype.getServiceOptions=function(){return _.cloneDeepWith(this.serviceOptions,ServiceOptions_1.ServiceOptions._cloneCustomizer)},e.prototype.setServiceOptions=function(e){this.serviceOptions=(new ServiceOptions_1.ServiceOptions).merge(this.serviceOptions,e),this.serviceOptions["enable-accessibility"]?this.accessibleMapDelegate.addToMap():this.accessibleMapDelegate.removeFromMap()},e.prototype.setCamera=function(e){var t;if("padding"in e||"offset"in e||"bounds"in e){for(var o=(new CameraBoundsOptions_1.CameraBoundsOptions).merge({maxZoom:this.getCamera().maxZoom},e),i=data_1.BoundingBox.getSouth(o.bounds),r=data_1.BoundingBox.getWest(o.bounds),s=data_1.BoundingBox.getNorth(o.bounds),n=data_1.BoundingBox.getEast(o.bounds);r>n;)n+=360;if(!(t=this.map.cameraForBounds([[r,i],[n,s]],{padding:o.padding,offset:o.offset,maxZoom:o.maxZoom})))throw new Error("The map cannot be fit to the current canvas with the given CameraBoundsOptions.");this.map.setMaxZoom(o.maxZoom)}else{var a=(new CameraOptions_1.CameraOptions).merge(this.getCamera(),e);if(a.centerOffset&&a.centerOffset.length>=2){var l=a.centerOffset,p=math.mercatorPositionsToPixels([a.center],a.zoom);p[0][0]+=l[0],p[0][1]+=l[1],a.center=math.mercatorPixelsToPositions(p,a.zoom)[0]}t={center:a.center,zoom:a.zoom,bearing:a.bearing,pitch:a.pitch,around:void 0},this.map.setMinZoom(a.minZoom),this.map.setMaxZoom(a.maxZoom)}var c=(new AnimationOptions_1.AnimationOptions).merge(e),h={duration:c.duration,easing:function(e){return e},offset:[0,0],animate:!0};"jump"===c.type?this.map.jumpTo(t):"ease"===c.type?this.map.easeTo(__assign({},t,h)):"fly"===c.type&&this.map.flyTo(__assign({},t,h))},e.prototype.setCameraBounds=function(e){this.setCamera(e)},e.prototype.getCamera=function(){var e=this.map.getBounds().getSouthWest().toArray(),t=this.map.getBounds().getNorthEast().toArray();return{zoom:this.map.getZoom(),center:this.map.getCenter().toArray(),bearing:this.map.getBearing(),pitch:this.map.getPitch(),bounds:new data_1.BoundingBox(e,t),minZoom:this.map.getMinZoom(),maxZoom:this.map.getMaxZoom()}},e.prototype.setStyle=function(e){delete e.preserveDrawingBuffer;var t=(new StyleOptions_1.StyleOptions).merge(this.styleOptions,e);t.autoResize!==this.styleOptions.autoResize&&this._setAutoResize(t.autoResize),t.language!==this.styleOptions.language&&(this.localizedStringsPromise=Localizer_1.Localizer.getStrings(t.language)),t.renderWorldCopies!==this.styleOptions.renderWorldCopies&&this.map.setRenderWorldCopies(t.renderWorldCopies),t.showLogo&&!this.logoControl?(this.logoControl=new AzureLogoControl_1.AzureLogoControl,this.controls.add(this.logoControl,{position:ControlOptions_1.ControlPosition.NonFixed})):!t.showLogo&&this.logoControl&&(this.controls.remove(this.logoControl),delete this.logoControl),t.showFeedbackLink&&!this.feedbackControl?(this.feedbackControl=new FeedbackControl_1.FeedbackControl(this.copyrightControl),this.controls.add(this.feedbackControl,{position:ControlOptions_1.ControlPosition.NonFixed})):!t.showFeedbackLink&&this.feedbackControl&&(this.controls.remove(this.feedbackControl),delete this.feedbackControl),this._addStyleComponents(t),this.styleOptions=t},e.prototype.getStyle=function(){return _.cloneDeep(this.styleOptions)},e.prototype.addIcon=function(e,t){this.imageSprite.add(e,t)},e.prototype.addPins=function(e,t){var o,i=(new PinLayerOptions_1.PinLayerOptions).merge(t),r=this.layers.getLayerById(i.name),s=!1;if(r||(s=!0,r=new layer_1.SymbolLayer(i.name+"-source",i.name,{source:i.name+"-source",minZoom:i.minZoom,maxZoom:i.maxZoom,iconOptions:{anchor:"center",size:i.iconSize,image:["case",["has","icon"],["get","icon"],i.icon],ignorePlacement:!i.cluster,opacity:i.opacity},textOptions:{anchor:"center",textField:["case",["has","point_count"],["to-string",["get","point_count"]],["has","title"],["to-string",["get","title"]],i.title],font:["case",["has","point_count"],["literal",["StandardFontCondensed-Bold"]],["literal",[i.textFont]]],size:["case",["has","point_count"],20,i.fontSize],ignorePlacement:!i.cluster,opacity:i.opacity,offset:["case",["has","point_count"],["literal",[.5,-.45]],["literal",[i.textOffset[0]/16,i.textOffset[1]/16]]],color:i.fontColor}})),!(r instanceof layer_1.SymbolLayer))throw new Error("A layer with name '"+i.name+"' already exists but it is not a SymbolLayer.A SymbolLayer should be used for rendering pins.");var n=r.getSource();"string"==typeof n?(o=n,n=this.sources.getById(o)):o=n.getId();var a=!1;if(n||(a=!0,n=new source_1.DataSource(o,{cluster:i.cluster})),!(n instanceof source_1.DataSource))throw new Error("The source with name '"+o+"' already exists but it is not a DataSource.New data can only be added to a DataSource.");a&&this.sources.add(n),s&&this.layers.add(r,i.before);var l=new data_1.FeatureCollection(e);i.defer?(i.overwrite&&n._clearNoUpdate(),n._addNoUpdate(l)):i.overwrite?n.setShapes(l):n.add(l)},e.prototype.addCircles=function(e,t){var o,i=(new CircleLayerOptions_1.CircleLayerOptions).merge(t),r=this.layers.getLayerById(i.name),s=!1;if(r||(s=!0,r=new layer_1.BubbleLayer(i.name+"-source",i.name,{source:i.name+"-source",minZoom:i.minZoom,maxZoom:i.maxZoom,opacity:i.opacity,radius:["case",["has","radius"],["get","radius"],i.radius],color:["case",["has","color"],["get","color"],i.color],strokeColor:["case",["has","outlineColor"],["get","outlineColor"],i.outlineColor],strokeWidth:["case",["has","outlineWidth"],["get","outlineWidth"],i.outlineWidth]})),!(r instanceof layer_1.BubbleLayer))throw new Error("A layer with name '"+i.name+"' already exists but it is not a BubbleLayer.A BubbleLayer should be used for rendering circles.");var n=r.getSource();"string"==typeof n?(o=n,n=this.sources.getById(o)):o=n.getId();var a=!1;if(n||(a=!0,n=new source_1.DataSource(o)),!(n instanceof source_1.DataSource))throw new Error("The source with name '"+o+"' already exists but it is not a DataSource.New data can only be added to a DataSource.");a&&this.sources.add(n),s&&this.layers.add(r,i.before);var l=new data_1.FeatureCollection(e);i.defer?(i.overwrite&&n._clearNoUpdate(),n._addNoUpdate(l)):i.overwrite?n.setShapes(l):n.add(l)},e.prototype.addLinestrings=function(e,t){var o,i=(new LinestringLayerOptions_1.LinestringLayerOptions).merge(t),r=this.layers.getLayerById(i.name),s=!1;if(r||(s=!0,r=new layer_1.LineLayer(i.name+"-source",i.name,{source:i.name+"-source",minZoom:i.minZoom,maxZoom:i.maxZoom,lineCap:i.cap,lineJoin:i.join,strokeOpacity:i.opacity,strokeColor:["case",["has","color"],["get","color"],i.color],strokeWidth:["case",["has","width"],["get","width"],i.width]})),!(r instanceof layer_1.LineLayer))throw new Error("A layer with name '"+i.name+"' already exists but it is not a LineLayer.A LineLayer should be used for rendering linestrings.");var n=r.getSource();"string"==typeof n?(o=n,n=this.sources.getById(o)):o=n.getId();var a=!1;if(n||(a=!0,n=new source_1.DataSource(o)),!(n instanceof source_1.DataSource))throw new Error("The source with name '"+o+"' already exists but it is not a DataSource.New data can only be added to a DataSource.");a&&this.sources.add(n),s&&this.layers.add(r,i.before);var l=new data_1.FeatureCollection(e);i.defer?(i.overwrite&&n._clearNoUpdate(),n._addNoUpdate(l)):i.overwrite?n.setShapes(l):n.add(l)},e.prototype.addPolygons=function(e,t){var o,i=(new PolygonLayerOptions_1.PolygonLayerOptions).merge(t),r=this.layers.getLayerById(i.name),s=!1;if(r||(s=!0,r=new layer_1.PolygonLayer(i.name+"-source",i.name,{source:i.name+"-source",minZoom:i.minZoom,maxZoom:i.maxZoom,fillOpacity:i.opacity,fillColor:["case",["has","color"],["get","color"],i.color]})),!(r instanceof layer_1.PolygonLayer))throw new Error("A layer with name '"+i.name+"' already exists but it is not a PolygonLayer.A PolygonLayer should be used for rendering linestrings.");var n=r.getSource();"string"==typeof n?(o=n,n=this.sources.getById(o)):o=n.getId();var a=!1;if(n||(a=!0,n=new source_1.DataSource(o)),!(n instanceof source_1.DataSource))throw new Error("The source with name '"+o+"' already exists but it is not a DataSource.New data can only be added to a DataSource.");a&&this.sources.add(n),s&&this.layers.add(r,i.before);var l=new data_1.FeatureCollection(e);i.defer?(i.overwrite&&n._clearNoUpdate(),n._addNoUpdate(l)):i.overwrite?n.setShapes(l):n.add(l)},e.prototype.addRaster=function(e,t){var o,i=(new RasterLayerOptions_1.RasterLayerOptions).merge(t),r=this.layers.getLayerById(i.name),s=!1;if(r||(s=!0,r=new layer_1.TileLayer({maxZoom:i.maxZoom,minZoom:i.minZoom,opacity:i.opacity,tileSize:256,tileUrl:"{subdomain}"},i.name)),!(r instanceof layer_1.TileLayer))throw new Error("A layer with name '"+i.name+"' already exists but it is not a TileLayer.A TileLayer should be used for rendering raster images.");if("{subdomain}"!==r.getOptions().tileUrl)throw new Error("A TileLayer with name '"+i.name+"' already exists but was configured for a single tile url [default for new TileLayer(...)].");(o=i.overwrite?[]:r.getOptions().subdomains||[]).push.apply(o,e),r._setOptionsNoUpdate({subdomains:o}),i.defer?s&&this.layers._addNoUpdate(r,i.before):this.layers.add(r,i.before)},e.prototype.getLayers=function(){return this.layers.getLayers().map(function(e){return e.getId()})},e.prototype.removeLayers=function(e){for(var t=0,o=e;t<o.length;t++){var i=o[t];if(this.layers.getLayerById(i)){this.layers.remove(i);var r=i+"-source";this.sources.getById(r)&&this.sources.remove(r)}}},e.prototype.addHtml=function(e,t){e.id||(e.id="marker_"+uuid());var o=new HtmlMarker_1.HtmlMarker({htmlContent:e});return this.markers.add(o,t),e.id},e.prototype.removeHtml=function(e){this.markers.remove(e)},e.prototype.addEventListener=function(e,t,o){this.events._addLegacy(e,t,o)},e.prototype.removeEventListener=function(e,t,o){this.events._removeLegacy(e,t,o)},e.prototype.setUserInteraction=function(e){this.userInteractionOptions=(new UserInteractionOptions_1.UserInteractionOptions).merge(this.userInteractionOptions,e),this.userInteractionOptions.interactive?(this.userInteractionOptions.boxZoomInteraction?this.map.boxZoom.enable():this.map.boxZoom.disable(),this.userInteractionOptions.dblClickZoomInteraction?this.map.doubleClickZoom.enable():this.map.doubleClickZoom.disable(),this.userInteractionOptions.dragPanInteraction?this.map.dragPan.enable():this.map.dragPan.disable(),this.userInteractionOptions.dragRotateInteraction?this.map.dragRotate.enable():this.map.dragRotate.disable(),this.userInteractionOptions.keyboardInteraction?this.map.keyboard.enable():this.map.keyboard.disable(),this.userInteractionOptions.scrollZoomInteraction?this.map.scrollZoom.enable():this.map.scrollZoom.disable(),this.userInteractionOptions.touchInteraction?this.map.touchZoomRotate.enable():this.map.touchZoomRotate.disable()):(this.map.boxZoom.disable(),this.map.doubleClickZoom.disable(),this.map.dragPan.disable(),this.map.dragRotate.disable(),this.map.keyboard.disable(),this.map.scrollZoom.disable(),this.map.touchZoomRotate.disable())},e.prototype.getUserInteraction=function(){return _.cloneDeep(this.userInteractionOptions)},e.prototype.addControl=function(e,t){this.controls.add(e,t)},e.prototype.removeControl=function(e){this.controls.remove(e)},e.prototype.setTraffic=function(e){var t=this.trafficOptions.incidents,o=this.trafficOptions.flow;if(this.trafficOptions=(new TrafficOptions_1.TrafficOptions).merge(this.trafficOptions,e),this.trafficOptions.incidents?t||this.incidentDelegate.addToMap():this.incidentDelegate.removeFromMap(),this.trafficOptions.flow&&"none"!==this.trafficOptions.flow)try{this.flowDelegate.addToMap()}catch(e){throw this.trafficOptions.flow=o,e}else this.flowDelegate.removeFromMap()},e.prototype.getTraffic=function(){return _.cloneDeep(this.trafficOptions)},e.prototype.remove=function(){this.dispose()},e.prototype.clear=function(){this.trackedPopups.forEach(function(e){e.remove()}),this.layers.clear(),this.sources.clear(),this.markers.clear()},e.prototype.dispose=function(){for(this.clear(),this.map.remove(),this.removed=!0;this.getMapContainer().firstChild;){var e=this.getMapContainer().firstChild;this.getMapContainer().removeChild(e)}},e.prototype.resize=function(e,t,o){if("number"!=typeof e&&"string"!=typeof e||"number"!=typeof t&&"string"!=typeof t)o=e;else{var i=e;this.getMapContainer().style.height="number"==typeof i?i+"px":i,this.getMapContainer().style.width="number"==typeof t?t+"px":t}this.map.resize(o)},e.prototype.pixelsToPositions=function(e){for(var t=[],o=0,i=e;o<i.length;o++){var r=i[o],s=this.map.unproject(r);t.push(new data_1.Position(s.lng,s.lat))}return t},e.prototype.positionsToPixels=function(e){for(var t=[],o=0,i=e;o<i.length;o++){var r=i[o],s=this.map.project(r);t.push(new Pixel_1.Pixel(s.x,s.y))}return t},e.prototype.areTilesLoaded=function(){return this.map.areTilesLoaded()},e.prototype.stop=function(){this.map.stop()},e.prototype._getMap=function(){return this.map},e.prototype._trackPopup=function(e){this.trackedPopups.add(e)},e.prototype._untrackPopup=function(e){this.trackedPopups.delete(e)},e.prototype._rebuildStyle=function(){this.map.setStyle(this.styleBuilder.build()),this.imageSprite._restoreImages()},e.prototype._isLoaded=function(){return this.loaded},e.prototype._isReady=function(){return this.ready},e.prototype._getLocalizedStrings=function(){return this.localizedStringsPromise},e.prototype._getStyleDefs=function(){return this.styleDefinitions},e.prototype._setAutoResize=function(e){e?window.addEventListener("resize",this._windowResizeCallback):window.removeEventListener("resize",this._windowResizeCallback)},e.prototype._addStyleComponents=function(e){var t=this;this.styleDefinitions.getStyleComponents(e).then(function(o){if(!t.removed){t.copyrightControl.update(t.styleDefinitions.getCopyrightCaption(e)),t.styleBuilder.setGlyphs(t.styleDefinitions.getGlyphs(e)),t.styleBuilder.setSprite(t.styleDefinitions.getSprite(e));for(var i=0,r=o;i<r.length;i++){var s=r[i];t.sources._addNoUpdate(s.sources),t.layers._addNoUpdate(s.layer)}t._rebuildStyle()}})},e}();exports.Map=Map;
 
-},{"../../../variables.json":287,"../Atlas":166,"../HtmlMarker":167,"../Pixel":169,"../helpers/localization/Localizer":182,"../instrumentation/Insights":184,"../namespace/controls/AzureLogoControl":224,"../namespace/controls/CopyrightControl":229,"../namespace/controls/FeedbackControl":231,"../namespace/data":250,"../namespace/layer":263,"../namespace/math":277,"../namespace/source":282,"./delegates/accessibility/AccessibleMapDelegate":186,"./delegates/flow/FlowServiceDelegate":189,"./delegates/incidents/IncidentServiceDelegate":192,"./managers":201,"./options/AnimationOptions":202,"./options/CameraBoundsOptions":203,"./options/CameraOptions":204,"./options/CircleLayerOptions":205,"./options/ControlOptions":206,"./options/LinestringLayerOptions":208,"./options/PinLayerOptions":209,"./options/PolygonLayerOptions":210,"./options/RasterLayerOptions":211,"./options/StyleOptions":212,"./options/TrafficOptions":213,"./options/UserInteractionOptions":214,"./services/options/ServiceOptions":219,"./style/StyleBuilder":221,"./style/StyleDefinitions":222,"lodash":109,"mapbox-gl":110,"uuid-random":162}],186:[function(require,module,exports){
+},{"../../../variables.json":289,"../Atlas":166,"../HtmlMarker":167,"../Pixel":169,"../helpers/localization/Localizer":182,"../instrumentation/Insights":184,"../namespace/controls/AzureLogoControl":224,"../namespace/controls/CopyrightControl":229,"../namespace/controls/FeedbackControl":231,"../namespace/data":252,"../namespace/layer":265,"../namespace/math":279,"../namespace/source":284,"./delegates/accessibility/AccessibleMapDelegate":186,"./delegates/flow/FlowServiceDelegate":189,"./delegates/incidents/IncidentServiceDelegate":192,"./managers":201,"./options/AnimationOptions":202,"./options/CameraBoundsOptions":203,"./options/CameraOptions":204,"./options/CircleLayerOptions":205,"./options/ControlOptions":206,"./options/LinestringLayerOptions":208,"./options/PinLayerOptions":209,"./options/PolygonLayerOptions":210,"./options/RasterLayerOptions":211,"./options/StyleOptions":212,"./options/TrafficOptions":213,"./options/UserInteractionOptions":214,"./services/options/ServiceOptions":219,"./style/StyleBuilder":221,"./style/StyleDefinitions":222,"lodash":109,"mapbox-gl":110,"uuid-random":162}],186:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var MapViewDescriptor_1=require("./MapViewDescriptor"),AccessibleMapDelegate=function(){return function(a){var e=this;this.addToMap=function(){e.createMapKeyBindingInfo(),e.initializeMapLiveStateInfo(),e.initializeMapStyleInfo(),e.map.getMapContainer().setAttribute("role","application"),e.map.getMapContainer().setAttribute("aria-label","Map Application"),e.map.getCanvas().setAttribute("aria-label","Interactive Map"),e.map.getCanvas().setAttribute("aria-describedby","atlas-map-state atlas-map-shortcuts"),e.map.getCanvas().setAttribute("title","Interactive Map"),e.map.getCanvas().setAttribute("alt","Interactive Map")},this.removeFromMap=function(){null!=e.mapViewDesc&&e.mapViewDesc.dispose(),e.mapViewDesc=null,null!=e.atlasMapKeyBindings&&e.map.getCanvasContainer().removeChild(e.atlasMapKeyBindings),e.atlasMapKeyBindings=null,null!=e.atlasMapLiveStateInfo&&e.map.getCanvasContainer().removeChild(e.atlasMapLiveStateInfo),e.atlasMapLiveStateInfo=null,null!=e.atlasMapStyleInfo&&e.map.getCanvasContainer().removeChild(e.atlasMapStyleInfo),e.atlasMapStyleInfo=null,e.map.getMapContainer().removeAttribute("role"),e.map.getMapContainer().removeAttribute("aria-label"),e.map.getCanvas().removeAttribute("aria-label"),e.map.getCanvas().removeAttribute("aria-describedby"),e.map.getCanvas().removeAttribute("title"),e.map.getCanvas().removeAttribute("alt"),e.map.events.remove("styledata",e.updateMapStyle)},this.createMapKeyBindingInfo=function(){e.atlasMapKeyBindings=document.createElement("div"),e.atlasMapKeyBindings.setAttribute("tabindex","-1"),e.atlasMapKeyBindings.setAttribute("aria-label","Interactive Map Key Bindings"),e.atlasMapKeyBindings.id="atlas-map-shortcuts",e.atlasMapKeyBindings.classList.add("hidden-accessible-element"),e.map.getCanvasContainer().appendChild(e.atlasMapKeyBindings),e.atlasMapKeyBindings.innerHTML="<p>Zoom out: hyphen</p><p>Zoom in: plus</p><p>Pan right 100 pixels: right arrow</p><p>Pan left 100 pixels: left arrow</p><p>Pan up 100 pixels: up arrow</p><p>Pan down 100 pixels: down arrow</p><p>Rotate 15 degrees clockwise: shift + right arrow</p><p>Rotate 15 degrees counter clockwise: shift + left arrow</p><p>Increase pitch 10 degrees: shift + up arrow</p><p>Decrease pitch 10 degrees: shift + down arrow</p><p>Toggle verbose map state: control + alt + D</p>"},this.initializeMapLiveStateInfo=function(){e.mapViewDesc=new MapViewDescriptor_1.MapViewDescriptor(e.map,e.updateMapState),e.atlasMapLiveStateInfo=document.createElement("div"),e.atlasMapLiveStateInfo.setAttribute("tabindex","-1"),e.atlasMapLiveStateInfo.setAttribute("aria-label","Interactive Map State"),e.atlasMapLiveStateInfo.setAttribute("aria-live","polite"),e.atlasMapLiveStateInfo.setAttribute("aria-atomic","true"),e.atlasMapLiveStateInfo.id="atlas-map-state",e.atlasMapLiveStateInfo.classList.add("hidden-accessible-element"),e.map.getCanvasContainer().appendChild(e.atlasMapLiveStateInfo)},this.initializeMapStyleInfo=function(){e.atlasMapStyleInfo=document.createElement("div"),e.atlasMapStyleInfo.setAttribute("aria-label","Interactive Map Style"),e.atlasMapStyleInfo.setAttribute("aria-live","polite"),e.atlasMapStyleInfo.setAttribute("aria-atomic","true"),e.atlasMapStyleInfo.classList.add("hidden-accessible-element"),e.map.getCanvasContainer().appendChild(e.atlasMapStyleInfo),e.updateMapStyle(),e.map.events.add("styledata",e.updateMapStyle)},this.updateMapStyle=function(){e.atlasMapStyleInfo.innerHTML="<p>Style: "+e.map.getStyle().style+"</p>"},this.updateMapState=function(a){e.atlasMapLiveStateInfo.innerHTML=a},this.map=a}}();exports.AccessibleMapDelegate=AccessibleMapDelegate;
 
 },{"./MapViewDescriptor":188}],187:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var math_1=require("../../../namespace/math"),MapLabelCache=function(){function e(){this._labelCache={},this._labelIdx={},this._preloadedCache=new Set}return e.prototype.cache=function(e,a,c,i){var t=e+"_"+c[0]+"_"+c[1]+"_"+i;this._labelIdx[a.labelType]||(this._labelIdx[a.labelType]=[],this._labelCache[a.labelType]=[]),-1===this._labelIdx[a.labelType].indexOf(t)&&(this._labelCache[a.labelType].push({name:e,radius:a.radius,minZoom:a.minZoom,maxZoom:a.maxZoom||24,position:c}),this._labelIdx[a.labelType].push(t))},e.prototype.getNearestLabel=function(e,a,c){var i=null,t=this._labelCache[e];if(t)for(var h=1/0,n=0,s=t.length;n<s;n++)if(c>=t[n].minZoom&&c<=t[n].maxZoom){var l=math_1.getDistanceTo(t[n].position,a);l<=t[n].radius&&l<=h&&(h=l,i=t[n])}return i},e.prototype._preloadCache=function(e){if(!this._preloadedCache.has(e)){this._preloadedCache.add(e);var a={source:["Ocean label","Ocean name"],labelType:"water",minZoom:0,radius:395e4,polygonSources:["Ocean","Ocean or sea"]},c=e,i=c.indexOf("-");switch(-1!==i&&(c=c.substr(0,i)),c){case"fr":this.cache("Océan Pacifique",a,[-170,32],e),this.cache("Océan Pacifique",a,[-138,-27],e),this.cache("Océan Atlantique",a,[-40,32],e),this.cache("Océan Atlantique",a,[-17,-29],e);break;case"es":this.cache("Océan Pacifique",a,[-170,32],e),this.cache("Océan Pacifique",a,[-138,-27],e),this.cache("Océano Atlántico",a,[-40,32],e),this.cache("Océano Atlántico",a,[-17,-29],e);break;case"pt":this.cache("Oceano Pacífico",a,[-170,32],e),this.cache("Oceano Pacífico",a,[-138,-27],e),this.cache("Oceano Atlântico",a,[-40,32],e),this.cache("Oceano Atlântico",a,[-17,-29],e);break;case"ja":this.cache("太平洋",a,[-170,32],e),this.cache("太平洋",a,[-138,-27],e);break;case"en":this.cache("Pacific Ocean",a,[-170,32],e),this.cache("Pacific Ocean",a,[-138,-27],e),this.cache("Atlantic Ocean",a,[-40,32],e),this.cache("Atlantic Ocean",a,[-17,-29],e),this.cache("Indian Ocean",a,[77,-26],e)}}},e}();exports.MapLabelCache=MapLabelCache;
 
-},{"../../../namespace/math":277}],188:[function(require,module,exports){
+},{"../../../namespace/math":279}],188:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var ErrorHandler_1=require("../../../helpers/ErrorHandler"),math_1=require("../../../namespace/math"),Pixel_1=require("../../../Pixel"),NearbyGeographySearchService_1=require("../../services/NearbyGeographySearchService"),MapLabelCache_1=require("./MapLabelCache"),MapViewDescriptor=function(){function e(o,a){var r=this;this._restFallback=!0,this._disposed=!1,this._mapMoveThreshold=25,this._roadPixelRadius=120,this._minRoadDistance=25,this._minIntersectionPixelDistance=50,this._baseVectorTileSourceId="vectorTiles",this._lableConfig=[{source:["Ocean label","Ocean name"],labelType:"water",minZoom:0,radius:395e4,polygonSources:["Ocean","Ocean or sea"]},{source:["Sea label"],labelType:"water",minZoom:3,radius:1e6,polygonSources:["Sea","Ocean or sea"]},{source:["Country name"],labelType:"country",minZoom:0,maxZoom:5,radius:3e5},{source:["State name","State name short"],labelType:"state",minZoom:4,maxZoom:7,radius:3e5},{source:["Capital city","Large city"],labelType:"city",minZoom:8,radius:4e4},{source:["Medium city"],labelType:"city",minZoom:8,radius:3e4},{source:["Small city"],labelType:"city",minZoom:8,radius:2e4},{source:["Island label"],labelType:"city",minZoom:8,radius:1e4},{source:["Town"],labelType:"city",minZoom:10,radius:1e4},{source:["Village"],labelType:"neighbourhood",minZoom:12,radius:6e3},{source:["Amusement area label"],labelType:"poi",minZoom:14,radius:2e3,polygonSources:["Amusement park"]},{source:["Hospital label"],labelType:"poi",minZoom:14,radius:1e3,polygonSources:["Hospital"]},{source:["Shopping centre label"],labelType:"poi",minZoom:14,radius:1e3,polygonSources:["Shopping"]},{source:["Stadium label"],labelType:"poi",minZoom:14,radius:1e3,polygonSources:["Stadium"]},{source:["University/School label"],labelType:"poi",minZoom:14,radius:1e3,polygonSources:["University"]},{source:["Zoo label"],labelType:"poi",minZoom:14,radius:1e3,polygonSources:["Zoo"]},{source:["Airport Label","Airport name","Airport POI"],labelType:"majorPoi",minZoom:11,radius:3e3,polygonSources:["Airport","Runway"]},{source:["National park name"],labelType:"majorPoi",minZoom:7,radius:15e3,polygonSources:["National or state park","National park","Forest"]},{source:["Reservation label"],labelType:"majorPoi",minZoom:7,radius:15e3,polygonSources:["Reservation"]}],this._polygonStyleLayer=["National or state park","National park","Reservation","Airport","Runway","Stadium","University","Zoo","Shopping","Hospital","Amusement park","Ocean","Sea","Ocean or sea"],this._labelCache=new Set(["city","state","country","water","majorPoi"]),this._roadLayers=new Set(["Connecting road","Connecting road tunnel","International road","International road tunnel","Local road","Local road tunnel","Major local road","Major local road tunnel","Major road","Major road tunnel","Minor local road","Minor local road tunnel","Motorway","Motorway tunnel","Secondary road","Secondary road tunnel","Toll connecting road","Toll connecting road tunnel","Toll international road","Toll international road tunnel","Toll local road","Toll local road tunnel","Toll major local road","Toll major local road tunnel","Toll major road","Toll major road tunnel","Toll minor local road","Toll minor local road tunnel","Toll motorway","Toll motorway tunnel","Toll secondary road","Toll secondary road tunnel"]),this._returnDetailedDescriptions=!1,this._mapUpdate=function(){setTimeout(function(){var o=r._map.getCamera(),a=r._map.getStyle().language.toLowerCase();if(r._lastLang!==a)e._labelCache._preloadCache(a),r._getDescriptor(o,a);else if(r._lastCamera)if(Math.round(r._lastCamera.zoom)!==Math.round(o.zoom))r._getDescriptor(o,a);else{var t=r._map.positionsToPixels([r._lastCamera.center,o.center]);Pixel_1.Pixel.getDistance(t[0],t[1])>r._mapMoveThreshold&&r._getDescriptor(o,a)}else r._getDescriptor(o,a)},100)},this._shortcutListener=function(e){e.altKey&&e.ctrlKey&&68===e.keyCode&&(r._returnDetailedDescriptions=!r._returnDetailedDescriptions,r._getDescriptor(r._map.getCamera(),r._map.getStyle().language.toLowerCase()))},this._map=o,this._mapDescriptionUpdated=a,this._reverseSearch=new NearbyGeographySearchService_1.NearbyGeographySearchService(o.authentication),e._labelCache||(e._labelCache=new MapLabelCache_1.MapLabelCache),this._lastLang=this._map.getStyle().language.toLowerCase(),e._labelCache._preloadCache(this._lastLang);var t=function(){r._map.events.remove("load",t),r._disposed||(r._mapUpdate(),r._map.events.add("moveend",r._mapUpdate),r._map.events.add("styledata",r._mapUpdate))};this._map.events.add("load",t),this._map.getMapContainer().addEventListener("keydown",this._shortcutListener)}return e.prototype.dispose=function(){this._disposed=!0,this._map.events.remove("moveend",this._mapUpdate),this._map.events.remove("styledata",this._mapUpdate),this._map.getMapContainer().removeEventListener("keydown",this._shortcutListener)},e.prototype._getDescriptor=function(o,a){var r=this;this._lastCamera=o,this._lastLang=a;var t,n={},i=this._map.positionsToPixels([o.center])[0];ErrorHandler_1.ErrorHandler.tryCatch(this._map,function(){t=r._map._getMap().queryRenderedFeatures(i,{layers:r._polygonStyleLayer,filter:["==",["geometry-type"],"Polygon"]})},function(){});var s=null;t&&t.length>0&&(s=t[0]);for(var l,c=null,p=0,u=this._lableConfig.length;p<u;p++){var d=this._lableConfig[p];o.zoom>=d.minZoom?d.polygonSources?s&&-1!==d.polygonSources.indexOf(s.layer["source-layer"])?(c=d.labelType,this._getClosestLabel(d,o,a,n,!1)):this._getClosestLabel(d,o,a,n,!0):this._getClosestLabel(d,o,a,n,!1):this._getClosestLabel(d,o,a,n,!0)}o.zoom>=8&&this._processRoads(n,o,a),this._labelCache.forEach(function(a){n[a]||(l=null,"water"===a||"majorPoi"===a?a===c&&(l=e._labelCache.getNearestLabel(a,o.center,o.zoom)):l=e._labelCache.getNearestLabel(a,o.center,o.zoom),l&&(n[a]=l.name))}),this._createDescription(o,c,n,this._restFallback).then(function(e){e!==r._lastDescription&&""!==e&&(r._lastDescription=e,r._mapDescriptionUpdated(e))})},e.prototype._getClosestLabel=function(o,a,r,t,n){for(var i=o.radius,s=0,l=o.source.length;s<l;s++){var c={sourceLayer:o.source[s]},p=!1;"National park name"===o.source[s]&&(p=!0);var u=this._map._getMap().querySourceFeatures(this._baseVectorTileSourceId,c),d=null,m=1/0,y=this._labelCache.has(o.labelType);if(!n||n&&y)for(var h=0,_=u.length;h<_;h++){var g=u[h].geometry.coordinates;if(!n){var b=p?math_1.getClosestPointOnGeometry(a.center,u[h].geometry).properties.distance:math_1.getDistanceTo(a.center,g);b<m&&(m=b,d=u[h])}y&&e._labelCache.cache(u[h].properties.name,o,g,r)}if(!n){var v=o.labelType+"Dis";d&&m<=i&&("number"!=typeof t[v]||m<=t[v])&&(t[o.labelType]=d.properties.name,t[v]=m)}}},e.prototype._processRoads=function(o,a,r,t){var n=this._map._getMap().queryRenderedFeatures(t,{filter:["==",["geometry-type"],"LineString"]});if(n){for(var i=void 0,s=void 0,l=void 0,c=void 0,p=0,u=n.length;p<u;p++)if(this._roadLayers.has(n[p].layer["source-layer"])&&n[p].properties.name&&""!==n[p].properties.name){var d=math_1.getClosestPointOnGeometry(a.center,n[p]);(!l||d.properties.distance<l.properties.distance)&&(i&&n[p].properties.name===i.properties.name?l=d:i&&n[p].properties.name===i.properties.name?(!c||d.properties.distance<c.properties.distance)&&(c=d,s=n[p]):(c=l,s=i,l=d,i=n[p]))}if(i&&(o.country||(o.country=i.properties.country_code,o.countryDis=0,e._labelCache.cache(o.country,{source:["Country name"],labelType:"country",radius:5e3,minZoom:0},l.geometry.coordinates,r)),o.state||(o.state=i.properties.country_subdivision,o.stateDis=0,e._labelCache.cache(o.state,{source:["State name"],labelType:"state",radius:5e3,minZoom:4},l.geometry.coordinates,r)),a.zoom>=15)){var m=this._map.positionsToPixels([a.center,l.geometry.coordinates]),y=Pixel_1.Pixel.getDistance(m[0],m[1]);if((y<this._roadPixelRadius||l.properties.distance<this._minRoadDistance)&&(o.road=i.properties.name),s){var h=this._map.positionsToPixels([c.geometry.coordinates]);((y=Pixel_1.Pixel.getDistance(m[0],h[0]))<this._minIntersectionPixelDistance||c.properties.distance<this._minRoadDistance)&&(o.secondRoad=s.properties.name,o.secondRoadDis=c.properties.distance)}}}},e.prototype._createDescription=function(e,o,a,r){var t=this;return new Promise(function(n,i){var s=[];a&&(o&&("water"===o&&a.water?s.push(a.water):"majorPoi"===o&&a.majorPoi&&s.push(a.majorPoi)),0===s.length&&(a.majorPoi&&e.zoom>=8?s.push(a.majorPoi):(a.poi&&e.zoom>=14?s.push(a.poi):a.road&&e.zoom>=15&&(a.secondRoad?s.push(a.road+" & "+a.secondRoad):s.push(a.road)),a.neighbourhood&&e.zoom>=12&&s.push(a.neighbourhood),a.city&&e.zoom>=6&&s.push(a.city)),a.state&&e.zoom>=4&&s.push(a.state),0===s.length?a.water?s.push(a.water):a.country&&s.push(a.country):1===s.length&&a.state&&e.zoom>=4&&a.country&&s.push(a.country)));var l=[];if(s.length>0)l.push("<p>Location: ",s.join(", "),"</p>");else if(r&&"water"!==o)return void t._reverseGeocodeDescription(e).then(function(e){n(e)},function(){i("<p>Location: unknown</p>")});t._returnDetailedDescriptions&&(l.push("<p>Zoom: ",math_1._precision(e.zoom,2),"</p>"),l.push("<p>Latitude: ",math_1._precision(e.center[1],5),"</p>"),l.push("<p>Longitude: ",math_1._precision(e.center[0],5),"</p>")),n(l.join(""))})},e.prototype._reverseGeocodeDescription=function(o){var a=this;return new Promise(function(r){var t=a._map.getStyle();a._reverseSearch.request({position:o.center,style:t}).then(function(n){var i={};if(n&&n.addresses&&n.addresses.length>0&&n.addresses[0].address){var s=n.addresses[0].address;s.country&&(i.country=s.country,e._labelCache.cache(i.country,{source:["Country name"],labelType:"country",radius:5e3,minZoom:0},o.center,t.language)),s.countrySubdivision&&(i.state=s.countrySubdivision,e._labelCache.cache(i.state,{source:["State name"],labelType:"state",radius:5e3,minZoom:4},o.center,t.language)),s.municipality&&(i.city=s.municipality,e._labelCache.cache(i.state,{source:["Small city"],labelType:"city",radius:1e3,minZoom:10},o.center,t.language)),s.streetNameAndNumber?i.road=s.streetNameAndNumber:s.street&&(i.road=s.street)}a._createDescription(o,null,i,!1).then(function(e){r(e)})},function(e){a._createDescription(o,null,null,!1).then(function(e){r(e)})}).catch(function(e){a._createDescription(o,null,null,!1).then(function(e){r(e)})})})},e}();exports.MapViewDescriptor=MapViewDescriptor;
 
-},{"../../../Pixel":169,"../../../helpers/ErrorHandler":173,"../../../namespace/math":277,"../../services/NearbyGeographySearchService":216,"./MapLabelCache":187}],189:[function(require,module,exports){
+},{"../../../Pixel":169,"../../../helpers/ErrorHandler":173,"../../../namespace/math":279,"../../services/NearbyGeographySearchService":216,"./MapLabelCache":187}],189:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),FlowServiceDelegate=function(){return function(e,o){var t=this;this.callCounter=0,this.listenerEnabled=!1,this.flowComponent=void 0,this.flowPath=void 0,this.addToMap=function(){if(!t.map._isReady())throw new Error("Traffic flow could not be added to the map because the map is not ready. Please use a ready event listener to guarantee the map is ready before enabling traffic flow.");t.listenerEnabled||(t.map.events.add("styledata",t.addToMap),t.listenerEnabled=!0);var e=t.map.getStyle(),o=t.map.getTraffic(),a=t.styleDefinitions.getFlowPath(e,o);if(a&&t.flowPath!==a){t.callCounter++;var n=t.callCounter;t.styleDefinitions.getFlowComponent(e,o).then(function(e){if(t.callCounter===n){t.flowComponent&&(t.map.layers.remove(t.flowComponent.layer),t.map.sources.remove(t.flowComponent.sources),delete t.flowComponent);var o=t.map.layers.getLayers(),l=_.findIndex(o,function(e){return"transit"===e.getId()}),r=-1!==l?o[l+1]:void 0;t.map.sources.add(e.sources),t.map.layers.add(e.layer,r),t.flowComponent=e,t.flowPath=a}})}},this.removeFromMap=function(){t.callCounter++,t.listenerEnabled&&(t.map.events.remove("styledata",t.addToMap),t.listenerEnabled=!1),t.flowPath&&delete t.flowPath,t.flowComponent&&(t.map.layers.remove(t.flowComponent.layer),t.map.sources.remove(t.flowComponent.sources),delete t.flowComponent)},this.styleDefinitions=o,this.map=e}}();exports.FlowServiceDelegate=FlowServiceDelegate;
 
 },{"lodash":109}],190:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var e=function(r,t){return(e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,r){e.__proto__=r}||function(e,r){for(var t in r)r.hasOwnProperty(t)&&(e[t]=r[t])})(r,t)};return function(r,t){function n(){this.constructor=r}e(r,t),r.prototype=null===t?Object.create(t):(n.prototype=t.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var data_1=require("../../../namespace/data"),Incident=function(e){function r(t,n){var a=new data_1.Point(new data_1.Position(t.op.x,t.op.y)),c={icon:r.getSeverityColorName(t.ty)+"-"+r.getIncidentTypeIconName(t.ic),incidentType:r.getIncidentTypeName(t.ic,n),description:t.d,length:t.l,delay:t.dl,from:t.f,color:r.getSeverityColorHexCode(t.ty),to:t.t,id:t.id};return e.call(this,a,c)||this}return __extends(r,e),r.getIncidentTypeName=function(e,r){switch(e){case 0:return r.Unknown;case 1:return r.Accident;case 2:return r.Fog;case 3:return r.Danger;case 4:return r.Rain;case 5:return r.Ice;case 6:return r.Jam;case 7:return r.LaneClosed;case 8:return r.RoadClosed;case 9:return r.RoadWorks;case 10:return r.Wind;case 11:return r.Flood;case 12:return r.Detour;default:return r.Unknown}},r.getIncidentTypeIconName=function(e){switch(e){case 0:return"unknown";case 1:return"accident";case 2:return"fog";case 3:return"danger";case 4:return"rain";case 5:return"ice";case 6:return"jam";case 7:return"lane-closed";case 8:return"road-closed";case 9:return"road-work";case 10:return"wind";case 11:return"flood";case 12:return"detour";default:return"unknown"}},r.getSeverityColorName=function(e){switch(e){case 0:return"grey";case 1:return"yellow";case 2:return"orange";case 3:return"red";case 4:default:return"grey"}},r.getSeverityColorHexCode=function(e){switch(e){case 0:return"#B5B6B7";case 1:return"#F4C951";case 2:return"#F4873F";case 3:return"#F04F4E";case 4:default:return"#B5B6B7"}},r}(data_1.Feature);exports.Incident=Incident;
 
-},{"../../../namespace/data":250}],191:[function(require,module,exports){
+},{"../../../namespace/data":252}],191:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var IncidentPopupIconName,math=require("../../../namespace/math"),Popup_1=require("../../../Popup");!function(e){e.DELAY="delay",e.LENGTH="length",e.FROM="from",e.TO="to"}(IncidentPopupIconName||(IncidentPopupIconName={}));var IncidentPopupFactory=function(){function e(){}return e.build=function(e,t){void 0===t&&(t="en-US");var i=document.createElement("div");i.classList.add("incident-popup-title"),i.classList.add("font-segoeui-b"),i.setAttribute("tabindex","0"),i.innerText=e.properties.incidentType,i.setAttribute("aria-label","Incident Type "+e.properties.incidentType);var n=document.createElement("div");n.classList.add("incident-popup-subtitle"),n.classList.add("font-segoeui-b"),n.setAttribute("aria-label","Incident Description "+e.properties.description),n.setAttribute("tabindex","0"),n.innerText=e.properties.description;var o=document.createElement("div");o.classList.add("incident-popup-header"),o.style.backgroundColor=e.properties.color,o.appendChild(i),o.appendChild(n);var a=document.createElement("div");if(a.classList.add("incident-popup-body"),e.properties.delay){var r=Math.floor(e.properties.delay/60)+" min",p=this.createInfoSection(r,IncidentPopupIconName.DELAY);a.appendChild(p)}if(e.properties.length){var d=new Intl.NumberFormat([t,"en-US"],{maximumFractionDigits:2}),c=void 0;if("en-US"===t){var s=math.convertDistance(e.properties.length,"meters","miles");c=d.format(s)+" miles"}else{var u=math.convertDistance(e.properties.length,"meters","kilometers");c=d.format(u)+" km"}var l=this.createInfoSection(c,IncidentPopupIconName.LENGTH);a.appendChild(l)}if(e.properties.from){var m=this.createInfoSection(e.properties.from,IncidentPopupIconName.FROM);a.appendChild(m)}if(e.properties.to){var v=this.createInfoSection(e.properties.to,IncidentPopupIconName.TO);a.appendChild(v)}var f=document.createElement("div");return f.classList.add("incident-popup-content"),f.appendChild(o),f.appendChild(a),new Popup_1.Popup({content:f,position:e.geometry.coordinates})},e.createInfoSection=function(e,t){var i=document.createElement("div");i.classList.add("incident-popup-info");var n=document.createElement("div");n.classList.add("icon"),n.classList.add(t);var o=document.createElement("span");return o.classList.add("message"),o.classList.add("font-segoeui"),o.setAttribute("aria-label","Incident "+t+" "+e),o.setAttribute("tabindex","0"),o.innerText=e,i.appendChild(n),i.appendChild(o),i},e}();exports.IncidentPopupFactory=IncidentPopupFactory;
 
-},{"../../../Popup":170,"../../../namespace/math":277}],192:[function(require,module,exports){
+},{"../../../Popup":170,"../../../namespace/math":279}],192:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Dictionary_1=require("../../../helpers/Dictionary"),data_1=require("../../../namespace/data"),IncidentService_1=require("../../services/IncidentService"),Incident_1=require("./Incident"),IncidentPopupFactory_1=require("./IncidentPopupFactory"),IncidentServiceDelegate=function(){return function(e){var n=this;this.incidentLayerName="incidents",this.popups=new Dictionary_1.Dictionary,this.addToMap=function(){n.map.addPins([],{name:n.incidentLayerName,cluster:!1}),n.map.addEventListener("mouseenter",n.incidentLayerName,n.cursorToPointer),n.map.addEventListener("mouseleave",n.incidentLayerName,n.cursorToDefault),n.map.addEventListener("click",n.incidentLayerName,n.openIncidentPopup),n.map.events.add("moveend",n.updateIncidents),n.map.events.add("styledata",n.updateLanguage),n.updateIncidents()},this.removeFromMap=function(){n.map.removeLayers([n.incidentLayerName]),n.map.removeEventListener("click",n.incidentLayerName,n.openIncidentPopup),n.map.removeEventListener("mouseenter",n.incidentLayerName,n.cursorToPointer),n.map.removeEventListener("mouseleave",n.incidentLayerName,n.cursorToDefault),n.map.events.remove("moveend",n.updateIncidents),n.map.events.remove("styledata",n.updateLanguage),n.cleanUpPopups()},this.updateIncidents=function(){var e=Math.ceil(n.map.getCamera().zoom),t=n.map.getCamera().bounds;n.incidentLanguage=n.map.getStyle().language;var i=n.map._getLocalizedStrings(),a=n.incidentService.request({bbox:t,zoom:e,params:{expandCluster:!0,originalPosition:!0,language:n.incidentLanguage}});Promise.all([a,i]).then(function(e){var i=e[0],a=e[1];if(n.map.getTraffic().incidents){var p=[];n.cleanUpPopups();for(var o=0,r=i.tm.poi||[];o<r.length;o++)for(var c=r[o],s=function(e){if(data_1.BoundingBox.containsPosition(t,[e.op.x,e.op.y])){var i=new Incident_1.Incident(e,a);p.push(i);var o=IncidentPopupFactory_1.IncidentPopupFactory.build(i,n.incidentLanguage);n.popups.set(i.properties.id,o),n.map.events.add("open",o,function(){n.openPopupId=i.properties.id,n.popups.forEach(function(e,t){n.openPopupId!==t&&e.close()})}),n.map.events.add("close",o,function(){n.openPopupId===i.properties.id&&delete n.openPopupId}),n.openPopupId===i.properties.id?n.popups.get(i.properties.id).open(n.map):n.popups.get(i.properties.id).attach(n.map)}},d=0,u=c.cpoi||[c];d<u.length;d++)s(u[d]);n.map.addPins(p,{overwrite:p.length>0,name:n.incidentLayerName})}})},this.cursorToPointer=function(e){n.map.getCanvas().style.cursor="pointer"},this.cursorToDefault=function(e){n.map.getCanvas().style.cursor=""},this.openIncidentPopup=function(e){var t=e.features[0].properties.id;n.popups.has(t)&&n.popups.get(t).open(n.map)},this.cleanUpPopups=function(){n.popups.forEach(function(e){e.remove()}),n.popups.clear()},this.updateLanguage=function(){n.map.getStyle().language!==n.incidentLanguage&&n.updateIncidents()},this.map=e,this.incidentService=new IncidentService_1.IncidentService(this.map.authentication)}}();exports.IncidentServiceDelegate=IncidentServiceDelegate;
 
-},{"../../../helpers/Dictionary":172,"../../../namespace/data":250,"../../services/IncidentService":215,"./Incident":190,"./IncidentPopupFactory":191}],193:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Dictionary_1=require("../../helpers/Dictionary"),data_1=require("../../namespace/data"),Pixel_1=require("../../Pixel"),MapCallbackHandler=function(){function e(e){this.callbacks=new Dictionary_1.Dictionary,this.map=e}return e.prototype.addCallback=function(e,t,n,i,a){var r,s,l=this;if(i)r=function(e){var t=e.lngLat?new data_1.Position(e.lngLat.lng,e.lngLat.lat):void 0,i=e.point?[e.point.x,e.point.y]:void 0,a=e.features?e.features.map(function(e){return new data_1.Feature(e.geometry,e.properties,e.id)}):[],r={type:e.type,originalEvent:e.originalEvent,position:t,coordinate:i,features:a};n(r)};else switch(e){case"touchstart":case"touchend":case"touchmove":case"touchcancel":r=function(i){if(i.originalEvent){if(i.originalEvent===s)return;s=i.originalEvent}var r=i.point?new Pixel_1.Pixel(i.point.x,i.point.y):void 0,o=i.points?i.points.map(function(e){return new Pixel_1.Pixel(e.x,e.y)}):[],c=i.lngLat?new data_1.Position(i.lngLat.lng,i.lngLat.lat):void 0,p=i.lngLats?i.lngLats.map(function(e){return new data_1.Position(e.lng,e.lat)}):[],g=c?l.map.layers.getRenderedShapes(new data_1.Point(c),t?[t]:void 0):[],v={map:l.map,originalEvent:i.originalEvent,pixel:r,pixels:o,position:c,positions:p,shapes:g,preventDefault:i.preventDefault,type:i.type};a&&l.map.events._removeListener(e,t,n),n(v)};break;case"mousedown":case"mouseup":case"mouseover":case"mousemove":case"click":case"dblclick":case"mouseout":case"mouseenter":case"mouseleave":case"contextmenu":r=function(i){if(i.originalEvent){if(i.originalEvent===s)return;s=i.originalEvent}var r=i.lngLat?new data_1.Position(i.lngLat.lng,i.lngLat.lat):void 0,o=i.point?new Pixel_1.Pixel(i.point.x,i.point.y):void 0,c=r?l.map.layers.getRenderedShapes(new data_1.Point(r),t?[t]:void 0):[],p={map:l.map,originalEvent:i.originalEvent,position:r,pixel:o,preventDefault:i.preventDefault,shapes:c,type:i.type};a&&l.map.events._removeListener(e,t,n),n(p)};break;case"wheel":r=function(i){if(i.originalEvent){if(i.originalEvent===s)return;s=i.originalEvent}var r={map:l.map,originalEvent:i.originalEvent,preventDefault:i.preventDefault,type:i.type};a&&l.map.events._removeListener(e,t,n),n(r)};break;case"error":r=function(i){var r={error:i.error,map:l.map,type:i.type};a&&l.map.events._removeListener(e,t,n),n(r)};break;case"resize":r=function(i){var r={map:l.map,type:i.type};for(var s in i)"type"!==s&&"target"!==s&&(r[s]=i[s]);a&&l.map.events._removeListener(e,t,n),n(r)};break;default:r=function(i){var r={map:l.map,type:i.type};i.originalEvent&&(r.originalEvent=i.originalEvent),a&&l.map.events._removeListener(e,t,n),n(r)}}this.callbacks.has(t)||this.callbacks.set(t,new Dictionary_1.Dictionary),this.callbacks.get(t).has(e)||this.callbacks.get(t).set(e,new Dictionary_1.Dictionary),this.callbacks.get(t).get(e).set(n,[r,a])},e.prototype.removeCallback=function(e,t,n){this.callbacks.has(t)&&this.callbacks.get(t).has(e)&&this.callbacks.get(t).get(e).has(n)&&this.callbacks.get(t).get(e).delete(n)},e.prototype.getModifiedCallback=function(e,t,n){if(this.callbacks.has(t)&&this.callbacks.get(t).has(e)&&this.callbacks.get(t).get(e).has(n))return this.callbacks.get(t).get(e).get(n)[0]},e.prototype.getLayerCallbacks=function(e){if(this.callbacks.has(e))return this.callbacks.get(e)},e.prototype.getEventCallbacks=function(e,t){if(this.callbacks.has(t)){var n=this.callbacks.get(t);if(n.has(e))return n.get(e)}},e}();exports.MapCallbackHandler=MapCallbackHandler;
+},{"../../../helpers/Dictionary":172,"../../../namespace/data":252,"../../services/IncidentService":215,"./Incident":190,"./IncidentPopupFactory":191}],193:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Dictionary_1=require("../../helpers/Dictionary"),data_1=require("../../namespace/data"),Pixel_1=require("../../Pixel"),MapCallbackHandler=function(){function e(e){this.callbacks=new Dictionary_1.Dictionary,this.map=e}return e.prototype.addCallback=function(e,t,n,i,a){var r,l,s=this;if(i)r=function(e){var t=e.lngLat?new data_1.Position(e.lngLat.lng,e.lngLat.lat):void 0,i=e.point?[e.point.x,e.point.y]:void 0,a=e.features?e.features.map(function(e){return new data_1.Feature(e.geometry,e.properties,e.id)}):[],r={type:e.type,originalEvent:e.originalEvent,position:t,coordinate:i,features:a};n(r)};else switch(e){case"touchstart":case"touchend":case"touchmove":case"touchcancel":r=function(i){if(i.originalEvent){if(i.originalEvent===l)return;l=i.originalEvent}var r=i.point?new Pixel_1.Pixel(i.point.x,i.point.y):void 0,o=i.points?i.points.map(function(e){return new Pixel_1.Pixel(e.x,e.y)}):[],c=i.lngLat?new data_1.Position(i.lngLat.lng,i.lngLat.lat):void 0,p=i.lngLats?i.lngLats.map(function(e){return new data_1.Position(e.lng,e.lat)}):[],v=c?s.map.layers.getRenderedShapes(new data_1.Point(c),t?[t]:void 0):[],g={map:s.map,originalEvent:i.originalEvent,pixel:r,pixels:o,position:c,positions:p,shapes:v,layerId:t||void 0,preventDefault:i.preventDefault,type:i.type};a&&s.map.events._removeListener(e,t,n),n(g)};break;case"mousedown":case"mouseup":case"mouseover":case"mousemove":case"click":case"dblclick":case"mouseout":case"mouseenter":case"mouseleave":case"contextmenu":r=function(i){if(i.originalEvent){if(i.originalEvent===l)return;l=i.originalEvent}var r=i.lngLat?new data_1.Position(i.lngLat.lng,i.lngLat.lat):void 0,o=i.point?new Pixel_1.Pixel(i.point.x,i.point.y):void 0,c=r?s.map.layers.getRenderedShapes(new data_1.Point(r),t?[t]:void 0):[],p={map:s.map,originalEvent:i.originalEvent,position:r,pixel:o,preventDefault:i.preventDefault,shapes:c,layerId:t||void 0,type:i.type};a&&s.map.events._removeListener(e,t,n),n(p)};break;case"wheel":r=function(i){if(i.originalEvent){if(i.originalEvent===l)return;l=i.originalEvent}var r={map:s.map,originalEvent:i.originalEvent,preventDefault:i.preventDefault,type:i.type};a&&s.map.events._removeListener(e,t,n),n(r)};break;case"error":r=function(i){var r={error:i.error,map:s.map,type:i.type};a&&s.map.events._removeListener(e,t,n),n(r)};break;case"resize":r=function(i){var r={map:s.map,type:i.type};for(var l in i)"type"!==l&&"target"!==l&&(r[l]=i[l]);a&&s.map.events._removeListener(e,t,n),n(r)};break;default:r=function(i){var r={map:s.map,type:i.type};i.originalEvent&&(r.originalEvent=i.originalEvent),a&&s.map.events._removeListener(e,t,n),n(r)}}this.callbacks.has(t)||this.callbacks.set(t,new Dictionary_1.Dictionary),this.callbacks.get(t).has(e)||this.callbacks.get(t).set(e,new Dictionary_1.Dictionary),this.callbacks.get(t).get(e).set(n,[r,a])},e.prototype.removeCallback=function(e,t,n){this.callbacks.has(t)&&this.callbacks.get(t).has(e)&&this.callbacks.get(t).get(e).has(n)&&this.callbacks.get(t).get(e).delete(n)},e.prototype.getModifiedCallback=function(e,t,n){if(this.callbacks.has(t)&&this.callbacks.get(t).has(e)&&this.callbacks.get(t).get(e).has(n))return this.callbacks.get(t).get(e).get(n)[0]},e.prototype.getLayerCallbacks=function(e){if(this.callbacks.has(e))return this.callbacks.get(e)},e.prototype.getEventCallbacks=function(e,t){if(this.callbacks.has(t)){var n=this.callbacks.get(t);if(n.has(e))return n.get(e)}},e}();exports.MapCallbackHandler=MapCallbackHandler;
 
-},{"../../Pixel":169,"../../helpers/Dictionary":172,"../../namespace/data":250}],194:[function(require,module,exports){
+},{"../../Pixel":169,"../../helpers/Dictionary":172,"../../namespace/data":252}],194:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var AuthenticationContext=require("adal-angular"),jwt_decode=require("jwt-decode"),pkg=require("../../../../package.json"),vars=require("../../../../variables.json"),AuthenticationOptions_1=require("../services/options/AuthenticationOptions"),AuthenticationManager=function(){function t(e){var o=this;this._triggerTokenFetch=function(){return new Promise(function(e,n){o.options.getToken(function(n){o._storeAccessToken(n),clearTimeout(o.tokenTimeOutHandle);var s=o._getTokenExpiry(n)-t.constants.tokenRefreshClockSkew;o.tokenTimeOutHandle=setTimeout(o._triggerTokenFetch,1e3*s),e()},function(t){n(t)},o.map)})};var n=e.getServiceOptions();this.options=n.authOptions,this.sessionId=n.sessionId,this.map=e}return t.prototype.initialize=function(){var e=this;return this.initPromise||(this.initPromise=new Promise(function(o,n){if(e.options.authType===AuthenticationOptions_1.AuthenticationType.subscriptionKey)o();else if(e.options.authType===AuthenticationOptions_1.AuthenticationType.aad){if(e.options.authContext=e.options.authContext||t.getDefaultAuthContext(e.options),e.options.authContext.handleWindowCallback(),e.options.authContext.isCallback(window.location.hash))return void e.map.dispose();setTimeout(function(){return e._loginAndAcquire(o,n)})}else e.options.authType===AuthenticationOptions_1.AuthenticationType.anonymous?o(e._triggerTokenFetch()):n(new Error("An invalid authentication type was specified."))})),this.initPromise},t.getDefaultAuthContext=function(t){if(!t.aadAppId)throw new Error("No AAD app ID was specified.");if(!t.aadTenant)throw new Error("No AAD tenant was specified.");return this.defaultAuthContext||(this.defaultAuthContext=new AuthenticationContext({instance:t.aadInstance||vars.env.aadInstance,tenant:t.aadTenant,clientId:t.aadAppId,cacheLocation:this.constants.preferredCacheLocation})),this.defaultAuthContext},t.prototype._loginAndAcquire=function(e,o){var n=this,s=function(){n.options.authContext.acquireToken(vars.constants.resourceId,function(s){if(s)o(new Error(s));else{var i={map:n.map,type:t.constants.events.tokenAcquired};n.map.events.invoke(t.constants.events.tokenAcquired,i),e()}})},i=this.options.authContext.getCachedToken(this.options.aadAppId),a=this.options.authContext.getCachedUser();if(i&&a)s();else{this.options.authContext.loginInProgress()||this.options.authContext.login();var r=setInterval(function(){n.options.authContext.loginInProgress()||(clearInterval(r),n.options.authContext.getCachedToken(n.options.aadAppId)?s():o(new Error(n.options.authContext.getLoginError()||"The AAD authentication context is not logged-in for the specified app ID: "+n.options.aadAppId)))},25)}},t.prototype.getAuthType=function(){return this.options.authType},t.prototype.getClientId=function(){return this.options.clientId},t.prototype.getToken=function(){var e=this;if(this.options.authType===AuthenticationOptions_1.AuthenticationType.aad){var o=this.options.authContext.getCachedToken(vars.constants.resourceId);return o||(this.options.authContext.getCachedUser()||this.options.authContext.login(),this.options.authContext.acquireToken(vars.constants.resourceId,function(n,s){if(!n){o=s;var i={map:e.map,type:t.constants.events.tokenAcquired};e.map.events.invoke(t.constants.events.tokenAcquired,i)}})),o}if(this.options.authType===AuthenticationOptions_1.AuthenticationType.anonymous){var n=this._getItem(t.constants.storage.accessTokenKey);if(n){var s=this._getTokenExpiry(n);if(s<300&&s>0)this._triggerTokenFetch();else if(s<=0)throw this._saveItem(t.constants.storage.accessTokenKey,""),new Error(t.constants.errors.tokenExpired)}else this._triggerTokenFetch();return n}if(this.options.authType===AuthenticationOptions_1.AuthenticationType.subscriptionKey)return this.options.subscriptionKey},t.prototype._getTokenExpiry=function(t){var e=jwt_decode(t).exp,o=this._getCurrentTime();return e-o>0?e-o:-1},t.prototype._storeAccessToken=function(e){this._saveItem(t.constants.storage.accessTokenKey,e);var o={map:this.map,type:t.constants.events.tokenAcquired};this.map.events.invoke(t.constants.events.tokenAcquired,o)},t.prototype._saveItem=function(t,e){return this._supportsLocalStorage()?(localStorage.setItem(t,e),!0):!!this._supportsSessionStorage()&&(sessionStorage.setItem(t,e),!0)},t.prototype._getItem=function(t){return this._supportsLocalStorage()?localStorage.getItem(t):this._supportsSessionStorage()?sessionStorage.getItem(t):null},t.prototype._supportsLocalStorage=function(){try{return!!window.localStorage&&(window.localStorage.setItem(t.constants.storage.testStorageKey,"A"),"A"===window.localStorage.getItem(t.constants.storage.testStorageKey)&&(window.localStorage.removeItem(t.constants.storage.testStorageKey),!window.localStorage.getItem(t.constants.storage.testStorageKey)))}catch(t){return!1}},t.prototype._supportsSessionStorage=function(){try{return!!window.sessionStorage&&(window.sessionStorage.setItem(t.constants.storage.testStorageKey,"A"),"A"===window.sessionStorage.getItem(t.constants.storage.testStorageKey)&&(window.sessionStorage.removeItem(t.constants.storage.testStorageKey),!window.sessionStorage.getItem(t.constants.storage.testStorageKey)))}catch(t){return!1}},t.prototype._getCurrentTime=function(){return Math.round((new Date).getTime()/1e3)},t.prototype.signRequest=function(t){t.headers=t.headers||{},t.headers[vars.constants.sessionIdHeaderName]=this.sessionId,t.headers[vars.constants.msOriginHeaderName]=vars.constants.msOriginHeaderValue,t.headers[vars.constants.mapAgentHeaderName]="MapControl/"+pkg.version+" (Web)";var e=this.getToken();switch(this.options.authType){case AuthenticationOptions_1.AuthenticationType.aad:case AuthenticationOptions_1.AuthenticationType.anonymous:t.headers[vars.constants.msClientIdHeaderName]=this.options.clientId,t.headers[vars.constants.authorizationHeaderName]=vars.constants.authorizationTokenPrefix+e;break;case AuthenticationOptions_1.AuthenticationType.subscriptionKey:if("url"in t)-1!==t.url.indexOf("?")?t.url+="&subscription-key="+e:t.url+="?&subscription-key="+e;else{if(!("domain"in t))throw new Error("Could not determine if the provided object was UrlOptions or RequestParameters");t.queryParams=t.queryParams||{},t.queryParams["subscription-key"]=e}break;default:throw new Error("An invalid authentication type was specified")}return t},t.constants={preferredCacheLocation:"localStorage",storage:{accessTokenKey:"access.token.key",testStorageKey:"testStorage"},events:{tokenAcquired:"tokenacquired"},tokenExpiresIn:3599,tokenRefreshClockSkew:300,errors:{tokenExpired:"Token Expired, Try again"}},t}();exports.AuthenticationManager=AuthenticationManager;
 
-},{"../../../../package.json":165,"../../../../variables.json":287,"../services/options/AuthenticationOptions":217,"adal-angular":3,"jwt-decode":108}],195:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var ControlOptions_1=require("../options/ControlOptions"),ControlManager=function(){function t(t){for(var e in this.map=t,this.controlContainer=document.createElement("div"),this.controlContainer.classList.add("atlas-control-container"),ControlOptions_1.ControlPosition)if(ControlOptions_1.ControlPosition.hasOwnProperty(e)){var o=document.createElement("div");o.classList.add(ControlOptions_1.ControlPosition[e]),o.classList.add("subcontrol-container"),this.controlContainer.appendChild(o)}this.map.getMapContainer().appendChild(this.controlContainer)}return t.prototype.add=function(t,e){if(Array.isArray(t))for(var o=0,n=t;o<n.length;o++){var r=n[o];this._add(r,e)}else this._add(t,e)},t.prototype.remove=function(t){if(Array.isArray(t))for(var e=0,o=t;e<o.length;e++){var n=o[e];this._remove(n)}else this._remove(t)},t.prototype._add=function(t,e){var o=(new ControlOptions_1.ControlOptions).merge(e),n=t.onAdd(this.map,e),r=this.controlContainer.getElementsByClassName(o.position);if(!(r.length>0))throw new Error("Control position "+o.position+" does not exist.");r.item(0).appendChild(n)},t.prototype._remove=function(t){t.onRemove()},t}();exports.ControlManager=ControlManager;
+},{"../../../../package.json":165,"../../../../variables.json":289,"../services/options/AuthenticationOptions":217,"adal-angular":3,"jwt-decode":108}],195:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var ControlOptions_1=require("../options/ControlOptions"),ControlManager=function(){function t(t){for(var o in this.map=t,this.controlContainer=document.createElement("div"),this.controlContainer.classList.add("atlas-control-container"),ControlOptions_1.ControlPosition)if(ControlOptions_1.ControlPosition.hasOwnProperty(o)){var e=document.createElement("div");e.classList.add(ControlOptions_1.ControlPosition[o]),e.classList.add("subcontrol-container"),this.controlContainer.appendChild(e)}this.map.getMapContainer().appendChild(this.controlContainer),this.controls=new Set}return t.prototype.add=function(t,o){if(Array.isArray(t))for(var e=0,n=t;e<n.length;e++){var r=n[e];this._add(r,o)}else this._add(t,o)},t.prototype.getControls=function(){return Array.from(this.controls)},t.prototype.remove=function(t){if(Array.isArray(t))for(var o=0,e=t;o<e.length;o++){var n=e[o];this._remove(n)}else this._remove(t)},t.prototype._add=function(t,o){this.controls.add(t);var e=(new ControlOptions_1.ControlOptions).merge(o),n=t.onAdd(this.map,o),r=this.controlContainer.getElementsByClassName(e.position);if(!(r.length>0))throw new Error("Control position "+e.position+" does not exist.");r.item(0).appendChild(n)},t.prototype._remove=function(t){t.onRemove(),this.controls.delete(t)},t}();exports.ControlManager=ControlManager;
 
 },{"../options/ControlOptions":206}],196:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var internal_1=require("../../namespace/internal"),layer_1=require("../../namespace/layer"),MapCallbackHandler_1=require("../events/MapCallbackHandler"),EventManager=function(){function e(e){this.map=e,this.mapCallbackHandler=new MapCallbackHandler_1.MapCallbackHandler(this.map)}return e.prototype.add=function(e,n,i){if("function"==typeof n)this._addGlobalListener(e,n,!1,!1);else if(Array.isArray(n))for(var o=0,t=n;o<t.length;o++){var s=t[o];s instanceof internal_1.EventEmitter?s._addEventListener(e,i,!1):this._addLayerListener(e,s,i,!1,!1)}else n instanceof internal_1.EventEmitter?n._addEventListener(e,i,!1):this._addLayerListener(e,n,i,!1,!1)},e.prototype.addOnce=function(e,n,i){"function"==typeof n?this._addGlobalListener(e,n,!1,!0):n instanceof internal_1.EventEmitter?n._addEventListener(e,i,!0):this._addLayerListener(e,n,i,!1,!0)},e.prototype._addLegacy=function(e,n,i){"function"==typeof n?this._addGlobalListener(e,n,!0,!1):this._addLayerListener(e,n,i,!0,!1)},e.prototype._addLayerListener=function(e,n,i,o,t){var s=n instanceof layer_1.Layer?n.getId():n,r=this.map.layers.getLayerById(s),a=this.mapCallbackHandler.getModifiedCallback(e,s,i);if(a&&r)for(var f=0,p=r._getLayerIds();f<p.length;f++){var d=p[f];this.map._getMap().off(e,d,a)}if(this.mapCallbackHandler.addCallback(e,s,i,o,t),r){a=this.mapCallbackHandler.getModifiedCallback(e,s,i);for(var h=0,m=r._getLayerIds();h<m.length;h++){d=m[h];this.map._getMap().on(e,d,a)}}},e.prototype._addGlobalListener=function(e,n,i,o){var t=this.mapCallbackHandler.getModifiedCallback(e,"",n);if(t&&this.map._getMap().off(e,t),this.mapCallbackHandler.addCallback(e,"",n,i,o),t=this.mapCallbackHandler.getModifiedCallback(e,"",n),"load"===e&&this.map._isLoaded()){var s={type:"load",map:this.map};setTimeout(function(){return t(s)})}else if("ready"===e){if(this.map._isReady()){var r={type:"ready",map:this.map};setTimeout(function(){return t(r)})}}else this.map._getMap().on(e,t)},e.prototype.invoke=function(e,n,i){if(void 0===i)this._invokeListeners(e,"",n);else if(n instanceof internal_1.EventEmitter)n._invokeEvent(e,i);else{if(!(n instanceof layer_1.Layer))throw new Error("The invoke target is invalid.");this._invokeListeners(e,n.getId(),i)}},e.prototype._invokeListeners=function(e,n,i){var o=this,t=this.mapCallbackHandler.getEventCallbacks(e,n);t?t.forEach(function(t,s){t[0];t[1]&&o._removeListener(e,n,s),s(i)}):"error"===e&&console.error("error"in i?i.error:i)},e.prototype.remove=function(e,n,i){if("function"==typeof n)this._removeListener(e,"",n);else if(Array.isArray(n))for(var o=0,t=n;o<t.length;o++){var s=t[o];s instanceof internal_1.EventEmitter?s._removeEventListener(e,i):this._removeListener(e,s,i)}else n instanceof internal_1.EventEmitter?n._removeEventListener(e,i):this._removeListener(e,n,i)},e.prototype._removeLegacy=function(e,n,i){"function"==typeof n?this._removeListener(e,"",n):this._removeListener(e,n,i)},e.prototype._removeListener=function(e,n,i){var o=n instanceof layer_1.Layer?n.getId():n,t=this.mapCallbackHandler.getModifiedCallback(e,o,i);if(t)if(o){var s=this.map.layers.getLayerById(o);if(s)for(var r=0,a=s._getLayerIds();r<a.length;r++){var f=a[r];this.map._getMap().off(e,f,t)}}else this.map._getMap().off(e,t);this.mapCallbackHandler.removeCallback(e,o,i)},e.prototype._enableLayerEvents=function(e){var n=this,i=this.mapCallbackHandler.getLayerCallbacks(e.getId());i&&i.forEach(function(i,o){i.forEach(function(i){for(var t=i[0],s=0,r=e._getLayerIds();s<r.length;s++){var a=r[s];n.map._getMap().on(o,a,t)}})})},e.prototype._disableLayerEvents=function(e){var n=this,i=this.mapCallbackHandler.getLayerCallbacks(e.getId());i&&i.forEach(function(i,o){i.forEach(function(i){for(var t=i[0],s=0,r=e._getLayerIds();s<r.length;s++){var a=r[s];n.map._getMap().off(o,a,t)}})})},e}();exports.EventManager=EventManager;
 
-},{"../../namespace/internal":252,"../../namespace/layer":263,"../events/MapCallbackHandler":193}],197:[function(require,module,exports){
+},{"../../namespace/internal":254,"../../namespace/layer":265,"../events/MapCallbackHandler":193}],197:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var HtmlMarker_1=require("../../HtmlMarker"),HtmlMarkerManager=function(){function r(r){this.markers=new Set,this.map=r}return r.prototype.add=function(r,t){if(Array.isArray(r))for(var a=0,o=r;a<o.length;a++){var e=o[a];this._addMarker(e,t)}else this._addMarker(r,t)},r.prototype._addMarker=function(r,t){r._addToMap(this.map,t),this.markers.add(r)},r.prototype.getMarkers=function(){return Array.from(this.markers)},r.prototype.remove=function(r){if(Array.isArray(r))for(var t=0,a=r;t<a.length;t++){var o=a[t];this._removeMarker(o)}else this._removeMarker(r)},r.prototype._removeMarker=function(r){var t=this;r instanceof HtmlMarker_1.HtmlMarker?(r._removeFromMap(),this.markers.delete(r)):this.markers.forEach(function(a){a._getId()===r&&(a._removeFromMap(),t.markers.delete(a))})},r.prototype.clear=function(){var r=this;this.markers.forEach(function(t){t._removeFromMap(),r.markers.delete(t)})},r}();exports.HtmlMarkerManager=HtmlMarkerManager;
 
 },{"../../HtmlMarker":167}],198:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Dictionary_1=require("../../helpers/Dictionary"),ImageSpriteManager=function(){function e(e){this.userImages=new Dictionary_1.Dictionary,this.imageLoadTimeout=5e3,this.map=e}return e.prototype.add=function(e,a){var t=this;return new Promise(function(o,r){if(t.userImages.has(e))o();else if(a instanceof HTMLImageElement||a instanceof ImageData)t.map._getMap().addImage(e,a),t.userImages.set(e,a),o();else if("string"==typeof a){var i=void 0;i=/<svg/i.test(a)&&!/^data:/i.test(a)?"data:image/svg+xml;base64,"+window.btoa(a):a;var n,s=document.createElement("img");s.onload=function(){clearTimeout(n),t.map._getMap().addImage(e,s),t.userImages.set(e,s),o()},s.onerror=s.onabort=function(){clearTimeout(n),r("Failed to load image into HTML element.")},n=setTimeout(function(){s.onload=s.onabort=s.onerror=function(){},r("Failed to load image within specified timeout: "+t.imageLoadTimeout+" ms.")},t.imageLoadTimeout),s.crossOrigin="anonymous",s.src=i}})},e.prototype.clear=function(){var e=this;this.userImages.forEach(function(a,t){e.map._getMap().removeImage(t)}),this.userImages.clear()},e.prototype.getImageIds=function(){var e=[];return this.userImages.forEach(function(a,t){e.push(t)}),e},e.prototype.hasImage=function(e){return this.userImages.has(e)},e.prototype.remove=function(e){this.map._getMap().removeImage(e),this.userImages.delete(e)},e.prototype._restoreImages=function(){var e=this;this.userImages.forEach(function(a,t){e.map._getMap().hasImage(t)||e.map._getMap().addImage(t,a)})},e}();exports.ImageSpriteManager=ImageSpriteManager;
 
 },{"../../helpers/Dictionary":172}],199:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),Dictionary_1=require("../../helpers/Dictionary"),data_1=require("../../namespace/data"),layer_1=require("../../namespace/layer"),SourceBuildingLayer_1=require("../../namespace/layer/SourceBuildingLayer"),LayerManager=function(){function t(t){this.layersById=new Dictionary_1.Dictionary,this.layers=[],this.map=t}return t.prototype.add=function(t,s){this._addLayers(t,s,!0)},t.prototype.setFloorNumber=function(t){var s=this;this.layers.forEach(function(i){i._buildLayers().forEach(function(i){var a=s.map._getMap().getFilter(i.id);if(a){var h=void 0;(h="has"===a[0]&&0===a[1].indexOf("floor")?a:a.find(function(t){return"has"===t[0]&&0===t[1].indexOf("floor")}))&&(h[1]="floor"+t,s.map._getMap().setFilter(i.id,a))}})})},t.prototype._addNoUpdate=function(t,s){this._addLayers(t,s,!1)},t.prototype._addLayers=function(t,s,i){var a=s instanceof layer_1.Layer?s.getId():s;if(Array.isArray(t))for(var h=0,o=t;h<o.length;h++){var e=o[h];this._addLayer(e,a,i)}else this._addLayer(t,a,i)},t.prototype._addLayer=function(t,s,i){if(s!==t.getId()&&this.layersById.has(s))if(this.layersById.has(t.getId())){var a=_.findIndex(this.layers,function(s){return s.getId()===t.getId()});i&&(this._removeMapboxLayers(this.layers[a]),this._addMapboxLayers(t,s)),this.layers[a]._setMap(void 0),t._setMap(this.map),this.map.events._disableLayerEvents(this.layers[a]),this.map.events._enableLayerEvents(t),this.layersById.set(t.getId(),t),this.layers.splice(a,1);var h=_.findIndex(this.layers,function(t){return t.getId()===s});this.layers.splice(h,0,t)}else{i&&this._addMapboxLayers(t,s);h=_.findIndex(this.layers,function(t){return t.getId()===s});this.layers.splice(h,0,t),this.layersById.set(t.getId(),t),t._setMap(this.map),this.map.events._enableLayerEvents(t)}else if(this.layersById.has(t.getId())){a=_.findIndex(this.layers,function(s){return s.getId()===t.getId()});i&&(this._removeMapboxLayers(this.layers[a]),this._addMapboxLayers(t,a+1)),this.layers[a]._setMap(void 0),t._setMap(this.map),this.map.events._disableLayerEvents(this.layers[a]),this.map.events._enableLayerEvents(t),this.layersById.set(t.getId(),t),this.layers[a]=t}else i&&this._addMapboxLayers(t),this.layersById.set(t.getId(),t),this.layers.push(t),t._setMap(this.map),this.map.events._enableLayerEvents(t)},t.prototype._addMapboxLayers=function(t,s){if(!this.map._isReady())throw new Error("The layer '"+t.getId()+"' could not be added to the map because the map is not ready. Please use a ready event listener to guarantee the map is ready before adding a layer to it.");t instanceof SourceBuildingLayer_1.SourceBuildingLayer&&this.map._getMap().addSource(t._getSourceId(),t._buildSource());for(var i=this._getMapboxBefore(s),a=0,h=t._buildLayers();a<h.length;a++){var o=h[a];this.map._getMap().addLayer(o,i)}},t.prototype._removeMapboxLayers=function(t){for(var s=0,i=t._getLayerIds();s<i.length;s++){var a=i[s];this.map._getMap().getLayer(a)&&this.map._getMap().removeLayer(a)}t instanceof SourceBuildingLayer_1.SourceBuildingLayer&&this.map._getMap().getSource(t._getSourceId())&&this.map._getMap().removeSource(t._getSourceId())},t.prototype._getMapboxBefore=function(t){if("string"==typeof t){var s=this.layersById.get(t);if(!s)return;for(var i=0,a=s._getLayerIds();i<a.length;i++){var h=a[i];if(this.map._getMap().getLayer(h))return h}t=_.findIndex(this.layers,function(s){return s.getId()===t})+1}for(var o=t;o<this.layers.length;o++)for(var e=0,r=this.layers[o]._getLayerIds();e<r.length;e++){h=r[e];if(this.map._getMap().getLayer(h))return h}},t.prototype.clear=function(){for(var t=this.layers.length-1;t>=0;t--)this._removeMapboxLayers(this.layers[t]),this.layers[t]._setMap(void 0),this.map.events._disableLayerEvents(this.layers[t]),this.layersById.delete(this.layers[t].getId()),this.layers.splice(t,1)},t.prototype.getLayerById=function(t){return this.layersById.get(t)},t.prototype.getLayers=function(){return this.layers.slice(0)},t.prototype.move=function(t,s){var i=t instanceof layer_1.Layer?t.getId():t,a=s instanceof layer_1.Layer?s.getId():s;if(!this.layersById.has(i))throw new Error("The layer '"+i+"' has not been added to the map and cannot be moved.");var h=_.findIndex(this.layers,function(t){return t.getId()===i});if(this._moveMapboxLayers(this.layers[h],a),t=this.layers[h],this.layers.splice(h,1),this.layersById.has(a)){var o=_.findIndex(this.layers,function(t){return t.getId()===a});this.layers.splice(o,0,t)}else this.layers.push(t)},t.prototype._moveMapboxLayers=function(t,s){for(var i=this._getMapboxBefore(s),a=0,h=t._getLayerIds();a<h.length;a++){var o=h[a];this.map._getMap().moveLayer(o,i)}},t.prototype.getRenderedShapes=function(t,s,i){var a,h,o=this;if(t||(t=[-180,-85.0511,180,85.0511]),Array.isArray(t)?4===t.length||6===t.length?a=this.map.positionsToPixels([data_1.BoundingBox.getSouthWest(t),data_1.BoundingBox.getNorthEast(t)]):2!==t.length&&3!==t.length||(a=this.map.positionsToPixels([t])[0]):a=this.map.positionsToPixels([t.coordinates])[0],Array.isArray(s)){h=[];for(var e=0,r=s;e<r.length;e++){var p=r[e],n=p instanceof layer_1.Layer?p.getId():p;if(!this.layersById.has(n))throw new Error("The layer '"+n+"' has not been added to the map and its rendered features cannot be retrieved.");h.push.apply(h,this.layersById.get(n)._getLayerIds().filter(function(t){return!!o.map._getMap().getLayer(t)}))}}var g=this.map._getMap().queryRenderedFeatures(a,{layers:h,filter:i});return this.map.sources._mapFeaturesToShapes(g)},t.prototype.remove=function(t){if(Array.isArray(t))for(var s=0,i=t;s<i.length;s++){var a=i[s];this._removeLayer(a)}else this._removeLayer(t)},t.prototype._removeLayer=function(t){var s=t instanceof layer_1.Layer?t.getId():t;if(!this.layersById.has(s))throw new Error("The layer '"+s+"' has not been added to the map and cannot be removed.");var i=_.findIndex(this.layers,function(t){return t.getId()===s});this._removeMapboxLayers(this.layers[i]),this.layers[i]._setMap(void 0),this.map.events._disableLayerEvents(this.layers[i]),this.layersById.delete(s),this.layers.splice(i,1)},t}();exports.LayerManager=LayerManager;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),Dictionary_1=require("../../helpers/Dictionary"),data_1=require("../../namespace/data"),layer_1=require("../../namespace/layer"),SourceBuildingLayer_1=require("../../namespace/layer/SourceBuildingLayer"),LayerManager=function(){function t(t){this.layersById=new Dictionary_1.Dictionary,this.layers=[],this.map=t}return t.prototype.add=function(t,s){this._addLayers(t,s,!0)},t.prototype.setFloorOrdinalNumber=function(t){var s=this;this.layers.forEach(function(i){i._buildLayers().forEach(function(i){var a=s.map._getMap().getFilter(i.id);if(a){var h=void 0;(h="has"===a[0]&&0===a[1].indexOf("floor")?a:a.find(function(t){return"has"===t[0]&&0===t[1].indexOf("floor")}))&&(h[1]="floor"+t,s.map._getMap().setFilter(i.id,a))}})});var i={map:this.map,type:"floorchange",floorNumber:t+1};this.map.events.invoke("floorchange",i)},t.prototype._addNoUpdate=function(t,s){this._addLayers(t,s,!1)},t.prototype._addLayers=function(t,s,i){var a=s instanceof layer_1.Layer?s.getId():s;if(Array.isArray(t))for(var h=0,o=t;h<o.length;h++){var e=o[h];this._addLayer(e,a,i)}else this._addLayer(t,a,i)},t.prototype._addLayer=function(t,s,i){if(s!==t.getId()&&this.layersById.has(s))if(this.layersById.has(t.getId())){var a=_.findIndex(this.layers,function(s){return s.getId()===t.getId()});i&&(this._removeMapboxLayers(this.layers[a]),this._addMapboxLayers(t,s)),this.layers[a]._setMap(void 0),t._setMap(this.map),this.map.events._disableLayerEvents(this.layers[a]),this.map.events._enableLayerEvents(t),this.layersById.set(t.getId(),t),this.layers.splice(a,1);var h=_.findIndex(this.layers,function(t){return t.getId()===s});this.layers.splice(h,0,t)}else{i&&this._addMapboxLayers(t,s);h=_.findIndex(this.layers,function(t){return t.getId()===s});this.layers.splice(h,0,t),this.layersById.set(t.getId(),t),t._setMap(this.map),this.map.events._enableLayerEvents(t)}else if(this.layersById.has(t.getId())){a=_.findIndex(this.layers,function(s){return s.getId()===t.getId()});i&&(this._removeMapboxLayers(this.layers[a]),this._addMapboxLayers(t,a+1)),this.layers[a]._setMap(void 0),t._setMap(this.map),this.map.events._disableLayerEvents(this.layers[a]),this.map.events._enableLayerEvents(t),this.layersById.set(t.getId(),t),this.layers[a]=t}else i&&this._addMapboxLayers(t),this.layersById.set(t.getId(),t),this.layers.push(t),t._setMap(this.map),this.map.events._enableLayerEvents(t)},t.prototype._addMapboxLayers=function(t,s){if(!this.map._isReady())throw new Error("The layer '"+t.getId()+"' could not be added to the map because the map is not ready. Please use a ready event listener to guarantee the map is ready before adding a layer to it.");if(!(t instanceof layer_1.TileLayer)||t.getOptions().tileUrl){t instanceof SourceBuildingLayer_1.SourceBuildingLayer&&this.map._getMap().addSource(t._getSourceId(),t._buildSource());for(var i=this._getMapboxBefore(s),a=0,h=t._buildLayers();a<h.length;a++){var o=h[a];this.map._getMap().addLayer(o,i)}}},t.prototype._removeMapboxLayers=function(t){for(var s=0,i=t._getLayerIds();s<i.length;s++){var a=i[s];this.map._getMap().getLayer(a)&&this.map._getMap().removeLayer(a)}t instanceof SourceBuildingLayer_1.SourceBuildingLayer&&this.map._getMap().getSource(t._getSourceId())&&this.map._getMap().removeSource(t._getSourceId())},t.prototype._getMapboxBefore=function(t){if("string"==typeof t){var s=this.layersById.get(t);if(!s)return;for(var i=0,a=s._getLayerIds();i<a.length;i++){var h=a[i];if(this.map._getMap().getLayer(h))return h}t=_.findIndex(this.layers,function(s){return s.getId()===t})+1}for(var o=t;o<this.layers.length;o++)for(var e=0,r=this.layers[o]._getLayerIds();e<r.length;e++){h=r[e];if(this.map._getMap().getLayer(h))return h}},t.prototype.clear=function(){for(var t=this.layers.length-1;t>=0;t--)this._removeMapboxLayers(this.layers[t]),this.layers[t]._setMap(void 0),this.map.events._disableLayerEvents(this.layers[t]),this.layersById.delete(this.layers[t].getId()),this.layers.splice(t,1)},t.prototype.getLayerById=function(t){return this.layersById.get(t)},t.prototype.getLayers=function(){return this.layers.slice(0)},t.prototype.move=function(t,s){var i=t instanceof layer_1.Layer?t.getId():t,a=s instanceof layer_1.Layer?s.getId():s;if(!this.layersById.has(i))throw new Error("The layer '"+i+"' has not been added to the map and cannot be moved.");var h=_.findIndex(this.layers,function(t){return t.getId()===i});if(this._moveMapboxLayers(this.layers[h],a),t=this.layers[h],this.layers.splice(h,1),this.layersById.has(a)){var o=_.findIndex(this.layers,function(t){return t.getId()===a});this.layers.splice(o,0,t)}else this.layers.push(t)},t.prototype._moveMapboxLayers=function(t,s){for(var i=this._getMapboxBefore(s),a=0,h=t._getLayerIds();a<h.length;a++){var o=h[a];this.map._getMap().moveLayer(o,i)}},t.prototype.getRenderedShapes=function(t,s,i){var a,h,o=this;if(t||(t=[-180,-85.0511,180,85.0511]),Array.isArray(t)?4===t.length||6===t.length?a=this.map.positionsToPixels([data_1.BoundingBox.getSouthWest(t),data_1.BoundingBox.getNorthEast(t)]):2!==t.length&&3!==t.length||(a=this.map.positionsToPixels([t])[0]):a=this.map.positionsToPixels([t.coordinates])[0],s){h=[];for(var e=0,r=s=Array.isArray(s)?s:[s];e<r.length;e++){var n=r[e],p=n instanceof layer_1.Layer?n.getId():n;if(!this.layersById.has(p))throw new Error("The layer '"+p+"' has not been added to the map and its rendered features cannot be retrieved.");h.push.apply(h,this.layersById.get(p)._getLayerIds().filter(function(t){return!!o.map._getMap().getLayer(t)}))}}var g=this.map._getMap().queryRenderedFeatures(a,{layers:h,filter:i});return this.map.sources._mapFeaturesToShapes(g)},t.prototype.remove=function(t){if(Array.isArray(t))for(var s=0,i=t;s<i.length;s++){var a=i[s];this._removeLayer(a)}else this._removeLayer(t)},t.prototype._removeLayer=function(t){var s=t instanceof layer_1.Layer?t.getId():t;if(!this.layersById.has(s))throw new Error("The layer '"+s+"' has not been added to the map and cannot be removed.");var i=_.findIndex(this.layers,function(t){return t.getId()===s});this._removeMapboxLayers(this.layers[i]),this.layers[i]._setMap(void 0),this.map.events._disableLayerEvents(this.layers[i]),this.layersById.delete(s),this.layers.splice(i,1)},t}();exports.LayerManager=LayerManager;
 
-},{"../../helpers/Dictionary":172,"../../namespace/data":250,"../../namespace/layer":263,"../../namespace/layer/SourceBuildingLayer":260,"lodash":109}],200:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Dictionary_1=require("../../helpers/Dictionary"),source_1=require("../../namespace/source"),Shape_1=require("../../Shape"),SourceManager=function(){function e(e){this.map=e,this.sources=new Dictionary_1.Dictionary}return e.prototype.add=function(e){if(Array.isArray(e))for(var t=0,r=e;t<r.length;t++){var a=r[t];this._addSource(a,!0)}else this._addSource(e,!0)},e.prototype._addNoUpdate=function(e){if(Array.isArray(e))for(var t=0,r=e;t<r.length;t++){var a=r[t];this._addSource(a,!1)}else this._addSource(e,!1)},e.prototype._buildSources=function(){var e={};return this.sources.forEach(function(t){e[t.getId()]=t._buildSource()}),e},e.prototype.clear=function(){var e=this;this.sources.forEach(function(t){e.remove(t)})},e.prototype.getById=function(e){return this.sources.get(e)},e.prototype.isSourceLoaded=function(e){var t=e instanceof source_1.Source?e.getId():e;return this.map._getMap().isSourceLoaded(t)},e.prototype.remove=function(e){if(Array.isArray(e))for(var t=0,r=e;t<r.length;t++){var a=r[t];this._removeSource(a)}else this._removeSource(e)},e.prototype._removeSource=function(e){var t=e instanceof source_1.Source?e.getId():e;if(this.sources.has(t)){if(this.map._getMap().getSource(t)&&this.map._getMap().removeSource(t),this.map._getMap().getSource(t))throw new Error("One or more layers have a dependency on the source '"+t+"'");return this.sources.get(t)._setMap(null),void this.sources.delete(t)}throw new Error("'"+t+"' is not added to the map")},e.prototype._addSource=function(e,t){if(this.sources.has(e.getId())){if(t)throw new Error("'"+e.getId()+"' is already added to the map");this.sources.get(e.getId())._setMap(null),this.sources.delete(e.getId())}if(t){if(!this.map._isReady())throw new Error("The source '"+e.getId()+"' could not be added to the map because the map is not ready. Please use a ready event listener to guarantee the map is ready before adding a source to it.");this.map._getMap().addSource(e.getId(),e._buildSource())}this.sources.set(e.getId(),e),e._setMap(this.map)},e.prototype._mapFeaturesToShapes=function(e,t,r){for(var a=[],o=0,p=e;o<p.length;o++){var s=p[o];if((r||"string"==typeof s.source)&&"string"==typeof s.properties[Shape_1.Shape._shapeIdPropName]){var n=r||this.sources.get(s.source);if(n instanceof source_1.DataSource){var d=n.getShapeById(s.properties[Shape_1.Shape._shapeIdPropName]);if(d instanceof Shape_1.Shape){a.push(d);continue}}}t||a.push(s)}return a},e}();exports.SourceManager=SourceManager;
+},{"../../helpers/Dictionary":172,"../../namespace/data":252,"../../namespace/layer":265,"../../namespace/layer/SourceBuildingLayer":262,"lodash":109}],200:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Dictionary_1=require("../../helpers/Dictionary"),source_1=require("../../namespace/source"),Shape_1=require("../../Shape"),SourceManager=function(){function e(e){this.map=e,this.sources=new Dictionary_1.Dictionary}return e.prototype.add=function(e){if(Array.isArray(e))for(var t=0,r=e;t<r.length;t++){var a=r[t];this._addSource(a,!0)}else this._addSource(e,!0)},e.prototype.getRenderedShapes=function(e,t,r){var a="string"==typeof e?e:e.getId(),o=this.map._getMap().querySourceFeatures(a,{sourceLayer:r,filter:t});return this.map.sources._mapFeaturesToShapes(o,!0,this.sources.get(a))},e.prototype._addNoUpdate=function(e){if(Array.isArray(e))for(var t=0,r=e;t<r.length;t++){var a=r[t];this._addSource(a,!1)}else this._addSource(e,!1)},e.prototype._buildSources=function(){var e={};return this.sources.forEach(function(t){e[t.getId()]=t._buildSource()}),e},e.prototype.clear=function(){var e=this;this.sources.forEach(function(t){e.remove(t)})},e.prototype.getById=function(e){return this.sources.get(e)},e.prototype.isSourceLoaded=function(e){var t=e instanceof source_1.Source?e.getId():e;return this.map._getMap().isSourceLoaded(t)},e.prototype.remove=function(e){if(Array.isArray(e))for(var t=0,r=e;t<r.length;t++){var a=r[t];this._removeSource(a)}else this._removeSource(e)},e.prototype._removeSource=function(e){var t=e instanceof source_1.Source?e.getId():e;if(this.sources.has(t)){if(this.map._getMap().getSource(t)&&this.map._getMap().removeSource(t),this.map._getMap().getSource(t))throw new Error("One or more layers have a dependency on the source '"+t+"'");return this.sources.get(t)._setMap(null),void this.sources.delete(t)}throw new Error("'"+t+"' is not added to the map")},e.prototype._addSource=function(e,t){if(this.sources.has(e.getId())){if(t)throw new Error("'"+e.getId()+"' is already added to the map");this.sources.get(e.getId())._setMap(null),this.sources.delete(e.getId())}if(t){if(!this.map._isReady())throw new Error("The source '"+e.getId()+"' could not be added to the map because the map is not ready. Please use a ready event listener to guarantee the map is ready before adding a source to it.");this.map._getMap().addSource(e.getId(),e._buildSource())}this.sources.set(e.getId(),e),e._setMap(this.map)},e.prototype._mapFeaturesToShapes=function(e,t,r){for(var a=[],o=0,s=e;o<s.length;o++){var p=s[o];if((r||"string"==typeof p.source)&&"string"==typeof p.properties[Shape_1.Shape._shapeIdPropName]){var n=r||this.sources.get(p.source);if(n instanceof source_1.DataSource){var h=n.getShapeById(p.properties[Shape_1.Shape._shapeIdPropName]);if(h instanceof Shape_1.Shape){a.push(h);continue}}}t||a.push(p)}return a},e}();exports.SourceManager=SourceManager;
 
-},{"../../Shape":171,"../../helpers/Dictionary":172,"../../namespace/source":282}],201:[function(require,module,exports){
+},{"../../Shape":171,"../../helpers/Dictionary":172,"../../namespace/source":284}],201:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var AuthenticationManager_1=require("./AuthenticationManager");exports.AuthenticationManager=AuthenticationManager_1.AuthenticationManager;var ControlManager_1=require("./ControlManager");exports.ControlManager=ControlManager_1.ControlManager;var EventManager_1=require("./EventManager");exports.EventManager=EventManager_1.EventManager;var HtmlMarkerManager_1=require("./HtmlMarkerManager");exports.HtmlMarkerManager=HtmlMarkerManager_1.HtmlMarkerManager;var ImageSpriteManager_1=require("./ImageSpriteManager");exports.ImageSpriteManager=ImageSpriteManager_1.ImageSpriteManager;var LayerManager_1=require("./LayerManager");exports.LayerManager=LayerManager_1.LayerManager;var SourceManager_1=require("./SourceManager");exports.SourceManager=SourceManager_1.SourceManager;
 
 },{"./AuthenticationManager":194,"./ControlManager":195,"./EventManager":196,"./HtmlMarkerManager":197,"./ImageSpriteManager":198,"./LayerManager":199,"./SourceManager":200}],202:[function(require,module,exports){
@@ -10057,7 +10054,7 @@ module.exports={
 },{"../../Padding":168,"../../Pixel":169,"../../helpers/Options":175}],204:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(e,n){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])})(e,n)};return function(e,n){function r(){this.constructor=e}t(e,n),e.prototype=null===n?Object.create(n):(r.prototype=n.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../helpers/Options"),data_1=require("../../namespace/data"),Pixel_1=require("../../Pixel"),CameraOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.zoom=1,e.center=new data_1.Position(0,0),e.centerOffset=new Pixel_1.Pixel(0,0),e.bearing=0,e.pitch=0,e.minZoom=1,e.maxZoom=20,e}return __extends(e,t),e}(Options_1.Options);exports.CameraOptions=CameraOptions;
 
-},{"../../Pixel":169,"../../helpers/Options":175,"../../namespace/data":250}],205:[function(require,module,exports){
+},{"../../Pixel":169,"../../helpers/Options":175,"../../namespace/data":252}],205:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(e,r){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])})(e,r)};return function(e,r){function n(){this.constructor=e}t(e,r),e.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),CircleLayerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.color="rgba(0,0,0,.5)",e.outlineColor="#000",e.radius=1,e.outlineWidth=5,e.name="default-circles",e}return __extends(e,t),e}(LayerOptions_1.LayerOptions);exports.CircleLayerOptions=CircleLayerOptions;
 
 },{"./LayerOptions":207}],206:[function(require,module,exports){
@@ -10090,10 +10087,10 @@ module.exports={
 },{"../../helpers/Options":175}],215:[function(require,module,exports){
 "use strict";var __assign=this&&this.__assign||function(){return(__assign=Object.assign||function(e){for(var n,r=1,i=arguments.length;r<i;r++)for(var t in n=arguments[r])Object.prototype.hasOwnProperty.call(n,t)&&(e[t]=n[t]);return e}).apply(this,arguments)};Object.defineProperty(exports,"__esModule",{value:!0});var vars=require("../../../../variables.json"),Url_1=require("../../helpers/Url"),IncidentOptions_1=require("./options/IncidentOptions"),IncidentService=function(){function e(e){this.authManager=e}return e.prototype.request=function(e){var n=(new IncidentOptions_1.IncidentOptions).merge(e),r=n.bbox[1]+","+n.bbox[0]+","+n.bbox[3]+","+n.bbox[2],i={domain:vars.env.domain,path:"traffic/incident/detail/json",queryParams:__assign({"api-version":n.version,projection:"EPSG4326",style:"s3",boundingbox:r,boundingzoom:n.zoom,trafficmodelid:-1},n.params)};return new Url_1.Url(this.authManager.signRequest(i)).get()},e}();exports.IncidentService=IncidentService;
 
-},{"../../../../variables.json":287,"../../helpers/Url":176,"./options/IncidentOptions":218}],216:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var vars=require("../../../../variables.json"),Url_1=require("../../helpers/Url"),NearbyGeographySearchService=function(){function e(e){this.authManager=e}return e.prototype.request=function(e){var r={domain:vars.env.domain,path:"search/address/reverse/json",queryParams:{"api-version":"1.0",language:e.style.language,limit:1,query:e.position[1]+","+e.position[0],view:e.style.view}};return new Url_1.Url(this.authManager.signRequest(r)).get()},e}();exports.NearbyGeographySearchService=NearbyGeographySearchService;
+},{"../../../../variables.json":289,"../../helpers/Url":176,"./options/IncidentOptions":218}],216:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var vars=require("../../../../variables.json"),Url_1=require("../../helpers/Url"),NearbyGeographySearchService=function(){function e(e){this.authManager=e}return e.prototype.request=function(e){var r={domain:vars.env.domain,path:"search/address/reverse/json",queryParams:{"api-version":"1.0",language:e.style.language,limit:1,query:e.position[1]+","+e.position[0]}};return e.style.view&&(r.queryParams.view=e.style.view),new Url_1.Url(this.authManager.signRequest(r)).get()},e}();exports.NearbyGeographySearchService=NearbyGeographySearchService;
 
-},{"../../../../variables.json":287,"../../helpers/Url":176}],217:[function(require,module,exports){
+},{"../../../../variables.json":289,"../../helpers/Url":176}],217:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(n,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,n){t.__proto__=n}||function(t,n){for(var e in n)n.hasOwnProperty(e)&&(t[e]=n[e])})(n,e)};return function(n,e){function o(){this.constructor=n}t(n,e),n.prototype=null===e?Object.create(e):(o.prototype=e.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var AuthenticationType,Options_1=require("../../../helpers/Options");!function(t){t.subscriptionKey="subscriptionKey",t.aad="aad",t.anonymous="anonymous"}(AuthenticationType=exports.AuthenticationType||(exports.AuthenticationType={}));var AuthenticationOptions=function(t){function n(){var n=null!==t&&t.apply(this,arguments)||this;return n.authType=void 0,n.subscriptionKey=void 0,n.clientId=void 0,n.aadAppId=void 0,n.aadTenant=void 0,n.aadInstance=void 0,n.getToken=void 0,n.authContext=void 0,n}return __extends(n,t),n.prototype.setSubscriptionKey=function(t){this.authType=AuthenticationType.subscriptionKey,this.subscriptionKey=t},n.prototype.setAadProperties=function(t,n,e,o,i){this.authType=AuthenticationType.aad,this.authContext=i||this.authContext,this.aadInstance=o||this.aadInstance,this.clientId=t,this.aadAppId=n,this.aadTenant=e},n.prototype.setTokenCallbackFunction=function(t){this.authType=AuthenticationType.anonymous,this.getToken=t},n.prototype.merge=function(){for(var n=[],e=0;e<arguments.length;e++)n[e]=arguments[e];var o=t.prototype.merge.apply(this,n);return o.authType===AuthenticationType.subscriptionKey?o.authContext=o.aadAppId=o.getToken=void 0:o.authType===AuthenticationType.aad?o.subscriptionKey=o.getToken=void 0:o.authType===AuthenticationType.anonymous&&(o.subscriptionKey=o.authContext=o.aadAppId=void 0),o},n}(Options_1.Options);exports.AuthenticationOptions=AuthenticationOptions;
 
 },{"../../../helpers/Options":175}],218:[function(require,module,exports){
@@ -10108,10 +10105,10 @@ module.exports={
 },{}],221:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var SourceBuildingLayer_1=require("../../namespace/layer/SourceBuildingLayer"),Style_1=require("./Style"),StyleBuilder=function(){function e(e,r){this.sprite="",this.glyphs="{fontstack}/{range}",this.source=e,this.layer=r}return e.prototype.build=function(){var e=new Style_1.Style;if(null!=this.glyphs&&(e.glyphs=this.glyphs),null!=this.sprite&&(e.sprite=this.sprite),null!=this.source&&(e.sources=this.source._buildSources()),null!=this.layer)for(var r=0,t=this.layer.getLayers();r<t.length;r++){var s=t[r];e.layers=e.layers.concat(s._buildLayers()),s instanceof SourceBuildingLayer_1.SourceBuildingLayer&&(e.sources[s._getSourceId()]=s._buildSource())}return e},e.prototype.setGlyphs=function(e){this.glyphs=e},e.prototype.setSprite=function(e){this.sprite=e},e}();exports.StyleBuilder=StyleBuilder;
 
-},{"../../namespace/layer/SourceBuildingLayer":260,"./Style":220}],222:[function(require,module,exports){
-"use strict";var __awaiter=this&&this.__awaiter||function(t,e,n,r){return new(n||(n=Promise))(function(i,o){function a(t){try{s(r.next(t))}catch(t){o(t)}}function u(t){try{s(r.throw(t))}catch(t){o(t)}}function s(t){t.done?i(t.value):new n(function(e){e(t.value)}).then(a,u)}s((r=r.apply(t,e||[])).next())})},__generator=this&&this.__generator||function(t,e){var n,r,i,o,a={label:0,sent:function(){if(1&i[0])throw i[1];return i[1]},trys:[],ops:[]};return o={next:u(0),throw:u(1),return:u(2)},"function"==typeof Symbol&&(o[Symbol.iterator]=function(){return this}),o;function u(o){return function(u){return function(o){if(n)throw new TypeError("Generator is already executing.");for(;a;)try{if(n=1,r&&(i=2&o[0]?r.return:o[0]?r.throw||((i=r.return)&&i.call(r),0):r.next)&&!(i=i.call(r,o[1])).done)return i;switch(r=0,i&&(o=[2&o[0],i.value]),o[0]){case 0:case 1:i=o;break;case 4:return a.label++,{value:o[1],done:!1};case 5:a.label++,r=o[1],o=[0];continue;case 7:o=a.ops.pop(),a.trys.pop();continue;default:if(!(i=(i=a.trys).length>0&&i[i.length-1])&&(6===o[0]||2===o[0])){a=0;continue}if(3===o[0]&&(!i||o[1]>i[0]&&o[1]<i[3])){a.label=o[1];break}if(6===o[0]&&a.label<i[1]){a.label=i[1],i=o;break}if(i&&a.label<i[2]){a.label=i[2],a.ops.push(o);break}i[2]&&a.ops.pop(),a.trys.pop();continue}o=e.call(t,a)}catch(t){o=[6,t],r=0}finally{n=i=0}if(5&o[0])throw o[1];return{value:o[0]?o[1]:void 0,done:!0}}([o,u])}}};Object.defineProperty(exports,"__esModule",{value:!0});var vars=require("../../../../variables.json"),Url_1=require("../../helpers/Url"),FundamentalMapLayer_1=require("../../namespace/layer/FundamentalMapLayer"),FundamentalMapSource_1=require("../../namespace/source/FundamentalMapSource"),StyleDefinitions=function(){function t(){}return t.prototype.initialize=function(){var t=this;return this.initPromise||(this.initPromise=this.request(vars.env.staticAssetsDomain,vars.env.styleDefinitionsPath).then(function(e){t.definitions=e}).catch(function(t){throw new Error("Failed to retrieve the style definitions: "+t)})),this.initPromise},t.prototype.getStyleComponents=function(t){return __awaiter(this,void 0,void 0,function(){var e,n,r,i=this;return __generator(this,function(o){return e=new Set,n=this.lookUp(t),r=n.layerGroups.map(function(n){var r,o=n.layerPath,a=n.name;return r="indoor"===t.style?t.userRegion?{view:t.userRegion,language:t.language,tilesetId:t.tilesetId}:{language:t.language,tilesetId:t.tilesetId}:t.userRegion?{view:t.userRegion,language:t.language}:{language:t.language},i.buildComponent(a,o,r,e)}),[2,Promise.all(r)]})})},t.prototype.getFlowComponent=function(t,e){return __awaiter(this,void 0,void 0,function(){var n;return __generator(this,function(r){return n=this.getFlowPath(t,e),[2,this.buildComponent("flow",n)]})})},t.prototype.getCopyrightCaption=function(t){var e=this.lookUp(t).copyright.join(" ");return t.showLogo||(e+=" ©2019 Microsoft"),e},t.prototype.getSprite=function(t){var e=this.lookUp(t);return new Url_1.Url({domain:this.definitions.domain,path:e.spritePath}).toString()},t.prototype.getGlyphs=function(t){var e=this.lookUp(t);return new Url_1.Url({domain:this.definitions.domain,path:e.glyphsPath}).toString()},t.prototype.getFlowPath=function(t,e){return this.lookUp(t).flowPaths[e.flow]},t.prototype.getDef=function(){return this.definitions},t.prototype.lookUp=function(t){for(var e,n=t.style||this.definitions.defaultStyle,r=0,i=this.definitions.styles;r<i.length;r++){var o=i[r];if(o.name===n)return o;o.name===this.definitions.defaultStyle&&(e=o)}return e},t.prototype.request=function(t,e){return __awaiter(this,void 0,void 0,function(){return __generator(this,function(n){return[2,new Url_1.Url({domain:t,path:e}).get()]})})},t.prototype.buildComponent=function(t,e,n,r){return __awaiter(this,void 0,void 0,function(){return __generator(this,function(i){return[2,this.request(this.definitions.domain,e).then(function(e){for(var i=new FundamentalMapLayer_1.FundamentalMapLayer(e.layers,t),o=[],a=0,u=e.sources;a<u.length;a++){var s=u[a],l=s.name;if(r){if(r.has(l))continue;r.add(l)}o.push(new FundamentalMapSource_1.FundamentalMapSource(l,s,n))}return{layer:i,sources:o}})]})})},t}();exports.StyleDefinitions=StyleDefinitions;
+},{"../../namespace/layer/SourceBuildingLayer":262,"./Style":220}],222:[function(require,module,exports){
+"use strict";var __awaiter=this&&this.__awaiter||function(t,e,n,r){return new(n||(n=Promise))(function(i,o){function a(t){try{s(r.next(t))}catch(t){o(t)}}function u(t){try{s(r.throw(t))}catch(t){o(t)}}function s(t){t.done?i(t.value):new n(function(e){e(t.value)}).then(a,u)}s((r=r.apply(t,e||[])).next())})},__generator=this&&this.__generator||function(t,e){var n,r,i,o,a={label:0,sent:function(){if(1&i[0])throw i[1];return i[1]},trys:[],ops:[]};return o={next:u(0),throw:u(1),return:u(2)},"function"==typeof Symbol&&(o[Symbol.iterator]=function(){return this}),o;function u(o){return function(u){return function(o){if(n)throw new TypeError("Generator is already executing.");for(;a;)try{if(n=1,r&&(i=2&o[0]?r.return:o[0]?r.throw||((i=r.return)&&i.call(r),0):r.next)&&!(i=i.call(r,o[1])).done)return i;switch(r=0,i&&(o=[2&o[0],i.value]),o[0]){case 0:case 1:i=o;break;case 4:return a.label++,{value:o[1],done:!1};case 5:a.label++,r=o[1],o=[0];continue;case 7:o=a.ops.pop(),a.trys.pop();continue;default:if(!(i=(i=a.trys).length>0&&i[i.length-1])&&(6===o[0]||2===o[0])){a=0;continue}if(3===o[0]&&(!i||o[1]>i[0]&&o[1]<i[3])){a.label=o[1];break}if(6===o[0]&&a.label<i[1]){a.label=i[1],i=o;break}if(i&&a.label<i[2]){a.label=i[2],a.ops.push(o);break}i[2]&&a.ops.pop(),a.trys.pop();continue}o=e.call(t,a)}catch(t){o=[6,t],r=0}finally{n=i=0}if(5&o[0])throw o[1];return{value:o[0]?o[1]:void 0,done:!0}}([o,u])}}};Object.defineProperty(exports,"__esModule",{value:!0});var vars=require("../../../../variables.json"),Url_1=require("../../helpers/Url"),FundamentalMapLayer_1=require("../../namespace/layer/FundamentalMapLayer"),FundamentalMapSource_1=require("../../namespace/source/FundamentalMapSource"),StyleDefinitions=function(){function t(){}return t.prototype.initialize=function(){var t=this;return this.initPromise||(this.initPromise=this.request(vars.env.staticAssetsDomain,vars.env.styleDefinitionsPath).then(function(e){t.definitions=e}).catch(function(t){throw new Error("Failed to retrieve the style definitions: "+t)})),this.initPromise},t.prototype.getStyleComponents=function(t){return __awaiter(this,void 0,void 0,function(){var e,n,r,i=this;return __generator(this,function(o){return e=new Set,n=this.lookUp(t),r=n.layerGroups.map(function(n){var r,o=n.layerPath,a=n.name;return r=t.style.includes("indoor")?t.userRegion?{view:t.userRegion,language:t.language,tilesetId:t.tilesetId}:{language:t.language,tilesetId:t.tilesetId}:t.userRegion?{view:t.userRegion,language:t.language}:{language:t.language},i.buildComponent(a,o,r,e)}),[2,Promise.all(r)]})})},t.prototype.getFlowComponent=function(t,e){return __awaiter(this,void 0,void 0,function(){var n;return __generator(this,function(r){return n=this.getFlowPath(t,e),[2,this.buildComponent("flow",n)]})})},t.prototype.getCopyrightCaption=function(t){var e=this.lookUp(t).copyright.join(" ");return t.showLogo||(e+=" ©2019 Microsoft"),e},t.prototype.getSprite=function(t){var e=this.lookUp(t);return new Url_1.Url({domain:this.definitions.domain,path:e.spritePath}).toString()},t.prototype.getGlyphs=function(t){var e=this.lookUp(t);return new Url_1.Url({domain:this.definitions.domain,path:e.glyphsPath}).toString()},t.prototype.getFlowPath=function(t,e){return this.lookUp(t).flowPaths[e.flow]},t.prototype.getDef=function(){return this.definitions},t.prototype.lookUp=function(t){for(var e,n=t.style||this.definitions.defaultStyle,r=0,i=this.definitions.styles;r<i.length;r++){var o=i[r];if(o.name===n)return o;o.name===this.definitions.defaultStyle&&(e=o)}return e},t.prototype.request=function(t,e){return __awaiter(this,void 0,void 0,function(){return __generator(this,function(n){return[2,new Url_1.Url({domain:t,path:e}).get()]})})},t.prototype.buildComponent=function(t,e,n,r){return __awaiter(this,void 0,void 0,function(){return __generator(this,function(i){return[2,this.request(this.definitions.domain,e).then(function(e){for(var i=new FundamentalMapLayer_1.FundamentalMapLayer(e.layers,t),o=[],a=0,u=e.sources;a<u.length;a++){var s=u[a],l=s.name;if(r){if(r.has(l))continue;r.add(l)}o.push(new FundamentalMapSource_1.FundamentalMapSource(l,s,n))}return{layer:i,sources:o}})]})})},t}();exports.StyleDefinitions=StyleDefinitions;
 
-},{"../../../../variables.json":287,"../../helpers/Url":176,"../../namespace/layer/FundamentalMapLayer":254,"../../namespace/source/FundamentalMapSource":279}],223:[function(require,module,exports){
+},{"../../../../variables.json":289,"../../helpers/Url":176,"../../namespace/layer/FundamentalMapLayer":256,"../../namespace/source/FundamentalMapSource":281}],223:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var AzureLogoControl=function(){function o(){}return o.prototype.onAdd=function(o){return this.container=document.createElement("div"),this.container.className="azure-map-logo",this.container},o.prototype.onRemove=function(){this.container.remove()},o}();exports.AzureLogoControl=AzureLogoControl;
 
 },{}],224:[function(require,module,exports){
@@ -10139,176 +10136,182 @@ module.exports={
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var FeedbackControl_1=require("./FeedbackControl");exports.FeedbackControl=FeedbackControl_1.FeedbackControl;
 
 },{"./FeedbackControl":230}],232:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),ControlOptions_1=require("../../../map/options/ControlOptions"),PitchControlOptions_1=require("./PitchControlOptions"),PitchControl=function(){function t(t){this.hasMouse=!1,this.options=(new PitchControlOptions_1.PitchControlOptions).merge(t)}return t.prototype.onAdd=function(e,i){var s=this;this.map=e,this.container=document.createElement("div"),this.container.classList.add("azure-maps-control-container"),this.container.setAttribute("aria-label","Pitch Control");var n=this.constructPitchButton(),o=this.constructPitchIncrementButton(),c=this.constructPitchDecrementButton();return this.container.addEventListener("mouseover",function(t){s.hasMouse=!0,s.container.classList.add("in-use"),o.classList.remove("hidden-accessible-element"),c.classList.remove("hidden-accessible-element")}),this.container.addEventListener("focusin",function(t){s.container.classList.add("in-use"),o.classList.remove("hidden-accessible-element"),c.classList.remove("hidden-accessible-element")}),this.container.addEventListener("mouseleave",function(t){s.hasMouse=!1,s.container.classList.remove("in-use"),o.classList.add("hidden-accessible-element"),c.classList.add("hidden-accessible-element")}),this.container.addEventListener("focusout",function(t){s.hasMouse||t.relatedTarget instanceof Node&&s.container.contains(t.relatedTarget)||(s.container.classList.remove("in-use"),o.classList.add("hidden-accessible-element"),c.classList.add("hidden-accessible-element"))}),i&&_.includes(t.INVERT_ORDER_POSITIONS,i.position)?(this.container.appendChild(c),this.container.appendChild(o),this.container.appendChild(n)):(this.container.appendChild(n),this.container.appendChild(o),this.container.appendChild(c)),this.container},t.prototype.constructPitchButton=function(){var e=this,i=document.createElement("button");return i.classList.add("azure-maps-control-button"),i.classList.add("pitch"),i.classList.add(this.options.style),i.setAttribute("title","Reset to Default Pitch"),i.setAttribute("alt","Reset to Default Pitch"),i.setAttribute("type","button"),i.addEventListener("click",function(i){e.map.setCamera({pitch:t.DEFAULT_PITCH})}),i},t.prototype.constructPitchDecrementButton=function(){var e=this,i=document.createElement("button");return i.classList.add("azure-maps-control-button"),i.classList.add("pitch-down"),i.classList.add("hidden-accessible-element"),i.classList.add(this.options.style),i.setAttribute("title","Decrease Pitch"),i.setAttribute("alt","Decrease Pitch"),i.setAttribute("type","button"),i.addEventListener("click",function(i){e.map.setCamera({pitch:e.map.getCamera().pitch-e.options.pitchDegreesDelta,type:"ease",duration:t.PITCH_DURATION_MS})}),i},t.prototype.constructPitchIncrementButton=function(){var e=this,i=document.createElement("button");return i.classList.add("azure-maps-control-button"),i.classList.add("pitch-up"),i.classList.add("hidden-accessible-element"),i.classList.add(this.options.style),i.setAttribute("title","Increase Pitch"),i.setAttribute("alt","Increase Pitch"),i.setAttribute("type","button"),i.addEventListener("click",function(i){e.map.setCamera({pitch:e.map.getCamera().pitch+e.options.pitchDegreesDelta,type:"ease",duration:t.PITCH_DURATION_MS})}),i},t.prototype.onRemove=function(){this.container.remove()},t.PITCH_DURATION_MS=100,t.DEFAULT_PITCH=0,t.INVERT_ORDER_POSITIONS=[ControlOptions_1.ControlPosition.BottomRight,ControlOptions_1.ControlPosition.TopRight],t}();exports.PitchControl=PitchControl;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),FloorPickerControlOptions_1=require("./FloorPickerControlOptions"),FloorPickerControl=function(){function t(t){var e=this;this.currentFloorCount=0,this.currentFloorNumber=1,this.options=(new FloorPickerControlOptions_1.FloorPickerControlOptions).merge(_.cloneDeep(t)),this.container=document.createElement("div"),this.container.classList.add("azure-maps-control-container"),this.container.classList.add("floorPicker"),this.container.setAttribute("aria-label","Map Floor Picker Control"),this.container.addEventListener("mouseover",function(t){e.container.classList.add("in-use")}),this.container.addEventListener("focusin",function(t){e.container.classList.add("in-use")}),this.container.addEventListener("mouseout",function(t){e.container.classList.remove("in-use")}),this.container.addEventListener("focusout",function(t){e.container.classList.remove("in-use")})}return t.prototype.constructFloorPickerButtons=function(t,e){for(var o=this;this.container.firstChild;)this.container.removeChild(this.container.firstChild);for(var r=function(t){var e=document.createElement("button");e.classList.add("azure-maps-control-button"),e.classList.add("floorPicker"),e.classList.add(i.options.style),e.setAttribute("title","Floor Number "+t.toString()),e.setAttribute("alt","Floor Number "+t.toString()),e.setAttribute("id",t.toString()),e.setAttribute("type","button"),e.setAttribute("style","font-face: 'Segoe UI'; font-size: 14px; line-height: 19px;"),e.dataset.curFloorNum=t.toString(),e.innerHTML=t.toString(),e.addEventListener("click",function(t){for(var r=0,i=Array.from(o.container.children);r<i.length;r++){i[r].classList.remove("focus")}if(e.classList.add("focus"),t.currentTarget instanceof HTMLElement){var n=t.currentTarget;o.currentFloorNumber=parseInt(n.dataset.curFloorNum),o.map.layers.setFloorOrdinalNumber(o.currentFloorNumber-1)}}),i.container.appendChild(e)},i=this,n=t;n>0;n--)r(n);this.container.children.length>0&&this.container.children[t-this.currentFloorNumber].classList.add("focus")},t.prototype.generateFloorPicker=function(t){var e=this;if(this.map.sources.getById("indoorTiles")&&this.map._getMap().isSourceLoaded("indoorTiles")){var o=this.map._getMap().querySourceFeatures("indoorTiles",{sourceLayer:"Indoor level"});this.options.buildingId&&""!=this.options.buildingId&&(o=o.filter(function(t){return!t.hasOwnProperty("building_id")||t.properties.building_id==e.options.buildingId}));var r=new Set(o.map(function(t){return t.id}));r.size>this.currentFloorCount&&(this.constructFloorPickerButtons(r.size,t),this.currentFloorCount=r.size)}},t.prototype.onAdd=function(t,e){var o=this;this.map=t,this.generateFloorPicker(e);return this.map._getMap().on("sourcedata",function(t){requestAnimationFrame(function(){"source"===t.dataType&&"indoorTiles"===t.source.name&&o.generateFloorPicker(e)})}),this.container},t.prototype.onRemove=function(){this.container.remove()},t}();exports.FloorPickerControl=FloorPickerControl;
 
-},{"../../../map/options/ControlOptions":206,"./PitchControlOptions":233,"lodash":109}],233:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=function(o,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])})(o,e)};return function(o,e){function n(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(n.prototype=e.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),ControlStyle_1=require("../ControlStyle"),PitchControlOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.pitchDegreesDelta=10,o.style=ControlStyle_1.ControlStyle.light,o}return __extends(o,t),o}(Options_1.Options);exports.PitchControlOptions=PitchControlOptions;
+},{"./FloorPickerControlOptions":233,"lodash":109}],233:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(o,r){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var r in o)o.hasOwnProperty(r)&&(t[r]=o[r])})(o,r)};return function(o,r){function n(){this.constructor=o}t(o,r),o.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),ControlStyle_1=require("../ControlStyle"),FloorPickerControlOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.style=ControlStyle_1.ControlStyle.light,o.buildingId=void 0,o}return __extends(o,t),o}(Options_1.Options);exports.FloorPickerControlOptions=FloorPickerControlOptions;
 
 },{"../../../helpers/Options":175,"../ControlStyle":227}],234:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),Dictionary_1=require("../../../helpers/Dictionary"),Url_1=require("../../../helpers/Url"),ControlOptions_1=require("../../../map/options/ControlOptions"),StyleControlOptions_1=require("./StyleControlOptions"),StyleControl=function(){function t(t){var e=this;this.styleIcons=new Dictionary_1.Dictionary,this.hasMouse=!1,this.options=(new StyleControlOptions_1.StyleControlOptions).merge(_.cloneDeep(t)),this.container=document.createElement("div"),this.container.classList.add("azure-maps-control-container"),this.container.setAttribute("aria-label","Map Style Control"),this.styleOptionsGrid=this.constructStyleOptionsGrid(),this.container.addEventListener("mouseover",function(t){e.hasMouse=!0,e.container.classList.add("in-use"),e.styleOptionsGrid.classList.remove("hidden-accessible-element")}),this.container.addEventListener("focusin",function(t){e.container.classList.add("in-use"),e.styleOptionsGrid.classList.remove("hidden-accessible-element")}),this.container.addEventListener("mouseleave",function(t){e.hasMouse=!1,e.container.classList.remove("in-use"),e.styleOptionsGrid.classList.add("hidden-accessible-element")}),this.container.addEventListener("focusout",function(t){e.hasMouse||t.relatedTarget instanceof Node&&e.container.contains(t.relatedTarget)||(e.container.classList.remove("in-use"),e.styleOptionsGrid.classList.add("hidden-accessible-element"))});var n=this.constructCurrStyleDiv(this.options.style);this.container.appendChild(n),this.container.appendChild(this.styleOptionsGrid)}return t.prototype.constructSelectStyleButton=function(t,e){var n=this,s=document.createElement("button");s.classList.add("azure-maps-control-button"),s.classList.add(this.options.style),s.setAttribute("title",t),s.setAttribute("alt",t),s.setAttribute("type","button"),s.dataset.style=t;var i=new Image(28,28);return i.src=e,i.alt=t,s.appendChild(i),s.addEventListener("click",function(t){if(t.currentTarget instanceof HTMLElement){var e=t.currentTarget;n.map.setStyle({style:e.dataset.style})}}),s},t.prototype.constructCurrStyleDiv=function(t){var e=document.createElement("div");e.classList.add("azure-maps-control-button"),e.classList.add("curr-style"),e.classList.add(t),e.setAttribute("title","Select Style"),e.setAttribute("alt","Select Style"),this.currStyleImage=new Image(28,28),e.appendChild(this.currStyleImage);var n=document.createElement("div");return n.classList.add("icon"),e.appendChild(n),e},t.prototype.constructStyleOptionsGrid=function(){var t=document.createElement("div");return t.classList.add("style-options"),t.classList.add("hidden-accessible-element"),t.setAttribute("aria-label","Style Options"),t},t.prototype.onAdd=function(t,e){var n=this;this.map=t,this.container.style.flexDirection=e&&-1!==[ControlOptions_1.ControlPosition.TopRight,ControlOptions_1.ControlPosition.BottomRight].indexOf(e.position)?"row-reverse":"row";var s=this.map._getStyleDefs();return s.initialize().then(function(){for(var t=s.getDef(),e=n.map.getStyle().style,i=0,o=t.styles;i<o.length;i++){var r=o[i],a=new Url_1.Url({domain:t.domain,path:r.iconPath}).toString();if(n.styleIcons.set(r.name,a),r.name===e&&(n.currStyleImage.src=a,n.currStyleImage.alt=r.name),-1!==n.options.mapStyles.indexOf(r.name)){var l=n.constructSelectStyleButton(r.name,a);n.styleOptionsGrid.appendChild(l)}}n.map.events.add("styledata",function(){var t=n.map.getStyle().style;n.styleIcons.has(t)&&(n.currStyleImage.src=n.styleIcons.get(t),n.currStyleImage.alt=t)})}),this.container},t.prototype.onRemove=function(){this.container.remove()},t}();exports.StyleControl=StyleControl;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),ControlOptions_1=require("../../../map/options/ControlOptions"),PitchControlOptions_1=require("./PitchControlOptions"),PitchControl=function(){function t(t){this.hasMouse=!1,this.options=(new PitchControlOptions_1.PitchControlOptions).merge(t)}return t.prototype.onAdd=function(e,i){var s=this;this.map=e,this.container=document.createElement("div"),this.container.classList.add("azure-maps-control-container"),this.container.setAttribute("aria-label","Pitch Control");var n=this.constructPitchButton(),o=this.constructPitchIncrementButton(),c=this.constructPitchDecrementButton();return this.container.addEventListener("mouseover",function(t){s.hasMouse=!0,s.container.classList.add("in-use"),o.classList.remove("hidden-accessible-element"),c.classList.remove("hidden-accessible-element")}),this.container.addEventListener("focusin",function(t){s.container.classList.add("in-use"),o.classList.remove("hidden-accessible-element"),c.classList.remove("hidden-accessible-element")}),this.container.addEventListener("mouseleave",function(t){s.hasMouse=!1,s.container.classList.remove("in-use"),o.classList.add("hidden-accessible-element"),c.classList.add("hidden-accessible-element")}),this.container.addEventListener("focusout",function(t){s.hasMouse||t.relatedTarget instanceof Node&&s.container.contains(t.relatedTarget)||(s.container.classList.remove("in-use"),o.classList.add("hidden-accessible-element"),c.classList.add("hidden-accessible-element"))}),i&&_.includes(t.INVERT_ORDER_POSITIONS,i.position)?(this.container.appendChild(c),this.container.appendChild(o),this.container.appendChild(n)):(this.container.appendChild(n),this.container.appendChild(o),this.container.appendChild(c)),this.container},t.prototype.constructPitchButton=function(){var e=this,i=document.createElement("button");return i.classList.add("azure-maps-control-button"),i.classList.add("pitch"),i.classList.add(this.options.style),i.setAttribute("title","Reset to Default Pitch"),i.setAttribute("alt","Reset to Default Pitch"),i.setAttribute("type","button"),i.addEventListener("click",function(i){e.map.setCamera({pitch:t.DEFAULT_PITCH})}),i},t.prototype.constructPitchDecrementButton=function(){var e=this,i=document.createElement("button");return i.classList.add("azure-maps-control-button"),i.classList.add("pitch-down"),i.classList.add("hidden-accessible-element"),i.classList.add(this.options.style),i.setAttribute("title","Decrease Pitch"),i.setAttribute("alt","Decrease Pitch"),i.setAttribute("type","button"),i.addEventListener("click",function(i){e.map.setCamera({pitch:e.map.getCamera().pitch-e.options.pitchDegreesDelta,type:"ease",duration:t.PITCH_DURATION_MS})}),i},t.prototype.constructPitchIncrementButton=function(){var e=this,i=document.createElement("button");return i.classList.add("azure-maps-control-button"),i.classList.add("pitch-up"),i.classList.add("hidden-accessible-element"),i.classList.add(this.options.style),i.setAttribute("title","Increase Pitch"),i.setAttribute("alt","Increase Pitch"),i.setAttribute("type","button"),i.addEventListener("click",function(i){e.map.setCamera({pitch:e.map.getCamera().pitch+e.options.pitchDegreesDelta,type:"ease",duration:t.PITCH_DURATION_MS})}),i},t.prototype.onRemove=function(){this.container.remove()},t.PITCH_DURATION_MS=100,t.DEFAULT_PITCH=0,t.INVERT_ORDER_POSITIONS=[ControlOptions_1.ControlPosition.BottomRight,ControlOptions_1.ControlPosition.TopRight],t}();exports.PitchControl=PitchControl;
 
-},{"../../../helpers/Dictionary":172,"../../../helpers/Url":176,"../../../map/options/ControlOptions":206,"./StyleControlOptions":235,"lodash":109}],235:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=function(o,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])})(o,e)};return function(o,e){function r(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(r.prototype=e.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),ControlStyle_1=require("../ControlStyle"),StyleControlOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.style=ControlStyle_1.ControlStyle.light,o.mapStyles=["road","grayscale_dark","night","road_shaded_relief"],o}return __extends(o,t),o}(Options_1.Options);exports.StyleControlOptions=StyleControlOptions;
+},{"../../../map/options/ControlOptions":206,"./PitchControlOptions":235,"lodash":109}],235:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(o,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])})(o,e)};return function(o,e){function n(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(n.prototype=e.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),ControlStyle_1=require("../ControlStyle"),PitchControlOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.pitchDegreesDelta=10,o.style=ControlStyle_1.ControlStyle.light,o}return __extends(o,t),o}(Options_1.Options);exports.PitchControlOptions=PitchControlOptions;
 
 },{"../../../helpers/Options":175,"../ControlStyle":227}],236:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var ZoomControlOptions_1=require("./ZoomControlOptions"),ZoomControl=function(){function t(t){this.options=(new ZoomControlOptions_1.ZoomControlOptions).merge(t)}return t.prototype.onAdd=function(t){this.container=document.createElement("div"),this.container.classList.add("azure-maps-control-container"),this.container.setAttribute("aria-label","Zoom Control"),this.container.style.flexDirection="column";var o=this.constructZoomInButton(t),e=this.constructZoomOutButton(t);return this.container.appendChild(o),this.container.appendChild(e),this.container},t.prototype.constructZoomInButton=function(o){var e=this,n=document.createElement("button");return n.classList.add("azure-maps-control-button"),n.classList.add("zoom-in"),n.classList.add(this.options.style),n.setAttribute("title","Zoom In"),n.setAttribute("alt","Zoom In"),n.setAttribute("type","button"),n.addEventListener("click",function(n){o.setCamera({zoom:o.getCamera().zoom+e.options.zoomDelta,type:"ease",duration:t.ZOOM_DURATION_MS})}),n},t.prototype.constructZoomOutButton=function(o){var e=this,n=document.createElement("button");return n.classList.add("azure-maps-control-button"),n.classList.add("zoom-out"),n.classList.add(this.options.style),n.setAttribute("title","Zoom Out"),n.setAttribute("alt","Zoom Out"),n.setAttribute("type","button"),n.addEventListener("click",function(n){o.setCamera({zoom:o.getCamera().zoom-e.options.zoomDelta,type:"ease",duration:t.ZOOM_DURATION_MS})}),n},t.prototype.onRemove=function(){this.container.remove()},t.ZOOM_DURATION_MS=200,t}();exports.ZoomControl=ZoomControl;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),Dictionary_1=require("../../../helpers/Dictionary"),Url_1=require("../../../helpers/Url"),ControlOptions_1=require("../../../map/options/ControlOptions"),StyleControlOptions_1=require("./StyleControlOptions"),StyleControl=function(){function t(t){var e=this;this.styleIcons=new Dictionary_1.Dictionary,this.hasMouse=!1,this.options=(new StyleControlOptions_1.StyleControlOptions).merge(_.cloneDeep(t)),this.container=document.createElement("div"),this.container.classList.add("azure-maps-control-container"),this.container.setAttribute("aria-label","Map Style Control"),this.styleOptionsGrid=this.constructStyleOptionsGrid(),this.container.addEventListener("mouseover",function(t){e.hasMouse=!0,e.container.classList.add("in-use"),e.styleOptionsGrid.classList.remove("hidden-accessible-element")}),this.container.addEventListener("focusin",function(t){e.container.classList.add("in-use"),e.styleOptionsGrid.classList.remove("hidden-accessible-element")}),this.container.addEventListener("mouseleave",function(t){e.hasMouse=!1,e.container.classList.remove("in-use"),e.styleOptionsGrid.classList.add("hidden-accessible-element")}),this.container.addEventListener("focusout",function(t){e.hasMouse||t.relatedTarget instanceof Node&&e.container.contains(t.relatedTarget)||(e.container.classList.remove("in-use"),e.styleOptionsGrid.classList.add("hidden-accessible-element"))});var n=this.constructCurrStyleDiv(this.options.style);this.container.appendChild(n),this.container.appendChild(this.styleOptionsGrid)}return t.prototype.constructSelectStyleButton=function(t,e){var n=this,s=document.createElement("button");s.classList.add("azure-maps-control-button"),s.classList.add(this.options.style),s.setAttribute("title",t),s.setAttribute("alt",t),s.setAttribute("type","button"),s.dataset.style=t;var i=new Image(28,28);return i.src=e,i.alt=t,s.appendChild(i),s.addEventListener("click",function(t){if(t.currentTarget instanceof HTMLElement){var e=t.currentTarget;n.map.setStyle({style:e.dataset.style})}}),s},t.prototype.constructCurrStyleDiv=function(t){var e=document.createElement("div");e.classList.add("azure-maps-control-button"),e.classList.add("curr-style"),e.classList.add(t),e.setAttribute("title","Select Style"),e.setAttribute("alt","Select Style"),this.currStyleImage=new Image(28,28),e.appendChild(this.currStyleImage);var n=document.createElement("div");return n.classList.add("icon"),e.appendChild(n),e},t.prototype.constructStyleOptionsGrid=function(){var t=document.createElement("div");return t.classList.add("style-options"),t.classList.add("hidden-accessible-element"),t.setAttribute("aria-label","Style Options"),t},t.prototype.onAdd=function(t,e){var n=this;this.map=t,this.container.style.flexDirection=e&&-1!==[ControlOptions_1.ControlPosition.TopRight,ControlOptions_1.ControlPosition.BottomRight].indexOf(e.position)?"row-reverse":"row";var s=this.map._getStyleDefs();return s.initialize().then(function(){for(var t=s.getDef(),e=n.map.getStyle().style,i=0,o=t.styles;i<o.length;i++){var r=o[i],a=new Url_1.Url({domain:t.domain,path:r.iconPath}).toString();if(n.styleIcons.set(r.name,a),r.name===e&&(n.currStyleImage.src=a,n.currStyleImage.alt=r.name),-1!==n.options.mapStyles.indexOf(r.name)){var l=n.constructSelectStyleButton(r.name,a);n.styleOptionsGrid.appendChild(l)}}n.map.events.add("styledata",function(){var t=n.map.getStyle().style;n.styleIcons.has(t)&&(n.currStyleImage.src=n.styleIcons.get(t),n.currStyleImage.alt=t)})}),this.container},t.prototype.onRemove=function(){this.container.remove()},t}();exports.StyleControl=StyleControl;
 
-},{"./ZoomControlOptions":237}],237:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=function(o,n){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var n in o)o.hasOwnProperty(n)&&(t[n]=o[n])})(o,n)};return function(o,n){function e(){this.constructor=o}t(o,n),o.prototype=null===n?Object.create(n):(e.prototype=n.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),ControlStyle_1=require("../ControlStyle"),ZoomControlOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.zoomDelta=1,o.style=ControlStyle_1.ControlStyle.light,o}return __extends(o,t),o}(Options_1.Options);exports.ZoomControlOptions=ZoomControlOptions;
+},{"../../../helpers/Dictionary":172,"../../../helpers/Url":176,"../../../map/options/ControlOptions":206,"./StyleControlOptions":237,"lodash":109}],237:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(o,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])})(o,e)};return function(o,e){function r(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(r.prototype=e.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),ControlStyle_1=require("../ControlStyle"),StyleControlOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.style=ControlStyle_1.ControlStyle.light,o.mapStyles=["road","grayscale_dark","night","road_shaded_relief"],o}return __extends(o,t),o}(Options_1.Options);exports.StyleControlOptions=StyleControlOptions;
 
 },{"../../../helpers/Options":175,"../ControlStyle":227}],238:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var CompassControl_1=require("./CompassControl/CompassControl");exports.CompassControl=CompassControl_1.CompassControl;var PitchControl_1=require("./PitchControl/PitchControl");exports.PitchControl=PitchControl_1.PitchControl;var StyleControl_1=require("./StyleControl/StyleControl");exports.StyleControl=StyleControl_1.StyleControl;var ZoomControl_1=require("./ZoomControl/ZoomControl");exports.ZoomControl=ZoomControl_1.ZoomControl;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var ZoomControlOptions_1=require("./ZoomControlOptions"),ZoomControl=function(){function t(t){this.options=(new ZoomControlOptions_1.ZoomControlOptions).merge(t)}return t.prototype.onAdd=function(t){this.container=document.createElement("div"),this.container.classList.add("azure-maps-control-container"),this.container.setAttribute("aria-label","Zoom Control"),this.container.style.flexDirection="column";var o=this.constructZoomInButton(t),e=this.constructZoomOutButton(t);return this.container.appendChild(o),this.container.appendChild(e),this.container},t.prototype.constructZoomInButton=function(o){var e=this,n=document.createElement("button");return n.classList.add("azure-maps-control-button"),n.classList.add("zoom-in"),n.classList.add(this.options.style),n.setAttribute("title","Zoom In"),n.setAttribute("alt","Zoom In"),n.setAttribute("type","button"),n.addEventListener("click",function(n){o.setCamera({zoom:o.getCamera().zoom+e.options.zoomDelta,type:"ease",duration:t.ZOOM_DURATION_MS})}),n},t.prototype.constructZoomOutButton=function(o){var e=this,n=document.createElement("button");return n.classList.add("azure-maps-control-button"),n.classList.add("zoom-out"),n.classList.add(this.options.style),n.setAttribute("title","Zoom Out"),n.setAttribute("alt","Zoom Out"),n.setAttribute("type","button"),n.addEventListener("click",function(n){o.setCamera({zoom:o.getCamera().zoom-e.options.zoomDelta,type:"ease",duration:t.ZOOM_DURATION_MS})}),n},t.prototype.onRemove=function(){this.container.remove()},t.ZOOM_DURATION_MS=200,t}();exports.ZoomControl=ZoomControl;
 
-},{"./CompassControl/CompassControl":225,"./PitchControl/PitchControl":232,"./StyleControl/StyleControl":234,"./ZoomControl/ZoomControl":236}],239:[function(require,module,exports){
+},{"./ZoomControlOptions":239}],239:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(o,n){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var n in o)o.hasOwnProperty(n)&&(t[n]=o[n])})(o,n)};return function(o,n){function e(){this.constructor=o}t(o,n),o.prototype=null===n?Object.create(n):(e.prototype=n.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),ControlStyle_1=require("../ControlStyle"),ZoomControlOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.zoomDelta=1,o.style=ControlStyle_1.ControlStyle.light,o}return __extends(o,t),o}(Options_1.Options);exports.ZoomControlOptions=ZoomControlOptions;
+
+},{"../../../helpers/Options":175,"../ControlStyle":227}],240:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var CompassControl_1=require("./CompassControl/CompassControl");exports.CompassControl=CompassControl_1.CompassControl;var PitchControl_1=require("./PitchControl/PitchControl");exports.PitchControl=PitchControl_1.PitchControl;var StyleControl_1=require("./StyleControl/StyleControl");exports.StyleControl=StyleControl_1.StyleControl;var ZoomControl_1=require("./ZoomControl/ZoomControl");exports.ZoomControl=ZoomControl_1.ZoomControl;var FloorPickerControl_1=require("./FloorPickerControl/FloorPickerControl");exports.FloorPickerControl=FloorPickerControl_1.FloorPickerControl;
+
+},{"./CompassControl/CompassControl":225,"./FloorPickerControl/FloorPickerControl":232,"./PitchControl/PitchControl":234,"./StyleControl/StyleControl":236,"./ZoomControl/ZoomControl":238}],241:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(e,r){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])})(e,r)};return function(e,r){function a(){this.constructor=e}t(e,r),e.prototype=null===r?Object.create(r):(a.prototype=r.prototype,new a)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Shape_1=require("../../Shape"),math=require("../math"),Position_1=require("./Position"),BoundingBox=function(t){function e(e,r){var a=this;if(e&&r){var n=e;a=n[2]&&r[2]?t.call(this,n[0],n[1],n[2]||0,r[0],r[1],r[2]||0)||this:t.call(this,n[0],n[1],r[0],r[1])||this}else if(e){var i=e;i&&(4===i.length?a=t.call(this,i[0],i[1],i[2],i[3])||this:i.length>=6&&(a=t.call(this,i[0],i[1],i[2],i[3],i[4],i[5])||this))}return a}return __extends(e,t),e.fromBoundingBox=function(t){var r=e.getWest(t),a=e.getSouth(t),n=e.getEast(t),i=e.getNorth(t);return new e([r,a,n,i])},e.fromDimensions=function(t,r,a){var n=t[0],i=t[1],l=Math.min(Math.max(i+a/2,-85.5),85.5),g=Math.min(Math.max(i-a/2,-85.5),85.5),m=math.normalizeLongitude(n+r/2);return new e([math.normalizeLongitude(n-r/2),g,m,l])},e.fromEdges=function(t,r,a,n){return new e([t,r,a,n])},e.containsPosition=function(t,r){var a=e.getCenter(t),n=Math.abs(a[1]-r[1]),i=Math.abs(a[0]-r[0]);i>180&&(i=360-i);var l=e.getHeight(t),g=e.getWidth(t);return n<=l/2+1e-8&&i<=g/2+1e-8},e.crossesAntimeridian=function(t){return math.normalizeLongitude(e.getEast(t))-math.normalizeLongitude(e.getWest(t))<0},e.getCenter=function(t){var r=math.normalizeLongitude(e.getEast(t)),a=math.normalizeLongitude(e.getWest(t));a>r&&(r+=360);var n=math.normalizeLongitude((a+r)/2),i=math.normalizeLatitude(e.getSouth(t)),l=math.normalizeLatitude(e.getNorth(t));return[n,math.normalizeLatitude((i+l)/2)]},e.getHeight=function(t){var r=math.normalizeLatitude(e.getNorth(t))-math.normalizeLatitude(e.getSouth(t));return isNaN(r)?0:r},e.getWidth=function(t){var r=math.normalizeLongitude(e.getEast(t))-math.normalizeLongitude(e.getWest(t));return isNaN(r)?0:r<0?r+=360:r},e.getSouthWest=function(t){var e=this.getSouth(t),r=this.getWest(t);return isNaN(e)||isNaN(r)?null:[r,e]},e.getNorthEast=function(t){var e=this.getNorth(t),r=this.getEast(t);return isNaN(e)||isNaN(r)?null:[r,e]},e.getNorthWest=function(t){var e=this.getNorth(t),r=this.getWest(t);return isNaN(e)||isNaN(r)?null:[r,e]},e.getSouthEast=function(t){var e=this.getSouth(t),r=this.getEast(t);return isNaN(e)||isNaN(r)?null:[r,e]},e.getSouth=function(t){return t&&t.length>=4?t[1]:NaN},e.getWest=function(t){return t&&t.length>=4?t[0]:NaN},e.getNorth=function(t){if(t){if(4===t.length)return t[3];if(6===t.length)return t[4]}return NaN},e.getEast=function(t){if(t){if(4===t.length)return t[2];if(6===t.length)return t[3]}return NaN},e.intersect=function(t,r){var a=e.getCenter(t),n=e.getCenter(r),i=Math.abs(a[1]-n[1]),l=Math.abs(a[0]-n[0]);l>180&&(l=360-l);var g=e.getHeight(t),m=e.getWidth(t),u=e.getHeight(r),f=e.getWidth(r);return i<=g/2+u/2&&l<=m/2+f/2},e.merge=function(t,r){var a=t&&4===t.length,n=r&&4===r.length;if(a&&!n)return t;if(n&&!a)return r;if(!a&&!n)return null;var i=Math.max(math.normalizeLatitude(e.getNorth(t)),math.normalizeLatitude(e.getNorth(r))),l=Math.min(math.normalizeLatitude(e.getSouth(t)),math.normalizeLatitude(e.getSouth(r))),g=[t,r],m=[],u=0;for(u=0;u<g.length;u++){var f=g[u],h=math.normalizeLongitude(e.getWest(f)),c=math.normalizeLongitude(e.getEast(f));e.crossesAntimeridian(f)?(m.push([h,180]),m.push([-180,c])):m.push([h,c])}m.sort(function(t,e){return t[0]===e[0]?t[1]-e[1]:t[0]-e[0]});var N=[],v=m[0];for(u=1;u<m.length;){var L=m[u];v[1]>=L[0]?v[1]=Math.max(v[1],L[1]):(N.push(v),v=L),u++}N.push(v);var o=N.length,p=N[0][0]+360-N[o-1][1],z=[N[o-1][1],N[0][0]];for(u=1;u<o;u++){var S=N[u][0]-N[u-1][1];S>p&&(p=S,z=[N[u-1][1],N[u][0]])}return new e([z[1],l],[z[0],i])},e.fromPositions=function(t){for(var r,a=NaN,n=NaN,i=NaN,l=NaN,g=t.length,m=new Array(g),u=0;g--;)if((r=t[g])&&r.length>=2){var f=math.normalizeLatitude(r[1]);a=isNaN(a)?f:Math.max(a,f),n=isNaN(n)?f:Math.min(n,f),m[u++]=math.normalizeLongitude(r[0])}if(u){m.length=u,m.sort(function(t,e){return t-e});var h=m[0]+360-m[u-1],c=0;for(g=1;g<u;g++){var N=m[g]-m[g-1];N>h&&(h=N,c=g)}i=m[c],l=m[(c||u)-1]}return isNaN(i)||isNaN(n)||isNaN(l)||isNaN(a)?null:new e([i,n,l,a])},e.fromLatLngs=function(t){return e.fromPositions(Position_1.Position.fromLatLngs(t))},e.fromData=function(t){var r,a=null;if(Array.isArray(t)&&t.length>0){for(var n=0,i=t;n<i.length;n++){var l=i[n];null!=(r=e.fromData(l))&&(a=null===a?r:e.merge(a,r))}return a}if(t instanceof Shape_1.Shape)return t.getBounds();if(t.type){var g=t;if(g.bbox&&4===g.bbox.length)return g.bbox;switch(g.type){case"FeatureCollection":return e.fromData(g.features);case"Feature":return Shape_1.Shape._isCircle(g)?e.fromPositions(Shape_1.Shape._getCirclePositions(g)):e.fromData(g.geometry);case"GeometryCollection":return e.fromData(g.geometries);case"Point":var m=g.coordinates;if(m&&m.length>=2)return[m[0],m[1],m[0],m[1]];break;case"LineString":case"MultiPoint":return e.fromPositions(g.coordinates);case"Polygon":case"MultiLineString":var u=g.coordinates;if(u&&u.length>0){for(var f=0,h=u.length;f<h;f++)null!=(r=e.fromPositions(u[f]))&&(a=null===a?r:e.merge(a,r));if(null!=a)return a}break;case"MultiPolygon":var c=g.coordinates;if(c&&c.length>0){for(f=0,h=c.length;f<h;f++)for(var N=0,v=c[f].length;N<v;N++)null!=(r=e.fromPositions(c[f][N]))&&(a=null===a?r:e.merge(a,r));return a}}}return null},e.splitOnAntimeridian=function(t){var r=[];if(e.crossesAntimeridian(t)){var a=void 0,n=void 0,i=math.normalizeLongitude(e.getWest(t)),l=math.normalizeLongitude(e.getEast(t)),g=math.normalizeLatitude(e.getNorth(t)),m=math.normalizeLatitude(e.getSouth(t));t.length>=6?(a=new e([i,m,t[2],180,g,t[5]]),n=new e([-180,m,t[2],l,g,t[5]])):(a=new e([i,m,180,g]),n=new e([-180,m,l,g])),r.push(a,n)}else r.push(new e(t));return r},e}(Array);exports.BoundingBox=BoundingBox;
 
-},{"../../Shape":171,"../math":277,"./Position":249}],240:[function(require,module,exports){
+},{"../../Shape":171,"../math":279,"./Position":251}],242:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Feature=function(){function e(t,r,i){this.type="Feature",this.type=e.TYPE,this.properties=r||{},this.id=i,this.geometry=t}return e.TYPE="Feature",e}();exports.Feature=Feature;
 
-},{}],241:[function(require,module,exports){
+},{}],243:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var FeatureCollection=function(){function e(t){this.type="FeatureCollection",this.type=e.TYPE,this.features=t}return e.TYPE="FeatureCollection",e}();exports.FeatureCollection=FeatureCollection;
 
-},{}],242:[function(require,module,exports){
+},{}],244:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var GeometryCollection=function(){function e(t){this.type="GeometryCollection",this.type=e.TYPE,this.geometries=t}return e.TYPE="GeometryCollection",e}();exports.GeometryCollection=GeometryCollection;
 
-},{}],243:[function(require,module,exports){
+},{}],245:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var LineString=function(){function t(e,i){this.type="LineString",this.type=t.TYPE,this.coordinates=e,this.bbox=i}return t.TYPE="LineString",t}();exports.LineString=LineString;
 
-},{}],244:[function(require,module,exports){
+},{}],246:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var MultiLineString=function(){function t(i,e){this.type="MultiLineString",this.type=t.TYPE,this.coordinates=i,this.bbox=e}return t.TYPE="MultiLineString",t}();exports.MultiLineString=MultiLineString;
 
-},{}],245:[function(require,module,exports){
+},{}],247:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var MultiPoint=function(){function t(i,e){this.type="MultiPoint",this.type=t.TYPE,this.coordinates=i,this.bbox=e}return t.TYPE="MultiPoint",t}();exports.MultiPoint=MultiPoint;
 
-},{}],246:[function(require,module,exports){
+},{}],248:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var MultiPolygon=function(){function t(o,e){this.type="MultiPolygon",this.type=t.TYPE,this.coordinates=o,this.bbox=e}return t.TYPE="MultiPolygon",t}();exports.MultiPolygon=MultiPolygon;
 
-},{}],247:[function(require,module,exports){
+},{}],249:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Point=function(){function t(e){this.type="Point",this.type=t.TYPE,this.coordinates=e}return t.TYPE="Point",t}();exports.Point=Point;
 
-},{}],248:[function(require,module,exports){
+},{}],250:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Position_1=require("./Position"),Polygon=function(){function o(t,i){this.type="Polygon",this.type=o.TYPE,1===Position_1.Position._getDimensions(t)?this.coordinates=[t]:this.coordinates=t,this.bbox=i}return o.TYPE="Polygon",o}();exports.Polygon=Polygon;
 
-},{"./Position":249}],249:[function(require,module,exports){
+},{"./Position":251}],251:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(e,r){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])})(e,r)};return function(e,r){function n(){this.constructor=e}t(e,r),e.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var math=require("../math"),Position=function(t){function e(e,r,n){return n?t.call(this,e,r,n)||this:t.call(this,e,r)||this}return __extends(e,t),e.fromPosition=function(t){return 2===t.length?new e(t[0],t[1]):t.length>2?new e(t[0],t[1],t[2]):null},e.areEqual=function(t,e,r){if(void 0===r&&(r=6),t&&t.length>=2&&e&&e.length>=2){var n=Math.pow(10,r),a=math.normalizeLatitude(t[1]),u=math.normalizeLatitude(e[1]),o=math.normalizeLongitude(t[0]),i=math.normalizeLongitude(e[0]);if(0!==Math.round((a-u)*n)/n)return!1;var f=Math.round((o-i)*n)/n;return 0===f||360===f}return!1},e.fromLatLng=function(t,e,r){var n=[];if("number"==typeof t)n.push(t),"number"==typeof e&&n.push(e),"number"==typeof r&&n.push(r);else if(Array.isArray(t))t.length>=2&&"number"==typeof t[0]&&"number"==typeof t[1]&&(t.length>=3&&"number"==typeof t[2]?n.push(t[0],t[1],t[2]):n.push(t[0],t[1]));else if("object"==typeof t){var a=["lat","latitude","y"],u=["lng","longitude","lon","x"],o=["elv","elevation","alt","altitude","z"],i=NaN,f=NaN,s=NaN;Object.keys(t).forEach(function(e,r,n){var l=e.toLowerCase();isNaN(i)&&a.indexOf(l)>=0&&"number"==typeof t[e]?i=t[e]:isNaN(f)&&u.indexOf(l)>=0&&"number"==typeof t[e]?f=t[e]:isNaN(s)&&o.indexOf(l)>=0&&"number"==typeof t[e]&&(s=t[e])}),isNaN(i)||isNaN(f)||(n.push(f,i),isNaN(s)||n.push(s))}return n.length>=2?n:null},e.fromLatLngs=function(t){var r=[];if(Array.isArray(t))for(var n=0,a=t.length;n<a;n++){var u=e.fromLatLng(t[n]);u&&r.push(u)}return r},e._getDimensions=function(t){for(var e=0;Array.isArray(t);)t=t[0],e++;return"number"==typeof t&&e--,e},e}(Array);exports.Position=Position;
 
-},{"../math":277}],250:[function(require,module,exports){
+},{"../math":279}],252:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var BoundingBox_1=require("./BoundingBox");exports.BoundingBox=BoundingBox_1.BoundingBox;var Feature_1=require("./Feature");exports.Feature=Feature_1.Feature;var FeatureCollection_1=require("./FeatureCollection");exports.FeatureCollection=FeatureCollection_1.FeatureCollection;var GeometryCollection_1=require("./GeometryCollection");exports.GeometryCollection=GeometryCollection_1.GeometryCollection;var LineString_1=require("./LineString");exports.LineString=LineString_1.LineString;var MultiLineString_1=require("./MultiLineString");exports.MultiLineString=MultiLineString_1.MultiLineString;var MultiPoint_1=require("./MultiPoint");exports.MultiPoint=MultiPoint_1.MultiPoint;var MultiPolygon_1=require("./MultiPolygon");exports.MultiPolygon=MultiPolygon_1.MultiPolygon;var Point_1=require("./Point");exports.Point=Point_1.Point;var Polygon_1=require("./Polygon");exports.Polygon=Polygon_1.Polygon;var Position_1=require("./Position");exports.Position=Position_1.Position;
 
-},{"./BoundingBox":239,"./Feature":240,"./FeatureCollection":241,"./GeometryCollection":242,"./LineString":243,"./MultiLineString":244,"./MultiPoint":245,"./MultiPolygon":246,"./Point":247,"./Polygon":248,"./Position":249}],251:[function(require,module,exports){
+},{"./BoundingBox":241,"./Feature":242,"./FeatureCollection":243,"./GeometryCollection":244,"./LineString":245,"./MultiLineString":246,"./MultiPoint":247,"./MultiPolygon":248,"./Point":249,"./Polygon":250,"./Position":251}],253:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Dictionary_1=require("../../helpers/Dictionary"),EventEmitter=function(){function t(t){this.listeners=new Dictionary_1.Dictionary,this.supportedEvents=new Set;for(var e=0,n=t;e<n.length;e++){var s=n[e];this.supportedEvents.add(s)}}return t.prototype._addEventListener=function(t,e,n){this.supportedEvents.has(t)&&(this.listeners.has(t)||this.listeners.set(t,new Dictionary_1.Dictionary),this.listeners.get(t).set(e,n))},t.prototype._removeEventListener=function(t,e){this.listeners.has(t)&&this.listeners.get(t).delete(e)},t.prototype._getSupportedEvents=function(){var t=0,e=new Array(this.supportedEvents.size);return this.supportedEvents.forEach(function(n){return e[t++]=n}),e},t.prototype._invokeEvent=function(t,e){var n=this;if(!this.supportedEvents.has(t))throw new Error("Attempting to invoke an event '"+t+"' that is not supported by this EventEmitter.");this.listeners.has(t)&&this.listeners.get(t).forEach(function(s,r){s&&n._removeEventListener(t,r),r(e)})},t}();exports.EventEmitter=EventEmitter;
 
-},{"../../helpers/Dictionary":172}],252:[function(require,module,exports){
+},{"../../helpers/Dictionary":172}],254:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var EventEmitter_1=require("./EventEmitter");exports.EventEmitter=EventEmitter_1.EventEmitter;
 
-},{"./EventEmitter":251}],253:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=function(o,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])})(o,e)};return function(o,e){function i(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(i.prototype=e.prototype,new i)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),source_1=require("../source"),Layer_1=require("./Layer"),BubbleLayerOptions_1=require("./options/BubbleLayerOptions"),BubbleLayer=function(t){function o(o,e,i){var r=t.call(this,e)||this;return r.options=(new BubbleLayerOptions_1.BubbleLayerOptions).merge(_.cloneDeepWith(i,BubbleLayerOptions_1.BubbleLayerOptions._cloneCustomizer)),r.options.source=o||r.options.source,r}return __extends(o,t),o.prototype.getOptions=function(){return _.cloneDeepWith(this.options,BubbleLayerOptions_1.BubbleLayerOptions._cloneCustomizer)},o.prototype.getSource=function(){return this.options.source},o.prototype.setOptions=function(t){var o=(new BubbleLayerOptions_1.BubbleLayerOptions).merge(this.options,_.cloneDeepWith(t,BubbleLayerOptions_1.BubbleLayerOptions._cloneCustomizer));if(this.map){if(o.source!==this.options.source||o.sourceLayer!==this.options.sourceLayer)return this.options=o,void this.map.layers.add(this);this._updateBaseProperties(o,this.options),this._updatePaintProperty("circle-blur",o.blur,this.options.blur),this._updatePaintProperty("circle-color",o.color,this.options.color),this._updatePaintProperty("circle-opacity",o.opacity,this.options.opacity),this._updatePaintProperty("circle-radius",o.radius,this.options.radius),this._updatePaintProperty("circle-stroke-color",o.strokeColor,this.options.strokeColor),this._updatePaintProperty("circle-stroke-opacity",o.strokeOpacity,this.options.strokeOpacity),this._updatePaintProperty("circle-stroke-width",o.strokeWidth,this.options.strokeWidth)}this.options=o},o.prototype._buildLayers=function(){var t={id:this.id,type:"circle",source:this.options.source instanceof source_1.Source?this.options.source.getId():this.options.source,layout:{visibility:this.options.visible?"visible":"none"},paint:{"circle-color":this.options.color,"circle-blur":this.options.blur,"circle-opacity":this.options.opacity,"circle-stroke-color":this.options.strokeColor,"circle-stroke-opacity":this.options.strokeOpacity,"circle-stroke-width":this.options.strokeWidth,"circle-radius":this.options.radius},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.filter&&(t.filter=this.options.filter),this.options.sourceLayer&&(t["source-layer"]=this.options.sourceLayer),[t]},o.prototype._getLayerIds=function(){return[this.id]},o}(Layer_1.Layer);exports.BubbleLayer=BubbleLayer;
+},{"./EventEmitter":253}],255:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(o,i){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var i in o)o.hasOwnProperty(i)&&(t[i]=o[i])})(o,i)};return function(o,i){function e(){this.constructor=o}t(o,i),o.prototype=null===i?Object.create(i):(e.prototype=i.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),source_1=require("../source"),Layer_1=require("./Layer"),BubbleLayerOptions_1=require("./options/BubbleLayerOptions"),BubbleLayer=function(t){function o(o,i,e){var r=t.call(this,i)||this;return r.options=(new BubbleLayerOptions_1.BubbleLayerOptions).merge(_.cloneDeepWith(e,BubbleLayerOptions_1.BubbleLayerOptions._cloneCustomizer)),r.options.source=o||r.options.source,r}return __extends(o,t),o.prototype.getOptions=function(){return _.cloneDeepWith(this.options,BubbleLayerOptions_1.BubbleLayerOptions._cloneCustomizer)},o.prototype.getSource=function(){return this.options.source},o.prototype.setOptions=function(t){var o=(new BubbleLayerOptions_1.BubbleLayerOptions).merge(this.options,_.cloneDeepWith(t,BubbleLayerOptions_1.BubbleLayerOptions._cloneCustomizer));if(this.map){if(o.source!==this.options.source||o.sourceLayer!==this.options.sourceLayer)return this.options=o,void this.map.layers.add(this);this._updateBaseProperties(o,this.options),this._updatePaintProperty("circle-blur",o.blur,this.options.blur),this._updatePaintProperty("circle-color",o.color,this.options.color),this._updatePaintProperty("circle-opacity",o.opacity,this.options.opacity),this._updatePaintProperty("circle-radius",o.radius,this.options.radius),this._updatePaintProperty("circle-stroke-color",o.strokeColor,this.options.strokeColor),this._updatePaintProperty("circle-stroke-opacity",o.strokeOpacity,this.options.strokeOpacity),this._updatePaintProperty("circle-stroke-width",o.strokeWidth,this.options.strokeWidth),this._updatePaintProperty("circle-pitch-alignment",o.pitchAlignment,this.options.pitchAlignment)}this.options=o},o.prototype._buildLayers=function(){var t={id:this.id,type:"circle",source:this.options.source instanceof source_1.Source?this.options.source.getId():this.options.source,layout:{visibility:this.options.visible?"visible":"none"},paint:{"circle-color":this.options.color,"circle-blur":this.options.blur,"circle-opacity":this.options.opacity,"circle-stroke-color":this.options.strokeColor,"circle-stroke-opacity":this.options.strokeOpacity,"circle-stroke-width":this.options.strokeWidth,"circle-pitch-alignment":this.options.pitchAlignment,"circle-radius":this.options.radius},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.filter&&(t.filter=this.options.filter),this.options.sourceLayer&&(t["source-layer"]=this.options.sourceLayer),[t]},o.prototype._getLayerIds=function(){return[this.id]},o}(Layer_1.Layer);exports.BubbleLayer=BubbleLayer;
 
-},{"../source":282,"./Layer":257,"./options/BubbleLayerOptions":264,"lodash":109}],254:[function(require,module,exports){
+},{"../source":284,"./Layer":259,"./options/BubbleLayerOptions":266,"lodash":109}],256:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(e,r){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])})(e,r)};return function(e,r){function n(){this.constructor=e}t(e,r),e.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Layer_1=require("./Layer"),FundamentalMapLayer=function(t){function e(e,r){var n=t.call(this,r)||this;return n.layers=e,n}return __extends(e,t),e.prototype._buildLayers=function(){return this.layers},e.prototype._getLayerIds=function(){return this.layers.map(function(t){return t.id})},e}(Layer_1.Layer);exports.FundamentalMapLayer=FundamentalMapLayer;
 
-},{"./Layer":257}],255:[function(require,module,exports){
+},{"./Layer":259}],257:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(o,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])})(o,e)};return function(o,e){function i(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(i.prototype=e.prototype,new i)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),source_1=require("../source"),Layer_1=require("./Layer"),HeatMapLayerOptions_1=require("./options/HeatMapLayerOptions"),HeatMapLayer=function(t){function o(o,e,i){var s=t.call(this,e)||this;return s.options=(new HeatMapLayerOptions_1.HeatMapLayerOptions).merge(_.cloneDeepWith(i,HeatMapLayerOptions_1.HeatMapLayerOptions._cloneCustomizer)),s.options.source=o||s.options.source,s}return __extends(o,t),o.prototype.getOptions=function(){return _.cloneDeepWith(this.options,HeatMapLayerOptions_1.HeatMapLayerOptions._cloneCustomizer)},o.prototype.getSource=function(){return this.options.source},o.prototype.setOptions=function(t){var o=(new HeatMapLayerOptions_1.HeatMapLayerOptions).merge(this.options,_.cloneDeepWith(t,HeatMapLayerOptions_1.HeatMapLayerOptions._cloneCustomizer));if(this.map){if(o.source!==this.options.source||o.sourceLayer!==this.options.sourceLayer)return this.options=o,void this.map.layers.add(this);this._updateBaseProperties(o,this.options),this._updatePaintProperty("heatmap-color",o.color,this.options.color),this._updatePaintProperty("heatmap-intensity",o.intensity,this.options.intensity),this._updatePaintProperty("heatmap-opacity",o.opacity,this.options.opacity),this._updatePaintProperty("heatmap-radius",o.radius,this.options.radius),this._updatePaintProperty("heatmap-weight",o.weight,this.options.weight)}this.options=o},o.prototype._buildLayers=function(){var t={id:this.id,type:"heatmap",source:this.options.source instanceof source_1.Source?this.options.source.getId():this.options.source,layout:{visibility:this.options.visible?"visible":"none"},paint:{"heatmap-color":this.options.color,"heatmap-intensity":this.options.intensity,"heatmap-opacity":this.options.opacity,"heatmap-radius":this.options.radius,"heatmap-weight":this.options.weight},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.filter&&(t.filter=this.options.filter),this.options.sourceLayer&&(t["source-layer"]=this.options.sourceLayer),[t]},o.prototype._getLayerIds=function(){return[this.id]},o}(Layer_1.Layer);exports.HeatMapLayer=HeatMapLayer;
 
-},{"../source":282,"./Layer":257,"./options/HeatMapLayerOptions":265,"lodash":109}],256:[function(require,module,exports){
+},{"../source":284,"./Layer":259,"./options/HeatMapLayerOptions":267,"lodash":109}],258:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(o,i){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var i in o)o.hasOwnProperty(i)&&(t[i]=o[i])})(o,i)};return function(o,i){function e(){this.constructor=o}t(o,i),o.prototype=null===i?Object.create(i):(e.prototype=i.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),data_1=require("../data"),math_1=require("../math"),math=require("../math/Math"),ImageLayerOptions_1=require("./options/ImageLayerOptions"),SourceBuildingLayer_1=require("./SourceBuildingLayer"),ImageLayer=function(t){function o(o,i){var e=t.call(this,i)||this;return e.isLoading=!1,e.options=(new ImageLayerOptions_1.ImageLayerOptions).merge(_.cloneDeepWith(o,ImageLayerOptions_1.ImageLayerOptions._cloneCustomizer)),e.img=new Image,e.reloadImage(),e}return __extends(o,t),o.prototype.getOptions=function(){return _.cloneDeepWith(this.options,ImageLayerOptions_1.ImageLayerOptions._cloneCustomizer)},o.prototype.setOptions=function(t){var o=(new ImageLayerOptions_1.ImageLayerOptions).merge(this.options,_.cloneDeepWith(t,ImageLayerOptions_1.ImageLayerOptions._cloneCustomizer)),i="string"==typeof t.url&&t.url!==this.getOptions().url,e=void 0!==t.coordinates&&t.coordinates!==this.getOptions().coordinates;if(this.map){this._updateBaseProperties(o,this.options),this._updatePaintProperty("raster-contrast",o.contrast,this.options.contrast),this._updatePaintProperty("raster-fade-duration",o.fadeDuration,this.options.fadeDuration),this._updatePaintProperty("raster-hue-rotate",o.hueRotation,this.options.hueRotation),this._updatePaintProperty("raster-brightness-max",o.maxBrightness,this.options.maxBrightness),this._updatePaintProperty("raster-opacity",o.opacity,this.options.opacity),this._updatePaintProperty("raster-saturation",o.saturation,this.options.saturation);var r=this.map._getMap().getSource(this._getSourceId());r&&r.updateImage(o)}this.options=o,i?this.reloadImage():e&&this.updateTransform()},o.prototype.getPositions=function(t){return this.transform.then(function(o){return o.toTarget(t)})},o.prototype.getPixels=function(t){return this.transform.then(function(o){return o.toSource(t)})},o.getCoordinatesFromRefPoints=function(t,o,i,e){return new math_1.AffineTransform(i,e).toTarget([[0,0],[t,0],[t,o],[0,o]])},o.getCoordinatesFromEdges=function(t,o,i,e,r){"number"!=typeof r&&(r=0);var n=[Math.min(e,i),o,Math.max(e,i),t],s=data_1.BoundingBox.getCenter(n),a=data_1.BoundingBox.getNorthWest(n),u=data_1.BoundingBox.getNorthEast(n),p=data_1.BoundingBox.getSouthEast(n),h=data_1.BoundingBox.getSouthWest(n);return math.rotatePositions([a,u,p,h],s,r)},o.prototype._buildLayers=function(){var t={id:this.id,type:"raster",source:this._getSourceId(),layout:{visibility:this.options.visible?"visible":"none"},paint:{"raster-opacity":this.options.opacity,"raster-hue-rotate":this.options.hueRotation,"raster-brightness-min":this.options.minBrightness,"raster-brightness-max":this.options.maxBrightness,"raster-saturation":this.options.saturation,"raster-contrast":this.options.contrast,"raster-fade-duration":this.options.fadeDuration},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.filter&&(t.filter=this.options.filter),[t]},o.prototype._getLayerIds=function(){return[this.id]},o.prototype._buildSource=function(){return{type:"image",url:this.options.url,coordinates:this.options.coordinates}},o.prototype._getSourceId=function(){return this.getId()+"-ImageSource"},o.prototype.reloadImage=function(){var t=this;this.options.url&&(this.transform=new Promise(function(o,i){t.img.onload=function(){var i=[[0,0],[t.img.width,0],[t.img.width,t.img.height],[0,t.img.height]];o(new math_1.AffineTransform(i,t.options.coordinates)),t.isLoading=!1},t.img.onerror=t.img.onabort=function(){i("Failed to load image")},t.isLoading=!0,t.img.src=t.options.url}))},o.prototype.updateTransform=function(){if(!this.isLoading){var t=[[0,0],[this.img.width,0],[this.img.width,this.img.height],[0,this.img.height]];this.transform=Promise.resolve(new math_1.AffineTransform(t,this.options.coordinates))}},o}(SourceBuildingLayer_1.SourceBuildingLayer);exports.ImageLayer=ImageLayer;
 
-},{"../data":250,"../math":277,"../math/Math":276,"./SourceBuildingLayer":260,"./options/ImageLayerOptions":267,"lodash":109}],257:[function(require,module,exports){
+},{"../data":252,"../math":279,"../math/Math":278,"./SourceBuildingLayer":262,"./options/ImageLayerOptions":269,"lodash":109}],259:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),uuid=require("uuid-random"),Layer=function(){function t(t){this.id=t||uuid()}return t.prototype.getId=function(){return this.id},t.prototype._setMap=function(t){null==t||void 0===t?delete this.map:this.map=t},t.prototype._updateBaseProperties=function(t,e){this._updateFilter(t.filter,e.filter),this._updateZoomRange(t.minZoom,e.minZoom,t.maxZoom,e.maxZoom),this._updateLayoutProperty("visibility",t.visible,e.visible,t.visible?"visible":"none")},t.prototype._updateFilter=function(t,e){_.isEqual(t,e)||this.map._getMap().setFilter(this.id,t)},t.prototype._updatePaintProperty=function(t,e,i,o){_.isEqual(e,i)||this.map._getMap().setPaintProperty(this.id,t,o||e)},t.prototype._updateLayoutProperty=function(t,e,i,o){_.isEqual(e,i)||this.map._getMap().setLayoutProperty(this.id,t,o||e)},t.prototype._updateZoomRange=function(t,e,i,o){t===e&&o===i||this.map._getMap().setLayerZoomRange(this.id,t,i)},t}();exports.Layer=Layer;
 
-},{"lodash":109,"uuid-random":162}],258:[function(require,module,exports){
+},{"lodash":109,"uuid-random":162}],260:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(i,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,i){t.__proto__=i}||function(t,i){for(var o in i)i.hasOwnProperty(o)&&(t[o]=i[o])})(i,o)};return function(i,o){function e(){this.constructor=i}t(i,o),i.prototype=null===o?Object.create(o):(e.prototype=o.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),source_1=require("../source"),Layer_1=require("./Layer"),LineLayerOptions_1=require("./options/LineLayerOptions"),LineLayer=function(t){function i(i,o,e){var s=t.call(this,o)||this;return s.options=(new LineLayerOptions_1.LineLayerOptions).merge(_.cloneDeepWith(e,LineLayerOptions_1.LineLayerOptions._cloneCustomizer)),s.options.source=i||s.options.source,s}return __extends(i,t),i.prototype.getOptions=function(){return _.cloneDeepWith(this.options,LineLayerOptions_1.LineLayerOptions._cloneCustomizer)},i.prototype.getSource=function(){return this.options.source},i.prototype.setOptions=function(t){var i=(new LineLayerOptions_1.LineLayerOptions).merge(this.options,_.cloneDeepWith(t,LineLayerOptions_1.LineLayerOptions._cloneCustomizer));if(this.map){if(i.source!==this.options.source||i.sourceLayer!==this.options.sourceLayer)return this.options=i,void this.map.layers.add(this);this._updateBaseProperties(i,this.options),this._updatePaintProperty("line-blur",i.blur,this.options.blur),this._updateLayoutProperty("line-cap",i.lineCap,this.options.lineCap),this._updateLayoutProperty("line-join",i.lineJoin,this.options.lineJoin),this._updatePaintProperty("line-offset",i.offset,this.options.offset),this._updatePaintProperty("line-color",i.strokeColor,this.options.strokeColor),this._updatePaintProperty("line-dasharray",i.strokeDashArray,this.options.strokeDashArray),this._updatePaintProperty("line-gradient",i.strokeGradient,this.options.strokeGradient),this._updatePaintProperty("line-opacity",i.strokeOpacity,this.options.strokeOpacity),this._updatePaintProperty("line-width",i.strokeWidth,this.options.strokeWidth)}this.options=i},i.prototype._buildLayers=function(){var t={id:this.id,type:"line",source:this.options.source instanceof source_1.Source?this.options.source.getId():this.options.source,layout:{visibility:this.options.visible?"visible":"none","line-cap":this.options.lineCap,"line-join":this.options.lineJoin},paint:{"line-blur":this.options.blur,"line-color":this.options.strokeColor,"line-offset":this.options.offset,"line-opacity":this.options.strokeOpacity,"line-width":this.options.strokeWidth},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.strokeDashArray&&(t.paint["line-dasharray"]=this.options.strokeDashArray),this.options.strokeGradient&&(t.paint["line-gradient"]=this.options.strokeGradient),this.options.filter&&(t.filter=this.options.filter),this.options.sourceLayer&&(t["source-layer"]=this.options.sourceLayer),[t]},i.prototype._getLayerIds=function(){return[this.id]},i}(Layer_1.Layer);exports.LineLayer=LineLayer;
 
-},{"../source":282,"./Layer":257,"./options/LineLayerOptions":269,"lodash":109}],259:[function(require,module,exports){
+},{"../source":284,"./Layer":259,"./options/LineLayerOptions":271,"lodash":109}],261:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var o=function(t,i){return(o=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(o,t){o.__proto__=t}||function(o,t){for(var i in t)t.hasOwnProperty(i)&&(o[i]=t[i])})(t,i)};return function(t,i){function e(){this.constructor=t}o(t,i),t.prototype=null===i?Object.create(i):(e.prototype=i.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),source_1=require("../source"),Layer_1=require("./Layer"),PolygonLayerOptions_1=require("./options/PolygonLayerOptions"),PolygonLayer=function(o){function t(t,i,e){var n=o.call(this,i)||this;return n.options=(new PolygonLayerOptions_1.PolygonLayerOptions).merge(_.cloneDeepWith(e,PolygonLayerOptions_1.PolygonLayerOptions._cloneCustomizer)),n.options.source=t||n.options.source,n}return __extends(t,o),t.prototype.getOptions=function(){return _.cloneDeepWith(this.options,PolygonLayerOptions_1.PolygonLayerOptions._cloneCustomizer)},t.prototype.getSource=function(){return this.options.source},t.prototype.setOptions=function(o){var t=(new PolygonLayerOptions_1.PolygonLayerOptions).merge(this.options,_.cloneDeepWith(o,PolygonLayerOptions_1.PolygonLayerOptions._cloneCustomizer));if(this.map){if(t.source!==this.options.source||t.sourceLayer!==this.options.sourceLayer)return this.options=t,void this.map.layers.add(this);this._updateBaseProperties(t,this.options),this._updatePaintProperty("fill-color",t.fillColor,this.options.fillColor),this._updatePaintProperty("fill-opacity",t.fillOpacity,this.options.fillOpacity),this._updatePaintProperty("fill-pattern",t.fillPattern,this.options.fillPattern)}this.options=t},t.prototype._buildLayers=function(){var o={id:this.id,type:"fill",source:this.options.source instanceof source_1.Source?this.options.source.getId():this.options.source,layout:{visibility:this.options.visible?"visible":"none"},paint:{"fill-opacity":this.options.fillOpacity},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.filter&&(o.filter=this.options.filter),this.options.sourceLayer&&(o["source-layer"]=this.options.sourceLayer),this.options.fillPattern?o.paint["fill-pattern"]=this.options.fillPattern:o.paint["fill-color"]=this.options.fillColor,[o]},t.prototype._getLayerIds=function(){return[this.id]},t}(Layer_1.Layer);exports.PolygonLayer=PolygonLayer;
 
-},{"../source":282,"./Layer":257,"./options/PolygonLayerOptions":271,"lodash":109}],260:[function(require,module,exports){
+},{"../source":284,"./Layer":259,"./options/PolygonLayerOptions":273,"lodash":109}],262:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var e=function(t,r){return(e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])})(t,r)};return function(t,r){function n(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(n.prototype=r.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Layer_1=require("./Layer"),SourceBuildingLayer=function(e){function t(){return null!==e&&e.apply(this,arguments)||this}return __extends(t,e),t}(Layer_1.Layer);exports.SourceBuildingLayer=SourceBuildingLayer;
 
-},{"./Layer":257}],261:[function(require,module,exports){
+},{"./Layer":259}],263:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(o,i){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var i in o)o.hasOwnProperty(i)&&(t[i]=o[i])})(o,i)};return function(o,i){function n(){this.constructor=o}t(o,i),o.prototype=null===i?Object.create(i):(n.prototype=i.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),source_1=require("../source"),Layer_1=require("./Layer"),SymbolLayerOptions_1=require("./options/SymbolLayerOptions"),SymbolLayer=function(t){function o(o,i,n){var e=t.call(this,i)||this;return e.options=(new SymbolLayerOptions_1.SymbolLayerOptions).merge(_.cloneDeepWith(n,SymbolLayerOptions_1.SymbolLayerOptions._cloneCustomizer)),e.options.source=o||e.options.source,e}return __extends(o,t),o.prototype.getOptions=function(){return _.cloneDeepWith(this.options,SymbolLayerOptions_1.SymbolLayerOptions._cloneCustomizer)},o.prototype.getSource=function(){return this.options.source},o.prototype.setOptions=function(t){var o=(new SymbolLayerOptions_1.SymbolLayerOptions).merge(this.options,_.cloneDeepWith(t,SymbolLayerOptions_1.SymbolLayerOptions._cloneCustomizer));if(this.map){if(o.source!==this.options.source||o.sourceLayer!==this.options.sourceLayer)return this.options=o,void this.map.layers.add(this);this._updateBaseProperties(o,this.options),this._updateLayoutProperty("symbol-spacing",o.lineSpacing,this.options.lineSpacing),this._updateLayoutProperty("symbol-placement",o.placement,this.options.placement),this._updateLayoutProperty("icon-allow-overlap",o.iconOptions.allowOverlap,this.options.iconOptions.allowOverlap),this._updateLayoutProperty("icon-anchor",o.iconOptions.anchor,this.options.iconOptions.anchor),this._updateLayoutProperty("icon-ignore-placement",o.iconOptions.ignorePlacement,this.options.iconOptions.ignorePlacement),this._updateLayoutProperty("icon-image",o.iconOptions.image,this.options.iconOptions.image),this._updateLayoutProperty("icon-offset",o.iconOptions.offset,this.options.iconOptions.offset),this._updatePaintProperty("icon-opacity",o.iconOptions.opacity,this.options.iconOptions.opacity),this._updateLayoutProperty("icon-optional",o.iconOptions.optional,this.options.iconOptions.optional),this._updateLayoutProperty("icon-rotate",o.iconOptions.rotation,this.options.iconOptions.rotation),this._updateLayoutProperty("icon-rotation-alignment",o.iconOptions.rotationAlignment,this.options.iconOptions.rotationAlignment),this._updateLayoutProperty("icon-size",o.iconOptions.size,this.options.iconOptions.size),this._updateLayoutProperty("text-allow-overlap",o.textOptions.allowOverlap,this.options.textOptions.allowOverlap),this._updateLayoutProperty("text-anchor",o.textOptions.anchor,this.options.textOptions.anchor),this._updatePaintProperty("text-color",o.textOptions.color,this.options.textOptions.color),this._updateLayoutProperty("text-font",o.textOptions.font,this.options.textOptions.font),this._updateLayoutProperty("text-ignore-placement",o.textOptions.ignorePlacement,this.options.textOptions.ignorePlacement),this._updatePaintProperty("text-halo-blur",o.textOptions.haloBlur,this.options.textOptions.haloBlur),this._updatePaintProperty("text-halo-color",o.textOptions.haloColor,this.options.textOptions.haloColor),this._updatePaintProperty("text-halo-width",o.textOptions.haloWidth,this.options.textOptions.haloWidth),this._updateLayoutProperty("text-offset",o.textOptions.offset,this.options.textOptions.offset),this._updatePaintProperty("text-opacity",o.textOptions.opacity,this.options.textOptions.opacity),this._updateLayoutProperty("text-optional",o.textOptions.optional,this.options.textOptions.optional),this._updateLayoutProperty("text-size",o.textOptions.size,this.options.textOptions.size),this._updateLayoutProperty("text-field",o.textOptions.textField,this.options.textOptions.textField)}this.options=o},o.prototype._buildLayers=function(){var t={id:this.id,type:"symbol",source:this.options.source instanceof source_1.Source?this.options.source.getId():this.options.source,layout:{visibility:this.options.visible?"visible":"none","symbol-placement":this.options.placement,"symbol-spacing":this.options.lineSpacing,"text-allow-overlap":this.options.textOptions.allowOverlap,"text-anchor":this.options.textOptions.anchor,"text-font":this.options.textOptions.font,"text-ignore-placement":this.options.textOptions.ignorePlacement,"text-offset":this.options.textOptions.offset,"text-optional":this.options.textOptions.optional,"text-size":this.options.textOptions.size,"icon-allow-overlap":this.options.iconOptions.allowOverlap,"icon-anchor":this.options.iconOptions.anchor,"icon-ignore-placement":this.options.iconOptions.ignorePlacement,"icon-image":this.options.iconOptions.image,"icon-offset":this.options.iconOptions.offset,"icon-optional":this.options.iconOptions.optional,"icon-rotate":this.options.iconOptions.rotation,"icon-rotation-alignment":this.options.iconOptions.rotationAlignment,"icon-size":this.options.iconOptions.size},paint:{"text-color":this.options.textOptions.color,"text-halo-blur":this.options.textOptions.haloBlur,"text-halo-color":this.options.textOptions.haloColor,"text-halo-width":this.options.textOptions.haloWidth,"text-opacity":this.options.textOptions.opacity,"icon-opacity":this.options.iconOptions.opacity},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.filter&&(t.filter=this.options.filter),this.options.sourceLayer&&(t["source-layer"]=this.options.sourceLayer),this.options.textOptions.textField&&(t.layout["text-field"]=this.options.textOptions.textField),[t]},o.prototype._getLayerIds=function(){return[this.id]},o}(Layer_1.Layer);exports.SymbolLayer=SymbolLayer;
 
-},{"../source":282,"./Layer":257,"./options/SymbolLayerOptions":272,"lodash":109}],262:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=function(o,i){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var i in o)o.hasOwnProperty(i)&&(t[i]=o[i])})(o,i)};return function(o,i){function e(){this.constructor=o}t(o,i),o.prototype=null===i?Object.create(i):(e.prototype=i.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),TileLayerOptions_1=require("./options/TileLayerOptions"),SourceBuildingLayer_1=require("./SourceBuildingLayer"),TileLayer=function(t){function o(o,i){var e=t.call(this,i)||this;return e.options=(new TileLayerOptions_1.TileLayerOptions).merge(_.cloneDeepWith(o,TileLayerOptions_1.TileLayerOptions._cloneCustomizer)),e}return __extends(o,t),o.prototype.getOptions=function(){return _.cloneDeepWith(this.options,TileLayerOptions_1.TileLayerOptions._cloneCustomizer)},o.prototype.setOptions=function(t){var o=(new TileLayerOptions_1.TileLayerOptions).merge(this.options,_.cloneDeepWith(t,TileLayerOptions_1.TileLayerOptions._cloneCustomizer));if(this.map){if(!_.isEqual(o.bounds,this.options.bounds)||o.isTMS!==this.options.isTMS||o.maxSourceZoom!==this.options.maxSourceZoom||o.minSourceZoom!==this.options.minSourceZoom||!_.isEqual(o.subdomains,this.options.subdomains)||o.tileSize!==this.options.tileSize||o.tileUrl!==this.options.tileUrl)return this.options=o,void this.map.layers.add(this);this._updateBaseProperties(o,this.options),this._updatePaintProperty("raster-contrast",o.contrast,this.options.contrast),this._updatePaintProperty("raster-fade-duration",o.fadeDuration,this.options.fadeDuration),this._updatePaintProperty("raster-hue-rotate",o.hueRotation,this.options.hueRotation),this._updatePaintProperty("raster-brightness-max",o.maxBrightness,this.options.maxBrightness),this._updatePaintProperty("raster-opacity",o.opacity,this.options.opacity),this._updatePaintProperty("raster-saturation",o.saturation,this.options.saturation)}this.options=o},o.prototype._setOptionsNoUpdate=function(t){this.options=(new TileLayerOptions_1.TileLayerOptions).merge(this.options,_.cloneDeepWith(t,TileLayerOptions_1.TileLayerOptions._cloneCustomizer))},o.prototype._buildLayers=function(){var t={id:this.id,type:"raster",source:this._getSourceId(),layout:{visibility:this.options.visible?"visible":"none"},paint:{"raster-contrast":this.options.contrast,"raster-fade-duration":this.options.fadeDuration,"raster-hue-rotate":this.options.hueRotation,"raster-brightness-max":this.options.maxBrightness,"raster-brightness-min":this.options.minBrightness,"raster-opacity":this.options.opacity,"raster-saturation":this.options.saturation},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.filter&&(t.filter=this.options.filter),[t]},o.prototype._getLayerIds=function(){return[this.id]},o.prototype._buildSource=function(){var t={type:"raster",bounds:this.options.bounds,maxzoom:this.options.maxSourceZoom,minzoom:this.options.minSourceZoom,scheme:this.options.isTMS?"tms":"xyz",tileSize:this.options.tileSize};if(this.options.tileUrl)if(-1!==this.options.tileUrl.indexOf("{"))if(-1!==this.options.tileUrl.indexOf("{subdomain}")){if(!(this.options.subdomains&&this.options.subdomains.length>0))throw new Error("The {subdomain} placeholder was included in the tileUrl but no subdomains were specified");for(var o=[],i=0,e=this.options.subdomains;i<e.length;i++){var s=e[i];o.push(this.options.tileUrl.replace(/{subdomain}/g,s))}t.tiles=o}else t.tiles=[this.options.tileUrl];else t.url=this.options.tileUrl;return t},o.prototype._getSourceId=function(){return this.getId()+"-RasterSource"},o}(SourceBuildingLayer_1.SourceBuildingLayer);exports.TileLayer=TileLayer;
+},{"../source":284,"./Layer":259,"./options/SymbolLayerOptions":274,"lodash":109}],264:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(o,i){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var i in o)o.hasOwnProperty(i)&&(t[i]=o[i])})(o,i)};return function(o,i){function e(){this.constructor=o}t(o,i),o.prototype=null===i?Object.create(i):(e.prototype=i.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),TileLayerOptions_1=require("./options/TileLayerOptions"),SourceBuildingLayer_1=require("./SourceBuildingLayer"),TileLayer=function(t){function o(o,i){var e=t.call(this,i)||this;return o&&e.setOptions(o),e}return __extends(o,t),o.prototype.getOptions=function(){return _.cloneDeepWith(this.options,TileLayerOptions_1.TileLayerOptions._cloneCustomizer)},o.prototype.setOptions=function(t){var o=(new TileLayerOptions_1.TileLayerOptions).merge(this.options,_.cloneDeepWith(t,TileLayerOptions_1.TileLayerOptions._cloneCustomizer));if(this.map){if(!_.isEqual(o.bounds,this.options.bounds)||o.isTMS!==this.options.isTMS||o.maxSourceZoom!==this.options.maxSourceZoom||o.minSourceZoom!==this.options.minSourceZoom||!_.isEqual(o.subdomains,this.options.subdomains)||o.tileSize!==this.options.tileSize||o.tileUrl!==this.options.tileUrl)return this.options=o,void this.map.layers.add(this);this._updateBaseProperties(o,this.options),this._updatePaintProperty("raster-contrast",o.contrast,this.options.contrast),this._updatePaintProperty("raster-fade-duration",o.fadeDuration,this.options.fadeDuration),this._updatePaintProperty("raster-hue-rotate",o.hueRotation,this.options.hueRotation),this._updatePaintProperty("raster-brightness-max",o.maxBrightness,this.options.maxBrightness),this._updatePaintProperty("raster-opacity",o.opacity,this.options.opacity),this._updatePaintProperty("raster-saturation",o.saturation,this.options.saturation)}this.options=o},o.prototype._setOptionsNoUpdate=function(t){this.options=(new TileLayerOptions_1.TileLayerOptions).merge(this.options,_.cloneDeepWith(t,TileLayerOptions_1.TileLayerOptions._cloneCustomizer))},o.prototype._buildLayers=function(){var t={id:this.id,type:"raster",source:this._getSourceId(),layout:{visibility:this.options.visible?"visible":"none"},paint:{"raster-contrast":this.options.contrast,"raster-fade-duration":this.options.fadeDuration,"raster-hue-rotate":this.options.hueRotation,"raster-brightness-max":this.options.maxBrightness,"raster-brightness-min":this.options.minBrightness,"raster-opacity":this.options.opacity,"raster-saturation":this.options.saturation},minzoom:this.options.minZoom,maxzoom:this.options.maxZoom};return this.options.filter&&(t.filter=this.options.filter),[t]},o.prototype._getLayerIds=function(){return[this.id]},o.prototype._buildSource=function(){var t={type:"raster",bounds:this.options.bounds,maxzoom:this.options.maxSourceZoom,minzoom:this.options.minSourceZoom,scheme:this.options.isTMS?"tms":"xyz",tileSize:this.options.tileSize};if(this.options.tileUrl)if(-1!==this.options.tileUrl.indexOf("{"))if(-1!==this.options.tileUrl.indexOf("{subdomain}")){if(!(this.options.subdomains&&this.options.subdomains.length>0))throw new Error("The {subdomain} placeholder was included in the tileUrl but no subdomains were specified");for(var o=[],i=0,e=this.options.subdomains;i<e.length;i++){var s=e[i];o.push(this.options.tileUrl.replace(/{subdomain}/g,s))}t.tiles=o}else t.tiles=[this.options.tileUrl];else t.url=this.options.tileUrl;return t},o.prototype._getSourceId=function(){return this.getId()+"-RasterSource"},o}(SourceBuildingLayer_1.SourceBuildingLayer);exports.TileLayer=TileLayer;
 
-},{"./SourceBuildingLayer":260,"./options/TileLayerOptions":274,"lodash":109}],263:[function(require,module,exports){
+},{"./SourceBuildingLayer":262,"./options/TileLayerOptions":276,"lodash":109}],265:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var BubbleLayer_1=require("./BubbleLayer");exports.BubbleLayer=BubbleLayer_1.BubbleLayer;var HeatMapLayer_1=require("./HeatMapLayer");exports.HeatMapLayer=HeatMapLayer_1.HeatMapLayer;var ImageLayer_1=require("./ImageLayer");exports.ImageLayer=ImageLayer_1.ImageLayer;var Layer_1=require("./Layer");exports.Layer=Layer_1.Layer;var LineLayer_1=require("./LineLayer");exports.LineLayer=LineLayer_1.LineLayer;var PolygonLayer_1=require("./PolygonLayer");exports.PolygonLayer=PolygonLayer_1.PolygonLayer;var SymbolLayer_1=require("./SymbolLayer");exports.SymbolLayer=SymbolLayer_1.SymbolLayer;var TileLayer_1=require("./TileLayer");exports.TileLayer=TileLayer_1.TileLayer;
 
-},{"./BubbleLayer":253,"./HeatMapLayer":255,"./ImageLayer":256,"./Layer":257,"./LineLayer":258,"./PolygonLayer":259,"./SymbolLayer":261,"./TileLayer":262}],264:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var t=function(r,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,r){t.__proto__=r}||function(t,r){for(var e in r)r.hasOwnProperty(e)&&(t[e]=r[e])})(r,e)};return function(r,e){function o(){this.constructor=r}t(r,e),r.prototype=null===e?Object.create(e):(o.prototype=e.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),BubbleLayerOptions=function(t){function r(){var r=null!==t&&t.apply(this,arguments)||this;return r.source=void 0,r.sourceLayer=void 0,r.color="#1A73AA",r.blur=0,r.opacity=1,r.strokeColor="#FFFFFF",r.strokeOpacity=1,r.strokeWidth=2,r.radius=8,r}return __extends(r,t),r}(LayerOptions_1.LayerOptions);exports.BubbleLayerOptions=BubbleLayerOptions;
+},{"./BubbleLayer":255,"./HeatMapLayer":257,"./ImageLayer":258,"./Layer":259,"./LineLayer":260,"./PolygonLayer":261,"./SymbolLayer":263,"./TileLayer":264}],266:[function(require,module,exports){
+"use strict";var __extends=this&&this.__extends||function(){var t=function(e,r){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])})(e,r)};return function(e,r){function o(){this.constructor=e}t(e,r),e.prototype=null===r?Object.create(r):(o.prototype=r.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),BubbleLayerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.source=void 0,e.sourceLayer=void 0,e.color="#1A73AA",e.blur=0,e.opacity=1,e.strokeColor="#FFFFFF",e.strokeOpacity=1,e.strokeWidth=2,e.pitchAlignment="viewport",e.radius=8,e}return __extends(e,t),e}(LayerOptions_1.LayerOptions);exports.BubbleLayerOptions=BubbleLayerOptions;
 
-},{"./LayerOptions":268}],265:[function(require,module,exports){
+},{"./LayerOptions":270}],267:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var e=function(t,r){return(e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])})(t,r)};return function(t,r){function o(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(o.prototype=r.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var source_1=require("../../source"),LayerOptions_1=require("./LayerOptions"),HeatMapLayerOptions=function(e){function t(){var t=null!==e&&e.apply(this,arguments)||this;return t.source=void 0,t.sourceLayer=void 0,t.color=["interpolate",["linear"],["heatmap-density"],0,"rgba(0,0, 255,0)",.1,"royalblue",.3,"cyan",.5,"lime",.7,"yellow",1,"red"],t.intensity=1,t.opacity=1,t.radius=30,t.weight=1,t}return __extends(t,e),t._cloneCustomizer=function(e){if(e instanceof source_1.Source)return e},t}(LayerOptions_1.LayerOptions);exports.HeatMapLayerOptions=HeatMapLayerOptions;
 
-},{"../../source":282,"./LayerOptions":268}],266:[function(require,module,exports){
+},{"../../source":284,"./LayerOptions":270}],268:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(e,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var o in e)e.hasOwnProperty(o)&&(t[o]=e[o])})(e,o)};return function(e,o){function n(){this.constructor=e}t(e,o),e.prototype=null===o?Object.create(o):(n.prototype=o.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),Pixel_1=require("../../../Pixel"),IconOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.allowOverlap=!1,e.anchor="bottom",e.ignorePlacement=!1,e.image="marker-blue",e.offset=new Pixel_1.Pixel(0,0),e.optional=!1,e.rotation=0,e.rotationAlignment="auto",e.size=1,e.opacity=1,e}return __extends(e,t),e}(Options_1.Options);exports.IconOptions=IconOptions;
 
-},{"../../../Pixel":169,"../../../helpers/Options":175}],267:[function(require,module,exports){
+},{"../../../Pixel":169,"../../../helpers/Options":175}],269:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var e=function(t,r){return(e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r])})(t,r)};return function(t,r){function o(){this.constructor=t}e(t,r),t.prototype=null===r?Object.create(r):(o.prototype=r.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var source_1=require("../../source"),MediaLayerOptions_1=require("./MediaLayerOptions"),ImageLayerOptions=function(e){function t(){var t=null!==e&&e.apply(this,arguments)||this;return t.url=void 0,t.coordinates=void 0,t}return __extends(t,e),t._cloneCustomizer=function(e){if(e instanceof source_1.Source)return e},t}(MediaLayerOptions_1.MediaLayerOptions);exports.ImageLayerOptions=ImageLayerOptions;
 
-},{"../../source":282,"./MediaLayerOptions":270}],268:[function(require,module,exports){
+},{"../../source":284,"./MediaLayerOptions":272}],270:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(e,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var o in e)e.hasOwnProperty(o)&&(t[o]=e[o])})(e,o)};return function(e,o){function r(){this.constructor=e}t(e,o),e.prototype=null===o?Object.create(o):(r.prototype=o.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),source_1=require("../../source"),LayerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.filter=void 0,e.minZoom=0,e.maxZoom=24,e.visible=!0,e}return __extends(e,t),e._cloneCustomizer=function(t){if(t instanceof source_1.Source)return t},e}(Options_1.Options);exports.LayerOptions=LayerOptions;
 
-},{"../../../helpers/Options":175,"../../source":282}],269:[function(require,module,exports){
+},{"../../../helpers/Options":175,"../../source":284}],271:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(e,r){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var r in e)e.hasOwnProperty(r)&&(t[r]=e[r])})(e,r)};return function(e,r){function o(){this.constructor=e}t(e,r),e.prototype=null===r?Object.create(r):(o.prototype=r.prototype,new o)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),LineLayerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.source=void 0,e.sourceLayer=void 0,e.lineCap="round",e.lineJoin="round",e.blur=0,e.strokeColor="#1E90FF",e.strokeDashArray=void 0,e.strokeGradient=void 0,e.offset=0,e.strokeOpacity=1,e.strokeWidth=2,e}return __extends(e,t),e}(LayerOptions_1.LayerOptions);exports.LineLayerOptions=LineLayerOptions;
 
-},{"./LayerOptions":268}],270:[function(require,module,exports){
+},{"./LayerOptions":270}],272:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(e,n){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n])})(e,n)};return function(e,n){function r(){this.constructor=e}t(e,n),e.prototype=null===n?Object.create(n):(r.prototype=n.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),MediaLayerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.contrast=0,e.fadeDuration=300,e.hueRotation=0,e.maxBrightness=1,e.minBrightness=0,e.opacity=1,e.saturation=0,e}return __extends(e,t),e}(LayerOptions_1.LayerOptions);exports.MediaLayerOptions=MediaLayerOptions;
 
-},{"./LayerOptions":268}],271:[function(require,module,exports){
+},{"./LayerOptions":270}],273:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(o,r){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var r in o)o.hasOwnProperty(r)&&(t[r]=o[r])})(o,r)};return function(o,r){function e(){this.constructor=o}t(o,r),o.prototype=null===r?Object.create(r):(e.prototype=r.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var LayerOptions_1=require("./LayerOptions"),PolygonLayerOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.source=void 0,o.sourceLayer=void 0,o.fillColor="#1E90FF",o.fillOpacity=.5,o.fillPattern=void 0,o}return __extends(o,t),o}(LayerOptions_1.LayerOptions);exports.PolygonLayerOptions=PolygonLayerOptions;
 
-},{"./LayerOptions":268}],272:[function(require,module,exports){
+},{"./LayerOptions":270}],274:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(n,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,n){t.__proto__=n}||function(t,n){for(var o in n)n.hasOwnProperty(o)&&(t[o]=n[o])})(n,o)};return function(n,o){function e(){this.constructor=n}t(n,o),n.prototype=null===o?Object.create(o):(e.prototype=o.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var IconOptions_1=require("./IconOptions"),LayerOptions_1=require("./LayerOptions"),TextOptions_1=require("./TextOptions"),SymbolLayerOptions=function(t){function n(){var n=null!==t&&t.apply(this,arguments)||this;return n.source=void 0,n.sourceLayer=void 0,n.iconOptions=new IconOptions_1.IconOptions,n.textOptions=new TextOptions_1.TextOptions,n.placement="point",n.lineSpacing=250,n}return __extends(n,t),n}(LayerOptions_1.LayerOptions);exports.SymbolLayerOptions=SymbolLayerOptions;
 
-},{"./IconOptions":266,"./LayerOptions":268,"./TextOptions":273}],273:[function(require,module,exports){
+},{"./IconOptions":268,"./LayerOptions":270,"./TextOptions":275}],275:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(e,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var o in e)e.hasOwnProperty(o)&&(t[o]=e[o])})(e,o)};return function(e,o){function n(){this.constructor=e}t(e,o),e.prototype=null===o?Object.create(o):(n.prototype=o.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),Pixel_1=require("../../../Pixel"),TextOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.allowOverlap=!1,e.anchor="center",e.textField=void 0,e.font=["StandardFont-Regular"],e.ignorePlacement=!1,e.offset=new Pixel_1.Pixel(0,0),e.optional=!1,e.size=16,e.color="#000000",e.haloBlur=0,e.haloColor="rgba(0,0,0,0)",e.haloWidth=0,e.opacity=1,e}return __extends(e,t),e}(Options_1.Options);exports.TextOptions=TextOptions;
 
-},{"../../../Pixel":169,"../../../helpers/Options":175}],274:[function(require,module,exports){
+},{"../../../Pixel":169,"../../../helpers/Options":175}],276:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var e=function(t,o){return(e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var o in t)t.hasOwnProperty(o)&&(e[o]=t[o])})(t,o)};return function(t,o){function r(){this.constructor=t}e(t,o),t.prototype=null===o?Object.create(o):(r.prototype=o.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var MediaLayerOptions_1=require("./MediaLayerOptions"),TileLayerOptions=function(e){function t(){var t=null!==e&&e.apply(this,arguments)||this;return t.bounds=[-180,-85.0511,180,85.0511],t.minSourceZoom=0,t.maxSourceZoom=22,t.tileSize=512,t.isTMS=!1,t.subdomains=void 0,t.tileUrl=void 0,t}return __extends(t,e),t}(MediaLayerOptions_1.MediaLayerOptions);exports.TileLayerOptions=TileLayerOptions;
 
-},{"./MediaLayerOptions":270}],275:[function(require,module,exports){
+},{"./MediaLayerOptions":272}],277:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Math_1=require("./Math"),AffineTransform=function(){function r(t,e){this.M=r._calculateAffineTransform(t,e),this.inverseM=r._calculateAffineTransform(e,t)}return r.prototype.toTarget=function(r,t){if(void 0!==typeof r)return this.transformArray(r,this.M,t);throw new Error("Invalid sourcePoints specified.")},r.prototype.toSource=function(r,t){if(void 0!==typeof r)return this.transformArray(r,this.inverseM,t);throw new Error("Invalid targetPoints specified.")},r.prototype.transformArray=function(r,t,e){if(r&&Array.isArray(r)&&Array.isArray(r[0])){for(var n=[],o=0,a=r;o<a.length;o++){var i=a[o];n.push(this.transform(i,t,e))}return n}return null},r.prototype.transform=function(r,t,e){var n=r[0]*t[0][3]+r[1]*t[1][3]+t[2][3],o=r[0]*t[0][4]+r[1]*t[1][4]+t[2][4];return"number"==typeof e&&e>=0?[Math_1._precision(n,e),Math_1._precision(o,e)]:[Math_1._precision(n,6),Math_1._precision(o,6)]},r._calculateAffineTransform=function(r,t){if(r.length!==t.length||r.length<1)throw new Error("Error: source and target arrays must have the same length.");var e=Math.min(r[0].length,t[0].length),n=e+1;if(r.length<e)throw new Error("Erorr: At least "+e+" reference points required.");for(var o=[],a=[],i=0;i<n;i++){a[i]=[];for(var f=0;f<n;f++){f<e&&(o[f]=0),a[i][f]=0;for(var s=0;s<r.length;s++)f<e&&(o[f]+=i<e?r[s][i]*t[s][f]:t[s][f]),a[i][f]+=i>=e&&f>=e?1:i>=e?r[s][f]:f>=e?r[s][i]:r[s][i]*r[s][f]}a[i]=a[i].concat(o)}if(!this._gaussJordanElimination(a))throw new Error("Error: Singular matrix. Points are likely coplanar.");return a},r._gaussJordanElimination=function(r){for(var t,e,n=r.length,o=2*n-1,a=0;a<n;a++){for(var i=a,f=a+1;f<n;f++)Math.abs(r[f][a])>Math.abs(r[i][a])&&(i=f);if(e=r[i],r[i]=r[a],r[a]=e,Math.abs(r[a][a])<=1e-10)return!1;for(var s=a+1;s<n;s++){t=r[s][a]/r[a][a];for(var h=a;h<o;h++)r[s][h]-=r[a][h]*t}}for(a=n-1;a>-1;a--){t=r[a][a];for(f=0;f<a;f++)for(var u=o-1;u>a-1;u--)r[f][u]-=r[a][u]*r[f][a]/t;r[a][a]/=t;for(var c=n;c<o;c++)r[a][c]/=t}return!0},r}();exports.AffineTransform=AffineTransform;
 
-},{"./Math":276}],276:[function(require,module,exports){
+},{"./Math":278}],278:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var AreaUnits,DistanceUnits,TimeUnits,SpeedUnits,AccelerationUnits,_=require("lodash"),Pixel_1=require("../../Pixel"),Shape_1=require("../../Shape"),data_1=require("../data"),EARTH_RADIUS_SEMI_MAJOR_AXIS=6378137,PI_BY_180=Math.PI/180,INV_PI_BY_180=180/Math.PI,POWERS_OF_10=[1,10,100,1e3,1e4,1e5,1e6,1e7,1e8,1e9];function _toRadians(e){return e*PI_BY_180}function _toDegrees(e){return e*INV_PI_BY_180}function _clip(e,t,r){return Math.min(Math.max(e,t),r)}function _haversineDistance(e,t){var r=_toRadians(t[1]-e[1]),s=_toRadians(t[0]-e[0]),n=Math.pow(Math.sin(r/2),2)+Math.cos(_toRadians(e[1]))*Math.cos(_toRadians(t[1]))*Math.pow(Math.sin(s/2),2),a=2*Math.atan2(Math.sqrt(n),Math.sqrt(1-n));return Math.round(EARTH_RADIUS_SEMI_MAJOR_AXIS*a*100)/100}function _normalizeDistanceUnit(e){if(e)switch(e.toLowerCase()){case"feet":case"foot":case"ft":return DistanceUnits.feet;case"kilometers":case"kilometer":case"kilometres":case"kilometre":case"km":case"kms":return DistanceUnits.kilometers;case"miles":case"mile":case"mi":return DistanceUnits.miles;case"nauticalmiles":case"nauticalmile":case"nms":case"nm":return DistanceUnits.nauticalMiles;case"yards":case"yard":case"yds":case"yrd":case"yrds":return DistanceUnits.yards;case"meters":case"metres":case"m":default:return DistanceUnits.meters}return DistanceUnits.meters}function _normalizeAccelerationUnit(e){if(e)switch(e.toLowerCase()){case"milespersecondsquared":case"milepersecondsquared":case"mi/s^2":case"mi/s2":return AccelerationUnits.milesPerSecondSquared;case"kilometerspersecondsquared":case"kilometrespersecondsquared":case"kilometerpersecondsquared":case"kilometrepersecondsquared":case"km/s^2":case"km/s2":return AccelerationUnits.kilometersPerSecondSquared;case"knotspersecond":case"knotpersecond":case"knts/s":case"kn/s":case"kt/s":return AccelerationUnits.knotsPerSecond;case"standardgravity":case"g":return AccelerationUnits.standardGravity;case"feetpersecondsquared":case"footpersecondsquared":case"ft/s^2":case"ft/s2":return AccelerationUnits.feetPerSecondSquared;case"yardspersecondsquared":case"yardpersecondsquared":case"yds/s^2":case"yds/s2":case"yd/s^2":case"yd/s2":return AccelerationUnits.yardsPerSecondSquared;case"milesperhoursecond":case"mileperhoursecond":case"milesperhourseconds":case"mileperhourseconds":case"mi/h/s":return AccelerationUnits.milesPerHourSecond;case"kilometersperhoursecond":case"kilometrespersoursecond":case"kilometerperhoursecond":case"kilometrepersoursecond":case"kilometersperhourssecond":case"kilometrespersourssecond":case"kilometerperhourssecond":case"kilometrepersourssecond":case"kmhs":case"km/h/s":return AccelerationUnits.kilometersPerHourSecond;case"meterspersecondsquared":case"metrespersecondsquared":case"meterpersecondsquared":case"metrepersecondsquared":case"m/s^2":case"m/s2":default:return AccelerationUnits.metersPerSecondSquared}return AccelerationUnits.metersPerSecondSquared}function _normalizeAreaUnits(e){if(e)switch(e){case"acres":case"ac":return AreaUnits.acres;case"hectares":case"ha":return AreaUnits.hectares;case"squareFeet":case"ft^2":case"ft2":return AreaUnits.squareFeet;case"squareYards":case"squareYard":case"yds^2":case"yds2":case"yd^2":case"yd2":return AreaUnits.squareYards;case"squareKilometers":case"squareKilometres":case"squareKilometer":case"squareKilometre":case"km^2":case"km2":return AreaUnits.squareKilometers;case"squareMiles":case"squareMile":case"mi^2":case"mi2":return AreaUnits.squareMiles;case"squareMeters":case"squareMetres":case"squareMeter":case"squareMetre":case"m^2":case"m2":default:return AreaUnits.squareMeters}return AreaUnits.squareMeters}function _normalizeSpeedUnit(e){if(e)switch(e.toLowerCase()){case"feetpersecond":case"footsecond":case"ftps":case"ft/s":return SpeedUnits.feetPerSecond;case"milesperhour":case"mileperhour":case"mph":case"mi/hr":case"mi/h":return SpeedUnits.milesPerHour;case"knots":case"knot":case"knts":case"knt":case"kn":case"kt":return SpeedUnits.knots;case"mach":case"m":return SpeedUnits.mach;case"kilometersperhour":case"kilometresperhour":case"kmperhour":case"kmph":case"km/hr":case"km/h":return SpeedUnits.kilometersPerHour;case"meterspersecond":case"metrespersecond":case"mps":case"ms":case"m/s":default:return SpeedUnits.metersPerSecond}return SpeedUnits.metersPerSecond}function _normalizeTimeUnit(e){if(e)switch(e.toLowerCase()){case"milliseconds":case"ms":return TimeUnits.ms;case"minutes":case"minute":case"mins":case"min":return TimeUnits.minutes;case"hours":case"hour":case"hr":case"h":return TimeUnits.hours;case"days":case"day":case"d":return TimeUnits.days;case"seconds":case"second":case"secs":case"sec":case"s":default:return TimeUnits.seconds}return TimeUnits.seconds}function _calculatePolygonArea(e){var t=0;if(e&&e.length>0){t=Math.abs(_calculatePolygonRingArea(e[0]));for(var r=1,s=e.length;r<s;r++)t-=Math.abs(_calculatePolygonRingArea(e[r]))}return t}function _calculatePolygonRingArea(e){var t=0;if(e.length>=3){for(var r=void 0,s=void 0,n=void 0,a=0,i=e.length;a<i;a++)a===i-2?(r=i-2,s=i-1,n=0):a===i-1?(r=i-1,s=0,n=1):(r=a,s=a+1,n=a+2),t+=(_toRadians(e[n][0])-_toRadians(e[r][0]))*Math.sin(_toRadians(e[s][1]));t=t*EARTH_RADIUS_SEMI_MAJOR_AXIS*EARTH_RADIUS_SEMI_MAJOR_AXIS/2}return t}function _cross(e,t,r){return(e[0]-r[0])*(t[1]-r[1])-(e[1]-r[1])*(t[0]-r[0])}function _closestPointOnPath(e,t,r){if(r.length>=2){for(var s=1/0,n=void 0,a=null,i=mercatorPositionsToPixels(r,22),o=void 0,c=0,u=i.length-1;c<u;c++)o=_closestPixelOnLineSegment(t,i[c],i[c+1]),(n=Pixel_1.Pixel.getDistance(t,o))<s&&(s=n,a=o);if(a){var d=mercatorPixelsToPositions([a],22)[0];return new data_1.Feature(new data_1.Point(d),{distance:getDistanceTo(e,d)})}}else if(1===r.length)return new data_1.Feature(new data_1.Point(r[0]),{distance:getDistanceTo(e,r[0])});return null}function _closestPixelOnLineSegment(e,t,r){if(t[0]===r[0]&&t[1]===r[1])return t;var s=e[0]-t[0],n=e[1]-t[1],a=r[0]-t[0],i=r[1]-t[1],o=(a*s+i*n)/(a*a+i*i);return o<0?t:o>1?r:[t[0]+a*o,t[1]+i*o]}function _precision(e,t){if(!isNaN(e)&&"number"==typeof t&&t>=0){var r=void 0;r=t<POWERS_OF_10.length?POWERS_OF_10[t]:Math.pow(10,t),e=Math.round(e*r)/r}return e}function boundingBoxToPolygon(e){var t=normalizeLongitude(data_1.BoundingBox.getWest(e)),r=normalizeLongitude(data_1.BoundingBox.getEast(e)),s=normalizeLatitude(data_1.BoundingBox.getNorth(e)),n=normalizeLatitude(data_1.BoundingBox.getSouth(e)),a=data_1.BoundingBox.getCenter(e),i=[[t,s],[t,n],[a[0],n],[r,n],[r,s],[a[0],s],[t,s]];return new data_1.Polygon([i])}function convertDistance(e,t,r,s){switch(_normalizeDistanceUnit(t)){case DistanceUnits.meters:e/=1e3;break;case DistanceUnits.feet:e/=3280.8399;break;case DistanceUnits.miles:e/=.62137119;break;case DistanceUnits.yards:e/=1093.6133;break;case DistanceUnits.nauticalMiles:e/=.5399568;break;case DistanceUnits.kilometers:}switch(_normalizeDistanceUnit(r)){case DistanceUnits.meters:e*=1e3;break;case DistanceUnits.feet:e*=3280.8399;break;case DistanceUnits.miles:e*=.62137119;break;case DistanceUnits.yards:e*=1093.6133;break;case DistanceUnits.nauticalMiles:e*=.5399568;break;case DistanceUnits.kilometers:}if("number"==typeof s&&s>=0){var n=Math.pow(10,s);e=Math.round(e*n)/n}return e}function getCardinalSpline(e,t,r,s){var n;if(!e||e.length<=2)return n;"number"!=typeof t&&(t=.5),("number"!=typeof r||r<=0)&&(r=15);var a=e.length;n=e.slice(0),s?(data_1.Position.areEqual(n[0],n[a-1])&&(n.pop(),a--),n.unshift(e[a-1]),n.push(e[0]),n.push(e[1]),a++):(n.unshift(e[0]),n.push(e[a-1]));var i,o,c,u=[];u.push([1,0,0,0]);for(var d=1;d<r-1;d++)c=(i=d/r)*(o=i*i),u.push([2*c-3*o+1,-2*c+3*o,c-2*o+i,c-o]);u.push([0,1,0,0]);var l,g,m,h,p,P,f,S=[];for(d=1;d<a;d++)for(g=t*(n[d+1][0]-n[d-1][0]),m=t*(n[d+1][1]-n[d-1][1]),h=t*(n[d+2][0]-n[d][0]),p=t*(n[d+2][1]-n[d][1]),i=0;i<r;i++)f=(l=u[i])[0]*n[d][0]+l[1]*n[d+1][0]+l[2]*g+l[3]*h,P=_clip(P=l[0]*n[d][1]+l[1]*n[d+1][1]+l[2]*m+l[3]*p,-85,85),S.push([f,P]);return S}function getDestination(e,t,r,s){s=s||"meters",e=getPosition(e);var n=getEarthRadius(s),a=_toRadians(e[1]),i=_toRadians(e[0]),o=_toRadians(t),c=r/n,u=Math.asin(Math.sin(a)*Math.cos(c)+Math.cos(a)*Math.sin(c)*Math.cos(o)),d=i+Math.atan2(Math.sin(o)*Math.sin(c)*Math.cos(a),Math.cos(c)-Math.sin(a)*Math.sin(u)),l=_clip(normalizeLatitude(_toDegrees(u)),-85,85);return[normalizeLongitude(_toDegrees(d)),l]}function getDistanceTo(e,t,r){var s=_haversineDistance(e=getPosition(e),t=getPosition(t));return"meters"===r?s:convertDistance(s,"meters",r||"meters")}function getEarthRadius(e){var t=_normalizeDistanceUnit(e);return convertDistance(EARTH_RADIUS_SEMI_MAJOR_AXIS,DistanceUnits.meters,t)}function getGeodesicPath(e,t){var r;(!t||t<=0)&&(t=15),Array.isArray(e)?r=e:e.type&&"LineString"===e.type&&(r=e.coordinates);for(var s=r.length-1,n=[],a=0;a<s;a++)for(var i=_toRadians(r[a][1]),o=_toRadians(r[a][0]),c=_toRadians(r[a+1][1]),u=_toRadians(r[a+1][0]),d=2*Math.asin(Math.sqrt(Math.pow(Math.sin((i-c)/2),2)+Math.cos(i)*Math.cos(c)*Math.pow(Math.sin((o-u)/2),2))),l=0;l<=t;l++){var g=l/t,m=Math.sin((1-g)*d)/Math.sin(d),h=Math.sin(g*d)/Math.sin(d),p=m*Math.cos(i)*Math.cos(o)+h*Math.cos(c)*Math.cos(u),P=m*Math.cos(i)*Math.sin(o)+h*Math.cos(c)*Math.sin(u),f=m*Math.sin(i)+h*Math.sin(c),S=Math.atan2(f,Math.sqrt(Math.pow(p,2)+Math.pow(P,2))),U=Math.atan2(P,p);S=_clip(_toDegrees(S),-85,85),U=_toDegrees(U),n.push([U,S])}return n}function getHeading(e,t){if(e=getPosition(e),t=getPosition(t),e&&e.length>=2&&t&&t.length>=2){var r=_toRadians(e[1]),s=_toRadians(t[1]),n=_toRadians(t[0]-e[0]),a=Math.sin(n)*Math.cos(s),i=Math.cos(r)*Math.sin(s)-Math.sin(r)*Math.cos(s)*Math.cos(n);return(_toDegrees(Math.atan2(a,i))+360)%360}return NaN}function getLengthOfPath(e,t){var r,s=0;Array.isArray(e)?r=e:e.type&&"LineString"===e.type&&(r=e.coordinates);for(var n=0,a=r.length-1;n<a;n++)s+=_haversineDistance(r[n],r[n+1]);return convertDistance(s,"meters",t||"meters")}function getPositionAlongPath(e,t,r){r=r||"meters";var s,n,a=0;if(Array.isArray(e)?n=e:e.type&&"LineString"===e.type&&(n=e.coordinates),n.length>=2){for(var i=n.length,o=1;o<i;o++){if(a+(s=getDistanceTo(n[o-1],n[o],r))>=t){var c=getHeading(n[o-1],n[o]);return getDestination(n[o-1],c,t-a,r)}a+=s}return t>=a?n[i-1]:n[0]}return null}function getRegularPolygonPath(e,t,r,s,n){s=s||"meters",n=n||0,e=getPosition(e);for(var a=[],i=360/r,o=0;o<=r;o++)a.push(getDestination(e,(o*i+n)%360,t,s));return a}function interpolate(e,t,r){r=void 0===r?.5:r;var s=getDistanceTo(e=getPosition(e),t=getPosition(t),"kilometers");return getDestination(e,getHeading(e,t),s*r,"kilometers")}function normalizeLatitude(e){return e>90?(e=(e+90)%360)>180?90-(e-180):e-90:e<-90?(e=(e-90)%360)<-180?-90-(e+180):e+90:e}function normalizeLongitude(e){return e>180?(e+180)%360-180:e<-180?(e-180)%360+180:e}function rotatePositions(e,t,r){if(0===r)return _.clone(e);t=getPosition(t);for(var s,n,a=[],i=0,o=e.length;i<o;i++)s=getDistanceTo(t,e[i]),n=getHeading(t,e[i]),a.push(getDestination(t,n+r,s));return a}function getPixelHeading(e,t){var r=mercatorPositionsToPixels([e=getPosition(e),t=getPosition(t)],21),s=r[0],n=r[1],a=n[0]-s[0],i=s[1]-n[1];return(2.5*Math.PI-Math.atan2(i,a))*INV_PI_BY_180%360}function mercatorPixelsToPositions(e,t){for(var r,s,n=512*Math.pow(2,t),a=[],i=0,o=e.length;i<o;i++)r=e[i][0]/n-.5,s=.5-e[i][1]/n,a.push([360*r,90-360*Math.atan(Math.exp(2*-s*Math.PI))/Math.PI]);return a}function mercatorPositionsToPixels(e,t){for(var r,s,n,a=512*Math.pow(2,t),i=[],o=0,c=e.length;o<c;o++)n=Math.sin(e[o][1]*Math.PI/180),r=(e[o][0]+180)/360,s=.5-Math.log((1+n)/(1-n))/(4*Math.PI),i.push([Math.round(r*a),Math.round(s*a)]);return i}function convertAcceleration(e,t,r,s){switch(_normalizeAccelerationUnit(t)){case AccelerationUnits.kilometersPerHourSecond:e/=3.6;break;case AccelerationUnits.milesPerHourSecond:e/=2.236936292054;break;case AccelerationUnits.knotsPerSecond:e/=1.943844492441;break;case AccelerationUnits.standardGravity:e/=.1019716212978;break;case AccelerationUnits.kilometersPerSecondSquared:e/=.001;break;case AccelerationUnits.milesPerSecondSquared:e/=.000621371192;break;case AccelerationUnits.feetPerSecondSquared:e/=3.280839895012;break;case AccelerationUnits.yardsPerSecondSquared:e/=1.093613298338;break;case AccelerationUnits.metersPerSecondSquared:}switch(_normalizeAccelerationUnit(r)){case AccelerationUnits.kilometersPerHourSecond:e*=3.6;break;case AccelerationUnits.milesPerHourSecond:e*=2.236936292054;break;case AccelerationUnits.knotsPerSecond:e*=1.943844492441;break;case AccelerationUnits.standardGravity:e*=.1019716212978;break;case AccelerationUnits.kilometersPerSecondSquared:e*=.001;break;case AccelerationUnits.milesPerSecondSquared:e*=.000621371192;break;case AccelerationUnits.feetPerSecondSquared:e*=3.280839895012;break;case AccelerationUnits.yardsPerSecondSquared:e*=1.093613298338;break;case AccelerationUnits.metersPerSecondSquared:}return _precision(e,s)}function convertArea(e,t,r,s){switch(_normalizeAreaUnits(t)){case AreaUnits.acres:e*=4046.8564224;break;case AreaUnits.hectares:e*=1e4;break;case AreaUnits.squareFeet:e*=.09290304;break;case AreaUnits.squareKilometers:e*=1e6;break;case AreaUnits.squareMiles:e*=259e4;break;case AreaUnits.squareYards:e*=.83612736;break;case AreaUnits.squareMeters:}switch(_normalizeAreaUnits(r)){case AreaUnits.acres:e/=4046.8564224;break;case AreaUnits.hectares:e/=1e4;break;case AreaUnits.squareFeet:e/=.09290304;break;case AreaUnits.squareKilometers:e/=1e6;break;case AreaUnits.squareMiles:e/=259e4;break;case AreaUnits.squareYards:e/=.83612736;break;case AreaUnits.squareMeters:}return _precision(e,s)}function convertSpeed(e,t,r,s){switch(_normalizeSpeedUnit(t)){case SpeedUnits.feetPerSecond:e*=1.09728;break;case SpeedUnits.milesPerHour:e*=1.6093;break;case SpeedUnits.knots:e*=1.852;break;case SpeedUnits.metersPerSecond:e*=3.6;break;case SpeedUnits.mach:e*=1234.8;break;case SpeedUnits.kilometersPerHour:}switch(_normalizeSpeedUnit(r)){case SpeedUnits.feetPerSecond:e/=1.09728;break;case SpeedUnits.milesPerHour:e/=1.6093;break;case SpeedUnits.knots:e/=1.852;break;case SpeedUnits.metersPerSecond:e/=3.6;break;case SpeedUnits.mach:e/=1234.8;break;case SpeedUnits.kilometersPerHour:}return _precision(e,s)}function convertTimespan(e,t,r,s){switch(_normalizeTimeUnit(t)){case TimeUnits.ms:e/=1e3;break;case TimeUnits.hours:e*=3600;break;case TimeUnits.minutes:e*=60;break;case TimeUnits.days:e*=86400;break;case TimeUnits.seconds:}switch(_normalizeTimeUnit(r)){case TimeUnits.ms:e*=1e3;break;case TimeUnits.hours:e/=3600;break;case TimeUnits.minutes:e/=60;break;case TimeUnits.days:e/=86400;break;case TimeUnits.seconds:}return _precision(e,s)}function getAcceleration(e,t,r,s,n,a,i,o){var c=convertDistance(t,n,DistanceUnits.meters),u=convertTimespan(r,a,TimeUnits.seconds);return convertAcceleration(2*(c-convertSpeed(e,s,SpeedUnits.metersPerSecond)*u)/(u*u),AccelerationUnits.metersPerSecondSquared,i,o)}function getAccelerationFromSpeeds(e,t,r,s,n,a,i){var o=convertSpeed(e,s,SpeedUnits.metersPerSecond);return convertAcceleration((convertSpeed(t,s,SpeedUnits.metersPerSecond)-o)/convertTimespan(r,n,TimeUnits.seconds),AccelerationUnits.metersPerSecondSquared,a,i)}function getAccelerationFromFeatures(e,t,r,s,n,a,i){if("string"==typeof r&&"Feature"===e.type&&"Point"===e.geometry.type&&"Feature"===t.type&&"Point"===t.geometry.type){var o=getTimespan(e.properties[r],t.properties[r],TimeUnits.seconds);if(!isNaN(o)){var c=0;if(s&&"string"==typeof s){var u=e.properties[s],d=t.properties[s];if("number"==typeof u&&(c=u,"number"==typeof d))return getAccelerationFromSpeeds(u,d,o,n,TimeUnits.seconds,a,i)}return getAcceleration(c,getDistanceTo(e.geometry.coordinates,t.geometry.coordinates,DistanceUnits.meters),o,n,DistanceUnits.meters,TimeUnits.seconds,a,i)}}return NaN}function getArea(e,t,r){if(e){var s=0;switch(e.type){case"Feature":var n=e;if(n.geometry)return getArea(n.geometry,t,r);break;case"Polygon":var a=e;a.coordinates&&(s=_calculatePolygonArea(a.coordinates));break;case"MultiPolygon":var i=e;if(i.coordinates)for(var o=0,c=i.coordinates.length;o<c;o++)s+=_calculatePolygonArea(i.coordinates[o])}return convertArea(s,AreaUnits.squareMeters,t,r)}return 0}function getSpeed(e,t,r,s,n,a){var i=getPosition(e),o=getPosition(t);if(i&&o){var c=convertTimespan(r,s,TimeUnits.seconds);return convertSpeed(getDistanceTo(i,o,DistanceUnits.meters)/c,SpeedUnits.metersPerSecond,n,a)}return 0}function getSpeedFromFeatures(e,t,r,s,n){if("string"==typeof r&&"Feature"===e.type&&"Point"===e.geometry.type&&"Feature"===t.type&&"Point"===t.geometry.type){var a=this.getTimespan(e.properties[r],t.properties[r],TimeUnits.seconds);if(!isNaN(a)){var i=this.getDistanceTo(e.geometry.coordinates,t.geometry.coordinates,DistanceUnits.meters);return this.convertSpeed(i/a,SpeedUnits.metersPerSecond,s,n)}}return NaN}function getTimespan(e,t,r,s){var n=parseTimestamp(e),a=parseTimestamp(t);return null!=n&&null!=a?convertTimespan(a.getTime()-n.getTime(),TimeUnits.ms,r,s):NaN}function getTravelDistance(e,t,r,s,n,a,i,o){t=this.convertTimespan(t,n,TimeUnits.seconds);var c=(r=this.convertSpeed(r,a,SpeedUnits.metersPerSecond))*t;return"number"==typeof s&&(c+=.5*this.convertAcceleration(s,i,AccelerationUnits.metersPerSecondSquared)*t*t),this.convertDistance(c,DistanceUnits.meters,e,o)}function parseTimestamp(e){if("[object Date]"===Object.prototype.toString.call(e))return e;if("string"==typeof e){var t=Date.parse(e);if(!isNaN(t))return new Date(t);if(e.indexOf("Date(")>=0){var r=0;return r=(e=e.replace("/Date(","").replace(")/","")).indexOf("+")>0?parseInt(e.substr(0,e.indexOf("+")),10):e.indexOf("-")>0?parseInt(e.substr(0,e.indexOf("-")),10):parseInt(e,10),new Date(r)}}else if("number"==typeof e)return new Date(e);return null}function getConvexHull(e){var t=getPositions(e).map(function(e){return[normalizeLongitude(e[0]),normalizeLatitude(e[1])]});t.sort(function(e,t){return e[0]===t[0]?e[1]-t[1]:e[0]-t[0]});for(var r=[],s=0,n=t;s<n.length;s++){for(var a=n[s];r.length>=2&&_cross(r[r.length-2],r[r.length-1],a)<=0;)r.pop();r.push(a)}for(var i=[],o=t.length-1;o>=0;o--){for(;i.length>=2&&_cross(i[i.length-2],i[i.length-1],t[o])<=0;)i.pop();i.push(t[o])}return new data_1.Polygon([r.concat(i)])}function getPositions(e){var t=[],r=null,s=null;if(Array.isArray(e)&&e.length>0)if(Array.isArray(e[0])&&"number"==typeof e[0][0])t=e;else for(var n=e.length,a=0;a<n;a++)t=t.concat(getPositions(e[a]));else if(e.type)switch(e.type){case"Point":t=[e.coordinates];break;case"LineString":t=e.coordinates;break;case"Polygon":r=e.coordinates;break;case"MultiPoint":t=e.coordinates;break;case"MultiLineString":r=e.coordinates;break;case"MultiPolygon":s=e.coordinates;break;case"Feature":var i=e;t=Shape_1.Shape._isCircle(i)?Shape_1.Shape._getCirclePositions(i):getPositions(i.geometry);break;case"FeatureCollection":t=getPositions(e.features);break;case"GeometryCollection":t=getPositions(e.geometries)}if(r)for(n=r.length,a=0;a<n;a++)t=t.concat(r[a]);else if(s){var o=s.length;for(a=0;a<o;a++)for(var c=s[a].length,u=0;u<c;u++)t=t.concat(s[a][u])}return t}function getPosition(e){if(Array.isArray(e)&&"number"==typeof e[0])return e;if(e.type){if("Point"===e.type)return e.coordinates;if("Feature"===e.type&&"Point"===e.geometry.type)return e.geometry.coordinates}return null}function getPositionsAlongPath(e,t){if(t<2)return[];for(var r=[],s=getLengthOfPath(e,DistanceUnits.meters)/(t-1),n=0;n<t;n++){var a=getPositionAlongPath(e,s*n,DistanceUnits.meters);null!=a&&r.push(a)}return r}function getPointWithHeadingAlongPath(e,t,r){r=r||"meters";var s,n,a=0;if(Array.isArray(e)?n=e:e.type&&"LineString"===e.type&&(n=e.coordinates),n.length>=2){for(var i=n.length,o=1;o<i;o++){if(a+(s=getDistanceTo(n[o-1],n[o],r))>=t){var c=getHeading(n[o-1],n[o]),u=getDestination(n[o-1],c,t-a,r);return new data_1.Feature(new data_1.Point(u),{heading:c})}a+=s}return t>=a?new data_1.Feature(new data_1.Point(n[i-1]),{heading:getHeading(n[i-2],n[i-1])}):new data_1.Feature(new data_1.Point(n[0]),{heading:getHeading(n[0],n[1])})}return null}function getPointsWithHeadingsAlongPath(e,t){if(t<=0)return[];for(var r=[],s=getLengthOfPath(e,DistanceUnits.meters)/(t-1),n=0;n<t;n++){var a=getPointWithHeadingAlongPath(e,s*n,DistanceUnits.meters);null!=a&&r.push(a)}return r}function getClosestPointOnGeometry(e,t,r,s){var n,a=getPosition(e),i=mercatorPositionsToPixels([a],22)[0],o=null,c=1/0;switch(t.type){case"Feature":return getClosestPointOnGeometry(e,t.geometry,r);case"Point":n=[[t.coordinates]];break;case"MultiPoint":for(var u=void 0,d=t.coordinates,l=0,g=d.length;l<g;l++)(u=getDistanceTo(a,d[l]))<c&&(c=u,o=new data_1.Feature(new data_1.Point(d[l]),{distance:u}));break;case"LineString":n=[t.coordinates];break;case"Polygon":case"MultiLineString":n=t.coordinates;break;case"MultiPolygon":var m=t.coordinates;if(m.length>0){n=m[0];for(l=1,g=m.length;l<g;l++)n=n.concat(m[l])}}if(n){var h=void 0;for(l=0,g=n.length;l<g;l++)(h=_closestPointOnPath(a,i,n[l]))&&h.properties.distance<c&&(c=h.properties.distance,o=h)}return o&&(o.properties.distance=convertDistance(o.properties.distance,"meters",r,s)),o}exports._precision=_precision,function(e){e.squareMeters="squareMeters",e.acres="acres",e.hectares="hectares",e.squareFeet="squareFeet",e.squareKilometers="squareKilometers",e.squareMiles="squareMiles",e.squareYards="squareYards"}(AreaUnits=exports.AreaUnits||(exports.AreaUnits={})),function(e){e.meters="meters",e.kilometers="kilometers",e.feet="feet",e.miles="miles",e.nauticalMiles="nauticalMiles",e.yards="yards"}(DistanceUnits=exports.DistanceUnits||(exports.DistanceUnits={})),function(e){e.seconds="seconds",e.hours="hours",e.ms="ms",e.minutes="minutes",e.days="days"}(TimeUnits=exports.TimeUnits||(exports.TimeUnits={})),function(e){e.metersPerSecond="metersPerSecond",e.kilometersPerHour="kilometersPerHour",e.feetPerSecond="feetPerSecond",e.milesPerHour="milesPerHour",e.knots="knots",e.mach="mach"}(SpeedUnits=exports.SpeedUnits||(exports.SpeedUnits={})),function(e){e.milesPerSecondSquared="milesPerSecondSquared",e.kilometersPerSecondSquared="kilometersPerSecondSquared",e.knotsPerSecond="knotsPerSecond",e.standardGravity="standardGravity",e.feetPerSecondSquared="feetPerSecondSquared",e.yardsPerSecondSquared="yardsPerSecondSquared",e.milesPerHourSecond="milesPerHourSecond",e.kilometersPerHourSecond="kilometersPerHourSecond",e.metersPerSecondSquared="metersPerSecondSquared"}(AccelerationUnits=exports.AccelerationUnits||(exports.AccelerationUnits={})),exports.boundingBoxToPolygon=boundingBoxToPolygon,exports.convertDistance=convertDistance,exports.getCardinalSpline=getCardinalSpline,exports.getDestination=getDestination,exports.getDistanceTo=getDistanceTo,exports.getEarthRadius=getEarthRadius,exports.getGeodesicPath=getGeodesicPath,exports.getHeading=getHeading,exports.getLengthOfPath=getLengthOfPath,exports.getPositionAlongPath=getPositionAlongPath,exports.getRegularPolygonPath=getRegularPolygonPath,exports.interpolate=interpolate,exports.normalizeLatitude=normalizeLatitude,exports.normalizeLongitude=normalizeLongitude,exports.rotatePositions=rotatePositions,exports.getPixelHeading=getPixelHeading,exports.mercatorPixelsToPositions=mercatorPixelsToPositions,exports.mercatorPositionsToPixels=mercatorPositionsToPixels,exports.convertAcceleration=convertAcceleration,exports.convertArea=convertArea,exports.convertSpeed=convertSpeed,exports.convertTimespan=convertTimespan,exports.getAcceleration=getAcceleration,exports.getAccelerationFromSpeeds=getAccelerationFromSpeeds,exports.getAccelerationFromFeatures=getAccelerationFromFeatures,exports.getArea=getArea,exports.getSpeed=getSpeed,exports.getSpeedFromFeatures=getSpeedFromFeatures,exports.getTimespan=getTimespan,exports.getTravelDistance=getTravelDistance,exports.parseTimestamp=parseTimestamp,exports.getConvexHull=getConvexHull,exports.getPositions=getPositions,exports.getPosition=getPosition,exports.getPositionsAlongPath=getPositionsAlongPath,exports.getPointWithHeadingAlongPath=getPointWithHeadingAlongPath,exports.getPointsWithHeadingsAlongPath=getPointsWithHeadingsAlongPath,exports.getClosestPointOnGeometry=getClosestPointOnGeometry;
 
-},{"../../Pixel":169,"../../Shape":171,"../data":250,"lodash":109}],277:[function(require,module,exports){
+},{"../../Pixel":169,"../../Shape":171,"../data":252,"lodash":109}],279:[function(require,module,exports){
 "use strict";function __export(r){for(var e in r)exports.hasOwnProperty(e)||(exports[e]=r[e])}Object.defineProperty(exports,"__esModule",{value:!0}),__export(require("./Math"));var AffineTransform_1=require("./AffineTransform");exports.AffineTransform=AffineTransform_1.AffineTransform;
 
-},{"./AffineTransform":275,"./Math":276}],278:[function(require,module,exports){
+},{"./AffineTransform":277,"./Math":278}],280:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(e,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var o in e)e.hasOwnProperty(o)&&(t[o]=e[o])})(e,o)};return function(e,o){function s(){this.constructor=e}t(e,o),e.prototype=null===o?Object.create(o):(s.prototype=o.prototype,new s)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),Dictionary_1=require("../../helpers/Dictionary"),Shape_1=require("../../Shape"),data_1=require("../data"),DataSourceOptions_1=require("./options/DataSourceOptions"),Source_1=require("./Source"),DataSource=function(t){function e(e,o){var s=t.call(this,e)||this;return s.requestId=void 0,s.options=(new DataSourceOptions_1.DataSourceOptions).merge(_.cloneDeep(o)),s.shapes=[],s.shapesMap=new Dictionary_1.Dictionary,s}return __extends(e,t),e.prototype.add=function(t,e){this._addNoUpdate(t,e),this._updateSource()},e.prototype.clear=function(){this._clearNoUpdate(),this._updateSource()},e.prototype.dispose=function(){this.options=null,this.shapes=null,this.shapesMap=null,this.map=null},e.prototype.getClusterExpansionZoom=function(t){var e=this;return new Promise(function(o,s){if(e.map){var p=e.map._getMap().getSource(e.getId());p&&"geojson"===p.type&&p.getClusterExpansionZoom(t,function(t,e){t?s(t):"number"!=typeof e||o(e)})}else s("The DataSource hasn't been added to a map.")})},e.prototype.getClusterChildren=function(t){var e=this;return new Promise(function(o,s){if(e.map){var p=e.map._getMap().getSource(e.getId());p&&"geojson"===p.type&&p.getClusterChildren(t,function(t,p){t?s(t):p&&o(e.map.sources._mapFeaturesToShapes(p,!1,e))})}else s("The DataSource hasn't been added to a map.")})},e.prototype.getClusterLeaves=function(t,e,o){var s=this;return new Promise(function(p,a){if(s.map){var n=s.map._getMap().getSource(s.getId());n&&"geojson"===n.type&&n.getClusterLeaves(t,e,o,function(t,e){t?a(t):e&&p(s.map.sources._mapFeaturesToShapes(e,!1,s))})}else a("The DataSource hasn't been added to a map.")})},e.prototype.getOptions=function(){return _.cloneDeep(this.options)},e.prototype.getShapes=function(){return Array.from(this.shapes)},e.prototype.importDataFromUrl=function(t){var e=this;return fetch(t,{method:"GET",mode:"cors"}).then(function(t){if(t.ok)return t.json();throw new Error("HTTP "+t.status+": "+t.statusText)}).then(function(t){e.add(t)})},e.prototype.getShapeById=function(t){return this.shapes[this.shapesMap.get(t)]||null},e.prototype.remove=function(t){if("number"==typeof t)this._removeFromSources(t);else{var e=t instanceof Shape_1.Shape?t.getId():"string"==typeof t?t:t.id;this._removeFromSources(e)}this._updateSource()},e.prototype.setOptions=function(t){var e=(new DataSourceOptions_1.DataSourceOptions).merge(this.options,_.cloneDeep(t));this.map&&!_.isEqual(this.options,e)&&this.map._rebuildStyle(),this.options=e},e.prototype.setShapes=function(t){this._clearNoUpdate(),this.add(t)},e.prototype.toJson=function(){for(var t=[],e=0,o=this.shapes;e<o.length;e++){var s=o[e];t.push(s.toJson())}return new data_1.FeatureCollection(t)},e.prototype._toJson=function(){for(var t=[],e=0,o=this.shapes;e<o.length;e++){var s=o[e];t.push(s._toJson())}return new data_1.FeatureCollection(t)},e.prototype._buildSource=function(){var t={type:"geojson",data:this._toJson(),maxzoom:this.options.maxZoom,cluster:this.options.cluster,clusterRadius:this.options.clusterRadius,tolerance:this.options.tolerance,lineMetrics:this.options.lineMetrics};return"number"==typeof this.options.clusterMaxZoom&&(t.clusterMaxZoom=this.options.clusterMaxZoom),t},e.prototype._addNoUpdate=function(t,e){if(t instanceof Shape_1.Shape)this._addToSources(t,e);else if(Array.isArray(t))for(var o=t.length-1;o>=0;o--){var s=t[o];s instanceof Shape_1.Shape?this._addToSources(s,e):this._addToSources(new Shape_1.Shape(s),e)}else if("FeatureCollection"===t.type){var p=t.features;for(o=p.length-1;o>=0;o--)this._addToSources(new Shape_1.Shape(p[o]),e)}else if("GeometryCollection"===t.type){var a=t.geometries;for(o=a.length-1;o>=0;o--)this._addToSources(new Shape_1.Shape(a[o]),e)}else this._addToSources(new Shape_1.Shape(t),e)},e.prototype._clearNoUpdate=function(){this.shapes=[],this.shapesMap=new Dictionary_1.Dictionary},e.prototype._updateSource=function(){var t=this;void 0===this.requestId&&(this.requestId=requestAnimationFrame(function(){t._updateMboxSource(),t.requestId=void 0}))},e.prototype._addToSources=function(t,e){"number"!=typeof e?(this.shapes.push(t),this.shapesMap.set(t.getId(),this.shapes.length-1)):(this.shapes.splice(e,0,t),this._updateShapesMap(e)),t._setDataSource(this)},e.prototype._removeFromSources=function(t){if("number"==typeof t){if(t>=this.shapes.length)throw new Error("The specified remove index '"+t+"' is greater than the maximum possible index '"+(this.shapes.length-1)+"'");this.shapesMap.delete(this.shapes[t].getId()),this.shapes[t]._setDataSource(null),this.shapes.splice(t,1),this._updateShapesMap(t)}else this.shapes[this.shapesMap.get(t)]._setDataSource(null),this.shapes.splice(this.shapesMap.get(t),1),this._updateShapesMap(this.shapesMap.get(t)),this.shapesMap.delete(t)},e.prototype._updateShapesMap=function(t){for(var e=t;e<this.shapes.length;e++)this.shapesMap.set(this.shapes[e].getId(),e)},e.prototype._updateMboxSource=function(){if(this.map&&this.map._getMap()){var t=this.map._getMap().getSource(this.getId());t&&"geojson"===t.type&&t.setData(this._toJson())}},e}(Source_1.Source);exports.DataSource=DataSource;
 
-},{"../../Shape":171,"../../helpers/Dictionary":172,"../data":250,"./Source":280,"./options/DataSourceOptions":283,"lodash":109}],279:[function(require,module,exports){
+},{"../../Shape":171,"../../helpers/Dictionary":172,"../data":252,"./Source":282,"./options/DataSourceOptions":285,"lodash":109}],281:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var r=function(t,e){return(r=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(r,t){r.__proto__=t}||function(r,t){for(var e in t)t.hasOwnProperty(e)&&(r[e]=t[e])})(t,e)};return function(t,e){function n(){this.constructor=t}r(t,e),t.prototype=null===e?Object.create(e):(n.prototype=e.prototype,new n)}}(),__assign=this&&this.__assign||function(){return(__assign=Object.assign||function(r){for(var t,e=1,n=arguments.length;e<n;e++)for(var o in t=arguments[e])Object.prototype.hasOwnProperty.call(t,o)&&(r[o]=t[o]);return r}).apply(this,arguments)};Object.defineProperty(exports,"__esModule",{value:!0});var _1=require("."),vars=require("../../../../variables.json"),Url_1=require("../../helpers/Url"),FundamentalMapSource=function(r){function t(t,e,n){var o=r.call(this,t)||this;return o.source=o._modifySource(e,n),o}return __extends(t,r),t.prototype._buildSource=function(){return this.source},t.prototype._modifySource=function(r,t){var e=r.tiles.map(function(r){return"string"==typeof r?r:new Url_1.Url({domain:vars.env.domain,path:r.path,queryParams:__assign({},t,r.queryParams)}).toString()});return r.tiles=e,r},t}(_1.Source);exports.FundamentalMapSource=FundamentalMapSource;
 
-},{".":282,"../../../../variables.json":287,"../../helpers/Url":176}],280:[function(require,module,exports){
+},{".":284,"../../../../variables.json":289,"../../helpers/Url":176}],282:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var uuid=require("uuid-random"),Source=function(){function e(e){this.id=e||uuid()}return e.prototype.getId=function(){return this.id},e.prototype._setMap=function(e){null==e||void 0===e?delete this.map:this.map=e},e}();exports.Source=Source;
 
-},{"uuid-random":162}],281:[function(require,module,exports){
+},{"uuid-random":162}],283:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(o,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])})(o,e)};return function(o,e){function i(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(i.prototype=e.prototype,new i)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),_1=require("./"),VectorTileSourceOptions_1=require("./options/VectorTileSourceOptions"),VectorTileSource=function(t){function o(o,e){var i=t.call(this,o)||this;return i.options=(new VectorTileSourceOptions_1.VectorTileSourceOptions).merge(_.cloneDeep(e)),i}return __extends(o,t),o.prototype.getOptions=function(){return _.cloneDeep(this.options)},o.prototype.getShape=function(t,o){return this.map._getMap().querySourceFeatures(this.getId(),{sourceLayer:t,filter:o})},o.prototype._buildSource=function(){var t={type:"vector"};return this.options.bounds&&(t.bounds=this.options.bounds),this.options.tiles?(t.tiles=this.options.tiles,t.minzoom=this.options.minZoom,t.maxzoom=this.options.maxZoom):this.options.url&&(t.url=this.options.url),this.options.isTMS&&(t.scheme="tms"),this.options.tileSize&&(t.tileSize=this.options.tileSize),t},o}(_1.Source);exports.VectorTileSource=VectorTileSource;
 
-},{"./":282,"./options/VectorTileSourceOptions":284,"lodash":109}],282:[function(require,module,exports){
+},{"./":284,"./options/VectorTileSourceOptions":286,"lodash":109}],284:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var DataSource_1=require("./DataSource");exports.DataSource=DataSource_1.DataSource;var Source_1=require("./Source");exports.Source=Source_1.Source;var VectorTileSource_1=require("./VectorTileSource");exports.VectorTileSource=VectorTileSource_1.VectorTileSource;
 
-},{"./DataSource":278,"./Source":280,"./VectorTileSource":281}],283:[function(require,module,exports){
+},{"./DataSource":280,"./Source":282,"./VectorTileSource":283}],285:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(e,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var o in e)e.hasOwnProperty(o)&&(t[o]=e[o])})(e,o)};return function(e,o){function r(){this.constructor=e}t(e,o),e.prototype=null===o?Object.create(o):(r.prototype=o.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),DataSourceOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.maxZoom=18,e.cluster=!1,e.clusterRadius=50,e.clusterMaxZoom=void 0,e.lineMetrics=!1,e.tolerance=.375,e}return __extends(e,t),e}(Options_1.Options);exports.DataSourceOptions=DataSourceOptions;
 
-},{"../../../helpers/Options":175}],284:[function(require,module,exports){
+},{"../../../helpers/Options":175}],286:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(o,e){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,o){t.__proto__=o}||function(t,o){for(var e in o)o.hasOwnProperty(e)&&(t[e]=o[e])})(o,e)};return function(o,e){function r(){this.constructor=o}t(o,e),o.prototype=null===e?Object.create(e):(r.prototype=e.prototype,new r)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),VectorTileSourceOptions=function(t){function o(){var o=null!==t&&t.apply(this,arguments)||this;return o.bounds=void 0,o.minZoom=0,o.maxZoom=22,o.isTMS=!1,o.tiles=void 0,o.tileSize=512,o.url=void 0,o}return __extends(o,t),o}(Options_1.Options);exports.VectorTileSourceOptions=VectorTileSourceOptions;
 
-},{"../../../helpers/Options":175}],285:[function(require,module,exports){
+},{"../../../helpers/Options":175}],287:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(e,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var o in e)e.hasOwnProperty(o)&&(t[o]=e[o])})(e,o)};return function(e,o){function i(){this.constructor=e}t(e,o),e.prototype=null===o?Object.create(o):(i.prototype=o.prototype,new i)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),uuid=require("uuid-random"),Options_1=require("../helpers/Options"),Position_1=require("../namespace/data/Position"),Pixel_1=require("../Pixel"),Popup_1=require("../Popup"),HtmlMarkerOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.anchor="bottom",e.color="#1A73AA",e.draggable=!1,e.htmlContent='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.5 36.5" id="marker_'+uuid()+'" width="24.5" height="36.5" display="block"><path d="M12.25.25a12.2543,12.2543,0,0,0-12,12.4937c0,6.4436,6.4879,12.1093,11.059,22.5641.5493,1.2563,1.3327,1.2563,1.882,0C17.7621,24.8529,24.25,19.1857,24.25,12.7437A12.2543,12.2543,0,0,0,12.25.25Z"   fill="{color}" stroke="{secondaryColor}" stroke-width="0.5"/><text style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: white;" text-anchor="middle" x="12" y="18">{text}</text></svg>',e.pixelOffset=new Pixel_1.Pixel(0,0),e.position=new Position_1.Position(0,0),e.popup=void 0,e.secondaryColor="white",e.text=void 0,e.visible=!0,e}return __extends(e,t),e._cloneCustomizer=function(t){if(t instanceof Popup_1.Popup||_.isElement(t))return t},e}(Options_1.Options);exports.HtmlMarkerOptions=HtmlMarkerOptions;
 
-},{"../Pixel":169,"../Popup":170,"../helpers/Options":175,"../namespace/data/Position":249,"lodash":109,"uuid-random":162}],286:[function(require,module,exports){
+},{"../Pixel":169,"../Popup":170,"../helpers/Options":175,"../namespace/data/Position":251,"lodash":109,"uuid-random":162}],288:[function(require,module,exports){
 "use strict";var __extends=this&&this.__extends||function(){var t=function(e,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,e){t.__proto__=e}||function(t,e){for(var o in e)e.hasOwnProperty(o)&&(t[o]=e[o])})(e,o)};return function(e,o){function n(){this.constructor=e}t(e,o),e.prototype=null===o?Object.create(o):(n.prototype=o.prototype,new n)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),Options_1=require("../helpers/Options"),Position_1=require("../namespace/data/Position"),Pixel_1=require("../Pixel"),PopupOptions=function(t){function e(){var e=null!==t&&t.apply(this,arguments)||this;return e.closeButton=!0,e.content=document.createElement("span"),e.fillColor="#FFFFFF",e.pixelOffset=new Pixel_1.Pixel(0,0),e.position=new Position_1.Position(0,0),e.showPointer=!0,e}return __extends(e,t),e._cloneCustomizer=function(t){if(_.isElement(t))return t},e}(Options_1.Options);exports.PopupOptions=PopupOptions;
 
-},{"../Pixel":169,"../helpers/Options":175,"../namespace/data/Position":249,"lodash":109}],287:[function(require,module,exports){
+},{"../Pixel":169,"../helpers/Options":175,"../namespace/data/Position":251,"lodash":109}],289:[function(require,module,exports){
 module.exports={
     "env":  {
                 "domain":  "atlas.microsoft.com",
                 "staticAssetsDomain":  "atlas.microsoft.com",
-                "styleDefinitionsPath":  "styles/definitions/2018-05-31.json",
+                "styleDefinitionsPath":  "styles/definitions/2019-05-24.json",
                 "appInsightsKey":  "e96cb745-c6f5-409c-a775-c4313e468c1d",
                 "aadInstance":  "https://login.microsoftonline.com/"
             },
