@@ -41,7 +41,7 @@
     "docs:clean": "rm -rf docs/**"
   },
   "dependencies": {
-    "azure-maps-control": "2.0.6",
+    "azure-maps-control": "^2.0.9",
     "vue": "^2.6.10"
   },
   "devDependencies": {
