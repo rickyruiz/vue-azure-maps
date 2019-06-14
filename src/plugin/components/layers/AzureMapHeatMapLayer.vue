@@ -26,7 +26,7 @@ export default Vue.extend({
     },
 
     options: {
-      type: Object as Prop<atlas.HeatMapLayerOptions>,
+      type: Object as Prop<atlas.HeatMapLayerOptions | null>,
       default: null,
     },
   },
@@ -70,7 +70,7 @@ export default Vue.extend({
     const heatMapLayer = new this.$_azureMaps.atlas.layer.HeatMapLayer(
       dataSource,
       this.id || `azure-map-heat-map-layer-${state.id++}`,
-      this.options
+      this.options || undefined
     )
 
     // Watch for options changes

@@ -5,6 +5,8 @@ import Vue from 'vue'
 import { Prop } from 'vue/types/options'
 import AzureMapLayer from './AzureMapLayer.vue'
 
+const state = Vue.observable({ id: 0 })
+
 /**
  * Tile layers allow you to superimpose images on top of Azure Maps base map tiles.
  */
@@ -13,13 +15,17 @@ export default Vue.extend({
 
   /**
    * Inject the `getMap` function to get the `atlas.Map` instance
-   * Inject the `getDataSource` function to get the `atlas.source.DataSource` instance
    */
-  inject: ['getMap', 'getDataSource'],
+  inject: ['getMap'],
 
   props: {
+    id: {
+      type: String,
+      default: '',
+    },
+
     options: {
-      type: Object as Prop<atlas.TileLayerOptions>,
+      type: Object as Prop<atlas.TileLayerOptions | null>,
       default: null,
     },
   },
@@ -38,29 +44,14 @@ export default Vue.extend({
       )
     }
 
-    //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the data source instance
-    const {
-      getDataSource,
-    }: { getDataSource: () => atlas.source.DataSource } = this
-
-    if (!getDataSource) {
-      if (process.env.NODE_ENV === 'production') return
-      // If the function that retreives the data source is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-      return console.warn(
-        `Invalid <AzureMapTileLayer> data source.\nPlease make sure <AzureMapTileLayer> is a descendant of <AzureMapDataSource>.`
-      )
-    }
-
     // Retrieve the map instance from the injected function
     const map = getMap()
 
-    // Retrieve the data source from the injected function
-    const dataSource = getDataSource()
-
     // Create the tile layer
-    const tileLayer = new this.$_azureMaps.atlas.layer.TileLayer(this.options)
+    const tileLayer = new this.$_azureMaps.atlas.layer.TileLayer(
+      this.options || undefined,
+      this.id || `azure-map-tile-layer-${state.id++}`
+    )
 
     // Watch for options changes
     this.$watch(

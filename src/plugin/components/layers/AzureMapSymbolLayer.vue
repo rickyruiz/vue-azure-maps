@@ -26,7 +26,7 @@ export default Vue.extend({
     },
 
     options: {
-      type: Object as Prop<atlas.SymbolLayerOptions>,
+      type: Object as Prop<atlas.SymbolLayerOptions | null>,
       default: null,
     },
   },
@@ -70,7 +70,7 @@ export default Vue.extend({
     const symbolLayer = new this.$_azureMaps.atlas.layer.SymbolLayer(
       dataSource,
       this.id || `azure-map-symbol-layer-${state.id++}`,
-      this.options
+      this.options || undefined
     )
 
     // Watch for options changes

@@ -26,7 +26,7 @@ export default Vue.extend({
     },
 
     options: {
-      type: Object as Prop<atlas.PolygonLayerOptions>,
+      type: Object as Prop<atlas.PolygonLayerOptions | null>,
       default: null,
     },
   },
@@ -70,7 +70,7 @@ export default Vue.extend({
     const polygonLayer = new this.$_azureMaps.atlas.layer.PolygonLayer(
       dataSource,
       this.id || `azure-map-polygon-layer-${state.id++}`,
-      this.options
+      this.options || undefined
     )
 
     // Watch for options changes

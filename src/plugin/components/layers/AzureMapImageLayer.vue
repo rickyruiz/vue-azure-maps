@@ -5,6 +5,8 @@ import Vue from 'vue'
 import { Prop } from 'vue/types/options'
 import AzureMapLayer from './AzureMapLayer.vue'
 
+const state = Vue.observable({ id: 0 })
+
 /**
  * Overlay an image to fixed set of coordinates on the map.
  */
@@ -18,8 +20,13 @@ export default Vue.extend({
   inject: ['getMap', 'getDataSource'],
 
   props: {
+    id: {
+      type: String,
+      default: '',
+    },
+
     options: {
-      type: Object as Prop<atlas.ImageLayerOptions>,
+      type: Object as Prop<atlas.ImageLayerOptions | null>,
       default: null,
     },
   },
@@ -38,29 +45,14 @@ export default Vue.extend({
       )
     }
 
-    //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the data source instance
-    const {
-      getDataSource,
-    }: { getDataSource: () => atlas.source.DataSource } = this
-
-    if (!getDataSource) {
-      if (process.env.NODE_ENV === 'production') return
-      // If the function that retreives the data source is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-      return console.warn(
-        `Invalid <AzureMapImageLayer> data source.\nPlease make sure <AzureMapImageLayer> is a descendant of <AzureMapDataSource>.`
-      )
-    }
-
     // Retrieve the map instance from the injected function
     const map = getMap()
 
-    // Retrieve the data source from the injected function
-    const dataSource = getDataSource()
-
     // Create the image layer
-    const imageLayer = new this.$_azureMaps.atlas.layer.ImageLayer(this.options)
+    const imageLayer = new this.$_azureMaps.atlas.layer.ImageLayer(
+      this.options || {},
+      this.id || `azure-map-image-layer-${state.id++}`
+    )
 
     // Watch for options changes
     this.$watch(
