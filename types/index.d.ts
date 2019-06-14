@@ -28,6 +28,7 @@ import AzureMapLineLayer from '@/plugin/components/layers/AzureMapLineLayer.vue'
 import AzureMapHeatMapLayer from '@/plugin/components/layers/AzureMapHeatMapLayer.vue'
 import AzureMapImageLayer from '@/plugin/components/layers/AzureMapImageLayer.vue'
 import AzureMapTileLayer from '@/plugin/components/layers/AzureMapTileLayer.vue'
+import AzureMapBubbleLayer from '@/plugin/components/layers/AzureMapBubbleLayer.vue'
 
 //===
 // Geometry components
@@ -66,4 +67,5 @@ export {
   AzureMapHeatMapLayer,
   AzureMapImageLayer,
   AzureMapTileLayer,
+  AzureMapBubbleLayer,
 }
