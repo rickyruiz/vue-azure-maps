@@ -43,6 +43,25 @@
     </AzureMapDataSource>
 
     <!-- Create a Data Source -->
+    <AzureMapDataSource
+      :cluster="true"
+      :cluster-radius="45"
+      :cluster-max-zoom="15"
+    >
+      <!-- Add Points to the Data Source -->
+      <AzureMapPoint
+        v-for="point in points"
+        :key="point.name"
+        :longitude="point.longitude"
+        :latitude="point.latitude"
+      />
+      <!-- Add a Bubble Layer to render the clustered Points stored in the Data Source -->
+      <AzureMapBubbleLayer
+        :options="bubbleLayerOptions"
+      />
+    </AzureMapDataSource>
+
+    <!-- Create a Data Source -->
     <AzureMapDataSource>
       <!-- Add Line Strings to the Data Source -->
       <AzureMapLineString
@@ -88,6 +107,7 @@ import {
   AzureMapSymbolLayer,
   AzureMapLineLayer,
   AzureMapPolygonLayer,
+  AzureMapBubbleLayer,
 } from '@/plugin'
 import { atlas } from 'types'
 import Vue from 'vue'
@@ -115,6 +135,7 @@ export default Vue.extend({
     AzureMapSymbolLayer,
     AzureMapLineLayer,
     AzureMapPolygonLayer,
+    AzureMapBubbleLayer,
   },
 
   data() {
@@ -150,6 +171,13 @@ export default Vue.extend({
           image: 'pin-red',
         },
       } as atlas.SymbolLayerOptions,
+
+      bubbleLayerOptions: {
+        radius: 5,
+        strokeColor: '#4288f7',
+        strokeWidth: 6,
+        color: 'white',
+      } as atlas.BubbleLayerOptions,
 
       lineLayerOptions: {
         strokeColor: '#41B883',
