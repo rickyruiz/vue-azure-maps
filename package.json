@@ -35,7 +35,8 @@
     "build:lib": "vue-cli-service build --target lib --name vue-azure-maps src/plugin/index.ts",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "release": "powershell scripts/release.sh",
+    "release:win": "powershell scripts/release.sh",
+    "release:mac": "sh scripts/release.sh",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build vuepress -d docs",
     "docs:clean": "rm -rf docs/**"

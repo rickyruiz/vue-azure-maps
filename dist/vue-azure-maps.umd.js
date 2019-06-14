@@ -736,7 +736,7 @@ module.exports = __webpack_require__("9e1e") ? function (object, key, value) {
 /* harmony import */ var core_js_modules_es7_array_includes__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es7_array_includes__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var core_js_modules_es6_string_includes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("2fdb");
 /* harmony import */ var core_js_modules_es6_string_includes__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_string_includes__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var C_Users_RRuiz_Desktop_OSS_vue_azure_maps_node_modules_babel_runtime_helpers_builtin_es6_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("9393");
+/* harmony import */ var _Users_ricardoruizmelendez_Documents_development_oss_vue_azure_maps_node_modules_babel_runtime_helpers_builtin_es6_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("9393");
 /* harmony import */ var core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("456d");
 /* harmony import */ var core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("ac6a");
@@ -767,7 +767,7 @@ function getOptionsFromProps(props) {
   var options = {}; // Look for all the properties that are not null
 
   for (var _i = 0; _i < propEntries.length; _i++) {
-    var _propEntries$_i = Object(C_Users_RRuiz_Desktop_OSS_vue_azure_maps_node_modules_babel_runtime_helpers_builtin_es6_slicedToArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(propEntries[_i], 2),
+    var _propEntries$_i = Object(_Users_ricardoruizmelendez_Documents_development_oss_vue_azure_maps_node_modules_babel_runtime_helpers_builtin_es6_slicedToArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(propEntries[_i], 2),
         prop = _propEntries$_i[0],
         value = _propEntries$_i[1];
 
@@ -801,7 +801,7 @@ function addEventsFromListeners(_ref) {
   var listenersEntries = Object.entries(this.$listeners);
 
   for (var _i2 = 0; _i2 < listenersEntries.length; _i2++) {
-    var _listenersEntries$_i = Object(C_Users_RRuiz_Desktop_OSS_vue_azure_maps_node_modules_babel_runtime_helpers_builtin_es6_slicedToArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(listenersEntries[_i2], 2),
+    var _listenersEntries$_i = Object(_Users_ricardoruizmelendez_Documents_development_oss_vue_azure_maps_node_modules_babel_runtime_helpers_builtin_es6_slicedToArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(listenersEntries[_i2], 2),
         eventType = _listenersEntries$_i[0],
         callback = _listenersEntries$_i[1];
 
@@ -823,12 +823,27 @@ function addEventsFromListeners(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5855f0b0-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=4d4c88ea&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"8e6ad650-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=24115408&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}]},[(Boolean(_vm.dataSource))?[_vm._t("default",null,{"dataSource":_vm.dataSource})]:_vm._e()],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=4d4c88ea&
+// CONCATENATED MODULE: ./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=24115408&
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
+var web_dom_iterable = __webpack_require__("ac6a");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.iterator.js
+var es6_array_iterator = __webpack_require__("cadf");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es7.object.values.js
+var es7_object_values = __webpack_require__("8615");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.number.constructor.js
+var es6_number_constructor = __webpack_require__("c5f6");
+
+// EXTERNAL MODULE: ./src/plugin/utils/index.ts
+var utils = __webpack_require__("32ef");
 
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
@@ -836,6 +851,20 @@ var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpac
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapDataSource.vue?vue&type=script&lang=ts&
 
+
+
+
+
+
+var AzureMapDataSourceEvent;
+
+(function (AzureMapDataSourceEvent) {
+  AzureMapDataSourceEvent["Created"] = "created";
+})(AzureMapDataSourceEvent || (AzureMapDataSourceEvent = {}));
+
+var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
+  id: 0
+});
 /**
  * `AzureMapDataSource` makes it easy to manage shapes data that will be displayed on the map.
  *
@@ -862,42 +891,159 @@ var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpac
    * Inject the `getMap` function to get the `atlas.Map` instance
    */
   inject: ['getMap'],
+  props: {
+    /**
+     * A unique id that the user assigns to the data source.
+     * If this is not specified, then the data source will automatically be assigned an id.
+     */
+    id: {
+      type: String,
+      default: null
+    },
+
+    /**
+     * Maximum zoom level at which to create vector tiles (higher means greater detail at high zoom levels).
+     * default `18`
+     * @default 18
+     */
+    maxZoom: {
+      type: Number,
+      default: null
+    },
+
+    /**
+     * A boolean indicating if Point features in the source should be clustered or not.
+     * If set to true, points will be clustered together into groups by radius.
+     * default `false`
+     * @default false
+     */
+    cluster: {
+      type: Boolean,
+      default: null
+    },
+
+    /**
+     * The radius of each cluster in pixels.
+     * default `50`
+     * @default 50
+     */
+    clusterRadius: {
+      type: Number,
+      default: null
+    },
+
+    /**
+     * The maximum zoom level in which to cluster points.
+     * Defaults to one zoom less than `maxZoom` so that last zoom features are not clustered.
+     */
+    clusterMaxZoom: {
+      type: Number,
+      default: null
+    },
+
+    /**
+     * Specifies whether to calculate line distance metrics.
+     * This is required for line layers that specify `lineGradient` values.
+     * default `false`
+     * @default false
+     */
+    lineMetrics: {
+      type: Boolean,
+      default: null
+    },
+
+    /**
+     * The Douglas-Peucker simplification tolerance that is applied to the data when rendering (higher means simpler geometries and faster performance).
+     * default `0.375`
+     * @default 0.375
+     */
+    tolerance: {
+      type: Number,
+      default: null
+    }
+  },
   data: function data() {
     return {
       // The layer data source instance
       dataSource: null
     };
   },
+  computed: {
+    dataSourceOptionProps: function dataSourceOptionProps() {
+      var maxZoom = this.maxZoom,
+          cluster = this.cluster,
+          clusterRadius = this.clusterRadius,
+          clusterMaxZoom = this.clusterMaxZoom,
+          lineMetrics = this.lineMetrics,
+          tolerance = this.tolerance;
+      return {
+        maxZoom: maxZoom,
+        cluster: cluster,
+        clusterRadius: clusterRadius,
+        clusterMaxZoom: clusterMaxZoom,
+        lineMetrics: lineMetrics,
+        tolerance: tolerance
+      };
+    }
+  },
   created: function created() {
-    //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the map instance
-    var getMap = this.getMap;
-
-    if (!getMap) {
-      if (true) return; // If the function that retreives the map instance is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-
-      return console.warn("Invalid <AzureMapDataSource> map instance.\nPlease make sure <AzureMapDataSource> is a descendant of <AzureMap>.");
-    } // Retrieve the map instance from the injected function
-
-
-    var map = getMap(); // Create a data source to manage shapes
-
-    var dataSource = new this.$_azureMaps.atlas.source.DataSource(); // Save the data source in a data property to provide it to descendent components
-
-    this.dataSource = dataSource; // Add the data source to the map sources
-
-    map.sources.add(this.dataSource); // Remove the data source when the component is destroyed
-
-    this.$once('hook:destroyed', function () {
-      map.sources.remove(dataSource);
-    });
+    this.initializeDataSource();
   },
   methods: {
+    initializeDataSource: function initializeDataSource() {
+      var _this = this;
+
+      //@ts-ignore There is no TypeScript support for injections without decorators
+      // Look for the function that retreives the map instance
+      var getMap = this.getMap;
+
+      if (!getMap) {
+        if (true) return; // If the function that retreives the map instance is not available,
+        // warn the user that is not a descendant of an ancestor component that provides the method
+
+        return console.warn("Invalid <AzureMapDataSource> map instance.\nPlease make sure <AzureMapDataSource> is a descendant of <AzureMap>.");
+      } // Retrieve the map instance from the injected function
+
+
+      var map = getMap(); // Get data source options from selected component props
+
+      var options = this.getOptionsFromProps(this.dataSourceOptionProps) || {}; // Create a data source to manage shapes
+
+      var dataSource = new this.$_azureMaps.atlas.source.DataSource(this.id || "azure-map-data-source-".concat(state.id++), options);
+      this.$emit(AzureMapDataSourceEvent.Created, dataSource); // Watch for all props changes
+
+      this.$watch(function () {
+        var values = '';
+
+        var _arr = Object.values(options);
+
+        for (var _i = 0; _i < _arr.length; _i++) {
+          var value = _arr[_i];
+          values += value;
+        }
+
+        return values;
+      }, function () {
+        var newOptions = _this.getOptionsFromProps(_this.dataSourceOptionProps) || {};
+
+        if (newOptions) {
+          dataSource.setOptions(newOptions);
+        }
+      }); // Save the data source in a data property to provide it to descendent components
+
+      this.dataSource = dataSource; // Add the data source to the map sources
+
+      map.sources.add(this.dataSource); // Remove the data source when the component is destroyed
+
+      this.$once('hook:destroyed', function () {
+        map.sources.remove(dataSource);
+      });
+    },
     getDataSource: function getDataSource() {
       // Return the data source for descendent components injection
       return this.dataSource;
-    }
+    },
+    getOptionsFromProps: utils["b" /* getOptionsFromProps */]
   }
 }));
 // CONCATENATED MODULE: ./src/plugin/components/AzureMapDataSource.vue?vue&type=script&lang=ts&
@@ -1034,9 +1180,6 @@ module.exports = function (bitmap, value) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
-var es6_promise = __webpack_require__("551c");
-
 // EXTERNAL MODULE: ./src/plugin/utils/index.ts
 var utils = __webpack_require__("32ef");
 
@@ -1045,7 +1188,6 @@ var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapSymbolLayer.vue?vue&type=script&lang=ts&
-
 
 
 var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
@@ -1101,7 +1243,7 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
 
     var dataSource = getDataSource(); // Create the symbol layer
 
-    var symbolLayer = new this.$_azureMaps.atlas.layer.SymbolLayer(dataSource, this.id || "azure-map-symbol-layer-".concat(state.id++), this.options); // Watch for options changes
+    var symbolLayer = new this.$_azureMaps.atlas.layer.SymbolLayer(dataSource, this.id || "azure-map-symbol-layer-".concat(state.id++), this.options || undefined); // Watch for options changes
 
     this.$watch('options', function (newOptions) {
       symbolLayer.setOptions(newOptions || {});
@@ -1817,7 +1959,7 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
 
     var dataSource = getDataSource(); // Create the polygon layer
 
-    var polygonLayer = new this.$_azureMaps.atlas.layer.PolygonLayer(dataSource, this.id || "azure-map-polygon-layer-".concat(state.id++), this.options); // Watch for options changes
+    var polygonLayer = new this.$_azureMaps.atlas.layer.PolygonLayer(dataSource, this.id || "azure-map-polygon-layer-".concat(state.id++), this.options || undefined); // Watch for options changes
 
     this.$watch('options', function (newOptions) {
       polygonLayer.setOptions(newOptions || {});
@@ -4120,6 +4262,7 @@ function _createClass(Constructor, protoProps, staticProps) {
 
 
 
+
 var vue_azure_maps_VueAzureMaps =
 /*#__PURE__*/
 function () {
@@ -4148,6 +4291,7 @@ function () {
 
 
 // CONCATENATED MODULE: ./src/plugin/install.ts
+
 //@ts-ignore
 
 
@@ -4160,12 +4304,12 @@ function install(Vue, options) {
   _Vue_ = Vue;
   Vue.prototype.$_azureMaps = new vue_azure_maps_VueAzureMaps(dist_atlas_min, options);
 }
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5855f0b0-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=template&id=42a70ccc&
-var AzureMapvue_type_template_id_42a70ccc_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({ width: _vm.width, height: _vm.height }),attrs:{"id":_vm.mapId}},[(_vm.isMapReady)?[_vm._t("default",null,{"map":_vm.map})]:_vm._e()],2)}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"8e6ad650-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=template&id=14794c8e&
+var AzureMapvue_type_template_id_14794c8e_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({ width: _vm.width, height: _vm.height }),attrs:{"id":_vm.mapId}},[(_vm.isMapReady)?[_vm._t("default",null,{"map":_vm.map})]:_vm._e()],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue?vue&type=template&id=42a70ccc&
+// CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue?vue&type=template&id=14794c8e&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
 var web_dom_iterable = __webpack_require__("ac6a");
@@ -4635,7 +4779,7 @@ var componentNormalizer = __webpack_require__("2877");
 
 var component = Object(componentNormalizer["a" /* default */])(
   components_AzureMapvue_type_script_lang_ts_,
-  AzureMapvue_type_template_id_42a70ccc_render,
+  AzureMapvue_type_template_id_14794c8e_render,
   staticRenderFns,
   false,
   null,
@@ -4835,12 +4979,12 @@ var AzureMapHtmlMarker_component = Object(componentNormalizer["a" /* default */]
 )
 
 /* harmony default export */ var AzureMapHtmlMarker = (AzureMapHtmlMarker_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5855f0b0-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=14d166a2&
-var AzureMapUserPositionvue_type_template_id_14d166a2_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.hasPosition)?_c('AzureMapDataSource',[(_vm.showAccuracy && _vm.radius)?_c('AzureMapCircle',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude,"radius":_vm.radius},on:_vm._d({},[_vm.circleEventName,function($event){return _vm.$emit(_vm.circleEventName, $event)}])}):_vm._e(),_c('AzureMapPoint',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude}}),(_vm.showAccuracy)?_c('AzureMapPolygonLayer',{attrs:{"options":_vm.polygonLayerOptions || undefined}}):_vm._e(),_c('AzureMapSymbolLayer',{attrs:{"options":_vm.userPositionSymbolLayerOptions}})],1):_vm._e()}
-var AzureMapUserPositionvue_type_template_id_14d166a2_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"8e6ad650-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=7db3fc4c&
+var AzureMapUserPositionvue_type_template_id_7db3fc4c_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.hasPosition)?_c('AzureMapDataSource',[(_vm.showAccuracy && _vm.radius)?_c('AzureMapCircle',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude,"radius":_vm.radius},on:_vm._d({},[_vm.circleEventName,function($event){return _vm.$emit(_vm.circleEventName, $event)}])}):_vm._e(),_c('AzureMapPoint',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude}}),(_vm.showAccuracy)?_c('AzureMapPolygonLayer',{attrs:{"options":_vm.polygonLayerOptions || undefined}}):_vm._e(),_c('AzureMapSymbolLayer',{attrs:{"options":_vm.userPositionSymbolLayerOptions}})],1):_vm._e()}
+var AzureMapUserPositionvue_type_template_id_7db3fc4c_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=14d166a2&
+// CONCATENATED MODULE: ./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=7db3fc4c&
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/objectSpread.js + 1 modules
 var objectSpread = __webpack_require__("c93e");
@@ -5081,8 +5225,8 @@ var AzureMapUserPositionEvent;
 
 var AzureMapUserPosition_component = Object(componentNormalizer["a" /* default */])(
   components_AzureMapUserPositionvue_type_script_lang_ts_,
-  AzureMapUserPositionvue_type_template_id_14d166a2_render,
-  AzureMapUserPositionvue_type_template_id_14d166a2_staticRenderFns,
+  AzureMapUserPositionvue_type_template_id_7db3fc4c_render,
+  AzureMapUserPositionvue_type_template_id_7db3fc4c_staticRenderFns,
   false,
   null,
   null,
@@ -5092,7 +5236,6 @@ var AzureMapUserPosition_component = Object(componentNormalizer["a" /* default *
 
 /* harmony default export */ var AzureMapUserPosition = (AzureMapUserPosition_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/controls/AzureMapControl.vue?vue&type=script&lang=ts&
-
 
 /**
  * Adds a control to the `atlas.Map`.
@@ -5169,7 +5312,6 @@ var AzureMapControl_component = Object(componentNormalizer["a" /* default */])(
 
 
 
-
 /**
  * Zoom control adds the ability to zoom in and out of the `atlas.Map`.
  */
@@ -5218,7 +5360,6 @@ var AzureMapZoomControl_component = Object(componentNormalizer["a" /* default */
 
 /* harmony default export */ var AzureMapZoomControl = (AzureMapZoomControl_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/controls/AzureMapPitchControl.vue?vue&type=script&lang=ts&
-
 
 
 
@@ -5273,7 +5414,6 @@ var AzureMapPitchControl_component = Object(componentNormalizer["a" /* default *
 
 
 
-
 /**
  * Style control adds the ability to change the style of the `atlas.Map`.
  */
@@ -5322,7 +5462,6 @@ var AzureMapStyleControl_component = Object(componentNormalizer["a" /* default *
 
 /* harmony default export */ var AzureMapStyleControl = (AzureMapStyleControl_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/controls/AzureMapCompassControl.vue?vue&type=script&lang=ts&
-
 
 
 
@@ -5435,7 +5574,7 @@ var AzureMapLineLayervue_type_script_lang_ts_state = external_commonjs_vue_commo
 
     var dataSource = getDataSource(); // Create the line layer
 
-    var lineLayer = new this.$_azureMaps.atlas.layer.LineLayer(dataSource, this.id || "azure-map-line-layer-".concat(AzureMapLineLayervue_type_script_lang_ts_state.id++), this.options);
+    var lineLayer = new this.$_azureMaps.atlas.layer.LineLayer(dataSource, this.id || "azure-map-line-layer-".concat(AzureMapLineLayervue_type_script_lang_ts_state.id++), this.options || undefined);
     this.$watch('options', function (newOptions) {
       lineLayer.setOptions(newOptions || {});
     }, {
@@ -5538,7 +5677,7 @@ var AzureMapHeatMapLayervue_type_script_lang_ts_state = external_commonjs_vue_co
 
     var dataSource = getDataSource(); // Create the heat map layer
 
-    var heatMapLayer = new this.$_azureMaps.atlas.layer.HeatMapLayer(dataSource, this.id || "azure-map-heat-map-layer-".concat(AzureMapHeatMapLayervue_type_script_lang_ts_state.id++), this.options); // Watch for options changes
+    var heatMapLayer = new this.$_azureMaps.atlas.layer.HeatMapLayer(dataSource, this.id || "azure-map-heat-map-layer-".concat(AzureMapHeatMapLayervue_type_script_lang_ts_state.id++), this.options || undefined); // Watch for options changes
 
     this.$watch('options', function (newOptions) {
       heatMapLayer.setOptions(newOptions || {});
@@ -5589,6 +5728,10 @@ var AzureMapHeatMapLayer_component = Object(componentNormalizer["a" /* default *
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapImageLayer.vue?vue&type=script&lang=ts&
 
 
+
+var AzureMapImageLayervue_type_script_lang_ts_state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
+  id: 0
+});
 /**
  * Overlay an image to fixed set of coordinates on the map.
  */
@@ -5602,6 +5745,10 @@ var AzureMapHeatMapLayer_component = Object(componentNormalizer["a" /* default *
    */
   inject: ['getMap', 'getDataSource'],
   props: {
+    id: {
+      type: String,
+      default: ''
+    },
     options: {
       type: Object,
       default: null
@@ -5617,25 +5764,12 @@ var AzureMapHeatMapLayer_component = Object(componentNormalizer["a" /* default *
       // warn the user that is not a descendant of an ancestor component that provides the method
 
       return console.warn("Invalid <AzureMapImageLayer> map instance.\nPlease make sure <AzureMapImageLayer> is a descendant of <AzureMap>.");
-    } //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the data source instance
-
-
-    var getDataSource = this.getDataSource;
-
-    if (!getDataSource) {
-      if (true) return; // If the function that retreives the data source is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-
-      return console.warn("Invalid <AzureMapImageLayer> data source.\nPlease make sure <AzureMapImageLayer> is a descendant of <AzureMapDataSource>.");
     } // Retrieve the map instance from the injected function
 
 
-    var map = getMap(); // Retrieve the data source from the injected function
+    var map = getMap(); // Create the image layer
 
-    var dataSource = getDataSource(); // Create the image layer
-
-    var imageLayer = new this.$_azureMaps.atlas.layer.ImageLayer(this.options); // Watch for options changes
+    var imageLayer = new this.$_azureMaps.atlas.layer.ImageLayer(this.options || {}, this.id || "azure-map-image-layer-".concat(AzureMapImageLayervue_type_script_lang_ts_state.id++)); // Watch for options changes
 
     this.$watch('options', function (newOptions) {
       imageLayer.setOptions(newOptions || {});
@@ -5686,6 +5820,9 @@ var AzureMapImageLayer_component = Object(componentNormalizer["a" /* default */]
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapTileLayer.vue?vue&type=script&lang=ts&
 
 
+var AzureMapTileLayervue_type_script_lang_ts_state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
+  id: 0
+});
 /**
  * Tile layers allow you to superimpose images on top of Azure Maps base map tiles.
  */
@@ -5695,10 +5832,13 @@ var AzureMapImageLayer_component = Object(componentNormalizer["a" /* default */]
 
   /**
    * Inject the `getMap` function to get the `atlas.Map` instance
-   * Inject the `getDataSource` function to get the `atlas.source.DataSource` instance
    */
-  inject: ['getMap', 'getDataSource'],
+  inject: ['getMap'],
   props: {
+    id: {
+      type: String,
+      default: ''
+    },
     options: {
       type: Object,
       default: null
@@ -5714,25 +5854,12 @@ var AzureMapImageLayer_component = Object(componentNormalizer["a" /* default */]
       // warn the user that is not a descendant of an ancestor component that provides the method
 
       return console.warn("Invalid <AzureMapTileLayer> map instance.\nPlease make sure <AzureMapTileLayer> is a descendant of <AzureMap>.");
-    } //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the data source instance
-
-
-    var getDataSource = this.getDataSource;
-
-    if (!getDataSource) {
-      if (true) return; // If the function that retreives the data source is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-
-      return console.warn("Invalid <AzureMapTileLayer> data source.\nPlease make sure <AzureMapTileLayer> is a descendant of <AzureMapDataSource>.");
     } // Retrieve the map instance from the injected function
 
 
-    var map = getMap(); // Retrieve the data source from the injected function
+    var map = getMap(); // Create the tile layer
 
-    var dataSource = getDataSource(); // Create the tile layer
-
-    var tileLayer = new this.$_azureMaps.atlas.layer.TileLayer(this.options); // Watch for options changes
+    var tileLayer = new this.$_azureMaps.atlas.layer.TileLayer(this.options || undefined, this.id || "azure-map-tile-layer-".concat(AzureMapTileLayervue_type_script_lang_ts_state.id++)); // Watch for options changes
 
     this.$watch('options', function (newOptions) {
       tileLayer.setOptions(newOptions || {});
@@ -5780,6 +5907,110 @@ var AzureMapTileLayer_component = Object(componentNormalizer["a" /* default */])
 )
 
 /* harmony default export */ var AzureMapTileLayer = (AzureMapTileLayer_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapBubbleLayer.vue?vue&type=script&lang=ts&
+
+
+var AzureMapBubbleLayervue_type_script_lang_ts_state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
+  id: 0
+});
+/**
+ * Renders Point objects as scalable circles (bubbles).
+ */
+
+/* harmony default export */ var AzureMapBubbleLayervue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+  name: 'AzureMapBubbleLayer',
+
+  /**
+   * Inject the `getMap` function to get the `atlas.Map` instance
+   * Inject the `getDataSource` function to get the `atlas.source.DataSource` instance
+   */
+  inject: ['getMap', 'getDataSource'],
+  props: {
+    id: {
+      type: String,
+      default: ''
+    },
+    options: {
+      type: Object,
+      default: null
+    }
+  },
+  mounted: function mounted() {
+    //@ts-ignore There is no TypeScript support for injections without decorators
+    // Look for the function that retreives the map instance
+    var getMap = this.getMap;
+
+    if (!getMap) {
+      if (true) return; // If the function that retreives the map instance is not available,
+      // warn the user that is not a descendant of an ancestor component that provides the method
+
+      return console.warn("Invalid <AzureMapBubbleLayer> map instance.\nPlease make sure <AzureMapBubbleLayer> is a descendant of <AzureMap>.");
+    } //@ts-ignore There is no TypeScript support for injections without decorators
+    // Look for the function that retreives the data source instance
+
+
+    var getDataSource = this.getDataSource;
+
+    if (!getDataSource) {
+      if (true) return; // If the function that retreives the data source is not available,
+      // warn the user that is not a descendant of an ancestor component that provides the method
+
+      return console.warn("Invalid <AzureMapBubbleLayer> data source.\nPlease make sure <AzureMapBubbleLayer> is a descendant of <AzureMapDataSource>.");
+    } // Retrieve the map instance from the injected function
+
+
+    var map = getMap(); // Retrieve the data source from the injected function
+
+    var dataSource = getDataSource(); // Create the bubble layer
+
+    var bubbleLayer = new this.$_azureMaps.atlas.layer.BubbleLayer(dataSource, this.id || "azure-map-bubble-layer-".concat(AzureMapBubbleLayervue_type_script_lang_ts_state.id++), this.options || undefined); // Watch for options changes
+
+    this.$watch('options', function (newOptions) {
+      bubbleLayer.setOptions(newOptions || {});
+    }, {
+      deep: true
+    }); // Add the layer to the map
+
+    map.layers.add(bubbleLayer); // Remove the layer when the component is destroyed
+
+    this.$once('hook:destroyed', function () {
+      map.layers.remove(bubbleLayer);
+    }); // Add the layer events to the map
+
+    this.addEventsFromListeners({
+      map: map,
+      target: bubbleLayer
+    });
+  },
+  methods: {
+    addEventsFromListeners: utils["a" /* addEventsFromListeners */]
+  },
+  render: function render(createElement) {
+    return createElement();
+  }
+}));
+// CONCATENATED MODULE: ./src/plugin/components/layers/AzureMapBubbleLayer.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var layers_AzureMapBubbleLayervue_type_script_lang_ts_ = (AzureMapBubbleLayervue_type_script_lang_ts_); 
+// CONCATENATED MODULE: ./src/plugin/components/layers/AzureMapBubbleLayer.vue
+var AzureMapBubbleLayer_render, AzureMapBubbleLayer_staticRenderFns
+
+
+
+
+/* normalize component */
+
+var AzureMapBubbleLayer_component = Object(componentNormalizer["a" /* default */])(
+  layers_AzureMapBubbleLayervue_type_script_lang_ts_,
+  AzureMapBubbleLayer_render,
+  AzureMapBubbleLayer_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var AzureMapBubbleLayer = (AzureMapBubbleLayer_component.exports);
 // EXTERNAL MODULE: ./src/plugin/components/geometries/AzureMapPoint.vue + 2 modules
 var AzureMapPoint = __webpack_require__("c343");
 
@@ -6222,6 +6453,7 @@ var AzureMapPolygon_component = Object(componentNormalizer["a" /* default */])(
 
 
 
+
  //===
 // Geometry components
 //===
@@ -6259,6 +6491,7 @@ if (typeof window !== 'undefined' && window.Vue) window.Vue.use(plugin_VueAzureM
 /* concated harmony reexport AzureMapHeatMapLayer */__webpack_require__.d(__webpack_exports__, "AzureMapHeatMapLayer", function() { return AzureMapHeatMapLayer; });
 /* concated harmony reexport AzureMapImageLayer */__webpack_require__.d(__webpack_exports__, "AzureMapImageLayer", function() { return AzureMapImageLayer; });
 /* concated harmony reexport AzureMapTileLayer */__webpack_require__.d(__webpack_exports__, "AzureMapTileLayer", function() { return AzureMapTileLayer; });
+/* concated harmony reexport AzureMapBubbleLayer */__webpack_require__.d(__webpack_exports__, "AzureMapBubbleLayer", function() { return AzureMapBubbleLayer; });
 
 
 /* harmony default export */ var entry_lib = __webpack_exports__["default"] = (src_plugin);
