@@ -204,9 +204,8 @@ export default Vue.extend({
             this.getOptionsFromProps<atlas.DataSourceOptions>(
               this.dataSourceOptionProps
             ) || {}
-          if (newOptions) {
-            dataSource.setOptions(newOptions)
-          }
+
+          dataSource.setOptions(newOptions)
         }
       )
 
