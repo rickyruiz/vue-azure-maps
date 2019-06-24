@@ -31,4 +31,8 @@ body {
 #app {
   height: 100%;
 }
+
+p {
+  margin: 0;
+}
 </style>

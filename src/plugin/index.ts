@@ -10,6 +10,7 @@ import _vueAzureMaps from './vue-azure-maps'
 import AzureMap from './components/AzureMap.vue'
 import AzureMapDataSource from './components/AzureMapDataSource.vue'
 import AzureMapHtmlMarker from './components/AzureMapHtmlMarker.vue'
+import AzureMapPopup from './components/AzureMapPopup.vue'
 
 //===
 // Custom components
@@ -59,6 +60,7 @@ export {
   AzureMap,
   AzureMapDataSource,
   AzureMapHtmlMarker,
+  AzureMapPopup,
   AzureMapUserPosition,
   AzureMapPoint,
   AzureMapCircle,
