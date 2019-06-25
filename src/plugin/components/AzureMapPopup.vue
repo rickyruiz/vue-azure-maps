@@ -146,7 +146,7 @@ export default Vue.extend({
       )
     }
 
-    // // Create a popup with selected component props as options
+    // Create a popup with selected component props as options
     const popup = new this.$_azureMaps.atlas.Popup(
       this.getOptionsFromProps<atlas.PopupOptions>(this.popupOptionsProps) || {}
     )
@@ -181,7 +181,7 @@ export default Vue.extend({
       )
     })
 
-    // // Watch for all options props changes
+    // Watch for all options props changes
     this.$watch(
       () => {
         let values = ''
