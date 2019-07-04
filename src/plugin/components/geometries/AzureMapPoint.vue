@@ -114,7 +114,7 @@ export default Vue.extend({
     // If the point has a circle polygon,
     // emit the coordinates of the circle
     if (shape.isCircle()) {
-      this.emitCircleCoordinates(shape)
+      this.emitCircleCoordinates()
     }
 
     // Add the shape to the data source.
@@ -149,7 +149,7 @@ export default Vue.extend({
               (prop === 'radius' || (prop === 'subType' && val === 'Circle')) &&
               shape.isCircle()
             ) {
-              this.emitCircleCoordinates(shape)
+              this.emitCircleCoordinates()
             }
           }
         }
@@ -164,15 +164,21 @@ export default Vue.extend({
   },
 
   methods: {
-    emitCircleCoordinates(shape: atlas.Shape): void {
+    emitCircleCoordinates(): void {
       // If the point has a circle polygon,
       // emit the coordinates of the circle
-      const { circlePolygon } = shape as atlas.Shape & {
-        circlePolygon: atlas.data.Feature<atlas.data.Polygon, any>
-      }
       this.$emit(
         AzureMapPointEvent.CircleCoordinates,
-        circlePolygon ? circlePolygon.geometry.coordinates : null
+        this.getCircleCoordinates()
+      )
+    },
+
+    getCircleCoordinates(): atlas.data.Position[] {
+      return this.$_azureMaps.atlas.math.getRegularPolygonPath(
+        this.pointCoordinates || [],
+        this.properties.radius || 0,
+        72,
+        'meters'
       )
     },
 
