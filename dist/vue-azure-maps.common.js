@@ -418,6 +418,46 @@ module.exports = function (Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCE
 
 /***/ }),
 
+/***/ "02f4":
+/***/ (function(module, exports, __webpack_require__) {
+
+var toInteger = __webpack_require__("4588");
+var defined = __webpack_require__("be13");
+// true  -> String#at
+// false -> String#codePointAt
+module.exports = function (TO_STRING) {
+  return function (that, pos) {
+    var s = String(defined(that));
+    var i = toInteger(pos);
+    var l = s.length;
+    var a, b;
+    if (i < 0 || i >= l) return TO_STRING ? '' : undefined;
+    a = s.charCodeAt(i);
+    return a < 0xd800 || a > 0xdbff || i + 1 === l || (b = s.charCodeAt(i + 1)) < 0xdc00 || b > 0xdfff
+      ? TO_STRING ? s.charAt(i) : a
+      : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
+  };
+};
+
+
+/***/ }),
+
+/***/ "0390":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var at = __webpack_require__("02f4")(true);
+
+ // `AdvanceStringIndex` abstract operation
+// https://tc39.github.io/ecma262/#sec-advancestringindex
+module.exports = function (S, index, unicode) {
+  return index + (unicode ? at(S, index).length : 1);
+};
+
+
+/***/ }),
+
 /***/ "0395":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -450,6 +490,27 @@ module.exports.f = function getOwnPropertyNames(it) {
 var hasOwnProperty = {}.hasOwnProperty;
 module.exports = function (it, key) {
   return hasOwnProperty.call(it, key);
+};
+
+
+/***/ }),
+
+/***/ "0bfb":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// 21.2.5.3 get RegExp.prototype.flags
+var anObject = __webpack_require__("cb7c");
+module.exports = function () {
+  var that = anObject(this);
+  var result = '';
+  if (that.global) result += 'g';
+  if (that.ignoreCase) result += 'i';
+  if (that.multiline) result += 'm';
+  if (that.unicode) result += 'u';
+  if (that.sticky) result += 'y';
+  return result;
 };
 
 
@@ -722,6 +783,110 @@ module.exports = function (iterator, fn, value, entries) {
     var ret = iterator['return'];
     if (ret !== undefined) anObject(ret.call(iterator));
     throw e;
+  }
+};
+
+
+/***/ }),
+
+/***/ "214f":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+__webpack_require__("b0c5");
+var redefine = __webpack_require__("2aba");
+var hide = __webpack_require__("32e9");
+var fails = __webpack_require__("79e5");
+var defined = __webpack_require__("be13");
+var wks = __webpack_require__("2b4c");
+var regexpExec = __webpack_require__("520a");
+
+var SPECIES = wks('species');
+
+var REPLACE_SUPPORTS_NAMED_GROUPS = !fails(function () {
+  // #replace needs built-in support for named groups.
+  // #match works fine because it just return the exec results, even if it has
+  // a "grops" property.
+  var re = /./;
+  re.exec = function () {
+    var result = [];
+    result.groups = { a: '7' };
+    return result;
+  };
+  return ''.replace(re, '$<a>') !== '7';
+});
+
+var SPLIT_WORKS_WITH_OVERWRITTEN_EXEC = (function () {
+  // Chrome 51 has a buggy "split" implementation when RegExp#exec !== nativeExec
+  var re = /(?:)/;
+  var originalExec = re.exec;
+  re.exec = function () { return originalExec.apply(this, arguments); };
+  var result = 'ab'.split(re);
+  return result.length === 2 && result[0] === 'a' && result[1] === 'b';
+})();
+
+module.exports = function (KEY, length, exec) {
+  var SYMBOL = wks(KEY);
+
+  var DELEGATES_TO_SYMBOL = !fails(function () {
+    // String methods call symbol-named RegEp methods
+    var O = {};
+    O[SYMBOL] = function () { return 7; };
+    return ''[KEY](O) != 7;
+  });
+
+  var DELEGATES_TO_EXEC = DELEGATES_TO_SYMBOL ? !fails(function () {
+    // Symbol-named RegExp methods call .exec
+    var execCalled = false;
+    var re = /a/;
+    re.exec = function () { execCalled = true; return null; };
+    if (KEY === 'split') {
+      // RegExp[@@split] doesn't call the regex's exec method, but first creates
+      // a new one. We need to return the patched regex when creating the new one.
+      re.constructor = {};
+      re.constructor[SPECIES] = function () { return re; };
+    }
+    re[SYMBOL]('');
+    return !execCalled;
+  }) : undefined;
+
+  if (
+    !DELEGATES_TO_SYMBOL ||
+    !DELEGATES_TO_EXEC ||
+    (KEY === 'replace' && !REPLACE_SUPPORTS_NAMED_GROUPS) ||
+    (KEY === 'split' && !SPLIT_WORKS_WITH_OVERWRITTEN_EXEC)
+  ) {
+    var nativeRegExpMethod = /./[SYMBOL];
+    var fns = exec(
+      defined,
+      SYMBOL,
+      ''[KEY],
+      function maybeCallNative(nativeMethod, regexp, str, arg2, forceStringMethod) {
+        if (regexp.exec === regexpExec) {
+          if (DELEGATES_TO_SYMBOL && !forceStringMethod) {
+            // The native String method already delegates to @@method (this
+            // polyfilled function), leasing to infinite recursion.
+            // We avoid it by directly calling the native @@method method.
+            return { done: true, value: nativeRegExpMethod.call(regexp, str, arg2) };
+          }
+          return { done: true, value: nativeMethod.call(str, regexp, arg2) };
+        }
+        return { done: false };
+      }
+    );
+    var strfn = fns[0];
+    var rxfn = fns[1];
+
+    redefine(String.prototype, KEY, strfn);
+    hide(RegExp.prototype, SYMBOL, length == 2
+      // 21.2.5.8 RegExp.prototype[@@replace](string, replaceValue)
+      // 21.2.5.11 RegExp.prototype[@@split](string, limit)
+      ? function (string, arg) { return rxfn.call(string, this, arg); }
+      // 21.2.5.6 RegExp.prototype[@@match](string)
+      // 21.2.5.9 RegExp.prototype[@@search](string)
+      : function (string) { return rxfn.call(string, this); }
+    );
   }
 };
 
@@ -1632,7 +1797,7 @@ module.exports = document && document.documentElement;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"61b689b8-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=10769ea0&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"70efda79-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=10769ea0&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}]},[(Boolean(_vm.dataSource))?[_vm._t("default",null,{"dataSource":_vm.dataSource})]:_vm._e()],2)}
 var staticRenderFns = []
 
@@ -2654,6 +2819,72 @@ $exports.store = store;
 
 /***/ }),
 
+/***/ "520a":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var regexpFlags = __webpack_require__("0bfb");
+
+var nativeExec = RegExp.prototype.exec;
+// This always refers to the native implementation, because the
+// String#replace polyfill uses ./fix-regexp-well-known-symbol-logic.js,
+// which loads this file before patching the method.
+var nativeReplace = String.prototype.replace;
+
+var patchedExec = nativeExec;
+
+var LAST_INDEX = 'lastIndex';
+
+var UPDATES_LAST_INDEX_WRONG = (function () {
+  var re1 = /a/,
+      re2 = /b*/g;
+  nativeExec.call(re1, 'a');
+  nativeExec.call(re2, 'a');
+  return re1[LAST_INDEX] !== 0 || re2[LAST_INDEX] !== 0;
+})();
+
+// nonparticipating capturing group, copied from es5-shim's String#split patch.
+var NPCG_INCLUDED = /()??/.exec('')[1] !== undefined;
+
+var PATCH = UPDATES_LAST_INDEX_WRONG || NPCG_INCLUDED;
+
+if (PATCH) {
+  patchedExec = function exec(str) {
+    var re = this;
+    var lastIndex, reCopy, match, i;
+
+    if (NPCG_INCLUDED) {
+      reCopy = new RegExp('^' + re.source + '$(?!\\s)', regexpFlags.call(re));
+    }
+    if (UPDATES_LAST_INDEX_WRONG) lastIndex = re[LAST_INDEX];
+
+    match = nativeExec.call(re, str);
+
+    if (UPDATES_LAST_INDEX_WRONG && match) {
+      re[LAST_INDEX] = re.global ? match.index + match[0].length : lastIndex;
+    }
+    if (NPCG_INCLUDED && match && match.length > 1) {
+      // Fix browsers whose `exec` methods don't consistently return `undefined`
+      // for NPCG, like IE8. NOTE: This doesn' work for /(.?)?/
+      // eslint-disable-next-line no-loop-func
+      nativeReplace.call(match[0], reCopy, function () {
+        for (i = 1; i < arguments.length - 2; i++) {
+          if (arguments[i] === undefined) match[i] = undefined;
+        }
+      });
+    }
+
+    return match;
+  };
+}
+
+module.exports = patchedExec;
+
+
+/***/ }),
+
 /***/ "52a7":
 /***/ (function(module, exports) {
 
@@ -3174,6 +3405,35 @@ module.exports = function (KEY, exec) {
   var exp = {};
   exp[KEY] = exec(fn);
   $export($export.S + $export.F * fails(function () { fn(1); }), 'Object', exp);
+};
+
+
+/***/ }),
+
+/***/ "5f1b":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var classof = __webpack_require__("23c6");
+var builtinExec = RegExp.prototype.exec;
+
+ // `RegExpExec` abstract operation
+// https://tc39.github.io/ecma262/#sec-regexpexec
+module.exports = function (R, S) {
+  var exec = R.exec;
+  if (typeof exec === 'function') {
+    var result = exec.call(R, S);
+    if (typeof result !== 'object') {
+      throw new TypeError('RegExp exec method returned something other than an Object or null');
+    }
+    return result;
+  }
+  if (classof(R) !== 'RegExp') {
+    throw new TypeError('RegExp#exec called on incompatible receiver');
+  }
+  return builtinExec.call(R, S);
 };
 
 
@@ -4988,6 +5248,132 @@ module.exports = navigator && navigator.userAgent || '';
 
 /***/ }),
 
+/***/ "a481":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var anObject = __webpack_require__("cb7c");
+var toObject = __webpack_require__("4bf8");
+var toLength = __webpack_require__("9def");
+var toInteger = __webpack_require__("4588");
+var advanceStringIndex = __webpack_require__("0390");
+var regExpExec = __webpack_require__("5f1b");
+var max = Math.max;
+var min = Math.min;
+var floor = Math.floor;
+var SUBSTITUTION_SYMBOLS = /\$([$&`']|\d\d?|<[^>]*>)/g;
+var SUBSTITUTION_SYMBOLS_NO_NAMED = /\$([$&`']|\d\d?)/g;
+
+var maybeToString = function (it) {
+  return it === undefined ? it : String(it);
+};
+
+// @@replace logic
+__webpack_require__("214f")('replace', 2, function (defined, REPLACE, $replace, maybeCallNative) {
+  return [
+    // `String.prototype.replace` method
+    // https://tc39.github.io/ecma262/#sec-string.prototype.replace
+    function replace(searchValue, replaceValue) {
+      var O = defined(this);
+      var fn = searchValue == undefined ? undefined : searchValue[REPLACE];
+      return fn !== undefined
+        ? fn.call(searchValue, O, replaceValue)
+        : $replace.call(String(O), searchValue, replaceValue);
+    },
+    // `RegExp.prototype[@@replace]` method
+    // https://tc39.github.io/ecma262/#sec-regexp.prototype-@@replace
+    function (regexp, replaceValue) {
+      var res = maybeCallNative($replace, regexp, this, replaceValue);
+      if (res.done) return res.value;
+
+      var rx = anObject(regexp);
+      var S = String(this);
+      var functionalReplace = typeof replaceValue === 'function';
+      if (!functionalReplace) replaceValue = String(replaceValue);
+      var global = rx.global;
+      if (global) {
+        var fullUnicode = rx.unicode;
+        rx.lastIndex = 0;
+      }
+      var results = [];
+      while (true) {
+        var result = regExpExec(rx, S);
+        if (result === null) break;
+        results.push(result);
+        if (!global) break;
+        var matchStr = String(result[0]);
+        if (matchStr === '') rx.lastIndex = advanceStringIndex(S, toLength(rx.lastIndex), fullUnicode);
+      }
+      var accumulatedResult = '';
+      var nextSourcePosition = 0;
+      for (var i = 0; i < results.length; i++) {
+        result = results[i];
+        var matched = String(result[0]);
+        var position = max(min(toInteger(result.index), S.length), 0);
+        var captures = [];
+        // NOTE: This is equivalent to
+        //   captures = result.slice(1).map(maybeToString)
+        // but for some reason `nativeSlice.call(result, 1, result.length)` (called in
+        // the slice polyfill when slicing native arrays) "doesn't work" in safari 9 and
+        // causes a crash (https://pastebin.com/N21QzeQA) when trying to debug it.
+        for (var j = 1; j < result.length; j++) captures.push(maybeToString(result[j]));
+        var namedCaptures = result.groups;
+        if (functionalReplace) {
+          var replacerArgs = [matched].concat(captures, position, S);
+          if (namedCaptures !== undefined) replacerArgs.push(namedCaptures);
+          var replacement = String(replaceValue.apply(undefined, replacerArgs));
+        } else {
+          replacement = getSubstitution(matched, S, position, captures, namedCaptures, replaceValue);
+        }
+        if (position >= nextSourcePosition) {
+          accumulatedResult += S.slice(nextSourcePosition, position) + replacement;
+          nextSourcePosition = position + matched.length;
+        }
+      }
+      return accumulatedResult + S.slice(nextSourcePosition);
+    }
+  ];
+
+    // https://tc39.github.io/ecma262/#sec-getsubstitution
+  function getSubstitution(matched, str, position, captures, namedCaptures, replacement) {
+    var tailPos = position + matched.length;
+    var m = captures.length;
+    var symbols = SUBSTITUTION_SYMBOLS_NO_NAMED;
+    if (namedCaptures !== undefined) {
+      namedCaptures = toObject(namedCaptures);
+      symbols = SUBSTITUTION_SYMBOLS;
+    }
+    return $replace.call(replacement, symbols, function (match, ch) {
+      var capture;
+      switch (ch.charAt(0)) {
+        case '$': return '$';
+        case '&': return matched;
+        case '`': return str.slice(0, position);
+        case "'": return str.slice(tailPos);
+        case '<':
+          capture = namedCaptures[ch.slice(1, -1)];
+          break;
+        default: // \d\d?
+          var n = +ch;
+          if (n === 0) return match;
+          if (n > m) {
+            var f = floor(n / 10);
+            if (f === 0) return match;
+            if (f <= m) return captures[f - 1] === undefined ? ch.charAt(1) : captures[f - 1] + ch.charAt(1);
+            return match;
+          }
+          capture = captures[n - 1];
+      }
+      return capture === undefined ? '' : capture;
+    });
+  }
+});
+
+
+/***/ }),
+
 /***/ "a4bb":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5232,6 +5618,23 @@ module.exports = function (bitmap, value) {
     value: value
   };
 };
+
+
+/***/ }),
+
+/***/ "b0c5":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var regexpExec = __webpack_require__("520a");
+__webpack_require__("5ca1")({
+  target: 'RegExp',
+  proto: true,
+  forced: regexpExec !== /./.exec
+}, {
+  exec: regexpExec
+});
 
 
 /***/ }),
@@ -6691,7 +7094,7 @@ function install(Vue, options) {
   _Vue_ = Vue;
   Vue.prototype.$_azureMaps = new vue_azure_maps_VueAzureMaps(dist_atlas_min, options);
 }
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"61b689b8-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=template&id=42a70ccc&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"70efda79-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=template&id=42a70ccc&
 var AzureMapvue_type_template_id_42a70ccc_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({ width: _vm.width, height: _vm.height }),attrs:{"id":_vm.mapId}},[(_vm.isMapReady)?[_vm._t("default",null,{"map":_vm.map})]:_vm._e()],2)}
 var staticRenderFns = []
 
@@ -7364,7 +7767,7 @@ var AzureMapHtmlMarker_component = Object(componentNormalizer["a" /* default */]
 )
 
 /* harmony default export */ var AzureMapHtmlMarker = (AzureMapHtmlMarker_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"61b689b8-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapPopup.vue?vue&type=template&id=149d7a06&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"70efda79-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapPopup.vue?vue&type=template&id=149d7a06&
 var AzureMapPopupvue_type_template_id_149d7a06_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(_vm.tag,{tag:"component"},[_vm._t("default")],2)}
 var AzureMapPopupvue_type_template_id_149d7a06_staticRenderFns = []
 
@@ -7590,7 +7993,7 @@ var AzureMapPopup_component = Object(componentNormalizer["a" /* default */])(
 )
 
 /* harmony default export */ var AzureMapPopup = (AzureMapPopup_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"61b689b8-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=14d166a2&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"70efda79-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=14d166a2&
 var AzureMapUserPositionvue_type_template_id_14d166a2_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.hasPosition)?_c('AzureMapDataSource',[(_vm.showAccuracy && _vm.radius)?_c('AzureMapCircle',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude,"radius":_vm.radius},on:_vm._d({},[_vm.circleEventName,function($event){return _vm.$emit(_vm.circleEventName, $event)}])}):_vm._e(),_c('AzureMapPoint',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude}}),(_vm.showAccuracy)?_c('AzureMapPolygonLayer',{attrs:{"options":_vm.polygonLayerOptions || undefined}}):_vm._e(),_c('AzureMapSymbolLayer',{attrs:{"options":_vm.userPositionSymbolLayerOptions}})],1):_vm._e()}
 var AzureMapUserPositionvue_type_template_id_14d166a2_staticRenderFns = []
 
@@ -7919,7 +8322,19 @@ var AzureMapControl_component = Object(componentNormalizer["a" /* default */])(
 )
 
 /* harmony default export */ var AzureMapControl = (AzureMapControl_component.exports);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es7.array.includes.js
+var es7_array_includes = __webpack_require__("6762");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.string.includes.js
+var es6_string_includes = __webpack_require__("2fdb");
+
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/controls/AzureMapZoomControl.vue?vue&type=script&lang=ts&
+
+
+
+
+
+
 
 
 
@@ -7931,19 +8346,48 @@ var AzureMapControl_component = Object(componentNormalizer["a" /* default */])(
   name: 'AzureMapZoomControl',
   functional: true,
   props: {
+    /**
+     * The position where the control will be placed on the map.
+     */
     position: {
       type: String,
-      default: dist_atlas_min["ControlPosition"].BottomRight
+      default: dist_atlas_min["ControlPosition"].BottomRight,
+      validator: function validator(value) {
+        return Object.values(dist_atlas_min["ControlPosition"]).includes(value);
+      }
+    },
+
+    /**
+     * The extent to which the map will zoom with each click of the control.
+     * Default `1`.
+     * @default 1
+     */
+    zoomDelta: {
+      type: Number,
+      default: 1
+    },
+
+    /**
+     * The style of the control.
+     * Default `ControlStyle.light`
+     * @default ControlStyle.light
+     */
+    style: {
+      type: String,
+      default: dist_atlas_min["ControlStyle"].light
     }
   },
   render: function render(createElement, context) {
-    //@ts-ignore Azure Maps Control types are incorrect, it declares 'controls' instead of 'control'
     // Construct a zoom control
-    var zoomControl = new context.parent.$_azureMaps.atlas.control.ZoomControl();
     return createElement(AzureMapControl, {
       props: {
-        control: zoomControl,
-        options: context.props
+        control: new context.parent.$_azureMaps.atlas.control.ZoomControl({
+          zoomDelta: context.props.zoomDelta,
+          style: context.props.style
+        }),
+        options: {
+          position: context.props.position
+        }
       }
     });
   }
@@ -7974,6 +8418,12 @@ var AzureMapZoomControl_component = Object(componentNormalizer["a" /* default */
 
 
 
+
+
+
+
+
+
 /**
  * Pitch control adds the ability to change the pitch of the `atlas.Map`.
  */
@@ -7982,19 +8432,48 @@ var AzureMapZoomControl_component = Object(componentNormalizer["a" /* default */
   name: 'AzureMapPitchControl',
   functional: true,
   props: {
+    /**
+     * The position where the control will be placed on the map.
+     */
     position: {
       type: String,
-      default: dist_atlas_min["ControlPosition"].BottomRight
+      default: dist_atlas_min["ControlPosition"].BottomRight,
+      validator: function validator(value) {
+        return Object.values(dist_atlas_min["ControlPosition"]).includes(value);
+      }
+    },
+
+    /**
+     * The angle that the map will tilt with each click of the control.
+     * Default `10`.
+     * @default 10
+     */
+    pitchDegreesDelta: {
+      type: Number,
+      default: 10
+    },
+
+    /**
+     * The style of the control.
+     * Default `ControlStyle.light`
+     * @default ControlStyle.light
+     */
+    style: {
+      type: String,
+      default: dist_atlas_min["ControlStyle"].light
     }
   },
   render: function render(createElement, context) {
-    //@ts-ignore Azure Maps Control types are incorrect, it declares 'controls' instead of 'control'
     // Construct a pitch control
-    var pitchControl = new context.parent.$_azureMaps.atlas.control.PitchControl();
     return createElement(AzureMapControl, {
       props: {
-        control: pitchControl,
-        options: context.props
+        control: new context.parent.$_azureMaps.atlas.control.PitchControl({
+          pitchDegreesDelta: context.props.pitchDegreesDelta,
+          style: context.props.style
+        }),
+        options: {
+          position: context.props.position
+        }
       }
     });
   }
@@ -8025,6 +8504,11 @@ var AzureMapPitchControl_component = Object(componentNormalizer["a" /* default *
 
 
 
+
+
+
+
+
 /**
  * Style control adds the ability to change the style of the `atlas.Map`.
  */
@@ -8033,19 +8517,53 @@ var AzureMapPitchControl_component = Object(componentNormalizer["a" /* default *
   name: 'AzureMapStyleControl',
   functional: true,
   props: {
+    /**
+     * The position where the control will be placed on the map.
+     */
     position: {
       type: String,
-      default: dist_atlas_min["ControlPosition"].BottomRight
+      default: dist_atlas_min["ControlPosition"].BottomRight,
+      validator: function validator(value) {
+        return Object.values(dist_atlas_min["ControlPosition"]).includes(value);
+      }
+    },
+
+    /**
+     * The style of the control.
+     * Default `ControlStyle.light`
+     * @default ControlStyle.light
+     */
+    style: {
+      type: String,
+      default: dist_atlas_min["ControlStyle"].light
+    },
+
+    /**
+     * The map styles to show in the control.
+     * Style names are case sensitive.
+     * If an included style isn't supported by the map it will be ignored.
+     * Available styles can be found in the
+     * [supported styles]{@link https://docs.microsoft.com/en-us/azure/azure-maps/supported-map-styles} article.
+     * If "all" is specified, all map styles will be shown.
+     * Default `["road", "grayscale_light", "grayscale_dark", "night", "road_shaded_relief"]`
+     * @default ["road", "grayscale_light", "grayscale_dark", "night", "road_shaded_relief"]
+     */
+    mapStyles: {
+      type: [Array, String],
+      default: ['road', 'grayscale_light', 'grayscale_dark', 'night', 'road_shaded_relief']
     }
   },
   render: function render(createElement, context) {
-    //@ts-ignore Azure Maps Control types are incorrect, it declares 'controls' instead of 'control'
     // Construct a compass control
-    var styleControl = new context.parent.$_azureMaps.atlas.control.StyleControl();
     return createElement(AzureMapControl, {
       props: {
-        control: styleControl,
-        options: context.props
+        control: new context.parent.$_azureMaps.atlas.control.StyleControl({
+          style: context.props.style,
+          mapStyles: context.props.mapStyles
+        }),
+        options: {
+          position: context.props.position
+        }
       }
     });
   }
@@ -8076,6 +8594,12 @@ var AzureMapStyleControl_component = Object(componentNormalizer["a" /* default *
 
 
 
+
+
+
+
+
+
 /**
  * Compass control adds the ability to change the rotation of the `atlas.Map`.
  */
@@ -8084,19 +8608,48 @@ var AzureMapStyleControl_component = Object(componentNormalizer["a" /* default *
   name: 'AzureMapCompassControl',
   functional: true,
   props: {
+    /**
+     * The position where the control will be placed on the map.
+     */
     position: {
       type: String,
-      default: dist_atlas_min["ControlPosition"].BottomRight
+      default: dist_atlas_min["ControlPosition"].BottomRight,
+      validator: function validator(value) {
+        return Object.values(dist_atlas_min["ControlPosition"]).includes(value);
+      }
+    },
+
+    /**
+     * The angle that the map will rotate with each click of the control.
+     * Default `15`.
+     * @default 15
+     */
+    rotationDegreesDelta: {
+      type: Number,
+      default: 15
+    },
+
+    /**
+     * The style of the control.
+     * Default `ControlStyle.light`
+     * @default ControlStyle.light
+     */
+    style: {
+      type: String,
+      default: dist_atlas_min["ControlStyle"].light
     }
   },
   render: function render(createElement, context) {
-    //@ts-ignore Azure Maps Control types are incorrect, it declares 'controls' instead of 'control'
     // Construct a compass control
-    var compassControl = new context.parent.$_azureMaps.atlas.control.CompassControl();
     return createElement(AzureMapControl, {
       props: {
-        control: compassControl,
-        options: context.props
+        control: new context.parent.$_azureMaps.atlas.control.CompassControl({
+          rotationDegreesDelta: context.props.rotationDegreesDelta,
+          style: context.props.style
+        }),
+        options: {
+          position: context.props.position
+        }
       }
     });
   }
@@ -8123,6 +8676,687 @@ var AzureMapCompassControl_component = Object(componentNormalizer["a" /* default
 )
 
 /* harmony default export */ var AzureMapCompassControl = (AzureMapCompassControl_component.exports);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.replace.js
+var es6_regexp_replace = __webpack_require__("a481");
+
+// CONCATENATED MODULE: ./src/plugin/modules/controls/fullscreen.ts
+
+
+
+
+
+/**
+* A control that toggles the map from its defined size to a fullscreen size.
+*/
+var fullscreen_FullscreenControl =
+/*#__PURE__*/
+function () {
+  /****************************
+   * Constructor
+   ***************************/
+
+  /**
+   * A control that toggles the map from its defined size to a fullscreen size.
+   * @param options Options for defining how the control is rendered and functions.
+   */
+  function FullscreenControl(options) {
+    _classCallCheck(this, FullscreenControl);
+
+    this._options = {
+      style: 'light',
+      hideIfUnsupported: true
+    };
+    this._darkColor = '#011c2c';
+    this._fullscreenCss = '{elm}:-webkit-full-screen{width:100%;height:100%;}{elm}:-moz-full-screen{width:100%;height:100%;}{elm}:-ms-fullscreen{width:100%;height:100%;}{elm}:-o-full-screen{width:100%;height:100%;}{elm}:-full-screen{width:100%;height:100%;}' + '.fullscreenMapBtn{margin:0;padding:0;border:none;border-collapse:collapse;width:32px;height:32px;text-align:center;cursor:pointer;line-height:32px;background-repeat:no-repeat;background-size:20px;background-position:center center;z-index:200;box-shadow:0px 0px 4px rgba(0,0,0,0.16);}' + '.fullscreenMapExpand{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAMAAAF6ePCOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAVUExURQAAAJacn5ean5idopicopicoZicoZbVOdIAAAAGdFJOUwBQYI+fucOe/hkAAAAJcEhZcwAAFxEAABcRAcom8z8AAADMSURBVDhPzZSNDoIwDITn397/kV27il9Rzmwq4Qux194VRmIombqqDzCvtV236LvRJos28rD6RlPGs5jpvHaZVTLWe0nEbCkxbnKkU4zcMw7xpvTqeHrho2WzzDfWHHPPmraCmAXWzRDrtZ7ZpCeNOe03c3xnL2bOdginc2Iz6/yYuDGxP+WG1Q8Qmvxxx6UGQUgNgpAaBCE1CEJqEITUIHhxXGquTjTHBa+mQRBSgyCkBkFIDYKQGgQhNQhCahDsMmGfoA1r351BSrkDTQQSzEhW2qYAAAAASUVORK5CYII=);}' + '.fullscreenMapExpand:hover{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAMAAAF6ePCOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAVUExURQAAADCszDCqzTKtzzKszzCszzGszvdFYikAAAAGdFJOUwBQYI+fucOe/hkAAAAJcEhZcwAAFxEAABcRAcom8z8AAADMSURBVDhPzZSNDoIwDITn397/kV27il9Rzmwq4Qux194VRmIombqqDzCvtV236LvRJos28rD6RlPGs5jpvHaZVTLWe0nEbCkxbnKkU4zcMw7xpvTqeHrho2WzzDfWHHPPmraCmAXWzRDrtZ7ZpCeNOe03c3xnL2bOdginc2Iz6/yYuDGxP+WG1Q8Qmvxxx6UGQUgNgpAaBCE1CEJqEITUIHhxXGquTjTHBa+mQRBSgyCkBkFIDYKQGgQhNQhCahDsMmGfoA1r351BSrkDTQQSzEhW2qYAAAAASUVORK5CYII=);}' + '.fullscreenMapCollapse{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAD1BMVEWWnJ+Xmp+YnKKYnKKYnKHcteq5AAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAAFxEAABcRAcom8z8AAAAHdElNRQfiCw8VGzLD58rvAAAANUlEQVQ4y2NgIB+wuLg4IKhRGUpkXGAAKgMFg0JmuIHBH9ajuYTaMszGxgZAiklJSYFg+gAAKrRnAIqOPxgAAAAASUVORK5CYII=);}' + '.fullscreenMapCollapse:hover{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAD1BMVEUwrMwwqs0yrM8yrM8xrM6kUFC0AAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAAFxEAABcRAcom8z8AAAAHdElNRQfiCw8VGSuVugCtAAAANUlEQVQ4y2NgIB+wuLg4IKhRGUpkXGAAKgMFg0JmuIHBH9ajuYTaMszGxgZAiklJSYFg+gAAKrRnAIqOPxgAAAAASUVORK5CYII=);}';
+    this._options = Object(objectSpread["a" /* default */])({}, this._options, options);
+  }
+  /****************************
+   * Public Methods
+   ***************************/
+
+  /**
+   * Action to perform when the control is added to the map.
+   * @param map The map the control was added to.
+   * @param options The control options used when adding the control to the map.
+   * @returns The HTML Element that represents the control.
+   */
+
+
+  _createClass(FullscreenControl, [{
+    key: "onAdd",
+    value: function onAdd(map, options) {
+      var _this = this;
+
+      this._map = map;
+      var isSupported = FullscreenControl.isSupported();
+
+      if (isSupported || !isSupported && !this._options.hideIfUnsupported) {
+        this._resource = FullscreenControl._getTranslations(this._map.getStyle().language);
+        var color = this._options.style || 'light';
+
+        if (color === 'light') {
+          color = 'white';
+        } else if (color === 'dark') {
+          color = this._darkColor;
+        } else if (color === 'auto') {
+          //Color will change between light and dark depending on map style.
+          this._map.events.add('styledata', function () {
+            _this._mapStyleChanged();
+          });
+
+          color = this._getColorFromMapStyle();
+        }
+
+        var mapContainer = this._map.getMapContainer(); //Add css for fullscreen.
+
+
+        var css = this._fullscreenCss.replace(/{elm}/g, '#' + mapContainer.id); //Add the CSS style for the control to the DOM.
+
+
+        var style = document.createElement('style');
+        style.innerHTML = css;
+        document.body.appendChild(style); //Create the fullscreen button.
+
+        this._container = document.createElement('div');
+
+        this._container.classList.add('azure-maps-control-container');
+
+        this._container.setAttribute('aria-label', this._resource.title);
+
+        this._container.style.flexDirection = 'column';
+        this._button = document.createElement("button");
+
+        this._button.classList.add('fullscreenMapBtn');
+
+        this._button.classList.add('fullscreenMapExpand');
+
+        this._button.style.backgroundColor = color;
+
+        this._button.setAttribute('title', this._resource.view);
+
+        this._button.setAttribute('alt', this._resource.view);
+
+        this._button.setAttribute('type', 'button');
+
+        this._button.addEventListener('click', function () {
+          if (_this.isFullscreen()) {
+            var doc = document;
+            var closeFullScreenFn = doc['webkitCancelFullScreen'] || doc['cancelFullScreen'] || doc['mozCancelFullScreen'] || doc['msExitFullscreen'] || document.exitFullscreen;
+            closeFullScreenFn.call(document);
+          } else {
+            var mapCont = mapContainer;
+            var openFullScreenFn = mapCont['webkitRequestFullScreen'] || mapCont['requestFullScreen'] || mapCont['mozRequestFullScreen'] || mapCont['msRequestFullscreen'] || mapContainer.requestFullscreen;
+            openFullScreenFn.call(mapContainer);
+          }
+        });
+
+        this._updateBtn();
+
+        this._container.appendChild(this._button);
+
+        var doc = document;
+        var changeEventName;
+
+        if (doc['fullscreenchange']) {
+          changeEventName = 'fullscreenchange';
+        } else if (doc['webkitCancelFullScreen']) {
+          changeEventName = 'webkitfullscreenchange';
+        } else if (doc['mozCancelFullScreen']) {
+          changeEventName = 'mozfullscreenchange';
+        } else if (doc['msExitFullscreen']) {
+          changeEventName = 'MSFullscreenChange';
+        }
+
+        if (changeEventName) {
+          document.addEventListener(changeEventName, function () {
+            _this._updateBtn();
+          });
+        }
+
+        return this._container;
+      } // @ts-ignore Return null if fullscreen is not supported
+
+
+      return null;
+    }
+    /**
+     * Action to perform when control is removed from the map.
+     */
+
+  }, {
+    key: "onRemove",
+    value: function onRemove() {
+      var _this2 = this;
+
+      if (this._container) {
+        this._container.remove();
+      }
+
+      if (this._options.style === 'auto') {
+        this._map.events.remove('styledata', function () {
+          _this2._mapStyleChanged();
+        });
+      }
+    }
+    /**
+     * Determines if the map is in full screen mode or not.
+     */
+
+  }, {
+    key: "isFullscreen",
+    value: function isFullscreen() {
+      var doc = document;
+      return !(!document['fullscreenElement'] && !doc['msFullscreenElement'] && !doc['mozFullScreenElement'] && !doc['webkitFullscreenElement']);
+    }
+    /**
+     * Determines if fullscreen can be requested of not.
+     */
+
+  }, {
+    key: "_mapStyleChanged",
+
+    /****************************
+     * Private Methods
+     ***************************/
+
+    /**
+     * An event handler for when the map style changes. Used when control style is set to auto.
+     */
+    value: function _mapStyleChanged() {
+      if (this._button) {
+        this._button.style.backgroundColor = this._getColorFromMapStyle();
+      }
+    }
+    /**
+     * Retrieves the background color for the button based on the map style. This is used when style is set to auto.
+     */
+
+  }, {
+    key: "_getColorFromMapStyle",
+    value: function _getColorFromMapStyle() {
+      var style = this._map.getStyle().style;
+
+      var color = 'white';
+
+      switch (style) {
+        //When the style is dark (i.e. satellite, night), show the dark colored theme.
+        case 'satellite':
+        case 'satellite_road_labels':
+        case 'grayscale_dark':
+        case 'night':
+          color = this._darkColor;
+          break;
+        //When the style is bright (i.e. road), show the light colored theme.
+
+        case 'road':
+        case 'grayscale_light':
+        default:
+          break;
+      }
+
+      return color;
+    }
+    /**
+     * Toggles the fullscreen state of the button.
+     */
+
+  }, {
+    key: "_updateBtn",
+    value: function _updateBtn() {
+      var ariaLabel = this._resource.view;
+      var removeClass, addClass;
+
+      if (this.isFullscreen()) {
+        //Is fullscreen, exit.
+        ariaLabel = this._resource.exit;
+        removeClass = 'fullscreenMapExpand';
+        addClass = 'fullscreenMapCollapse';
+      } else {
+        //Make map full screen.
+        ariaLabel = this._resource.view;
+        removeClass = 'fullscreenMapCollapse';
+        addClass = 'fullscreenMapExpand';
+      }
+
+      this._button.setAttribute('title', ariaLabel);
+
+      this._button.setAttribute('alt', ariaLabel);
+
+      this._button.classList.remove(removeClass);
+
+      this._button.classList.add(addClass);
+    }
+    /**
+     * Returns the set of translation text resources needed for the fullscreen control for a given language.
+     * @param lang The language code to retrieve the text resources for.
+     * @returns An object containing text resources in the specified language.
+     */
+
+  }], [{
+    key: "isSupported",
+    value: function isSupported() {
+      var doc = document;
+      return document['fullscreenEnabled'] || doc['msFullscreenEnabled'] || doc['mozFullScreenEnabled'] || doc['webkitFullscreenEnabled'];
+    }
+  }, {
+    key: "_getTranslations",
+    value: function _getTranslations(lang) {
+      if (lang && lang.indexOf('-') > 0) {
+        lang = lang.substring(0, lang.indexOf('-'));
+      }
+
+      switch (lang) {
+        //Afrikaans
+        case 'af':
+          return {
+            exit: 'Verlaat volskerm',
+            view: 'Vertoon volskerm',
+            title: 'Volskerm beheer'
+          };
+        //Arabic
+
+        case 'ar':
+          return {
+            exit: 'الخروج من وضع ملئ للشاشة',
+            view: 'المشاهدة بحجم الشاشة',
+            title: 'تحكم ملء الشاشة'
+          };
+        //Basque
+
+        case 'eu':
+          return {
+            exit: 'Irten pantaila osoko',
+            view: 'ikusi pantaila osoan',
+            title: 'Pantaila osoa kontrol'
+          };
+        //Bulgarian
+
+        case 'bg':
+          return {
+            exit: 'Изход на цял екран',
+            view: 'Преглед на цял екран',
+            title: 'Контрол на цял екран'
+          };
+        //Chinese
+
+        case 'zh':
+          return {
+            exit: '退出全屏',
+            view: '全屏查看',
+            title: '全屏控制'
+          };
+        //Croatian
+
+        case 'hr':
+          return {
+            exit: 'Izlaz na cijelom zaslonu',
+            view: 'Prikaz na cijelom zaslonu',
+            title: 'Puni zaslon kontrola'
+          };
+        //Czech
+
+        case 'cs':
+          return {
+            exit: 'Ukončit celou obrazovku',
+            view: 'pohled na celou obrazovku',
+            title: 'fullscreen kontrola'
+          };
+        //Danish
+
+        case 'da':
+          return {
+            exit: 'Afslut fuld skærm',
+            view: 'Se fuld skærm',
+            title: 'fullscreen kontrol'
+          };
+        //Dutch
+
+        case 'nl':
+          return {
+            exit: 'Verlaat volledig scherm',
+            view: 'Bekijk fullscreen',
+            title: 'fullscreen controle'
+          };
+        //Estonian
+
+        case 'et':
+          return {
+            exit: 'Välja täisekraani',
+            view: 'Vaata täisekraani',
+            title: 'Täisekraan kontrolli'
+          };
+        //Finnish
+
+        case 'fi':
+          return {
+            exit: 'Poistu koko näytöstä',
+            view: 'Koko näyttö',
+            title: 'fullscreen ohjaus'
+          };
+        //French
+
+        case 'fr':
+          return {
+            exit: 'Quitter le mode plein écran',
+            view: 'Voir en plein écran',
+            title: 'Contrôle plein écran'
+          };
+        //Galician
+
+        case 'gl':
+          return {
+            exit: 'Saia da pantalla completa',
+            view: 'Ver a pantalla completa',
+            title: 'Control de pantalla completa'
+          };
+        //German
+
+        case 'de':
+          return {
+            exit: 'Beenden Vollbild',
+            view: 'Ansicht Vollbild',
+            title: 'Vollbild-Steuerung'
+          };
+        //Greek
+
+        case 'el':
+          return {
+            exit: 'Έξοδος από πλήρη οθόνη',
+            view: 'Προβολή σε πλήρη οθόνη',
+            title: 'Πλήρης οθόνη ελέγχου'
+          };
+        //Hindi
+
+        case 'hi':
+          return {
+            exit: 'पूर्ण स्क्रीन से बाहर निकलें',
+            view: 'पूर्णस्क्रीन देखें',
+            title: 'पूर्ण स्क्रीन नियंत्रण'
+          };
+        //Hungarian
+
+        case 'hu':
+          return {
+            exit: 'Kilépés a teljes képernyős',
+            view: 'Megtekintés teljes képernyőn',
+            title: 'Nagyítás ellenőrzés'
+          };
+        //Indonesian
+
+        case 'id':
+          return {
+            exit: 'Keluar layar penuh',
+            view: 'Lihat fullscreen',
+            title: 'Kontrol layar penuh'
+          };
+        //Italian
+
+        case 'it':
+          return {
+            exit: 'Esci da schermo intero',
+            view: 'Visualizza schermo intero',
+            title: 'controllo a tutto schermo'
+          };
+        //Japanese
+
+        case 'ja':
+          return {
+            exit: '出口フルスクリーン',
+            view: '表示フルスクリーン',
+            title: 'フルスクリーンコントロール'
+          };
+        //Kazakh
+
+        case 'kk':
+          return {
+            exit: 'Толық экраннан шығу',
+            view: 'View толық экран',
+            title: 'Fullscreen бақылау'
+          };
+        //Korean
+
+        case 'ko':
+          return {
+            exit: '전체 화면 종료',
+            view: '전체 화면보기',
+            title: '전체 화면 제어'
+          };
+        //Spanish
+
+        case 'es':
+          return {
+            exit: 'Salir de pantalla completa',
+            view: 'Ver en pantalla completa',
+            title: 'control de pantalla completa'
+          };
+        //Latvian
+
+        case 'lv':
+          return {
+            exit: 'Iziet no pilnekrāna',
+            view: 'Skatīt pilnekrāna režīmā',
+            title: 'Pilnekrāna kontrole'
+          };
+        //Lithuanian
+
+        case 'lt':
+          return {
+            exit: 'Išjungti viso ekrano režimą',
+            view: 'Peržiūrėti per visą ekraną',
+            title: 'Fullscreen kontrolė'
+          };
+        //Malay
+
+        case 'ms':
+          return {
+            exit: 'keluar skrin penuh',
+            view: 'paparan skrin penuh',
+            title: 'kawalan skrin penuh'
+          };
+        //Norwegian
+
+        case 'nb':
+          return {
+            exit: 'Avslutt full skjerm',
+            view: 'Vis fullskjerm',
+            title: 'Full skjermkontroll'
+          };
+        //Polish
+
+        case 'pl':
+          return {
+            exit: 'Wyłączyć tryb pełnoekranowy',
+            view: 'Zobacz na pełnym ekranie',
+            title: 'kontrola na pełnym ekranie'
+          };
+        //Portuguese
+
+        case 'pt':
+          return {
+            exit: 'Sair em tela cheia',
+            view: 'Ver tela cheia',
+            title: 'controle de tela cheia'
+          };
+        //Romanian
+
+        case 'ro':
+          return {
+            exit: 'Ieșire ecran complet',
+            view: 'Vezi tot ecranul',
+            title: 'controlul pe tot ecranul'
+          };
+        //Russian
+
+        case 'ru':
+          return {
+            exit: 'Выход из полноэкранного режима',
+            view: 'Просмотреть весь экран',
+            title: 'Полноэкранный контроль'
+          };
+        //Serbian
+
+        case 'sr':
+          return {
+            exit: 'Излаз из целог екрана',
+            view: 'Погледај преко целог екрана',
+            title: 'фуллсцреен контрола'
+          };
+        //Slovak
+
+        case 'sk':
+          return {
+            exit: 'Skončiť celú obrazovku',
+            view: 'pohľad na celú obrazovku',
+            title: 'fullscreen kontrola'
+          };
+        //Slovenian
+
+        case 'sl':
+          return {
+            exit: 'Izhod celozaslonski',
+            view: 'Poglej celozaslonski',
+            title: 'celozaslonski nadzor'
+          };
+        //Swedish
+
+        case 'sv':
+          return {
+            exit: 'Avsluta helskärm',
+            view: 'Visa helskärm',
+            title: 'Full skärms kontroll'
+          };
+        //Thai
+
+        case 'th':
+          return {
+            exit: 'แบบเต็มหน้าจอออกจาก',
+            view: 'ดูแบบเต็มจอ',
+            title: 'การควบคุมแบบเต็มหน้าจอ'
+          };
+        //Turkish
+
+        case 'tr':
+          return {
+            exit: 'Tam ekrandan çık',
+            view: 'Tam ekran görüntüle',
+            title: 'Tam Ekran kontrolü'
+          };
+        //Ukrainian
+
+        case 'uk':
+          return {
+            exit: 'Вихід з повноекранного режиму',
+            view: 'Переглянути весь екран',
+            title: 'Редакція контроль'
+          };
+        //Vietnamese
+
+        case 'vi':
+          return {
+            exit: 'Thoát toàn màn hình',
+            view: 'Xem toàn màn hình',
+            title: 'kiểm soát toàn màn hình'
+          };
+        //English
+
+        case 'en':
+        default:
+          return {
+            exit: 'Exit Fullscreen',
+            view: 'View Fullscreen',
+            title: 'Fullscreen Control'
+          };
+      }
+    }
+  }]);
+
+  return FullscreenControl;
+}();
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/controls/AzureMapFullscreenControl.vue?vue&type=script&lang=ts&
+
+
+
+
+
+
+
+
+
+/**
+ * Fullscreen control adds the ability to toggle the map from its defined size to a fullscreen size.
+ */
+
+/* harmony default export */ var AzureMapFullscreenControlvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+  name: 'AzureMapFullscreenControl',
+  functional: true,
+  props: {
+    /**
+     * The position where the control will be placed on the map.
+     */
+    position: {
+      type: String,
+      default: dist_atlas_min["ControlPosition"].BottomRight,
+      validator: function validator(value) {
+        return Object.values(dist_atlas_min["ControlPosition"]).includes(value);
+      }
+    },
+
+    /**
+     * The style of the control. Can be; light, dark, auto, or any CSS3 color. When set to auto, the style will change based on the map style.
+     * Default `ControlStyle.light'.
+     * @default ControlStyle.light
+     */
+    style: {
+      type: String,
+      default: dist_atlas_min["ControlStyle"].light
+    },
+
+    /**
+     * Specifies if the control should be hidden if fullscreen is not supported by the browser.
+     * @default true
+     */
+    hideIfUnsupported: {
+      type: Boolean,
+      default: true
+    }
+  },
+  render: function render(createElement, context) {
+    // Construct a fullscreen control
+    return createElement(AzureMapControl, {
+      props: {
+        control: new fullscreen_FullscreenControl({
+          style: context.props.style,
+          hideIfUnsupported: context.props.hideIfUnsupported
+        }),
+        options: {
+          position: context.props.position
+        }
+      }
+    });
+  }
+}));
+// CONCATENATED MODULE: ./src/plugin/components/controls/AzureMapFullscreenControl.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var controls_AzureMapFullscreenControlvue_type_script_lang_ts_ = (AzureMapFullscreenControlvue_type_script_lang_ts_); 
+// CONCATENATED MODULE: ./src/plugin/components/controls/AzureMapFullscreenControl.vue
+var AzureMapFullscreenControl_render, AzureMapFullscreenControl_staticRenderFns
+
+
+
+
+/* normalize component */
+
+var AzureMapFullscreenControl_component = Object(componentNormalizer["a" /* default */])(
+  controls_AzureMapFullscreenControlvue_type_script_lang_ts_,
+  AzureMapFullscreenControl_render,
+  AzureMapFullscreenControl_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var AzureMapFullscreenControl = (AzureMapFullscreenControl_component.exports);
 // EXTERNAL MODULE: ./src/plugin/components/layers/AzureMapSymbolLayer.vue + 2 modules
 var AzureMapSymbolLayer = __webpack_require__("4a0d");
 
@@ -9071,6 +10305,7 @@ var AzureMapPolygon_component = Object(componentNormalizer["a" /* default */])(
 
 
 
+
  //===
 // Layer components
 //===
@@ -9113,6 +10348,7 @@ if (typeof window !== 'undefined' && window.Vue) window.Vue.use(plugin_VueAzureM
 /* concated harmony reexport AzureMapPitchControl */__webpack_require__.d(__webpack_exports__, "AzureMapPitchControl", function() { return AzureMapPitchControl; });
 /* concated harmony reexport AzureMapStyleControl */__webpack_require__.d(__webpack_exports__, "AzureMapStyleControl", function() { return AzureMapStyleControl; });
 /* concated harmony reexport AzureMapCompassControl */__webpack_require__.d(__webpack_exports__, "AzureMapCompassControl", function() { return AzureMapCompassControl; });
+/* concated harmony reexport AzureMapFullscreenControl */__webpack_require__.d(__webpack_exports__, "AzureMapFullscreenControl", function() { return AzureMapFullscreenControl; });
 /* concated harmony reexport AzureMapSymbolLayer */__webpack_require__.d(__webpack_exports__, "AzureMapSymbolLayer", function() { return AzureMapSymbolLayer["default"]; });
 /* concated harmony reexport AzureMapPolygonLayer */__webpack_require__.d(__webpack_exports__, "AzureMapPolygonLayer", function() { return AzureMapPolygonLayer["default"]; });
 /* concated harmony reexport AzureMapLineLayer */__webpack_require__.d(__webpack_exports__, "AzureMapLineLayer", function() { return AzureMapLineLayer; });
