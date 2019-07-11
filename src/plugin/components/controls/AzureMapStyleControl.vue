@@ -46,7 +46,7 @@ export default Vue.extend({
      */
     mapStyles: {
       type: [Array, String] as Prop<string[] | 'all'>[],
-      default: [
+      default: () => [
         'road',
         'grayscale_light',
         'grayscale_dark',
