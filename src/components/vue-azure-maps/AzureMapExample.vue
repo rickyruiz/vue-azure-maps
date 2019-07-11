@@ -9,6 +9,7 @@
     <AzureMapZoomControl/>
     <AzureMapPitchControl/>
     <AzureMapCompassControl/>
+    <AzureMapFullscreenControl/>
     <AzureMapStyleControl/>
 
     <!-- Add an Html marker -->
@@ -126,8 +127,9 @@ import {
   AzureMapPolygon,
   AzureMapZoomControl,
   AzureMapPitchControl,
-  AzureMapStyleControl,
   AzureMapCompassControl,
+  AzureMapFullscreenControl,
+  AzureMapStyleControl,
   AzureMapSymbolLayer,
   AzureMapLineLayer,
   AzureMapPolygonLayer,
@@ -163,6 +165,7 @@ export default Vue.extend({
     AzureMapPitchControl,
     AzureMapStyleControl,
     AzureMapCompassControl,
+    AzureMapFullscreenControl,
     AzureMapSymbolLayer,
     AzureMapLineLayer,
     AzureMapPolygonLayer,

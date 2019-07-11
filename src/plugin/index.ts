@@ -25,6 +25,7 @@ import AzureMapZoomControl from './components/controls/AzureMapZoomControl.vue'
 import AzureMapPitchControl from './components/controls/AzureMapPitchControl.vue'
 import AzureMapStyleControl from './components/controls/AzureMapStyleControl.vue'
 import AzureMapCompassControl from './components/controls/AzureMapCompassControl.vue'
+import AzureMapFullscreenControl from './components/controls/AzureMapFullscreenControl.vue'
 
 //===
 // Layer components
@@ -71,6 +72,7 @@ export {
   AzureMapPitchControl,
   AzureMapStyleControl,
   AzureMapCompassControl,
+  AzureMapFullscreenControl,
   AzureMapSymbolLayer,
   AzureMapPolygonLayer,
   AzureMapLineLayer,
