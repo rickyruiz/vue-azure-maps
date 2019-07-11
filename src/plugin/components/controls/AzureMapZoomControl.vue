@@ -1,6 +1,6 @@
 <script lang="ts">
 import { atlas } from 'types'
-import { ControlPosition } from 'azure-maps-control'
+import { ControlPosition, ControlStyle } from 'azure-maps-control'
 import Vue from 'vue'
 import { Prop } from 'vue/types/options'
 import AzureMapControl from './AzureMapControl.vue'
@@ -14,21 +14,48 @@ export default Vue.extend({
   functional: true,
 
   props: {
+    /**
+     * The position where the control will be placed on the map.
+     */
     position: {
       type: String as Prop<ControlPosition>,
       default: ControlPosition.BottomRight,
+      validator: (value: string) =>
+        Object.values(ControlPosition).includes(value),
+    },
+
+    /**
+     * The extent to which the map will zoom with each click of the control.
+     * Default `1`.
+     * @default 1
+     */
+    zoomDelta: {
+      type: Number,
+      default: 1,
+    },
+
+    /**
+     * The style of the control.
+     * Default `ControlStyle.light`
+     * @default ControlStyle.light
+     */
+    style: {
+      type: String as Prop<ControlStyle>,
+      default: ControlStyle.light,
     },
   },
 
   render(createElement, context) {
-    //@ts-ignore Azure Maps Control types are incorrect, it declares 'controls' instead of 'control'
     // Construct a zoom control
-    const zoomControl: atlas.controls.ZoomControl = new context.parent.$_azureMaps.atlas.control.ZoomControl()
-
     return createElement(AzureMapControl, {
       props: {
-        control: zoomControl,
-        options: context.props,
+        control: new context.parent.$_azureMaps.atlas.control.ZoomControl({
+          zoomDelta: context.props.zoomDelta,
+          style: context.props.style,
+        }),
+        options: {
+          position: context.props.position,
+        } as atlas.ControlOptions,
       },
     })
   },
