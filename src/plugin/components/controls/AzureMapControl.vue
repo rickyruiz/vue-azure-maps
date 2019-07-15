@@ -48,8 +48,8 @@ export default Vue.extend({
     // Add the control to the map
     map.controls.add(this.control, this.options || undefined)
 
-    // Remove the control when the component is destroyed
-    this.$once('hook:destroyed', () => {
+    // Remove the control before the component is destroyed
+    this.$once('hook:beforeDestroy', () => {
       map.controls.remove(this.control)
     })
   },
