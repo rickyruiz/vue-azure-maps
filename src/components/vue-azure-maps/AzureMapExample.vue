@@ -4,7 +4,15 @@
     class="AzureMap"
     @mousemove="onMouseMove"
     @mouseup="onMouseUp"
+    @ready="setMap"
   >
+    <!-- Add a custom icon to the map's image sprite -->
+    <AzureMapImageSpriteIcon
+      id="vue-azure-maps-logo"
+      :icon="require('@/assets/logo.png')"
+      @added="isCustomIconAdded = true"
+    />
+
     <!-- Azure Map controls -->
     <AzureMapZoomControl/>
     <AzureMapPitchControl/>
@@ -26,6 +34,23 @@
       :enable-high-accuracy="true"
       :polygon-layer-options="userPosition.polygonLayerOptions"
     />
+
+    <!-- Create a Data Source -->
+    <AzureMapDataSource
+      v-if="isCustomIconAdded"
+    >
+      <!-- Add Points to the Data Source -->
+      <AzureMapPoint
+        v-for="point in points"
+        :key="point.properties.name"
+        :longitude="point.longitude"
+        :latitude="point.latitude"
+      />
+      <!-- Add a Symbol Layer to render the Points stored in the Data Source -->
+      <AzureMapSymbolLayer
+        :options="customIconSymbolLayerOptions"
+      />
+    </AzureMapDataSource>
 
     <!-- Create a Data Source -->
     <AzureMapDataSource
@@ -122,6 +147,7 @@ import {
   AzureMapHtmlMarker,
   AzureMapPopup,
   AzureMapUserPosition,
+  AzureMapImageSpriteIcon,
   AzureMapPoint,
   AzureMapLineString,
   AzureMapPolygon,
@@ -158,6 +184,7 @@ export default Vue.extend({
     AzureMapHtmlMarker,
     AzureMapPopup,
     AzureMapUserPosition,
+    AzureMapImageSpriteIcon,
     AzureMapPoint,
     AzureMapLineString,
     AzureMapPolygon,
@@ -174,6 +201,8 @@ export default Vue.extend({
 
   data() {
     return {
+      map: null as atlas.Map | null,
+
       mapOptions: {
         center: [-122.33, 47.6],
       } as MapOptions,
@@ -203,6 +232,15 @@ export default Vue.extend({
           ignorePlacement: true,
           allowOverlap: true,
           image: 'pin-red',
+        },
+      } as atlas.SymbolLayerOptions,
+
+      isCustomIconAdded: false,
+
+      customIconSymbolLayerOptions: {
+        iconOptions: {
+          image: 'vue-azure-maps-logo',
+          size: 0.1,
         },
       } as atlas.SymbolLayerOptions,
 
@@ -250,6 +288,11 @@ export default Vue.extend({
   },
 
   methods: {
+    setMap(e: atlas.MapEvent): void {
+      // Save the map instance if needed
+      this.map = e.map
+    },
+
     getCustomPointByName(name: string): CustomPoint | undefined {
       return this.points.find(p => p.properties.name === name)
     },
