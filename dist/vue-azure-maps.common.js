@@ -1701,7 +1701,7 @@ module.exports = __webpack_require__("9e1e") ? function (object, key, value) {
 /* harmony import */ var core_js_modules_es7_array_includes__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es7_array_includes__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var core_js_modules_es6_string_includes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("2fdb");
 /* harmony import */ var core_js_modules_es6_string_includes__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_string_includes__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var C_Users_RRuiz_Desktop_OSS_vue_azure_maps_node_modules_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("768b");
+/* harmony import */ var _Users_ricardoruizmelendez_Documents_development_oss_vue_azure_maps_node_modules_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("768b");
 /* harmony import */ var core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("456d");
 /* harmony import */ var core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("ac6a");
@@ -1732,7 +1732,7 @@ function getOptionsFromProps(props) {
   var options = {}; // Look for all the properties that are not null
 
   for (var _i = 0, _propEntries = propEntries; _i < _propEntries.length; _i++) {
-    var _propEntries$_i = Object(C_Users_RRuiz_Desktop_OSS_vue_azure_maps_node_modules_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(_propEntries[_i], 2),
+    var _propEntries$_i = Object(_Users_ricardoruizmelendez_Documents_development_oss_vue_azure_maps_node_modules_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(_propEntries[_i], 2),
         prop = _propEntries$_i[0],
         value = _propEntries$_i[1];
 
@@ -1766,7 +1766,7 @@ function addEventsFromListeners(_ref) {
   var listenersEntries = Object.entries(this.$listeners);
 
   for (var _i2 = 0, _listenersEntries = listenersEntries; _i2 < _listenersEntries.length; _i2++) {
-    var _listenersEntries$_i = Object(C_Users_RRuiz_Desktop_OSS_vue_azure_maps_node_modules_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(_listenersEntries[_i2], 2),
+    var _listenersEntries$_i = Object(_Users_ricardoruizmelendez_Documents_development_oss_vue_azure_maps_node_modules_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(_listenersEntries[_i2], 2),
         eventType = _listenersEntries$_i[0],
         callback = _listenersEntries$_i[1];
 
@@ -1797,12 +1797,12 @@ module.exports = document && document.documentElement;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"70efda79-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=10769ea0&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"70efda79-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=48449632&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}]},[(Boolean(_vm.dataSource))?[_vm._t("default",null,{"dataSource":_vm.dataSource})]:_vm._e()],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=10769ea0&
+// CONCATENATED MODULE: ./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=48449632&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
 var web_dom_iterable = __webpack_require__("ac6a");
@@ -7094,12 +7094,12 @@ function install(Vue, options) {
   _Vue_ = Vue;
   Vue.prototype.$_azureMaps = new vue_azure_maps_VueAzureMaps(dist_atlas_min, options);
 }
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"70efda79-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=template&id=42a70ccc&
-var AzureMapvue_type_template_id_42a70ccc_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({ width: _vm.width, height: _vm.height }),attrs:{"id":_vm.mapId}},[(_vm.isMapReady)?[_vm._t("default",null,{"map":_vm.map})]:_vm._e()],2)}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"70efda79-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=template&id=14794c8e&
+var AzureMapvue_type_template_id_14794c8e_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({ width: _vm.width, height: _vm.height }),attrs:{"id":_vm.mapId}},[(_vm.isMapReady)?[_vm._t("default",null,{"map":_vm.map})]:_vm._e()],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue?vue&type=template&id=42a70ccc&
+// CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue?vue&type=template&id=14794c8e&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
 var web_dom_iterable = __webpack_require__("ac6a");
@@ -7569,7 +7569,7 @@ var componentNormalizer = __webpack_require__("2877");
 
 var component = Object(componentNormalizer["a" /* default */])(
   components_AzureMapvue_type_script_lang_ts_,
-  AzureMapvue_type_template_id_42a70ccc_render,
+  AzureMapvue_type_template_id_14794c8e_render,
   staticRenderFns,
   false,
   null,
@@ -7767,12 +7767,12 @@ var AzureMapHtmlMarker_component = Object(componentNormalizer["a" /* default */]
 )
 
 /* harmony default export */ var AzureMapHtmlMarker = (AzureMapHtmlMarker_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"70efda79-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapPopup.vue?vue&type=template&id=149d7a06&
-var AzureMapPopupvue_type_template_id_149d7a06_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(_vm.tag,{tag:"component"},[_vm._t("default")],2)}
-var AzureMapPopupvue_type_template_id_149d7a06_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"70efda79-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapPopup.vue?vue&type=template&id=7c37d977&
+var AzureMapPopupvue_type_template_id_7c37d977_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(_vm.tag,{tag:"component"},[_vm._t("default")],2)}
+var AzureMapPopupvue_type_template_id_7c37d977_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMapPopup.vue?vue&type=template&id=149d7a06&
+// CONCATENATED MODULE: ./src/plugin/components/AzureMapPopup.vue?vue&type=template&id=7c37d977&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapPopup.vue?vue&type=script&lang=ts&
 
@@ -7983,8 +7983,8 @@ var AzureMapPopupEvent;
 
 var AzureMapPopup_component = Object(componentNormalizer["a" /* default */])(
   components_AzureMapPopupvue_type_script_lang_ts_,
-  AzureMapPopupvue_type_template_id_149d7a06_render,
-  AzureMapPopupvue_type_template_id_149d7a06_staticRenderFns,
+  AzureMapPopupvue_type_template_id_7c37d977_render,
+  AzureMapPopupvue_type_template_id_7c37d977_staticRenderFns,
   false,
   null,
   null,
@@ -7993,12 +7993,12 @@ var AzureMapPopup_component = Object(componentNormalizer["a" /* default */])(
 )
 
 /* harmony default export */ var AzureMapPopup = (AzureMapPopup_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"70efda79-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=14d166a2&
-var AzureMapUserPositionvue_type_template_id_14d166a2_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.hasPosition)?_c('AzureMapDataSource',[(_vm.showAccuracy && _vm.radius)?_c('AzureMapCircle',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude,"radius":_vm.radius},on:_vm._d({},[_vm.circleEventName,function($event){return _vm.$emit(_vm.circleEventName, $event)}])}):_vm._e(),_c('AzureMapPoint',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude}}),(_vm.showAccuracy)?_c('AzureMapPolygonLayer',{attrs:{"options":_vm.polygonLayerOptions || undefined}}):_vm._e(),_c('AzureMapSymbolLayer',{attrs:{"options":_vm.userPositionSymbolLayerOptions}})],1):_vm._e()}
-var AzureMapUserPositionvue_type_template_id_14d166a2_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"70efda79-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=7db3fc4c&
+var AzureMapUserPositionvue_type_template_id_7db3fc4c_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.hasPosition)?_c('AzureMapDataSource',[(_vm.showAccuracy && _vm.radius)?_c('AzureMapCircle',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude,"radius":_vm.radius},on:_vm._d({},[_vm.circleEventName,function($event){return _vm.$emit(_vm.circleEventName, $event)}])}):_vm._e(),_c('AzureMapPoint',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude}}),(_vm.showAccuracy)?_c('AzureMapPolygonLayer',{attrs:{"options":_vm.polygonLayerOptions || undefined}}):_vm._e(),_c('AzureMapSymbolLayer',{attrs:{"options":_vm.userPositionSymbolLayerOptions}})],1):_vm._e()}
+var AzureMapUserPositionvue_type_template_id_7db3fc4c_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=14d166a2&
+// CONCATENATED MODULE: ./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=7db3fc4c&
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js + 1 modules
 var objectSpread = __webpack_require__("cebc");
@@ -8239,8 +8239,8 @@ var AzureMapUserPositionEvent;
 
 var AzureMapUserPosition_component = Object(componentNormalizer["a" /* default */])(
   components_AzureMapUserPositionvue_type_script_lang_ts_,
-  AzureMapUserPositionvue_type_template_id_14d166a2_render,
-  AzureMapUserPositionvue_type_template_id_14d166a2_staticRenderFns,
+  AzureMapUserPositionvue_type_template_id_7db3fc4c_render,
+  AzureMapUserPositionvue_type_template_id_7db3fc4c_staticRenderFns,
   false,
   null,
   null,
@@ -8249,6 +8249,102 @@ var AzureMapUserPosition_component = Object(componentNormalizer["a" /* default *
 )
 
 /* harmony default export */ var AzureMapUserPosition = (AzureMapUserPosition_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapImageSpriteIcon.vue?vue&type=script&lang=ts&
+
+var AzureMapImageSpriteIconEvent;
+
+(function (AzureMapImageSpriteIconEvent) {
+  AzureMapImageSpriteIconEvent["Error"] = "error";
+  AzureMapImageSpriteIconEvent["Added"] = "added";
+  AzureMapImageSpriteIconEvent["Removed"] = "removed";
+})(AzureMapImageSpriteIconEvent || (AzureMapImageSpriteIconEvent = {}));
+/**
+ * Adds an icon image to the map's image sprite for use with symbols and patterns.
+ */
+
+
+/* harmony default export */ var AzureMapImageSpriteIconvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+  name: 'AzureMapImageSpriteIcon',
+
+  /**
+   * Inject the `getMap` function to get the `atlas.Map` instance
+   */
+  inject: ['getMap'],
+  props: {
+    /**
+     * The image's id.
+     */
+    id: {
+      type: String,
+      default: null,
+      required: true
+    },
+
+    /**
+     * The image to add to the map's sprite. Can be a data URI, inline SVG, or image URL.
+     */
+    icon: {
+      type: [String, Object],
+      default: null,
+      required: true
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    //@ts-ignore There is no TypeScript support for injections without decorators
+    // Look for the function that retreives the map instance
+    var getMap = this.getMap;
+
+    if (!getMap) {
+      if (true) return; // If the function that retreives the map instance is not available,
+      // warn the user that is not a descendant of an ancestor component that provides the method
+
+      return console.warn("Invalid <AzureMapImageSpriteIcon> map instance.\nPlease make sure <AzureMapImageSpriteIcon> is a descendant of <AzureMap>.");
+    } // Retrieve the map instance from the injected function
+
+
+    var map = getMap(); // Add the icon to the map's image sprite
+
+    map.imageSprite.add(this.id, this.icon).then(function () {
+      _this.$emit(AzureMapImageSpriteIconEvent.Added, _this.id); // Remove the icon before the component is destroyed
+
+
+      _this.$once('hook:beforeDestroy', function () {
+        map.imageSprite.remove(_this.id);
+
+        _this.$emit(AzureMapImageSpriteIconEvent.Removed, _this.id);
+      });
+    }).catch(function (error) {
+      return _this.$emit(AzureMapImageSpriteIconEvent.Error, error);
+    });
+  },
+  render: function render(createElement) {
+    return createElement();
+  }
+}));
+// CONCATENATED MODULE: ./src/plugin/components/AzureMapImageSpriteIcon.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var components_AzureMapImageSpriteIconvue_type_script_lang_ts_ = (AzureMapImageSpriteIconvue_type_script_lang_ts_); 
+// CONCATENATED MODULE: ./src/plugin/components/AzureMapImageSpriteIcon.vue
+var AzureMapImageSpriteIcon_render, AzureMapImageSpriteIcon_staticRenderFns
+
+
+
+
+/* normalize component */
+
+var AzureMapImageSpriteIcon_component = Object(componentNormalizer["a" /* default */])(
+  components_AzureMapImageSpriteIconvue_type_script_lang_ts_,
+  AzureMapImageSpriteIcon_render,
+  AzureMapImageSpriteIcon_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var AzureMapImageSpriteIcon = (AzureMapImageSpriteIcon_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/controls/AzureMapControl.vue?vue&type=script&lang=ts&
 
 /**
@@ -8290,9 +8386,9 @@ var AzureMapUserPosition_component = Object(componentNormalizer["a" /* default *
 
     var map = getMap(); // Add the control to the map
 
-    map.controls.add(this.control, this.options || undefined); // Remove the control when the component is destroyed
+    map.controls.add(this.control, this.options || undefined); // Remove the control before the component is destroyed
 
-    this.$once('hook:destroyed', function () {
+    this.$once('hook:beforeDestroy', function () {
       map.controls.remove(_this.control);
     });
   },
@@ -8550,7 +8646,9 @@ var AzureMapPitchControl_component = Object(componentNormalizer["a" /* default *
      */
     mapStyles: {
       type: [Array, String],
-      default: ['road', 'grayscale_light', 'grayscale_dark', 'night', 'road_shaded_relief']
+      default: function _default() {
+        return ['road', 'grayscale_light', 'grayscale_dark', 'night', 'road_shaded_relief'];
+      }
     }
   },
   render: function render(createElement, context) {
@@ -10297,6 +10395,7 @@ var AzureMapPolygon_component = Object(componentNormalizer["a" /* default */])(
 // Custom components
 //===
 
+
  //===
 // Control components
 //===
@@ -10339,6 +10438,7 @@ if (typeof window !== 'undefined' && window.Vue) window.Vue.use(plugin_VueAzureM
 /* concated harmony reexport AzureMapHtmlMarker */__webpack_require__.d(__webpack_exports__, "AzureMapHtmlMarker", function() { return AzureMapHtmlMarker; });
 /* concated harmony reexport AzureMapPopup */__webpack_require__.d(__webpack_exports__, "AzureMapPopup", function() { return AzureMapPopup; });
 /* concated harmony reexport AzureMapUserPosition */__webpack_require__.d(__webpack_exports__, "AzureMapUserPosition", function() { return AzureMapUserPosition; });
+/* concated harmony reexport AzureMapImageSpriteIcon */__webpack_require__.d(__webpack_exports__, "AzureMapImageSpriteIcon", function() { return AzureMapImageSpriteIcon; });
 /* concated harmony reexport AzureMapPoint */__webpack_require__.d(__webpack_exports__, "AzureMapPoint", function() { return AzureMapPoint["default"]; });
 /* concated harmony reexport AzureMapCircle */__webpack_require__.d(__webpack_exports__, "AzureMapCircle", function() { return AzureMapCircle["default"]; });
 /* concated harmony reexport AzureMapLineString */__webpack_require__.d(__webpack_exports__, "AzureMapLineString", function() { return AzureMapLineString; });
