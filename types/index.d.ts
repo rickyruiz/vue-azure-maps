@@ -10,6 +10,7 @@ import AzureMapPopup from '@/plugin/components/AzureMapPopup.vue'
 // Custom components
 //===
 import AzureMapUserPosition from '@/plugin/components/AzureMapUserPosition.vue'
+import AzureMapImageSpriteIcon from '@/plugin/components/AzureMapImageSpriteIcon.vue'
 
 //===
 // Control components
@@ -55,6 +56,7 @@ export {
   AzureMapHtmlMarker,
   AzureMapPopup,
   AzureMapUserPosition,
+  AzureMapImageSpriteIcon,
   AzureMapPoint,
   AzureMapCircle,
   AzureMapLineString,
