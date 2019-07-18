@@ -195,7 +195,54 @@ module.exports = {
           {
             title: 'Components',
             collapsable: false,
-            children: ['/components/azure-map'],
+            children: [
+              '/components/AzureMap',
+              {
+                title: 'Other',
+                collapsable: false,
+                children: [
+                  '/components/other/AzureMapDataSource',
+                  '/components/other/AzureMapHtmlMarker',
+                  '/components/other/AzureMapPopup',
+                  '/components/other/AzureMapImageSpriteIcon',
+                  '/components/other/AzureMapUserPosition',
+                ],
+              },
+              {
+                title: 'Geometries',
+                collapsable: false,
+                children: [
+                  '/components/geometries/AzureMapPoint',
+                  '/components/geometries/AzureMapPolygon',
+                  '/components/geometries/AzureMapLineString',
+                  '/components/geometries/AzureMapCircle',
+                ],
+              },
+              {
+                title: 'Layers',
+                collapsable: false,
+                children: [
+                  '/components/layers/AzureMapSymbolLayer',
+                  '/components/layers/AzureMapLineLayer',
+                  '/components/layers/AzureMapPolygonLayer',
+                  '/components/layers/AzureMapBubbleLayer',
+                  '/components/layers/AzureMapHeatMapLayer',
+                  '/components/layers/AzureMapTileLayer',
+                  '/components/layers/AzureMapImageLayer',
+                ],
+              },
+              {
+                title: 'Controls',
+                collapsable: false,
+                children: [
+                  '/components/controls/AzureMapZoomControl',
+                  '/components/controls/AzureMapPitchControl',
+                  '/components/controls/AzureMapCompassControl',
+                  '/components/controls/AzureMapStyleControl',
+                  '/components/controls/AzureMapFullscreenControl',
+                ],
+              },
+            ],
           },
         ],
       },

@@ -18,6 +18,8 @@ import { atlas } from 'types'
 import Vue from 'vue'
 import { Prop } from 'vue/types/options'
 
+type Dictionary<K, V> = Map<K, V>
+
 enum AzureMapDataSourceEvent {
   Created = 'created',
 }
@@ -59,8 +61,8 @@ export default Vue.extend({
      * If this is not specified, then the data source will automatically be assigned an id.
      */
     id: {
-      type: String as Prop<string | null>,
-      default: null,
+      type: String as Prop<string | undefined>,
+      default: undefined,
     },
 
     /**
@@ -69,8 +71,8 @@ export default Vue.extend({
      * @default 18
      */
     maxZoom: {
-      type: Number as Prop<number | null>,
-      default: null,
+      type: Number as Prop<number | undefined>,
+      default: undefined,
     },
 
     /**
@@ -80,8 +82,8 @@ export default Vue.extend({
      * @default false
      */
     cluster: {
-      type: Boolean as Prop<boolean | null>,
-      default: null,
+      type: Boolean as Prop<boolean | undefined>,
+      default: undefined,
     },
 
     /**
@@ -90,8 +92,8 @@ export default Vue.extend({
      * @default 50
      */
     clusterRadius: {
-      type: Number as Prop<number | null>,
-      default: null,
+      type: Number as Prop<number | undefined>,
+      default: undefined,
     },
 
     /**
@@ -99,8 +101,16 @@ export default Vue.extend({
      * Defaults to one zoom less than `maxZoom` so that last zoom features are not clustered.
      */
     clusterMaxZoom: {
-      type: Number as Prop<number | null>,
-      default: null,
+      type: Number as Prop<number | undefined>,
+      default: undefined,
+    },
+
+    /**
+     * Defines custom properties that are calculated using expressions against all the points within each cluster and added to the properties of each cluster point.
+     */
+    clusterProperties: {
+      type: Object as Prop<Dictionary<string, atlas.AggregateExpression>>,
+      default: undefined,
     },
 
     /**
@@ -110,8 +120,8 @@ export default Vue.extend({
      * @default false
      */
     lineMetrics: {
-      type: Boolean as Prop<boolean | null>,
-      default: null,
+      type: Boolean as Prop<boolean | undefined>,
+      default: undefined,
     },
 
     /**
@@ -120,20 +130,20 @@ export default Vue.extend({
      * @default 0.375
      */
     tolerance: {
-      type: Number as Prop<number | null>,
-      default: null,
+      type: Number as Prop<number | undefined>,
+      default: undefined,
     },
   },
 
   data() {
     return {
-      // The layer data source instance
+      // The data source instance
       dataSource: null as atlas.source.DataSource | null,
     }
   },
 
   computed: {
-    dataSourceOptionProps(): Record<string, any> {
+    dataSourceOptionProps(): atlas.DataSourceOptions {
       let {
         maxZoom,
         cluster,
@@ -141,6 +151,7 @@ export default Vue.extend({
         clusterMaxZoom,
         lineMetrics,
         tolerance,
+        clusterProperties,
       } = this
 
       return {
@@ -150,6 +161,7 @@ export default Vue.extend({
         clusterMaxZoom,
         lineMetrics,
         tolerance,
+        clusterProperties,
       }
     },
   },
@@ -176,36 +188,22 @@ export default Vue.extend({
       // Retrieve the map instance from the injected function
       const map = getMap()
 
-      // Get data source options from selected component props
-      let options =
-        this.getOptionsFromProps<atlas.DataSourceOptions>(
-          this.dataSourceOptionProps
-        ) || {}
-
       // Create a data source to manage shapes
       const dataSource = new this.$_azureMaps.atlas.source.DataSource(
         this.id || `azure-map-data-source-${state.id++}`,
-        options
+        this.dataSourceOptionProps
       )
 
       this.$emit(AzureMapDataSourceEvent.Created, dataSource)
 
       // Watch for all props changes
       this.$watch(
+        'dataSourceOptionProps',
         () => {
-          let values = ''
-          for (const value of Object.values(options)) {
-            values += value
-          }
-          return values
+          dataSource.setOptions(this.dataSourceOptionProps)
         },
-        () => {
-          let newOptions =
-            this.getOptionsFromProps<atlas.DataSourceOptions>(
-              this.dataSourceOptionProps
-            ) || {}
-
-          dataSource.setOptions(newOptions)
+        {
+          deep: true,
         }
       )
 

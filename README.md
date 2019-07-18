@@ -38,6 +38,8 @@ Vue.use(VueAzureMaps, {
 
 ## Documentation
 
+> The documentation is a work in progress.
+
 Read the [documentation and demos](https://rickyruiz.github.io/vue-azure-maps/).
 
 ## License

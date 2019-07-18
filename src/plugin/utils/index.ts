@@ -6,6 +6,11 @@ import Vue from 'vue'
 //===
 
 /**
+ * TODO: Change this helper function, the `setOption` method used by atlas uses the default option value when the
+ * option property value is `null`. There is no need to remove those properties from the options object when updating.
+ * Add a parameter to exclude certain keys from the options, this will be helpful to create a computed prop and then
+ * a watcher to use the `setOption` method every time the props change.
+ *
  * This lets us accept individual props instead of an object in
  * our component, making our template more explicit and easier to handle.
  * @param props If this parameter is undefined, `this.$props` will be used to look for component props.
@@ -43,7 +48,10 @@ export function getOptionsFromProps<T>(
   return options as T
 }
 
-export function addEventsFromListeners(this: Vue, { map, target, reservedEventTypes = [] }: EventsFromListenersConfig): void {
+export function addEventsFromListeners(
+  this: Vue,
+  { map, target, reservedEventTypes = [] }: EventsFromListenersConfig
+): void {
   // Use component listeners
   let listenersEntries = Object.entries(this.$listeners)
 
