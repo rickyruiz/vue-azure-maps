@@ -109,7 +109,9 @@ export default Vue.extend({
      * Defines custom properties that are calculated using expressions against all the points within each cluster and added to the properties of each cluster point.
      */
     clusterProperties: {
-      type: Object as Prop<Dictionary<string, atlas.AggregateExpression>>,
+      type: Object as Prop<
+        Dictionary<string, atlas.AggregateExpression> | undefined
+      >,
       default: undefined,
     },
 
