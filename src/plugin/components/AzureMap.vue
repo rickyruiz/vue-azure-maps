@@ -413,6 +413,14 @@ export default Vue.extend({
         center: newPosition,
       })
     },
+
+    mapStyle(newStyle: string | null) {
+      if (!this.map || !newStyle) return
+
+      this.map.setStyle({
+        style: newStyle,
+      })
+    },
   },
 
   mounted() {
