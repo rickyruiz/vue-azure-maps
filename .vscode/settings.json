@@ -9,7 +9,7 @@
     { "language": "vue-html", "autoFix": true },
     { "language": "html", "autoFix": true }
   ],
-  "prettier.disableLanguages": [],
+  "prettier.disableLanguages": ["vue"],
   "vetur.validation.template": false,
   "vetur.format.defaultFormatter.html": "none",
   "vetur.completion.tagCasing": "initial"
