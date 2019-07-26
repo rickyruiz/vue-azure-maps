@@ -1701,7 +1701,7 @@ module.exports = __webpack_require__("9e1e") ? function (object, key, value) {
 /* harmony import */ var core_js_modules_es7_array_includes__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es7_array_includes__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var core_js_modules_es6_string_includes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("2fdb");
 /* harmony import */ var core_js_modules_es6_string_includes__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_string_includes__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Users_ricardoruizmelendez_Documents_development_oss_vue_azure_maps_node_modules_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("768b");
+/* harmony import */ var C_Users_RRuiz_Desktop_OSS_vue_azure_maps_node_modules_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("768b");
 /* harmony import */ var core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("456d");
 /* harmony import */ var core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_object_keys__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var core_js_modules_web_dom_iterable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("ac6a");
@@ -1722,6 +1722,11 @@ module.exports = __webpack_require__("9e1e") ? function (object, key, value) {
 //===
 
 /**
+ * TODO: Change this helper function, the `setOption` method used by atlas uses the default option value when the
+ * option property value is `null`. There is no need to remove those properties from the options object when updating.
+ * Add a parameter to exclude certain keys from the options, this will be helpful to create a computed prop and then
+ * a watcher to use the `setOption` method every time the props change.
+ *
  * This lets us accept individual props instead of an object in
  * our component, making our template more explicit and easier to handle.
  * @param props If this parameter is undefined, `this.$props` will be used to look for component props.
@@ -1732,7 +1737,7 @@ function getOptionsFromProps(props) {
   var options = {}; // Look for all the properties that are not null
 
   for (var _i = 0, _propEntries = propEntries; _i < _propEntries.length; _i++) {
-    var _propEntries$_i = Object(_Users_ricardoruizmelendez_Documents_development_oss_vue_azure_maps_node_modules_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(_propEntries[_i], 2),
+    var _propEntries$_i = Object(C_Users_RRuiz_Desktop_OSS_vue_azure_maps_node_modules_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(_propEntries[_i], 2),
         prop = _propEntries$_i[0],
         value = _propEntries$_i[1];
 
@@ -1766,7 +1771,7 @@ function addEventsFromListeners(_ref) {
   var listenersEntries = Object.entries(this.$listeners);
 
   for (var _i2 = 0, _listenersEntries = listenersEntries; _i2 < _listenersEntries.length; _i2++) {
-    var _listenersEntries$_i = Object(_Users_ricardoruizmelendez_Documents_development_oss_vue_azure_maps_node_modules_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(_listenersEntries[_i2], 2),
+    var _listenersEntries$_i = Object(C_Users_RRuiz_Desktop_OSS_vue_azure_maps_node_modules_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(_listenersEntries[_i2], 2),
         eventType = _listenersEntries$_i[0],
         callback = _listenersEntries$_i[1];
 
@@ -1797,21 +1802,12 @@ module.exports = document && document.documentElement;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"70efda79-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=48449632&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a3734c14-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=35e670a6&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}]},[(Boolean(_vm.dataSource))?[_vm._t("default",null,{"dataSource":_vm.dataSource})]:_vm._e()],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=48449632&
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
-var web_dom_iterable = __webpack_require__("ac6a");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.iterator.js
-var es6_array_iterator = __webpack_require__("cadf");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es7.object.values.js
-var es7_object_values = __webpack_require__("8615");
+// CONCATENATED MODULE: ./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=35e670a6&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.number.constructor.js
 var es6_number_constructor = __webpack_require__("c5f6");
@@ -1824,9 +1820,6 @@ var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapDataSource.vue?vue&type=script&lang=ts&
-
-
-
 
 
 
@@ -1872,7 +1865,7 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
      */
     id: {
       type: String,
-      default: null
+      default: undefined
     },
 
     /**
@@ -1882,7 +1875,7 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
      */
     maxZoom: {
       type: Number,
-      default: null
+      default: undefined
     },
 
     /**
@@ -1893,7 +1886,7 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
      */
     cluster: {
       type: Boolean,
-      default: null
+      default: undefined
     },
 
     /**
@@ -1903,7 +1896,7 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
      */
     clusterRadius: {
       type: Number,
-      default: null
+      default: undefined
     },
 
     /**
@@ -1912,7 +1905,15 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
      */
     clusterMaxZoom: {
       type: Number,
-      default: null
+      default: undefined
+    },
+
+    /**
+     * Defines custom properties that are calculated using expressions against all the points within each cluster and added to the properties of each cluster point.
+     */
+    clusterProperties: {
+      type: Object,
+      default: undefined
     },
 
     /**
@@ -1923,7 +1924,7 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
      */
     lineMetrics: {
       type: Boolean,
-      default: null
+      default: undefined
     },
 
     /**
@@ -1933,12 +1934,12 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
      */
     tolerance: {
       type: Number,
-      default: null
+      default: undefined
     }
   },
   data: function data() {
     return {
-      // The layer data source instance
+      // The data source instance
       dataSource: null
     };
   },
@@ -1949,14 +1950,16 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
           clusterRadius = this.clusterRadius,
           clusterMaxZoom = this.clusterMaxZoom,
           lineMetrics = this.lineMetrics,
-          tolerance = this.tolerance;
+          tolerance = this.tolerance,
+          clusterProperties = this.clusterProperties;
       return {
         maxZoom: maxZoom,
         cluster: cluster,
         clusterRadius: clusterRadius,
         clusterMaxZoom: clusterMaxZoom,
         lineMetrics: lineMetrics,
-        tolerance: tolerance
+        tolerance: tolerance,
+        clusterProperties: clusterProperties
       };
     }
   },
@@ -1979,25 +1982,15 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
       } // Retrieve the map instance from the injected function
 
 
-      var map = getMap(); // Get data source options from selected component props
+      var map = getMap(); // Create a data source to manage shapes
 
-      var options = this.getOptionsFromProps(this.dataSourceOptionProps) || {}; // Create a data source to manage shapes
-
-      var dataSource = new this.$_azureMaps.atlas.source.DataSource(this.id || "azure-map-data-source-".concat(state.id++), options);
+      var dataSource = new this.$_azureMaps.atlas.source.DataSource(this.id || "azure-map-data-source-".concat(state.id++), this.dataSourceOptionProps);
       this.$emit(AzureMapDataSourceEvent.Created, dataSource); // Watch for all props changes
 
-      this.$watch(function () {
-        var values = '';
-
-        for (var _i = 0, _Object$values = Object.values(options); _i < _Object$values.length; _i++) {
-          var value = _Object$values[_i];
-          values += value;
-        }
-
-        return values;
-      }, function () {
-        var newOptions = _this.getOptionsFromProps(_this.dataSourceOptionProps) || {};
-        dataSource.setOptions(newOptions);
+      this.$watch('dataSourceOptionProps', function () {
+        dataSource.setOptions(_this.dataSourceOptionProps);
+      }, {
+        deep: true
       }); // Save the data source in a data property to provide it to descendent components
 
       this.dataSource = dataSource; // Add the data source to the map sources
@@ -7094,12 +7087,12 @@ function install(Vue, options) {
   _Vue_ = Vue;
   Vue.prototype.$_azureMaps = new vue_azure_maps_VueAzureMaps(dist_atlas_min, options);
 }
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"70efda79-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=template&id=14794c8e&
-var AzureMapvue_type_template_id_14794c8e_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({ width: _vm.width, height: _vm.height }),attrs:{"id":_vm.mapId}},[(_vm.isMapReady)?[_vm._t("default",null,{"map":_vm.map})]:_vm._e()],2)}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a3734c14-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=template&id=53c30ab8&
+var AzureMapvue_type_template_id_53c30ab8_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({ width: _vm.width, height: _vm.height }),attrs:{"id":_vm.mapId}},[(_vm.isMapReady)?[_vm._t("default",null,{"map":_vm.map})]:_vm._e()],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue?vue&type=template&id=14794c8e&
+// CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue?vue&type=template&id=53c30ab8&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
 var web_dom_iterable = __webpack_require__("ac6a");
@@ -7511,6 +7504,12 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
       this.map.setCamera({
         center: newPosition
       });
+    },
+    mapStyle: function mapStyle(newStyle) {
+      if (!this.map || !newStyle) return;
+      this.map.setStyle({
+        style: newStyle
+      });
     }
   },
   mounted: function mounted() {
@@ -7569,7 +7568,7 @@ var componentNormalizer = __webpack_require__("2877");
 
 var component = Object(componentNormalizer["a" /* default */])(
   components_AzureMapvue_type_script_lang_ts_,
-  AzureMapvue_type_template_id_14794c8e_render,
+  AzureMapvue_type_template_id_53c30ab8_render,
   staticRenderFns,
   false,
   null,
@@ -7767,12 +7766,12 @@ var AzureMapHtmlMarker_component = Object(componentNormalizer["a" /* default */]
 )
 
 /* harmony default export */ var AzureMapHtmlMarker = (AzureMapHtmlMarker_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"70efda79-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapPopup.vue?vue&type=template&id=7c37d977&
-var AzureMapPopupvue_type_template_id_7c37d977_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(_vm.tag,{tag:"component"},[_vm._t("default")],2)}
-var AzureMapPopupvue_type_template_id_7c37d977_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a3734c14-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapPopup.vue?vue&type=template&id=149d7a06&
+var AzureMapPopupvue_type_template_id_149d7a06_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(_vm.tag,{tag:"component"},[_vm._t("default")],2)}
+var AzureMapPopupvue_type_template_id_149d7a06_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMapPopup.vue?vue&type=template&id=7c37d977&
+// CONCATENATED MODULE: ./src/plugin/components/AzureMapPopup.vue?vue&type=template&id=149d7a06&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapPopup.vue?vue&type=script&lang=ts&
 
@@ -7983,8 +7982,8 @@ var AzureMapPopupEvent;
 
 var AzureMapPopup_component = Object(componentNormalizer["a" /* default */])(
   components_AzureMapPopupvue_type_script_lang_ts_,
-  AzureMapPopupvue_type_template_id_7c37d977_render,
-  AzureMapPopupvue_type_template_id_7c37d977_staticRenderFns,
+  AzureMapPopupvue_type_template_id_149d7a06_render,
+  AzureMapPopupvue_type_template_id_149d7a06_staticRenderFns,
   false,
   null,
   null,
@@ -7993,12 +7992,12 @@ var AzureMapPopup_component = Object(componentNormalizer["a" /* default */])(
 )
 
 /* harmony default export */ var AzureMapPopup = (AzureMapPopup_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"70efda79-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=7db3fc4c&
-var AzureMapUserPositionvue_type_template_id_7db3fc4c_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.hasPosition)?_c('AzureMapDataSource',[(_vm.showAccuracy && _vm.radius)?_c('AzureMapCircle',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude,"radius":_vm.radius},on:_vm._d({},[_vm.circleEventName,function($event){return _vm.$emit(_vm.circleEventName, $event)}])}):_vm._e(),_c('AzureMapPoint',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude}}),(_vm.showAccuracy)?_c('AzureMapPolygonLayer',{attrs:{"options":_vm.polygonLayerOptions || undefined}}):_vm._e(),_c('AzureMapSymbolLayer',{attrs:{"options":_vm.userPositionSymbolLayerOptions}})],1):_vm._e()}
-var AzureMapUserPositionvue_type_template_id_7db3fc4c_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a3734c14-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=14d166a2&
+var AzureMapUserPositionvue_type_template_id_14d166a2_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.hasPosition)?_c('AzureMapDataSource',[(_vm.showAccuracy && _vm.radius)?_c('AzureMapCircle',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude,"radius":_vm.radius},on:_vm._d({},[_vm.circleEventName,function($event){return _vm.$emit(_vm.circleEventName, $event)}])}):_vm._e(),_c('AzureMapPoint',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude}}),(_vm.showAccuracy)?_c('AzureMapPolygonLayer',{attrs:{"options":_vm.polygonLayerOptions || undefined}}):_vm._e(),_c('AzureMapSymbolLayer',{attrs:{"options":_vm.userPositionSymbolLayerOptions}})],1):_vm._e()}
+var AzureMapUserPositionvue_type_template_id_14d166a2_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=7db3fc4c&
+// CONCATENATED MODULE: ./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=14d166a2&
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js + 1 modules
 var objectSpread = __webpack_require__("cebc");
@@ -8239,8 +8238,8 @@ var AzureMapUserPositionEvent;
 
 var AzureMapUserPosition_component = Object(componentNormalizer["a" /* default */])(
   components_AzureMapUserPositionvue_type_script_lang_ts_,
-  AzureMapUserPositionvue_type_template_id_7db3fc4c_render,
-  AzureMapUserPositionvue_type_template_id_7db3fc4c_staticRenderFns,
+  AzureMapUserPositionvue_type_template_id_14d166a2_render,
+  AzureMapUserPositionvue_type_template_id_14d166a2_staticRenderFns,
   false,
   null,
   null,
@@ -13756,7 +13755,7 @@ var indexOf=function(e,t){if(e.indexOf)return e.indexOf(t);for(var n=0;n<e.lengt
 module.exports={
   "name": "azure-maps-control",
   "author": "Microsoft Corporation",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "description": "Map SDK for Azure Maps",
   "keywords": [
     "azure",
@@ -13887,7 +13886,7 @@ module.exports={
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var math_1=require("../../../namespace/math"),MapLabelCache=function(){function e(){this._labelCache={},this._labelIdx={},this._preloadedCache=new Set}return e.prototype.cache=function(e,a,c,i){var t=e+"_"+c[0]+"_"+c[1]+"_"+i;this._labelIdx[a.labelType]||(this._labelIdx[a.labelType]=[],this._labelCache[a.labelType]=[]),-1===this._labelIdx[a.labelType].indexOf(t)&&(this._labelCache[a.labelType].push({name:e,radius:a.radius,minZoom:a.minZoom,maxZoom:a.maxZoom||24,position:c}),this._labelIdx[a.labelType].push(t))},e.prototype.getNearestLabel=function(e,a,c){var i=null,t=this._labelCache[e];if(t)for(var h=1/0,n=0,s=t.length;n<s;n++)if(c>=t[n].minZoom&&c<=t[n].maxZoom){var l=math_1.getDistanceTo(t[n].position,a);l<=t[n].radius&&l<=h&&(h=l,i=t[n])}return i},e.prototype._preloadCache=function(e){if(!this._preloadedCache.has(e)){this._preloadedCache.add(e);var a={source:["Ocean label","Ocean name"],labelType:"water",minZoom:0,radius:395e4,polygonSources:["Ocean","Ocean or sea"]},c=e,i=c.indexOf("-");switch(-1!==i&&(c=c.substr(0,i)),c){case"fr":this.cache("Océan Pacifique",a,[-170,32],e),this.cache("Océan Pacifique",a,[-138,-27],e),this.cache("Océan Atlantique",a,[-40,32],e),this.cache("Océan Atlantique",a,[-17,-29],e);break;case"es":this.cache("Océan Pacifique",a,[-170,32],e),this.cache("Océan Pacifique",a,[-138,-27],e),this.cache("Océano Atlántico",a,[-40,32],e),this.cache("Océano Atlántico",a,[-17,-29],e);break;case"pt":this.cache("Oceano Pacífico",a,[-170,32],e),this.cache("Oceano Pacífico",a,[-138,-27],e),this.cache("Oceano Atlântico",a,[-40,32],e),this.cache("Oceano Atlântico",a,[-17,-29],e);break;case"ja":this.cache("太平洋",a,[-170,32],e),this.cache("太平洋",a,[-138,-27],e);break;case"en":this.cache("Pacific Ocean",a,[-170,32],e),this.cache("Pacific Ocean",a,[-138,-27],e),this.cache("Atlantic Ocean",a,[-40,32],e),this.cache("Atlantic Ocean",a,[-17,-29],e),this.cache("Indian Ocean",a,[77,-26],e)}}},e}();exports.MapLabelCache=MapLabelCache;
 
 },{"../../../namespace/math":280}],188:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var ErrorHandler_1=require("../../../helpers/ErrorHandler"),math_1=require("../../../namespace/math"),Pixel_1=require("../../../Pixel"),NearbyGeographySearchService_1=require("../../services/NearbyGeographySearchService"),MapLabelCache_1=require("./MapLabelCache"),MapViewDescriptor=function(){function e(o,a){var r=this;this._restFallback=!0,this._disposed=!1,this._mapMoveThreshold=25,this._roadPixelRadius=120,this._minRoadDistance=25,this._minIntersectionPixelDistance=50,this._baseVectorTileSourceId="vectorTiles",this._lableConfig=[{source:["Ocean label","Ocean name"],labelType:"water",minZoom:0,radius:395e4,polygonSources:["Ocean","Ocean or sea"]},{source:["Sea label"],labelType:"water",minZoom:3,radius:1e6,polygonSources:["Sea","Ocean or sea"]},{source:["Country name"],labelType:"country",minZoom:0,maxZoom:5,radius:3e5},{source:["State name","State name short"],labelType:"state",minZoom:4,maxZoom:7,radius:3e5},{source:["Capital city","Large city"],labelType:"city",minZoom:8,radius:4e4},{source:["Medium city"],labelType:"city",minZoom:8,radius:3e4},{source:["Small city"],labelType:"city",minZoom:8,radius:2e4},{source:["Island label"],labelType:"city",minZoom:8,radius:1e4},{source:["Town"],labelType:"city",minZoom:10,radius:1e4},{source:["Village"],labelType:"neighbourhood",minZoom:12,radius:6e3},{source:["Amusement area label"],labelType:"poi",minZoom:14,radius:2e3,polygonSources:["Amusement park"]},{source:["Hospital label"],labelType:"poi",minZoom:14,radius:1e3,polygonSources:["Hospital"]},{source:["Shopping centre label"],labelType:"poi",minZoom:14,radius:1e3,polygonSources:["Shopping"]},{source:["Stadium label"],labelType:"poi",minZoom:14,radius:1e3,polygonSources:["Stadium"]},{source:["University/School label"],labelType:"poi",minZoom:14,radius:1e3,polygonSources:["University"]},{source:["Zoo label"],labelType:"poi",minZoom:14,radius:1e3,polygonSources:["Zoo"]},{source:["Airport Label","Airport name","Airport POI"],labelType:"majorPoi",minZoom:11,radius:3e3,polygonSources:["Airport","Runway"]},{source:["National park name"],labelType:"majorPoi",minZoom:7,radius:15e3,polygonSources:["National or state park","National park","Forest"]},{source:["Reservation label"],labelType:"majorPoi",minZoom:7,radius:15e3,polygonSources:["Reservation"]}],this._polygonStyleLayer=["National or state park","National park","Reservation","Airport","Runway","Stadium","University","Zoo","Shopping","Hospital","Amusement park","Ocean","Sea","Ocean or sea"],this._labelCache=new Set(["city","state","country","water","majorPoi"]),this._roadLayers=new Set(["Connecting road","Connecting road tunnel","International road","International road tunnel","Local road","Local road tunnel","Major local road","Major local road tunnel","Major road","Major road tunnel","Minor local road","Minor local road tunnel","Motorway","Motorway tunnel","Secondary road","Secondary road tunnel","Toll connecting road","Toll connecting road tunnel","Toll international road","Toll international road tunnel","Toll local road","Toll local road tunnel","Toll major local road","Toll major local road tunnel","Toll major road","Toll major road tunnel","Toll minor local road","Toll minor local road tunnel","Toll motorway","Toll motorway tunnel","Toll secondary road","Toll secondary road tunnel"]),this._returnDetailedDescriptions=!1,this._mapUpdate=function(){setTimeout(function(){var o=r._map.getCamera(),a=r._map.getStyle().language.toLowerCase();if(r._lastLang!==a)e._labelCache._preloadCache(a),r._getDescriptor(o,a);else if(r._lastCamera)if(Math.round(r._lastCamera.zoom)!==Math.round(o.zoom))r._getDescriptor(o,a);else{var t=r._map.positionsToPixels([r._lastCamera.center,o.center]);Pixel_1.Pixel.getDistance(t[0],t[1])>r._mapMoveThreshold&&r._getDescriptor(o,a)}else r._getDescriptor(o,a)},100)},this._shortcutListener=function(e){e.altKey&&e.ctrlKey&&68===e.keyCode&&(r._returnDetailedDescriptions=!r._returnDetailedDescriptions,r._getDescriptor(r._map.getCamera(),r._map.getStyle().language.toLowerCase()))},this._map=o,this._mapDescriptionUpdated=a,this._reverseSearch=new NearbyGeographySearchService_1.NearbyGeographySearchService(o.authentication),e._labelCache||(e._labelCache=new MapLabelCache_1.MapLabelCache),this._lastLang=this._map.getStyle().language.toLowerCase(),e._labelCache._preloadCache(this._lastLang);var t=function(){r._map.events.remove("load",t),r._disposed||(r._mapUpdate(),r._map.events.add("moveend",r._mapUpdate),r._map.events.add("styledata",r._mapUpdate))};this._map.events.add("load",t),this._map.getMapContainer().addEventListener("keydown",this._shortcutListener)}return e.prototype.dispose=function(){this._disposed=!0,this._map.events.remove("moveend",this._mapUpdate),this._map.events.remove("styledata",this._mapUpdate),this._map.getMapContainer().removeEventListener("keydown",this._shortcutListener)},e.prototype._getDescriptor=function(o,a){var r=this;this._lastCamera=o,this._lastLang=a;var t,n={},i=this._map.positionsToPixels([o.center])[0];ErrorHandler_1.ErrorHandler.tryCatch(this._map,function(){t=r._map._getMap().queryRenderedFeatures(i,{layers:r._polygonStyleLayer,filter:["==",["geometry-type"],"Polygon"]})},function(){});var s=null;t&&t.length>0&&(s=t[0]);for(var l,c=null,p=0,u=this._lableConfig.length;p<u;p++){var d=this._lableConfig[p];o.zoom>=d.minZoom?d.polygonSources?s&&-1!==d.polygonSources.indexOf(s.layer["source-layer"])?(c=d.labelType,this._getClosestLabel(d,o,a,n,!1)):this._getClosestLabel(d,o,a,n,!0):this._getClosestLabel(d,o,a,n,!1):this._getClosestLabel(d,o,a,n,!0)}o.zoom>=8&&this._processRoads(n,o,a),this._labelCache.forEach(function(a){n[a]||(l=null,"water"===a||"majorPoi"===a?a===c&&(l=e._labelCache.getNearestLabel(a,o.center,o.zoom)):l=e._labelCache.getNearestLabel(a,o.center,o.zoom),l&&(n[a]=l.name))}),this._createDescription(o,c,n,this._restFallback).then(function(e){e!==r._lastDescription&&""!==e&&(r._lastDescription=e,r._mapDescriptionUpdated(e))})},e.prototype._getClosestLabel=function(o,a,r,t,n){for(var i=o.radius,s=0,l=o.source.length;s<l;s++){var c={sourceLayer:o.source[s]},p=!1;"National park name"===o.source[s]&&(p=!0);var u=this._map._getMap().querySourceFeatures(this._baseVectorTileSourceId,c),d=null,m=1/0,y=this._labelCache.has(o.labelType);if(!n||n&&y)for(var h=0,_=u.length;h<_;h++){var g=u[h].geometry.coordinates;if(!n){var b=p?math_1.getClosestPointOnGeometry(a.center,u[h].geometry).properties.distance:math_1.getDistanceTo(a.center,g);b<m&&(m=b,d=u[h])}y&&e._labelCache.cache(u[h].properties.name,o,g,r)}if(!n){var v=o.labelType+"Dis";d&&m<=i&&("number"!=typeof t[v]||m<=t[v])&&(t[o.labelType]=d.properties.name,t[v]=m)}}},e.prototype._processRoads=function(o,a,r,t){var n=this._map._getMap().queryRenderedFeatures(t,{filter:["==",["geometry-type"],"LineString"]});if(n){for(var i=void 0,s=void 0,l=void 0,c=void 0,p=0,u=n.length;p<u;p++)if(this._roadLayers.has(n[p].layer["source-layer"])&&n[p].properties.name&&""!==n[p].properties.name){var d=math_1.getClosestPointOnGeometry(a.center,n[p]);(!l||d.properties.distance<l.properties.distance)&&(i&&n[p].properties.name===i.properties.name?l=d:i&&n[p].properties.name===i.properties.name?(!c||d.properties.distance<c.properties.distance)&&(c=d,s=n[p]):(c=l,s=i,l=d,i=n[p]))}if(i&&(o.country||(o.country=i.properties.country_code,o.countryDis=0,e._labelCache.cache(o.country,{source:["Country name"],labelType:"country",radius:5e3,minZoom:0},l.geometry.coordinates,r)),o.state||(o.state=i.properties.country_subdivision,o.stateDis=0,e._labelCache.cache(o.state,{source:["State name"],labelType:"state",radius:5e3,minZoom:4},l.geometry.coordinates,r)),a.zoom>=15)){var m=this._map.positionsToPixels([a.center,l.geometry.coordinates]),y=Pixel_1.Pixel.getDistance(m[0],m[1]);if((y<this._roadPixelRadius||l.properties.distance<this._minRoadDistance)&&(o.road=i.properties.name),s){var h=this._map.positionsToPixels([c.geometry.coordinates]);((y=Pixel_1.Pixel.getDistance(m[0],h[0]))<this._minIntersectionPixelDistance||c.properties.distance<this._minRoadDistance)&&(o.secondRoad=s.properties.name,o.secondRoadDis=c.properties.distance)}}}},e.prototype._createDescription=function(e,o,a,r){var t=this;return new Promise(function(n,i){var s=[];a&&(o&&("water"===o&&a.water?s.push(a.water):"majorPoi"===o&&a.majorPoi&&s.push(a.majorPoi)),0===s.length&&(a.majorPoi&&e.zoom>=8?s.push(a.majorPoi):(a.poi&&e.zoom>=14?s.push(a.poi):a.road&&e.zoom>=15&&(a.secondRoad?s.push(a.road+" & "+a.secondRoad):s.push(a.road)),a.neighbourhood&&e.zoom>=12&&s.push(a.neighbourhood),a.city&&e.zoom>=6&&s.push(a.city)),a.state&&e.zoom>=4&&s.push(a.state),0===s.length?a.water?s.push(a.water):a.country&&s.push(a.country):1===s.length&&a.state&&e.zoom>=4&&a.country&&s.push(a.country)));var l=[];if(s.length>0)l.push("<p>Location: ",s.join(", "),"</p>");else if(r&&"water"!==o)return void t._reverseGeocodeDescription(e).then(function(e){n(e)},function(){i("<p>Location: unknown</p>")});t._returnDetailedDescriptions&&(l.push("<p>Zoom: ",math_1._precision(e.zoom,2),"</p>"),l.push("<p>Latitude: ",math_1._precision(e.center[1],5),"</p>"),l.push("<p>Longitude: ",math_1._precision(e.center[0],5),"</p>")),n(l.join(""))})},e.prototype._reverseGeocodeDescription=function(o){var a=this;return new Promise(function(r){var t=a._map.getStyle();a._reverseSearch.request({position:o.center,style:t}).then(function(n){var i={};if(n&&n.addresses&&n.addresses.length>0&&n.addresses[0].address){var s=n.addresses[0].address;s.country&&(i.country=s.country,e._labelCache.cache(i.country,{source:["Country name"],labelType:"country",radius:5e3,minZoom:0},o.center,t.language)),s.countrySubdivision&&(i.state=s.countrySubdivision,e._labelCache.cache(i.state,{source:["State name"],labelType:"state",radius:5e3,minZoom:4},o.center,t.language)),s.municipality&&(i.city=s.municipality,e._labelCache.cache(i.state,{source:["Small city"],labelType:"city",radius:1e3,minZoom:10},o.center,t.language)),s.streetNameAndNumber?i.road=s.streetNameAndNumber:s.street&&(i.road=s.street)}a._createDescription(o,null,i,!1).then(function(e){r(e)})},function(e){a._createDescription(o,null,null,!1).then(function(e){r(e)})}).catch(function(e){a._createDescription(o,null,null,!1).then(function(e){r(e)})})})},e}();exports.MapViewDescriptor=MapViewDescriptor;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var ErrorHandler_1=require("../../../helpers/ErrorHandler"),math_1=require("../../../namespace/math"),Pixel_1=require("../../../Pixel"),NearbyGeographySearchService_1=require("../../services/NearbyGeographySearchService"),MapLabelCache_1=require("./MapLabelCache"),MapViewDescriptor=function(){function e(o,a){var r=this;this._restFallback=!0,this._disposed=!1,this._mapMoveThreshold=25,this._roadPixelRadius=120,this._minRoadDistance=25,this._minIntersectionPixelDistance=50,this._baseVectorTileSourceId="vectorTiles",this._lableConfig=[{source:["Ocean label","Ocean name"],labelType:"water",minZoom:0,radius:395e4,polygonSources:["Ocean","Ocean or sea"]},{source:["Sea label"],labelType:"water",minZoom:3,radius:1e6,polygonSources:["Sea","Ocean or sea"]},{source:["Country name"],labelType:"country",minZoom:0,maxZoom:5,radius:3e5},{source:["State name","State name short"],labelType:"state",minZoom:4,maxZoom:7,radius:3e5},{source:["Capital city","Large city"],labelType:"city",minZoom:8,radius:4e4},{source:["Medium city"],labelType:"city",minZoom:8,radius:3e4},{source:["Small city"],labelType:"city",minZoom:8,radius:2e4},{source:["Island label"],labelType:"city",minZoom:8,radius:1e4},{source:["Town"],labelType:"city",minZoom:10,radius:1e4},{source:["Village"],labelType:"neighbourhood",minZoom:12,radius:6e3},{source:["Amusement area label"],labelType:"poi",minZoom:14,radius:2e3,polygonSources:["Amusement park"]},{source:["Hospital label"],labelType:"poi",minZoom:14,radius:1e3,polygonSources:["Hospital"]},{source:["Shopping centre label"],labelType:"poi",minZoom:14,radius:1e3,polygonSources:["Shopping"]},{source:["Stadium label"],labelType:"poi",minZoom:14,radius:1e3,polygonSources:["Stadium"]},{source:["University/School label"],labelType:"poi",minZoom:14,radius:1e3,polygonSources:["University"]},{source:["Zoo label"],labelType:"poi",minZoom:14,radius:1e3,polygonSources:["Zoo"]},{source:["Airport Label","Airport name","Airport POI"],labelType:"majorPoi",minZoom:11,radius:3e3,polygonSources:["Airport","Runway"]},{source:["National park name"],labelType:"majorPoi",minZoom:7,radius:15e3,polygonSources:["National or state park","National park","Forest"]},{source:["Reservation label"],labelType:"majorPoi",minZoom:7,radius:15e3,polygonSources:["Reservation"]}],this._polygonStyleLayer=["National or state park","National park","Reservation","Airport","Runway","Stadium","University","Zoo","Shopping","Hospital","Amusement park","Ocean","Sea","Ocean or sea"],this._labelCache=new Set(["city","state","country","water","majorPoi"]),this._roadLayers=new Set(["Connecting road","Connecting road tunnel","International road","International road tunnel","Local road","Local road tunnel","Major local road","Major local road tunnel","Major road","Major road tunnel","Minor local road","Minor local road tunnel","Motorway","Motorway tunnel","Secondary road","Secondary road tunnel","Toll connecting road","Toll connecting road tunnel","Toll international road","Toll international road tunnel","Toll local road","Toll local road tunnel","Toll major local road","Toll major local road tunnel","Toll major road","Toll major road tunnel","Toll minor local road","Toll minor local road tunnel","Toll motorway","Toll motorway tunnel","Toll secondary road","Toll secondary road tunnel"]),this._returnDetailedDescriptions=!1,this._onUpdate=function(){setTimeout(function(){r._map._getMap().loaded()?r._mapUpdate():r._map._getMap().once("idle",r._mapUpdate)})},this._mapUpdate=function(){var o=r._map.getCamera(),a=r._map.getStyle(),t=a.language.toLowerCase(),i=a.style.toLowerCase();if(r._lastLang!==t)e._labelCache._preloadCache(t),r._getDescriptor(o,t,i);else if(r._lastStyle!==i&&"blank"===r._lastStyle)r._getDescriptor(o,t,i);else if(r._lastCamera)if(Math.round(r._lastCamera.zoom)!==Math.round(o.zoom))r._getDescriptor(o,t,i);else{var s=r._map.positionsToPixels([r._lastCamera.center,o.center]);Pixel_1.Pixel.getDistance(s[0],s[1])>r._mapMoveThreshold&&r._getDescriptor(o,t,i)}else r._getDescriptor(o,t,i)},this._shortcutListener=function(e){if(e.altKey&&e.ctrlKey&&68===e.keyCode){r._returnDetailedDescriptions=!r._returnDetailedDescriptions;var o=r._map.getCamera(),a=r._map.getStyle(),t=a.language.toLowerCase(),i=a.style.toLowerCase();r._getDescriptor(o,t,i)}},this._map=o,this._mapDescriptionUpdated=a,this._reverseSearch=new NearbyGeographySearchService_1.NearbyGeographySearchService(o.authentication),e._labelCache||(e._labelCache=new MapLabelCache_1.MapLabelCache),this._lastLang=this._map.getStyle().language.toLowerCase(),e._labelCache._preloadCache(this._lastLang);var t=function(){r._map.events.remove("load",t),r._disposed||(r._onUpdate(),r._map.events.add("moveend",r._onUpdate),r._map.events.add("styledata",r._onUpdate))};this._map.events.add("load",t),this._map.getMapContainer().addEventListener("keydown",this._shortcutListener)}return e.prototype.dispose=function(){this._disposed=!0,this._map.events.remove("moveend",this._onUpdate),this._map.events.remove("styledata",this._onUpdate),this._map.getMapContainer().removeEventListener("keydown",this._shortcutListener)},e.prototype._getDescriptor=function(o,a,r){var t,i=this;if(this._lastCamera=o,this._lastLang=a,this._lastStyle=r,"blank"!==r){var s,n={},l=this._map.positionsToPixels([o.center])[0];ErrorHandler_1.ErrorHandler.tryCatch(this._map,function(){s=i._map._getMap().queryRenderedFeatures(l,{layers:i._polygonStyleLayer,filter:["==",["geometry-type"],"Polygon"]})},function(){});var p=null;s&&s.length>0&&(p=s[0]);for(var u,d=null,c=0,m=this._lableConfig.length;c<m;c++){var h=this._lableConfig[c];o.zoom>=h.minZoom?h.polygonSources?p&&-1!==h.polygonSources.indexOf(p.layer["source-layer"])?(d=h.labelType,this._getClosestLabel(h,o,a,n,!1)):this._getClosestLabel(h,o,a,n,!0):this._getClosestLabel(h,o,a,n,!1):this._getClosestLabel(h,o,a,n,!0)}o.zoom>=8&&this._processRoads(n,o,a),this._labelCache.forEach(function(a){n[a]||(u=null,"water"===a||"majorPoi"===a?a===d&&(u=e._labelCache.getNearestLabel(a,o.center,o.zoom)):u=e._labelCache.getNearestLabel(a,o.center,o.zoom),u&&(n[a]=u.name))}),t=this._createDescription(o,d,n,!0,this._restFallback)}else t=this._createDescription(o,null,null,!1,!1);t.then(function(e){e===i._lastDescription||""===e&&"blank"!==r||(i._lastDescription=e,i._mapDescriptionUpdated(e))})},e.prototype._getClosestLabel=function(o,a,r,t,i){for(var s=o.radius,n=0,l=o.source.length;n<l;n++){var p={sourceLayer:o.source[n]},u=!1;"National park name"===o.source[n]&&(u=!0);var d=this._map._getMap().querySourceFeatures(this._baseVectorTileSourceId,p),c=null,m=1/0,h=this._labelCache.has(o.labelType);if(!i||i&&h)for(var y=0,b=d.length;y<b;y++){var v=d[y].geometry.coordinates;if(!i){var _=u?math_1.getClosestPointOnGeometry(a.center,d[y].geometry).properties.distance:math_1.getDistanceTo(a.center,v);_<m&&(m=_,c=d[y])}h&&e._labelCache.cache(d[y].properties.name,o,v,r)}if(!i){var S=o.labelType+"Dis";c&&m<=s&&("number"!=typeof t[S]||m<=t[S])&&(t[o.labelType]=c.properties.name,t[S]=m)}}},e.prototype._processRoads=function(o,a,r,t){var i=this._map._getMap().queryRenderedFeatures(t,{filter:["==",["geometry-type"],"LineString"]});if(i){for(var s=void 0,n=void 0,l=void 0,p=void 0,u=0,d=i.length;u<d;u++)if(this._roadLayers.has(i[u].layer["source-layer"])&&i[u].properties.name&&""!==i[u].properties.name){var c=math_1.getClosestPointOnGeometry(a.center,i[u]);(!l||c.properties.distance<l.properties.distance)&&(s&&i[u].properties.name===s.properties.name?l=c:s&&i[u].properties.name===s.properties.name?(!p||c.properties.distance<p.properties.distance)&&(p=c,n=i[u]):(p=l,n=s,l=c,s=i[u]))}if(s&&(o.country||(o.country=s.properties.country_code,o.countryDis=0,e._labelCache.cache(o.country,{source:["Country name"],labelType:"country",radius:5e3,minZoom:0},l.geometry.coordinates,r)),o.state||(o.state=s.properties.country_subdivision,o.stateDis=0,e._labelCache.cache(o.state,{source:["State name"],labelType:"state",radius:5e3,minZoom:4},l.geometry.coordinates,r)),a.zoom>=15)){var m=this._map.positionsToPixels([a.center,l.geometry.coordinates]),h=Pixel_1.Pixel.getDistance(m[0],m[1]);if((h<this._roadPixelRadius||l.properties.distance<this._minRoadDistance)&&(o.road=s.properties.name),n){var y=this._map.positionsToPixels([p.geometry.coordinates]);((h=Pixel_1.Pixel.getDistance(m[0],y[0]))<this._minIntersectionPixelDistance||p.properties.distance<this._minRoadDistance)&&(o.secondRoad=n.properties.name,o.secondRoadDis=p.properties.distance)}}}},e.prototype._createDescription=function(e,o,a,r,t){var i=this;return new Promise(function(s,n){var l=[];if(r){var p=[];if(a&&(o&&("water"===o&&a.water?p.push(a.water):"majorPoi"===o&&a.majorPoi&&p.push(a.majorPoi)),0===p.length&&(a.majorPoi&&e.zoom>=8?p.push(a.majorPoi):(a.poi&&e.zoom>=14?p.push(a.poi):a.road&&e.zoom>=15&&(a.secondRoad?p.push(a.road+" & "+a.secondRoad):p.push(a.road)),a.neighbourhood&&e.zoom>=12&&p.push(a.neighbourhood),a.city&&e.zoom>=6&&p.push(a.city)),a.state&&e.zoom>=4&&p.push(a.state),0===p.length?a.water?p.push(a.water):a.country&&p.push(a.country):1===p.length&&a.state&&e.zoom>=4&&a.country&&p.push(a.country))),p.length>0)l.push("<p>Location: ",p.join(", "),"</p>");else if(t&&"water"!==o)return void i._reverseGeocodeDescription(e).then(function(e){s(e)},function(){n("<p>Location: unknown</p>")})}i._returnDetailedDescriptions&&(l.push("<p>Zoom: ",math_1._precision(e.zoom,2),"</p>"),l.push("<p>Latitude: ",math_1._precision(e.center[1],5),"</p>"),l.push("<p>Longitude: ",math_1._precision(e.center[0],5),"</p>")),s(l.join(""))})},e.prototype._reverseGeocodeDescription=function(o){var a=this;return new Promise(function(r){var t=a._map.getStyle();a._reverseSearch.request({position:o.center,style:t}).then(function(i){var s={};if(i&&i.addresses&&i.addresses.length>0&&i.addresses[0].address){var n=i.addresses[0].address;n.country&&(s.country=n.country,e._labelCache.cache(s.country,{source:["Country name"],labelType:"country",radius:5e3,minZoom:0},o.center,t.language)),n.countrySubdivision&&(s.state=n.countrySubdivision,e._labelCache.cache(s.state,{source:["State name"],labelType:"state",radius:5e3,minZoom:4},o.center,t.language)),n.municipality&&(s.city=n.municipality,e._labelCache.cache(s.state,{source:["Small city"],labelType:"city",radius:1e3,minZoom:10},o.center,t.language)),n.streetNameAndNumber?s.road=n.streetNameAndNumber:n.street&&(s.road=n.street)}a._createDescription(o,null,s,!0,!1).then(function(e){r(e)})},function(e){a._createDescription(o,null,null,!0,!1).then(function(e){r(e)})}).catch(function(e){a._createDescription(o,null,null,!0,!1).then(function(e){r(e)})})})},e}();exports.MapViewDescriptor=MapViewDescriptor;
 
 },{"../../../Pixel":169,"../../../helpers/ErrorHandler":173,"../../../namespace/math":280,"../../services/NearbyGeographySearchService":217,"./MapLabelCache":187}],189:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),FlowServiceDelegate=function(){return function(e,o){var t=this;this.callCounter=0,this.listenerEnabled=!1,this.flowComponent=void 0,this.flowPath=void 0,this.addToMap=function(){if(!t.map._isReady())throw new Error("Traffic flow could not be added to the map because the map is not ready. Please use a ready event listener to guarantee the map is ready before enabling traffic flow.");t.listenerEnabled||(t.map.events.add("styledata",t.addToMap),t.listenerEnabled=!0);var e=t.map.getStyle(),o=t.map.getTraffic(),a=t.styleDefinitions.getFlowPath(e,o);if(a&&t.flowPath!==a){t.callCounter++;var n=t.callCounter;t.styleDefinitions.getFlowComponent(e,o).then(function(e){if(t.callCounter===n){t.flowComponent&&(t.map.layers.remove(t.flowComponent.layer),t.map.sources.remove(t.flowComponent.sources),delete t.flowComponent);var o=t.map.layers.getLayers(),l=_.findIndex(o,function(e){return"transit"===e.getId()}),r=-1!==l?o[l+1]:void 0;t.map.sources.add(e.sources),t.map.layers.add(e.layer,r),t.flowComponent=e,t.flowPath=a}})}},this.removeFromMap=function(){t.callCounter++,t.listenerEnabled&&(t.map.events.remove("styledata",t.addToMap),t.listenerEnabled=!1),t.flowPath&&delete t.flowPath,t.flowComponent&&(t.map.layers.remove(t.flowComponent.layer),t.map.sources.remove(t.flowComponent.sources),delete t.flowComponent)},this.styleDefinitions=o,this.map=e}}();exports.FlowServiceDelegate=FlowServiceDelegate;
@@ -13899,7 +13898,7 @@ module.exports={
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var IncidentPopupIconName,math=require("../../../namespace/math"),Popup_1=require("../../../Popup");!function(e){e.DELAY="delay",e.LENGTH="length",e.FROM="from",e.TO="to"}(IncidentPopupIconName||(IncidentPopupIconName={}));var IncidentPopupFactory=function(){function e(){}return e.build=function(e,t){void 0===t&&(t="en-US");var i=document.createElement("div");i.classList.add("incident-popup-title"),i.classList.add("font-segoeui-b"),i.setAttribute("tabindex","0"),i.innerText=e.properties.incidentType,i.setAttribute("aria-label","Incident Type "+e.properties.incidentType);var n=document.createElement("div");n.classList.add("incident-popup-subtitle"),n.classList.add("font-segoeui-b"),n.setAttribute("aria-label","Incident Description "+e.properties.description),n.setAttribute("tabindex","0"),n.innerText=e.properties.description;var o=document.createElement("div");o.classList.add("incident-popup-header"),o.style.backgroundColor=e.properties.color,o.appendChild(i),o.appendChild(n);var a=document.createElement("div");if(a.classList.add("incident-popup-body"),e.properties.delay){var r=Math.floor(e.properties.delay/60)+" min",p=this.createInfoSection(r,IncidentPopupIconName.DELAY);a.appendChild(p)}if(e.properties.length){var d=new Intl.NumberFormat([t,"en-US"],{maximumFractionDigits:2}),c=void 0;if("en-US"===t){var s=math.convertDistance(e.properties.length,"meters","miles");c=d.format(s)+" miles"}else{var u=math.convertDistance(e.properties.length,"meters","kilometers");c=d.format(u)+" km"}var l=this.createInfoSection(c,IncidentPopupIconName.LENGTH);a.appendChild(l)}if(e.properties.from){var m=this.createInfoSection(e.properties.from,IncidentPopupIconName.FROM);a.appendChild(m)}if(e.properties.to){var v=this.createInfoSection(e.properties.to,IncidentPopupIconName.TO);a.appendChild(v)}var f=document.createElement("div");return f.classList.add("incident-popup-content"),f.appendChild(o),f.appendChild(a),new Popup_1.Popup({content:f,position:e.geometry.coordinates})},e.createInfoSection=function(e,t){var i=document.createElement("div");i.classList.add("incident-popup-info");var n=document.createElement("div");n.classList.add("icon"),n.classList.add(t);var o=document.createElement("span");return o.classList.add("message"),o.classList.add("font-segoeui"),o.setAttribute("aria-label","Incident "+t+" "+e),o.setAttribute("tabindex","0"),o.innerText=e,i.appendChild(n),i.appendChild(o),i},e}();exports.IncidentPopupFactory=IncidentPopupFactory;
 
 },{"../../../Popup":170,"../../../namespace/math":280}],192:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Dictionary_1=require("../../../helpers/Dictionary"),data_1=require("../../../namespace/data"),IncidentService_1=require("../../services/IncidentService"),Incident_1=require("./Incident"),IncidentPopupFactory_1=require("./IncidentPopupFactory"),IncidentServiceDelegate=function(){return function(e){var n=this;this.incidentLayerName="incidents",this.popups=new Dictionary_1.Dictionary,this.addToMap=function(){n.map.addPins([],{name:n.incidentLayerName,cluster:!1}),n.map.addEventListener("mouseenter",n.incidentLayerName,n.cursorToPointer),n.map.addEventListener("mouseleave",n.incidentLayerName,n.cursorToDefault),n.map.addEventListener("click",n.incidentLayerName,n.openIncidentPopup),n.map.events.add("moveend",n.updateIncidents),n.map.events.add("styledata",n.updateLanguage),n.updateIncidents()},this.removeFromMap=function(){n.map.removeLayers([n.incidentLayerName]),n.map.removeEventListener("click",n.incidentLayerName,n.openIncidentPopup),n.map.removeEventListener("mouseenter",n.incidentLayerName,n.cursorToPointer),n.map.removeEventListener("mouseleave",n.incidentLayerName,n.cursorToDefault),n.map.events.remove("moveend",n.updateIncidents),n.map.events.remove("styledata",n.updateLanguage),n.cleanUpPopups()},this.updateIncidents=function(){var e=Math.ceil(n.map.getCamera().zoom),t=n.map.getCamera().bounds;n.incidentLanguage=n.map.getStyle().language;var i=n.map._getLocalizedStrings(),a=n.incidentService.request({bbox:t,zoom:e,params:{expandCluster:!0,originalPosition:!0,language:n.incidentLanguage}});Promise.all([a,i]).then(function(e){var i=e[0],a=e[1];if(n.map.getTraffic().incidents){var p=[];n.cleanUpPopups();for(var o=0,r=i.tm.poi||[];o<r.length;o++)for(var c=r[o],s=function(e){if(data_1.BoundingBox.containsPosition(t,[e.op.x,e.op.y])){var i=new Incident_1.Incident(e,a);p.push(i);var o=IncidentPopupFactory_1.IncidentPopupFactory.build(i,n.incidentLanguage);n.popups.set(i.properties.id,o),n.map.events.add("open",o,function(){n.openPopupId=i.properties.id,n.popups.forEach(function(e,t){n.openPopupId!==t&&e.close()})}),n.map.events.add("close",o,function(){n.openPopupId===i.properties.id&&delete n.openPopupId}),n.openPopupId===i.properties.id?n.popups.get(i.properties.id).open(n.map):n.popups.get(i.properties.id).attach(n.map)}},d=0,u=c.cpoi||[c];d<u.length;d++)s(u[d]);n.map.addPins(p,{overwrite:p.length>0,name:n.incidentLayerName})}})},this.cursorToPointer=function(e){n.map.getCanvas().style.cursor="pointer"},this.cursorToDefault=function(e){n.map.getCanvas().style.cursor=""},this.openIncidentPopup=function(e){var t=e.features[0].properties.id;n.popups.has(t)&&n.popups.get(t).open(n.map)},this.cleanUpPopups=function(){n.popups.forEach(function(e){e.remove()}),n.popups.clear()},this.updateLanguage=function(){n.map.getStyle().language!==n.incidentLanguage&&n.updateIncidents()},this.map=e,this.incidentService=new IncidentService_1.IncidentService(this.map.authentication)}}();exports.IncidentServiceDelegate=IncidentServiceDelegate;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Dictionary_1=require("../../../helpers/Dictionary"),data_1=require("../../../namespace/data"),IncidentService_1=require("../../services/IncidentService"),Incident_1=require("./Incident"),IncidentPopupFactory_1=require("./IncidentPopupFactory"),IncidentServiceDelegate=function(){return function(e){var n=this;this.incidentLayerName="incidents",this.popups=new Dictionary_1.Dictionary,this.addToMap=function(){n.map.addPins([],{name:n.incidentLayerName,cluster:!1}),n.map.addEventListener("mouseenter",n.incidentLayerName,n.cursorToPointer),n.map.addEventListener("mouseleave",n.incidentLayerName,n.cursorToDefault),n.map.addEventListener("click",n.incidentLayerName,n.openIncidentPopup),n.map.events.add("moveend",n.updateIncidents),n.map.events.add("styledata",n.updateLanguage),n.updateIncidents()},this.removeFromMap=function(){n.map.removeLayers([n.incidentLayerName]),n.map.removeEventListener("click",n.incidentLayerName,n.openIncidentPopup),n.map.removeEventListener("mouseenter",n.incidentLayerName,n.cursorToPointer),n.map.removeEventListener("mouseleave",n.incidentLayerName,n.cursorToDefault),n.map.events.remove("moveend",n.updateIncidents),n.map.events.remove("styledata",n.updateLanguage),n.cleanUpPopups()},this.updateIncidents=function(){var e=Math.ceil(n.map.getCamera().zoom),t=n.map.getCamera().bounds;n.incidentLanguage=n.map.getStyle().language;var i=n.map._getLocalizedStrings(),a=n.incidentService.request({bbox:t,zoom:e,params:{expandCluster:!0,originalPosition:!0,language:n.incidentLanguage}});Promise.all([a,i]).then(function(e){var i=e[0],a=e[1];if(n.map.getTraffic().incidents){var p=[];n.cleanUpPopups();for(var o=0,r=i.tm.poi||[];o<r.length;o++)for(var c=r[o],s=function(e){if(data_1.BoundingBox.containsPosition(t,[e.op.x,e.op.y])){var i=new Incident_1.Incident(e,a);p.push(i);var o=IncidentPopupFactory_1.IncidentPopupFactory.build(i,n.incidentLanguage);n.popups.set(i.properties.id,o),n.map.events.add("open",o,function(){n.openPopupId=i.properties.id,n.popups.forEach(function(e,t){n.openPopupId!==t&&e.close()})}),n.map.events.add("close",o,function(){n.openPopupId===i.properties.id&&delete n.openPopupId}),n.openPopupId===i.properties.id?n.popups.get(i.properties.id).open(n.map):n.popups.get(i.properties.id).attach(n.map)}},d=0,u=c.cpoi||[c];d<u.length;d++)s(u[d]);n.map.addPins(p,{overwrite:!0,name:n.incidentLayerName})}})},this.cursorToPointer=function(e){n.map.getCanvas().style.cursor="pointer"},this.cursorToDefault=function(e){n.map.getCanvas().style.cursor=""},this.openIncidentPopup=function(e){var t=e.features[0].properties.id;n.popups.has(t)&&n.popups.get(t).open(n.map)},this.cleanUpPopups=function(){n.popups.forEach(function(e){e.remove()}),n.popups.clear()},this.updateLanguage=function(){n.map.getStyle().language!==n.incidentLanguage&&n.updateIncidents()},this.map=e,this.incidentService=new IncidentService_1.IncidentService(this.map.authentication)}}();exports.IncidentServiceDelegate=IncidentServiceDelegate;
 
 },{"../../../helpers/Dictionary":172,"../../../namespace/data":253,"../../services/IncidentService":216,"./Incident":190,"./IncidentPopupFactory":191}],193:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Dictionary_1=require("../../helpers/Dictionary"),data_1=require("../../namespace/data"),Pixel_1=require("../../Pixel"),MapCallbackHandler=function(){function e(e){this.callbacks=new Dictionary_1.Dictionary,this.map=e}return e.prototype.addCallback=function(e,t,n,i,a){var r,l,s=this;if(i)r=function(e){var t=e.lngLat?new data_1.Position(e.lngLat.lng,e.lngLat.lat):void 0,i=e.point?[e.point.x,e.point.y]:void 0,a=e.features?e.features.map(function(e){return new data_1.Feature(e.geometry,e.properties,e.id)}):[],r={type:e.type,originalEvent:e.originalEvent,position:t,coordinate:i,features:a};n(r)};else switch(e){case"touchstart":case"touchend":case"touchmove":case"touchcancel":r=function(i){if(i.originalEvent){if(i.originalEvent===l)return;l=i.originalEvent}var r=i.point?new Pixel_1.Pixel(i.point.x,i.point.y):void 0,o=i.points?i.points.map(function(e){return new Pixel_1.Pixel(e.x,e.y)}):[],c=i.lngLat?new data_1.Position(i.lngLat.lng,i.lngLat.lat):void 0,p=i.lngLats?i.lngLats.map(function(e){return new data_1.Position(e.lng,e.lat)}):[],v=c?s.map.layers.getRenderedShapes(new data_1.Point(c),t?[t]:void 0):[],g={map:s.map,originalEvent:i.originalEvent,pixel:r,pixels:o,position:c,positions:p,shapes:v,layerId:t||void 0,preventDefault:i.preventDefault,type:i.type};a&&s.map.events._removeListener(e,t,n),n(g)};break;case"mousedown":case"mouseup":case"mouseover":case"mousemove":case"click":case"dblclick":case"mouseout":case"mouseenter":case"mouseleave":case"contextmenu":r=function(i){if(i.originalEvent){if(i.originalEvent===l)return;l=i.originalEvent}var r=i.lngLat?new data_1.Position(i.lngLat.lng,i.lngLat.lat):void 0,o=i.point?new Pixel_1.Pixel(i.point.x,i.point.y):void 0,c=r?s.map.layers.getRenderedShapes(new data_1.Point(r),t?[t]:void 0):[],p={map:s.map,originalEvent:i.originalEvent,position:r,pixel:o,preventDefault:i.preventDefault,shapes:c,layerId:t||void 0,type:i.type};a&&s.map.events._removeListener(e,t,n),n(p)};break;case"wheel":r=function(i){if(i.originalEvent){if(i.originalEvent===l)return;l=i.originalEvent}var r={map:s.map,originalEvent:i.originalEvent,preventDefault:i.preventDefault,type:i.type};a&&s.map.events._removeListener(e,t,n),n(r)};break;case"error":r=function(i){var r={error:i.error,map:s.map,type:i.type};a&&s.map.events._removeListener(e,t,n),n(r)};break;case"resize":r=function(i){var r={map:s.map,type:i.type};for(var l in i)"type"!==l&&"target"!==l&&(r[l]=i[l]);a&&s.map.events._removeListener(e,t,n),n(r)};break;default:r=function(i){var r={map:s.map,type:i.type};i.originalEvent&&(r.originalEvent=i.originalEvent),a&&s.map.events._removeListener(e,t,n),n(r)}}this.callbacks.has(t)||this.callbacks.set(t,new Dictionary_1.Dictionary),this.callbacks.get(t).has(e)||this.callbacks.get(t).set(e,new Dictionary_1.Dictionary),this.callbacks.get(t).get(e).set(n,[r,a])},e.prototype.removeCallback=function(e,t,n){this.callbacks.has(t)&&this.callbacks.get(t).has(e)&&this.callbacks.get(t).get(e).has(n)&&this.callbacks.get(t).get(e).delete(n)},e.prototype.getModifiedCallback=function(e,t,n){if(this.callbacks.has(t)&&this.callbacks.get(t).has(e)&&this.callbacks.get(t).get(e).has(n))return this.callbacks.get(t).get(e).get(n)[0]},e.prototype.getLayerCallbacks=function(e){if(this.callbacks.has(e))return this.callbacks.get(e)},e.prototype.getEventCallbacks=function(e,t){if(this.callbacks.has(t)){var n=this.callbacks.get(t);if(n.has(e))return n.get(e)}},e}();exports.MapCallbackHandler=MapCallbackHandler;
@@ -13971,9 +13970,9 @@ module.exports={
 "use strict";var __extends=this&&this.__extends||function(){var t=function(n,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,n){t.__proto__=n}||function(t,n){for(var o in n)n.hasOwnProperty(o)&&(t[o]=n[o])})(n,o)};return function(n,o){function e(){this.constructor=n}t(n,o),n.prototype=null===o?Object.create(o):(e.prototype=o.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../helpers/Options"),UserInteractionOptions=function(t){function n(){var n=null!==t&&t.apply(this,arguments)||this;return n.interactive=!0,n.scrollZoomInteraction=!0,n.boxZoomInteraction=!0,n.dragRotateInteraction=!0,n.dragPanInteraction=!0,n.keyboardInteraction=!0,n.dblClickZoomInteraction=!0,n.touchInteraction=!0,n}return __extends(n,t),n}(Options_1.Options);exports.UserInteractionOptions=UserInteractionOptions;
 
 },{"../../helpers/Options":175}],216:[function(require,module,exports){
-"use strict";var __assign=this&&this.__assign||function(){return(__assign=Object.assign||function(e){for(var n,r=1,i=arguments.length;r<i;r++)for(var t in n=arguments[r])Object.prototype.hasOwnProperty.call(n,t)&&(e[t]=n[t]);return e}).apply(this,arguments)};Object.defineProperty(exports,"__esModule",{value:!0});var vars=require("../../../../variables.json"),Url_1=require("../../helpers/Url"),IncidentOptions_1=require("./options/IncidentOptions"),IncidentService=function(){function e(e){this.authManager=e}return e.prototype.request=function(e){var n=(new IncidentOptions_1.IncidentOptions).merge(e),r=n.bbox[1]+","+n.bbox[0]+","+n.bbox[3]+","+n.bbox[2],i={domain:vars.env.domain,path:"traffic/incident/detail/json",queryParams:__assign({"api-version":n.version,projection:"EPSG4326",style:"s3",boundingbox:r,boundingzoom:n.zoom,trafficmodelid:-1},n.params)};return new Url_1.Url(this.authManager.signRequest(i)).get()},e}();exports.IncidentService=IncidentService;
+"use strict";var __assign=this&&this.__assign||function(){return(__assign=Object.assign||function(n){for(var o,e=1,i=arguments.length;e<i;e++)for(var t in o=arguments[e])Object.prototype.hasOwnProperty.call(o,t)&&(n[t]=o[t]);return n}).apply(this,arguments)};Object.defineProperty(exports,"__esModule",{value:!0});var vars=require("../../../../variables.json"),Url_1=require("../../helpers/Url"),BoundingBox_1=require("../../namespace/data/BoundingBox"),Math_1=require("../../namespace/math/Math"),IncidentOptions_1=require("./options/IncidentOptions"),IncidentService=function(){function n(n){this.authManager=n}return n.prototype.request=function(n){var o,e=(new IncidentOptions_1.IncidentOptions).merge(n);o=BoundingBox_1.BoundingBox.getWest(e.bbox)<-180&&BoundingBox_1.BoundingBox.getEast(e.bbox)>180?BoundingBox_1.BoundingBox.getSouth(e.bbox)+",-180,"+BoundingBox_1.BoundingBox.getNorth(e.bbox)+",180":BoundingBox_1.BoundingBox.getSouth(e.bbox)+","+Math_1.normalizeLongitude(BoundingBox_1.BoundingBox.getWest(e.bbox))+","+BoundingBox_1.BoundingBox.getNorth(e.bbox)+","+Math_1.normalizeLongitude(BoundingBox_1.BoundingBox.getEast(e.bbox));var i={domain:vars.env.domain,path:"traffic/incident/detail/json",queryParams:__assign({"api-version":e.version,projection:"EPSG4326",style:"s3",boundingbox:o,boundingzoom:e.zoom,trafficmodelid:-1},e.params)};return new Url_1.Url(this.authManager.signRequest(i)).get()},n}();exports.IncidentService=IncidentService;
 
-},{"../../../../variables.json":290,"../../helpers/Url":176,"./options/IncidentOptions":219}],217:[function(require,module,exports){
+},{"../../../../variables.json":290,"../../helpers/Url":176,"../../namespace/data/BoundingBox":242,"../../namespace/math/Math":279,"./options/IncidentOptions":219}],217:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var vars=require("../../../../variables.json"),Url_1=require("../../helpers/Url"),NearbyGeographySearchService=function(){function e(e){this.authManager=e}return e.prototype.request=function(e){var r={domain:vars.env.domain,path:"search/address/reverse/json",queryParams:{"api-version":"1.0",language:e.style.language,limit:1,query:e.position[1]+","+e.position[0]}};return e.style.view&&(r.queryParams.view=e.style.view),new Url_1.Url(this.authManager.signRequest(r)).get()},e}();exports.NearbyGeographySearchService=NearbyGeographySearchService;
 
 },{"../../../../variables.json":290,"../../helpers/Url":176}],218:[function(require,module,exports){
@@ -13983,7 +13982,7 @@ module.exports={
 "use strict";var __extends=this&&this.__extends||function(){var t=function(n,o){return(t=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,n){t.__proto__=n}||function(t,n){for(var o in n)n.hasOwnProperty(o)&&(t[o]=n[o])})(n,o)};return function(n,o){function e(){this.constructor=n}t(n,o),n.prototype=null===o?Object.create(o):(e.prototype=o.prototype,new e)}}();Object.defineProperty(exports,"__esModule",{value:!0});var Options_1=require("../../../helpers/Options"),IncidentOptions=function(t){function n(){var n=null!==t&&t.apply(this,arguments)||this;return n.version="1.0",n.bbox=void 0,n.zoom=void 0,n.params={},n}return __extends(n,t),n}(Options_1.Options);exports.IncidentOptions=IncidentOptions;
 
 },{"../../../helpers/Options":175}],220:[function(require,module,exports){
-"use strict";var __extends=this&&this.__extends||function(){var e=function(t,i){return(e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var i in t)t.hasOwnProperty(i)&&(e[i]=t[i])})(t,i)};return function(t,i){function s(){this.constructor=t}e(t,i),t.prototype=null===i?Object.create(i):(s.prototype=i.prototype,new s)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),atlas=require("../../../Atlas"),Options_1=require("../../../helpers/Options"),AuthenticationOptions_1=require("./AuthenticationOptions"),ServiceOptions=function(e){function t(){var t=null!==e&&e.apply(this,arguments)||this;return t.authOptions=atlas.getAuthenticationOptions(),t.subscriptionKey=atlas.getSubscriptionKey(),t["subscription-key"]=t.subscriptionKey,t.sessionId=atlas.getSessionId(),t["session-id"]=t.sessionId,t.disableTelemetry=!1,t["disable-telemetry"]=t.disableTelemetry,t.enableAccessibility=!1,t["enable-accessibility"]=t.enableAccessibility,t.refreshExpiredTiles=!0,t.transformRequest=void 0,t}return __extends(t,e),t.prototype.merge=function(){for(var t=[],i=0;i<arguments.length;i++)t[i]=arguments[i];for(var s=0,n=t;s<n.length;s++){var o=n[s];o&&(o.authOptions?"string"==typeof o.authOptions.subscriptionKey&&(o.subscriptionKey=o["subscription-key"]=o.authOptions.subscriptionKey):"string"==typeof o.subscriptionKey?(o["subscription-key"]=o.subscriptionKey,o.authOptions={authType:AuthenticationOptions_1.AuthenticationType.subscriptionKey,subscriptionKey:o.subscriptionKey}):"string"==typeof o["subscription-key"]&&(o.subscriptionKey=o["subscription-key"],o.authOptions={authType:AuthenticationOptions_1.AuthenticationType.subscriptionKey,subscriptionKey:o["subscription-key"]}),"string"==typeof o.sessionId?o["session-id"]=o.sessionId:"string"==typeof o["session-id"]&&(o.sessionId=o["session-id"]),"boolean"==typeof o.disableTelemetry?o["disable-telemetry"]=o.disableTelemetry:"boolean"==typeof o["disable-telemetry"]&&(o.disableTelemetry=o["disable-telemetry"]),"boolean"==typeof o.enableAccessibility?o["enable-accessibility"]=o.enableAccessibility:"boolean"==typeof o["enable-accessibility"]&&(o.enableAccessibility=o["enable-accessibility"]))}var r=e.prototype.merge.apply(this,t);return r.authOptions.authType!==AuthenticationOptions_1.AuthenticationType.subscriptionKey&&(r["subscription-key"]=r.subscriptionKey=void 0),r},t._cloneCustomizer=function(e){if("object"==typeof e)return _.clone(e)},t}(Options_1.Options);exports.ServiceOptions=ServiceOptions;
+"use strict";var __extends=this&&this.__extends||function(){var e=function(t,i){return(e=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var i in t)t.hasOwnProperty(i)&&(e[i]=t[i])})(t,i)};return function(t,i){function s(){this.constructor=t}e(t,i),t.prototype=null===i?Object.create(i):(s.prototype=i.prototype,new s)}}();Object.defineProperty(exports,"__esModule",{value:!0});var _=require("lodash"),atlas=require("../../../Atlas"),Options_1=require("../../../helpers/Options"),AuthenticationOptions_1=require("./AuthenticationOptions"),ServiceOptions=function(e){function t(){var t=null!==e&&e.apply(this,arguments)||this;return t.authOptions=atlas.getAuthenticationOptions(),t.subscriptionKey=atlas.getSubscriptionKey(),t["subscription-key"]=t.subscriptionKey,t.sessionId=atlas.getSessionId(),t["session-id"]=t.sessionId,t.disableTelemetry=!1,t["disable-telemetry"]=t.disableTelemetry,t.enableAccessibility=!0,t["enable-accessibility"]=t.enableAccessibility,t.refreshExpiredTiles=!0,t.transformRequest=void 0,t}return __extends(t,e),t.prototype.merge=function(){for(var t=[],i=0;i<arguments.length;i++)t[i]=arguments[i];for(var s=0,n=t;s<n.length;s++){var o=n[s];o&&(o.authOptions?"string"==typeof o.authOptions.subscriptionKey&&(o.subscriptionKey=o["subscription-key"]=o.authOptions.subscriptionKey):"string"==typeof o.subscriptionKey?(o["subscription-key"]=o.subscriptionKey,o.authOptions={authType:AuthenticationOptions_1.AuthenticationType.subscriptionKey,subscriptionKey:o.subscriptionKey}):"string"==typeof o["subscription-key"]&&(o.subscriptionKey=o["subscription-key"],o.authOptions={authType:AuthenticationOptions_1.AuthenticationType.subscriptionKey,subscriptionKey:o["subscription-key"]}),"string"==typeof o.sessionId?o["session-id"]=o.sessionId:"string"==typeof o["session-id"]&&(o.sessionId=o["session-id"]),"boolean"==typeof o.disableTelemetry?o["disable-telemetry"]=o.disableTelemetry:"boolean"==typeof o["disable-telemetry"]&&(o.disableTelemetry=o["disable-telemetry"]),"boolean"==typeof o.enableAccessibility?o["enable-accessibility"]=o.enableAccessibility:"boolean"==typeof o["enable-accessibility"]&&(o.enableAccessibility=o["enable-accessibility"]))}var r=e.prototype.merge.apply(this,t);return r.authOptions.authType!==AuthenticationOptions_1.AuthenticationType.subscriptionKey&&(r["subscription-key"]=r.subscriptionKey=void 0),r},t._cloneCustomizer=function(e){if("object"==typeof e)return _.clone(e)},t}(Options_1.Options);exports.ServiceOptions=ServiceOptions;
 
 },{"../../../Atlas":166,"../../../helpers/Options":175,"./AuthenticationOptions":218,"lodash":109}],221:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Style=function(){return function(){this.version=8,this.sprite="",this.glyphs="",this.sources={},this.layers=[]}}();exports.Style=Style;
