@@ -5,6 +5,10 @@ import Vue from 'vue'
 import { Prop } from 'vue/types/options'
 import AzureMapLayer from './AzureMapLayer.vue'
 
+enum AzureMapPolygonLayerEvent {
+  Created = 'created',
+}
+
 const state = Vue.observable({ id: 0 })
 
 /**
@@ -73,6 +77,8 @@ export default Vue.extend({
       this.options || undefined
     )
 
+    this.$emit(AzureMapPolygonLayerEvent.Created, polygonLayer)
+
     // Watch for options changes
     this.$watch(
       'options',
@@ -93,7 +99,11 @@ export default Vue.extend({
     })
 
     // Add the layer events to the map
-    this.addEventsFromListeners({ map, target: polygonLayer })
+    this.addEventsFromListeners({
+      map,
+      target: polygonLayer,
+      reservedEventTypes: Object.values(AzureMapPolygonLayerEvent),
+    })
   },
 
   methods: {

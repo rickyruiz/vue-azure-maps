@@ -5,6 +5,10 @@ import Vue from 'vue'
 import { Prop } from 'vue/types/options'
 import AzureMapLayer from './AzureMapLayer.vue'
 
+enum AzureMapImageLayerEvent {
+  Created = 'created',
+}
+
 const state = Vue.observable({ id: 0 })
 
 /**
@@ -54,6 +58,8 @@ export default Vue.extend({
       this.id || `azure-map-image-layer-${state.id++}`
     )
 
+    this.$emit(AzureMapImageLayerEvent.Created, imageLayer)
+
     // Watch for options changes
     this.$watch(
       'options',
@@ -74,7 +80,11 @@ export default Vue.extend({
     })
 
     // Add the layer events to the map
-    this.addEventsFromListeners({ map, target: imageLayer })
+    this.addEventsFromListeners({
+      map,
+      target: imageLayer,
+      reservedEventTypes: Object.values(AzureMapImageLayerEvent),
+    })
   },
 
   methods: {

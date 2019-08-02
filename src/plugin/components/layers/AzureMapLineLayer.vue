@@ -5,6 +5,10 @@ import Vue from 'vue'
 import { Prop } from 'vue/types/options'
 import AzureMapLayer from './AzureMapLayer.vue'
 
+enum AzureMapLineLayerEvent {
+  Created = 'created',
+}
+
 const state = Vue.observable({ id: 0 })
 
 /**
@@ -73,6 +77,8 @@ export default Vue.extend({
       this.options || undefined
     )
 
+    this.$emit(AzureMapLineLayerEvent.Created, lineLayer)
+
     this.$watch(
       'options',
       (newOptions: atlas.LineLayerOptions | null) => {
@@ -92,7 +98,11 @@ export default Vue.extend({
     })
 
     // Add the layer events to the map
-    this.addEventsFromListeners({ map, target: lineLayer })
+    this.addEventsFromListeners({
+      map,
+      target: lineLayer,
+      reservedEventTypes: Object.values(AzureMapLineLayerEvent),
+    })
   },
 
   methods: {

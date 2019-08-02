@@ -5,6 +5,10 @@ import Vue from 'vue'
 import { Prop } from 'vue/types/options'
 import AzureMapLayer from './AzureMapLayer.vue'
 
+enum AzureMapHeatMapLayerEvent {
+  Created = 'created',
+}
+
 const state = Vue.observable({ id: 0 })
 
 /**
@@ -73,6 +77,8 @@ export default Vue.extend({
       this.options || undefined
     )
 
+    this.$emit(AzureMapHeatMapLayerEvent.Created, heatMapLayer)
+
     // Watch for options changes
     this.$watch(
       'options',
@@ -93,7 +99,11 @@ export default Vue.extend({
     })
 
     // Add the layer events to the map
-    this.addEventsFromListeners({ map, target: heatMapLayer })
+    this.addEventsFromListeners({
+      map,
+      target: heatMapLayer,
+      reservedEventTypes: Object.values(AzureMapHeatMapLayerEvent),
+    })
   },
 
   methods: {

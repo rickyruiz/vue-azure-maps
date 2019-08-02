@@ -5,6 +5,10 @@ import Vue from 'vue'
 import { Prop } from 'vue/types/options'
 import AzureMapLayer from './AzureMapLayer.vue'
 
+enum AzureMapTileLayerEvent {
+  Created = 'created',
+}
+
 const state = Vue.observable({ id: 0 })
 
 /**
@@ -53,6 +57,8 @@ export default Vue.extend({
       this.id || `azure-map-tile-layer-${state.id++}`
     )
 
+    this.$emit(AzureMapTileLayerEvent.Created, tileLayer)
+
     // Watch for options changes
     this.$watch(
       'options',
@@ -73,7 +79,11 @@ export default Vue.extend({
     })
 
     // Add the layer events to the map
-    this.addEventsFromListeners({ map, target: tileLayer })
+    this.addEventsFromListeners({
+      map,
+      target: tileLayer,
+      reservedEventTypes: Object.values(AzureMapTileLayerEvent),
+    })
   },
 
   methods: {
