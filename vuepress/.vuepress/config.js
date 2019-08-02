@@ -206,6 +206,7 @@ module.exports = {
                   '/components/other/AzureMapPopup',
                   '/components/other/AzureMapImageSpriteIcon',
                   '/components/other/AzureMapUserPosition',
+                  '/components/other/AzureMapSpiderClusterManager',
                 ],
               },
               {

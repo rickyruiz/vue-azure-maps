@@ -17,6 +17,7 @@ import AzureMapPopup from './components/AzureMapPopup.vue'
 //===
 import AzureMapUserPosition from './components/AzureMapUserPosition.vue'
 import AzureMapImageSpriteIcon from './components/AzureMapImageSpriteIcon.vue'
+import AzureMapSpiderClusterManager from './components/AzureMapSpiderClusterManager.vue'
 
 //===
 // Control components
@@ -65,6 +66,7 @@ export {
   AzureMapPopup,
   AzureMapUserPosition,
   AzureMapImageSpriteIcon,
+  AzureMapSpiderClusterManager,
   AzureMapPoint,
   AzureMapCircle,
   AzureMapLineString,
