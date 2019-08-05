@@ -8974,18 +8974,18 @@ var AzureMapSpiderClusterManagerEvent;
   inject: ['getMap'],
   props: {
     /**
-     * The bubble layer instace
+     * The cluster layer instace
      */
-    bubbleLayer: {
+    clusterLayer: {
       type: Object,
       default: null,
       required: true
     },
 
     /**
-     * The symbol layer instance
+     * The unclusted layer instance
      */
-    symbolLayer: {
+    unclustedLayer: {
       type: Object,
       default: null,
       required: true
@@ -9068,12 +9068,12 @@ var AzureMapSpiderClusterManagerEvent;
     } // Retrieve the map instance from the injected function
 
 
-    var map = getMap(); // The bubble and symbol layer instances are required.
+    var map = getMap(); // The cluster and unclusted layer instances are required.
 
-    if (!this.bubbleLayer || !this.symbolLayer) return; // Get the spider manager options
+    if (!this.clusterLayer || !this.unclustedLayer) return; // Get the spider manager options
 
     var options = this.getOptionsFromProps(this.spiderManagerOptionsProps) || {};
-    var spiderManager = new spiderClusterManager_SpiderClusterManager(this.$_azureMaps.atlas, map, this.bubbleLayer, this.symbolLayer, Object(objectSpread["a" /* default */])({}, options, {
+    var spiderManager = new spiderClusterManager_SpiderClusterManager(this.$_azureMaps.atlas, map, this.clusterLayer, this.unclustedLayer, Object(objectSpread["a" /* default */])({}, options, {
       // Emit an event instead of using this function as a prop,
       // cannot be overwritten if props update
       featureSelected: function featureSelected(shape, cluster) {
