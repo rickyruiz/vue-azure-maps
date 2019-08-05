@@ -2115,6 +2115,18 @@ module.exports = function (it) {
 
 /***/ }),
 
+/***/ "3846":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 21.2.5.3 get RegExp.prototype.flags()
+if (__webpack_require__("9e1e") && /./g.flags != 'g') __webpack_require__("86cc").f(RegExp.prototype, 'flags', {
+  configurable: true,
+  get: __webpack_require__("0bfb")
+});
+
+
+/***/ }),
+
 /***/ "38fd":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2525,6 +2537,15 @@ module.exports = {};
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
+var web_dom_iterable = __webpack_require__("ac6a");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.iterator.js
+var es6_array_iterator = __webpack_require__("cadf");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es7.object.values.js
+var es7_object_values = __webpack_require__("8615");
+
 // EXTERNAL MODULE: ./src/plugin/utils/index.ts
 var utils = __webpack_require__("32ef");
 
@@ -2534,6 +2555,15 @@ var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpac
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapSymbolLayer.vue?vue&type=script&lang=ts&
 
+
+
+
+
+var AzureMapSymbolLayerEvent;
+
+(function (AzureMapSymbolLayerEvent) {
+  AzureMapSymbolLayerEvent["Created"] = "created";
+})(AzureMapSymbolLayerEvent || (AzureMapSymbolLayerEvent = {}));
 
 var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
   id: 0
@@ -2588,7 +2618,8 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
 
     var dataSource = getDataSource(); // Create the symbol layer
 
-    var symbolLayer = new this.$_azureMaps.atlas.layer.SymbolLayer(dataSource, this.id || "azure-map-symbol-layer-".concat(state.id++), this.options || undefined); // Watch for options changes
+    var symbolLayer = new this.$_azureMaps.atlas.layer.SymbolLayer(dataSource, this.id || "azure-map-symbol-layer-".concat(state.id++), this.options || undefined);
+    this.$emit(AzureMapSymbolLayerEvent.Created, symbolLayer); // Watch for options changes
 
     this.$watch('options', function (newOptions) {
       symbolLayer.setOptions(newOptions || {});
@@ -2604,7 +2635,8 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
 
     this.addEventsFromListeners({
       map: map,
-      target: symbolLayer
+      target: symbolLayer,
+      reservedEventTypes: Object.values(AzureMapSymbolLayerEvent)
     });
   },
   methods: {
@@ -3363,6 +3395,13 @@ module.exports = function (exec, skipClosing) {
 
 /***/ }),
 
+/***/ "5d58":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("d8d6");
+
+/***/ }),
+
 /***/ "5d73":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3600,6 +3639,13 @@ __webpack_require__("9c6c")('includes');
 
 /***/ }),
 
+/***/ "67bb":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("f921");
+
+/***/ }),
+
 /***/ "6821":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3638,11 +3684,28 @@ module.exports = function (it, key) {
 
 /***/ }),
 
+/***/ "69d3":
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__("6718")('asyncIterator');
+
+
+/***/ }),
+
 /***/ "6a51":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
+var web_dom_iterable = __webpack_require__("ac6a");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.iterator.js
+var es6_array_iterator = __webpack_require__("cadf");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es7.object.values.js
+var es7_object_values = __webpack_require__("8615");
 
 // EXTERNAL MODULE: ./src/plugin/utils/index.ts
 var utils = __webpack_require__("32ef");
@@ -3653,6 +3716,15 @@ var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpac
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapPolygonLayer.vue?vue&type=script&lang=ts&
 
+
+
+
+
+var AzureMapPolygonLayerEvent;
+
+(function (AzureMapPolygonLayerEvent) {
+  AzureMapPolygonLayerEvent["Created"] = "created";
+})(AzureMapPolygonLayerEvent || (AzureMapPolygonLayerEvent = {}));
 
 var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
   id: 0
@@ -3707,7 +3779,8 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
 
     var dataSource = getDataSource(); // Create the polygon layer
 
-    var polygonLayer = new this.$_azureMaps.atlas.layer.PolygonLayer(dataSource, this.id || "azure-map-polygon-layer-".concat(state.id++), this.options || undefined); // Watch for options changes
+    var polygonLayer = new this.$_azureMaps.atlas.layer.PolygonLayer(dataSource, this.id || "azure-map-polygon-layer-".concat(state.id++), this.options || undefined);
+    this.$emit(AzureMapPolygonLayerEvent.Created, polygonLayer); // Watch for options changes
 
     this.$watch('options', function (newOptions) {
       polygonLayer.setOptions(newOptions || {});
@@ -3723,7 +3796,8 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
 
     this.addEventsFromListeners({
       map: map,
-      target: polygonLayer
+      target: polygonLayer,
+      reservedEventTypes: Object.values(AzureMapPolygonLayerEvent)
     });
   },
   methods: {
@@ -3806,6 +3880,39 @@ module.exports = function (it) {
 
 /***/ }),
 
+/***/ "6b54":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+__webpack_require__("3846");
+var anObject = __webpack_require__("cb7c");
+var $flags = __webpack_require__("0bfb");
+var DESCRIPTORS = __webpack_require__("9e1e");
+var TO_STRING = 'toString';
+var $toString = /./[TO_STRING];
+
+var define = function (fn) {
+  __webpack_require__("2aba")(RegExp.prototype, TO_STRING, fn, true);
+};
+
+// 21.2.5.14 RegExp.prototype.toString()
+if (__webpack_require__("79e5")(function () { return $toString.call({ source: 'a', flags: 'b' }) != '/a/b'; })) {
+  define(function toString() {
+    var R = anObject(this);
+    return '/'.concat(R.source, '/',
+      'flags' in R ? R.flags : !DESCRIPTORS && R instanceof RegExp ? $flags.call(R) : undefined);
+  });
+// FF44- RegExp#toString has a wrong name
+} else if ($toString.name != TO_STRING) {
+  define(function toString() {
+    return $toString.call(this);
+  });
+}
+
+
+/***/ }),
+
 /***/ "6c1c":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3852,6 +3959,14 @@ module.exports = function (TO_STRING) {
       : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
   };
 };
+
+
+/***/ }),
+
+/***/ "765d":
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__("6718")('observable');
 
 
 /***/ }),
@@ -6657,6 +6772,16 @@ module.exports = function (fn, that, length) {
 
 /***/ }),
 
+/***/ "d8d6":
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__("1654");
+__webpack_require__("6c1c");
+module.exports = __webpack_require__("ccb9").f('iterator');
+
+
+/***/ }),
+
 /***/ "d8e8":
 /***/ (function(module, exports) {
 
@@ -6960,6 +7085,18 @@ module.exports = function (it, Constructor, name, forbiddenField) {
 module.exports = function (it) {
   return typeof it === 'object' ? it !== null : typeof it === 'function';
 };
+
+
+/***/ }),
+
+/***/ "f921":
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__("014b");
+__webpack_require__("c207");
+__webpack_require__("69d3");
+__webpack_require__("765d");
+module.exports = __webpack_require__("584a").Symbol;
 
 
 /***/ }),
@@ -8344,6 +8481,651 @@ var AzureMapImageSpriteIcon_component = Object(componentNormalizer["a" /* defaul
 )
 
 /* harmony default export */ var AzureMapImageSpriteIcon = (AzureMapImageSpriteIcon_component.exports);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.to-string.js
+var es6_regexp_to_string = __webpack_require__("6b54");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/symbol/iterator.js
+var iterator = __webpack_require__("5d58");
+var iterator_default = /*#__PURE__*/__webpack_require__.n(iterator);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/symbol.js
+var symbol = __webpack_require__("67bb");
+var symbol_default = /*#__PURE__*/__webpack_require__.n(symbol);
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/typeof.js
+
+
+
+function typeof_typeof2(obj) { if (typeof symbol_default.a === "function" && typeof iterator_default.a === "symbol") { typeof_typeof2 = function _typeof2(obj) { return typeof obj; }; } else { typeof_typeof2 = function _typeof2(obj) { return obj && typeof symbol_default.a === "function" && obj.constructor === symbol_default.a && obj !== symbol_default.a.prototype ? "symbol" : typeof obj; }; } return typeof_typeof2(obj); }
+
+function typeof_typeof(obj) {
+  if (typeof symbol_default.a === "function" && typeof_typeof2(iterator_default.a) === "symbol") {
+    typeof_typeof = function _typeof(obj) {
+      return typeof_typeof2(obj);
+    };
+  } else {
+    typeof_typeof = function _typeof(obj) {
+      return obj && typeof symbol_default.a === "function" && obj.constructor === symbol_default.a && obj !== symbol_default.a.prototype ? "symbol" : typeof_typeof2(obj);
+    };
+  }
+
+  return typeof_typeof(obj);
+}
+// CONCATENATED MODULE: ./src/plugin/modules/other/spiderClusterManager.ts
+
+
+
+
+
+/**
+ * Adds a clustering layer to the map which expands clusters into a spiral spider layout.
+ */
+var spiderClusterManager_SpiderClusterManager =
+/*#__PURE__*/
+function () {
+  /**********************
+   * Constructor
+   ***********************/
+
+  /**
+   * @constructor
+   * A cluster manager that expands clusters when selectd into a spiral layout.
+   * @param map A map instance to add the cluster layer to.
+   * @param clusterLayer The layer used for rendering the clusters.
+   * @param options A combination of SpiderClusterManager and Cluster options.
+   */
+  function SpiderClusterManager(lib, map, clusterLayer, unclustedLayer, options) {
+    var _this = this;
+
+    _classCallCheck(this, SpiderClusterManager);
+
+    this._hoverStateId = null;
+    this._currentCluster = null;
+    this._options = {
+      circleSpiralSwitchover: 6,
+      minCircleLength: 30,
+      minSpiralAngleSeperation: 25,
+      spiralDistanceFactor: 5,
+      maxFeaturesInWeb: 100,
+      stickLayerOptions: {
+        strokeColor: ['case', ['boolean', ['feature-state', 'hover'], false], 'red', 'black']
+      },
+      featureSelected: undefined,
+      featureUnselected: undefined
+    };
+    this._atlasLib = lib;
+    this._map = map;
+    this._clusterLayer = clusterLayer;
+    var s = clusterLayer.getSource();
+
+    if (typeof s === 'string') {
+      s = map.sources.getById(s);
+    }
+
+    if (s instanceof this._atlasLib.source.DataSource) {
+      this._datasource = s;
+    } else {
+      throw 'Data source on cluster layer is not supported.';
+    }
+
+    options = options || {}; //Create a data source to manage the spider lines.
+
+    this._spiderDataSource = new this._atlasLib.source.DataSource();
+    map.sources.add(this._spiderDataSource);
+    this._spiderDatasourceId = this._spiderDataSource.getId();
+    this._spiderLineLayer = new this._atlasLib.layer.LineLayer(this._spiderDataSource, undefined, this._options.stickLayerOptions);
+    map.layers.add(this._spiderLineLayer); //Make a copy of the cluster layer options.
+
+    var unclustedLayerOptions = this._deepCopy(unclustedLayer.getOptions(), ['source']);
+
+    unclustedLayerOptions.filter = ['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]; //Only render Point or MultiPoints in this layer.;
+
+    this._unclustedLayer = unclustedLayer;
+
+    if (unclustedLayer instanceof this._atlasLib.layer.BubbleLayer) {
+      this._spiderFeatureLayer = new this._atlasLib.layer.BubbleLayer(this._spiderDataSource, undefined, unclustedLayerOptions);
+    } else {
+      unclustedLayerOptions.iconOptions = unclustedLayerOptions.iconOptions || {};
+      unclustedLayerOptions.iconOptions.allowOverlap = true;
+      unclustedLayerOptions.iconOptions.ignorePlacement = true;
+      this._spiderFeatureLayer = new this._atlasLib.layer.SymbolLayer(this._spiderDataSource, undefined, unclustedLayerOptions);
+    }
+
+    map.layers.add(this._spiderFeatureLayer);
+    this.setOptions(options);
+    map.events.add('click', function () {
+      _this.hideSpiderCluster();
+    });
+    map.events.add('movestart', function () {
+      _this.hideSpiderCluster();
+    });
+    map.events.add('mouseleave', this._spiderFeatureLayer, function (e) {
+      _this._unhighlightStick(e);
+    });
+    map.events.add('mousemove', this._spiderFeatureLayer, function (e) {
+      _this._highlightStick(e);
+    });
+    map.events.add('click', this._clusterLayer, function (e) {
+      _this._layerClickEvent(e);
+    });
+    map.events.add('click', this._spiderFeatureLayer, function (e) {
+      _this._layerClickEvent(e);
+    });
+    map.events.add('click', this._unclustedLayer, function (e) {
+      _this._layerClickEvent(e);
+    });
+  }
+  /**********************
+   * Public Functions
+   ***********************/
+
+  /**
+   * Disposes the SpiderClusterManager and releases it's resources.
+   */
+
+
+  _createClass(SpiderClusterManager, [{
+    key: "dispose",
+    value: function dispose() {
+      var _this2 = this;
+
+      this._spiderDataSource.clear();
+
+      this._map.sources.remove(this._spiderDataSource);
+
+      this._spiderDataSource = null;
+
+      this._map.layers.remove(this._spiderFeatureLayer);
+
+      this._spiderFeatureLayer = null;
+
+      this._map.layers.remove(this._spiderLineLayer);
+
+      this._spiderLineLayer = null;
+
+      this._map.events.remove('click', function () {
+        _this2.hideSpiderCluster();
+      });
+
+      this._map.events.remove('movestart', function () {
+        _this2.hideSpiderCluster();
+      });
+
+      this._map.events.remove('click', this._clusterLayer, function (e) {
+        _this2._layerClickEvent(e);
+      });
+
+      this._map.events.remove('mouseleave', this._spiderFeatureLayer, function (e) {
+        _this2._unhighlightStick(e);
+      });
+
+      this._map.events.remove('mousemove', this._spiderFeatureLayer, function (e) {
+        _this2._highlightStick(e);
+      });
+
+      this._map.events.remove('click', this._spiderFeatureLayer, function (e) {
+        _this2._layerClickEvent(e);
+      });
+
+      this._map.events.remove('click', this._unclustedLayer, function (e) {
+        _this2._layerClickEvent(e);
+      });
+    }
+    /**
+     * Collapses any open spider clusters.
+     */
+
+  }, {
+    key: "hideSpiderCluster",
+    value: function hideSpiderCluster() {
+      this._spiderDataSource.clear();
+    }
+    /**
+     * Sets the options used to customize how the SpiderClusterManager renders clusters.
+     * @param options The options used to customize how the SpiderClusterManager renders clusters.
+     */
+
+  }, {
+    key: "setOptions",
+    value: function setOptions(options) {
+      this.hideSpiderCluster();
+
+      if (options) {
+        if (typeof options.circleSpiralSwitchover === 'number') {
+          this._options.circleSpiralSwitchover = options.circleSpiralSwitchover;
+        }
+
+        if (typeof options.maxFeaturesInWeb === 'number') {
+          this._options.maxFeaturesInWeb = options.maxFeaturesInWeb;
+        }
+
+        if (typeof options.minSpiralAngleSeperation === 'number') {
+          this._options.minSpiralAngleSeperation = options.minSpiralAngleSeperation;
+        }
+
+        if (typeof options.spiralDistanceFactor === 'number') {
+          this._options.spiralDistanceFactor = options.spiralDistanceFactor;
+        }
+
+        if (typeof options.minCircleLength === 'number') {
+          this._options.minCircleLength = options.minCircleLength;
+        }
+
+        if (options.stickLayerOptions) {
+          this._options.stickLayerOptions = options.stickLayerOptions;
+
+          this._spiderLineLayer.setOptions(options.stickLayerOptions);
+        }
+
+        if (options.featureSelected) {
+          this._options.featureSelected = options.featureSelected;
+        }
+
+        if (options.featureUnselected) {
+          this._options.featureUnselected = options.featureUnselected;
+        }
+
+        if (typeof options.visible === 'boolean' && this._options.visible !== options.visible) {
+          this._options.visible = options.visible;
+
+          this._spiderLineLayer.setOptions({
+            visible: options.visible
+          });
+
+          this._spiderFeatureLayer.setOptions({
+            visible: options.visible
+          });
+        }
+      }
+    }
+    /**
+     * Expands a cluster into it's open spider layout.
+     * @param cluster The cluster to show in it's open spider layout.
+     */
+
+  }, {
+    key: "showSpiderCluster",
+    value: function showSpiderCluster(cluster) {
+      var _this3 = this;
+
+      this.hideSpiderCluster();
+
+      if (cluster && cluster.properties.cluster) {
+        this._datasource.getClusterLeaves(cluster.properties.cluster_id, this._options.maxFeaturesInWeb, 0).then(function (children) {
+          //Create spider data.
+          var center = cluster.geometry.coordinates;
+
+          var centerPoint = _this3._map.positionsToPixels([center])[0];
+
+          var angle = 0;
+          var makeSpiral = children.length > _this3._options.circleSpiralSwitchover;
+          var legPixelLength;
+          var stepAngle = 0;
+          var stepLength = 0;
+
+          if (makeSpiral) {
+            legPixelLength = _this3._options.minCircleLength / Math.PI;
+            stepLength = 2 * Math.PI * _this3._options.spiralDistanceFactor;
+          } else {
+            stepAngle = 2 * Math.PI / children.length;
+            legPixelLength = _this3._options.spiralDistanceFactor / stepAngle / Math.PI / 2 * children.length;
+
+            if (legPixelLength < _this3._options.minCircleLength) {
+              legPixelLength = _this3._options.minCircleLength;
+            }
+          }
+
+          var shapes = [];
+
+          for (var i = 0, len = children.length; i < len; i++) {
+            //Calculate spider point feature location.
+            if (makeSpiral) {
+              angle += _this3._options.minSpiralAngleSeperation / legPixelLength + i * 0.0005;
+              legPixelLength += stepLength / angle;
+            } else {
+              angle = stepAngle * i;
+            }
+
+            var pos = _this3._map.pixelsToPositions([[centerPoint[0] + legPixelLength * Math.cos(angle), centerPoint[1] + legPixelLength * Math.sin(angle)]])[0]; //Create stick to point feature.
+
+
+            var stick = new _this3._atlasLib.data.Feature(new _this3._atlasLib.data.LineString([center, pos]), null, i + '');
+            shapes.push(stick); //Create point feature in spiral that contains same metadata as parent point feature.
+
+            var c = children[i];
+            var p = c instanceof _this3._atlasLib.Shape ? c.getProperties() : c.properties;
+            var id = c instanceof _this3._atlasLib.Shape ? c.getId() : c.id; //Make a copy of the properties.
+
+            p = _this3._deepCopy(p);
+            p._stickId = i + '';
+            p._parentId = id;
+            shapes.push(new _this3._atlasLib.data.Feature(new _this3._atlasLib.data.Point(pos), p));
+          }
+
+          _this3._spiderDataSource.add(shapes);
+        });
+      }
+    }
+    /**********************
+     * Private Functions
+     ***********************/
+
+    /**
+     * Click event handler for when a shape in the cluster layer is clicked.
+     * @param e The mouse event argurment from the click event.
+     */
+
+  }, {
+    key: "_layerClickEvent",
+    value: function _layerClickEvent(e) {
+      var _this4 = this;
+
+      if (e && e.shapes && e.shapes.length > 0) {
+        var prop;
+        var pos;
+        var s;
+        var f;
+
+        if (e.shapes[0] instanceof this._atlasLib.Shape) {
+          s = e.shapes[0];
+          prop = s.getProperties();
+          pos = s.getCoordinates();
+        } else {
+          f = e.shapes[0];
+          prop = f.properties;
+          pos = f.geometry.coordinates;
+        }
+
+        if (prop.cluster) {
+          if (this._options.featureUnselected) {
+            this._options.featureUnselected();
+          }
+
+          this._currentCluster = e.shapes[0];
+
+          if (prop.point_count > this._options.maxFeaturesInWeb) {
+            this._datasource.getClusterExpansionZoom(prop.cluster_id).then(function (zoom) {
+              _this4._map.setCamera({
+                center: pos,
+                zoom: zoom
+              });
+            });
+          } else if (f) {
+            this.showSpiderCluster(f);
+          }
+        } else {
+          if (typeof prop._parentId !== 'undefined') {
+            s = this._datasource.getShapeById(prop._parentId);
+          } else {
+            ;
+            this._currentCluster = null;
+          }
+
+          if (this._options.featureSelected && s) {
+            this._options.featureSelected(s, this._currentCluster);
+          }
+
+          this.hideSpiderCluster();
+        }
+
+        e.preventDefault();
+      }
+    }
+  }, {
+    key: "_highlightStick",
+    value: function _highlightStick(e) {
+      if (e && e.shapes && e.shapes.length > 0) {
+        var stickId;
+
+        if (e.shapes[0] instanceof this._atlasLib.Shape) {
+          stickId = e.shapes[0].getProperties()._stickId;
+        } else {
+          stickId = e.shapes[0].properties._stickId;
+        }
+
+        if (this._hoverStateId) {
+          // @ts-ignore TODO: replace with built-in function.
+          this._map.map.setFeatureState({
+            source: this._spiderDatasourceId,
+            id: this._hoverStateId
+          }, {
+            hover: false
+          });
+        }
+
+        this._hoverStateId = stickId; // @ts-ignore TODO: replace with built-in function.
+
+        this._map.map.setFeatureState({
+          source: this._spiderDatasourceId,
+          id: this._hoverStateId
+        }, {
+          hover: true
+        });
+      }
+    }
+  }, {
+    key: "_unhighlightStick",
+    value: function _unhighlightStick(e) {
+      if (this._hoverStateId) {
+        // @ts-ignore TODO: replace with built-in function.
+        this._map.map.setFeatureState({
+          source: this._spiderDatasourceId,
+          id: this._hoverStateId
+        }, {
+          hover: false
+        });
+
+        this._hoverStateId = null;
+      }
+    }
+  }, {
+    key: "_deepCopy",
+    value: function _deepCopy(obj, filter) {
+      var copy = obj,
+          k;
+
+      if (obj && typeof_typeof(obj) === 'object') {
+        copy = Object.prototype.toString.call(obj) === '[object Array]' ? [] : {};
+
+        for (k in obj) {
+          if (!Array.isArray(filter) || Array.isArray(filter) && filter.indexOf(k) !== -1) {
+            copy[k] = this._deepCopy(obj[k], filter);
+          }
+        }
+      }
+
+      return copy;
+    }
+  }]);
+
+  return SpiderClusterManager;
+}();
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapSpiderClusterManager.vue?vue&type=script&lang=ts&
+
+
+
+
+
+
+
+
+var AzureMapSpiderClusterManagerEvent;
+
+(function (AzureMapSpiderClusterManagerEvent) {
+  AzureMapSpiderClusterManagerEvent["FeatureSelected"] = "feature-selected";
+  AzureMapSpiderClusterManagerEvent["FeatureUnselected"] = "feature-unselected";
+})(AzureMapSpiderClusterManagerEvent || (AzureMapSpiderClusterManagerEvent = {}));
+
+/* harmony default export */ var AzureMapSpiderClusterManagervue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
+  name: 'AzureMapSpiderClusterManager',
+
+  /**
+   * Inject the `getMap` function to get the `atlas.Map` instance
+   */
+  inject: ['getMap'],
+  props: {
+    /**
+     * The bubble layer instace
+     */
+    bubbleLayer: {
+      type: Object,
+      default: null,
+      required: true
+    },
+
+    /**
+     * The symbol layer instance
+     */
+    symbolLayer: {
+      type: Object,
+      default: null,
+      required: true
+    },
+
+    /** Minimium number of point features in cluster before switching from circle to spiral spider layout. Default: 6 */
+    circleSpiralSwitchover: {
+      type: Number,
+      default: undefined
+    },
+
+    /** The minium pixel distance between point features and the cluster, when rendering spider layout as a circle. Default: 30 */
+    minCircleLength: {
+      type: Number,
+      default: undefined
+    },
+
+    /** The minium angle between point features in the spiral. Default: 25 */
+    minSpiralAngleSeperation: {
+      type: Number,
+      default: undefined
+    },
+
+    /** The maximum number of features that can be rendered in the spider layout. When the cluster is bigger than this value, it will zoom until the cluster starts to break apart. Default: 100 */
+    maxFeaturesInWeb: {
+      type: Number,
+      default: undefined
+    },
+
+    /** A factor that is used to grow the pixel distance of each point feature from the center in the spiral. Default: 5 */
+    spiralDistanceFactor: {
+      type: Number,
+      default: undefined
+    },
+
+    /** Layer options used to style the stick connecting the individual point feature to the cluster. */
+    stickLayerOptions: {
+      type: Object,
+      default: undefined
+    },
+
+    /** A boolean indicating if the cluster layer is visible or not. */
+    visible: {
+      type: Boolean,
+      default: undefined
+    }
+  },
+  computed: {
+    spiderManagerOptionsProps: function spiderManagerOptionsProps() {
+      var circleSpiralSwitchover = this.circleSpiralSwitchover,
+          minCircleLength = this.minCircleLength,
+          minSpiralAngleSeperation = this.minSpiralAngleSeperation,
+          maxFeaturesInWeb = this.maxFeaturesInWeb,
+          spiralDistanceFactor = this.spiralDistanceFactor,
+          stickLayerOptions = this.stickLayerOptions,
+          visible = this.visible;
+      return {
+        circleSpiralSwitchover: circleSpiralSwitchover,
+        minCircleLength: minCircleLength,
+        minSpiralAngleSeperation: minSpiralAngleSeperation,
+        maxFeaturesInWeb: maxFeaturesInWeb,
+        spiralDistanceFactor: spiralDistanceFactor,
+        stickLayerOptions: stickLayerOptions,
+        visible: visible
+      };
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    //@ts-ignore There is no TypeScript support for injections without decorators
+    // Look for the function that retreives the map instance
+    var getMap = this.getMap;
+
+    if (!getMap) {
+      if (true) return; // If the function that retreives the map instance is not available,
+      // warn the user that is not a descendant of an ancestor component that provides the method
+
+      return console.warn("Invalid <AzureMapSpiderClusterManager> map instance.\nPlease make sure <AzureMapSpiderClusterManager> is a descendant of <AzureMap>.");
+    } // Retrieve the map instance from the injected function
+
+
+    var map = getMap(); // The bubble and symbol layer instances are required.
+
+    if (!this.bubbleLayer || !this.symbolLayer) return; // Get the spider manager options
+
+    var options = this.getOptionsFromProps(this.spiderManagerOptionsProps) || {};
+    var spiderManager = new spiderClusterManager_SpiderClusterManager(this.$_azureMaps.atlas, map, this.bubbleLayer, this.symbolLayer, Object(objectSpread["a" /* default */])({}, options, {
+      // Emit an event instead of using this function as a prop,
+      // cannot be overwritten if props update
+      featureSelected: function featureSelected(shape, cluster) {
+        _this.$emit(AzureMapSpiderClusterManagerEvent.FeatureSelected, shape, cluster);
+      },
+      // Emit an event instead of using this function as a prop,
+      // cannot be overwritten if props update
+      featureUnselected: function featureUnselected() {
+        _this.$emit(AzureMapSpiderClusterManagerEvent.FeatureUnselected);
+      }
+    })); // Watch for all options props changes
+
+    this.$watch(function () {
+      var values = '';
+
+      for (var _i = 0, _Object$values = Object.values(_this.spiderManagerOptionsProps); _i < _Object$values.length; _i++) {
+        var value = _Object$values[_i];
+        values += value;
+      }
+
+      return values;
+    }, function () {
+      var newOptions = _this.getOptionsFromProps(_this.spiderManagerOptionsProps) || {};
+      spiderManager.setOptions(newOptions);
+    }); // When the component is destroyed
+
+    this.$once('hook:destroyed', function () {
+      // Dispose the spider manager
+      spiderManager.dispose();
+    });
+  },
+  methods: {
+    getOptionsFromProps: utils["b" /* getOptionsFromProps */],
+    addEventsFromListeners: utils["a" /* addEventsFromListeners */]
+  },
+  render: function render(createElement) {
+    return createElement();
+  }
+}));
+// CONCATENATED MODULE: ./src/plugin/components/AzureMapSpiderClusterManager.vue?vue&type=script&lang=ts&
+ /* harmony default export */ var components_AzureMapSpiderClusterManagervue_type_script_lang_ts_ = (AzureMapSpiderClusterManagervue_type_script_lang_ts_); 
+// CONCATENATED MODULE: ./src/plugin/components/AzureMapSpiderClusterManager.vue
+var AzureMapSpiderClusterManager_render, AzureMapSpiderClusterManager_staticRenderFns
+
+
+
+
+/* normalize component */
+
+var AzureMapSpiderClusterManager_component = Object(componentNormalizer["a" /* default */])(
+  components_AzureMapSpiderClusterManagervue_type_script_lang_ts_,
+  AzureMapSpiderClusterManager_render,
+  AzureMapSpiderClusterManager_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var AzureMapSpiderClusterManager = (AzureMapSpiderClusterManager_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/controls/AzureMapControl.vue?vue&type=script&lang=ts&
 
 /**
@@ -8783,8 +9565,8 @@ var es6_regexp_replace = __webpack_require__("a481");
 
 
 /**
-* A control that toggles the map from its defined size to a fullscreen size.
-*/
+ * A control that toggles the map from its defined size to a fullscreen size.
+ */
 var fullscreen_FullscreenControl =
 /*#__PURE__*/
 function () {
@@ -8861,7 +9643,7 @@ function () {
         this._container.setAttribute('aria-label', this._resource.title);
 
         this._container.style.flexDirection = 'column';
-        this._button = document.createElement("button");
+        this._button = document.createElement('button');
 
         this._button.classList.add('fullscreenMapBtn');
 
@@ -9463,6 +10245,15 @@ var AzureMapPolygonLayer = __webpack_require__("6a51");
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapLineLayer.vue?vue&type=script&lang=ts&
 
 
+
+
+
+var AzureMapLineLayerEvent;
+
+(function (AzureMapLineLayerEvent) {
+  AzureMapLineLayerEvent["Created"] = "created";
+})(AzureMapLineLayerEvent || (AzureMapLineLayerEvent = {}));
+
 var AzureMapLineLayervue_type_script_lang_ts_state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
   id: 0
 });
@@ -9517,6 +10308,7 @@ var AzureMapLineLayervue_type_script_lang_ts_state = external_commonjs_vue_commo
     var dataSource = getDataSource(); // Create the line layer
 
     var lineLayer = new this.$_azureMaps.atlas.layer.LineLayer(dataSource, this.id || "azure-map-line-layer-".concat(AzureMapLineLayervue_type_script_lang_ts_state.id++), this.options || undefined);
+    this.$emit(AzureMapLineLayerEvent.Created, lineLayer);
     this.$watch('options', function (newOptions) {
       lineLayer.setOptions(newOptions || {});
     }, {
@@ -9531,7 +10323,8 @@ var AzureMapLineLayervue_type_script_lang_ts_state = external_commonjs_vue_commo
 
     this.addEventsFromListeners({
       map: map,
-      target: lineLayer
+      target: lineLayer,
+      reservedEventTypes: Object.values(AzureMapLineLayerEvent)
     });
   },
   methods: {
@@ -9565,6 +10358,15 @@ var AzureMapLineLayer_component = Object(componentNormalizer["a" /* default */])
 /* harmony default export */ var AzureMapLineLayer = (AzureMapLineLayer_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapHeatMapLayer.vue?vue&type=script&lang=ts&
 
+
+
+
+
+var AzureMapHeatMapLayerEvent;
+
+(function (AzureMapHeatMapLayerEvent) {
+  AzureMapHeatMapLayerEvent["Created"] = "created";
+})(AzureMapHeatMapLayerEvent || (AzureMapHeatMapLayerEvent = {}));
 
 var AzureMapHeatMapLayervue_type_script_lang_ts_state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
   id: 0
@@ -9619,7 +10421,8 @@ var AzureMapHeatMapLayervue_type_script_lang_ts_state = external_commonjs_vue_co
 
     var dataSource = getDataSource(); // Create the heat map layer
 
-    var heatMapLayer = new this.$_azureMaps.atlas.layer.HeatMapLayer(dataSource, this.id || "azure-map-heat-map-layer-".concat(AzureMapHeatMapLayervue_type_script_lang_ts_state.id++), this.options || undefined); // Watch for options changes
+    var heatMapLayer = new this.$_azureMaps.atlas.layer.HeatMapLayer(dataSource, this.id || "azure-map-heat-map-layer-".concat(AzureMapHeatMapLayervue_type_script_lang_ts_state.id++), this.options || undefined);
+    this.$emit(AzureMapHeatMapLayerEvent.Created, heatMapLayer); // Watch for options changes
 
     this.$watch('options', function (newOptions) {
       heatMapLayer.setOptions(newOptions || {});
@@ -9635,7 +10438,8 @@ var AzureMapHeatMapLayervue_type_script_lang_ts_state = external_commonjs_vue_co
 
     this.addEventsFromListeners({
       map: map,
-      target: heatMapLayer
+      target: heatMapLayer,
+      reservedEventTypes: Object.values(AzureMapHeatMapLayerEvent)
     });
   },
   methods: {
@@ -9669,6 +10473,15 @@ var AzureMapHeatMapLayer_component = Object(componentNormalizer["a" /* default *
 /* harmony default export */ var AzureMapHeatMapLayer = (AzureMapHeatMapLayer_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapImageLayer.vue?vue&type=script&lang=ts&
 
+
+
+
+
+var AzureMapImageLayerEvent;
+
+(function (AzureMapImageLayerEvent) {
+  AzureMapImageLayerEvent["Created"] = "created";
+})(AzureMapImageLayerEvent || (AzureMapImageLayerEvent = {}));
 
 var AzureMapImageLayervue_type_script_lang_ts_state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
   id: 0
@@ -9710,7 +10523,8 @@ var AzureMapImageLayervue_type_script_lang_ts_state = external_commonjs_vue_comm
 
     var map = getMap(); // Create the image layer
 
-    var imageLayer = new this.$_azureMaps.atlas.layer.ImageLayer(this.options || {}, this.id || "azure-map-image-layer-".concat(AzureMapImageLayervue_type_script_lang_ts_state.id++)); // Watch for options changes
+    var imageLayer = new this.$_azureMaps.atlas.layer.ImageLayer(this.options || {}, this.id || "azure-map-image-layer-".concat(AzureMapImageLayervue_type_script_lang_ts_state.id++));
+    this.$emit(AzureMapImageLayerEvent.Created, imageLayer); // Watch for options changes
 
     this.$watch('options', function (newOptions) {
       imageLayer.setOptions(newOptions || {});
@@ -9726,7 +10540,8 @@ var AzureMapImageLayervue_type_script_lang_ts_state = external_commonjs_vue_comm
 
     this.addEventsFromListeners({
       map: map,
-      target: imageLayer
+      target: imageLayer,
+      reservedEventTypes: Object.values(AzureMapImageLayerEvent)
     });
   },
   methods: {
@@ -9760,6 +10575,15 @@ var AzureMapImageLayer_component = Object(componentNormalizer["a" /* default */]
 /* harmony default export */ var AzureMapImageLayer = (AzureMapImageLayer_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapTileLayer.vue?vue&type=script&lang=ts&
 
+
+
+
+
+var AzureMapTileLayerEvent;
+
+(function (AzureMapTileLayerEvent) {
+  AzureMapTileLayerEvent["Created"] = "created";
+})(AzureMapTileLayerEvent || (AzureMapTileLayerEvent = {}));
 
 var AzureMapTileLayervue_type_script_lang_ts_state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
   id: 0
@@ -9800,7 +10624,8 @@ var AzureMapTileLayervue_type_script_lang_ts_state = external_commonjs_vue_commo
 
     var map = getMap(); // Create the tile layer
 
-    var tileLayer = new this.$_azureMaps.atlas.layer.TileLayer(this.options || undefined, this.id || "azure-map-tile-layer-".concat(AzureMapTileLayervue_type_script_lang_ts_state.id++)); // Watch for options changes
+    var tileLayer = new this.$_azureMaps.atlas.layer.TileLayer(this.options || undefined, this.id || "azure-map-tile-layer-".concat(AzureMapTileLayervue_type_script_lang_ts_state.id++));
+    this.$emit(AzureMapTileLayerEvent.Created, tileLayer); // Watch for options changes
 
     this.$watch('options', function (newOptions) {
       tileLayer.setOptions(newOptions || {});
@@ -9816,7 +10641,8 @@ var AzureMapTileLayervue_type_script_lang_ts_state = external_commonjs_vue_commo
 
     this.addEventsFromListeners({
       map: map,
-      target: tileLayer
+      target: tileLayer,
+      reservedEventTypes: Object.values(AzureMapTileLayerEvent)
     });
   },
   methods: {
@@ -9850,6 +10676,15 @@ var AzureMapTileLayer_component = Object(componentNormalizer["a" /* default */])
 /* harmony default export */ var AzureMapTileLayer = (AzureMapTileLayer_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--14-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-3!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/layers/AzureMapBubbleLayer.vue?vue&type=script&lang=ts&
 
+
+
+
+
+var AzureMapBubbleLayerEvent;
+
+(function (AzureMapBubbleLayerEvent) {
+  AzureMapBubbleLayerEvent["Created"] = "created";
+})(AzureMapBubbleLayerEvent || (AzureMapBubbleLayerEvent = {}));
 
 var AzureMapBubbleLayervue_type_script_lang_ts_state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
   id: 0
@@ -9904,7 +10739,8 @@ var AzureMapBubbleLayervue_type_script_lang_ts_state = external_commonjs_vue_com
 
     var dataSource = getDataSource(); // Create the bubble layer
 
-    var bubbleLayer = new this.$_azureMaps.atlas.layer.BubbleLayer(dataSource, this.id || "azure-map-bubble-layer-".concat(AzureMapBubbleLayervue_type_script_lang_ts_state.id++), this.options || undefined); // Watch for options changes
+    var bubbleLayer = new this.$_azureMaps.atlas.layer.BubbleLayer(dataSource, this.id || "azure-map-bubble-layer-".concat(AzureMapBubbleLayervue_type_script_lang_ts_state.id++), this.options || undefined);
+    this.$emit(AzureMapBubbleLayerEvent.Created, bubbleLayer); // Watch for options changes
 
     this.$watch('options', function (newOptions) {
       bubbleLayer.setOptions(newOptions || {});
@@ -9920,7 +10756,8 @@ var AzureMapBubbleLayervue_type_script_lang_ts_state = external_commonjs_vue_com
 
     this.addEventsFromListeners({
       map: map,
-      target: bubbleLayer
+      target: bubbleLayer,
+      reservedEventTypes: Object.values(AzureMapBubbleLayerEvent)
     });
   },
   methods: {
@@ -10395,6 +11232,7 @@ var AzureMapPolygon_component = Object(componentNormalizer["a" /* default */])(
 //===
 
 
+
  //===
 // Control components
 //===
@@ -10438,6 +11276,7 @@ if (typeof window !== 'undefined' && window.Vue) window.Vue.use(plugin_VueAzureM
 /* concated harmony reexport AzureMapPopup */__webpack_require__.d(__webpack_exports__, "AzureMapPopup", function() { return AzureMapPopup; });
 /* concated harmony reexport AzureMapUserPosition */__webpack_require__.d(__webpack_exports__, "AzureMapUserPosition", function() { return AzureMapUserPosition; });
 /* concated harmony reexport AzureMapImageSpriteIcon */__webpack_require__.d(__webpack_exports__, "AzureMapImageSpriteIcon", function() { return AzureMapImageSpriteIcon; });
+/* concated harmony reexport AzureMapSpiderClusterManager */__webpack_require__.d(__webpack_exports__, "AzureMapSpiderClusterManager", function() { return AzureMapSpiderClusterManager; });
 /* concated harmony reexport AzureMapPoint */__webpack_require__.d(__webpack_exports__, "AzureMapPoint", function() { return AzureMapPoint["default"]; });
 /* concated harmony reexport AzureMapCircle */__webpack_require__.d(__webpack_exports__, "AzureMapCircle", function() { return AzureMapCircle["default"]; });
 /* concated harmony reexport AzureMapLineString */__webpack_require__.d(__webpack_exports__, "AzureMapLineString", function() { return AzureMapLineString; });
