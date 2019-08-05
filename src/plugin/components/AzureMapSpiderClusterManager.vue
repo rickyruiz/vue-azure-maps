@@ -26,7 +26,9 @@ export default Vue.extend({
      * The cluster layer instace
      */
     clusterLayer: {
-      type: Object as Prop<atlas.layer.BubbleLayer | atlas.layer.SymbolLayer | null>,
+      type: Object as Prop<
+        atlas.layer.BubbleLayer | atlas.layer.SymbolLayer | null
+      >,
       default: null,
       required: true,
     },
@@ -34,8 +36,10 @@ export default Vue.extend({
     /**
      * The unclusted layer instance
      */
-    unclusedLayer: {
-      type: Object as Prop<atlas.layer.BubbleLayer | atlas.layer.SymbolLayer | null>,
+    unclustedLayer: {
+      type: Object as Prop<
+        atlas.layer.BubbleLayer | atlas.layer.SymbolLayer | null
+      >,
       default: null,
       required: true,
     },
@@ -125,7 +129,7 @@ export default Vue.extend({
     const map = getMap()
 
     // The cluster and unclusted layer instances are required.
-    if (!this.clusterLayer || !this.unclusedLayer) return
+    if (!this.clusterLayer || !this.unclustedLayer) return
 
     // Get the spider manager options
     const options =
@@ -137,7 +141,7 @@ export default Vue.extend({
       this.$_azureMaps.atlas,
       map,
       this.clusterLayer,
-      this.unclusedLayer,
+      this.unclustedLayer,
       {
         ...options,
         // Emit an event instead of using this function as a prop,
