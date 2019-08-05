@@ -51,8 +51,8 @@
       />
       <AzureMapSpiderClusterManager
         v-if="bubbleLayer && symbolLayer"
-        :bubble-layer="bubbleLayer"
-        :symbol-layer="symbolLayer"
+        :cluster-layer="bubbleLayer"
+        :unclusted-layer="symbolLayer"
         @feature-selected="onFeatureSelected"
         @feature-unselected="onFeatureUnselected"
       />
