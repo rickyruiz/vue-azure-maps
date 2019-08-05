@@ -23,19 +23,19 @@ export default Vue.extend({
 
   props: {
     /**
-     * The bubble layer instace
+     * The cluster layer instace
      */
-    bubbleLayer: {
-      type: Object as Prop<atlas.layer.BubbleLayer | null>,
+    clusterLayer: {
+      type: Object as Prop<atlas.layer.BubbleLayer | atlas.layer.SymbolLayer | null>,
       default: null,
       required: true,
     },
 
     /**
-     * The symbol layer instance
+     * The unclusted layer instance
      */
-    symbolLayer: {
-      type: Object as Prop<null | atlas.layer.SymbolLayer>,
+    unclusedLayer: {
+      type: Object as Prop<atlas.layer.BubbleLayer | atlas.layer.SymbolLayer | null>,
       default: null,
       required: true,
     },
@@ -124,8 +124,8 @@ export default Vue.extend({
     // Retrieve the map instance from the injected function
     const map = getMap()
 
-    // The bubble and symbol layer instances are required.
-    if (!this.bubbleLayer || !this.symbolLayer) return
+    // The cluster and unclusted layer instances are required.
+    if (!this.clusterLayer || !this.unclusedLayer) return
 
     // Get the spider manager options
     const options =
@@ -136,8 +136,8 @@ export default Vue.extend({
     const spiderManager = new SpiderClusterManager(
       this.$_azureMaps.atlas,
       map,
-      this.bubbleLayer,
-      this.symbolLayer,
+      this.clusterLayer,
+      this.unclusedLayer,
       {
         ...options,
         // Emit an event instead of using this function as a prop,
