@@ -216,10 +216,6 @@ export class SpiderClusterManager {
    * Disposes the SpiderClusterManager and releases it's resources.
    */
   public dispose(): void {
-    this._spiderDataSource.clear()
-    this._map.sources.remove(this._spiderDataSource)
-    ;(this._spiderDataSource as atlas.source.DataSource | null) = null
-
     this._map.layers.remove(this._spiderFeatureLayer)
     ;(this._spiderFeatureLayer as
       | atlas.layer.BubbleLayer
@@ -228,6 +224,10 @@ export class SpiderClusterManager {
 
     this._map.layers.remove(this._spiderLineLayer)
     ;(this._spiderLineLayer as atlas.layer.LineLayer | null) = null
+
+    this._spiderDataSource.clear()
+    this._map.sources.remove(this._spiderDataSource)
+    ;(this._spiderDataSource as atlas.source.DataSource | null) = null
 
     this._map.events.remove('click', () => {
       this.hideSpiderCluster()
