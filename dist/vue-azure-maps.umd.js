@@ -2599,7 +2599,7 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
       default: null
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     //@ts-ignore There is no TypeScript support for injections without decorators
     // Look for the function that retreives the map instance
     var getMap = this.getMap;
@@ -3760,7 +3760,7 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
       default: null
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     //@ts-ignore There is no TypeScript support for injections without decorators
     // Look for the function that retreives the map instance
     var getMap = this.getMap;
@@ -7835,7 +7835,7 @@ var AzureMapDataSource = __webpack_require__("330c");
       default: null
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     var _this = this;
 
     //@ts-ignore There is no TypeScript support for injections without decorators
@@ -8138,12 +8138,12 @@ var AzureMapPopup_component = Object(componentNormalizer["a" /* default */])(
 )
 
 /* harmony default export */ var AzureMapPopup = (AzureMapPopup_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a3734c14-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=14d166a2&
-var AzureMapUserPositionvue_type_template_id_14d166a2_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.hasPosition)?_c('AzureMapDataSource',[(_vm.showAccuracy && _vm.radius)?_c('AzureMapCircle',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude,"radius":_vm.radius},on:_vm._d({},[_vm.circleEventName,function($event){return _vm.$emit(_vm.circleEventName, $event)}])}):_vm._e(),_c('AzureMapPoint',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude}}),(_vm.showAccuracy)?_c('AzureMapPolygonLayer',{attrs:{"options":_vm.polygonLayerOptions || undefined}}):_vm._e(),_c('AzureMapSymbolLayer',{attrs:{"options":_vm.userPositionSymbolLayerOptions}})],1):_vm._e()}
-var AzureMapUserPositionvue_type_template_id_14d166a2_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a3734c14-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=0e1f10e8&
+var AzureMapUserPositionvue_type_template_id_0e1f10e8_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.hasPosition)?_c('AzureMapDataSource',[(_vm.showAccuracy && _vm.radius)?_c('AzureMapCircle',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude,"radius":_vm.radius},on:_vm._d({},[_vm.circleEventName,function($event){return _vm.$emit(_vm.circleEventName, $event)}])}):_vm._e(),_c('AzureMapPoint',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude}}),(_vm.showAccuracy)?_c('AzureMapPolygonLayer',{attrs:{"options":_vm.polygonLayerOptions || undefined}}):_vm._e(),_c('AzureMapSymbolLayer',{attrs:{"options":_vm.userPositionSymbolLayerOptions}})],1):_vm._e()}
+var AzureMapUserPositionvue_type_template_id_0e1f10e8_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=14d166a2&
+// CONCATENATED MODULE: ./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=0e1f10e8&
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js + 1 modules
 var objectSpread = __webpack_require__("cebc");
@@ -8283,7 +8283,7 @@ var AzureMapUserPositionEvent;
       return Object(objectSpread["a" /* default */])({}, this.symbolLayerOptions || {}, this.defaultSymbolLayerOptions);
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     var _this = this;
 
     var enableHighAccuracy = this.enableHighAccuracy,
@@ -8384,8 +8384,8 @@ var AzureMapUserPositionEvent;
 
 var AzureMapUserPosition_component = Object(componentNormalizer["a" /* default */])(
   components_AzureMapUserPositionvue_type_script_lang_ts_,
-  AzureMapUserPositionvue_type_template_id_14d166a2_render,
-  AzureMapUserPositionvue_type_template_id_14d166a2_staticRenderFns,
+  AzureMapUserPositionvue_type_template_id_0e1f10e8_render,
+  AzureMapUserPositionvue_type_template_id_0e1f10e8_staticRenderFns,
   false,
   null,
   null,
@@ -8434,7 +8434,7 @@ var AzureMapImageSpriteIconEvent;
       required: true
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     var _this = this;
 
     //@ts-ignore There is no TypeScript support for injections without decorators
@@ -8452,10 +8452,10 @@ var AzureMapImageSpriteIconEvent;
     var map = getMap(); // Add the icon to the map's image sprite
 
     map.imageSprite.add(this.id, this.icon).then(function () {
-      _this.$emit(AzureMapImageSpriteIconEvent.Added, _this.id); // Remove the icon before the component is destroyed
+      _this.$emit(AzureMapImageSpriteIconEvent.Added, _this.id); // Remove the icon when the component is destroyed
 
 
-      _this.$once('hook:beforeDestroy', function () {
+      _this.$once('hook:destroyed', function () {
         map.imageSprite.remove(_this.id);
 
         _this.$emit(AzureMapImageSpriteIconEvent.Removed, _this.id);
@@ -8638,12 +8638,6 @@ function () {
     value: function dispose() {
       var _this2 = this;
 
-      this._spiderDataSource.clear();
-
-      this._map.sources.remove(this._spiderDataSource);
-
-      this._spiderDataSource = null;
-
       this._map.layers.remove(this._spiderFeatureLayer);
 
       this._spiderFeatureLayer = null;
@@ -8651,6 +8645,12 @@ function () {
       this._map.layers.remove(this._spiderLineLayer);
 
       this._spiderLineLayer = null;
+
+      this._spiderDataSource.clear();
+
+      this._map.sources.remove(this._spiderDataSource);
+
+      this._spiderDataSource = null;
 
       this._map.events.remove('click', function () {
         _this2.hideSpiderCluster();
@@ -9053,7 +9053,7 @@ var AzureMapSpiderClusterManagerEvent;
       };
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     var _this = this;
 
     //@ts-ignore There is no TypeScript support for injections without decorators
@@ -9176,9 +9176,9 @@ var AzureMapSpiderClusterManager_component = Object(componentNormalizer["a" /* d
 
     var map = getMap(); // Add the control to the map
 
-    map.controls.add(this.control, this.options || undefined); // Remove the control before the component is destroyed
+    map.controls.add(this.control, this.options || undefined); // Remove the control when the component is destroyed
 
-    this.$once('hook:beforeDestroy', function () {
+    this.$once('hook:destroyed', function () {
       map.controls.remove(_this.control);
     });
   },
@@ -9230,7 +9230,6 @@ var es6_string_includes = __webpack_require__("2fdb");
 
 /* harmony default export */ var AzureMapZoomControlvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
   name: 'AzureMapZoomControl',
-  functional: true,
   props: {
     /**
      * The position where the control will be placed on the map.
@@ -9258,21 +9257,21 @@ var es6_string_includes = __webpack_require__("2fdb");
      * Default `ControlStyle.light`
      * @default ControlStyle.light
      */
-    style: {
+    controlStyle: {
       type: String,
       default: dist_atlas_min["ControlStyle"].light
     }
   },
-  render: function render(createElement, context) {
+  render: function render(createElement) {
     // Construct a zoom control
     return createElement(AzureMapControl, {
       props: {
-        control: new context.parent.$_azureMaps.atlas.control.ZoomControl({
-          zoomDelta: context.props.zoomDelta,
-          style: context.props.style
+        control: new this.$_azureMaps.atlas.control.ZoomControl({
+          zoomDelta: this.zoomDelta,
+          style: this.controlStyle
         }),
         options: {
-          position: context.props.position
+          position: this.position
         }
       }
     });
@@ -9316,7 +9315,6 @@ var AzureMapZoomControl_component = Object(componentNormalizer["a" /* default */
 
 /* harmony default export */ var AzureMapPitchControlvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
   name: 'AzureMapPitchControl',
-  functional: true,
   props: {
     /**
      * The position where the control will be placed on the map.
@@ -9344,21 +9342,21 @@ var AzureMapZoomControl_component = Object(componentNormalizer["a" /* default */
      * Default `ControlStyle.light`
      * @default ControlStyle.light
      */
-    style: {
+    controlStyle: {
       type: String,
       default: dist_atlas_min["ControlStyle"].light
     }
   },
-  render: function render(createElement, context) {
+  render: function render(createElement) {
     // Construct a pitch control
     return createElement(AzureMapControl, {
       props: {
-        control: new context.parent.$_azureMaps.atlas.control.PitchControl({
-          pitchDegreesDelta: context.props.pitchDegreesDelta,
-          style: context.props.style
+        control: new this.$_azureMaps.atlas.control.PitchControl({
+          pitchDegreesDelta: this.pitchDegreesDelta,
+          style: this.controlStyle
         }),
         options: {
-          position: context.props.position
+          position: this.position
         }
       }
     });
@@ -9401,7 +9399,6 @@ var AzureMapPitchControl_component = Object(componentNormalizer["a" /* default *
 
 /* harmony default export */ var AzureMapStyleControlvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
   name: 'AzureMapStyleControl',
-  functional: true,
   props: {
     /**
      * The position where the control will be placed on the map.
@@ -9419,7 +9416,7 @@ var AzureMapPitchControl_component = Object(componentNormalizer["a" /* default *
      * Default `ControlStyle.light`
      * @default ControlStyle.light
      */
-    style: {
+    controlStyle: {
       type: String,
       default: dist_atlas_min["ControlStyle"].light
     },
@@ -9441,16 +9438,16 @@ var AzureMapPitchControl_component = Object(componentNormalizer["a" /* default *
       }
     }
   },
-  render: function render(createElement, context) {
+  render: function render(createElement) {
     // Construct a compass control
     return createElement(AzureMapControl, {
       props: {
-        control: new context.parent.$_azureMaps.atlas.control.StyleControl({
-          style: context.props.style,
-          mapStyles: context.props.mapStyles
+        control: new this.$_azureMaps.atlas.control.StyleControl({
+          style: this.controlStyle,
+          mapStyles: this.mapStyles
         }),
         options: {
-          position: context.props.position
+          position: this.position
         }
       }
     });
@@ -9494,7 +9491,6 @@ var AzureMapStyleControl_component = Object(componentNormalizer["a" /* default *
 
 /* harmony default export */ var AzureMapCompassControlvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
   name: 'AzureMapCompassControl',
-  functional: true,
   props: {
     /**
      * The position where the control will be placed on the map.
@@ -9522,21 +9518,21 @@ var AzureMapStyleControl_component = Object(componentNormalizer["a" /* default *
      * Default `ControlStyle.light`
      * @default ControlStyle.light
      */
-    style: {
+    controlStyle: {
       type: String,
       default: dist_atlas_min["ControlStyle"].light
     }
   },
-  render: function render(createElement, context) {
+  render: function render(createElement) {
     // Construct a compass control
     return createElement(AzureMapControl, {
       props: {
-        control: new context.parent.$_azureMaps.atlas.control.CompassControl({
-          rotationDegreesDelta: context.props.rotationDegreesDelta,
-          style: context.props.style
+        control: new this.$_azureMaps.atlas.control.CompassControl({
+          rotationDegreesDelta: this.rotationDegreesDelta,
+          style: this.controlStyle
         }),
         options: {
-          position: context.props.position
+          position: this.position
         }
       }
     });
@@ -10176,7 +10172,6 @@ function () {
 
 /* harmony default export */ var AzureMapFullscreenControlvue_type_script_lang_ts_ = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
   name: 'AzureMapFullscreenControl',
-  functional: true,
   props: {
     /**
      * The position where the control will be placed on the map.
@@ -10194,7 +10189,7 @@ function () {
      * Default `ControlStyle.light'.
      * @default ControlStyle.light
      */
-    style: {
+    controlStyle: {
       type: String,
       default: dist_atlas_min["ControlStyle"].light
     },
@@ -10208,16 +10203,16 @@ function () {
       default: true
     }
   },
-  render: function render(createElement, context) {
+  render: function render(createElement) {
     // Construct a fullscreen control
     return createElement(AzureMapControl, {
       props: {
         control: new fullscreen_FullscreenControl({
-          style: context.props.style,
-          hideIfUnsupported: context.props.hideIfUnsupported
+          style: this.controlStyle,
+          hideIfUnsupported: this.hideIfUnsupported
         }),
         options: {
-          position: context.props.position
+          position: this.position
         }
       }
     });
@@ -10288,7 +10283,7 @@ var AzureMapLineLayervue_type_script_lang_ts_state = external_commonjs_vue_commo
       default: null
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     //@ts-ignore There is no TypeScript support for injections without decorators
     // Look for the function that retreives the map instance
     var getMap = this.getMap;
@@ -10402,7 +10397,7 @@ var AzureMapHeatMapLayervue_type_script_lang_ts_state = external_commonjs_vue_co
       default: null
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     //@ts-ignore There is no TypeScript support for injections without decorators
     // Look for the function that retreives the map instance
     var getMap = this.getMap;
@@ -10517,7 +10512,7 @@ var AzureMapImageLayervue_type_script_lang_ts_state = external_commonjs_vue_comm
       default: null
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     //@ts-ignore There is no TypeScript support for injections without decorators
     // Look for the function that retreives the map instance
     var getMap = this.getMap;
@@ -10618,7 +10613,7 @@ var AzureMapTileLayervue_type_script_lang_ts_state = external_commonjs_vue_commo
       default: null
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     //@ts-ignore There is no TypeScript support for injections without decorators
     // Look for the function that retreives the map instance
     var getMap = this.getMap;
@@ -10720,7 +10715,7 @@ var AzureMapBubbleLayervue_type_script_lang_ts_state = external_commonjs_vue_com
       default: null
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     //@ts-ignore There is no TypeScript support for injections without decorators
     // Look for the function that retreives the map instance
     var getMap = this.getMap;
