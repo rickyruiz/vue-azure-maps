@@ -40,7 +40,7 @@ export default Vue.extend({
     },
   },
 
-  mounted() {
+  created() {
     //@ts-ignore There is no TypeScript support for injections without decorators
     // Look for the function that retreives the map instance
     const { getMap }: { getMap: () => atlas.Map } = this
@@ -63,8 +63,8 @@ export default Vue.extend({
       .then(() => {
         this.$emit(AzureMapImageSpriteIconEvent.Added, this.id)
 
-        // Remove the icon before the component is destroyed
-        this.$once('hook:beforeDestroy', () => {
+        // Remove the icon when the component is destroyed
+        this.$once('hook:destroyed', () => {
           map.imageSprite.remove(this.id)
           this.$emit(AzureMapImageSpriteIconEvent.Removed, this.id)
         })

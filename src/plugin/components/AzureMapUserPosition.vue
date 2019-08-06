@@ -49,15 +49,25 @@ export default Vue.extend({
 
   components: {
     AzureMapDataSource: () =>
-      import(/* webpackChunkName: 'azure-map-data-source' */ '@/plugin/components/AzureMapDataSource.vue'),
+      import(
+        /* webpackChunkName: 'azure-map-data-source' */ '@/plugin/components/AzureMapDataSource.vue'
+      ),
     AzureMapCircle: () =>
-      import(/* webpackChunkName: 'azure-map-circle' */ '@/plugin/components/geometries/AzureMapCircle.vue'),
+      import(
+        /* webpackChunkName: 'azure-map-circle' */ '@/plugin/components/geometries/AzureMapCircle.vue'
+      ),
     AzureMapPoint: () =>
-      import(/* webpackChunkName: 'azure-map-point' */ '@/plugin/components/geometries/AzureMapPoint.vue'),
+      import(
+        /* webpackChunkName: 'azure-map-point' */ '@/plugin/components/geometries/AzureMapPoint.vue'
+      ),
     AzureMapPolygonLayer: () =>
-      import(/* webpackChunkName: 'azure-map-polygon-layer' */ '@/plugin/components/layers/AzureMapPolygonLayer.vue'),
+      import(
+        /* webpackChunkName: 'azure-map-polygon-layer' */ '@/plugin/components/layers/AzureMapPolygonLayer.vue'
+      ),
     AzureMapSymbolLayer: () =>
-      import(/* webpackChunkName: 'azure-map-symbol-layer' */ '@/plugin/components/layers/AzureMapSymbolLayer.vue'),
+      import(
+        /* webpackChunkName: 'azure-map-symbol-layer' */ '@/plugin/components/layers/AzureMapSymbolLayer.vue'
+      ),
   },
 
   props: {
@@ -169,7 +179,7 @@ export default Vue.extend({
     },
   },
 
-  mounted() {
+  created() {
     const { enableHighAccuracy, maximumAge, timeout } = this
 
     navigator.geolocation.getCurrentPosition(

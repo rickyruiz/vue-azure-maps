@@ -35,7 +35,7 @@ export default Vue.extend({
     },
   },
 
-  mounted() {
+  created() {
     //@ts-ignore There is no TypeScript support for injections without decorators
     // Look for the function that retreives the map instance
     const { getMap }: { getMap: () => atlas.Map } = this
