@@ -12,8 +12,6 @@ import AzureMapControl from './AzureMapControl.vue'
 export default Vue.extend({
   name: 'AzureMapFullscreenControl',
 
-  functional: true,
-
   props: {
     /**
      * The position where the control will be placed on the map.
@@ -30,7 +28,7 @@ export default Vue.extend({
      * Default `ControlStyle.light'.
      * @default ControlStyle.light
      */
-    style: {
+    controlStyle: {
       type: String as Prop<ControlStyle | string>,
       default: ControlStyle.light,
     },
@@ -45,16 +43,16 @@ export default Vue.extend({
     },
   },
 
-  render(createElement, context) {
+  render(createElement) {
     // Construct a fullscreen control
     return createElement(AzureMapControl, {
       props: {
         control: new FullscreenControl({
-          style: context.props.style,
-          hideIfUnsupported: context.props.hideIfUnsupported,
+          style: this.controlStyle,
+          hideIfUnsupported: this.hideIfUnsupported,
         }),
         options: {
-          position: context.props.position,
+          position: this.position,
         } as atlas.ControlOptions,
       },
     })

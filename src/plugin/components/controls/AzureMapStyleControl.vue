@@ -11,8 +11,6 @@ import AzureMapControl from './AzureMapControl.vue'
 export default Vue.extend({
   name: 'AzureMapStyleControl',
 
-  functional: true,
-
   props: {
     /**
      * The position where the control will be placed on the map.
@@ -29,7 +27,7 @@ export default Vue.extend({
      * Default `ControlStyle.light`
      * @default ControlStyle.light
      */
-    style: {
+    controlStyle: {
       type: String as Prop<ControlStyle>,
       default: ControlStyle.light,
     },
@@ -56,16 +54,16 @@ export default Vue.extend({
     },
   },
 
-  render(createElement, context) {
+  render(createElement) {
     // Construct a compass control
     return createElement(AzureMapControl, {
       props: {
-        control: new context.parent.$_azureMaps.atlas.control.StyleControl({
-          style: context.props.style,
-          mapStyles: context.props.mapStyles,
+        control: new this.$_azureMaps.atlas.control.StyleControl({
+          style: this.controlStyle,
+          mapStyles: this.mapStyles,
         }),
         options: {
-          position: context.props.position,
+          position: this.position,
         } as atlas.ControlOptions,
       },
     })

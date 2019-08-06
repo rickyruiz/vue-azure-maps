@@ -11,8 +11,6 @@ import AzureMapControl from './AzureMapControl.vue'
 export default Vue.extend({
   name: 'AzureMapZoomControl',
 
-  functional: true,
-
   props: {
     /**
      * The position where the control will be placed on the map.
@@ -39,22 +37,22 @@ export default Vue.extend({
      * Default `ControlStyle.light`
      * @default ControlStyle.light
      */
-    style: {
+    controlStyle: {
       type: String as Prop<ControlStyle>,
       default: ControlStyle.light,
     },
   },
 
-  render(createElement, context) {
+  render(createElement) {
     // Construct a zoom control
     return createElement(AzureMapControl, {
       props: {
-        control: new context.parent.$_azureMaps.atlas.control.ZoomControl({
-          zoomDelta: context.props.zoomDelta,
-          style: context.props.style,
+        control: new this.$_azureMaps.atlas.control.ZoomControl({
+          zoomDelta: this.zoomDelta,
+          style: this.controlStyle,
         }),
         options: {
-          position: context.props.position,
+          position: this.position,
         } as atlas.ControlOptions,
       },
     })
