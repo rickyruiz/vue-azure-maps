@@ -1,4 +1,4 @@
-import atlas from 'azure-maps-control'
+import atlas, { MapMouseEvent } from 'azure-maps-control'
 
 /*
  * Copyright(c) 2019 Microsoft Corporation. All rights reserved.
@@ -62,6 +62,12 @@ export interface ISpiderClusterOptions {
   visible?: boolean
 }
 
+interface SpiderClusterManagerEvent {
+  eventType: any
+  target?: any
+  callback: any
+}
+
 /**
  * Adds a clustering layer to the map which expands clusters into a spiral spider layout.
  */
@@ -84,6 +90,7 @@ export class SpiderClusterManager {
     atlas.data.Point,
     any
   > | null = null
+  private _events: SpiderClusterManagerEvent[] = []
 
   private _options: ISpiderClusterOptions = {
     circleSpiralSwitchover: 6,
@@ -185,27 +192,69 @@ export class SpiderClusterManager {
 
     this.setOptions(options)
 
-    map.events.add('click', () => {
-      this.hideSpiderCluster()
-    })
-    map.events.add('movestart', () => {
-      this.hideSpiderCluster()
-    })
-    map.events.add('mouseleave', this._spiderFeatureLayer, e => {
-      this._unhighlightStick(e)
-    })
-    map.events.add('mousemove', this._spiderFeatureLayer, e => {
-      this._highlightStick(e)
-    })
-    map.events.add('click', this._clusterLayer, e => {
-      this._layerClickEvent(e)
-    })
-    map.events.add('click', this._spiderFeatureLayer, e => {
-      this._layerClickEvent(e)
-    })
-    map.events.add('click', this._unclustedLayer, e => {
-      this._layerClickEvent(e)
-    })
+    this._events.push(
+      {
+        eventType: 'click',
+        callback: () => {
+          this.hideSpiderCluster()
+        },
+      },
+      {
+        eventType: 'movestart',
+        callback: () => {
+          this.hideSpiderCluster()
+        },
+      },
+      {
+        eventType: 'click',
+        callback: () => {
+          this.hideSpiderCluster()
+        },
+      },
+      {
+        eventType: 'movestart',
+        callback: () => {
+          this.hideSpiderCluster()
+        },
+      },
+      {
+        eventType: 'mouseleave',
+        target: this._spiderFeatureLayer,
+        callback: (e: MapMouseEvent) => {
+          this._unhighlightStick(e)
+        },
+      },
+      {
+        eventType: 'mousemove',
+        target: this._spiderFeatureLayer,
+        callback: (e: MapMouseEvent) => {
+          this._highlightStick(e)
+        },
+      },
+      {
+        eventType: 'click',
+        target: this._clusterLayer,
+        callback: (e: MapMouseEvent) => {
+          this._layerClickEvent(e)
+        },
+      },
+      {
+        eventType: 'click',
+        target: this._spiderFeatureLayer,
+        callback: (e: MapMouseEvent) => {
+          this._layerClickEvent(e)
+        },
+      },
+      {
+        eventType: 'click',
+        target: this._unclustedLayer,
+        callback: (e: MapMouseEvent) => {
+          this._layerClickEvent(e)
+        },
+      }
+    )
+
+    this.bindEvents()
   }
 
   /**********************
@@ -216,6 +265,8 @@ export class SpiderClusterManager {
    * Disposes the SpiderClusterManager and releases it's resources.
    */
   public dispose(): void {
+    this.unbindEvents()
+
     this._map.layers.remove(this._spiderFeatureLayer)
     ;(this._spiderFeatureLayer as
       | atlas.layer.BubbleLayer
@@ -228,28 +279,32 @@ export class SpiderClusterManager {
     this._spiderDataSource.clear()
     this._map.sources.remove(this._spiderDataSource)
     ;(this._spiderDataSource as atlas.source.DataSource | null) = null
+  }
 
-    this._map.events.remove('click', () => {
-      this.hideSpiderCluster()
-    })
-    this._map.events.remove('movestart', () => {
-      this.hideSpiderCluster()
-    })
-    this._map.events.remove('click', this._clusterLayer, e => {
-      this._layerClickEvent(<atlas.MapMouseEvent>e)
-    })
-    this._map.events.remove('mouseleave', this._spiderFeatureLayer, e => {
-      this._unhighlightStick(<atlas.MapMouseEvent>e)
-    })
-    this._map.events.remove('mousemove', this._spiderFeatureLayer, e => {
-      this._highlightStick(<atlas.MapMouseEvent>e)
-    })
-    this._map.events.remove('click', this._spiderFeatureLayer, e => {
-      this._layerClickEvent(<atlas.MapMouseEvent>e)
-    })
-    this._map.events.remove('click', this._unclustedLayer, e => {
-      this._layerClickEvent(<atlas.MapMouseEvent>e)
-    })
+  /**
+   * Adds the events needed for the spider cluster manager to work.
+   */
+  private bindEvents(): void {
+    for (const item of this._events) {
+      if (item.target) {
+        this._map.events.add(item.eventType, item.target, item.callback)
+      } else {
+        this._map.events.add(item.eventType, item.callback)
+      }
+    }
+  }
+
+  /**
+   * Removes all the events added by the spider cluster manager.
+   */
+  private unbindEvents(): void {
+    for (const item of this._events) {
+      if (item.target) {
+        this._map.events.remove(item.eventType, item.target, item.callback)
+      } else {
+        this._map.events.remove(item.eventType, item.callback)
+      }
+    }
   }
 
   /**
