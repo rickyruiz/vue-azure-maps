@@ -544,18 +544,6 @@ module.exports = function (index, length) {
 
 /***/ }),
 
-/***/ "1169":
-/***/ (function(module, exports, __webpack_require__) {
-
-// 7.2.2 IsArray(argument)
-var cof = __webpack_require__("2d95");
-module.exports = Array.isArray || function isArray(arg) {
-  return cof(arg) == 'Array';
-};
-
-
-/***/ }),
-
 /***/ "1173":
 /***/ (function(module, exports) {
 
@@ -1263,14 +1251,6 @@ module.exports = function (it) {
   if (it == undefined) throw TypeError("Can't call method on  " + it);
   return it;
 };
-
-
-/***/ }),
-
-/***/ "2621":
-/***/ (function(module, exports) {
-
-exports.f = Object.getOwnPropertySymbols;
 
 
 /***/ }),
@@ -2135,14 +2115,6 @@ module.exports = function (it) {
 
 /***/ }),
 
-/***/ "37c8":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports.f = __webpack_require__("2b4c");
-
-
-/***/ }),
-
 /***/ "3846":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2183,22 +2155,6 @@ var ceil = Math.ceil;
 var floor = Math.floor;
 module.exports = function (it) {
   return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
-};
-
-
-/***/ }),
-
-/***/ "3a72":
-/***/ (function(module, exports, __webpack_require__) {
-
-var global = __webpack_require__("7726");
-var core = __webpack_require__("8378");
-var LIBRARY = __webpack_require__("2d00");
-var wksExt = __webpack_require__("37c8");
-var defineProperty = __webpack_require__("86cc").f;
-module.exports = function (name) {
-  var $Symbol = core.Symbol || (core.Symbol = LIBRARY ? {} : global.Symbol || {});
-  if (name.charAt(0) != '_' && !(name in $Symbol)) defineProperty($Symbol, name, { value: wksExt.f(name) });
 };
 
 
@@ -3683,66 +3639,6 @@ __webpack_require__("9c6c")('includes');
 
 /***/ }),
 
-/***/ "67ab":
-/***/ (function(module, exports, __webpack_require__) {
-
-var META = __webpack_require__("ca5a")('meta');
-var isObject = __webpack_require__("d3f4");
-var has = __webpack_require__("69a8");
-var setDesc = __webpack_require__("86cc").f;
-var id = 0;
-var isExtensible = Object.isExtensible || function () {
-  return true;
-};
-var FREEZE = !__webpack_require__("79e5")(function () {
-  return isExtensible(Object.preventExtensions({}));
-});
-var setMeta = function (it) {
-  setDesc(it, META, { value: {
-    i: 'O' + ++id, // object ID
-    w: {}          // weak collections IDs
-  } });
-};
-var fastKey = function (it, create) {
-  // return primitive with prefix
-  if (!isObject(it)) return typeof it == 'symbol' ? it : (typeof it == 'string' ? 'S' : 'P') + it;
-  if (!has(it, META)) {
-    // can't set metadata to uncaught frozen object
-    if (!isExtensible(it)) return 'F';
-    // not necessary to add metadata
-    if (!create) return 'E';
-    // add missing metadata
-    setMeta(it);
-  // return object ID
-  } return it[META].i;
-};
-var getWeak = function (it, create) {
-  if (!has(it, META)) {
-    // can't set metadata to uncaught frozen object
-    if (!isExtensible(it)) return true;
-    // not necessary to add metadata
-    if (!create) return false;
-    // add missing metadata
-    setMeta(it);
-  // return hash weak collections IDs
-  } return it[META].w;
-};
-// add metadata on freeze-family methods calling
-var onFreeze = function (it) {
-  if (FREEZE && meta.NEED && isExtensible(it) && !has(it, META)) setMeta(it);
-  return it;
-};
-var meta = module.exports = {
-  KEY: META,
-  NEED: false,
-  fastKey: fastKey,
-  getWeak: getWeak,
-  onFreeze: onFreeze
-};
-
-
-/***/ }),
-
 /***/ "67bb":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4225,32 +4121,6 @@ module.exports = function (KEY) {
 
 /***/ }),
 
-/***/ "7bbc":
-/***/ (function(module, exports, __webpack_require__) {
-
-// fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
-var toIObject = __webpack_require__("6821");
-var gOPN = __webpack_require__("9093").f;
-var toString = {}.toString;
-
-var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
-  ? Object.getOwnPropertyNames(window) : [];
-
-var getWindowNames = function (it) {
-  try {
-    return gOPN(it);
-  } catch (e) {
-    return windowNames.slice();
-  }
-};
-
-module.exports.f = function getOwnPropertyNames(it) {
-  return windowNames && toString.call(it) == '[object Window]' ? getWindowNames(it) : gOPN(toIObject(it));
-};
-
-
-/***/ }),
-
 /***/ "7cd6":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4457,260 +4327,6 @@ exports.f = __webpack_require__("9e1e") ? Object.defineProperty : function defin
   if ('value' in Attributes) O[P] = Attributes.value;
   return O;
 };
-
-
-/***/ }),
-
-/***/ "8a81":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-// ECMAScript 6 symbols shim
-var global = __webpack_require__("7726");
-var has = __webpack_require__("69a8");
-var DESCRIPTORS = __webpack_require__("9e1e");
-var $export = __webpack_require__("5ca1");
-var redefine = __webpack_require__("2aba");
-var META = __webpack_require__("67ab").KEY;
-var $fails = __webpack_require__("79e5");
-var shared = __webpack_require__("5537");
-var setToStringTag = __webpack_require__("7f20");
-var uid = __webpack_require__("ca5a");
-var wks = __webpack_require__("2b4c");
-var wksExt = __webpack_require__("37c8");
-var wksDefine = __webpack_require__("3a72");
-var enumKeys = __webpack_require__("d4c0");
-var isArray = __webpack_require__("1169");
-var anObject = __webpack_require__("cb7c");
-var isObject = __webpack_require__("d3f4");
-var toObject = __webpack_require__("4bf8");
-var toIObject = __webpack_require__("6821");
-var toPrimitive = __webpack_require__("6a99");
-var createDesc = __webpack_require__("4630");
-var _create = __webpack_require__("2aeb");
-var gOPNExt = __webpack_require__("7bbc");
-var $GOPD = __webpack_require__("11e9");
-var $GOPS = __webpack_require__("2621");
-var $DP = __webpack_require__("86cc");
-var $keys = __webpack_require__("0d58");
-var gOPD = $GOPD.f;
-var dP = $DP.f;
-var gOPN = gOPNExt.f;
-var $Symbol = global.Symbol;
-var $JSON = global.JSON;
-var _stringify = $JSON && $JSON.stringify;
-var PROTOTYPE = 'prototype';
-var HIDDEN = wks('_hidden');
-var TO_PRIMITIVE = wks('toPrimitive');
-var isEnum = {}.propertyIsEnumerable;
-var SymbolRegistry = shared('symbol-registry');
-var AllSymbols = shared('symbols');
-var OPSymbols = shared('op-symbols');
-var ObjectProto = Object[PROTOTYPE];
-var USE_NATIVE = typeof $Symbol == 'function' && !!$GOPS.f;
-var QObject = global.QObject;
-// Don't use setters in Qt Script, https://github.com/zloirock/core-js/issues/173
-var setter = !QObject || !QObject[PROTOTYPE] || !QObject[PROTOTYPE].findChild;
-
-// fallback for old Android, https://code.google.com/p/v8/issues/detail?id=687
-var setSymbolDesc = DESCRIPTORS && $fails(function () {
-  return _create(dP({}, 'a', {
-    get: function () { return dP(this, 'a', { value: 7 }).a; }
-  })).a != 7;
-}) ? function (it, key, D) {
-  var protoDesc = gOPD(ObjectProto, key);
-  if (protoDesc) delete ObjectProto[key];
-  dP(it, key, D);
-  if (protoDesc && it !== ObjectProto) dP(ObjectProto, key, protoDesc);
-} : dP;
-
-var wrap = function (tag) {
-  var sym = AllSymbols[tag] = _create($Symbol[PROTOTYPE]);
-  sym._k = tag;
-  return sym;
-};
-
-var isSymbol = USE_NATIVE && typeof $Symbol.iterator == 'symbol' ? function (it) {
-  return typeof it == 'symbol';
-} : function (it) {
-  return it instanceof $Symbol;
-};
-
-var $defineProperty = function defineProperty(it, key, D) {
-  if (it === ObjectProto) $defineProperty(OPSymbols, key, D);
-  anObject(it);
-  key = toPrimitive(key, true);
-  anObject(D);
-  if (has(AllSymbols, key)) {
-    if (!D.enumerable) {
-      if (!has(it, HIDDEN)) dP(it, HIDDEN, createDesc(1, {}));
-      it[HIDDEN][key] = true;
-    } else {
-      if (has(it, HIDDEN) && it[HIDDEN][key]) it[HIDDEN][key] = false;
-      D = _create(D, { enumerable: createDesc(0, false) });
-    } return setSymbolDesc(it, key, D);
-  } return dP(it, key, D);
-};
-var $defineProperties = function defineProperties(it, P) {
-  anObject(it);
-  var keys = enumKeys(P = toIObject(P));
-  var i = 0;
-  var l = keys.length;
-  var key;
-  while (l > i) $defineProperty(it, key = keys[i++], P[key]);
-  return it;
-};
-var $create = function create(it, P) {
-  return P === undefined ? _create(it) : $defineProperties(_create(it), P);
-};
-var $propertyIsEnumerable = function propertyIsEnumerable(key) {
-  var E = isEnum.call(this, key = toPrimitive(key, true));
-  if (this === ObjectProto && has(AllSymbols, key) && !has(OPSymbols, key)) return false;
-  return E || !has(this, key) || !has(AllSymbols, key) || has(this, HIDDEN) && this[HIDDEN][key] ? E : true;
-};
-var $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(it, key) {
-  it = toIObject(it);
-  key = toPrimitive(key, true);
-  if (it === ObjectProto && has(AllSymbols, key) && !has(OPSymbols, key)) return;
-  var D = gOPD(it, key);
-  if (D && has(AllSymbols, key) && !(has(it, HIDDEN) && it[HIDDEN][key])) D.enumerable = true;
-  return D;
-};
-var $getOwnPropertyNames = function getOwnPropertyNames(it) {
-  var names = gOPN(toIObject(it));
-  var result = [];
-  var i = 0;
-  var key;
-  while (names.length > i) {
-    if (!has(AllSymbols, key = names[i++]) && key != HIDDEN && key != META) result.push(key);
-  } return result;
-};
-var $getOwnPropertySymbols = function getOwnPropertySymbols(it) {
-  var IS_OP = it === ObjectProto;
-  var names = gOPN(IS_OP ? OPSymbols : toIObject(it));
-  var result = [];
-  var i = 0;
-  var key;
-  while (names.length > i) {
-    if (has(AllSymbols, key = names[i++]) && (IS_OP ? has(ObjectProto, key) : true)) result.push(AllSymbols[key]);
-  } return result;
-};
-
-// 19.4.1.1 Symbol([description])
-if (!USE_NATIVE) {
-  $Symbol = function Symbol() {
-    if (this instanceof $Symbol) throw TypeError('Symbol is not a constructor!');
-    var tag = uid(arguments.length > 0 ? arguments[0] : undefined);
-    var $set = function (value) {
-      if (this === ObjectProto) $set.call(OPSymbols, value);
-      if (has(this, HIDDEN) && has(this[HIDDEN], tag)) this[HIDDEN][tag] = false;
-      setSymbolDesc(this, tag, createDesc(1, value));
-    };
-    if (DESCRIPTORS && setter) setSymbolDesc(ObjectProto, tag, { configurable: true, set: $set });
-    return wrap(tag);
-  };
-  redefine($Symbol[PROTOTYPE], 'toString', function toString() {
-    return this._k;
-  });
-
-  $GOPD.f = $getOwnPropertyDescriptor;
-  $DP.f = $defineProperty;
-  __webpack_require__("9093").f = gOPNExt.f = $getOwnPropertyNames;
-  __webpack_require__("52a7").f = $propertyIsEnumerable;
-  $GOPS.f = $getOwnPropertySymbols;
-
-  if (DESCRIPTORS && !__webpack_require__("2d00")) {
-    redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
-  }
-
-  wksExt.f = function (name) {
-    return wrap(wks(name));
-  };
-}
-
-$export($export.G + $export.W + $export.F * !USE_NATIVE, { Symbol: $Symbol });
-
-for (var es6Symbols = (
-  // 19.4.2.2, 19.4.2.3, 19.4.2.4, 19.4.2.6, 19.4.2.8, 19.4.2.9, 19.4.2.10, 19.4.2.11, 19.4.2.12, 19.4.2.13, 19.4.2.14
-  'hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables'
-).split(','), j = 0; es6Symbols.length > j;)wks(es6Symbols[j++]);
-
-for (var wellKnownSymbols = $keys(wks.store), k = 0; wellKnownSymbols.length > k;) wksDefine(wellKnownSymbols[k++]);
-
-$export($export.S + $export.F * !USE_NATIVE, 'Symbol', {
-  // 19.4.2.1 Symbol.for(key)
-  'for': function (key) {
-    return has(SymbolRegistry, key += '')
-      ? SymbolRegistry[key]
-      : SymbolRegistry[key] = $Symbol(key);
-  },
-  // 19.4.2.5 Symbol.keyFor(sym)
-  keyFor: function keyFor(sym) {
-    if (!isSymbol(sym)) throw TypeError(sym + ' is not a symbol!');
-    for (var key in SymbolRegistry) if (SymbolRegistry[key] === sym) return key;
-  },
-  useSetter: function () { setter = true; },
-  useSimple: function () { setter = false; }
-});
-
-$export($export.S + $export.F * !USE_NATIVE, 'Object', {
-  // 19.1.2.2 Object.create(O [, Properties])
-  create: $create,
-  // 19.1.2.4 Object.defineProperty(O, P, Attributes)
-  defineProperty: $defineProperty,
-  // 19.1.2.3 Object.defineProperties(O, Properties)
-  defineProperties: $defineProperties,
-  // 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
-  getOwnPropertyDescriptor: $getOwnPropertyDescriptor,
-  // 19.1.2.7 Object.getOwnPropertyNames(O)
-  getOwnPropertyNames: $getOwnPropertyNames,
-  // 19.1.2.8 Object.getOwnPropertySymbols(O)
-  getOwnPropertySymbols: $getOwnPropertySymbols
-});
-
-// Chrome 38 and 39 `Object.getOwnPropertySymbols` fails on primitives
-// https://bugs.chromium.org/p/v8/issues/detail?id=3443
-var FAILS_ON_PRIMITIVES = $fails(function () { $GOPS.f(1); });
-
-$export($export.S + $export.F * FAILS_ON_PRIMITIVES, 'Object', {
-  getOwnPropertySymbols: function getOwnPropertySymbols(it) {
-    return $GOPS.f(toObject(it));
-  }
-});
-
-// 24.3.2 JSON.stringify(value [, replacer [, space]])
-$JSON && $export($export.S + $export.F * (!USE_NATIVE || $fails(function () {
-  var S = $Symbol();
-  // MS Edge converts symbol values to JSON as {}
-  // WebKit converts symbol values to JSON as null
-  // V8 throws on boxed symbols
-  return _stringify([S]) != '[null]' || _stringify({ a: S }) != '{}' || _stringify(Object(S)) != '{}';
-})), 'JSON', {
-  stringify: function stringify(it) {
-    var args = [it];
-    var i = 1;
-    var replacer, $replacer;
-    while (arguments.length > i) args.push(arguments[i++]);
-    $replacer = replacer = args[1];
-    if (!isObject(replacer) && it === undefined || isSymbol(it)) return; // IE8 returns string on undefined
-    if (!isArray(replacer)) replacer = function (key, value) {
-      if (typeof $replacer == 'function') value = $replacer.call(this, key, value);
-      if (!isSymbol(value)) return value;
-    };
-    args[1] = replacer;
-    return _stringify.apply($JSON, args);
-  }
-});
-
-// 19.4.3.4 Symbol.prototype[@@toPrimitive](hint)
-$Symbol[PROTOTYPE][TO_PRIMITIVE] || __webpack_require__("32e9")($Symbol[PROTOTYPE], TO_PRIMITIVE, $Symbol[PROTOTYPE].valueOf);
-// 19.4.3.5 Symbol.prototype[@@toStringTag]
-setToStringTag($Symbol, 'Symbol');
-// 20.2.1.9 Math[@@toStringTag]
-setToStringTag(Math, 'Math', true);
-// 24.3.3 JSON[@@toStringTag]
-setToStringTag(global.JSON, 'JSON', true);
 
 
 /***/ }),
@@ -6034,14 +5650,6 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ "ac4d":
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__("3a72")('asyncIterator');
-
-
-/***/ }),
-
 /***/ "ac6a":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7122,28 +6730,6 @@ module.exports = function (that, searchString, NAME) {
 
 module.exports = function (it) {
   return typeof it === 'object' ? it !== null : typeof it === 'function';
-};
-
-
-/***/ }),
-
-/***/ "d4c0":
-/***/ (function(module, exports, __webpack_require__) {
-
-// all enumerable object keys, includes symbols
-var getKeys = __webpack_require__("0d58");
-var gOPS = __webpack_require__("2621");
-var pIE = __webpack_require__("52a7");
-module.exports = function (it) {
-  var result = getKeys(it);
-  var getSymbols = gOPS.f;
-  if (getSymbols) {
-    var symbols = getSymbols(it);
-    var isEnum = pIE.f;
-    var i = 0;
-    var key;
-    while (symbols.length > i) if (isEnum.call(it, key = symbols[i++])) result.push(key);
-  } return result;
 };
 
 
@@ -8925,16 +8511,7 @@ function typeof_typeof(obj) {
 
   return typeof_typeof(obj);
 }
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es7.symbol.async-iterator.js
-var es7_symbol_async_iterator = __webpack_require__("ac4d");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.symbol.js
-var es6_symbol = __webpack_require__("8a81");
-
 // CONCATENATED MODULE: ./src/plugin/modules/other/spiderClusterManager.ts
-
-
-
 
 
 
@@ -8964,7 +8541,6 @@ function () {
 
     this._hoverStateId = null;
     this._currentCluster = null;
-    this._events = [];
     this._options = {
       circleSpiralSwitchover: 6,
       minCircleLength: 30,
@@ -8977,6 +8553,121 @@ function () {
       featureSelected: undefined,
       featureUnselected: undefined
     };
+    /**
+     * Collapses any open spider clusters.
+     */
+
+    this.hideSpiderCluster = function () {
+      _this._spiderDataSource.clear();
+    };
+    /**********************
+     * Private Functions
+     ***********************/
+
+    /**
+     * Click event handler for when a shape in the cluster layer is clicked.
+     * @param e The mouse event argurment from the click event.
+     */
+
+
+    this._layerClickEvent = function (e) {
+      if (e && e.shapes && e.shapes.length > 0) {
+        var prop;
+        var pos;
+        var s;
+        var f;
+
+        if (e.shapes[0] instanceof _this._atlasLib.Shape) {
+          s = e.shapes[0];
+          prop = s.getProperties();
+          pos = s.getCoordinates();
+        } else {
+          f = e.shapes[0];
+          prop = f.properties;
+          pos = f.geometry.coordinates;
+        }
+
+        if (prop.cluster) {
+          if (_this._options.featureUnselected) {
+            _this._options.featureUnselected();
+          }
+
+          _this._currentCluster = e.shapes[0];
+
+          if (prop.point_count > _this._options.maxFeaturesInWeb) {
+            _this._datasource.getClusterExpansionZoom(prop.cluster_id).then(function (zoom) {
+              _this._map.setCamera({
+                center: pos,
+                zoom: zoom
+              });
+            });
+          } else if (f) {
+            _this.showSpiderCluster(f);
+          }
+        } else {
+          if (typeof prop._parentId !== 'undefined') {
+            s = _this._datasource.getShapeById(prop._parentId);
+          } else {
+            ;
+            _this._currentCluster = null;
+          }
+
+          if (_this._options.featureSelected && s) {
+            _this._options.featureSelected(s, _this._currentCluster);
+          }
+
+          _this.hideSpiderCluster();
+        }
+
+        e.preventDefault();
+      }
+    };
+
+    this._highlightStick = function (e) {
+      if (e && e.shapes && e.shapes.length > 0) {
+        var stickId;
+
+        if (e.shapes[0] instanceof _this._atlasLib.Shape) {
+          stickId = e.shapes[0].getProperties()._stickId;
+        } else {
+          stickId = e.shapes[0].properties._stickId;
+        }
+
+        if (_this._hoverStateId) {
+          // @ts-ignore TODO: replace with built-in function.
+          _this._map.map.setFeatureState({
+            source: _this._spiderDatasourceId,
+            id: _this._hoverStateId
+          }, {
+            hover: false
+          });
+        }
+
+        _this._hoverStateId = stickId; // @ts-ignore TODO: replace with built-in function.
+
+        _this._map.map.setFeatureState({
+          source: _this._spiderDatasourceId,
+          id: _this._hoverStateId
+        }, {
+          hover: true
+        });
+      }
+    };
+
+    this._unhighlightStick = function (e) {
+      if (_this._hoverStateId) {
+        // @ts-ignore TODO: replace with built-in function.
+        _this._map.map.setFeatureState({
+          source: _this._spiderDatasourceId,
+          id: _this._hoverStateId
+        }, {
+          hover: false
+        });
+
+        _this._hoverStateId = null;
+      }
+    };
+
     this._atlasLib = lib;
     this._map = map;
     this._clusterLayer = clusterLayer;
@@ -9017,60 +8708,13 @@ function () {
 
     map.layers.add(this._spiderFeatureLayer);
     this.setOptions(options);
-
-    this._events.push({
-      eventType: 'click',
-      callback: function callback() {
-        _this.hideSpiderCluster();
-      }
-    }, {
-      eventType: 'movestart',
-      callback: function callback() {
-        _this.hideSpiderCluster();
-      }
-    }, {
-      eventType: 'click',
-      callback: function callback() {
-        _this.hideSpiderCluster();
-      }
-    }, {
-      eventType: 'movestart',
-      callback: function callback() {
-        _this.hideSpiderCluster();
-      }
-    }, {
-      eventType: 'mouseleave',
-      target: this._spiderFeatureLayer,
-      callback: function callback(e) {
-        _this._unhighlightStick(e);
-      }
-    }, {
-      eventType: 'mousemove',
-      target: this._spiderFeatureLayer,
-      callback: function callback(e) {
-        _this._highlightStick(e);
-      }
-    }, {
-      eventType: 'click',
-      target: this._clusterLayer,
-      callback: function callback(e) {
-        _this._layerClickEvent(e);
-      }
-    }, {
-      eventType: 'click',
-      target: this._spiderFeatureLayer,
-      callback: function callback(e) {
-        _this._layerClickEvent(e);
-      }
-    }, {
-      eventType: 'click',
-      target: this._unclustedLayer,
-      callback: function callback(e) {
-        _this._layerClickEvent(e);
-      }
-    });
-
-    this.bindEvents();
+    map.events.add('click', this.hideSpiderCluster);
+    map.events.add('movestart', this.hideSpiderCluster);
+    map.events.add('mouseleave', this._spiderFeatureLayer, this._unhighlightStick);
+    map.events.add('mousemove', this._spiderFeatureLayer, this._highlightStick);
+    map.events.add('click', this._clusterLayer, this._layerClickEvent);
+    map.events.add('click', this._spiderFeatureLayer, this._layerClickEvent);
+    map.events.add('click', this._unclustedLayer, this._layerClickEvent);
   }
   /**********************
    * Public Functions
@@ -9084,7 +8728,26 @@ function () {
   _createClass(SpiderClusterManager, [{
     key: "dispose",
     value: function dispose() {
-      this.unbindEvents();
+      //Remove events.
+      this._map.events.remove('click', this.hideSpiderCluster);
+
+      this._map.events.remove('movestart', this.hideSpiderCluster); //@ts-ignore
+
+
+      this._map.events.remove('click', this._clusterLayer, this._layerClickEvent);
+
+      this._map.events.remove('mouseleave', //@ts-ignore
+      this._spiderFeatureLayer, this._unhighlightStick);
+
+      this._map.events.remove('mousemove', //@ts-ignore
+      this._spiderFeatureLayer, this._highlightStick);
+
+      this._map.events.remove('click', //@ts-ignore
+      this._spiderFeatureLayer, this._layerClickEvent);
+
+      this._map.events.remove('click', //@ts-ignore
+      this._unclustedLayer, this._layerClickEvent); //Remove layers.
+
 
       this._map.layers.remove(this._spiderFeatureLayer);
 
@@ -9092,94 +8755,13 @@ function () {
 
       this._map.layers.remove(this._spiderLineLayer);
 
-      this._spiderLineLayer = null;
+      this._spiderLineLayer = null; //Clear and dispose of datasource.
 
       this._spiderDataSource.clear();
 
       this._map.sources.remove(this._spiderDataSource);
 
       this._spiderDataSource = null;
-    }
-    /**
-     * Adds the events needed for the spider cluster manager to work.
-     */
-
-  }, {
-    key: "bindEvents",
-    value: function bindEvents() {
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = this._events[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var item = _step.value;
-
-          if (item.target) {
-            this._map.events.add(item.eventType, item.target, item.callback);
-          } else {
-            this._map.events.add(item.eventType, item.callback);
-          }
-        }
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return != null) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
-      }
-    }
-    /**
-     * Removes all the events added by the spider cluster manager.
-     */
-
-  }, {
-    key: "unbindEvents",
-    value: function unbindEvents() {
-      var _iteratorNormalCompletion2 = true;
-      var _didIteratorError2 = false;
-      var _iteratorError2 = undefined;
-
-      try {
-        for (var _iterator2 = this._events[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-          var item = _step2.value;
-
-          if (item.target) {
-            this._map.events.remove(item.eventType, item.target, item.callback);
-          } else {
-            this._map.events.remove(item.eventType, item.callback);
-          }
-        }
-      } catch (err) {
-        _didIteratorError2 = true;
-        _iteratorError2 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
-            _iterator2.return();
-          }
-        } finally {
-          if (_didIteratorError2) {
-            throw _iteratorError2;
-          }
-        }
-      }
-    }
-    /**
-     * Collapses any open spider clusters.
-     */
-
-  }, {
-    key: "hideSpiderCluster",
-    value: function hideSpiderCluster() {
-      this._spiderDataSource.clear();
     }
     /**
      * Sets the options used to customize how the SpiderClusterManager renders clusters.
@@ -9305,118 +8887,6 @@ function () {
 
           _this2._spiderDataSource.add(shapes);
         });
-      }
-    }
-    /**********************
-     * Private Functions
-     ***********************/
-
-    /**
-     * Click event handler for when a shape in the cluster layer is clicked.
-     * @param e The mouse event argurment from the click event.
-     */
-
-  }, {
-    key: "_layerClickEvent",
-    value: function _layerClickEvent(e) {
-      var _this3 = this;
-
-      if (e && e.shapes && e.shapes.length > 0) {
-        var prop;
-        var pos;
-        var s;
-        var f;
-
-        if (e.shapes[0] instanceof this._atlasLib.Shape) {
-          s = e.shapes[0];
-          prop = s.getProperties();
-          pos = s.getCoordinates();
-        } else {
-          f = e.shapes[0];
-          prop = f.properties;
-          pos = f.geometry.coordinates;
-        }
-
-        if (prop.cluster) {
-          if (this._options.featureUnselected) {
-            this._options.featureUnselected();
-          }
-
-          this._currentCluster = e.shapes[0];
-
-          if (prop.point_count > this._options.maxFeaturesInWeb) {
-            this._datasource.getClusterExpansionZoom(prop.cluster_id).then(function (zoom) {
-              _this3._map.setCamera({
-                center: pos,
-                zoom: zoom
-              });
-            });
-          } else if (f) {
-            this.showSpiderCluster(f);
-          }
-        } else {
-          if (typeof prop._parentId !== 'undefined') {
-            s = this._datasource.getShapeById(prop._parentId);
-          } else {
-            ;
-            this._currentCluster = null;
-          }
-
-          if (this._options.featureSelected && s) {
-            this._options.featureSelected(s, this._currentCluster);
-          }
-
-          this.hideSpiderCluster();
-        }
-
-        e.preventDefault();
-      }
-    }
-  }, {
-    key: "_highlightStick",
-    value: function _highlightStick(e) {
-      if (e && e.shapes && e.shapes.length > 0) {
-        var stickId;
-
-        if (e.shapes[0] instanceof this._atlasLib.Shape) {
-          stickId = e.shapes[0].getProperties()._stickId;
-        } else {
-          stickId = e.shapes[0].properties._stickId;
-        }
-
-        if (this._hoverStateId) {
-          // @ts-ignore TODO: replace with built-in function.
-          this._map.map.setFeatureState({
-            source: this._spiderDatasourceId,
-            id: this._hoverStateId
-          }, {
-            hover: false
-          });
-        }
-
-        this._hoverStateId = stickId; // @ts-ignore TODO: replace with built-in function.
-
-        this._map.map.setFeatureState({
-          source: this._spiderDatasourceId,
-          id: this._hoverStateId
-        }, {
-          hover: true
-        });
-      }
-    }
-  }, {
-    key: "_unhighlightStick",
-    value: function _unhighlightStick(e) {
-      if (this._hoverStateId) {
-        // @ts-ignore TODO: replace with built-in function.
-        this._map.map.setFeatureState({
-          source: this._spiderDatasourceId,
-          id: this._hoverStateId
-        }, {
-          hover: false
-        });
-
-        this._hoverStateId = null;
       }
     }
   }, {
