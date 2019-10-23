@@ -241,6 +241,7 @@ module.exports = {
                   '/components/controls/AzureMapCompassControl',
                   '/components/controls/AzureMapStyleControl',
                   '/components/controls/AzureMapFullscreenControl',
+                  '/components/controls/AzureMapGeolocationControl',
                 ],
               },
             ],
