@@ -14,7 +14,7 @@ Here is a an example using the `AzureMapDataSource` component to handle the data
 </template>
 
 <script>
-import { AzureMap, AzureMapDataSource, AzureMapPoint } from 'vue-azure-map'
+import { AzureMap, AzureMapDataSource, AzureMapPoint } from 'vue-azure-maps'
 
 export default {
   components: {
@@ -57,7 +57,7 @@ import {
   AzureMapDataSource,
   AzureMapPoint,
   AzureMapSymbolLayer,
-} from 'vue-azure-map'
+} from 'vue-azure-maps'
 
 export default {
   components: {

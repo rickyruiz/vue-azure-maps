@@ -8,7 +8,7 @@ Use this component to create a map instance with some options.
 </template>
 
 <script>
-import { AzureMap } from 'vue-azure-map'
+import { AzureMap } from 'vue-azure-maps'
 
 export default {
   components: {
