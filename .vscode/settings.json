@@ -12,5 +12,9 @@
   "prettier.disableLanguages": ["vue"],
   "vetur.validation.template": false,
   "vetur.format.defaultFormatter.html": "none",
-  "vetur.completion.tagCasing": "initial"
+  "vetur.completion.tagCasing": "initial",
+  "search.exclude": {
+    "**/dist": true,
+    "**/docs": true
+  }
 }
