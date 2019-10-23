@@ -18,6 +18,8 @@ import AzureMapPopup from './components/AzureMapPopup.vue'
 import AzureMapUserPosition from './components/AzureMapUserPosition.vue'
 import AzureMapImageSpriteIcon from './components/AzureMapImageSpriteIcon.vue'
 import AzureMapSpiderClusterManager from './components/AzureMapSpiderClusterManager.vue'
+import AzureMapFullscreenControl from './components/controls/AzureMapFullscreenControl.vue'
+import AzureMapGeolocationControl from './components/controls/AzureMapGeolocationControl.vue'
 
 //===
 // Control components
@@ -27,7 +29,6 @@ import AzureMapZoomControl from './components/controls/AzureMapZoomControl.vue'
 import AzureMapPitchControl from './components/controls/AzureMapPitchControl.vue'
 import AzureMapStyleControl from './components/controls/AzureMapStyleControl.vue'
 import AzureMapCompassControl from './components/controls/AzureMapCompassControl.vue'
-import AzureMapFullscreenControl from './components/controls/AzureMapFullscreenControl.vue'
 
 //===
 // Layer components
@@ -77,6 +78,7 @@ export {
   AzureMapStyleControl,
   AzureMapCompassControl,
   AzureMapFullscreenControl,
+  AzureMapGeolocationControl,
   AzureMapSymbolLayer,
   AzureMapPolygonLayer,
   AzureMapLineLayer,
