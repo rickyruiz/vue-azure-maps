@@ -162,6 +162,7 @@ export default Vue.extend({
         {
           propName: 'pointProperties',
           target: shape,
+          targetMethodName: 'properties',
           targetEventName: 'shapechanged',
           isSetAsObject: false,
           identity: (
