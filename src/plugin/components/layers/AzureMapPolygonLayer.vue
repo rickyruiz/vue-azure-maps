@@ -1,5 +1,9 @@
 <script lang="ts">
-import { addEventsFromListeners } from '@/plugin/utils'
+import {
+  getMapInjection,
+  getDataSourceInjection,
+} from '@/plugin/utils/dependency-injection'
+import addMapEventListeners from '@/plugin/utils/add-map-event-listeners'
 import { atlas } from 'types'
 import Vue from 'vue'
 import { Prop } from 'vue/types/options'
@@ -36,36 +40,18 @@ export default Vue.extend({
   },
 
   created() {
-    //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the map instance
-    const { getMap }: { getMap: () => atlas.Map } = this
+    // Look for the injected function that retreives the map instance
+    const getMap = getMapInjection(this)
 
-    if (!getMap) {
-      if (process.env.NODE_ENV === 'production') return
-      // If the function that retreives the map instance is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-      return console.warn(
-        `Invalid <AzureMapPolygonLayer> map instance.\nPlease make sure <AzureMapPolygonLayer> is a descendant of <AzureMap>.`
-      )
-    }
-
-    //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the data source instance
-    const {
-      getDataSource,
-    }: { getDataSource: () => atlas.source.DataSource } = this
-
-    if (!getDataSource) {
-      if (process.env.NODE_ENV === 'production') return
-      // If the function that retreives the data source is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-      return console.warn(
-        `Invalid <AzureMapPolygonLayer> data source.\nPlease make sure <AzureMapPolygonLayer> is a descendant of <AzureMapDataSource>.`
-      )
-    }
+    if (!getMap) return
 
     // Retrieve the map instance from the injected function
     const map = getMap()
+
+    // Look for the injected function that retreives the data source instance
+    const getDataSource = getDataSourceInjection(this)
+
+    if (!getDataSource) return
 
     // Retrieve the data source from the injected function
     const dataSource = getDataSource()
@@ -99,15 +85,12 @@ export default Vue.extend({
     })
 
     // Add the layer events to the map
-    this.addEventsFromListeners({
+    addMapEventListeners({
       map,
       target: polygonLayer,
+      listeners: this.$listeners,
       reservedEventTypes: Object.values(AzureMapPolygonLayerEvent),
     })
-  },
-
-  methods: {
-    addEventsFromListeners,
   },
 
   render(createElement) {

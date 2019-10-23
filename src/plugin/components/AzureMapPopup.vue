@@ -7,7 +7,8 @@
 </template>
 
 <script lang="ts">
-import { getOptionsFromProps } from '@/plugin/utils'
+import { getMapInjection } from '@/plugin/utils/dependency-injection'
+import getOptionsFromProps from '@/plugin/utils/get-options-from-props'
 import { atlas } from 'types'
 import Vue from 'vue'
 import { Prop } from 'vue/types/options'
@@ -122,18 +123,10 @@ export default Vue.extend({
   },
 
   created() {
-    //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the map instance
-    const { getMap }: { getMap: () => atlas.Map } = this
+    // Look for the injected function that retreives the map instance
+    const getMap = getMapInjection(this)
 
-    if (!getMap) {
-      if (process.env.NODE_ENV === 'production') return
-      // If the function that retreives the map instance is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-      return console.warn(
-        `Invalid <AzureMapPopup> map instance.\nPlease make sure <AzureMapPopup> is a descendant of <AzureMap>.`
-      )
-    }
+    if (!getMap) return
 
     // Retrieve the map instance from the injected function
     const map = getMap()
@@ -148,7 +141,7 @@ export default Vue.extend({
 
     // Create a popup with selected component props as options
     const popup = new this.$_azureMaps.atlas.Popup(
-      this.getOptionsFromProps<atlas.PopupOptions>(this.popupOptionsProps) || {}
+      getOptionsFromProps({ props: this.popupOptionsProps })
     )
 
     this.$emit(AzureMapPopupEvent.Created, popup)
@@ -191,12 +184,11 @@ export default Vue.extend({
         return values
       },
       () => {
-        let newOptions =
-          this.getOptionsFromProps<atlas.PopupOptions>(
-            this.popupOptionsProps
-          ) || {}
-
-        popup.setOptions(newOptions)
+        popup.setOptions(
+          getOptionsFromProps({
+            props: this.popupOptionsProps,
+          })
+        )
       }
     )
 
@@ -212,8 +204,6 @@ export default Vue.extend({
   },
 
   methods: {
-    getOptionsFromProps,
-
     openEventHandler(targetedEvent: atlas.TargetedEvent): void {
       this.$emit(AzureMapPopupEvent.Update, true)
       this.$emit(AzureMapPopupEvent.Open, targetedEvent)

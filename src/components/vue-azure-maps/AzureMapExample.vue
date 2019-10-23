@@ -1,6 +1,10 @@
 <template>
   <AzureMap
-    :center="mapOptions.center"
+    v-if="showMap"
+    :map-style.sync="mapOptions.style"
+    :center.sync="mapOptions.center"
+    :view.sync="mapOptions.view"
+    :language.sync="mapOptions.language"
     class="AzureMap"
     @mousemove="onMouseMove"
     @mouseup="onMouseUp"
@@ -18,6 +22,7 @@
     <AzureMapPitchControl/>
     <AzureMapCompassControl/>
     <AzureMapFullscreenControl/>
+    <AzureMapGeolocationControl/>
     <AzureMapStyleControl/>
 
     <!-- Add an Html marker -->
@@ -155,6 +160,7 @@ import {
   AzureMapPitchControl,
   AzureMapCompassControl,
   AzureMapFullscreenControl,
+  AzureMapGeolocationControl,
   AzureMapStyleControl,
   AzureMapSymbolLayer,
   AzureMapLineLayer,
@@ -193,6 +199,7 @@ export default Vue.extend({
     AzureMapStyleControl,
     AzureMapCompassControl,
     AzureMapFullscreenControl,
+    AzureMapGeolocationControl,
     AzureMapSymbolLayer,
     AzureMapLineLayer,
     AzureMapPolygonLayer,
@@ -201,10 +208,15 @@ export default Vue.extend({
 
   data() {
     return {
+      showMap: true,
+
       map: null as atlas.Map | null,
 
       mapOptions: {
         center: [-122.33, 47.6],
+        style: 'road',
+        view: 'Auto',
+        language: 'en-US',
       } as MapOptions,
 
       htmlMarkerOptions: {
@@ -265,13 +277,13 @@ export default Vue.extend({
       selectedPoint: null as CustomPoint | null,
 
       points: [] as CustomPoint[],
-      mockPointSize: 100,
+      mockPointSize: 1,
 
       lineStrings: [] as {
         name: string
         coordinates: atlas.data.Position[]
       }[],
-      mockLineStringSize: 20,
+      mockLineStringSize: 5,
 
       polygons: [] as {
         name: string

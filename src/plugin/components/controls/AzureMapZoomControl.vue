@@ -16,9 +16,9 @@ export default Vue.extend({
      * The position where the control will be placed on the map.
      */
     position: {
-      type: String as Prop<ControlPosition>,
+      type: String as Prop<atlas.ControlPosition>,
       default: ControlPosition.BottomRight,
-      validator: (value: string) =>
+      validator: (value: atlas.ControlPosition) =>
         Object.values(ControlPosition).includes(value),
     },
 
@@ -38,7 +38,7 @@ export default Vue.extend({
      * @default ControlStyle.light
      */
     controlStyle: {
-      type: String as Prop<ControlStyle>,
+      type: String as Prop<atlas.ControlStyle>,
       default: ControlStyle.light,
     },
   },

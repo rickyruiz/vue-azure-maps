@@ -1,4 +1,10 @@
 <script lang="ts">
+import {
+  getMapInjection,
+  getDataSourceInjection,
+} from '@/plugin/utils/dependency-injection'
+import bindProps from '@/plugin/utils/bind-props'
+import { looseEqual } from '@/plugin/utils'
 import { atlas, AzureMapPoint } from 'types'
 import Vue from 'vue'
 import { Prop } from 'vue/types/options'
@@ -8,7 +14,6 @@ enum AzureMapPointEvent {
   ShapeCreated = 'shape-created',
   ShapeAdded = 'shape-added',
   CircleCoordinates = 'circle-coordinates',
-  Error = 'error',
 }
 
 const state = Vue.observable({ id: 0 })
@@ -20,9 +25,10 @@ export default Vue.extend({
   name: 'AzureMapPoint',
 
   /**
+   * Inject the `getMap` function to get the `atlas.Map` instance
    * Inject the `getDataSource` function to get the `atlas.source.DataSource` instance
    */
-  inject: ['getDataSource'],
+  inject: ['getMap', 'getDataSource'],
 
   props: {
     id: {
@@ -69,28 +75,24 @@ export default Vue.extend({
     },
 
     pointProperties(): Record<string, any> {
-      // Create a computed property to keep track of object changes in a watcher
+      // Create a computed property to keep track of the same object reference
       return { ...(this.properties || {}) }
     },
   },
 
-  async created() {
-    await this.validateProps()
+  created() {
+    // Look for the injected function that retreives the map instance
+    const getMap = getMapInjection(this)
 
-    //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the data source instance
-    const {
-      getDataSource,
-    }: { getDataSource: () => atlas.source.DataSource } = this
+    if (!getMap) return
 
-    if (!getDataSource) {
-      if (process.env.NODE_ENV === 'production') return
-      // If the function that retreives the data source is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-      return console.warn(
-        `Invalid <AzureMapPoint> data source.\nPlease make sure <AzureMapPoint> is a descendant of an <AzureMapDataSource> component.`
-      )
-    }
+    // Retrieve the map instance from the injected function
+    const map = getMap()
+
+    // Look for the injected function that retreives the data source instance
+    const getDataSource = getDataSourceInjection(this)
+
+    if (!getDataSource) return
 
     // Retrieve the data source from the injected function
     const dataSource = getDataSource()
@@ -120,42 +122,75 @@ export default Vue.extend({
     // Add the shape to the data source.
     dataSource.add(shape)
 
-    // Watch the shape position and update it every time it changes
-    this.$watch(
-      'pointCoordinates',
-      (newCoordinates: atlas.data.Position | null) => {
-        this.validateCoordinates(newCoordinates).then(coords => {
-          shape.setCoordinates(coords)
-        })
-      }
-    )
+    // Bind component props
+    const unbindProps = bindProps({
+      vm: this,
+      map,
+      props: [
+        {
+          propName: 'coordinates',
+          target: shape,
+          targetEventName: 'shapechanged',
+          isSetAsObject: false,
+          identity: (
+            newVal: atlas.data.Position,
+            oldVal: atlas.data.Position
+          ) => looseEqual(newVal, oldVal),
+        },
+        {
+          propName: 'longitude',
+          target: shape,
+          targetMethodName: 'coordinates',
+          targetEventName: 'shapechanged',
+          setter: (longitude: number) =>
+            this.latitude !== null &&
+            shape.setCoordinates([longitude, this.latitude]),
+          isSetAsObject: false,
+          retriever: (coordinates: atlas.data.Position) => coordinates[0],
+        },
+        {
+          propName: 'latitude',
+          target: shape,
+          targetMethodName: 'coordinates',
+          targetEventName: 'shapechanged',
+          setter: (latitude: number) =>
+            this.longitude !== null &&
+            shape.setCoordinates([this.longitude, latitude]),
+          isSetAsObject: false,
+          retriever: (coordinates: atlas.data.Position) => coordinates[1],
+        },
+        {
+          propName: 'pointProperties',
+          target: shape,
+          targetEventName: 'shapechanged',
+          isSetAsObject: false,
+          identity: (
+            newVal: Record<string, any>,
+            oldVal: Record<string, any>
+          ) => looseEqual(newVal, oldVal),
+          applier: (
+            newValue: Record<string, any>,
+            oldValue: Record<string, any>,
+            set: (newValue: Record<string, any>) => void
+          ) => {
+            if (!looseEqual(newValue, oldValue)) {
+              set(newValue)
+            }
 
-    this.$watch(
-      'pointProperties',
-      (newVal: Record<string, any>, oldVal: Record<string, any>) => {
-        if (!newVal) return
-
-        let newValEntries = Object.entries(newVal)
-        let oldValEntries = Object.entries(oldVal)
-
-        for (let [prop, val] of newValEntries) {
-          // Prevent updating values that did not change
-          if (val !== oldVal[prop]) {
-            // Add or update the shape property value
-            shape.addProperty(prop, val)
-
-            // Look for props that can generate or update circle coordinates
             if (
-              (prop === 'radius' || (prop === 'subType' && val === 'Circle')) &&
-              shape.isCircle()
+              shape.isCircle() &&
+              (newValue.radius !== oldValue.radius ||
+                newValue.subType !== oldValue.subType)
             ) {
               this.emitCircleCoordinates()
             }
-          }
-        }
-      },
-      { deep: true }
-    )
+          },
+          watchOptions: {
+            deep: true,
+          },
+        },
+      ],
+    })
 
     // Remove the shape when the component is destroyed
     this.$once('hook:destroyed', () => {
@@ -180,49 +215,6 @@ export default Vue.extend({
         72,
         'meters'
       )
-    },
-
-    // Perform more complex prop validations than is possible
-    // inside individual validator functions for each prop.
-    async validateProps(): Promise<void> {
-      await this.validateCoordinates(this.pointCoordinates)
-    },
-
-    async validateCoordinates(
-      coordinates: atlas.data.Position | null
-    ): Promise<atlas.data.Position> {
-      try {
-        // Check for invalid coordinates
-        if (!coordinates) {
-          throw new Error(
-            `Invalid <AzureMapPoint> coordinates, coordinates are ${coordinates}.\nPlease make sure <AzureMapPoint> coordinates are valid.`
-          )
-        }
-
-        const [longitude, latitude] = coordinates
-
-        // Check for invalid longitude
-        if (!longitude) {
-          throw new Error(
-            `Invalid <AzureMapPoint> longitude, longitude is ${longitude}.\nPlease provide a valid number using longitude or coordinates ([<<longitude>>, latitude]).`
-          )
-        }
-
-        // Check for invalid latitude
-        if (!latitude) {
-          throw new Error(
-            `Invalid <AzureMapPoint> latitude, latitude is ${latitude}.\nPlease provide a valid number using latitude or coordinates ([longitude, <<latitude>>]).`
-          )
-        }
-
-        return Promise.resolve(coordinates || [])
-      } catch (error) {
-        if (process.env.NODE_ENV !== 'production') {
-          console.warn(error)
-        }
-        this.$emit(AzureMapPointEvent.Error, error)
-        return Promise.reject(error)
-      }
     },
   },
 

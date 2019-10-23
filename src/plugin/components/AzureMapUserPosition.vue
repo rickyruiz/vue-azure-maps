@@ -24,7 +24,8 @@
 </template>
 
 <script lang="ts">
-import { getOptionsFromProps } from '@/plugin/utils'
+import { getMapInjection } from '@/plugin/utils/dependency-injection'
+import getOptionsFromProps from '@/plugin/utils/get-options-from-props'
 import { atlas } from 'types'
 import Vue from 'vue'
 import { Prop } from 'vue/types/options'
@@ -188,18 +189,10 @@ export default Vue.extend({
         this.error = null
         this.$emit(AzureMapUserPositionEvent.Success, position)
 
-        // @ts-ignore There is no TypeScript support for injections without decorators
-        // Look for the function that retreives the map instance
-        const { getMap }: { getMap: () => atlas.Map } = this
+        // Look for the injected function that retreives the map instance
+        const getMap = getMapInjection(this)
 
-        if (!getMap) {
-          if (process.env.NODE_ENV === 'production') return
-          // If the function that retreives the map instance is not available,
-          // warn the user that is not a descendant of an ancestor component that provides the method
-          return console.warn(
-            `Invalid <AzureMapControl> map instance.\nPlease make sure <AzureMapControl> is a descendant of <AzureMap>.`
-          )
-        }
+        if (!getMap) return
 
         // Retrieve the map instance from the injected function
         const map = getMap()
@@ -257,16 +250,14 @@ export default Vue.extend({
         this.$emit(errorEvent, errorMessage)
         this.$emit(AzureMapUserPositionEvent.Error)
       },
-      this.getOptionsFromProps<PositionOptions>({
-        enableHighAccuracy,
-        maximumAge,
-        timeout,
+      getOptionsFromProps({
+        props: {
+          enableHighAccuracy,
+          maximumAge,
+          timeout,
+        },
       })
     )
-  },
-
-  methods: {
-    getOptionsFromProps,
   },
 })
 </script>

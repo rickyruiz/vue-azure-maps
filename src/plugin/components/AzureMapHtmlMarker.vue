@@ -1,5 +1,7 @@
 <script lang="ts">
-import { getOptionsFromProps, addEventsFromListeners } from '@/plugin/utils'
+import { getMapInjection } from '@/plugin/utils/dependency-injection'
+import getOptionsFromProps from '@/plugin/utils/get-options-from-props'
+import addMapEventListeners from '@/plugin/utils/add-map-event-listeners'
 import { atlas } from 'types'
 import Vue from 'vue'
 import { Prop } from 'vue/types/options'
@@ -100,25 +102,17 @@ export default Vue.extend({
   },
 
   created() {
-    //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the map instance
-    const { getMap }: { getMap: () => atlas.Map } = this
+    // Look for the injected function that retreives the map instance
+    const getMap = getMapInjection(this)
 
-    if (!getMap) {
-      if (process.env.NODE_ENV === 'production') return
-      // If the function that retreives the map instance is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-      return console.warn(
-        `Invalid <AzureMapHtmlMarker> map instance.\nPlease make sure <AzureMapHtmlMarker> is a descendant of <AzureMap>.`
-      )
-    }
+    if (!getMap) return
 
     // Retrieve the map instance from the injected function
     const map = getMap()
 
     // Create the HTML marker
     const marker = new this.$_azureMaps.atlas.HtmlMarker(
-      this.getOptionsFromProps<atlas.HtmlMarkerOptions>()
+      getOptionsFromProps({ props: this.$props })
     )
 
     // Watch for all props changes
@@ -131,7 +125,9 @@ export default Vue.extend({
         return values
       },
       () => {
-        let newOptions = this.getOptionsFromProps<atlas.HtmlMarkerOptions>()
+        let newOptions = getOptionsFromProps<atlas.HtmlMarkerOptions>({
+          props: this.$props,
+        })
         if (newOptions) {
           marker.setOptions(newOptions)
         }
@@ -147,15 +143,11 @@ export default Vue.extend({
     })
 
     // Add the html marker events to the map
-    this.addEventsFromListeners({
+    addMapEventListeners({
       map,
       target: marker,
+      listeners: this.$listeners,
     })
-  },
-
-  methods: {
-    getOptionsFromProps,
-    addEventsFromListeners,
   },
 
   render(createElement) {

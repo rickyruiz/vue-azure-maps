@@ -1,4 +1,5 @@
 <script lang="ts">
+import { getDataSourceInjection } from '@/plugin/utils/dependency-injection'
 import { atlas } from 'types'
 import Vue from 'vue'
 import { Prop } from 'vue/types/options'
@@ -42,20 +43,10 @@ export default Vue.extend({
   async created() {
     await this.validateProps()
 
-    //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the data source instance
-    const {
-      getDataSource,
-    }: { getDataSource: () => atlas.source.DataSource } = this
+    // Look for the injected function that retreives the data source instance
+    const getDataSource = getDataSourceInjection(this)
 
-    if (!getDataSource) {
-      if (process.env.NODE_ENV === 'production') return
-      // If the function that retreives the data source is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-      return console.warn(
-        `Invalid <AzureMapPolygon> data source.\nPlease make sure <AzureMapPolygon> is a descendant of an <AzureMapDataSource> component.`
-      )
-    }
+    if (!getDataSource) return
 
     // Retrieve the data source from the injected function
     const dataSource = getDataSource()

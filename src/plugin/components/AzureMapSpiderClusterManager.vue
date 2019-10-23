@@ -3,7 +3,8 @@ import {
   SpiderClusterManager,
   ISpiderClusterOptions,
 } from '@/plugin/modules/other/spiderClusterManager'
-import { getOptionsFromProps, addEventsFromListeners } from '@/plugin/utils'
+import { getMapInjection } from '@/plugin/utils/dependency-injection'
+import getOptionsFromProps from '@/plugin/utils/get-options-from-props'
 import { atlas } from 'types'
 import Vue from 'vue'
 import { Prop } from 'vue/types/options'
@@ -112,18 +113,10 @@ export default Vue.extend({
   },
 
   created() {
-    //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the map instance
-    const { getMap }: { getMap: () => atlas.Map } = this
+    // Look for the injected function that retreives the map instance
+    const getMap = getMapInjection(this)
 
-    if (!getMap) {
-      if (process.env.NODE_ENV === 'production') return
-      // If the function that retreives the map instance is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-      return console.warn(
-        `Invalid <AzureMapSpiderClusterManager> map instance.\nPlease make sure <AzureMapSpiderClusterManager> is a descendant of <AzureMap>.`
-      )
-    }
+    if (!getMap) return
 
     // Retrieve the map instance from the injected function
     const map = getMap()
@@ -132,10 +125,9 @@ export default Vue.extend({
     if (!this.clusterLayer || !this.unclustedLayer) return
 
     // Get the spider manager options
-    const options =
-      this.getOptionsFromProps<ISpiderClusterOptions>(
-        this.spiderManagerOptionsProps
-      ) || {}
+    const options = getOptionsFromProps<ISpiderClusterOptions>({
+      props: this.spiderManagerOptionsProps,
+    })
 
     const spiderManager = new SpiderClusterManager(
       this.$_azureMaps.atlas,
@@ -171,12 +163,11 @@ export default Vue.extend({
         return values
       },
       () => {
-        let newOptions =
-          this.getOptionsFromProps<ISpiderClusterOptions>(
-            this.spiderManagerOptionsProps
-          ) || {}
-
-        spiderManager.setOptions(newOptions)
+        spiderManager.setOptions(
+          getOptionsFromProps({
+            props: this.spiderManagerOptionsProps,
+          })
+        )
       }
     )
 
@@ -185,11 +176,6 @@ export default Vue.extend({
       // Dispose the spider manager
       spiderManager.dispose()
     })
-  },
-
-  methods: {
-    getOptionsFromProps,
-    addEventsFromListeners,
   },
 
   render(createElement) {

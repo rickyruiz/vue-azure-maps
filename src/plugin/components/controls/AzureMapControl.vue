@@ -1,6 +1,7 @@
 <script lang="ts">
+import { getMapInjection } from '@/plugin/utils/dependency-injection'
+import getOptionsFromProps from '@/plugin/utils/get-options-from-props'
 import { atlas } from 'types'
-import { Control, ControlOptions } from 'azure-maps-control'
 import Vue from 'vue'
 import { Prop } from 'vue/types/options'
 
@@ -17,36 +18,33 @@ export default Vue.extend({
 
   props: {
     control: {
-      type: Object as Prop<Control>,
+      type: Object as Prop<atlas.Control>,
       default: null,
       required: true,
     },
 
     options: {
-      type: Object as Prop<ControlOptions>,
+      type: Object as Prop<atlas.ControlOptions>,
       default: null,
     },
   },
 
   created() {
-    //@ts-ignore There is no TypeScript support for injections without decorators
-    // Look for the function that retreives the map instance
-    const { getMap }: { getMap: () => atlas.Map } = this
+    // Look for the injected function that retreives the map instance
+    const getMap = getMapInjection(this)
 
-    if (!getMap) {
-      if (process.env.NODE_ENV === 'production') return
-      // If the function that retreives the map instance is not available,
-      // warn the user that is not a descendant of an ancestor component that provides the method
-      return console.warn(
-        `Invalid <AzureMapControl> map instance.\nPlease make sure <AzureMapControl> is a descendant of <AzureMap>.`
-      )
-    }
+    if (!getMap) return
 
     // Retrieve the map instance from the injected function
     const map = getMap()
 
     // Add the control to the map
-    map.controls.add(this.control, this.options || undefined)
+    map.controls.add(
+      this.control,
+      getOptionsFromProps<atlas.ControlOptions>({
+        props: this.options,
+      })
+    )
 
     // Remove the control when the component is destroyed
     this.$once('hook:destroyed', () => {

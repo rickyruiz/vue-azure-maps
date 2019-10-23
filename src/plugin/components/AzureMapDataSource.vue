@@ -13,7 +13,8 @@
 </template>
 
 <script lang="ts">
-import { getOptionsFromProps } from '@/plugin/utils'
+import { getMapInjection } from '@/plugin/utils/dependency-injection'
+import getOptionsFromProps from '@/plugin/utils/get-options-from-props'
 import { atlas } from 'types'
 import Vue from 'vue'
 import { Prop } from 'vue/types/options'
@@ -174,18 +175,10 @@ export default Vue.extend({
 
   methods: {
     initializeDataSource(): void {
-      //@ts-ignore There is no TypeScript support for injections without decorators
-      // Look for the function that retreives the map instance
-      const { getMap }: { getMap: () => atlas.Map } = this
+      // Look for the injected function that retreives the map instance
+      const getMap = getMapInjection(this)
 
-      if (!getMap) {
-        if (process.env.NODE_ENV === 'production') return
-        // If the function that retreives the map instance is not available,
-        // warn the user that is not a descendant of an ancestor component that provides the method
-        return console.warn(
-          `Invalid <AzureMapDataSource> map instance.\nPlease make sure <AzureMapDataSource> is a descendant of <AzureMap>.`
-        )
-      }
+      if (!getMap) return
 
       // Retrieve the map instance from the injected function
       const map = getMap()
@@ -193,7 +186,9 @@ export default Vue.extend({
       // Create a data source to manage shapes
       const dataSource = new this.$_azureMaps.atlas.source.DataSource(
         this.id || `azure-map-data-source-${state.id++}`,
-        this.dataSourceOptionProps
+        getOptionsFromProps({
+          props: this.dataSourceOptionProps,
+        })
       )
 
       this.$emit(AzureMapDataSourceEvent.Created, dataSource)
@@ -225,8 +220,6 @@ export default Vue.extend({
       // Return the data source for descendent components injection
       return this.dataSource
     },
-
-    getOptionsFromProps,
   },
 })
 </script>

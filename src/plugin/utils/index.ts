@@ -1,77 +1,76 @@
-import { atlas } from 'types'
 import Vue from 'vue'
 
 //===
-// In-component helper functions
+// Helper functions
 //===
 
 /**
- * TODO: Change this helper function, the `setOption` method used by atlas uses the default option value when the
- * option property value is `null`. There is no need to remove those properties from the options object when updating.
- * Add a parameter to exclude certain keys from the options, this will be helpful to create a computed prop and then
- * a watcher to use the `setOption` method every time the props change.
- *
- * This lets us accept individual props instead of an object in
- * our component, making our template more explicit and easier to handle.
- * @param props If this parameter is undefined, `this.$props` will be used to look for component props.
+ * Quick object check - this is primarily used to tell
+ * Objects from primitive values when we know the value
+ * is a JSON-compliant type.
  */
-export function getOptionsFromProps<T>(
-  this: Vue,
-  props?: Record<string, any>
-): T | undefined {
-  // Use props argument or component props
-  let propEntries = Object.entries(props || this.$props)
-
-  let options: Record<string, any> = {}
-
-  // Look for all the properties that are not null
-  for (const [prop, value] of propEntries) {
-    if (value !== null) {
-      let propName
-      // Handle reserved attributes
-      switch (prop) {
-        case 'mapStyle':
-          propName = 'style'
-          break
-
-        default:
-          propName = prop
-          break
-      }
-      options[`${propName}`] = value
-    }
-  }
-
-  // Return undefined if all props were null
-  if (Object.keys(options).length === 0) return
-
-  return options as T
+export function isObject(obj: unknown): obj is Object {
+  return obj !== null && typeof obj === 'object'
 }
 
-export function addEventsFromListeners(
-  this: Vue,
-  { map, target, reservedEventTypes = [] }: EventsFromListenersConfig
-): void {
-  // Use component listeners
-  let listenersEntries = Object.entries(this.$listeners)
-
-  for (const [eventType, callback] of listenersEntries) {
-    if (!reservedEventTypes.includes(eventType)) {
-      if (target) {
-        map.events.add(eventType as any, target, callback as any)
+/**
+ * Check if two values are loosely equal - that is,
+ * if they are plain objects, do they have the same shape?
+ */
+export function looseEqual(a: any, b: any): boolean {
+  if (a === b) return true
+  const isObjectA = isObject(a)
+  const isObjectB = isObject(b)
+  if (isObjectA && isObjectB) {
+    try {
+      const isArrayA = Array.isArray(a)
+      const isArrayB = Array.isArray(b)
+      if (isArrayA && isArrayB) {
+        return (
+          a.length === b.length &&
+          a.every((e: any, i: number) => {
+            return looseEqual(e, b[i])
+          })
+        )
+      } else if (a instanceof Date && b instanceof Date) {
+        return a.getTime() === b.getTime()
+      } else if (!isArrayA && !isArrayB) {
+        const keysA = Object.keys(a)
+        const keysB = Object.keys(b)
+        return (
+          keysA.length === keysB.length &&
+          keysA.every(key => {
+            return looseEqual(a[key], b[key])
+          })
+        )
       } else {
-        map.events.add(eventType as any, callback as any)
+        return false
       }
+    } catch (e) {
+      return false
     }
+  } else if (!isObjectA && !isObjectB) {
+    return String(a) === String(b)
+  } else {
+    return false
   }
 }
 
-//===
-// Interfaces
-//===
+export function capitalize(str: string) {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
 
-export interface EventsFromListenersConfig {
-  map: atlas.Map
-  target?: any
-  reservedEventTypes?: string[]
+export function findParentComponentByName(
+  vm: Vue,
+  componentName: string
+): Vue | undefined {
+  let component
+  let parent = vm.$parent
+  while (parent && !component) {
+    if (parent.$options.name === componentName) {
+      component = parent
+    }
+    parent = parent.$parent
+  }
+  return component
 }

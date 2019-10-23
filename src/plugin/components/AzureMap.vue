@@ -14,7 +14,9 @@
 </template>
 
 <script lang="ts">
-import { getOptionsFromProps, addEventsFromListeners } from '@/plugin/utils'
+import getOptionsFromProps from '@/plugin/utils/get-options-from-props'
+import bindProps from '@/plugin/utils/bind-props'
+import addMapEventListeners from '@/plugin/utils/add-map-event-listeners'
 import { atlas } from 'types'
 import Vue from 'vue'
 import { Prop } from 'vue/types/options'
@@ -260,6 +262,37 @@ export default Vue.extend({
     },
 
     /**
+     * Specfies if multiple copies of the world should be rendered when zoomed out.
+     * Default `true`
+     * @default true
+     */
+    renderWorldCopies: {
+      type: Boolean as Prop<boolean | null>,
+      default: null,
+    },
+
+    /**
+     * Specifies if the feedback link should be displayed on the map or not.
+     * Default `true`
+     * @default true
+     */
+    showFeedbackLink: {
+      type: Boolean as Prop<boolean | null>,
+      default: null,
+    },
+
+    /**
+     * Specifies if the Microsoft logo should be hidden or not.
+     * If set to true a Microsoft copyright string will be added to the map.
+     * Default `true`
+     * @default true
+     */
+    showLogo: {
+      type: Boolean as Prop<boolean | null>,
+      default: null,
+    },
+
+    /**
      * The name of the style to use when rendering the map. Available styles can be found in the
      * [supported styles]{@link https://docs.microsoft.com/en-us/azure/azure-maps/supported-map-styles} article. The
      * default style is "road".
@@ -281,12 +314,13 @@ export default Vue.extend({
     },
 
     /**
-     * The geopolitical view of the map.
-     * <p>Unified: The unified view of the world.</p>
-     * Default `atlas.getUserRegion()`.
-     * @default atlas.getUserRegion()
+     * Specifies which set of geopolitically disputed borders and labels are displayed on the map. The View parameter (also referred to as “user region parameter”) is a 2-letter ISO-3166 Country Code that will show the correct maps for that country/region. Country/Regions that are not on the View list or if unspecified will default to the “Unified” View.
+     * Please see the supported [Views]{@link https://aka.ms/AzureMapsLocalizationViews}
+     * It is your responsibility to determine the location of your users, and then set the View parameter correctly for that location. The View parameter in Azure Maps must be used in compliance with applicable laws, including those regarding mapping, of the country where maps, images and other data and third party content that You are authorized to access via Azure Maps is made available.
+     * default: `undefined`
+     * @default undefined
      */
-    userRegion: {
+    view: {
       type: String as Prop<string | null>,
       default: null,
     },
@@ -405,50 +439,207 @@ export default Vue.extend({
     }
   },
 
-  watch: {
-    center(newPosition: atlas.data.Position | null) {
-      if (!this.map || !newPosition) return
-
-      this.map.setCamera({
-        center: newPosition,
-      })
-    },
-
-    mapStyle(newStyle: string | null) {
-      if (!this.map || !newStyle) return
-
-      this.map.setStyle({
-        style: newStyle,
-      })
-    },
-  },
-
   mounted() {
     this.initializeMap()
   },
 
   methods: {
     initializeMap(): void {
-      // Get map options from component props
-      let options =
-        this.getOptionsFromProps<
-          atlas.ServiceOptions &
-            atlas.StyleOptions &
-            atlas.UserInteractionOptions &
-            (atlas.CameraOptions | atlas.CameraBoundsOptions)
-        >() || {}
-
       // Instantiate map to the HTMLElement with the auto-generated map id.
-      const map = new this.$_azureMaps.atlas.Map(this.mapId, options)
+      const map = new this.$_azureMaps.atlas.Map(
+        this.mapId,
+        getOptionsFromProps({
+          props: this.$props,
+          reservedAttributes: {
+            mapStyle: 'style',
+          },
+        })
+      )
 
       // Save the map instance in a data property to provide it to descendent components
       this.map = map
 
       // Wait until the map resources are ready.
-      this.map.events.add('ready', this.mapReadyCallback)
+      const removeMapReadyListener = addMapEventListeners({
+        map: this.map,
+        listeners: {
+          ready: this.mapReadyCallback,
+        },
+      })
+
+      // Bind component props
+      const unbindProps = bindProps({
+        vm: this,
+        map,
+        props: [
+          //===
+          // Service Options
+          //===
+          {
+            propName: 'authOptions',
+            targetMethodName: 'serviceOptions',
+          },
+          {
+            propName: 'subscriptionKey',
+            targetMethodName: 'serviceOptions',
+          },
+          {
+            propName: 'sessionId',
+            targetMethodName: 'serviceOptions',
+          },
+          {
+            propName: 'enableAccessibility',
+            targetMethodName: 'serviceOptions',
+          },
+          {
+            propName: 'refreshExpiredTiles',
+            targetMethodName: 'serviceOptions',
+          },
+          {
+            propName: 'transformRequest',
+            targetMethodName: 'serviceOptions',
+          },
+
+          //===
+          // Camera Options
+          //===
+          {
+            propName: 'zoom',
+            targetMethodName: 'camera',
+            targetEventName: 'zoomend',
+          },
+          {
+            propName: 'center',
+            targetMethodName: 'camera',
+            targetEventName: 'moveend',
+          },
+          {
+            propName: 'centerOffset',
+            targetMethodName: 'camera',
+            targetEventName: 'moveend',
+          },
+          {
+            propName: 'bearing',
+            targetMethodName: 'camera',
+            targetEventName: 'rotateend',
+          },
+          {
+            propName: 'pitch',
+            targetMethodName: 'camera',
+            targetEventName: 'pitchend',
+          },
+          {
+            propName: 'minZoom',
+            targetMethodName: 'camera',
+            targetEventName: 'zoomend',
+          },
+          {
+            propName: 'maxZoom',
+            targetMethodName: 'camera',
+            targetEventName: 'zoomend',
+          },
+
+          //===
+          // Camera Bounds Options
+          //===
+          {
+            propName: 'bounds',
+            targetMethodName: 'camera',
+          },
+          // {
+          //   propName: 'maxZoom', // Shared with Camera Options
+          //   targetMethodName: 'camera',
+          // },
+          {
+            propName: 'offset',
+            targetMethodName: 'camera',
+          },
+          {
+            propName: 'padding',
+            targetMethodName: 'camera',
+          },
+
+          //===
+          // Style Options
+          //===
+          {
+            propName: 'autoresize',
+            targetPropName: 'style',
+            targetEventName: 'styledata',
+          },
+          {
+            propName: 'renderWorldCopies',
+            targetPropName: 'style',
+            targetEventName: 'styledata',
+          },
+          {
+            propName: 'showFeedbackLink',
+            targetPropName: 'style',
+            targetEventName: 'styledata',
+          },
+          {
+            propName: 'showLogo',
+            targetPropName: 'style',
+            targetEventName: 'styledata',
+          },
+          {
+            propName: 'mapStyle',
+            targetPropName: 'style',
+            targetEventName: 'styledata',
+          },
+          {
+            propName: 'language',
+            targetMethodName: 'style',
+            targetEventName: 'styledata',
+          },
+          {
+            propName: 'view',
+            targetMethodName: 'style',
+            targetEventName: 'styledata',
+          },
+
+          //===
+          // User Interaction Options
+          //===
+          {
+            propName: 'interactive',
+            targetMethodName: 'userInteraction',
+          },
+          {
+            propName: 'scrollZoomInteraction',
+            targetMethodName: 'userInteraction',
+          },
+          {
+            propName: 'boxZoomInteraction',
+            targetMethodName: 'userInteraction',
+          },
+          {
+            propName: 'dragRotateInteraction',
+            targetMethodName: 'userInteraction',
+          },
+          {
+            propName: 'dragPanInteraction',
+            targetMethodName: 'userInteraction',
+          },
+          {
+            propName: 'keyboardInteraction',
+            targetMethodName: 'userInteraction',
+          },
+          {
+            propName: 'dblClickZoomInteraction',
+            targetMethodName: 'userInteraction',
+          },
+          {
+            propName: 'touchInteraction',
+            targetMethodName: 'userInteraction',
+          },
+        ],
+      })
 
       // Remove the map when the component is destroyed
       this.$once('hook:destroyed', () => {
+        removeMapReadyListener()
+        unbindProps()
         map.dispose()
       })
     },
@@ -462,10 +653,16 @@ export default Vue.extend({
       this.isMapReady = true
 
       if (this.map) {
-        // Add the map events
-        this.addEventsFromListeners({
+        // Add the map event listeners
+        const removeEventListeners = addMapEventListeners({
           map: this.map,
+          listeners: this.$listeners,
           reservedEventTypes: Object.values(AzureMapEvent),
+        })
+
+        // Remove the map event listeners when the component is destroyed
+        this.$once('hook:destroyed', () => {
+          removeEventListeners()
         })
       }
     },
@@ -474,10 +671,6 @@ export default Vue.extend({
       // Return the map instance for descendent components injection
       return this.map
     },
-
-    getOptionsFromProps,
-
-    addEventsFromListeners,
   },
 })
 </script>
