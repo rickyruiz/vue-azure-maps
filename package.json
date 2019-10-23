@@ -46,24 +46,24 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.18",
-    "@types/webpack": "^4.39.2",
-    "@types/webpack-env": "^1.14.0",
-    "@vue/cli-plugin-babel": "^3.11.0",
-    "@vue/cli-plugin-eslint": "^3.11.0",
-    "@vue/cli-plugin-typescript": "^3.11.0",
-    "@vue/cli-plugin-unit-jest": "^3.11.0",
-    "@vue/cli-service": "^3.11.0",
+    "@types/jest": "^24.0.19",
+    "@types/webpack": "^4.39.5",
+    "@types/webpack-env": "^1.14.1",
+    "@vue/cli-plugin-babel": "^4.0.5",
+    "@vue/cli-plugin-eslint": "^4.0.5",
+    "@vue/cli-plugin-typescript": "^4.0.5",
+    "@vue/cli-plugin-unit-jest": "^4.0.5",
+    "@vue/cli-service": "^4.0.5",
     "@vue/eslint-config-prettier": "^4.0.1",
     "@vue/eslint-config-typescript": "^4.0.0",
     "@vue/test-utils": "^1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.3",
     "eslint": "5.16.0",
-    "eslint-plugin-vue": "5.2.2",
+    "eslint-plugin-vue": "5.2.3",
     "ts-jest": "^24.1.0",
-    "typescript": "^3.5.3",
+    "typescript": "^3.6.4",
     "vue-template-compiler": "^2.6.10",
-    "vuepress": "^1.1.0"
+    "vuepress": "^1.2.0"
   }
 }
