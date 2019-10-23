@@ -53,7 +53,7 @@ export default Vue.extend({
       props: {
         control: new this.$_azureMaps.atlas.control.StyleControl({
           style: this.controlStyle,
-          mapStyles: this.mapStyles,
+          mapStyles: this.mapStyles as string[] | 'all',
         }),
         options: {
           position: this.position,
