@@ -16,8 +16,7 @@
 import { getMapInjection } from '@/plugin/utils/dependency-injection'
 import getOptionsFromProps from '@/plugin/utils/get-options-from-props'
 import { atlas } from 'types'
-import Vue from 'vue'
-import { Prop } from 'vue/types/options'
+import Vue, { PropType } from 'vue'
 
 type Dictionary<K, V> = Map<K, V>
 
@@ -62,7 +61,7 @@ export default Vue.extend({
      * If this is not specified, then the data source will automatically be assigned an id.
      */
     id: {
-      type: String as Prop<string | undefined>,
+      type: String as PropType<string | undefined>,
       default: undefined,
     },
 
@@ -72,7 +71,7 @@ export default Vue.extend({
      * @default 18
      */
     maxZoom: {
-      type: Number as Prop<number | undefined>,
+      type: Number as PropType<number | undefined>,
       default: undefined,
     },
 
@@ -83,7 +82,7 @@ export default Vue.extend({
      * @default false
      */
     cluster: {
-      type: Boolean as Prop<boolean | undefined>,
+      type: Boolean as PropType<boolean | undefined>,
       default: undefined,
     },
 
@@ -93,7 +92,7 @@ export default Vue.extend({
      * @default 50
      */
     clusterRadius: {
-      type: Number as Prop<number | undefined>,
+      type: Number as PropType<number | undefined>,
       default: undefined,
     },
 
@@ -102,7 +101,7 @@ export default Vue.extend({
      * Defaults to one zoom less than `maxZoom` so that last zoom features are not clustered.
      */
     clusterMaxZoom: {
-      type: Number as Prop<number | undefined>,
+      type: Number as PropType<number | undefined>,
       default: undefined,
     },
 
@@ -110,7 +109,7 @@ export default Vue.extend({
      * Defines custom properties that are calculated using expressions against all the points within each cluster and added to the properties of each cluster point.
      */
     clusterProperties: {
-      type: Object as Prop<
+      type: Object as PropType<
         Dictionary<string, atlas.AggregateExpression> | undefined
       >,
       default: undefined,
@@ -123,7 +122,7 @@ export default Vue.extend({
      * @default false
      */
     lineMetrics: {
-      type: Boolean as Prop<boolean | undefined>,
+      type: Boolean as PropType<boolean | undefined>,
       default: undefined,
     },
 
@@ -133,7 +132,7 @@ export default Vue.extend({
      * @default 0.375
      */
     tolerance: {
-      type: Number as Prop<number | undefined>,
+      type: Number as PropType<number | undefined>,
       default: undefined,
     },
   },

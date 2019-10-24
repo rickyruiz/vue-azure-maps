@@ -18,8 +18,7 @@ import getOptionsFromProps from '@/plugin/utils/get-options-from-props'
 import bindProps from '@/plugin/utils/bind-props'
 import addMapEventListeners from '@/plugin/utils/add-map-event-listeners'
 import { atlas } from 'types'
-import Vue from 'vue'
-import { Prop } from 'vue/types/options'
+import Vue, { PropType } from 'vue'
 
 enum AzureMapEvent {
   Ready = 'ready',
@@ -50,7 +49,7 @@ export default Vue.extend({
      * Note this property is optional because it could be specified using CSS
      */
     width: {
-      type: String as Prop<string | null>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
@@ -60,7 +59,7 @@ export default Vue.extend({
      * Note this property is optional because it could be specified using CSS
      */
     height: {
-      type: String as Prop<string | null>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
@@ -70,7 +69,7 @@ export default Vue.extend({
      * Recommend using the atlas.setAuthenticationOptions function instead.
      */
     authOptions: {
-      type: Object as Prop<atlas.AuthenticationOptions | null>,
+      type: Object as PropType<atlas.AuthenticationOptions | null>,
       default: null,
     },
 
@@ -80,7 +79,7 @@ export default Vue.extend({
      * Recommend using the atlas.setSubscriptionKey function instead
      */
     subscriptionKey: {
-      type: String as Prop<string | null>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
@@ -90,7 +89,7 @@ export default Vue.extend({
      * @default Random UUID generated at runtime
      */
     sessionId: {
-      type: String as Prop<string | null>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
@@ -101,7 +100,7 @@ export default Vue.extend({
      * @default false
      */
     disableTelemetry: {
-      type: Boolean as Prop<boolean | null>,
+      type: Boolean as PropType<boolean | null>,
       default: null,
     },
 
@@ -111,7 +110,7 @@ export default Vue.extend({
      * @default false
      */
     enableAccessibility: {
-      type: Boolean as Prop<boolean | null>,
+      type: Boolean as PropType<boolean | null>,
       default: null,
     },
 
@@ -122,7 +121,7 @@ export default Vue.extend({
      * @default true
      */
     refreshExpiredTiles: {
-      type: Boolean as Prop<boolean | null>,
+      type: Boolean as PropType<boolean | null>,
       default: null,
     },
 
@@ -131,7 +130,7 @@ export default Vue.extend({
      * `(url: string, resourceType: string) => RequestParameters`
      */
     transformRequest: {
-      type: Function as Prop<Function | null>,
+      type: Function as PropType<Function | null>,
       default: null,
     },
 
@@ -141,7 +140,7 @@ export default Vue.extend({
      * @default 1
      */
     zoom: {
-      type: Number as Prop<number | null>,
+      type: Number as PropType<number | null>,
       default: null,
     },
 
@@ -151,7 +150,7 @@ export default Vue.extend({
      * @default [0, 0]
      */
     center: {
-      type: Array as Prop<atlas.data.Position | null>,
+      type: Array as PropType<atlas.data.Position | null>,
       default: null,
     },
 
@@ -162,7 +161,7 @@ export default Vue.extend({
      * @default [0, 0]
      */
     centerOffset: {
-      type: Array as Prop<atlas.Pixel | null>,
+      type: Array as PropType<atlas.Pixel | null>,
       default: null,
     },
 
@@ -173,7 +172,7 @@ export default Vue.extend({
      * @default 0
      */
     bearing: {
-      type: Number as Prop<number | null>,
+      type: Number as PropType<number | null>,
       default: null,
     },
 
@@ -183,7 +182,7 @@ export default Vue.extend({
      * @default 0
      */
     pitch: {
-      type: Number as Prop<number | null>,
+      type: Number as PropType<number | null>,
       default: null,
     },
 
@@ -193,7 +192,7 @@ export default Vue.extend({
      * @default 1
      */
     minZoom: {
-      type: Number as Prop<number | null>,
+      type: Number as PropType<number | null>,
       default: null,
     },
 
@@ -203,7 +202,7 @@ export default Vue.extend({
      * @default 20
      */
     maxZoom: {
-      type: Number as Prop<number | null>,
+      type: Number as PropType<number | null>,
       default: null,
     },
 
@@ -213,7 +212,7 @@ export default Vue.extend({
      * @default [-180, -89, 180, 90]
      */
     bounds: {
-      type: Object as Prop<atlas.data.BoundingBox | null>,
+      type: Object as PropType<atlas.data.BoundingBox | null>,
       default: null,
     },
 
@@ -223,7 +222,7 @@ export default Vue.extend({
      * @default [0, 0]
      */
     offset: {
-      type: Array as Prop<atlas.Pixel | null>,
+      type: Array as PropType<atlas.Pixel | null>,
       default: null,
     },
     /**
@@ -232,10 +231,7 @@ export default Vue.extend({
      * @default {top: 0, bottom: 0, left: 0, right: 0}
      */
     padding: {
-      type: [
-        Object as Prop<atlas.Padding | null>,
-        Number as Prop<number | null>,
-      ],
+      type: [Object, Number] as PropType<atlas.Padding | number | null>,
       default: null,
     },
 
@@ -246,7 +242,7 @@ export default Vue.extend({
      * @default true
      */
     autoResize: {
-      type: Boolean as Prop<boolean | null>,
+      type: Boolean as PropType<boolean | null>,
       default: null,
     },
 
@@ -257,7 +253,7 @@ export default Vue.extend({
      * @default false
      */
     preserveDrawingBuffer: {
-      type: Boolean as Prop<boolean | null>,
+      type: Boolean as PropType<boolean | null>,
       default: null,
     },
 
@@ -267,7 +263,7 @@ export default Vue.extend({
      * @default true
      */
     renderWorldCopies: {
-      type: Boolean as Prop<boolean | null>,
+      type: Boolean as PropType<boolean | null>,
       default: null,
     },
 
@@ -277,7 +273,7 @@ export default Vue.extend({
      * @default true
      */
     showFeedbackLink: {
-      type: Boolean as Prop<boolean | null>,
+      type: Boolean as PropType<boolean | null>,
       default: null,
     },
 
@@ -288,7 +284,7 @@ export default Vue.extend({
      * @default true
      */
     showLogo: {
-      type: Boolean as Prop<boolean | null>,
+      type: Boolean as PropType<boolean | null>,
       default: null,
     },
 
@@ -298,7 +294,7 @@ export default Vue.extend({
      * default style is "road".
      */
     mapStyle: {
-      type: String as Prop<string | null>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
@@ -309,7 +305,7 @@ export default Vue.extend({
      * @default atlas.getLanguage()
      */
     language: {
-      type: String as Prop<string | null>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
@@ -321,7 +317,7 @@ export default Vue.extend({
      * @default undefined
      */
     view: {
-      type: String as Prop<string | null>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
@@ -332,7 +328,7 @@ export default Vue.extend({
      * @default true
      */
     interactive: {
-      type: Boolean as Prop<boolean | null>,
+      type: Boolean as PropType<boolean | null>,
       default: null,
     },
 
@@ -342,7 +338,7 @@ export default Vue.extend({
      * @default true
      */
     scrollZoomInteraction: {
-      type: Boolean as Prop<boolean | null>,
+      type: Boolean as PropType<boolean | null>,
       default: null,
     },
 
@@ -352,7 +348,7 @@ export default Vue.extend({
      * @default true
      */
     boxZoomInteraction: {
-      type: Boolean as Prop<boolean | null>,
+      type: Boolean as PropType<boolean | null>,
       default: null,
     },
 
@@ -362,7 +358,7 @@ export default Vue.extend({
      * @default true
      */
     dragRotateInteraction: {
-      type: Boolean as Prop<boolean | null>,
+      type: Boolean as PropType<boolean | null>,
       default: null,
     },
 
@@ -372,7 +368,7 @@ export default Vue.extend({
      * @default true
      */
     dragPanInteraction: {
-      type: Boolean as Prop<boolean | null>,
+      type: Boolean as PropType<boolean | null>,
       default: null,
     },
 
@@ -396,7 +392,7 @@ export default Vue.extend({
      * @default true
      */
     keyboardInteraction: {
-      type: Boolean as Prop<boolean | null>,
+      type: Boolean as PropType<boolean | null>,
       default: null,
     },
 
@@ -406,7 +402,7 @@ export default Vue.extend({
      * @default true
      */
     dblClickZoomInteraction: {
-      type: Boolean as Prop<boolean | null>,
+      type: Boolean as PropType<boolean | null>,
       default: null,
     },
 
@@ -416,7 +412,7 @@ export default Vue.extend({
      * @default true
      */
     touchInteraction: {
-      type: Boolean as Prop<boolean | null>,
+      type: Boolean as PropType<boolean | null>,
       default: null,
     },
   },

@@ -10,8 +10,7 @@
 import { getMapInjection } from '@/plugin/utils/dependency-injection'
 import getOptionsFromProps from '@/plugin/utils/get-options-from-props'
 import { atlas } from 'types'
-import Vue from 'vue'
-import { Prop } from 'vue/types/options'
+import Vue, { PropType } from 'vue'
 
 enum AzureMapPopupEvent {
   Created = 'created',
@@ -62,7 +61,7 @@ export default Vue.extend({
      * @default true
      */
     closeButton: {
-      type: Boolean as Prop<boolean | null>,
+      type: Boolean as PropType<boolean | null>,
       default: null,
     },
 
@@ -72,7 +71,7 @@ export default Vue.extend({
      * @default "#FFFFFF"
      */
     fillColor: {
-      type: String as Prop<string | null>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
@@ -83,7 +82,7 @@ export default Vue.extend({
      * @default [0, 0]
      */
     pixelOffset: {
-      type: Array as Prop<atlas.Pixel | null>,
+      type: Array as PropType<atlas.Pixel | null>,
       default: null,
     },
 
@@ -93,7 +92,7 @@ export default Vue.extend({
      * @default [0, 0]
      */
     position: {
-      type: Array as Prop<atlas.data.Position | null>,
+      type: Array as PropType<atlas.data.Position | null>,
       default: null,
     },
 
@@ -103,7 +102,7 @@ export default Vue.extend({
      * @default true
      */
     showPointer: {
-      type: Boolean as Prop<boolean | null>,
+      type: Boolean as PropType<boolean | null>,
       default: null,
     },
   },

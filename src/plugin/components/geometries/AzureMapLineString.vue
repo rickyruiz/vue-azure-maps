@@ -1,8 +1,7 @@
 <script lang="ts">
 import { getDataSourceInjection } from '@/plugin/utils/dependency-injection'
 import { atlas } from 'types'
-import Vue from 'vue'
-import { Prop } from 'vue/types/options'
+import Vue, { PropType } from 'vue'
 
 enum AzureMapLineStringEvents {
   Error = 'error',
@@ -28,12 +27,12 @@ export default Vue.extend({
     },
 
     coordinates: {
-      type: Array as Prop<atlas.data.Position[] | null>,
+      type: Array as PropType<atlas.data.Position[] | null>,
       default: null,
     },
 
     properties: {
-      type: Object,
+      type: Object as PropType<Record<string, any>>,
       default: () => ({}),
     },
   },

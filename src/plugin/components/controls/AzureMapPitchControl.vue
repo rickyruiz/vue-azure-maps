@@ -1,8 +1,7 @@
 <script lang="ts">
 import { atlas } from 'types'
 import { ControlPosition, ControlStyle } from 'azure-maps-control'
-import Vue from 'vue'
-import { Prop } from 'vue/types/options'
+import Vue, { PropType } from 'vue'
 import AzureMapControl from './AzureMapControl.vue'
 
 /**
@@ -16,7 +15,7 @@ export default Vue.extend({
      * The position where the control will be placed on the map.
      */
     position: {
-      type: String as Prop<atlas.ControlPosition>,
+      type: String as PropType<atlas.ControlPosition>,
       default: ControlPosition.BottomRight,
       validator: (value: atlas.ControlPosition) =>
         Object.values(ControlPosition).includes(value),
@@ -38,7 +37,7 @@ export default Vue.extend({
      * @default ControlStyle.light
      */
     controlStyle: {
-      type: String as Prop<atlas.ControlStyle>,
+      type: String as PropType<atlas.ControlStyle>,
       default: ControlStyle.light,
     },
   },

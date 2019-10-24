@@ -1,8 +1,7 @@
 <script lang="ts">
 import { getMapInjection } from '@/plugin/utils/dependency-injection'
 import { atlas } from 'types'
-import Vue from 'vue'
-import { Prop } from 'vue/types/options'
+import Vue, { PropType } from 'vue'
 
 enum AzureMapImageSpriteIconEvent {
   Error = 'error',
@@ -35,7 +34,7 @@ export default Vue.extend({
      * The image to add to the map's sprite. Can be a data URI, inline SVG, or image URL.
      */
     icon: {
-      type: [String, Object] as Prop<string | HTMLImageElement | ImageData>[],
+      type: [String, Object] as PropType<string | HTMLImageElement | ImageData>,
       default: null,
       required: true,
     },

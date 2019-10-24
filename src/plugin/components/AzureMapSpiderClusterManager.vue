@@ -6,8 +6,7 @@ import {
 import { getMapInjection } from '@/plugin/utils/dependency-injection'
 import getOptionsFromProps from '@/plugin/utils/get-options-from-props'
 import { atlas } from 'types'
-import Vue from 'vue'
-import { Prop } from 'vue/types/options'
+import Vue, { PropType } from 'vue'
 
 enum AzureMapSpiderClusterManagerEvent {
   FeatureSelected = 'feature-selected',
@@ -27,7 +26,7 @@ export default Vue.extend({
      * The cluster layer instace
      */
     clusterLayer: {
-      type: Object as Prop<
+      type: Object as PropType<
         atlas.layer.BubbleLayer | atlas.layer.SymbolLayer | null
       >,
       default: null,
@@ -38,7 +37,7 @@ export default Vue.extend({
      * The unclusted layer instance
      */
     unclustedLayer: {
-      type: Object as Prop<
+      type: Object as PropType<
         atlas.layer.BubbleLayer | atlas.layer.SymbolLayer | null
       >,
       default: null,
@@ -47,43 +46,43 @@ export default Vue.extend({
 
     /** Minimium number of point features in cluster before switching from circle to spiral spider layout. Default: 6 */
     circleSpiralSwitchover: {
-      type: Number as Prop<number | undefined>,
+      type: Number as PropType<number | undefined>,
       default: undefined,
     },
 
     /** The minium pixel distance between point features and the cluster, when rendering spider layout as a circle. Default: 30 */
     minCircleLength: {
-      type: Number as Prop<number | undefined>,
+      type: Number as PropType<number | undefined>,
       default: undefined,
     },
 
     /** The minium angle between point features in the spiral. Default: 25 */
     minSpiralAngleSeperation: {
-      type: Number as Prop<number | undefined>,
+      type: Number as PropType<number | undefined>,
       default: undefined,
     },
 
     /** The maximum number of features that can be rendered in the spider layout. When the cluster is bigger than this value, it will zoom until the cluster starts to break apart. Default: 100 */
     maxFeaturesInWeb: {
-      type: Number as Prop<number | undefined>,
+      type: Number as PropType<number | undefined>,
       default: undefined,
     },
 
     /** A factor that is used to grow the pixel distance of each point feature from the center in the spiral. Default: 5 */
     spiralDistanceFactor: {
-      type: Number as Prop<number | undefined>,
+      type: Number as PropType<number | undefined>,
       default: undefined,
     },
 
     /** Layer options used to style the stick connecting the individual point feature to the cluster. */
     stickLayerOptions: {
-      type: Object as Prop<atlas.LineLayerOptions | undefined>,
+      type: Object as PropType<atlas.LineLayerOptions | undefined>,
       default: undefined,
     },
 
     /** A boolean indicating if the cluster layer is visible or not. */
     visible: {
-      type: Boolean as Prop<boolean | undefined>,
+      type: Boolean as PropType<boolean | undefined>,
       default: undefined,
     },
   },

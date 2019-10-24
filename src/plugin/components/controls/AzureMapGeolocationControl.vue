@@ -3,8 +3,7 @@ import { GeolocationControl } from '@/plugin/modules/controls/geolocation'
 import getOptionsFromProps from '@/plugin/utils/get-options-from-props'
 import { atlas } from 'types'
 import { ControlPosition, ControlStyle } from 'azure-maps-control'
-import Vue from 'vue'
-import { Prop } from 'vue/types/options'
+import Vue, { PropType } from 'vue'
 import AzureMapControl from './AzureMapControl.vue'
 
 /**
@@ -18,7 +17,7 @@ export default Vue.extend({
      * The position where the control will be placed on the map.
      */
     position: {
-      type: String as Prop<atlas.ControlPosition>,
+      type: String as PropType<atlas.ControlPosition>,
       default: ControlPosition.BottomRight,
       validator: (value: atlas.ControlPosition) =>
         Object.values(ControlPosition).includes(value),
@@ -30,7 +29,7 @@ export default Vue.extend({
      * @default ControlStyle.light
      */
     controlStyle: {
-      type: String as Prop<atlas.ControlStyle | string>,
+      type: String as PropType<atlas.ControlStyle | string>,
       default: ControlStyle.light,
     },
 
@@ -39,7 +38,7 @@ export default Vue.extend({
      * Default: {enableHighAccuracy:false,timeout:6000}
      */
     positionOptions: {
-      type: Object as Prop<PositionOptions | null>,
+      type: Object as PropType<PositionOptions | null>,
       default: null,
     },
 
@@ -48,7 +47,7 @@ export default Vue.extend({
      * Default: true
      * */
     showUserLocation: {
-      type: Boolean as Prop<boolean | null>,
+      type: Boolean as PropType<boolean | null>,
       default: null,
     },
 
@@ -57,7 +56,7 @@ export default Vue.extend({
      * Default: false
      * */
     trackUserLocation: {
-      type: Boolean as Prop<boolean | null>,
+      type: Boolean as PropType<boolean | null>,
       default: null,
     },
 
@@ -65,7 +64,7 @@ export default Vue.extend({
      * Default: DodgerBlue
      * */
     markerColor: {
-      type: String as Prop<string | null>,
+      type: String as PropType<string | null>,
       default: null,
     },
   },

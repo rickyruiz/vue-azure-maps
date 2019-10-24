@@ -27,8 +27,7 @@
 import { getMapInjection } from '@/plugin/utils/dependency-injection'
 import getOptionsFromProps from '@/plugin/utils/get-options-from-props'
 import { atlas } from 'types'
-import Vue from 'vue'
-import { Prop } from 'vue/types/options'
+import Vue, { PropType } from 'vue'
 
 enum AzureMapUserPositionEvent {
   Success = 'success',
@@ -125,7 +124,7 @@ export default Vue.extend({
      * If `centerMapToUserPosition` is true, this options are passed to the `map.setCamera` method
      */
     cameraOptions: {
-      type: Object as Prop<
+      type: Object as PropType<
         | null
         | atlas.CameraOptions & atlas.AnimationOptions
         | atlas.CameraBoundsOptions & atlas.AnimationOptions
@@ -137,7 +136,7 @@ export default Vue.extend({
      * The symbol layer options for the user position point
      */
     symbolLayerOptions: {
-      type: Object as Prop<null | atlas.SymbolLayerOptions>,
+      type: Object as PropType<null | atlas.SymbolLayerOptions>,
       default: null,
     },
 
@@ -145,7 +144,7 @@ export default Vue.extend({
      * The polygon layer options for the accuracy circle polygon
      */
     polygonLayerOptions: {
-      type: Object as Prop<null | atlas.PolygonLayerOptions>,
+      type: Object as PropType<null | atlas.PolygonLayerOptions>,
       default: null,
     },
   },

@@ -5,9 +5,8 @@ import {
 } from '@/plugin/utils/dependency-injection'
 import bindProps from '@/plugin/utils/bind-props'
 import { looseEqual } from '@/plugin/utils'
-import { atlas, AzureMapPoint } from 'types'
-import Vue from 'vue'
-import { Prop } from 'vue/types/options'
+import { atlas } from 'types'
+import Vue, { PropType } from 'vue'
 
 enum AzureMapPointEvent {
   GeometryCreated = 'geometry-created',
@@ -37,22 +36,22 @@ export default Vue.extend({
     },
 
     coordinates: {
-      type: Array as Prop<atlas.data.Position | null>,
+      type: Array as PropType<atlas.data.Position | null>,
       default: null,
     },
 
     longitude: {
-      type: Number as Prop<number | null>,
+      type: Number as PropType<number | null>,
       default: null,
     },
 
     latitude: {
-      type: Number as Prop<number | null>,
+      type: Number as PropType<number | null>,
       default: null,
     },
 
     properties: {
-      type: Object as Prop<Record<string, any>>,
+      type: Object as PropType<Record<string, any>>,
       default: () => ({}),
     },
   },

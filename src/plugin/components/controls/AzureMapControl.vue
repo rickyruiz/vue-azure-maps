@@ -2,8 +2,7 @@
 import { getMapInjection } from '@/plugin/utils/dependency-injection'
 import getOptionsFromProps from '@/plugin/utils/get-options-from-props'
 import { atlas } from 'types'
-import Vue from 'vue'
-import { Prop } from 'vue/types/options'
+import Vue, { PropType } from 'vue'
 
 /**
  * Adds a control to the `atlas.Map`.
@@ -18,13 +17,13 @@ export default Vue.extend({
 
   props: {
     control: {
-      type: Object as Prop<atlas.Control>,
+      type: Object as PropType<atlas.Control>,
       default: null,
       required: true,
     },
 
     options: {
-      type: Object as Prop<atlas.ControlOptions>,
+      type: Object as PropType<atlas.ControlOptions>,
       default: null,
     },
   },

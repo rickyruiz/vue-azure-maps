@@ -3,8 +3,7 @@ import { getMapInjection } from '@/plugin/utils/dependency-injection'
 import getOptionsFromProps from '@/plugin/utils/get-options-from-props'
 import addMapEventListeners from '@/plugin/utils/add-map-event-listeners'
 import { atlas } from 'types'
-import Vue from 'vue'
-import { Prop } from 'vue/types/options'
+import Vue, { PropType } from 'vue'
 
 /**
  * Adds a custom HTML such as an image file to the map as an HTML Marker.
@@ -26,7 +25,7 @@ export default Vue.extend({
      * @default "center"
      */
     anchor: {
-      type: String as Prop<string | null>,
+      type: String as PropType<string | null>,
       default: null,
     },
     /**
@@ -35,7 +34,7 @@ export default Vue.extend({
      * @default "#1A73AA"
      */
     color: {
-      type: String as Prop<string | null>,
+      type: String as PropType<string | null>,
       default: null,
     },
     /**
@@ -44,7 +43,7 @@ export default Vue.extend({
      * @default false
      */
     draggable: {
-      type: Boolean as Prop<boolean | null>,
+      type: Boolean as PropType<boolean | null>,
       default: null,
     },
     /**
@@ -54,7 +53,7 @@ export default Vue.extend({
      * This allows you to create a single HTML marker string that can be used as a template for multiple markers.
      */
     htmlContent: {
-      type: String as Prop<string | HTMLElement | null>,
+      type: String as PropType<string | HTMLElement | null>,
       default: null,
     },
     /**
@@ -64,7 +63,7 @@ export default Vue.extend({
      * @default [0, -18]
      */
     pixelOffset: {
-      type: Array as Prop<atlas.Pixel | null>,
+      type: Array as PropType<atlas.Pixel | null>,
       default: null,
     },
     /**
@@ -73,21 +72,21 @@ export default Vue.extend({
      * @default [0, 0]
      */
     position: {
-      type: Array as Prop<atlas.data.Position | null>,
+      type: Array as PropType<atlas.data.Position | null>,
       default: null,
     },
     /**
      * A popup that is attached to the marker.
      */
     popup: {
-      type: Object as Prop<atlas.Popup | null>,
+      type: Object as PropType<atlas.Popup | null>,
       default: null,
     },
     /**
      * A string of text that replaces any {text} placeholder property that has been included in a string htmlContent.
      */
     text: {
-      type: String as Prop<string | null>,
+      type: String as PropType<string | null>,
       default: null,
     },
     /**
@@ -96,7 +95,7 @@ export default Vue.extend({
      * @default true
      */
     visible: {
-      type: Boolean as Prop<boolean | null>,
+      type: Boolean as PropType<boolean | null>,
       default: null,
     },
   },

@@ -5,8 +5,7 @@ import {
 } from '@/plugin/utils/dependency-injection'
 import addMapEventListeners from '@/plugin/utils/add-map-event-listeners'
 import { atlas } from 'types'
-import Vue from 'vue'
-import { Prop } from 'vue/types/options'
+import Vue, { PropType } from 'vue'
 import AzureMapLayer from './AzureMapLayer.vue'
 
 enum AzureMapLineLayerEvent {
@@ -34,7 +33,7 @@ export default Vue.extend({
     },
 
     options: {
-      type: Object as Prop<atlas.LineLayerOptions | null>,
+      type: Object as PropType<atlas.LineLayerOptions | null>,
       default: null,
     },
   },
