@@ -67,7 +67,7 @@ export class GeolocationControl implements atlas.Control {
   private _watchId!: number | null
   private _isActive = false
   private _updateMapCamera = true
-  private _lastKnownLocation!: Position
+  private _lastKnownPosition!: Position
 
   private _gpsArrowIcon =
     '<div style="{transform}"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><g transform="translate(2 2)"><polygon points="12,0 0,24 12,17 24,24" stroke-width="2" stroke="white" fill="{color}"/></g></svg></div>'
@@ -126,6 +126,11 @@ export class GeolocationControl implements atlas.Control {
    * Public Methods
    ***************************/
 
+  /** Gets the last known position from the geolocation control. */
+  public getLastKnownPosition(): Position {
+    return this._lastKnownPosition
+  }
+
   /**
    * Action to perform when the control is added to the map.
    * @param map The map the control was added to.
@@ -151,7 +156,7 @@ export class GeolocationControl implements atlas.Control {
     style.innerHTML = css
     document.body.appendChild(style)
 
-    //Create the traffic toggle button.
+    //Create the geolocation toggle button.
     this._container = document.createElement('div')
     this._container.classList.add('azure-maps-control-container')
     this._container.setAttribute('aria-label', this._resource.title)
@@ -262,8 +267,8 @@ export class GeolocationControl implements atlas.Control {
           this._gpsMarker.setOptions({
             visible: this._isActive && this._options.showUserLocation,
           })
-        } else if (this._lastKnownLocation) {
-          this._onGpsSuccess(this._lastKnownLocation)
+        } else if (this._lastKnownPosition) {
+          this._onGpsSuccess(this._lastKnownPosition)
         }
       }
 
@@ -308,9 +313,9 @@ export class GeolocationControl implements atlas.Control {
     if (
       this._isActive &&
       this._options.trackUserLocation &&
-      this._lastKnownLocation
+      this._lastKnownPosition
     ) {
-      this._onGpsSuccess(this._lastKnownLocation)
+      this._onGpsSuccess(this._lastKnownPosition)
     }
 
     this._updateMapCamera = true
@@ -451,7 +456,7 @@ export class GeolocationControl implements atlas.Control {
    * @param position The GPS position information.
    */
   private _onGpsSuccess = (position: Position) => {
-    this._lastKnownLocation = position
+    this._lastKnownPosition = position
 
     if (this._isActive) {
       var pos = [position.coords.longitude, position.coords.latitude]
@@ -511,7 +516,7 @@ export class GeolocationControl implements atlas.Control {
   private _getMarkerIcon(): string {
     var icon = this._gpsDotIcon
 
-    var h = this._lastKnownLocation.coords.heading
+    var h = this._lastKnownPosition.coords.heading
 
     if (this._options.trackUserLocation && h !== null && !isNaN(h)) {
       h = Math.round(h)
