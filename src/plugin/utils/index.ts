@@ -59,18 +59,3 @@ export function looseEqual(a: any, b: any): boolean {
 export function capitalize(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
-
-export function findParentComponentByName(
-  vm: Vue,
-  componentName: string
-): Vue | undefined {
-  let component
-  let parent = vm.$parent
-  while (parent && !component) {
-    if (parent.$options.name === componentName) {
-      component = parent
-    }
-    parent = parent.$parent
-  }
-  return component
-}

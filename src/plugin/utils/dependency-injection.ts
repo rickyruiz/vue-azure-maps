@@ -1,6 +1,6 @@
 import { atlas } from 'types'
 import Vue from 'vue'
-import { findParentComponentByName } from '.'
+import { findParentComponentByName } from './find-parent-component-by-name'
 
 export function getMapInjection(vm: Vue): (() => atlas.Map) | undefined {
   return getInjection<() => atlas.Map>({
