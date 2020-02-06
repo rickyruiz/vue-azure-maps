@@ -1,13 +1,15 @@
 {
   "editor.formatOnSave": true,
-  "eslint.autoFixOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   "eslint.run": "onSave",
   "eslint.validate": [
-    { "language": "javascript", "autoFix": true },
-    { "language": "javascriptreact", "autoFix": true },
-    { "language": "vue", "autoFix": true },
-    { "language": "vue-html", "autoFix": true },
-    { "language": "html", "autoFix": true }
+    "javascript",
+    "javascriptreact",
+    "vue",
+    "vue-html",
+    "html"
   ],
   "prettier.disableLanguages": ["vue"],
   "vetur.validation.template": false,
