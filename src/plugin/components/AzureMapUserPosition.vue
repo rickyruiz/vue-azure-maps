@@ -50,23 +50,28 @@ export default Vue.extend({
   components: {
     AzureMapDataSource: () =>
       import(
-        /* webpackChunkName: 'azure-map-data-source' */ '@/plugin/components/AzureMapDataSource.vue'
+        /* webpackChunkName: 'AzureMapDataSource.vue' */
+        '@/plugin/components/AzureMapDataSource.vue'
       ),
     AzureMapCircle: () =>
       import(
-        /* webpackChunkName: 'azure-map-circle' */ '@/plugin/components/geometries/AzureMapCircle.vue'
+        /* webpackChunkName: 'AzureMapCircle.vue' */
+        '@/plugin/components/geometries/AzureMapCircle.vue'
       ),
     AzureMapPoint: () =>
       import(
-        /* webpackChunkName: 'azure-map-point' */ '@/plugin/components/geometries/AzureMapPoint.vue'
+        /* webpackChunkName: 'AzureMapPoint.vue' */
+        '@/plugin/components/geometries/AzureMapPoint.vue'
       ),
     AzureMapPolygonLayer: () =>
       import(
-        /* webpackChunkName: 'azure-map-polygon-layer' */ '@/plugin/components/layers/AzureMapPolygonLayer.vue'
+        /* webpackChunkName: 'AzureMapPolygonLayer.vue' */
+        '@/plugin/components/layers/AzureMapPolygonLayer.vue'
       ),
     AzureMapSymbolLayer: () =>
       import(
-        /* webpackChunkName: 'azure-map-symbol-layer' */ '@/plugin/components/layers/AzureMapSymbolLayer.vue'
+        /* webpackChunkName: 'AzureMapSymbolLayer.vue' */
+        '@/plugin/components/layers/AzureMapSymbolLayer.vue'
       ),
   },
 
@@ -153,7 +158,7 @@ export default Vue.extend({
     return {
       longitude: null as number | null,
       latitude: null as number | null,
-      radius: null as Number | null,
+      radius: null as number | null,
       defaultSymbolLayerOptions: {
         filter: [
           'any',
@@ -171,7 +176,7 @@ export default Vue.extend({
       return this.showAccuracy ? 'circle-coordinates' : null
     },
 
-    userPositionSymbolLayerOptions(): Record<string, any> {
+    userPositionSymbolLayerOptions(): Record<string, unknown> {
       return {
         ...(this.symbolLayerOptions || {}),
         ...this.defaultSymbolLayerOptions,

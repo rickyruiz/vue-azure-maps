@@ -1,5 +1,3 @@
-import Vue from 'vue'
-
 //===
 // Helper functions
 //===
@@ -9,7 +7,7 @@ import Vue from 'vue'
  * Objects from primitive values when we know the value
  * is a JSON-compliant type.
  */
-export function isObject(obj: unknown): obj is Object {
+export function isObject(obj: unknown): obj is Record<string, any> {
   return obj !== null && typeof obj === 'object'
 }
 

@@ -5,10 +5,10 @@
     @click="hidePopup"
     @mousestart="hidePopup"
   >
-    <AzureMapZoomControl/>
-    <AzureMapFullscreenControl/>
-    <AzureMapPitchControl/>
-    <AzureMapCompassControl/>
+    <AzureMapZoomControl />
+    <AzureMapFullscreenControl />
+    <AzureMapPitchControl />
+    <AzureMapCompassControl />
     <AzureMapDataSource
       :cluster="cluster"
       :cluster-radius="clusterRadius"
@@ -80,7 +80,7 @@ import Vue from 'vue'
 type CustomPoint = {
   longitude: number
   latitude: number
-  properties: Record<string, any>
+  properties: Record<string, unknown>
 }
 
 export default Vue.extend({
@@ -112,7 +112,7 @@ export default Vue.extend({
       popupPosition: null as atlas.data.Position | null,
       popupPixelOffset: null as atlas.Pixel | null,
 
-      selectedPoint: null as any | null,
+      selectedPoint: null as CustomPoint | null,
 
       // Tell the data source to cluster point data.
       cluster: true,
@@ -172,10 +172,10 @@ export default Vue.extend({
   methods: {
     onFeatureSelected(
       shape: atlas.Shape,
-      cluster: atlas.data.Feature<atlas.data.Point, any> | null
+      cluster: atlas.data.Feature<atlas.data.Point, unknown> | null
     ): void {
       // Look for the point based on a unique key
-      let currentPoint = this.points.find(
+      const currentPoint = this.points.find(
         point => point.properties.name === shape.getProperties().name
       )
 
@@ -193,7 +193,7 @@ export default Vue.extend({
       }
     },
 
-    onFeatureUnselected(e: any): void {
+    onFeatureUnselected(): void {
       this.selectedPoint = null
       this.hidePopup()
     },

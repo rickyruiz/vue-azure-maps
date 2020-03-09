@@ -1,6 +1,5 @@
 <script lang="ts">
 import { getMapInjection } from '@/plugin/utils/dependency-injection'
-import { atlas } from 'types'
 import Vue, { PropType } from 'vue'
 
 enum AzureMapImageSpriteIconEvent {

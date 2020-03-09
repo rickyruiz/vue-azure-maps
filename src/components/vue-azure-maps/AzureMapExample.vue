@@ -18,12 +18,12 @@
     />
 
     <!-- Azure Map controls -->
-    <AzureMapZoomControl/>
-    <AzureMapPitchControl/>
-    <AzureMapCompassControl/>
-    <AzureMapFullscreenControl/>
-    <AzureMapGeolocationControl/>
-    <AzureMapStyleControl/>
+    <AzureMapZoomControl />
+    <AzureMapPitchControl />
+    <AzureMapCompassControl />
+    <AzureMapFullscreenControl />
+    <AzureMapGeolocationControl />
+    <AzureMapStyleControl />
 
     <!-- Add an Html marker -->
     <AzureMapHtmlMarker
@@ -178,7 +178,7 @@ type MapOptions = atlas.ServiceOptions &
 type CustomPoint = {
   longitude: number
   latitude: number
-  properties: Record<string, any>
+  properties: Record<string, unknown>
 }
 
 export default Vue.extend({
@@ -315,7 +315,7 @@ export default Vue.extend({
         const selectedShape = e.shapes[0] as atlas.Shape
 
         // Check if the point is in our data
-        let point = this.getCustomPointByName(
+        const point = this.getCustomPointByName(
           selectedShape.getProperties().name
         )
 
@@ -329,7 +329,7 @@ export default Vue.extend({
       }
     },
 
-    onMouseLeave(e: atlas.MapMouseEvent): void {
+    onMouseLeave(): void {
       // Hide the popup
       if (this.selectedPoint) {
         this.selectedPoint.properties.isPopupOpen = false
@@ -354,13 +354,13 @@ export default Vue.extend({
       // Update the position of the selected shape.
       if (this.selectedShape && e.position) {
         // Check if the point is in our data
-        let point = this.getCustomPointByName(
+        const point = this.getCustomPointByName(
           this.selectedShape.getProperties().name
         )
 
         if (point) {
           // Update the longitude and latitude
-          ;[point.longitude, point.latitude] = e.position
+          [point.longitude, point.latitude] = e.position
         }
       }
     },

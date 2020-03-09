@@ -2,24 +2,26 @@ import { atlas } from 'types'
 import Vue from 'vue'
 import { findParentComponentByName } from './find-parent-component-by-name'
 
-export function getMapInjection(vm: Vue): (() => atlas.Map) | undefined {
-  return getInjection<() => atlas.Map>({
-    vm: vm,
-    injectionName: 'getMap',
-    injectedPropertyLabel: 'map instance',
-    sourceComponentName: 'AzureMap',
-  })
-}
+function isValidInjection(
+  vm: Vue,
+  injection: unknown | undefined,
+  injectedPropertyLabel: string,
+  componentName: string,
+  parentName?: string
+): boolean {
+  const isValid = Boolean(injection)
 
-export function getDataSourceInjection(
-  vm: Vue
-): (() => atlas.source.DataSource) | undefined {
-  return getInjection<() => atlas.source.DataSource>({
-    vm: vm,
-    injectionName: 'getDataSource',
-    injectedPropertyLabel: 'data source',
-    sourceComponentName: 'AzureMapDataSource',
-  })
+  if (!isValid && process.env.NODE_ENV !== 'production') {
+    console.warn(
+      `Invalid <${componentName}> ${injectedPropertyLabel}.${
+        parentName && !findParentComponentByName(vm, parentName)
+          ? `\nPlease make sure <${componentName}> is a descendant of <${parentName}>.`
+          : ``
+      }`
+    )
+  }
+
+  return isValid
 }
 
 export function getInjection<T>({
@@ -44,26 +46,24 @@ export function getInjection<T>({
   return injection as T
 }
 
-function isValidInjection(
-  vm: Vue,
-  injection: unknown | undefined,
-  injectedPropertyLabel: string,
-  componentName: string,
-  parentName?: string
-): boolean {
-  const isValid = Boolean(injection)
+export function getMapInjection(vm: Vue): (() => atlas.Map) | undefined {
+  return getInjection<() => atlas.Map>({
+    vm: vm,
+    injectionName: 'getMap',
+    injectedPropertyLabel: 'map instance',
+    sourceComponentName: 'AzureMap',
+  })
+}
 
-  if (!isValid && process.env.NODE_ENV !== 'production') {
-    console.warn(
-      `Invalid <${componentName}> ${injectedPropertyLabel}.${
-        parentName && !findParentComponentByName(vm, parentName)
-          ? `\nPlease make sure <${componentName}> is a descendant of <${parentName}>.`
-          : ``
-      }`
-    )
-  }
-
-  return isValid
+export function getDataSourceInjection(
+  vm: Vue
+): (() => atlas.source.DataSource) | undefined {
+  return getInjection<() => atlas.source.DataSource>({
+    vm: vm,
+    injectionName: 'getDataSource',
+    injectedPropertyLabel: 'data source',
+    sourceComponentName: 'AzureMapDataSource',
+  })
 }
 
 export interface GetInjectionConfig {

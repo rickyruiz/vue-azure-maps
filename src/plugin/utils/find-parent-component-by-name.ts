@@ -28,7 +28,7 @@ import Vue from 'vue'
  *
  *   created() {
  *     const app = findParentComponentByName(this, 'App')
- *     // => VueComponent {_uid: 1, _isVue: true, $options: {…}, _renderProxy: Proxy, _self: VueComponent, …}
+ *     // => VueComponent {_uid: 1, _isVue: true, $options: {…}, _renderProxy: Proxy, _self: VueComponent, …}
  *  },
  * })
  */

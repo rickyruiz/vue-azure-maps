@@ -3,7 +3,6 @@ import { getMapInjection } from '@/plugin/utils/dependency-injection'
 import addMapEventListeners from '@/plugin/utils/add-map-event-listeners'
 import { atlas } from 'types'
 import Vue, { PropType } from 'vue'
-import AzureMapLayer from './AzureMapLayer.vue'
 
 enum AzureMapTileLayerEvent {
   Created = 'created',

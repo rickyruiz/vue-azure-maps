@@ -34,7 +34,7 @@ export default Vue.extend({
     },
 
     properties: {
-      type: Object as PropType<Record<string, any>>,
+      type: Object as PropType<Record<string, unknown>>,
       default: () => ({}),
     },
   },
@@ -116,4 +116,3 @@ export default Vue.extend({
   },
 })
 </script>
-

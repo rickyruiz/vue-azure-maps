@@ -18,8 +18,6 @@ import getOptionsFromProps from '@/plugin/utils/get-options-from-props'
 import { atlas } from 'types'
 import Vue, { PropType } from 'vue'
 
-type Dictionary<K, V> = Map<K, V>
-
 enum AzureMapDataSourceEvent {
   Created = 'created',
 }
@@ -110,7 +108,7 @@ export default Vue.extend({
      */
     clusterProperties: {
       type: Object as PropType<
-        Dictionary<string, atlas.AggregateExpression> | undefined
+        Record<string, atlas.AggregateExpression> | undefined
       >,
       default: undefined,
     },
@@ -146,7 +144,7 @@ export default Vue.extend({
 
   computed: {
     dataSourceOptionProps(): atlas.DataSourceOptions {
-      let {
+      const {
         maxZoom,
         cluster,
         clusterRadius,

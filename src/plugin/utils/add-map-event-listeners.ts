@@ -6,8 +6,8 @@ function addMapEventListeners({
   target,
   reservedEventTypes = [],
 }: MapEventListenersConfig): () => void {
-  let mapListeners: (() => void)[] = []
-  let listenersEntries = Object.entries(listeners)
+  const mapListeners: (() => void)[] = []
+  const listenersEntries = Object.entries(listeners)
 
   for (const [eventType, callback] of listenersEntries) {
     // Omit component's emitted events.

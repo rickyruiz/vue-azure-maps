@@ -88,8 +88,8 @@ export default Vue.extend({
   },
 
   computed: {
-    spiderManagerOptionsProps(): Record<string, any> {
-      let {
+    spiderManagerOptionsProps(): Record<string, unknown> {
+      const {
         circleSpiralSwitchover,
         minCircleLength,
         minSpiralAngleSeperation,

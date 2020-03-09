@@ -124,7 +124,7 @@ export default Vue.extend({
         return values
       },
       () => {
-        let newOptions = getOptionsFromProps<atlas.HtmlMarkerOptions>({
+        const newOptions = getOptionsFromProps<atlas.HtmlMarkerOptions>({
           props: this.$props,
         })
         if (newOptions) {

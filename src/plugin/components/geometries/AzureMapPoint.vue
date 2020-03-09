@@ -51,7 +51,7 @@ export default Vue.extend({
     },
 
     properties: {
-      type: Object as PropType<Record<string, any>>,
+      type: Object as PropType<Record<string, unknown>>,
       default: () => ({}),
     },
   },
@@ -73,7 +73,7 @@ export default Vue.extend({
       return this.coordinates
     },
 
-    pointProperties(): Record<string, any> {
+    pointProperties(): Record<string, unknown> {
       // Create a computed property to keep track of the same object reference
       return { ...(this.properties || {}) }
     },
@@ -115,7 +115,7 @@ export default Vue.extend({
     // If the point has a circle polygon,
     // emit the coordinates of the circle
     if (shape.isCircle()) {
-      this.emitCircleCoordinates()
+      this.emitCircleCoordinates(shape)
     }
 
     // Add the shape to the data source.
@@ -165,13 +165,13 @@ export default Vue.extend({
           targetEventName: 'shapechanged',
           isSetAsObject: false,
           identity: (
-            newVal: Record<string, any>,
-            oldVal: Record<string, any>
+            newVal: Record<string, unknown>,
+            oldVal: Record<string, unknown>
           ) => looseEqual(newVal, oldVal),
           applier: (
-            newValue: Record<string, any>,
-            oldValue: Record<string, any>,
-            set: (newValue: Record<string, any>) => void
+            newValue: Record<string, unknown>,
+            oldValue: Record<string, unknown>,
+            set: (newValue: Record<string, unknown>) => void
           ) => {
             if (!looseEqual(newValue, oldValue)) {
               set(newValue)
@@ -182,7 +182,7 @@ export default Vue.extend({
               (newValue.radius !== oldValue.radius ||
                 newValue.subType !== oldValue.subType)
             ) {
-              this.emitCircleCoordinates()
+              this.emitCircleCoordinates(shape)
             }
           },
           watchOptions: {
@@ -195,25 +195,17 @@ export default Vue.extend({
     // Remove the shape when the component is destroyed
     this.$once('hook:destroyed', () => {
       dataSource.remove(shape)
+      unbindProps()
     })
   },
 
   methods: {
-    emitCircleCoordinates(): void {
+    emitCircleCoordinates(shape: atlas.Shape): void {
       // If the point has a circle polygon,
       // emit the coordinates of the circle
       this.$emit(
         AzureMapPointEvent.CircleCoordinates,
-        this.getCircleCoordinates()
-      )
-    },
-
-    getCircleCoordinates(): atlas.data.Position[] {
-      return this.$_azureMaps.atlas.math.getRegularPolygonPath(
-        this.pointCoordinates || [],
-        this.properties.radius || 0,
-        72,
-        'meters'
+        shape.getCircleCoordinates()
       )
     },
   },
@@ -223,4 +215,3 @@ export default Vue.extend({
   },
 })
 </script>
-

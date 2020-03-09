@@ -3,11 +3,11 @@ function getOptionsFromProps<T>({
   excludedPropKeys = [],
   reservedAttributes = {},
 }: OptionsFromPropsConfig): T {
-  let propEntries = Object.entries({ ...props })
+  const propEntries = Object.entries({ ...props })
 
-  let options: Record<string, any> = {}
+  const options: Record<string, any> = {}
 
-  let reservedKeys = Object.keys(reservedAttributes)
+  const reservedKeys = Object.keys(reservedAttributes)
 
   // Look for all the properties that have a truthy value
   for (const [prop, value] of propEntries) {

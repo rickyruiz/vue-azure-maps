@@ -2,7 +2,7 @@
   <component
     :is="tag"
   >
-    <slot/>
+    <slot />
   </component>
 </template>
 
@@ -216,6 +216,8 @@ export default Vue.extend({
 
       // Remove the popup events attached to the map
       removeEventListeners()
+      // Unbind component props
+      unbindProps()
     })
   },
 })

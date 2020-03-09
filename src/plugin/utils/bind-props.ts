@@ -3,16 +3,6 @@ import Vue, { WatchOptions } from 'vue'
 import { capitalize } from '.'
 import addMapEventListeners from './add-map-event-listeners'
 
-export function bindProps({ vm, map, props }: BindPropsConfig): () => void {
-  let boundProps: (() => void)[] = []
-
-  for (const prop of props) {
-    boundProps.push(bindProp(vm, map, prop))
-  }
-
-  return () => boundProps.forEach(unbind => unbind())
-}
-
 export function bindProp(
   vm: Vue,
   map: atlas.Map,
@@ -37,7 +27,7 @@ export function bindProp(
   }: PropBindingConfig
 ): () => void {
   let setValue: any
-  let targetOrMap = target || map
+  const targetOrMap = target || map
 
   const capitalizedTargetMethodName = capitalize(targetMethodName)
 
@@ -60,25 +50,29 @@ export function bindProp(
   vm.$watch(
     () => watcher((vm as any)[propName]),
     (newVal: any, oldVal: any) => {
-      if (!identity(newVal, setValue)) {
-        applier(newVal, oldVal, setter!)
+      if (!identity(newVal, setValue) && setter) {
+        applier(newVal, oldVal, setter)
       }
       setValue = newVal
     },
     watchOptions
   )
 
-  let unbind = () => {}
+  let unbind = () => {
+    // noop
+  }
 
   if (targetEventName) {
     unbind = addMapEventListeners({
       listeners: {
         [targetEventName]: () => {
-          const value = retriever(getter!())
+          if (getter) {
+            const value = retriever(getter())
 
-          if (!identity(value, setValue)) {
-            vm.$emit(emittedEventName, value)
-            setValue = value
+            if (!identity(value, setValue)) {
+              vm.$emit(emittedEventName, value)
+              setValue = value
+            }
           }
         },
       },
@@ -88,6 +82,16 @@ export function bindProp(
   }
 
   return unbind
+}
+
+export function bindProps({ vm, map, props }: BindPropsConfig): () => void {
+  const boundProps: (() => void)[] = []
+
+  for (const prop of props) {
+    boundProps.push(bindProp(vm, map, prop))
+  }
+
+  return () => boundProps.forEach(unbind => unbind())
 }
 
 export interface BindPropsConfig {
