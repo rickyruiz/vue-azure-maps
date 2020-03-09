@@ -1,8 +1,5 @@
 import 'azure-maps-control/dist/atlas.min.css'
-import { VueAzureMapsPluginOptions } from 'types'
-import { PluginFunction, PluginObject } from 'vue'
-import { install } from './install'
-import _vueAzureMaps from './vue-azure-maps'
+import VueAzureMaps from './vue-azure-maps'
 
 //===
 // Components
@@ -48,17 +45,6 @@ import AzureMapPoint from './components/geometries/AzureMapPoint.vue'
 import AzureMapCircle from './components/geometries/AzureMapCircle.vue'
 import AzureMapLineString from './components/geometries/AzureMapLineString.vue'
 import AzureMapPolygon from './components/geometries/AzureMapPolygon.vue'
-
-_vueAzureMaps.install = install as PluginFunction<VueAzureMapsPluginOptions>
-_vueAzureMaps.version = process.env.__VERSION__ || ''
-
-const VueAzureMaps: PluginObject<VueAzureMapsPluginOptions> = {
-  install: _vueAzureMaps.install,
-  name: 'vue-azure-maps',
-}
-
-if (typeof window !== 'undefined' && (window as any).Vue)
-  (window as any).Vue.use(VueAzureMaps)
 
 export {
   AzureMap,

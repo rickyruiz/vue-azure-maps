@@ -1,21 +1,24 @@
-//@ts-ignore
 import * as atlasJs from 'azure-maps-control/dist/atlas.min.js'
 import { VueAzureMapsPluginOptions } from 'types'
-import _Vue from 'vue'
+import Vue, { VueConstructor } from 'vue'
 import VueAzureMaps from './vue-azure-maps'
-export let _Vue_: typeof _Vue
 
-export let _installed = false
+export let VueWithPlugin: VueConstructor<Vue> | undefined
 
 export function install(
-  Vue: typeof _Vue,
+  _Vue: VueConstructor<Vue>,
   options?: VueAzureMapsPluginOptions
 ): void {
-  if (_installed && _Vue === Vue) return
+  if (Vue && _Vue === VueWithPlugin) {
+    if (process.env.NODE_ENV !== 'production') {
+      console.error(
+        '[vue-azure-maps] already installed. Vue.use(VueAzureMaps) should be called only once.'
+      )
+    }
+    return
+  }
 
-  _installed = true
+  VueWithPlugin = _Vue
 
-  _Vue_ = Vue
-
-  Vue.prototype.$_azureMaps = new VueAzureMaps(atlasJs, options)
+  VueWithPlugin.prototype.$_azureMaps = new VueAzureMaps(atlasJs, options)
 }
