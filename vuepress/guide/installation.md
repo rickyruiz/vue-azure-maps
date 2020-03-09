@@ -23,9 +23,8 @@ Get an Azure Maps key at <https://azure.com/maps>
 When using with a module system, you must explicitly install `vue-azure-maps` via `Vue.use()`:
 
 ```javascript
-import Vue from 'vue'
 import VueAzureMaps from 'vue-azure-maps'
-import 'vue-azure-maps/dist/vue-azure-maps.css'
+import Vue from 'vue'
 
 Vue.use(VueAzureMaps, {
   key: '<Your Azure Maps key>',
