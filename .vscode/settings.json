@@ -1,4 +1,19 @@
 {
+  // ===
+  // Spacing
+  // ===
+
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.trimAutoWhitespace": true,
+  "files.trimTrailingWhitespace": true,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+
+  // ===
+  // Event Triggers
+  // ===
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
@@ -11,10 +26,35 @@
     "vue-html",
     "html"
   ],
+  "vetur.format.enable": false,
+  "vetur.completion.scaffoldSnippetSources": {
+    "workspace": "💼",
+    "user": "🗒️",
+    "vetur": ""
+  },
   "prettier.disableLanguages": ["vue"],
+
+  // ===
+  // HTML
+  // ===
+  "html.format.enable": false,
   "vetur.validation.template": false,
-  "vetur.format.defaultFormatter.html": "none",
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.includeLanguages": {
+    "vue-html": "html"
+  },
   "vetur.completion.tagCasing": "initial",
+
+  // ===
+  // JS(ON)
+  // ===
+  "javascript.format.enable": false,
+  "json.format.enable": false,
+  "vetur.validation.script": false,
+
+  // ===
+  // Search
+  // ===
   "search.exclude": {
     "**/dist": true,
     "**/docs": true

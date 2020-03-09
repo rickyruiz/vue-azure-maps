@@ -1,0 +1,5 @@
+/dist/
+/tests/unit/coverage/
+
+# Ignore third party custom modules
+/src/plugin/modules/
