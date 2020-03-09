@@ -28,7 +28,7 @@
   "bugs": {
     "url": "https://github.com/rickyruiz/vue-azure-maps/issues"
   },
-  "homepage": "https://github.com/rickyruiz/vue-azure-maps#readme",
+  "homepage": "https://rickyruiz.github.io/vue-azure-maps/",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
