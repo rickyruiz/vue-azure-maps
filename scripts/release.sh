@@ -8,7 +8,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
   echo "Releasing v$VERSION ..."
   # yarn run test
-  VERSION=$VERSION yarn run build:lib
+  VUE_APP_VERSION=$VERSION yarn run build:lib
 
   # commit
   git add dist
