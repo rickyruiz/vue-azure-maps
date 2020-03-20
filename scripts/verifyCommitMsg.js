@@ -1,12 +1,10 @@
-/* eslint-disable no-console */
-
 const chalk = require('chalk')
 const msgPath = process.env.GIT_PARAMS
 const msg = require('fs')
   .readFileSync(msgPath, 'utf-8')
   .trim()
 
-const commitRE = /^(revert: )?(feat|fix|polish|docs|style|refactor|perf|test|workflow|ci|chore|types|build)(\(.+\))?: .{1,50}/
+const commitRE = /^(v\d+\.\d+\.\d+(-(alpha|beta|rc.\d+))?$)|((revert: )?(feat|fix|docs|style|refactor|perf|test|workflow|ci|chore|types|build)(\(.+\))?: .{1,50})/
 
 if (!commitRE.test(msg)) {
   console.log()
@@ -21,7 +19,12 @@ if (!commitRE.test(msg)) {
       `    ${chalk.green(
         `fix(v-model): handle events on blur (close #28)`
       )}\n\n` +
-      chalk.red(`  See COMMIT_CONVENTION.md for more details.\n`)
+      chalk.red(`  See .github/commit-convention.md for more details.\n`) +
+      chalk.red(
+        `  You can also use ${chalk.cyan(
+          `yarn commit`
+        )} to interactively generate a commit message.\n`
+      )
   )
   process.exit(1)
 }

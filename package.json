@@ -40,7 +40,8 @@
     "docs:dev": "vuepress dev vuepress",
     "docs:build": "vuepress build vuepress -d docs",
     "docs:clean:win": "powershell rd -r docs/**",
-    "docs:clean:mac": "rm -rf docs/**"
+    "docs:clean:mac": "rm -rf docs/**",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 2"
   },
   "dependencies": {
     "azure-maps-control": "^2.0.23",
@@ -62,6 +63,7 @@
     "@vue/test-utils": "^1.0.0-beta.32",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
+    "conventional-changelog-cli": "^2.0.31",
     "eslint": "6.8.0",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-vue": "6.2.2",
