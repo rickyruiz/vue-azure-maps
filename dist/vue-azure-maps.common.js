@@ -426,7 +426,7 @@ function capitalize(str) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1ff2b3db-vue-loader-template"}!./node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=d596f834&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"61865939-vue-loader-template"}!./node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapDataSource.vue?vue&type=template&id=d596f834&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}]},[(Boolean(_vm.dataSource))?[_vm._t("default",null,{"dataSource":_vm.dataSource})]:_vm._e()],2)}
 var staticRenderFns = []
 
@@ -2719,13 +2719,13 @@ function () {
 
 
 vue_azure_maps_VueAzureMaps.install = install;
-vue_azure_maps_VueAzureMaps.version = "0.0.27";
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1ff2b3db-vue-loader-template"}!./node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=template&id=78466921&
-var AzureMapvue_type_template_id_78466921_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({ width: _vm.width, height: _vm.height }),attrs:{"id":_vm.mapId}},[(_vm.isMapReady)?[_vm._t("default",null,{"map":_vm.map})]:_vm._e()],2)}
+vue_azure_maps_VueAzureMaps.version = "0.0.29";
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"61865939-vue-loader-template"}!./node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMap.vue?vue&type=template&id=dab8b8fe&
+var AzureMapvue_type_template_id_dab8b8fe_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{style:({ width: _vm.width, height: _vm.height }),attrs:{"id":_vm.mapId}},[(_vm.isMapReady)?[_vm._t("default",null,{"map":_vm.map})]:_vm._e()],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue?vue&type=template&id=78466921&
+// CONCATENATED MODULE: ./src/plugin/components/AzureMap.vue?vue&type=template&id=dab8b8fe&
 
 // EXTERNAL MODULE: ./src/plugin/utils/get-options-from-props.ts
 var get_options_from_props = __webpack_require__("31d7");
@@ -2932,7 +2932,7 @@ var state = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.observable({
      * @default [-180, -89, 180, 90]
      */
     bounds: {
-      type: Object,
+      type: Array,
       default: null
     },
 
@@ -3356,7 +3356,7 @@ var componentNormalizer = __webpack_require__("0c7c");
 
 var component = Object(componentNormalizer["a" /* default */])(
   components_AzureMapvue_type_script_lang_ts_,
-  AzureMapvue_type_template_id_78466921_render,
+  AzureMapvue_type_template_id_dab8b8fe_render,
   staticRenderFns,
   false,
   null,
@@ -3549,7 +3549,7 @@ var AzureMapHtmlMarker_component = Object(componentNormalizer["a" /* default */]
 )
 
 /* harmony default export */ var AzureMapHtmlMarker = (AzureMapHtmlMarker_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1ff2b3db-vue-loader-template"}!./node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapPopup.vue?vue&type=template&id=55b298b3&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"61865939-vue-loader-template"}!./node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapPopup.vue?vue&type=template&id=55b298b3&
 var AzureMapPopupvue_type_template_id_55b298b3_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(_vm.tag,{tag:"component"},[_vm._t("default")],2)}
 var AzureMapPopupvue_type_template_id_55b298b3_staticRenderFns = []
 
@@ -3769,7 +3769,7 @@ var AzureMapPopup_component = Object(componentNormalizer["a" /* default */])(
 )
 
 /* harmony default export */ var AzureMapPopup = (AzureMapPopup_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1ff2b3db-vue-loader-template"}!./node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=4316f992&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"61865939-vue-loader-template"}!./node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./src/plugin/components/AzureMapUserPosition.vue?vue&type=template&id=4316f992&
 var AzureMapUserPositionvue_type_template_id_4316f992_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.hasPosition)?_c('AzureMapDataSource',[(_vm.showAccuracy && _vm.radius)?_c('AzureMapCircle',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude,"radius":_vm.radius},on:_vm._d({},[_vm.circleEventName,function($event){return _vm.$emit(_vm.circleEventName, $event)}])}):_vm._e(),_c('AzureMapPoint',{attrs:{"longitude":_vm.longitude,"latitude":_vm.latitude}}),(_vm.showAccuracy)?_c('AzureMapPolygonLayer',{attrs:{"options":_vm.polygonLayerOptions || undefined}}):_vm._e(),_c('AzureMapSymbolLayer',{attrs:{"options":_vm.userPositionSymbolLayerOptions}})],1):_vm._e()}
 var AzureMapUserPositionvue_type_template_id_4316f992_staticRenderFns = []
 
