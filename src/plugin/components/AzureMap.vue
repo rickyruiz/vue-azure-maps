@@ -212,7 +212,7 @@ export default Vue.extend({
      * @default [-180, -89, 180, 90]
      */
     bounds: {
-      type: Object as PropType<atlas.data.BoundingBox | null>,
+      type: Array as PropType<atlas.data.BoundingBox | null>,
       default: null,
     },
 
