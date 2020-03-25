@@ -11,7 +11,7 @@ const execa = require('execa')
 const prerelease = semver.prerelease(currentVersion) || []
 const preId = args.preid || prerelease[0] || 'alpha'
 const isDryRun = args.dry
-const skipTests = args.skipTests
+// const skipTests = args.skipTests
 const skipBuild = args.skipBuild
 
 const versionIncrements = [
@@ -25,7 +25,7 @@ const versionIncrements = [
 ]
 
 const inc = i => semver.inc(currentVersion, i, preId)
-const bin = name => path.resolve(__dirname, '../node_modules/.bin/' + name)
+// const bin = name => path.resolve(__dirname, '../node_modules/.bin/' + name)
 const run = (bin, args, opts = {}) =>
   execa(bin, args, { stdio: 'inherit', ...opts })
 const dryRun = (bin, args, opts = {}) =>
@@ -154,7 +154,8 @@ async function publishPackage(pkgRoot, version, runIfNotDry) {
   }
 
   // Use inferred release channel
-  const inferredReleaseChannel = semver.prerelease(version)[0]
+  const prereleaseComponents = semver.prerelease(version) || []
+  const inferredReleaseChannel = prereleaseComponents[0]
   const releaseTag = inferredReleaseChannel || null
   const releaseMessage = `chore(release): 🔖 v${version}`
 
