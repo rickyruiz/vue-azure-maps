@@ -26,9 +26,7 @@
     <AzureMapStyleControl />
 
     <!-- Add an Html marker -->
-    <AzureMapHtmlMarker
-      :position="htmlMarkerOptions.position"
-    />
+    <AzureMapHtmlMarker :position="htmlMarkerOptions.position" />
 
     <!-- Show user position with an optional accuracy circle -->
     <AzureMapUserPosition
@@ -41,9 +39,7 @@
     />
 
     <!-- Create a Data Source -->
-    <AzureMapDataSource
-      v-if="isCustomIconAdded"
-    >
+    <AzureMapDataSource v-if="isCustomIconAdded">
       <!-- Add Points to the Data Source -->
       <AzureMapPoint
         v-for="point in points"
@@ -52,9 +48,7 @@
         :latitude="point.latitude"
       />
       <!-- Add a Symbol Layer to render the Points stored in the Data Source -->
-      <AzureMapSymbolLayer
-        :options="customIconSymbolLayerOptions"
-      />
+      <AzureMapSymbolLayer :options="customIconSymbolLayerOptions" />
     </AzureMapDataSource>
 
     <!-- Create a Data Source -->
@@ -71,9 +65,7 @@
         :latitude="point.latitude"
       />
       <!-- Add a Bubble Layer to render the clustered Points stored in the Data Source -->
-      <AzureMapBubbleLayer
-        :options="bubbleLayerOptions"
-      />
+      <AzureMapBubbleLayer :options="bubbleLayerOptions" />
     </AzureMapDataSource>
 
     <!-- Create a Data Source -->
@@ -86,9 +78,7 @@
         @mousedown="onMouseDown"
       />
 
-      <template
-        v-for="point in points"
-      >
+      <template v-for="point in points">
         <!-- Add Points to the Data Source -->
         <AzureMapPoint
           :key="point.properties.name"
@@ -124,9 +114,7 @@
         :coordinates="lineString.coordinates"
       />
       <!-- Add a Line Layer to render the Line Strings stored in the Data Source -->
-      <AzureMapLineLayer
-        :options="lineLayerOptions"
-      />
+      <AzureMapLineLayer :options="lineLayerOptions" />
     </AzureMapDataSource>
 
     <!-- Create a Data Source -->
@@ -138,9 +126,7 @@
         :coordinates="polygon.coordinates"
       />
       <!-- Add a Polygon Layer to render the Polygons stored in the Data Source -->
-      <AzureMapPolygonLayer
-        :options="polygonLayerOptions"
-      />
+      <AzureMapPolygonLayer :options="polygonLayerOptions" />
     </AzureMapDataSource>
   </AzureMap>
 </template>
@@ -306,7 +292,7 @@ export default Vue.extend({
     },
 
     getCustomPointByName(name: string): CustomPoint | undefined {
-      return this.points.find(p => p.properties.name === name)
+      return this.points.find((p) => p.properties.name === name)
     },
 
     onMouseEnter(e: atlas.MapMouseEvent): void {
@@ -360,7 +346,7 @@ export default Vue.extend({
 
         if (point) {
           // Update the longitude and latitude
-          [point.longitude, point.latitude] = e.position
+          ;[point.longitude, point.latitude] = e.position
         }
       }
     },

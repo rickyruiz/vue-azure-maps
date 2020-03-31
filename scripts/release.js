@@ -24,14 +24,14 @@ const versionIncrements = [
   'prerelease',
 ]
 
-const inc = i => semver.inc(currentVersion, i, preId)
+const inc = (i) => semver.inc(currentVersion, i, preId)
 // const bin = name => path.resolve(__dirname, '../node_modules/.bin/' + name)
 const run = (bin, args, opts = {}) =>
   execa(bin, args, { stdio: 'inherit', ...opts })
 const dryRun = (bin, args, opts = {}) =>
   console.log(chalk.blue(`[dryrun] ${bin} ${args.join(' ')}`), opts)
 const runIfNotDry = isDryRun ? dryRun : run
-const step = msg => console.log(chalk.cyan(msg))
+const step = (msg) => console.log(chalk.cyan(msg))
 
 async function main() {
   let targetVersion = args._[0]
@@ -43,7 +43,7 @@ async function main() {
       name: 'release',
       message: 'Select release type',
       choices: versionIncrements
-        .map(i => `${i} (${inc(i)})`)
+        .map((i) => `${i} (${inc(i)})`)
         .concat(['custom']),
     })
 
@@ -188,6 +188,6 @@ async function publishPackage(pkgRoot, version, runIfNotDry) {
   }
 }
 
-main().catch(err => {
+main().catch((err) => {
   console.error(err)
 })

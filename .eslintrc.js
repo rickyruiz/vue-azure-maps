@@ -4,16 +4,15 @@ module.exports = {
     node: true,
   },
   extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
-    // 'prettier/@typescript-eslint',
-    // 'plugin:prettier/recommended',
     'plugin:vue/recommended',
-    // '@vue/prettier',
+    'eslint:recommended',
     '@vue/typescript/recommended',
+    '@vue/prettier',
+    '@vue/prettier/@typescript-eslint',
   ],
   rules: {
+    '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/no-empty-interface': 'off',
     // https://vuejs.org/v2/style-guide/#Private-property-names-essential
     '@typescript-eslint/camelcase': [
       'error',
@@ -22,6 +21,7 @@ module.exports = {
         allow: ['$_azureMaps'],
       },
     ],
+    'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': [
       'error',
       {
@@ -43,8 +43,9 @@ module.exports = {
         },
       },
     ],
-    'no-console': 'off',
-    'no-debugger': 'off',
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/no-v-html': 'off',
     'comma-dangle': [
       'error',
       {
@@ -66,7 +67,7 @@ module.exports = {
     ],
   },
   parserOptions: {
-    parser: '@typescript-eslint/parser',
+    ecmaVersion: 2020,
   },
   overrides: [
     {

@@ -1,13 +1,7 @@
 <template>
-  <span
-    v-show="false"
-  >
-    <template
-      v-if="Boolean(dataSource)"
-    >
-      <slot
-        :data-source="dataSource"
-      />
+  <span v-show="false">
+    <template v-if="Boolean(dataSource)">
+      <slot :data-source="dataSource" />
     </template>
   </span>
 </template>

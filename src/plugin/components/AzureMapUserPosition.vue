@@ -1,7 +1,5 @@
 <template>
-  <AzureMapDataSource
-    v-if="hasPosition"
-  >
+  <AzureMapDataSource v-if="hasPosition">
     <AzureMapCircle
       v-if="showAccuracy && radius"
       :longitude="longitude"
@@ -9,17 +7,12 @@
       :radius="radius"
       @[circleEventName]="$emit(circleEventName, $event)"
     />
-    <AzureMapPoint
-      :longitude="longitude"
-      :latitude="latitude"
-    />
+    <AzureMapPoint :longitude="longitude" :latitude="latitude" />
     <AzureMapPolygonLayer
       v-if="showAccuracy"
       :options="polygonLayerOptions || undefined"
     />
-    <AzureMapSymbolLayer
-      :options="userPositionSymbolLayerOptions"
-    />
+    <AzureMapSymbolLayer :options="userPositionSymbolLayerOptions" />
   </AzureMapDataSource>
 </template>
 
@@ -131,8 +124,8 @@ export default Vue.extend({
     cameraOptions: {
       type: Object as PropType<
         | null
-        | atlas.CameraOptions & atlas.AnimationOptions
-        | atlas.CameraBoundsOptions & atlas.AnimationOptions
+        | (atlas.CameraOptions & atlas.AnimationOptions)
+        | (atlas.CameraBoundsOptions & atlas.AnimationOptions)
       >,
       default: null,
     },
@@ -188,7 +181,7 @@ export default Vue.extend({
     const { enableHighAccuracy, maximumAge, timeout } = this
 
     navigator.geolocation.getCurrentPosition(
-      position => {
+      (position) => {
         // Clear any error
         this.error = null
         this.$emit(AzureMapUserPositionEvent.Success, position)
@@ -224,7 +217,7 @@ export default Vue.extend({
 
         this.$emit(AzureMapUserPositionEvent.Ready)
       },
-      error => {
+      (error) => {
         // If an error occurs when trying to access the users position information, emit it with an error message.
         this.hasPosition = false
         this.error = error

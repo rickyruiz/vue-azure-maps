@@ -91,7 +91,7 @@ export function bindProps({ vm, map, props }: BindPropsConfig): () => void {
     boundProps.push(bindProp(vm, map, prop))
   }
 
-  return () => boundProps.forEach(unbind => unbind())
+  return () => boundProps.forEach((unbind) => unbind())
 }
 
 export interface BindPropsConfig {

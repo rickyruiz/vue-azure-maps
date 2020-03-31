@@ -66,7 +66,7 @@ export default Vue.extend({
       (
         newCoordinates: atlas.data.Position[] | atlas.data.Position[][] | null
       ) => {
-        this.validateCoordinates(newCoordinates).then(coords => {
+        this.validateCoordinates(newCoordinates).then((coords) => {
           shape.setCoordinates(coords)
         })
       },

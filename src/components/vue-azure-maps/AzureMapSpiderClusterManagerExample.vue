@@ -27,9 +27,7 @@
         :pixel-offset="popupPixelOffset"
         class="AzureMapPopup"
       >
-        <template
-          v-if="selectedPoint"
-        >
+        <template v-if="selectedPoint">
           <p>
             <strong>{{ selectedPoint.properties.name }}</strong>
           </p>
@@ -42,9 +40,7 @@
         :options="bubbleLayerOptions"
         @created="bubbleLayer = $event"
       />
-      <AzureMapSymbolLayer
-        :options="symbolLayerOptions"
-      />
+      <AzureMapSymbolLayer :options="symbolLayerOptions" />
       <AzureMapSymbolLayer
         :options="shapeLayerOptions"
         @created="symbolLayer = $event"
@@ -176,7 +172,7 @@ export default Vue.extend({
     ): void {
       // Look for the point based on a unique key
       const currentPoint = this.points.find(
-        point => point.properties.name === shape.getProperties().name
+        (point) => point.properties.name === shape.getProperties().name
       )
 
       if (currentPoint) {

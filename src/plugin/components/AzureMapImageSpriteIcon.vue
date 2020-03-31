@@ -60,7 +60,7 @@ export default Vue.extend({
           this.$emit(AzureMapImageSpriteIconEvent.Removed, this.id)
         })
       })
-      .catch(error => this.$emit(AzureMapImageSpriteIconEvent.Error, error))
+      .catch((error) => this.$emit(AzureMapImageSpriteIconEvent.Error, error))
   },
 
   render(createElement) {

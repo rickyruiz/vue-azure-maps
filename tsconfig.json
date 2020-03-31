@@ -9,14 +9,16 @@
     "noUnusedLocals": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["node", "jest", "webpack-env"],
+    "types": ["webpack-env", "jest"],
     "paths": {
       "@/*": ["src/*"]
     },
-    "lib": ["es2015", "es2017", "dom", "dom.iterable", "scripthost"]
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "include": [
     "src/**/*.ts",

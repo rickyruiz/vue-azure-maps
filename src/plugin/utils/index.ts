@@ -37,7 +37,7 @@ export function looseEqual(a: any, b: any): boolean {
         const keysB = Object.keys(b)
         return (
           keysA.length === keysB.length &&
-          keysA.every(key => {
+          keysA.every((key) => {
             return looseEqual(a[key], b[key])
           })
         )

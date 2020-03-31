@@ -1,7 +1,5 @@
 <template>
-  <div
-    id="app"
-  >
+  <div id="app">
     <AzureMapExample />
     <!-- <AzureMapSpiderClusterManagerExample/> -->
   </div>

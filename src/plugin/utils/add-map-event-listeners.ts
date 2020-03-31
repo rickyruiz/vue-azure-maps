@@ -31,7 +31,7 @@ function addMapEventListeners({
     }
   }
 
-  return () => mapListeners.forEach(removeListener => removeListener())
+  return () => mapListeners.forEach((removeListener) => removeListener())
 }
 
 export interface MapEventListenersConfig {

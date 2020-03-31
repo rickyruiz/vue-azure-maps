@@ -1,14 +1,7 @@
 <template>
-  <div
-    :id="mapId"
-    :style="{ width, height }"
-  >
-    <template
-      v-if="isMapReady"
-    >
-      <slot
-        :map="map"
-      />
+  <div :id="mapId" :style="{ width, height }">
+    <template v-if="isMapReady">
+      <slot :map="map" />
     </template>
   </div>
 </template>
