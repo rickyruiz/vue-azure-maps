@@ -94,7 +94,7 @@ async function main() {
   if (!skipBuild && !isDryRun) {
     await run('yarn', ['build:lib'], {
       env: {
-        VUE_APP_VERSION: targetVersion,
+        VUE_AZURE_MAPS_VERSION: targetVersion,
       },
     })
   } else {

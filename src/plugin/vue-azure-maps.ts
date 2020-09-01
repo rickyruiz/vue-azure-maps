@@ -48,5 +48,5 @@ export default class VueAzureMaps {
   }
 
   static install: PluginFunction<VueAzureMapsPluginOptions> = install
-  static version = process.env.VUE_APP_VERSION
+  static version = process.env.VUE_AZURE_MAPS_VERSION
 }
