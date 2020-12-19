@@ -553,22 +553,22 @@ export default Vue.extend({
           //===
           {
             propName: 'autoresize',
-            targetPropName: 'style',
+            targetMethodName: 'style',
             targetEventName: 'styledata',
           },
           {
             propName: 'renderWorldCopies',
-            targetPropName: 'style',
+            targetMethodName: 'style',
             targetEventName: 'styledata',
           },
           {
             propName: 'showFeedbackLink',
-            targetPropName: 'style',
+            targetMethodName: 'style',
             targetEventName: 'styledata',
           },
           {
             propName: 'showLogo',
-            targetPropName: 'style',
+            targetMethodName: 'style',
             targetEventName: 'styledata',
           },
           {
