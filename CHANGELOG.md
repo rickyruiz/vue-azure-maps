@@ -1,3 +1,21 @@
+## [0.0.30](https://github.com/rickyruiz/vue-azure-maps/compare/v0.0.29...v0.0.30) (2020-12-19)
+
+
+### Bug Fixes
+
+* **AzureMap:** change style options ([e4f6c59](https://github.com/rickyruiz/vue-azure-maps/commit/e4f6c597dae2cef6ed34a473cea83d042bda76b7))
+
+
+
+## [0.0.29](https://github.com/rickyruiz/vue-azure-maps/compare/v0.0.28...v0.0.29) (2020-03-25)
+
+
+### Bug Fixes
+
+* **AzureMap:** 🐛 change bounds prop type ([c6c29b0](https://github.com/rickyruiz/vue-azure-maps/commit/c6c29b0ad5da8d14c9376d0da7937625b856f298))
+
+
+
 ## [0.0.29](https://github.com/rickyruiz/vue-azure-maps/compare/v0.0.28...v0.0.29) (2020-03-25)
 
 
