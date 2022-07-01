@@ -41,6 +41,11 @@ Vue.use(VueAzureMaps, {
 
 Read the [documentation and demos](https://rickyruiz.github.io/vue-azure-maps/).
 
+## Contribution
+
+Please setup auth key in /src/setup/index.ts
+
+
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)

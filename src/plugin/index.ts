@@ -6,6 +6,7 @@ import VueAzureMaps from './vue-azure-maps'
 //===
 import AzureMap from './components/AzureMap.vue'
 import AzureMapDataSource from './components/AzureMapDataSource.vue'
+import AzureMapIndoor from './components/AzureMapIndoor.vue'
 import AzureMapHtmlMarker from './components/AzureMapHtmlMarker.vue'
 import AzureMapPopup from './components/AzureMapPopup.vue'
 
@@ -49,6 +50,7 @@ import AzureMapPolygon from './components/geometries/AzureMapPolygon.vue'
 export {
   AzureMap,
   AzureMapDataSource,
+  AzureMapIndoor,
   AzureMapHtmlMarker,
   AzureMapPopup,
   AzureMapUserPosition,

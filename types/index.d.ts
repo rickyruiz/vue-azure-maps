@@ -3,6 +3,7 @@
 //===
 import AzureMap from '@/plugin/components/AzureMap.vue'
 import AzureMapDataSource from '@/plugin/components/AzureMapDataSource.vue'
+import AzureMapIndoor from '@/plugin/components/AzureMapIndoor.vue'
 import AzureMapHtmlMarker from '@/plugin/components/AzureMapHtmlMarker.vue'
 import AzureMapPopup from '@/plugin/components/AzureMapPopup.vue'
 
@@ -43,7 +44,7 @@ import AzureMapCircle from '@/plugin/components/geometries/AzureMapCircle.vue'
 import AzureMapLineString from '@/plugin/components/geometries/AzureMapLineString.vue'
 import AzureMapPolygon from '@/plugin/components/geometries/AzureMapPolygon.vue'
 
-import atlas from 'azure-maps-control'
+import atlas from 'azure-maps-indoor'
 import './vue'
 import { VueAzureMaps } from './vue-azure-maps'
 
@@ -55,6 +56,7 @@ export {
   atlas,
   AzureMap,
   AzureMapDataSource,
+  AzureMapIndoor,
   AzureMapHtmlMarker,
   AzureMapPopup,
   AzureMapUserPosition,
