@@ -54,6 +54,7 @@
   },
   "dependencies": {
     "azure-maps-control": "^2.0.31",
+    "azure-maps-indoor": "^0.1.6",
     "vue": "^2.6.12"
   },
   "devDependencies": {

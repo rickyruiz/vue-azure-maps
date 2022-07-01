@@ -1,21 +1,24 @@
 <template>
   <div id="app">
-    <AzureMapExample />
+    <!-- <AzureMapExample /> -->
     <!-- <AzureMapSpiderClusterManagerExample/> -->
+    <AzureIndoorMapExample />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import AzureMapExample from './components/vue-azure-maps/AzureMapExample.vue'
+// import AzureMapExample from './components/vue-azure-maps/AzureMapExample.vue'
 // import AzureMapSpiderClusterManagerExample from './components/vue-azure-maps/AzureMapSpiderClusterManagerExample.vue'
+import AzureIndoorMapExample from './components/vue-azure-maps/AzureIndoorMapExample.vue'
 
 export default Vue.extend({
   name: 'App',
 
   components: {
-    AzureMapExample,
+    // AzureMapExample,
     // AzureMapSpiderClusterManagerExample,
+    AzureIndoorMapExample,
   },
 })
 </script>
